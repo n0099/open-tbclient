@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.b.i0.c3.h0.q;
+import d.b.i0.d3.h0.q;
 import java.net.URISyntaxException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class QRCodeStatic {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
-            return new CustomResponsedMessage<>(2921388, d.b.i0.o2.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+            return new CustomResponsedMessage<>(2921388, d.b.i0.p2.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<q> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<q> customMessage) {
@@ -35,22 +35,22 @@ public class QRCodeStatic {
                 return null;
             }
             q data = customMessage.getData();
-            int i = data.f53414a;
+            int i = data.f54858a;
             if (i == 0) {
-                str = d.b.i0.o2.b.b.a.b(data.f53416c);
+                str = d.b.i0.p2.b.b.a.b(data.f54860c);
             } else if (i == 1) {
-                str = d.b.i0.o2.b.b.a.c(data.f53417d);
+                str = d.b.i0.p2.b.b.a.c(data.f54861d);
             }
             if (TextUtils.isEmpty(str)) {
-                data.f53418e = "qr_none";
+                data.f54862e = "qr_none";
             } else {
-                data.f53418e = str;
+                data.f54862e = str;
             }
             return new CustomResponsedMessage<>(2921403, data);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

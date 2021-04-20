@@ -7,31 +7,31 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51312a;
+    public int f51729a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51313b;
+    public int f51730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51314c;
+    public int f51731c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f51315d;
+    public int[] f51732d;
 
     public int[] a() {
-        return this.f51315d;
+        return this.f51732d;
     }
 
     public int b() {
-        return this.f51312a;
+        return this.f51729a;
     }
 
     public int c() {
-        return this.f51313b;
+        return this.f51730b;
     }
 
     public int d() {
-        return this.f51314c;
+        return this.f51731c;
     }
 
     public void e(String str) {
@@ -46,17 +46,17 @@ public class d {
         if (jSONObject == null || jSONObject == null) {
             return;
         }
-        this.f51312a = jSONObject.optInt("conn_conf");
-        this.f51313b = jSONObject.optInt("continuous_fail_count");
-        this.f51314c = jSONObject.optInt("restart_time_interval");
+        this.f51729a = jSONObject.optInt("conn_conf");
+        this.f51730b = jSONObject.optInt("continuous_fail_count");
+        this.f51731c = jSONObject.optInt("restart_time_interval");
         JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
         if (optJSONArray != null) {
-            this.f51315d = new int[optJSONArray.length()];
+            this.f51732d = new int[optJSONArray.length()];
             for (int i = 0; i < optJSONArray.length(); i++) {
-                this.f51315d[i] = optJSONArray.optInt(i);
+                this.f51732d[i] = optJSONArray.optInt(i);
             }
             return;
         }
-        this.f51315d = new int[0];
+        this.f51732d = new int[0];
     }
 }

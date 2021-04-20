@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.multipro.e;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29893a;
+    public Context f29578a;
 
     public static boolean a(String str) {
         if (p.a() == null) {
@@ -70,7 +70,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     public static String f() {
-        return e.f29898b + "/t_frequent/";
+        return e.f29583b + "/t_frequent/";
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -105,7 +105,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f29893a = context;
+        this.f29578a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a

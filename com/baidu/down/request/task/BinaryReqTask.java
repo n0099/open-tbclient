@@ -359,7 +359,7 @@ public class BinaryReqTask extends AbstractTask {
         this.mFilename = query.getString(query.getColumnIndex("name"));
         this.mFileDir = query.getString(query.getColumnIndex("path"));
         this.mFilePath = query.getString(query.getColumnIndex("data"));
-        this.mMimetype = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+        this.mMimetype = query.getString(query.getColumnIndex("mimetype"));
         this.mETag = query.getString(query.getColumnIndex("etag"));
         long j = query.getLong(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
         this.mProgressInfo = new ProgressInfo();

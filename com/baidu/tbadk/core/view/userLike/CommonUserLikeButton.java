@@ -8,22 +8,22 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.q.b;
 /* loaded from: classes3.dex */
 public class CommonUserLikeButton extends TextView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13637e;
+    public String f13298e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13638f;
+    public String f13299f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13639g;
+    public boolean f13300g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f13640h;
+    public a f13301h;
     public View.OnClickListener i;
     public boolean j;
 
@@ -34,9 +34,9 @@ public class CommonUserLikeButton extends TextView implements b {
 
     public CommonUserLikeButton(Context context) {
         super(context);
-        this.f13637e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f13638f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f13639g = false;
+        this.f13298e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f13299f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f13300g = false;
         this.j = false;
         f();
     }
@@ -65,7 +65,7 @@ public class CommonUserLikeButton extends TextView implements b {
 
     @Override // d.b.h0.r.f0.q.b
     public void e(int i) {
-        a aVar = this.f13640h;
+        a aVar = this.f13301h;
         if (aVar != null) {
             aVar.a(i);
         }
@@ -79,7 +79,7 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     public void g(int i) {
-        if (this.f13639g) {
+        if (this.f13300g) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.CAM_X0109);
             setBackgroundDrawable(null);
@@ -94,14 +94,14 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     public void h(boolean z) {
-        this.f13639g = z;
+        this.f13300g = z;
         if (z) {
             setClickable(false);
-            setText(this.f13637e);
+            setText(this.f13298e);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.f13638f);
+            setText(this.f13299f);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
         }
         g(TbadkCoreApplication.getInst().getSkinType());
@@ -117,23 +117,23 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     public void setFanNumCallBack(a aVar) {
-        this.f13640h = aVar;
+        this.f13301h = aVar;
     }
 
     public CommonUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13637e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f13638f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f13639g = false;
+        this.f13298e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f13299f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f13300g = false;
         this.j = false;
         f();
     }
 
     public CommonUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13637e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f13638f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f13639g = false;
+        this.f13298e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f13299f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f13300g = false;
         this.j = false;
         f();
     }

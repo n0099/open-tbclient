@@ -10,18 +10,18 @@ public class a extends e {
 
     @Override // d.b.g0.a.z1.k.e
     public JSONObject f() {
-        if (this.f47257g == null) {
-            this.f47257g = new JSONObject();
+        if (this.f47649g == null) {
+            this.f47649g = new JSONObject();
         }
         try {
-            this.f47257g.put("error_code", this.j);
+            this.f47649g.put("error_code", this.j);
         } catch (JSONException e2) {
             if (e.i) {
                 e2.printStackTrace();
             }
         }
         if (e.i) {
-            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.f47257g + "\t " + Thread.currentThread().getId());
+            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.f47649g + "\t " + Thread.currentThread().getId());
         }
         return super.f();
     }

@@ -25,28 +25,28 @@ import d.b.g0.a.i2.h0;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f47551a;
+    public RelativeLayout f47943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f47552b;
+    public View f47944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RewardVideoView f47553c;
+    public RewardVideoView f47945c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.b1.g.a f47554d;
+    public d.b.g0.a.b1.g.a f47946d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47555e;
+    public int f47947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f47556f;
+    public ProgressBar f47948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f47557g;
+    public LinearLayout f47949g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f47558h;
+    public ImageView f47950h;
     public TextView i;
     public TextView j;
     public View k;
@@ -63,7 +63,7 @@ public abstract class b {
     public d.b.g0.e.a.r.b z;
     public final Handler q = new Handler();
     public boolean A = false;
-    public Runnable B = new RunnableC0928b();
+    public Runnable B = new RunnableC0940b();
     public View.OnClickListener C = new c();
     public View.OnClickListener D = new d();
     public View.OnClickListener E = new e();
@@ -84,20 +84,20 @@ public abstract class b {
 
     /* renamed from: d.b.g0.e.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0928b implements Runnable {
-        public RunnableC0928b() {
+    public class RunnableC0940b implements Runnable {
+        public RunnableC0940b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f47554d != null) {
+            if (b.this.f47946d != null) {
                 b.this.I();
-                int i = b.this.f47554d.i();
+                int i = b.this.f47946d.i();
                 b bVar = b.this;
-                bVar.H(bVar.f47555e, i);
-                int min = Math.min(i + 1000, b.this.f47555e);
-                b.this.f47556f.setProgress(min / 1000);
-                if (min < b.this.f47555e) {
+                bVar.H(bVar.f47947e, i);
+                int min = Math.min(i + 1000, b.this.f47947e);
+                b.this.f47948f.setProgress(min / 1000);
+                if (min < b.this.f47947e) {
                     b.this.q.postDelayed(b.this.B, 100L);
                 }
             }
@@ -111,16 +111,16 @@ public abstract class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.f47553c == null) {
+            if (b.this.f47945c == null) {
                 return;
             }
-            if (b.this.f47553c.c()) {
-                b.this.f47558h.setImageResource(f.ng_game_vol_open);
-                b.this.f47553c.d(false);
+            if (b.this.f47945c.c()) {
+                b.this.f47950h.setImageResource(f.ng_game_vol_open);
+                b.this.f47945c.d(false);
                 return;
             }
-            b.this.f47558h.setImageResource(f.ng_game_vol_close);
-            b.this.f47553c.d(true);
+            b.this.f47950h.setImageResource(f.ng_game_vol_close);
+            b.this.f47945c.d(true);
         }
     }
 
@@ -174,21 +174,21 @@ public abstract class b {
     }
 
     public void E(String str) {
-        RewardVideoView rewardVideoView = this.f47553c;
+        RewardVideoView rewardVideoView = this.f47945c;
         if (rewardVideoView != null) {
             rewardVideoView.e(str);
         }
     }
 
     public final void F() {
-        if (this.f47556f != null) {
+        if (this.f47948f != null) {
             this.q.removeCallbacksAndMessages(null);
             this.q.postDelayed(this.B, 0L);
         }
     }
 
     public final void G() {
-        if (this.f47556f != null) {
+        if (this.f47948f != null) {
             this.q.removeCallbacksAndMessages(null);
         }
     }
@@ -201,17 +201,17 @@ public abstract class b {
                 this.k.setVisibility(0);
                 this.j.setVisibility(0);
             } else if (i < 5000) {
-                this.f47557g.setVisibility(8);
+                this.f47949g.setVisibility(8);
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.i.setVisibility(8);
             } else if (i < 10000) {
-                this.f47557g.setVisibility(0);
+                this.f47949g.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(8);
                 this.i.setVisibility(8);
             } else {
-                this.f47557g.setVisibility(0);
+                this.f47949g.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
                 this.i.setVisibility(0);
@@ -221,19 +221,19 @@ public abstract class b {
 
     public final void I() {
         d.b.g0.a.b1.g.a aVar;
-        if (this.p == null || (aVar = this.f47554d) == null) {
+        if (this.p == null || (aVar = this.f47946d) == null) {
             return;
         }
-        this.f47555e = aVar.j();
-        int min = Math.min(this.p.A(), this.f47555e / 1000);
+        this.f47947e = aVar.j();
+        int min = Math.min(this.p.A(), this.f47947e / 1000);
         int B = this.p.B();
-        int i = this.f47554d.i() / 1000;
+        int i = this.f47946d.i() / 1000;
         String string = this.o.getResources().getString(i.swangame_game_ad_video_reward_time_surplus);
         String string2 = this.o.getResources().getString(i.swangame_game_ad_video_time_surplus);
         if (i <= min) {
             this.j.setText(String.format(string, Integer.valueOf(min - i)));
         } else {
-            this.j.setText(String.format(string2, Integer.valueOf((this.f47555e / 1000) - i)));
+            this.j.setText(String.format(string2, Integer.valueOf((this.f47947e / 1000) - i)));
         }
         if (i <= B) {
             this.i.setVisibility(8);
@@ -257,30 +257,30 @@ public abstract class b {
         layoutParams.addRule(13);
         textView.setGravity(17);
         layoutParams.setMargins(0, this.v.getDimensionPixelSize(d.b.g0.e.a.e.include_land_close_ad_margin), this.v.getDimensionPixelSize(d.b.g0.e.a.e.include_land_close_ad_margin), 0);
-        this.f47551a.addView(textView, layoutParams);
+        this.f47943a.addView(textView, layoutParams);
     }
 
     public final void m() {
-        if (this.f47551a != null) {
+        if (this.f47943a != null) {
             this.A = true;
-            this.f47557g.setVisibility(4);
+            this.f47949g.setVisibility(4);
             this.l.setVisibility(4);
             this.i.setVisibility(4);
             if (!TextUtils.isEmpty(this.p.t())) {
                 InteractiveEndFrameView interactiveEndFrameView = new InteractiveEndFrameView(this.o);
                 this.u = interactiveEndFrameView;
-                interactiveEndFrameView.s(this.p, this.f47551a);
-                this.f47551a.addView(this.u, new RelativeLayout.LayoutParams(-1, -1));
+                interactiveEndFrameView.s(this.p, this.f47943a);
+                this.f47943a.addView(this.u, new RelativeLayout.LayoutParams(-1, -1));
                 d.b.g0.e.a.p.c.f(this.p, this.z);
             } else if (!TextUtils.isEmpty(this.p.s())) {
                 RewardLoadWebView rewardLoadWebView = new RewardLoadWebView(this.o);
                 this.t = rewardLoadWebView;
                 rewardLoadWebView.b("reward_end_frame_html", this.p, this.w);
-                this.f47551a.addView(this.t, new RelativeLayout.LayoutParams(-1, -1));
+                this.f47943a.addView(this.t, new RelativeLayout.LayoutParams(-1, -1));
                 d.b.g0.e.a.p.c.f(this.p, this.z);
             } else {
                 View inflate = LayoutInflater.from(this.o).inflate(h.ng_game_reward_close_banner, (ViewGroup) null);
-                this.f47551a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
+                this.f47943a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
                 ((AdImageVIew) inflate.findViewById(g.reward_icon)).setImageUrl(this.p.v());
                 ((TextView) inflate.findViewById(g.title)).setText(this.p.G());
                 ((TextView) inflate.findViewById(g.desc)).setText(this.p.q());
@@ -321,39 +321,39 @@ public abstract class b {
         AdElementInfo adElementInfo;
         d.b.g0.a.b1.g.a aVar;
         F();
-        ProgressBar progressBar = this.f47556f;
-        if (progressBar != null && (aVar = this.f47554d) != null) {
+        ProgressBar progressBar = this.f47948f;
+        if (progressBar != null && (aVar = this.f47946d) != null) {
             progressBar.setMax(aVar.j() / 1000);
-            this.f47556f.setVisibility(4);
+            this.f47948f.setVisibility(4);
         }
-        if (this.j != null && this.f47554d != null && (adElementInfo = this.p) != null) {
-            this.j.setText(String.format(this.o.getResources().getString(i.swangame_game_ad_video_reward_time_surplus), Integer.valueOf(Math.max(this.p.B(), Math.min(adElementInfo.A(), this.f47554d.j())) / 1000)));
+        if (this.j != null && this.f47946d != null && (adElementInfo = this.p) != null) {
+            this.j.setText(String.format(this.o.getResources().getString(i.swangame_game_ad_video_reward_time_surplus), Integer.valueOf(Math.max(this.p.B(), Math.min(adElementInfo.A(), this.f47946d.j())) / 1000)));
             if (this.p.B() >= 0) {
                 this.i.setVisibility(8);
                 this.k.setVisibility(8);
             }
         }
-        if (this.f47557g.getVisibility() != 0) {
-            this.f47557g.setVisibility(0);
+        if (this.f47949g.getVisibility() != 0) {
+            this.f47949g.setVisibility(0);
         }
         if (this.l.getVisibility() != 0) {
             this.l.setAnimation(AnimationUtils.loadAnimation(this.o, d.b.g0.e.a.c.ng_game_ad_open));
             this.l.setVisibility(0);
         }
-        d.b.g0.a.b1.g.a aVar2 = this.f47554d;
+        d.b.g0.a.b1.g.a aVar2 = this.f47946d;
         if (aVar2 != null) {
-            H(aVar2.j(), this.f47554d.i());
+            H(aVar2.j(), this.f47946d.i());
         }
     }
 
     public abstract String p();
 
     public View q() {
-        return this.f47552b;
+        return this.f47944b;
     }
 
     public d.b.g0.a.b1.g.a r() {
-        RewardVideoView rewardVideoView = this.f47553c;
+        RewardVideoView rewardVideoView = this.f47945c;
         if (rewardVideoView != null) {
             return rewardVideoView.getPlayer();
         }
@@ -367,29 +367,29 @@ public abstract class b {
     public abstract View t();
 
     public final void u() {
-        this.f47551a.setOnTouchListener(new a(this));
-        this.f47558h.setOnClickListener(this.C);
+        this.f47943a.setOnTouchListener(new a(this));
+        this.f47950h.setOnClickListener(this.C);
         this.i.setOnClickListener(this.D);
     }
 
     public final void v() {
-        this.f47552b = t();
+        this.f47944b = t();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.m, this.n);
-        this.f47552b.setLayoutParams(layoutParams);
-        this.f47551a = (RelativeLayout) this.f47552b.findViewById(g.reward_relative);
-        RewardVideoView rewardVideoView = (RewardVideoView) this.f47552b.findViewById(g.video_view);
-        this.f47553c = rewardVideoView;
+        this.f47944b.setLayoutParams(layoutParams);
+        this.f47943a = (RelativeLayout) this.f47944b.findViewById(g.reward_relative);
+        RewardVideoView rewardVideoView = (RewardVideoView) this.f47944b.findViewById(g.video_view);
+        this.f47945c = rewardVideoView;
         rewardVideoView.setLayoutParams(layoutParams);
         if (this.x) {
-            this.f47553c.setOnClickListener(this.E);
+            this.f47945c.setOnClickListener(this.E);
         }
-        this.f47556f = (ProgressBar) this.f47552b.findViewById(g.swangame_game_ad_video_progress_horizontal);
-        this.f47557g = (LinearLayout) this.f47552b.findViewById(g.vol_clo);
-        this.f47558h = (ImageView) this.f47552b.findViewById(g.volume);
-        this.i = (TextView) this.f47552b.findViewById(g.close_ad);
-        this.j = (TextView) this.f47552b.findViewById(g.close_ad_header);
-        this.k = this.f47552b.findViewById(g.close_ad_middle);
-        this.l = (RelativeLayout) this.f47552b.findViewById(g.banner);
+        this.f47948f = (ProgressBar) this.f47944b.findViewById(g.swangame_game_ad_video_progress_horizontal);
+        this.f47949g = (LinearLayout) this.f47944b.findViewById(g.vol_clo);
+        this.f47950h = (ImageView) this.f47944b.findViewById(g.volume);
+        this.i = (TextView) this.f47944b.findViewById(g.close_ad);
+        this.j = (TextView) this.f47944b.findViewById(g.close_ad_header);
+        this.k = this.f47944b.findViewById(g.close_ad_middle);
+        this.l = (RelativeLayout) this.f47944b.findViewById(g.banner);
         if (!TextUtils.isEmpty(this.p.k())) {
             this.s = new RewardLoadWebView(this.o);
             this.l.addView(this.s, new RelativeLayout.LayoutParams(-1, -1));
@@ -411,14 +411,14 @@ public abstract class b {
             this.l.setOnClickListener(this.E);
             button.setOnClickListener(this.E);
         }
-        this.f47554d = this.f47553c.getPlayer();
+        this.f47946d = this.f47945c.getPlayer();
         u();
     }
 
     public void w() {
-        d.b.g0.a.b1.g.a aVar = this.f47554d;
+        d.b.g0.a.b1.g.a aVar = this.f47946d;
         if (aVar != null) {
-            this.f47555e = aVar.j();
+            this.f47947e = aVar.j();
         }
     }
 

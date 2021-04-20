@@ -11,79 +11,79 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 public class d extends BitmapDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49967a;
+    public int f50360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f49968b;
+    public Context f50361b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49970d;
+    public String f50363d;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f49969c = null;
+    public Rect f50362c = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f49971e = null;
+    public Matrix f50364e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49972f = 0;
+    public int f50365f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49973g = 0;
+    public int f50366g = 0;
 
     public d(Context context, int i) {
-        this.f49967a = 0;
-        this.f49968b = null;
-        this.f49970d = null;
-        this.f49968b = context;
-        this.f49967a = i;
-        this.f49970d = String.valueOf(i);
+        this.f50360a = 0;
+        this.f50361b = null;
+        this.f50363d = null;
+        this.f50361b = context;
+        this.f50360a = i;
+        this.f50363d = String.valueOf(i);
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         String str;
         String str2;
-        if (this.f49967a <= 0 || this.f49968b == null) {
+        if (this.f50360a <= 0 || this.f50361b == null) {
             return;
         }
-        d.b.h0.a0.c j = d.b.h0.a0.c.j();
-        d.b.b.j.d.a l = (j == null || (str2 = this.f49970d) == null) ? null : j.l(str2);
-        if (l == null) {
-            Bitmap resBitmap = BitmapHelper.getResBitmap(this.f49968b, this.f49967a);
+        d.b.h0.a0.c k = d.b.h0.a0.c.k();
+        d.b.c.j.d.a m = (k == null || (str2 = this.f50363d) == null) ? null : k.m(str2);
+        if (m == null) {
+            Bitmap resBitmap = BitmapHelper.getResBitmap(this.f50361b, this.f50360a);
             if (resBitmap != null) {
-                l = new d.b.b.j.d.a(resBitmap, false, (String) null);
+                m = new d.b.c.j.d.a(resBitmap, false, (String) null);
             }
-            if (j != null && l != null && (str = this.f49970d) != null) {
-                j.d(str, l);
+            if (k != null && m != null && (str = this.f50363d) != null) {
+                k.d(str, m);
             }
         }
-        if (l != null) {
-            int r = l.r();
-            int m = l.m();
-            if (r <= 0 || m <= 0 || this.f49969c == null) {
+        if (m != null) {
+            int r = m.r();
+            int m2 = m.m();
+            if (r <= 0 || m2 <= 0 || this.f50362c == null) {
                 return;
             }
             canvas.save();
             canvas.clipRect(super.getBounds());
-            if (m <= 0 && r <= 0 && this.f49972f == 0 && this.f49973g == 0) {
-                l.e(canvas, 0.0f, 0.0f, null);
+            if (m2 <= 0 && r <= 0 && this.f50365f == 0 && this.f50366g == 0) {
+                m.e(canvas, 0.0f, 0.0f, null);
             } else {
-                if (this.f49971e == null) {
+                if (this.f50364e == null) {
                     Matrix matrix = new Matrix();
-                    this.f49971e = matrix;
-                    matrix.postTranslate(this.f49972f, this.f49973g);
-                    Rect rect = this.f49969c;
+                    this.f50364e = matrix;
+                    matrix.postTranslate(this.f50365f, this.f50366g);
+                    Rect rect = this.f50362c;
                     float f2 = (rect.right - rect.left) / r;
-                    float f3 = (rect.bottom - rect.top) / m;
+                    float f3 = (rect.bottom - rect.top) / m2;
                     if (f2 >= f3) {
                         f2 = f3;
                     }
                     if (f2 < 1.0f) {
-                        this.f49971e.postScale(f2, f2);
+                        this.f50364e.postScale(f2, f2);
                     }
                 }
-                l.f(canvas, this.f49971e, null);
+                m.f(canvas, this.f50364e, null);
             }
             canvas.restore();
         }
@@ -91,15 +91,15 @@ public class d extends BitmapDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(int i, int i2, int i3, int i4) {
-        this.f49969c = new Rect(i, i2, i3, i4);
-        this.f49971e = null;
+        this.f50362c = new Rect(i, i2, i3, i4);
+        this.f50364e = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(Rect rect) {
-        this.f49969c = new Rect(rect);
-        this.f49971e = null;
+        this.f50362c = new Rect(rect);
+        this.f50364e = null;
         super.setBounds(rect);
     }
 }

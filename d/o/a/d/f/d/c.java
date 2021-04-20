@@ -8,7 +8,7 @@ import d.o.a.d.n.k;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a() {
         List<DownloadInfo> h2 = d.o.a.e.a.e.F().h(n.a());

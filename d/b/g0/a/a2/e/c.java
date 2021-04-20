@@ -13,7 +13,7 @@ import d.b.g0.a.t1.k.a0;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a0 {
     public c(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/file/getInfo");
@@ -35,7 +35,7 @@ public class c extends a0 {
             } else {
                 t = d.b.g0.a.a2.b.c(optString) == PathType.RELATIVE ? d.b.g0.a.a2.b.t(optString, eVar, eVar.W()) : "";
             }
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
                 Log.d("GetFileInfoAction", "——> handle: filePath " + t);
             }
@@ -49,7 +49,7 @@ public class c extends a0 {
             if (TextUtils.isEmpty(b2)) {
                 d.b.g0.a.c0.c.b("fileInfo", "hash is null");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, d.b.g0.a.t1.f.a(2001)));
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("GetFileInfoAction", "——> handle: file not exist");
                 }
                 return false;
@@ -63,7 +63,7 @@ public class c extends a0 {
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, d.b.g0.a.t1.f.a(2003)));
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("GetFileInfoAction", "——> handle: jsonException ");
                 }
                 return false;

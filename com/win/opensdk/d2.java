@@ -13,13 +13,13 @@ import java.util.HashMap;
 public class d2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39918a;
+    public Context f40207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f39919b;
+    public Info f40208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f39920c = new b2(this);
+    public Handler f40209c = new b2(this);
 
     public static boolean a(Uri uri) {
         return "appmarket".equalsIgnoreCase(uri.getScheme());
@@ -32,8 +32,8 @@ public class d2 {
     }
 
     public void a(Context context, String str, Info info) {
-        this.f39918a = context;
-        this.f39919b = info;
+        this.f40207a = context;
+        this.f40208b = info;
         WebView webView = new WebView(context);
         WebSettings settings = webView.getSettings();
         settings.setAllowContentAccess(true);
@@ -50,6 +50,6 @@ public class d2 {
         Message obtain = Message.obtain();
         obtain.what = 11;
         obtain.obj = str;
-        this.f39920c.sendMessageDelayed(obtain, 5000L);
+        this.f40209c.sendMessageDelayed(obtain, 5000L);
     }
 }

@@ -6,5 +6,5 @@ import java.util.Set;
 public interface d extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f44915a = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
+    public static final Set<String> f45307a = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
 }

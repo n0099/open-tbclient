@@ -23,17 +23,17 @@ import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
 import d.b.h0.r.s.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int NO_SET_MEMBER_CLOSE_AD = -1;
     public static int SET_MEMBER_CLOSE_AD_FALSE = 0;
     public static int SET_MEMBER_CLOSE_AD_TRUE = 1;
-    public d.b.i0.u2.c.b mView;
+    public d.b.i0.v2.c.b mView;
     public int mMemberCloseAdSettingState = NO_SET_MEMBER_CLOSE_AD;
     public d.b.h0.r.f0.a mWaitingDialog = new d.b.h0.r.f0.a(getPageContext());
-    public d.b.b.c.g.a mMemberCloseAdListener = new c(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
+    public d.b.c.c.g.a mMemberCloseAdListener = new c(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.e {
         public a() {
         }
@@ -47,7 +47,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public b() {
         }
@@ -58,13 +58,13 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends d.b.b.c.g.a {
+    /* loaded from: classes4.dex */
+    public class c extends d.b.c.c.g.a {
         public c(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getError() != 0) {
                 if (responsedMessage.getError() == 1990043) {
@@ -98,7 +98,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     }
 
     private void goToPrivacyControl() {
-        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{d.b.h0.r.d0.b.i().o("sync_ad_privacy_url", "")}, false);
+        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{d.b.h0.r.d0.b.j().p("sync_ad_privacy_url", "")}, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -161,14 +161,14 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.b.i0.u2.c.b(this);
+        this.mView = new d.b.i0.v2.c.b(this);
         registerTask();
         registerListener(this.mMemberCloseAdListener);
     }
 
     public void registerTask() {
-        d.b.i0.c3.d0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
     }
 
     public void sendMessageToCloseAd(int i) {

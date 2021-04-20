@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.t.b;
+import f.b.r;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -13,12 +13,12 @@ public final class SingleTimer$TimerDisposable extends AtomicReference<b> implem
         this.actual = rVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }

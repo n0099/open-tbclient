@@ -11,17 +11,17 @@ import tbclient.ForumRecommend.LikeForum;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<f> f55491a = new ArrayList<>();
+    public ArrayList<f> f56614a = new ArrayList<>();
 
     public void a() {
-        Iterator<f> it = this.f55491a.iterator();
+        Iterator<f> it = this.f56614a.iterator();
         while (it.hasNext()) {
             it.next().V(0);
         }
     }
 
     public ArrayList<f> b() {
-        return this.f55491a;
+        return this.f56614a;
     }
 
     public void c(List<?> list) {
@@ -44,7 +44,7 @@ public class g {
                 f fVar = new f();
                 fVar.S((LikeForum) list.get(i));
                 if (!TextUtils.isEmpty(fVar.G())) {
-                    this.f55491a.add(fVar);
+                    this.f56614a.add(fVar);
                 }
             }
         } catch (Exception e2) {

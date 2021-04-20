@@ -26,30 +26,30 @@ import org.json.JSONObject;
 public class a extends d.b.g0.a.g1.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47331e = k.f45051a;
+    public static final boolean f47723e = k.f45443a;
 
     /* renamed from: d.b.g0.b.m.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0904a implements d.b.g0.a.i2.u0.b<Bundle> {
+    public class C0916a implements d.b.g0.a.i2.u0.b<Bundle> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47332e;
+        public final /* synthetic */ String f47724e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47333f;
+        public final /* synthetic */ String f47725f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47334g;
+        public final /* synthetic */ String f47726g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47335h;
+        public final /* synthetic */ CallbackHandler f47727h;
         public final /* synthetic */ d.b.g0.a.r1.e i;
 
-        public C0904a(String str, String str2, String str3, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-            this.f47332e = str;
-            this.f47333f = str2;
-            this.f47334g = str3;
-            this.f47335h = callbackHandler;
+        public C0916a(String str, String str2, String str3, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
+            this.f47724e = str;
+            this.f47725f = str2;
+            this.f47726g = str3;
+            this.f47727h = callbackHandler;
             this.i = eVar;
         }
 
@@ -59,13 +59,13 @@ public class a extends d.b.g0.a.g1.a {
         public void onCallback(Bundle bundle) {
             if (bundle != null && !TextUtils.isEmpty(bundle.getString(BdZeusUtil.URL_KEY_MACHINE))) {
                 String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE);
-                if (a.f47331e) {
+                if (a.f47723e) {
                     Log.d("FaceResultVerifyAction", "stoken=" + string);
                 }
-                a.this.z(this.f47332e, string, this.f47333f, this.f47334g, this.f47335h, this.i);
+                a.this.z(this.f47724e, string, this.f47725f, this.f47726g, this.f47727h, this.i);
                 return;
             }
-            this.f47335h.handleSchemeDispatchCallback(this.f47334g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
+            this.f47727h.handleSchemeDispatchCallback(this.f47726g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
         }
     }
 
@@ -73,19 +73,19 @@ public class a extends d.b.g0.a.g1.a {
     public class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47336a;
+        public final /* synthetic */ String f47728a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47337b;
+        public final /* synthetic */ CallbackHandler f47729b;
 
         public b(String str, CallbackHandler callbackHandler) {
-            this.f47336a = str;
-            this.f47337b = callbackHandler;
+            this.f47728a = str;
+            this.f47729b = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.this.A(exc == null ? "" : exc.getMessage(), this.f47336a, this.f47337b);
+            a.this.A(exc == null ? "" : exc.getMessage(), this.f47728a, this.f47729b);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -94,7 +94,7 @@ public class a extends d.b.g0.a.g1.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            a.this.C(response, this.f47336a, this.f47337b);
+            a.this.C(response, this.f47728a, this.f47729b);
             return response;
         }
     }
@@ -111,9 +111,9 @@ public class a extends d.b.g0.a.g1.a {
     public final void B(Request request, String str, CallbackHandler callbackHandler) {
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(request.url().toString(), request.body(), new b(str, callbackHandler));
         aVar.i = request.tag();
-        aVar.f48884f = true;
-        aVar.f48885g = true;
-        aVar.f48886h = true;
+        aVar.f49276f = true;
+        aVar.f49277g = true;
+        aVar.f49278h = true;
         d.b.g0.k.e.a.f().e(aVar);
     }
 
@@ -134,7 +134,7 @@ public class a extends d.b.g0.a.g1.a {
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            if (f47331e) {
+            if (f47723e) {
                 Log.d("FaceResultVerifyAction", "response body : " + str2);
             }
             if (TextUtils.isEmpty(str2)) {
@@ -154,7 +154,7 @@ public class a extends d.b.g0.a.g1.a {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0).toString());
                 }
             } catch (JSONException e3) {
-                if (f47331e) {
+                if (f47723e) {
                     e3.printStackTrace();
                 }
                 A("body format error", str, callbackHandler);
@@ -186,9 +186,9 @@ public class a extends d.b.g0.a.g1.a {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
             return false;
         } else {
-            String a2 = d.b.g0.a.t.c.h.c.a(eVar.f45740f);
+            String a2 = d.b.g0.a.t.c.h.c.a(eVar.f46132f);
             JSONObject n = n(a2);
-            d.b.g0.b.i.a.t(eVar.n(), new C0904a(optString2, a2, optString, callbackHandler, eVar), BdZeusUtil.URL_KEY_MACHINE);
+            d.b.g0.b.i.a.t(eVar.n(), new C0916a(optString2, a2, optString, callbackHandler, eVar), BdZeusUtil.URL_KEY_MACHINE);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n, 0));
             return true;
         }
@@ -201,7 +201,7 @@ public class a extends d.b.g0.a.g1.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/facecheck");
-        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43275d.entrySet()) {
+        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43667d.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
@@ -220,14 +220,14 @@ public class a extends d.b.g0.a.g1.a {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.put("callbackkey", str);
-            jSONObject.put("client_id", eVar.f45740f);
+            jSONObject.put("client_id", eVar.f46132f);
             jSONObject2.put("stoken", str2);
-            jSONObject2.put(com.alipay.sdk.cons.b.f1858h, eVar.B());
+            jSONObject2.put(com.alipay.sdk.cons.b.f1883h, eVar.B());
             jSONObject2.put("host_pkgname", d.b.g0.a.v1.c.c.e().getPackageName());
             jSONObject2.put("host_key_hash", d.b.g0.a.v1.c.c.g());
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e2) {
-            if (f47331e) {
+            if (f47723e) {
                 e2.printStackTrace();
             }
         }

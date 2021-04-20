@@ -7,7 +7,7 @@ import android.os.Process;
 import d.c.d.b.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static String a(Context context, int i) {
         ActivityManager.ProcessErrorStateInfo b2 = l.b.b(context, i);

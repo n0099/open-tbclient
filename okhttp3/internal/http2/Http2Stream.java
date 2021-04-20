@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import com.alipay.sdk.data.a;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -243,7 +242,7 @@ public final class Http2Stream {
 
         @Override // okio.AsyncTimeout
         public IOException newTimeoutException(IOException iOException) {
-            SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.i);
+            SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
             if (iOException != null) {
                 socketTimeoutException.initCause(iOException);
             }

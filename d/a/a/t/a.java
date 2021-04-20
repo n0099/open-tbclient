@@ -1,103 +1,84 @@
 package d.a.a.t;
 
-import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.view.View;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.core.util.Pair;
-import com.airbnb.lottie.network.FileExtension;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.a.a.c;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import d.a.a.u.h;
+import d.a.a.x.d;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
 
+    /* renamed from: d  reason: collision with root package name */
+    public final AssetManager f41623d;
+    @Nullable
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.a.a.a f41624e;
+
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41420a;
+    public final h<String> f41620a = new h<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41421b;
+    public final Map<h<String>, Typeface> f41621b = new HashMap();
 
-    public a(Context context, String str) {
-        this.f41420a = context.getApplicationContext();
-        this.f41421b = str;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<String, Typeface> f41622c = new HashMap();
 
-    public static String b(String str, FileExtension fileExtension, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("lottie_cache_");
-        sb.append(str.replaceAll("\\W+", ""));
-        sb.append(z ? fileExtension.extension : fileExtension.tempExtension());
-        return sb.toString();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public String f41625f = ".ttf";
 
-    @Nullable
-    @WorkerThread
-    public Pair<FileExtension, InputStream> a() {
-        FileExtension fileExtension;
-        try {
-            File c2 = c(this.f41421b);
-            if (c2 == null) {
-                return null;
-            }
-            FileInputStream fileInputStream = new FileInputStream(c2);
-            if (c2.getAbsolutePath().endsWith(".zip")) {
-                fileExtension = FileExtension.Zip;
-            } else {
-                fileExtension = FileExtension.Json;
-            }
-            c.b("Cache hit for " + this.f41421b + " at " + c2.getAbsolutePath());
-            return new Pair<>(fileExtension, fileInputStream);
-        } catch (FileNotFoundException unused) {
-            return null;
-        }
-    }
-
-    @Nullable
-    public final File c(String str) throws FileNotFoundException {
-        File file = new File(this.f41420a.getCacheDir(), b(str, FileExtension.Json, false));
-        if (file.exists()) {
-            return file;
-        }
-        File file2 = new File(this.f41420a.getCacheDir(), b(str, FileExtension.Zip, false));
-        if (file2.exists()) {
-            return file2;
-        }
-        return null;
-    }
-
-    public void d(FileExtension fileExtension) {
-        File file = new File(this.f41420a.getCacheDir(), b(this.f41421b, fileExtension, true));
-        File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
-        boolean renameTo = file.renameTo(file2);
-        c.b("Copying temp file to real file (" + file2 + SmallTailInfo.EMOTION_SUFFIX);
-        if (renameTo) {
+    public a(Drawable.Callback callback, @Nullable d.a.a.a aVar) {
+        this.f41624e = aVar;
+        if (!(callback instanceof View)) {
+            d.c("LottieDrawable must be inside of a view for images to work.");
+            this.f41623d = null;
             return;
         }
-        c.d("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
+        this.f41623d = ((View) callback).getContext().getAssets();
     }
 
-    public File e(InputStream inputStream, FileExtension fileExtension) throws IOException {
-        File file = new File(this.f41420a.getCacheDir(), b(this.f41421b, fileExtension, true));
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    fileOutputStream.write(bArr, 0, read);
-                } else {
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    return file;
-                }
-            }
-        } finally {
-            inputStream.close();
+    public final Typeface a(String str) {
+        String b2;
+        Typeface typeface = this.f41622c.get(str);
+        if (typeface != null) {
+            return typeface;
         }
+        d.a.a.a aVar = this.f41624e;
+        Typeface a2 = aVar != null ? aVar.a(str) : null;
+        d.a.a.a aVar2 = this.f41624e;
+        if (aVar2 != null && a2 == null && (b2 = aVar2.b(str)) != null) {
+            a2 = Typeface.createFromAsset(this.f41623d, b2);
+        }
+        if (a2 == null) {
+            a2 = Typeface.createFromAsset(this.f41623d, "fonts/" + str + this.f41625f);
+        }
+        this.f41622c.put(str, a2);
+        return a2;
+    }
+
+    public Typeface b(String str, String str2) {
+        this.f41620a.b(str, str2);
+        Typeface typeface = this.f41621b.get(this.f41620a);
+        if (typeface != null) {
+            return typeface;
+        }
+        Typeface d2 = d(a(str), str2);
+        this.f41621b.put(this.f41620a, d2);
+        return d2;
+    }
+
+    public void c(@Nullable d.a.a.a aVar) {
+        this.f41624e = aVar;
+    }
+
+    public final Typeface d(Typeface typeface, String str) {
+        boolean contains = str.contains("Italic");
+        boolean contains2 = str.contains("Bold");
+        int i = (contains && contains2) ? 3 : contains ? 2 : contains2 ? 1 : 0;
+        return typeface.getStyle() == i ? typeface : Typeface.create(typeface, i);
     }
 }

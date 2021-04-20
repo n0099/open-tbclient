@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.officialBar;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryForumDetail.DataReq;
 import protobuf.QueryForumDetail.QueryForumDetailReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestOfficialBarInfoMessage extends TbSocketMessage {
     public int mForumId;
     public String mForumName;

@@ -20,10 +20,10 @@ import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.wxapi.WXEntryActivity;
 import d.b.h0.r.d0.b;
-import d.b.i0.d1.c;
-import d.b.i0.d1.v.a.d;
-import d.b.i0.d1.v.a.e;
-import d.b.i0.d1.v.a.f;
+import d.b.i0.e1.c;
+import d.b.i0.e1.v.a.d;
+import d.b.i0.e1.v.a.e;
+import d.b.i0.e1.v.a.f;
 /* loaded from: classes3.dex */
 public class TbLaunchStatic {
     public static String Tag = "tag";
@@ -45,11 +45,11 @@ public class TbLaunchStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    long k = b.i().k("clear_redundance_files_time", 0L);
+                    long l = b.j().l("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - k > 86400000) {
+                    if (currentTimeMillis - l > 86400000) {
                         PluginPackageManager.O().C();
-                        b.i().v("clear_redundance_files_time", currentTimeMillis);
+                        b.j().w("clear_redundance_files_time", currentTimeMillis);
                     }
                 }
             }

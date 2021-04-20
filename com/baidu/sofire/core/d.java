@@ -27,16 +27,16 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11675a = "";
+    public static String f11336a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f11676b = false;
+    public static boolean f11337b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f11677c = false;
+    public static boolean f11338c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f11678d = false;
+    public static boolean f11339d = false;
 
     public static synchronized void b(final Context context) {
         synchronized (d.class) {
@@ -44,8 +44,8 @@ public final class d {
                 return;
             }
             try {
-                if (f11677c) {
-                    f11677c = false;
+                if (f11338c) {
+                    f11338c = false;
                     new Thread() { // from class: com.baidu.sofire.core.d.2
                         @Override // java.lang.Thread, java.lang.Runnable
                         public final void run() {
@@ -110,12 +110,12 @@ public final class d {
             com.baidu.sofire.g.d.a();
         }
         if (!TextUtils.isEmpty(a2)) {
-            f11675a = a2;
+            f11336a = a2;
             return a2;
         }
         String b2 = gVar.b();
         if (!TextUtils.isEmpty(b2)) {
-            f11675a = b2;
+            f11336a = b2;
             return b2;
         }
         String b3 = com.baidu.sofire.g.f.b(context);
@@ -125,25 +125,25 @@ public final class d {
                 if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
                     String str = split[0] + com.baidu.sofire.g.d.a(re);
                     gVar.a(str);
-                    f11675a = str;
+                    f11336a = str;
                     return str;
                 }
             }
-            f11675a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            f11336a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         }
-        f11675a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+        f11336a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
     }
 
     public static synchronized void a(final Context context, final int i, final String str, final String str2, final int... iArr) {
         synchronized (d.class) {
             try {
-                if (f11676b) {
+                if (f11337b) {
                     return;
                 }
-                f11676b = true;
-                c.f11659b = context;
+                f11337b = true;
+                c.f11320b = context;
                 new Thread(new Runnable() { // from class: com.baidu.sofire.core.d.1
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -181,11 +181,11 @@ public final class d {
                             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                                 String str3 = str;
                                 String str4 = str2;
-                                if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!com.baidu.sofire.g.d.f11752e.equals(str3) || !com.baidu.sofire.g.d.f11753f.equals(str4))) {
-                                    com.baidu.sofire.e eVar = a3.f11664a;
-                                    SharedPreferences.Editor editor = eVar.f11731c;
+                                if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!com.baidu.sofire.g.d.f11413e.equals(str3) || !com.baidu.sofire.g.d.f11414f.equals(str4))) {
+                                    com.baidu.sofire.e eVar = a3.f11325a;
+                                    SharedPreferences.Editor editor = eVar.f11392c;
                                     editor.putString("svi", str3 + "-" + str4);
-                                    eVar.f11731c.commit();
+                                    eVar.f11392c.commit();
                                 }
                             }
                             if (i > 0) {
@@ -193,7 +193,7 @@ public final class d {
                             }
                             new com.baidu.sofire.e(context).a(iArr);
                             if (!s.a(context)) {
-                                boolean unused = d.f11677c = true;
+                                boolean unused = d.f11338c = true;
                                 return;
                             }
                             c.a(1);
@@ -225,34 +225,34 @@ public final class d {
         ApkInfo d2 = a2.d("com.baidu.sofire.x0");
         if (d2 != null) {
             Class<?> a3 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-            return new Pair<>(0, com.baidu.sofire.g.d.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f11659b), str, clsArr, objArr));
+            return new Pair<>(0, com.baidu.sofire.g.d.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f11320b), str, clsArr, objArr));
         }
         return new Pair<>(3, null);
     }
 
     public static Pair<Integer, Object> a(int i, String str, Class<?>[] clsArr, Object... objArr) {
         try {
-            Context context = c.f11659b;
+            Context context = c.f11320b;
             if (context == null) {
                 return new Pair<>(4, null);
             }
-            if (!s.a(c.f11659b)) {
+            if (!s.a(c.f11320b)) {
                 return new Pair<>(12, null);
             }
-            if (!com.baidu.sofire.g.d.a(c.f11659b, false)) {
+            if (!com.baidu.sofire.g.d.a(c.f11320b, false)) {
                 com.baidu.sofire.b.a();
                 return new Pair<>(11, null);
             }
-            String c2 = com.baidu.sofire.g.d.c(c.f11659b);
+            String c2 = com.baidu.sofire.g.d.c(c.f11320b);
             if (TextUtils.isEmpty(c2)) {
-                if (com.baidu.sofire.g.d.b(c.f11659b.getPackageName())) {
+                if (com.baidu.sofire.g.d.b(c.f11320b.getPackageName())) {
                     return new Pair<>(5, null);
                 }
                 com.baidu.sofire.b.a();
                 return c.a(context).a(i, str, clsArr, objArr);
             } else if (com.baidu.sofire.g.d.b(c2)) {
                 com.baidu.sofire.b.a();
-                return b(c.f11659b, i, str, clsArr, objArr);
+                return b(c.f11320b, i, str, clsArr, objArr);
             } else {
                 com.baidu.sofire.b.a();
                 return c.a(context).a(i, str, clsArr, objArr);
@@ -301,14 +301,14 @@ public final class d {
                 if (b2 == 1) {
                     com.baidu.sofire.g.d.a(context, ".ffnpp", z ? 0 : 1);
                     com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-                    eVar.f11732d.putBoolean("s_a_pl", z);
+                    eVar.f11393d.putBoolean("s_a_pl", z);
                     if (Build.VERSION.SDK_INT >= 9) {
-                        eVar.f11732d.apply();
+                        eVar.f11393d.apply();
                     } else {
-                        eVar.f11732d.commit();
+                        eVar.f11393d.commit();
                     }
-                    if (z && !f11678d) {
-                        f11678d = true;
+                    if (z && !f11339d) {
+                        f11339d = true;
                         b(context);
                     }
                 }
@@ -320,22 +320,22 @@ public final class d {
 
     public static Pair<Integer, Object> a(String str, Class<?>[] clsArr, Object... objArr) {
         try {
-            Context context = c.f11659b;
+            Context context = c.f11320b;
             if (context == null) {
                 return new Pair<>(4, null);
             }
-            if (!com.baidu.sofire.g.d.a(c.f11659b, false)) {
+            if (!com.baidu.sofire.g.d.a(c.f11320b, false)) {
                 return new Pair<>(11, null);
             }
-            String c2 = com.baidu.sofire.g.d.c(c.f11659b);
+            String c2 = com.baidu.sofire.g.d.c(c.f11320b);
             if (TextUtils.isEmpty(c2)) {
-                if (com.baidu.sofire.g.d.b(c.f11659b.getPackageName())) {
+                if (com.baidu.sofire.g.d.b(c.f11320b.getPackageName())) {
                     return new Pair<>(5, null);
                 }
                 c.a(context);
                 return b(str, clsArr, objArr);
             } else if (com.baidu.sofire.g.d.b(c2)) {
-                return b(c.f11659b, 1, str, clsArr, objArr);
+                return b(c.f11320b, 1, str, clsArr, objArr);
             } else {
                 c.a(context);
                 return b(str, clsArr, objArr);
@@ -350,11 +350,11 @@ public final class d {
         try {
             if (s.a(context)) {
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-                eVar.f11732d.putString("s_h_d_id", str);
+                eVar.f11393d.putString("s_h_d_id", str);
                 if (Build.VERSION.SDK_INT >= 9) {
-                    eVar.f11732d.apply();
+                    eVar.f11393d.apply();
                 } else {
-                    eVar.f11732d.commit();
+                    eVar.f11393d.commit();
                 }
             }
         } catch (Throwable unused) {
@@ -364,11 +364,11 @@ public final class d {
 
     public static boolean a(final int i, final String str, final Callback callback, final Class<?>[] clsArr, final Object... objArr) {
         try {
-            t.a(c.f11659b).a(new Runnable() { // from class: com.baidu.sofire.core.d.3
+            t.a(c.f11320b).a(new Runnable() { // from class: com.baidu.sofire.core.d.3
                 @Override // java.lang.Runnable
                 public final void run() {
                     try {
-                        Context context = c.f11659b;
+                        Context context = c.f11320b;
                         if (context == null) {
                             for (int i2 = 0; i2 < 20; i2++) {
                                 try {
@@ -376,7 +376,7 @@ public final class d {
                                 } catch (InterruptedException unused) {
                                     com.baidu.sofire.g.d.a();
                                 }
-                                context = c.f11659b;
+                                context = c.f11320b;
                                 if (context != null) {
                                     break;
                                 }
@@ -393,17 +393,17 @@ public final class d {
                     } catch (Throwable unused2) {
                         com.baidu.sofire.g.d.a();
                     }
-                    if (!s.a(c.f11659b)) {
+                    if (!s.a(c.f11320b)) {
                         Callback.this.onError(12);
-                    } else if (!com.baidu.sofire.g.d.a(c.f11659b, false)) {
+                    } else if (!com.baidu.sofire.g.d.a(c.f11320b, false)) {
                         com.baidu.sofire.b.a();
                         if (Callback.this != null) {
                             Callback.this.onError(11);
                         }
                     } else {
-                        String c2 = com.baidu.sofire.g.d.c(c.f11659b);
+                        String c2 = com.baidu.sofire.g.d.c(c.f11320b);
                         if (TextUtils.isEmpty(c2)) {
-                            if (com.baidu.sofire.g.d.b(c.f11659b.getPackageName())) {
+                            if (com.baidu.sofire.g.d.b(c.f11320b.getPackageName())) {
                                 if (Callback.this != null) {
                                     Callback.this.onError(5);
                                     return;
@@ -436,7 +436,7 @@ public final class d {
                             return;
                         } else if (com.baidu.sofire.g.d.b(c2)) {
                             com.baidu.sofire.b.a();
-                            d.a(c.f11659b, i, str, Callback.this, clsArr, objArr);
+                            d.a(c.f11320b, i, str, Callback.this, clsArr, objArr);
                             return;
                         } else {
                             com.baidu.sofire.b.a();
@@ -480,7 +480,7 @@ public final class d {
             if (!s.a(context)) {
                 return c(context);
             }
-            if (!TextUtils.isEmpty(f11675a)) {
+            if (!TextUtils.isEmpty(f11336a)) {
                 if (i != 0) {
                     if (TextUtils.isEmpty(str2)) {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i));
@@ -488,7 +488,7 @@ public final class d {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i), str2);
                     }
                 }
-                return f11675a;
+                return f11336a;
             } else if (!com.baidu.sofire.g.d.a(context, false)) {
                 com.baidu.sofire.b.a();
                 return "";
@@ -526,8 +526,8 @@ public final class d {
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
-        if (!TextUtils.isEmpty(f11675a)) {
-            return f11675a;
+        if (!TextUtils.isEmpty(f11336a)) {
+            return f11336a;
         }
         if (!s.a(context)) {
             return c(context);
@@ -549,7 +549,7 @@ public final class d {
             if (b2 != null) {
                 return ((Integer) b2.first).intValue() == 0 ? (String) b2.second : "";
             }
-            f11675a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            f11336a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         } else {
             com.baidu.sofire.b.a();
@@ -615,10 +615,10 @@ public final class d {
         return "";
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0092 A[Catch: all -> 0x00af, TryCatch #2 {all -> 0x01b8, blocks: (B:3:0x000b, B:7:0x002c, B:27:0x00b6, B:30:0x00c2, B:65:0x0190, B:67:0x0198, B:69:0x01a2, B:70:0x01a6, B:72:0x01b4, B:31:0x00c7, B:33:0x00e0, B:34:0x00e3, B:36:0x00e6, B:38:0x00f0, B:40:0x00f8, B:42:0x00fe, B:44:0x011c, B:43:0x0112, B:45:0x0120, B:48:0x0126, B:50:0x012f, B:52:0x0138, B:54:0x014d, B:61:0x0170, B:51:0x0134, B:56:0x0154, B:58:0x0164, B:8:0x0031, B:10:0x0042, B:12:0x0047, B:20:0x0096, B:22:0x00a2, B:23:0x00a6, B:19:0x0092, B:13:0x006e, B:15:0x0073), top: B:77:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00a2 A[Catch: all -> 0x00af, TryCatch #2 {all -> 0x01b8, blocks: (B:3:0x000b, B:7:0x002c, B:27:0x00b6, B:30:0x00c2, B:65:0x0190, B:67:0x0198, B:69:0x01a2, B:70:0x01a6, B:72:0x01b4, B:31:0x00c7, B:33:0x00e0, B:34:0x00e3, B:36:0x00e6, B:38:0x00f0, B:40:0x00f8, B:42:0x00fe, B:44:0x011c, B:43:0x0112, B:45:0x0120, B:48:0x0126, B:50:0x012f, B:52:0x0138, B:54:0x014d, B:61:0x0170, B:51:0x0134, B:56:0x0154, B:58:0x0164, B:8:0x0031, B:10:0x0042, B:12:0x0047, B:20:0x0096, B:22:0x00a2, B:23:0x00a6, B:19:0x0092, B:13:0x006e, B:15:0x0073), top: B:77:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x00a6 A[Catch: all -> 0x00af, TRY_LEAVE, TryCatch #2 {all -> 0x01b8, blocks: (B:3:0x000b, B:7:0x002c, B:27:0x00b6, B:30:0x00c2, B:65:0x0190, B:67:0x0198, B:69:0x01a2, B:70:0x01a6, B:72:0x01b4, B:31:0x00c7, B:33:0x00e0, B:34:0x00e3, B:36:0x00e6, B:38:0x00f0, B:40:0x00f8, B:42:0x00fe, B:44:0x011c, B:43:0x0112, B:45:0x0120, B:48:0x0126, B:50:0x012f, B:52:0x0138, B:54:0x014d, B:61:0x0170, B:51:0x0134, B:56:0x0154, B:58:0x0164, B:8:0x0031, B:10:0x0042, B:12:0x0047, B:20:0x0096, B:22:0x00a2, B:23:0x00a6, B:19:0x0092, B:13:0x006e, B:15:0x0073), top: B:77:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0091  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0093 A[Catch: all -> 0x00b0, TryCatch #2 {all -> 0x01b9, blocks: (B:3:0x000c, B:7:0x002d, B:27:0x00b7, B:30:0x00c3, B:65:0x0191, B:67:0x0199, B:69:0x01a3, B:70:0x01a7, B:72:0x01b5, B:8:0x0032, B:10:0x0043, B:12:0x0048, B:20:0x0097, B:22:0x00a3, B:23:0x00a7, B:19:0x0093, B:13:0x006f, B:15:0x0074, B:31:0x00c8, B:33:0x00e1, B:34:0x00e4, B:36:0x00e7, B:38:0x00f1, B:40:0x00f9, B:42:0x00ff, B:44:0x011d, B:43:0x0113, B:45:0x0121, B:48:0x0127, B:50:0x0130, B:52:0x0139, B:54:0x014e, B:61:0x0171, B:51:0x0135, B:56:0x0155, B:58:0x0165), top: B:77:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00a3 A[Catch: all -> 0x00b0, TryCatch #2 {all -> 0x01b9, blocks: (B:3:0x000c, B:7:0x002d, B:27:0x00b7, B:30:0x00c3, B:65:0x0191, B:67:0x0199, B:69:0x01a3, B:70:0x01a7, B:72:0x01b5, B:8:0x0032, B:10:0x0043, B:12:0x0048, B:20:0x0097, B:22:0x00a3, B:23:0x00a7, B:19:0x0093, B:13:0x006f, B:15:0x0074, B:31:0x00c8, B:33:0x00e1, B:34:0x00e4, B:36:0x00e7, B:38:0x00f1, B:40:0x00f9, B:42:0x00ff, B:44:0x011d, B:43:0x0113, B:45:0x0121, B:48:0x0127, B:50:0x0130, B:52:0x0139, B:54:0x014e, B:61:0x0171, B:51:0x0135, B:56:0x0155, B:58:0x0165), top: B:77:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x00a7 A[Catch: all -> 0x00b0, TRY_LEAVE, TryCatch #2 {all -> 0x01b9, blocks: (B:3:0x000c, B:7:0x002d, B:27:0x00b7, B:30:0x00c3, B:65:0x0191, B:67:0x0199, B:69:0x01a3, B:70:0x01a7, B:72:0x01b5, B:8:0x0032, B:10:0x0043, B:12:0x0048, B:20:0x0097, B:22:0x00a3, B:23:0x00a7, B:19:0x0093, B:13:0x006f, B:15:0x0074, B:31:0x00c8, B:33:0x00e1, B:34:0x00e4, B:36:0x00e7, B:38:0x00f1, B:40:0x00f9, B:42:0x00ff, B:44:0x011d, B:43:0x0113, B:45:0x0121, B:48:0x0127, B:50:0x0130, B:52:0x0139, B:54:0x014e, B:61:0x0171, B:51:0x0135, B:56:0x0155, B:58:0x0165), top: B:77:0x000c }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -639,9 +639,9 @@ public final class d {
                     bundle.setClassLoader(MyProvider.class.getClassLoader());
                     CallArgs callArgs2 = (CallArgs) bundle.getParcelable("args");
                     if (callArgs2 != null) {
-                        if (callArgs2.f11648e.length == 2) {
-                            String str4 = (String) callArgs2.f11648e[0];
-                            num = (Integer) callArgs2.f11648e[1];
+                        if (callArgs2.f11309e.length == 2) {
+                            String str4 = (String) callArgs2.f11309e[0];
+                            num = (Integer) callArgs2.f11309e[1];
                             StringBuilder sb = new StringBuilder("args ");
                             sb.append(str4);
                             sb.append(" ");
@@ -649,17 +649,17 @@ public final class d {
                             com.baidu.sofire.b.a();
                             str3 = str4;
                             str2 = null;
-                        } else if (callArgs2.f11648e.length == 3) {
-                            str3 = (String) callArgs2.f11648e[0];
-                            Integer num2 = (Integer) callArgs2.f11648e[1];
-                            str2 = (String) callArgs2.f11648e[2];
+                        } else if (callArgs2.f11309e.length == 3) {
+                            str3 = (String) callArgs2.f11309e[0];
+                            Integer num2 = (Integer) callArgs2.f11309e[1];
+                            str2 = (String) callArgs2.f11309e[2];
                             num = num2;
                         }
                         b2 = b(context, str3, num != null ? 0 : num.intValue(), str2);
                         if (!TextUtils.isEmpty(b2)) {
                             bundle2.putInt("status", 8);
                         } else {
-                            callArgs.f11649f = b2;
+                            callArgs.f11310f = b2;
                             bundle2.putParcelable("result", callArgs);
                             bundle2.putInt("status", 0);
                         }
@@ -679,7 +679,7 @@ public final class d {
                         bundle2.putInt("status", 8);
                     } else {
                         CallArgs callArgs3 = new CallArgs();
-                        callArgs3.f11649f = d2;
+                        callArgs3.f11310f = d2;
                         bundle2.putParcelable("result", callArgs3);
                         bundle2.putInt("status", 0);
                     }
@@ -691,10 +691,10 @@ public final class d {
                 final CallArgs callArgs4 = new CallArgs();
                 bundle.setClassLoader(MyProvider.class.getClassLoader());
                 CallArgs callArgs5 = (CallArgs) bundle.getParcelable("args");
-                int i = callArgs5.f11644a;
-                int i2 = callArgs5.f11645b;
-                final String str5 = callArgs5.f11646c;
-                Object[] objArr = callArgs5.f11647d;
+                int i = callArgs5.f11305a;
+                int i2 = callArgs5.f11306b;
+                final String str5 = callArgs5.f11307c;
+                Object[] objArr = callArgs5.f11308d;
                 if (objArr != null) {
                     clsArr = new Class[objArr.length];
                     for (int i3 = 0; i3 < objArr.length; i3++) {
@@ -711,7 +711,7 @@ public final class d {
                         }
                     }
                 }
-                Object[] objArr2 = callArgs5.f11648e;
+                Object[] objArr2 = callArgs5.f11309e;
                 if (i2 == 1) {
                     if (i == 1 && "xgz".equals(str5)) {
                         a2 = b(str5, clsArr, objArr2);
@@ -720,7 +720,7 @@ public final class d {
                     }
                     bundle2.putInt("status", ((Integer) a2.first).intValue());
                     if (((Integer) a2.first).intValue() == 0) {
-                        callArgs4.f11649f = a2.second;
+                        callArgs4.f11310f = a2.second;
                     }
                 } else if (i2 == 0) {
                     final CountDownLatch countDownLatch = new CountDownLatch(1);
@@ -730,16 +730,16 @@ public final class d {
                             try {
                                 try {
                                     bundle2.putInt("status", 0);
-                                    callArgs4.f11649f = objArr3[0];
-                                } catch (Throwable th) {
-                                    countDownLatch.countDown();
-                                    throw th;
+                                    callArgs4.f11310f = objArr3[0];
+                                } catch (Throwable unused) {
+                                    com.baidu.sofire.g.d.a();
                                 }
-                            } catch (Throwable unused) {
-                                com.baidu.sofire.g.d.a();
+                                countDownLatch.countDown();
+                                return null;
+                            } catch (Throwable th) {
+                                countDownLatch.countDown();
+                                throw th;
                             }
-                            countDownLatch.countDown();
-                            return null;
                         }
 
                         @Override // com.baidu.sofire.ac.Callback
@@ -777,10 +777,10 @@ public final class d {
         return bundle2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0037 A[Catch: all -> 0x017d, TryCatch #4 {all -> 0x017d, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014e, B:70:0x0158, B:74:0x0162, B:73:0x0160, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00c6 A[Catch: all -> 0x017d, TryCatch #4 {all -> 0x017d, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014e, B:70:0x0158, B:74:0x0162, B:73:0x0160, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0134 A[Catch: all -> 0x017d, TryCatch #4 {all -> 0x017d, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014e, B:70:0x0158, B:74:0x0162, B:73:0x0160, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x013d A[Catch: all -> 0x017d, TryCatch #4 {all -> 0x017d, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014e, B:70:0x0158, B:74:0x0162, B:73:0x0160, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0037 A[Catch: all -> 0x017e, TryCatch #4 {all -> 0x017e, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014f, B:70:0x0159, B:74:0x0163, B:73:0x0161, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00c6 A[Catch: all -> 0x017e, TryCatch #4 {all -> 0x017e, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014f, B:70:0x0159, B:74:0x0163, B:73:0x0161, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0134 A[Catch: all -> 0x017e, TryCatch #4 {all -> 0x017e, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014f, B:70:0x0159, B:74:0x0163, B:73:0x0161, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x013d A[Catch: all -> 0x017e, TryCatch #4 {all -> 0x017e, blocks: (B:3:0x0004, B:5:0x000b, B:7:0x0014, B:9:0x001c, B:14:0x0029, B:16:0x0037, B:17:0x003b, B:19:0x003e, B:21:0x0046, B:23:0x0052, B:25:0x006e, B:24:0x0066, B:26:0x0071, B:27:0x0073, B:33:0x00ae, B:64:0x0134, B:66:0x013d, B:68:0x014f, B:70:0x0159, B:74:0x0163, B:73:0x0161, B:38:0x00b9, B:44:0x00c6, B:46:0x00cc, B:47:0x00d5, B:49:0x00df, B:62:0x012f, B:51:0x00e8, B:53:0x00f6, B:54:0x00f9, B:56:0x00ff, B:58:0x011c, B:59:0x011f, B:36:0x00b4), top: B:89:0x0004 }] */
     /* JADX WARN: Removed duplicated region for block: B:85:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -796,9 +796,9 @@ public final class d {
             if (!"gzfi".equals(str) && !"gz".equals(str)) {
                 str2 = "invokeMethod";
                 CallArgs callArgs = new CallArgs();
-                callArgs.f11644a = i;
-                callArgs.f11646c = str;
-                callArgs.f11645b = i2;
+                callArgs.f11305a = i;
+                callArgs.f11307c = str;
+                callArgs.f11306b = i2;
                 if (clsArr != null) {
                     Object[] objArr2 = new Object[clsArr.length];
                     for (int i3 = 0; i3 < clsArr.length; i3++) {
@@ -811,9 +811,9 @@ public final class d {
                             objArr2[i3] = clsArr[i3].getName();
                         }
                     }
-                    callArgs.f11647d = objArr2;
+                    callArgs.f11308d = objArr2;
                 }
-                callArgs.f11648e = objArr;
+                callArgs.f11309e = objArr;
                 Bundle bundle2 = new Bundle();
                 bundle2.putParcelable("args", callArgs);
                 Uri parse = Uri.parse("content://" + context.getPackageName() + ".sofire.ac.provider");
@@ -866,16 +866,16 @@ public final class d {
                 bundle.setClassLoader(CallArgs.class.getClassLoader());
                 int i4 = bundle.getInt("status");
                 CallArgs callArgs2 = i4 == 0 ? (CallArgs) bundle.getParcelable("result") : null;
-                return Pair.create(Integer.valueOf(i4), callArgs2 == null ? null : callArgs2.f11649f);
+                return Pair.create(Integer.valueOf(i4), callArgs2 == null ? null : callArgs2.f11310f);
             }
             str2 = str;
             CallArgs callArgs3 = new CallArgs();
-            callArgs3.f11644a = i;
-            callArgs3.f11646c = str;
-            callArgs3.f11645b = i2;
+            callArgs3.f11305a = i;
+            callArgs3.f11307c = str;
+            callArgs3.f11306b = i2;
             if (clsArr != null) {
             }
-            callArgs3.f11648e = objArr;
+            callArgs3.f11309e = objArr;
             Bundle bundle22 = new Bundle();
             bundle22.putParcelable("args", callArgs3);
             Uri parse2 = Uri.parse("content://" + context.getPackageName() + ".sofire.ac.provider");

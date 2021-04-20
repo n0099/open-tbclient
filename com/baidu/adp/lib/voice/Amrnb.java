@@ -1,8 +1,8 @@
 package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import d.b.b.e.p.h;
-import d.b.b.e.p.i;
+import d.b.c.e.p.h;
+import d.b.c.e.p.i;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static boolean bLoadLibrary = false;
@@ -12,7 +12,7 @@ public class Amrnb {
 
     /* loaded from: classes.dex */
     public static class a extends i {
-        @Override // d.b.b.e.p.i
+        @Override // d.b.c.e.p.i
         public void a(boolean z) {
             Amrnb.bLoadLibrary = z;
             if (z) {

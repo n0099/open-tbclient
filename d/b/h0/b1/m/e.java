@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.a0.a;
 import d.b.h0.r.q.a2;
-import d.b.i0.c3.h0.m;
+import d.b.i0.d3.h0.m;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.HeadItem;
@@ -43,7 +43,7 @@ import tbclient.PbContent;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49974a;
+    public static String f50367a;
 
     /* loaded from: classes3.dex */
     public static class a extends f {
@@ -115,7 +115,7 @@ public class e {
 
     /* renamed from: d.b.h0.b1.m.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1056e extends ClickableSpan {
+    public static class C1068e extends ClickableSpan {
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -218,9 +218,9 @@ public class e {
     }
 
     public static void h(StatisticItem statisticItem, a2 a2Var) {
-        if (a2Var.y2()) {
+        if (a2Var.z2()) {
             statisticItem.param("obj_type", 2);
-        } else if (a2Var.e2()) {
+        } else if (a2Var.f2()) {
             statisticItem.param("obj_type", 4);
         } else if (a2Var.s1) {
             statisticItem.param("obj_type", 5);
@@ -244,7 +244,7 @@ public class e {
     public static SpannableString j(String str) {
         int b2;
         String str2;
-        a.C1043a c2;
+        a.C1055a c2;
         double d2;
         int a2;
         if (str == null || (b2 = TbFaceManager.e().b(str)) == 0) {
@@ -368,10 +368,10 @@ public class e {
                 eMRichTextAnyIconSpan2.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                 spannableString.setSpan(eMRichTextAnyIconSpan2, str.length() - 1, str.length() + 1, 33);
                 spannableString.setSpan(dVar, 0, str.length() - 1, 33);
-                if (f49974a != a2Var.w1()) {
-                    f49974a = a2Var.w1();
+                if (f50367a != a2Var.w1()) {
+                    f50367a = a2Var.w1();
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
-                    statisticItem.param("tid", f49974a);
+                    statisticItem.param("tid", f50367a);
                     statisticItem.param("obj_locate", a2Var.T1 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
                     return spannableString;
@@ -401,7 +401,7 @@ public class e {
         bVar.g(true);
         bVar.d(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
         if (WorkIntroSwitch.isOn()) {
-            spannableString.setSpan(new C1056e(), 0, spannableString.length(), 33);
+            spannableString.setSpan(new C1068e(), 0, spannableString.length(), 33);
         }
         spannableString.setSpan(bVar, 0, spannableString.length(), 33);
         return spannableString;
@@ -485,14 +485,14 @@ public class e {
             return;
         }
         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
-        d.b.h0.t.l lVar = new d.b.h0.t.l();
-        lVar.f51482a = str;
+        d.b.h0.t.m mVar = new d.b.h0.t.m();
+        mVar.f51900a = str;
         if (a2Var != null) {
-            lVar.f51483b = a2Var.a1();
-            lVar.f51484c = a2Var.N0();
+            mVar.f51901b = a2Var.a1();
+            mVar.f51902c = a2Var.N0();
         }
-        d.b.h0.p0.b.i(lVar);
-        UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{lVar.f51482a, lVar.f51484c});
+        d.b.h0.p0.b.i(mVar);
+        UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{mVar.f51900a, mVar.f51902c});
     }
 
     public static SpannableStringBuilder w(a2 a2Var, List<PbContent> list, String str) {

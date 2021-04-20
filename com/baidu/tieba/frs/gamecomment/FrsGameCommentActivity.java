@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 /* loaded from: classes4.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
     public static final String PUBLISH_COMMENT_URL = "game/forum/addComment";

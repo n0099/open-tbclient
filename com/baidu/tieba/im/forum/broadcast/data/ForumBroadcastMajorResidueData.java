@@ -1,31 +1,31 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumBroadcastMajorResidueData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17928e;
+    public int f17605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17929f;
+    public int f17606f;
 
     public int s() {
-        return this.f17929f;
+        return this.f17606f;
     }
 
     public int t() {
-        return this.f17928e;
+        return this.f17605e;
     }
 
     public void u(int i) {
-        this.f17929f = i;
+        this.f17606f = i;
     }
 
     public void v(int i) {
     }
 
     public void w(int i) {
-        this.f17928e = i;
+        this.f17605e = i;
     }
 }

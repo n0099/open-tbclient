@@ -11,7 +11,7 @@ public class ABTestExtraData implements Serializable {
     public String mABTestResult;
 
     private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
-        b.i().w("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
+        b.j().x("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
     }
 
     public String getABTestResult() {
@@ -34,11 +34,11 @@ public class ABTestExtraData implements Serializable {
 
     public void parserABTestExtraFormSharedPref() {
         try {
-            String o = b.i().o("abtest_extra_info_json", null);
-            if (TextUtils.isEmpty(o)) {
+            String p = b.j().p("abtest_extra_info_json", null);
+            if (TextUtils.isEmpty(p)) {
                 return;
             }
-            parseJson(new JSONObject(o));
+            parseJson(new JSONObject(p));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

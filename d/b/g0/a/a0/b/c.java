@@ -5,17 +5,17 @@ import androidx.annotation.NonNull;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43116a;
+    public int f43508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43117b;
+    public String f43509b;
 
     public c(int i, @NonNull String str) {
-        this.f43116a = i;
-        this.f43117b = str;
+        this.f43508a = i;
+        this.f43509b = str;
     }
 
     public boolean a() {
-        return this.f43116a == 0;
+        return this.f43508a == 0;
     }
 }

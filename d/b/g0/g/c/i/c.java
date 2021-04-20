@@ -16,19 +16,19 @@ import okhttp3.Response;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47968e = k.f45051a;
+    public static final boolean f48360e = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.w.b f47969a;
+    public d.b.g0.g.w.b f48361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47970b;
+    public String f48362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47971c;
+    public String f48363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.g.c.i.a f47972d;
+    public d.b.g0.g.c.i.a f48364d;
 
     /* loaded from: classes3.dex */
     public class a implements Callback {
@@ -37,12 +37,12 @@ public class c {
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            if (c.f47968e) {
-                Log.e("AudioDownloader", c.this.f47970b + " load failed");
+            if (c.f48360e) {
+                Log.e("AudioDownloader", c.this.f48362b + " load failed");
                 iOException.printStackTrace();
             }
-            if (c.this.f47972d != null) {
-                c.this.f47972d.fail(-1, c.this.f47970b);
+            if (c.this.f48364d != null) {
+                c.this.f48364d.fail(-1, c.this.f48362b);
             }
         }
 
@@ -56,8 +56,8 @@ public class c {
                 InputStream byteStream = response.body().byteStream();
                 try {
                     try {
-                        String d2 = f.d(c.this.f47970b);
-                        String str = c.this.f47971c + d2.substring(0, d2.lastIndexOf("/"));
+                        String d2 = f.d(c.this.f48362b);
+                        String str = c.this.f48363c + d2.substring(0, d2.lastIndexOf("/"));
                         File file2 = new File(str);
                         if (!file2.exists() || !file2.isDirectory()) {
                             file2.mkdirs();
@@ -77,14 +77,14 @@ public class c {
                                     e = e2;
                                     inputStream = byteStream;
                                     try {
-                                        if (c.f47968e) {
-                                            Log.e("AudioDownloader", c.this.f47970b + " load failed", e);
+                                        if (c.f48360e) {
+                                            Log.e("AudioDownloader", c.this.f48362b + " load failed", e);
                                         }
                                         if (file != null) {
                                             file.delete();
                                         }
-                                        if (c.this.f47972d != null) {
-                                            c.this.f47972d.fail(-1, c.this.f47970b);
+                                        if (c.this.f48364d != null) {
+                                            c.this.f48364d.fail(-1, c.this.f48362b);
                                         }
                                         d.a(inputStream);
                                         d.a(fileOutputStream);
@@ -112,19 +112,19 @@ public class c {
                             }
                             String absolutePath = file3.getAbsolutePath();
                             if (file.renameTo(file3)) {
-                                if (c.f47968e) {
-                                    Log.e("AudioDownloader", c.this.f47970b + " load rename success path = " + absolutePath);
+                                if (c.f48360e) {
+                                    Log.e("AudioDownloader", c.this.f48362b + " load rename success path = " + absolutePath);
                                 }
-                                if (c.this.f47972d != null) {
-                                    c.this.f47972d.a(c.this.f47970b, absolutePath);
+                                if (c.this.f48364d != null) {
+                                    c.this.f48364d.a(c.this.f48362b, absolutePath);
                                 }
                             } else {
-                                if (c.f47968e) {
-                                    Log.e("AudioDownloader", c.this.f47970b + " load rename error path = " + absolutePath);
+                                if (c.f48360e) {
+                                    Log.e("AudioDownloader", c.this.f48362b + " load rename error path = " + absolutePath);
                                 }
                                 file.delete();
-                                if (c.this.f47972d != null) {
-                                    c.this.f47972d.fail(-1, absolutePath);
+                                if (c.this.f48364d != null) {
+                                    c.this.f48364d.fail(-1, absolutePath);
                                 }
                             }
                             d.a(byteStream);
@@ -155,15 +155,15 @@ public class c {
     }
 
     public c(d.b.g0.g.w.b bVar, String str, String str2, d.b.g0.g.c.i.a aVar) {
-        this.f47970b = "";
-        this.f47971c = "";
-        this.f47969a = bVar;
-        this.f47971c = str;
-        this.f47970b = str2;
-        this.f47972d = aVar;
+        this.f48362b = "";
+        this.f48363c = "";
+        this.f48361a = bVar;
+        this.f48363c = str;
+        this.f48362b = str2;
+        this.f48364d = aVar;
     }
 
     public void e() {
-        this.f47969a.b(new Request.Builder().url(this.f47970b).build(), new a());
+        this.f48361a.b(new Request.Builder().url(this.f48362b).build(), new a());
     }
 }

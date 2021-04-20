@@ -12,11 +12,11 @@ import com.baidu.wallet.core.BaseActivity;
 public final class WalletGlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Dialog f24314a = null;
+    public static Dialog f23999a = null;
     public static String showStr = "";
 
     public static void DismissLoadingDialog() {
-        Dialog dialog = f24314a;
+        Dialog dialog = f23999a;
         if (dialog != null) {
             Context context = dialog.getContext();
             if (context instanceof ContextThemeWrapper) {
@@ -26,11 +26,11 @@ public final class WalletGlobalUtils {
                 return;
             }
             try {
-                f24314a.dismiss();
+                f23999a.dismiss();
             } catch (Throwable th) {
                 LogUtil.e("globalUtils", "dialog Exception", th);
             }
-            f24314a = null;
+            f23999a = null;
         }
     }
 
@@ -56,9 +56,9 @@ public final class WalletGlobalUtils {
     }
 
     public static void showLoadingDialog(Context context) {
-        if (f24314a == null) {
-            f24314a = new LoadingDialog(context);
+        if (f23999a == null) {
+            f23999a = new LoadingDialog(context);
         }
-        f24314a.show();
+        f23999a.show();
     }
 }

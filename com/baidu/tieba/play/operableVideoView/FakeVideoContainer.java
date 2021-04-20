@@ -14,20 +14,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.u.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f20520e;
+    public TbImageView f20212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20521f;
+    public View f20213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20522g;
+    public ImageView f20214g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f20523h;
+    public EMTextView f20215h;
 
     public FakeVideoContainer(Context context) {
         super(context);
@@ -36,17 +36,17 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
 
     public void a() {
         RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
-        this.f20520e = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.f20521f = findViewById(R.id.black_mask);
-        this.f20522g = (ImageView) findViewById(R.id.video_play);
-        this.f20523h = (EMTextView) findViewById(R.id.fake_video_info);
-        this.f20522g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-        c a2 = c.a(this.f20523h);
-        a2.n(R.color.CAM_X0101);
-        a2.s(R.string.F_X01);
-        this.f20520e.B();
-        this.f20520e.setDrawCorner(false);
-        this.f20520e.setPlaceHolder(3);
+        this.f20212e = (TbImageView) findViewById(R.id.video_thumbnail);
+        this.f20213f = findViewById(R.id.black_mask);
+        this.f20214g = (ImageView) findViewById(R.id.video_play);
+        this.f20215h = (EMTextView) findViewById(R.id.fake_video_info);
+        this.f20214g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+        c d2 = c.d(this.f20215h);
+        d2.q(R.color.CAM_X0101);
+        d2.v(R.string.F_X01);
+        this.f20212e.B();
+        this.f20212e.setDrawCorner(false);
+        this.f20212e.setPlaceHolder(3);
         setOnClickListener(this);
     }
 
@@ -60,11 +60,11 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             return;
         }
         a2Var.u1().is_vertical.intValue();
-        this.f20520e.setPlaceHolder(3);
+        this.f20212e.setPlaceHolder(3);
         if (!a2Var.u1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !a2Var.u1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.f20520e.W(a2Var.u1().thumbnail_url, 32, false);
+            this.f20212e.W(a2Var.u1().thumbnail_url, 32, false);
         } else {
-            this.f20520e.W(a2Var.u1().thumbnail_url, 10, false);
+            this.f20212e.W(a2Var.u1().thumbnail_url, 10, false);
         }
     }
 

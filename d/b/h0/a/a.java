@@ -13,14 +13,14 @@ public class a {
 
     /* renamed from: d.b.h0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1039a {
+    public static class C1051a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f49498a = new a();
+        public static final a f49890a = new a();
     }
 
     public static final a g() {
-        return C1039a.f49498a;
+        return C1051a.f49890a;
     }
 
     public synchronized long a(b bVar) {
@@ -129,7 +129,7 @@ public class a {
             }
         }
         f2.setTransactionSuccessful();
-        d.b.b.e.p.m.a(rawQuery);
+        d.b.c.e.p.m.a(rawQuery);
         f2.endTransaction();
         return linkedList;
     }

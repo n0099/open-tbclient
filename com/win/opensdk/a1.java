@@ -1,23 +1,23 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import org.json.JSONStringer;
 /* loaded from: classes7.dex */
 public class a1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39862a = {"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+    public static final String[] f40151a = {"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f39863b = {"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
+    public static final String[] f40152b = {"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f39864c = {"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+    public static final String[] f40153c = {"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f39865d = {"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+    public static final String[] f40154d = {"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
 
     public static Z0 a(Context context) {
         return new Z0(new a1(), context);
@@ -27,21 +27,21 @@ public class a1 {
         JSONStringer c2 = c();
         c2.key("e").value(str).key("timeis").value(b());
         if (b1Var != null) {
-            c2.key("pid").value(b1Var.f39887a);
-            if (b1Var.f39888b != null) {
+            c2.key("pid").value(b1Var.f40176a);
+            if (b1Var.f40177b != null) {
                 JSONStringer key = c2.key("traceid");
-                String traceid = b1Var.f39888b.getTraceid();
+                String traceid = b1Var.f40177b.getTraceid();
                 try {
                     traceid = G.a(traceid);
                 } catch (Exception unused) {
                 }
-                JSONStringer key2 = key.value(traceid).key(IXAdRequestInfo.CELL_ID);
-                String id = b1Var.f39888b.getId();
+                JSONStringer key2 = key.value(traceid).key(IAdRequestParam.CELL_ID);
+                String id = b1Var.f40177b.getId();
                 try {
                     id = G.a(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(b1Var.f39888b.getType());
+                key2.value(id).key("type").value(b1Var.f40177b.getType());
             }
         }
         return c2;

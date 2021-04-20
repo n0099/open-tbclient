@@ -22,16 +22,16 @@ import java.util.StringTokenizer;
 public final class f0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44685a = d.b.g0.a.k.f45051a;
+    public static final boolean f45077a = d.b.g0.a.k.f45443a;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f44686a;
+        public final String f45078a;
 
         public a(String str, boolean z, boolean z2, int i) {
-            this.f44686a = str;
+            this.f45078a = str;
         }
     }
 
@@ -92,7 +92,7 @@ public final class f0 {
                 th = th;
             }
             try {
-                if (f44685a) {
+                if (f45077a) {
                     Log.d(StorageUtils.TAG, "/proc/mounts");
                 }
                 while (true) {
@@ -100,7 +100,7 @@ public final class f0 {
                     if (readLine == null) {
                         break;
                     }
-                    if (f44685a) {
+                    if (f45077a) {
                         Log.d(StorageUtils.TAG, readLine);
                     }
                     StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
@@ -140,7 +140,7 @@ public final class f0 {
                                     break;
                                 }
                                 str = (String) it.next();
-                                if (TextUtils.equals(((a) hashMap.get(str)).f44686a, nextToken)) {
+                                if (TextUtils.equals(((a) hashMap.get(str)).f45078a, nextToken)) {
                                     break;
                                 }
                             }
@@ -155,7 +155,7 @@ public final class f0 {
                     }
                 }
                 for (a aVar : hashMap.values()) {
-                    if (e(aVar.f44686a)) {
+                    if (e(aVar.f45078a)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -167,7 +167,7 @@ public final class f0 {
                 e = e2;
                 bufferedReader2 = bufferedReader3;
                 bufferedReader4 = bufferedReader2;
-                if (f44685a) {
+                if (f45077a) {
                     e.printStackTrace();
                     bufferedReader4 = bufferedReader2;
                 }
@@ -177,7 +177,7 @@ public final class f0 {
                 e = e3;
                 bufferedReader = bufferedReader3;
                 bufferedReader4 = bufferedReader;
-                if (f44685a) {
+                if (f45077a) {
                     e.printStackTrace();
                     bufferedReader4 = bufferedReader;
                 }

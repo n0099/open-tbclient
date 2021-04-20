@@ -3,8 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 /* loaded from: classes3.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
@@ -28,7 +29,7 @@ public class VideoListActivityConfig extends IntentConfig {
             intent.putExtra(KEY_SOURCE, str3);
         }
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }
@@ -40,7 +41,7 @@ public class VideoListActivityConfig extends IntentConfig {
             intent.putExtra(KEY_SOURCE, str);
         }
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }

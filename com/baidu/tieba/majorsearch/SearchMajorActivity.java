@@ -6,7 +6,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.model.SearchMajorModel;
-import d.b.i0.o1.b.a;
+import d.b.i0.p1.b.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.b {

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.b.a.f;
+import d.b.c.a.f;
 /* loaded from: classes5.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public TransparentNavigationBar(Context context) {

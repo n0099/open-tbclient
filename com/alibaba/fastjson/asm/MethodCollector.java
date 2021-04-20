@@ -4,7 +4,7 @@ public class MethodCollector {
     public boolean debugInfoPresent;
     public final int ignoreCount;
     public final int paramCount;
-    public final StringBuffer result = new StringBuffer();
+    public final StringBuilder result = new StringBuilder();
     public int currentParameter = 0;
 
     public MethodCollector(int i, int i2) {

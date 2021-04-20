@@ -11,7 +11,7 @@ import com.facebook.imagepipeline.listener.ForwardingRequestListener;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImagePerfMonitor {
     public boolean mEnabled;
     @Nullable

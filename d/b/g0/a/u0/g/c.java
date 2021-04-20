@@ -13,13 +13,13 @@ import java.util.concurrent.CountDownLatch;
 public class c extends HandlerThread {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f46626g = k.f45051a;
+    public static final boolean f47018g = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f46627e;
+    public CountDownLatch f47019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f46628f;
+    public File f47020f;
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -32,8 +32,8 @@ public class c extends HandlerThread {
             int i = message.what;
             if (i != 100) {
                 if (i == 200) {
-                    if (c.this.f46627e != null) {
-                        c.this.f46627e.countDown();
+                    if (c.this.f47019e != null) {
+                        c.this.f47019e.countDown();
                     }
                     c.this.quit();
                     return;
@@ -41,17 +41,17 @@ public class c extends HandlerThread {
                 return;
             }
             b bVar = (b) message.obj;
-            File file = new File(c.this.f46628f + bVar.f46630a);
+            File file = new File(c.this.f47020f + bVar.f47022a);
             try {
                 if (!file.exists()) {
                     file.getParentFile().mkdirs();
                     file.createNewFile();
                 }
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
-                fileOutputStream.write(bVar.f46631b);
+                fileOutputStream.write(bVar.f47023b);
                 d.a(fileOutputStream);
             } catch (Exception e2) {
-                if (c.f46626g) {
+                if (c.f47018g) {
                     e2.printStackTrace();
                 }
             }
@@ -62,10 +62,10 @@ public class c extends HandlerThread {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46630a;
+        public String f47022a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f46631b;
+        public byte[] f47023b;
     }
 
     public c(String str, File file, CountDownLatch countDownLatch) {
@@ -78,7 +78,7 @@ public class c extends HandlerThread {
 
     public c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.f46628f = file;
-        this.f46627e = countDownLatch;
+        this.f47020f = file;
+        this.f47019e = countDownLatch;
     }
 }

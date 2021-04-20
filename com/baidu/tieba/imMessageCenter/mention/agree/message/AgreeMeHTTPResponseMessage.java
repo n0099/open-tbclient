@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.e1.b.p.a;
+import d.b.i0.f1.b.p.a;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 import tbclient.AgreeMe.DataRes;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public ArrayList<a> datas;
     public boolean hasMore;

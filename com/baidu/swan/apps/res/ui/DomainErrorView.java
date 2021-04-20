@@ -19,23 +19,23 @@ public class DomainErrorView extends CommonEmptyView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12452e;
+        public final /* synthetic */ String f12113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f12453f;
+        public final /* synthetic */ String f12114f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f12454g;
+        public final /* synthetic */ e f12115g;
 
         public a(String str, String str2, e eVar) {
-            this.f12452e = str;
-            this.f12453f = str2;
-            this.f12454g = eVar;
+            this.f12113e = str;
+            this.f12114f = str2;
+            this.f12115g = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.g0.a.w0.a.q().b(this.f12454g.n(), this.f12454g.B(), this.f12454g.M(), i0.s(this.f12452e, this.f12453f));
+            d.b.g0.a.w0.a.q().b(this.f12115g.n(), this.f12115g.B(), this.f12115g.M(), i0.s(this.f12113e, this.f12114f));
         }
     }
 
@@ -64,8 +64,8 @@ public class DomainErrorView extends CommonEmptyView {
             this.k.setVisibility(0);
             this.k.setOnClickListener(new a(format, stringBuffer2, O));
         }
-        this.f12443f.setText(getResources().getText(h.swanapp_path_forbidden));
-        this.f12444g.setPadding(h0.f(70.0f), 0, h0.f(70.0f), 0);
+        this.f12104f.setText(getResources().getText(h.swanapp_path_forbidden));
+        this.f12105g.setPadding(h0.f(70.0f), 0, h0.f(70.0f), 0);
         String d2 = k0.n().d();
         d dVar = new d();
         dVar.p(aVar);

@@ -3,17 +3,17 @@ package com.alipay.sdk.app;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1821a = false;
+    public static boolean f1846a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1822b;
+    public static String f1847b;
 
     public static void a(String str) {
-        f1822b = str;
+        f1847b = str;
     }
 
     public static boolean b() {
-        return f1821a;
+        return f1846a;
     }
 
     public static String c() {
@@ -32,11 +32,11 @@ public class j {
     }
 
     public static String a() {
-        return f1822b;
+        return f1847b;
     }
 
     public static void a(boolean z) {
-        f1821a = z;
+        f1846a = z;
     }
 
     public static String a(int i, String str, String str2) {

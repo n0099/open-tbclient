@@ -10,6 +10,7 @@ import android.util.Pair;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -24,13 +25,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.util.Base64Encoder;
 import com.baidu.wallet.core.Domains;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f50252a;
+    public static String f50659a;
 
     public static void a(WebSettings webSettings) {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
@@ -174,7 +175,7 @@ public class a {
     }
 
     public static void i(String str) {
-        f50252a = str;
+        f50659a = str;
     }
 
     public static void j(Context context, String str) {
@@ -183,7 +184,7 @@ public class a {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(Uri.parse(d2));
             if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             context.startActivity(intent);
         } catch (Exception e2) {

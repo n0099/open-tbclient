@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.b.b;
+import a.a.a.a.r.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -14,7 +14,7 @@ import com.fun.ad.sdk.R;
 public final class CSJNativeAdVerticalVideoView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f30767f;
+    public FrameLayout f30440f;
 
     public CSJNativeAdVerticalVideoView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public final class CSJNativeAdVerticalVideoView extends b {
         super(context, attributeSet, i);
     }
 
-    @Override // a.a.a.a.r.b.b.b
+    @Override // a.a.a.a.r.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         super.a(activity, tTNativeAd, adInteractionListener);
         View adView = tTNativeAd.getAdView();
@@ -36,14 +36,14 @@ public final class CSJNativeAdVerticalVideoView extends b {
             ((ViewGroup) adView.getParent()).removeView(adView);
         }
         if (adView != null) {
-            this.f30767f.removeAllViews();
-            this.f30767f.addView(adView);
+            this.f30440f.removeAllViews();
+            this.f30440f.addView(adView);
         }
     }
 
-    @Override // a.a.a.a.r.b.b.b, android.view.View
+    @Override // a.a.a.a.r.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30767f = (FrameLayout) findViewById(R.id.ad_video);
+        this.f30440f = (FrameLayout) findViewById(R.id.ad_video);
     }
 }

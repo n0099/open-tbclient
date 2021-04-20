@@ -7,39 +7,39 @@ import android.graphics.drawable.GradientDrawable;
 public class a extends GradientDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Drawable f34252a;
+    public Drawable f34541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Drawable f34253b;
+    public Drawable f34542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f34254c;
+    public float f34543c;
 
     public void a(float f2) {
-        this.f34254c = f2;
+        this.f34543c = f2;
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.GradientDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.f34254c == 0.0f) {
-            this.f34253b.setBounds(getBounds());
-            this.f34253b.draw(canvas);
+        if (this.f34543c == 0.0f) {
+            this.f34542b.setBounds(getBounds());
+            this.f34542b.draw(canvas);
         } else {
-            if (this.f34252a.getBounds().width() != getBounds().width()) {
-                this.f34252a.setBounds(getBounds());
+            if (this.f34541a.getBounds().width() != getBounds().width()) {
+                this.f34541a.setBounds(getBounds());
             }
-            if (this.f34253b.getBounds().width() != getBounds().width()) {
-                this.f34253b.setBounds(getBounds());
+            if (this.f34542b.getBounds().width() != getBounds().width()) {
+                this.f34542b.setBounds(getBounds());
             }
             canvas.save();
-            int width = (int) (getBounds().width() * this.f34254c);
+            int width = (int) (getBounds().width() * this.f34543c);
             canvas.clipRect(0, 0, width, getBounds().height());
-            this.f34252a.draw(canvas);
+            this.f34541a.draw(canvas);
             canvas.restore();
             canvas.save();
             canvas.clipRect(width, 0, getBounds().width(), getBounds().height());
-            this.f34253b.draw(canvas);
+            this.f34542b.draw(canvas);
             canvas.restore();
         }
         super.draw(canvas);

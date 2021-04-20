@@ -14,30 +14,30 @@ import kotlin.ranges.ULongRange;
 public final class URandomKt {
     @ExperimentalUnsignedTypes
     /* renamed from: checkUIntRangeBounds-J1ME1BU  reason: not valid java name */
-    public static final void m1495checkUIntRangeBoundsJ1ME1BU(int i, int i2) {
+    public static final void m1499checkUIntRangeBoundsJ1ME1BU(int i, int i2) {
         if (!(UnsignedKt.uintCompare(i2, i) > 0)) {
-            throw new IllegalArgumentException(RandomKt.boundsErrorMessage(UInt.m707boximpl(i), UInt.m707boximpl(i2)).toString());
+            throw new IllegalArgumentException(RandomKt.boundsErrorMessage(UInt.m711boximpl(i), UInt.m711boximpl(i2)).toString());
         }
     }
 
     @ExperimentalUnsignedTypes
     /* renamed from: checkULongRangeBounds-eb3DHEI  reason: not valid java name */
-    public static final void m1496checkULongRangeBoundseb3DHEI(long j, long j2) {
+    public static final void m1500checkULongRangeBoundseb3DHEI(long j, long j2) {
         if (!(UnsignedKt.ulongCompare(j2, j) > 0)) {
-            throw new IllegalArgumentException(RandomKt.boundsErrorMessage(ULong.m776boximpl(j), ULong.m776boximpl(j2)).toString());
+            throw new IllegalArgumentException(RandomKt.boundsErrorMessage(ULong.m780boximpl(j), ULong.m780boximpl(j2)).toString());
         }
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final byte[] nextUBytes(Random random, int i) {
-        return UByteArray.m690constructorimpl(random.nextBytes(i));
+        return UByteArray.m694constructorimpl(random.nextBytes(i));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextUBytes-EVgfTAA  reason: not valid java name */
-    public static final byte[] m1497nextUBytesEVgfTAA(Random random, byte[] bArr) {
+    public static final byte[] m1501nextUBytesEVgfTAA(Random random, byte[] bArr) {
         random.nextBytes(bArr);
         return bArr;
     }
@@ -45,69 +45,69 @@ public final class URandomKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextUBytes-Wvrt4B4  reason: not valid java name */
-    public static final byte[] m1498nextUBytesWvrt4B4(Random random, byte[] bArr, int i, int i2) {
+    public static final byte[] m1502nextUBytesWvrt4B4(Random random, byte[] bArr, int i, int i2) {
         random.nextBytes(bArr, i, i2);
         return bArr;
     }
 
     /* renamed from: nextUBytes-Wvrt4B4$default  reason: not valid java name */
-    public static /* synthetic */ byte[] m1499nextUBytesWvrt4B4$default(Random random, byte[] bArr, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ byte[] m1503nextUBytesWvrt4B4$default(Random random, byte[] bArr, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = UByteArray.m696getSizeimpl(bArr);
+            i2 = UByteArray.m700getSizeimpl(bArr);
         }
-        return m1498nextUBytesWvrt4B4(random, bArr, i, i2);
+        return m1502nextUBytesWvrt4B4(random, bArr, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final int nextUInt(Random random) {
-        return UInt.m713constructorimpl(random.nextInt());
+        return UInt.m717constructorimpl(random.nextInt());
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextUInt-a8DCA5k  reason: not valid java name */
-    public static final int m1500nextUInta8DCA5k(Random random, int i, int i2) {
-        m1495checkUIntRangeBoundsJ1ME1BU(i, i2);
-        return UInt.m713constructorimpl(random.nextInt(i ^ Integer.MIN_VALUE, i2 ^ Integer.MIN_VALUE) ^ Integer.MIN_VALUE);
+    public static final int m1504nextUInta8DCA5k(Random random, int i, int i2) {
+        m1499checkUIntRangeBoundsJ1ME1BU(i, i2);
+        return UInt.m717constructorimpl(random.nextInt(i ^ Integer.MIN_VALUE, i2 ^ Integer.MIN_VALUE) ^ Integer.MIN_VALUE);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextUInt-qCasIEU  reason: not valid java name */
-    public static final int m1501nextUIntqCasIEU(Random random, int i) {
-        return m1500nextUInta8DCA5k(random, 0, i);
+    public static final int m1505nextUIntqCasIEU(Random random, int i) {
+        return m1504nextUInta8DCA5k(random, 0, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final long nextULong(Random random) {
-        return ULong.m782constructorimpl(random.nextLong());
+        return ULong.m786constructorimpl(random.nextLong());
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextULong-V1Xi4fY  reason: not valid java name */
-    public static final long m1502nextULongV1Xi4fY(Random random, long j) {
-        return m1503nextULongjmpaWc(random, 0L, j);
+    public static final long m1506nextULongV1Xi4fY(Random random, long j) {
+        return m1507nextULongjmpaWc(random, 0L, j);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextULong-jmpaW-c  reason: not valid java name */
-    public static final long m1503nextULongjmpaWc(Random random, long j, long j2) {
-        m1496checkULongRangeBoundseb3DHEI(j, j2);
-        return ULong.m782constructorimpl(random.nextLong(j ^ Long.MIN_VALUE, j2 ^ Long.MIN_VALUE) ^ Long.MIN_VALUE);
+    public static final long m1507nextULongjmpaWc(Random random, long j, long j2) {
+        m1500checkULongRangeBoundseb3DHEI(j, j2);
+        return ULong.m786constructorimpl(random.nextLong(j ^ Long.MIN_VALUE, j2 ^ Long.MIN_VALUE) ^ Long.MIN_VALUE);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final int nextUInt(Random random, UIntRange uIntRange) {
         if (!uIntRange.isEmpty()) {
-            return UnsignedKt.uintCompare(uIntRange.getLast(), -1) < 0 ? m1500nextUInta8DCA5k(random, uIntRange.getFirst(), UInt.m713constructorimpl(uIntRange.getLast() + 1)) : UnsignedKt.uintCompare(uIntRange.getFirst(), 0) > 0 ? UInt.m713constructorimpl(m1500nextUInta8DCA5k(random, UInt.m713constructorimpl(uIntRange.getFirst() - 1), uIntRange.getLast()) + 1) : nextUInt(random);
+            return UnsignedKt.uintCompare(uIntRange.getLast(), -1) < 0 ? m1504nextUInta8DCA5k(random, uIntRange.getFirst(), UInt.m717constructorimpl(uIntRange.getLast() + 1)) : UnsignedKt.uintCompare(uIntRange.getFirst(), 0) > 0 ? UInt.m717constructorimpl(m1504nextUInta8DCA5k(random, UInt.m717constructorimpl(uIntRange.getFirst() - 1), uIntRange.getLast()) + 1) : nextUInt(random);
         }
         throw new IllegalArgumentException("Cannot get random in empty range: " + uIntRange);
     }
@@ -117,11 +117,11 @@ public final class URandomKt {
     public static final long nextULong(Random random, ULongRange uLongRange) {
         if (!uLongRange.isEmpty()) {
             if (UnsignedKt.ulongCompare(uLongRange.getLast(), -1L) < 0) {
-                return m1503nextULongjmpaWc(random, uLongRange.getFirst(), ULong.m782constructorimpl(uLongRange.getLast() + ULong.m782constructorimpl(1 & 4294967295L)));
+                return m1507nextULongjmpaWc(random, uLongRange.getFirst(), ULong.m786constructorimpl(uLongRange.getLast() + ULong.m786constructorimpl(1 & 4294967295L)));
             }
             if (UnsignedKt.ulongCompare(uLongRange.getFirst(), 0L) > 0) {
                 long j = 1 & 4294967295L;
-                return ULong.m782constructorimpl(m1503nextULongjmpaWc(random, ULong.m782constructorimpl(uLongRange.getFirst() - ULong.m782constructorimpl(j)), uLongRange.getLast()) + ULong.m782constructorimpl(j));
+                return ULong.m786constructorimpl(m1507nextULongjmpaWc(random, ULong.m786constructorimpl(uLongRange.getFirst() - ULong.m786constructorimpl(j)), uLongRange.getLast()) + ULong.m786constructorimpl(j));
             }
             return nextULong(random);
         }

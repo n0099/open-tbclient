@@ -4,7 +4,7 @@ import com.baidu.fsg.base.restnet.http.HttpStatus;
 import com.baidu.fsg.base.restnet.http.a;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RestResponseEntity<T> {
     public T mBody;
     public a mHeaders;

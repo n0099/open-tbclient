@@ -7,7 +7,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import d.b.i0.m1.e.c;
+import d.b.i0.n1.e.c;
 /* loaded from: classes3.dex */
 public class SelectLocationActivity extends SuspendedActivity {
     public CustomMessageListener closeListener = new a(2002013);

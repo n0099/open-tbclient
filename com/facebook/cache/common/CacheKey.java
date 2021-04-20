@@ -1,7 +1,7 @@
 package com.facebook.cache.common;
 
 import android.net.Uri;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface CacheKey {
     boolean containsUri(Uri uri);
 

@@ -19,6 +19,6 @@ public final class UArraysKt___UArraysKt$withIndex$2 extends Lambda implements F
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function0
     public final ULongIterator invoke() {
-        return ULongArray.m837iteratorimpl(this.$this_withIndex);
+        return ULongArray.m841iteratorimpl(this.$this_withIndex);
     }
 }

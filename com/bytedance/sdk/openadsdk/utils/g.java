@@ -7,16 +7,16 @@ import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, a> f30415a = Collections.synchronizedMap(new HashMap());
+    public static final Map<String, a> f30100a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static IListenerManager f30416b;
+    public static IListenerManager f30101b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -44,7 +44,7 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f30415a.remove(str);
+        return f30100a.remove(str);
     }
 
     public static void a(Context context, String str, String str2, String str3, a aVar) {
@@ -68,10 +68,10 @@ public class g {
     }
 
     public static IListenerManager b() {
-        if (f30416b == null) {
-            f30416b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
+        if (f30101b == null) {
+            f30101b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
         }
-        return f30416b;
+        return f30101b;
     }
 
     public static void a(Context context, String str, String str2, a aVar, String str3, boolean z) {
@@ -133,7 +133,7 @@ public class g {
                 }
             }, 5);
         } else {
-            f30415a.put(str, aVar);
+            f30100a.put(str, aVar);
         }
     }
 

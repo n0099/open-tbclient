@@ -11,7 +11,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    public static Rect a(d.b.b.j.e.s sVar, View view, int i) {
+    public static Rect a(d.b.c.j.e.s sVar, View view, int i) {
         BdTypeRecyclerView bdTypeRecyclerView;
         RecyclerView.LayoutManager layoutManager;
         View findViewByPosition;
@@ -23,7 +23,7 @@ public class e {
         }
         int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
         int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
-        List<d.b.b.j.e.n> data = sVar.getData();
+        List<d.b.c.j.e.n> data = sVar.getData();
         Object item = ListUtils.getItem(data, i);
         if (item instanceof BaseCardInfo) {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;

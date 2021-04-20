@@ -10,7 +10,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE1 = "samr";
@@ -40,24 +40,24 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
     public int soundVersion;
     public byte[] soundVersion2Data;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Box {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f30721f;
+        public final /* synthetic */ long f30406f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ByteBuffer f30722g;
+        public final /* synthetic */ ByteBuffer f30407g;
 
         public a(long j, ByteBuffer byteBuffer) {
-            this.f30721f = j;
-            this.f30722g = byteBuffer;
+            this.f30406f = j;
+            this.f30407g = byteBuffer;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-            this.f30722g.rewind();
-            writableByteChannel.write(this.f30722g);
+            this.f30407g.rewind();
+            writableByteChannel.write(this.f30407g);
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -72,7 +72,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return this.f30721f;
+            return this.f30406f;
         }
 
         @Override // com.coremedia.iso.boxes.Box

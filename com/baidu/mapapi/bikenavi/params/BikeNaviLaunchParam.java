@@ -7,66 +7,66 @@ import com.baidu.platform.comapi.walknavi.e.b;
 public class BikeNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f6751a;
+    public LatLng f6786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f6752b;
+    public LatLng f6787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6753c;
+    public int f6788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6754d = 0;
+    public int f6789d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6755e;
+    public int f6790e;
 
     public static a create() {
         return new b();
     }
 
     public BikeNaviLaunchParam endCityCode(int i) {
-        this.f6755e = i;
+        this.f6790e = i;
         return this;
     }
 
     public BikeNaviLaunchParam endPt(LatLng latLng) {
-        this.f6752b = latLng;
+        this.f6787b = latLng;
         return this;
     }
 
     public int getEndCityCode() {
-        return this.f6755e;
+        return this.f6790e;
     }
 
     public LatLng getEndPt() {
-        return this.f6752b;
+        return this.f6787b;
     }
 
     public int getStartCityCode() {
-        return this.f6753c;
+        return this.f6788c;
     }
 
     public LatLng getStartPt() {
-        return this.f6751a;
+        return this.f6786a;
     }
 
     public int getVehicle() {
-        return this.f6754d;
+        return this.f6789d;
     }
 
     public BikeNaviLaunchParam stCityCode(int i) {
-        this.f6753c = i;
+        this.f6788c = i;
         return this;
     }
 
     public BikeNaviLaunchParam stPt(LatLng latLng) {
-        this.f6751a = latLng;
+        this.f6786a = latLng;
         return this;
     }
 
     public BikeNaviLaunchParam vehicle(int i) {
-        this.f6754d = i;
+        this.f6789d = i;
         return this;
     }
 }

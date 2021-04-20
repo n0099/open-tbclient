@@ -6,7 +6,7 @@ import com.baidu.pyramid.annotation.Singleton;
 @Service
 /* loaded from: classes4.dex */
 public class a extends d.b.g0.d.j.c.d.a {
-    @Override // d.b.g0.d.j.c.b.InterfaceC0925b
+    @Override // d.b.g0.d.j.c.b.InterfaceC0937b
     public boolean c() {
         return true;
     }

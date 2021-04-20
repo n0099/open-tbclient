@@ -7,12 +7,12 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     public static Logger LOG = Logger.getLogger(AbstractBoxParser.class.getName());
     public ThreadLocal<ByteBuffer> header = new a(this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends ThreadLocal<ByteBuffer> {
         public a(AbstractBoxParser abstractBoxParser) {
         }

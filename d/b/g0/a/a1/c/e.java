@@ -40,6 +40,6 @@ public class e extends c {
     @Override // d.b.g0.a.a0.b.b, d.b.g0.a.e1.a
     public boolean isValid() {
         d.b.g0.a.a1.c.h.c cVar;
-        return (TextUtils.isEmpty(this.f43114g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.f43506g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true;
     }
 }

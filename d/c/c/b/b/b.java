@@ -21,41 +21,41 @@ public class b {
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final n f65601c;
+    public final n f66446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f65602d;
+    public Context f66447d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f65600b = new Handler(Looper.getMainLooper());
+    public final Handler f66445b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c> f65599a = Collections.synchronizedMap(new LinkedHashMap());
+    public final Map<String, c> f66444a = Collections.synchronizedMap(new LinkedHashMap());
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC1796b f65603e;
+        public final /* synthetic */ InterfaceC1824b f66448e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f65604f;
+        public final /* synthetic */ File f66449f;
 
-        public a(b bVar, InterfaceC1796b interfaceC1796b, File file) {
-            this.f65603e = interfaceC1796b;
-            this.f65604f = file;
+        public a(b bVar, InterfaceC1824b interfaceC1824b, File file) {
+            this.f66448e = interfaceC1824b;
+            this.f66449f = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f65603e.a(this.f65604f.length(), this.f65604f.length());
-            this.f65603e.a(o.c(this.f65604f, null));
+            this.f66448e.a(this.f66449f.length(), this.f66449f.length());
+            this.f66448e.a(o.c(this.f66449f, null));
         }
     }
 
     /* renamed from: d.c.c.b.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1796b extends c.a {
+    public interface InterfaceC1824b extends c.a {
         File a(String str);
 
         void a(String str, File file);
@@ -64,12 +64,12 @@ public class b {
     }
 
     public b(Context context, @NonNull n nVar) {
-        this.f65602d = context;
-        this.f65601c = nVar;
+        this.f66447d = context;
+        this.f66446c = nVar;
     }
 
     public final String a() {
-        File file = new File(d.c.c.b.a.h(this.f65602d), "fileLoader");
+        File file = new File(d.c.c.b.a.h(this.f66447d), "fileLoader");
         file.mkdirs();
         return file.getAbsolutePath();
     }
@@ -79,86 +79,86 @@ public class b {
             return;
         }
         cVar.a();
-        this.f65599a.put(cVar.f65605a, cVar);
+        this.f66444a.put(cVar.f66450a, cVar);
     }
 
-    public void d(String str, InterfaceC1796b interfaceC1796b) {
-        e(str, interfaceC1796b, true);
+    public void d(String str, InterfaceC1824b interfaceC1824b) {
+        e(str, interfaceC1824b, true);
     }
 
-    public void e(String str, InterfaceC1796b interfaceC1796b, boolean z) {
+    public void e(String str, InterfaceC1824b interfaceC1824b, boolean z) {
         c cVar;
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (f(str) && (cVar = this.f65599a.get(str)) != null) {
-            cVar.b(interfaceC1796b);
+        if (f(str) && (cVar = this.f66444a.get(str)) != null) {
+            cVar.b(interfaceC1824b);
             return;
         }
-        File a2 = interfaceC1796b.a(str);
-        if (a2 != null && interfaceC1796b != null) {
-            this.f65600b.post(new a(this, interfaceC1796b, a2));
+        File a2 = interfaceC1824b.a(str);
+        if (a2 != null && interfaceC1824b != null) {
+            this.f66445b.post(new a(this, interfaceC1824b, a2));
         } else {
-            c(g(str, interfaceC1796b, z));
+            c(g(str, interfaceC1824b, z));
         }
     }
 
     public final boolean f(String str) {
-        return this.f65599a.containsKey(str);
+        return this.f66444a.containsKey(str);
     }
 
-    public final c g(String str, InterfaceC1796b interfaceC1796b, boolean z) {
+    public final c g(String str, InterfaceC1824b interfaceC1824b, boolean z) {
         String absolutePath;
-        File b2 = interfaceC1796b != null ? interfaceC1796b.b(str) : null;
+        File b2 = interfaceC1824b != null ? interfaceC1824b.b(str) : null;
         if (b2 == null) {
             absolutePath = new File(a(), new String(Base64.encode(str.getBytes(), 0))).getAbsolutePath();
         } else {
             absolutePath = b2.getAbsolutePath();
         }
-        return new c(str, absolutePath, interfaceC1796b, z);
+        return new c(str, absolutePath, interfaceC1824b, z);
     }
 
     /* loaded from: classes5.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f65605a;
+        public String f66450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65606b;
+        public String f66451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<InterfaceC1796b> f65607c;
+        public List<InterfaceC1824b> f66452c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.c.c.b.b.c f65608d;
+        public d.c.c.b.b.c f66453d;
 
-        public c(String str, String str2, InterfaceC1796b interfaceC1796b, boolean z) {
-            this.f65605a = str;
-            this.f65606b = str2;
-            b(interfaceC1796b);
+        public c(String str, String str2, InterfaceC1824b interfaceC1824b, boolean z) {
+            this.f66450a = str;
+            this.f66451b = str2;
+            b(interfaceC1824b);
         }
 
         public void a() {
-            d.c.c.b.b.c cVar = new d.c.c.b.b.c(this.f65606b, this.f65605a, new a());
-            this.f65608d = cVar;
-            cVar.setTag("FileLoader#" + this.f65605a);
-            b.this.f65601c.a(this.f65608d);
+            d.c.c.b.b.c cVar = new d.c.c.b.b.c(this.f66451b, this.f66450a, new a());
+            this.f66453d = cVar;
+            cVar.setTag("FileLoader#" + this.f66450a);
+            b.this.f66446c.a(this.f66453d);
         }
 
-        public void b(InterfaceC1796b interfaceC1796b) {
-            if (interfaceC1796b == null) {
+        public void b(InterfaceC1824b interfaceC1824b) {
+            if (interfaceC1824b == null) {
                 return;
             }
-            if (this.f65607c == null) {
-                this.f65607c = Collections.synchronizedList(new ArrayList());
+            if (this.f66452c == null) {
+                this.f66452c = Collections.synchronizedList(new ArrayList());
             }
-            this.f65607c.add(interfaceC1796b);
+            this.f66452c.add(interfaceC1824b);
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof c) {
-                return ((c) obj).f65605a.equals(this.f65605a);
+                return ((c) obj).f66450a.equals(this.f66450a);
             }
             return super.equals(obj);
         }
@@ -170,11 +170,11 @@ public class b {
 
             @Override // d.c.c.b.b.c.a
             public void a(long j, long j2) {
-                List<InterfaceC1796b> list = c.this.f65607c;
+                List<InterfaceC1824b> list = c.this.f66452c;
                 if (list != null) {
-                    for (InterfaceC1796b interfaceC1796b : list) {
+                    for (InterfaceC1824b interfaceC1824b : list) {
                         try {
-                            interfaceC1796b.a(j, j2);
+                            interfaceC1824b.a(j, j2);
                         } catch (Throwable th) {
                             q.b(th, "file loader onDownloadProgress error", new Object[0]);
                         }
@@ -184,39 +184,39 @@ public class b {
 
             @Override // d.c.c.b.d.o.a
             public void b(o<File> oVar) {
-                List<InterfaceC1796b> list = c.this.f65607c;
+                List<InterfaceC1824b> list = c.this.f66452c;
                 if (list != null) {
-                    for (InterfaceC1796b interfaceC1796b : list) {
+                    for (InterfaceC1824b interfaceC1824b : list) {
                         try {
-                            interfaceC1796b.b(oVar);
+                            interfaceC1824b.b(oVar);
                         } catch (Throwable th) {
                             q.b(th, "file loader onErrorResponse error", new Object[0]);
                         }
                     }
-                    c.this.f65607c.clear();
+                    c.this.f66452c.clear();
                 }
-                b.this.f65599a.remove(c.this.f65605a);
+                b.this.f66444a.remove(c.this.f66450a);
             }
 
             @Override // d.c.c.b.d.o.a
             public void a(o<File> oVar) {
-                List<InterfaceC1796b> list = c.this.f65607c;
+                List<InterfaceC1824b> list = c.this.f66452c;
                 if (list != null) {
-                    for (InterfaceC1796b interfaceC1796b : list) {
+                    for (InterfaceC1824b interfaceC1824b : list) {
                         try {
-                            interfaceC1796b.a(oVar);
+                            interfaceC1824b.a(oVar);
                         } catch (Throwable th) {
                             q.b(th, "file loader onResponse error", new Object[0]);
                         }
                         try {
-                            interfaceC1796b.a(c.this.f65605a, oVar.f65739a);
+                            interfaceC1824b.a(c.this.f66450a, oVar.f66584a);
                         } catch (Throwable th2) {
                             q.b(th2, "file loader putFile error", new Object[0]);
                         }
                     }
-                    c.this.f65607c.clear();
+                    c.this.f66452c.clear();
                 }
-                b.this.f65599a.remove(c.this.f65605a);
+                b.this.f66444a.remove(c.this.f66450a);
             }
         }
     }

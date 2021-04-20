@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.h0.z0.w;
 import tbclient.GetWebviewCacheInfo.DataReq;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WebViewCacheReqMsg extends NetMessage {
     public String mWebViewVersion;
 

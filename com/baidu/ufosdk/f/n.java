@@ -12,29 +12,29 @@ import android.widget.TextView;
 public final class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f22958a;
+    public ImageView f22643a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f22959b;
+    public Handler f22644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f22960c;
+    public Context f22645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f22961d;
+    public TextView f22646d;
 
     public n(Context context, ImageView imageView, Handler handler) {
-        this.f22961d = null;
-        this.f22958a = imageView;
-        this.f22959b = handler;
-        this.f22960c = context;
+        this.f22646d = null;
+        this.f22643a = imageView;
+        this.f22644b = handler;
+        this.f22645c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
-        this.f22961d = null;
-        this.f22961d = textView;
-        this.f22959b = handler;
-        this.f22960c = context;
+        this.f22646d = null;
+        this.f22646d = textView;
+        this.f22644b = handler;
+        this.f22645c = context;
     }
 
     @Override // android.os.Handler
@@ -45,26 +45,26 @@ public final class n extends Handler {
         Object obj = message.obj;
         if (obj != null) {
             Bitmap bitmap = (Bitmap) obj;
-            if (this.f22961d != null) {
-                ImageSpan imageSpan = new ImageSpan(this.f22960c, bitmap);
+            if (this.f22646d != null) {
+                ImageSpan imageSpan = new ImageSpan(this.f22645c, bitmap);
                 SpannableString spannableString = new SpannableString("icon");
                 spannableString.setSpan(imageSpan, 0, 4, 33);
-                this.f22961d.setText(spannableString.toString());
+                this.f22646d.setText(spannableString.toString());
                 return;
             }
-            this.f22958a.setImageBitmap(bitmap);
+            this.f22643a.setImageBitmap(bitmap);
             if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.f22958a.setMaxWidth(i.a(this.f22960c, 80.0f));
-                imageView = this.f22958a;
-                a2 = i.a(this.f22960c, 120.0f);
+                this.f22643a.setMaxWidth(i.a(this.f22645c, 80.0f));
+                imageView = this.f22643a;
+                a2 = i.a(this.f22645c, 120.0f);
             } else {
-                this.f22958a.setMaxWidth(i.a(this.f22960c, 120.0f));
-                imageView = this.f22958a;
-                a2 = i.a(this.f22960c, 80.0f);
+                this.f22643a.setMaxWidth(i.a(this.f22645c, 120.0f));
+                imageView = this.f22643a;
+                a2 = i.a(this.f22645c, 80.0f);
             }
             imageView.setMaxHeight(a2);
         }
-        Handler handler = this.f22959b;
+        Handler handler = this.f22644b;
         if (handler != null) {
             handler.obtainMessage(6).sendToTarget();
         }

@@ -24,66 +24,66 @@ import javax.net.ssl.HttpsURLConnection;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42948a;
+    public Context f43340a;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f42950c;
+    public HttpURLConnection f43342c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42951d;
+    public String f43343d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42952e;
+    public String f43344e;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f42949b = new byte[1024];
+    public byte[] f43341b = new byte[1024];
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42953f = 10000;
+    public int f43345f = 10000;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42954g = 10000;
+    public int f43346g = 10000;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42955h = false;
+    public boolean f43347h = false;
     public boolean i = false;
 
     public b(Context context, Handler handler) {
-        this.f42948a = context;
+        this.f43340a = context;
     }
 
     public final InputStream a(byte[] bArr, Map<String, String> map, String str) {
         BufferedOutputStream bufferedOutputStream = null;
         try {
             try {
-                if (d.b.f0.l.c.k(this.f42948a) == 0) {
+                if (d.b.f0.l.c.k(this.f43340a) == 0) {
                     return null;
                 }
                 HttpURLConnection c2 = c(map);
-                this.f42950c = c2;
+                this.f43342c = c2;
                 if (c2 == null) {
                     return null;
                 }
                 if (bArr == null) {
                     if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(c2.getContentEncoding())) {
-                        this.f42955h = true;
+                        this.f43347h = true;
                     } else {
-                        this.f42955h = false;
+                        this.f43347h = false;
                     }
-                    this.f42950c.getResponseCode();
-                    return this.f42950c.getInputStream();
+                    this.f43342c.getResponseCode();
+                    return this.f43342c.getInputStream();
                 }
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.f42950c.getOutputStream());
+                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.f43342c.getOutputStream());
                 try {
                     bufferedOutputStream2.write(bArr);
                     bufferedOutputStream2.flush();
-                    if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(this.f42950c.getContentEncoding())) {
-                        this.f42955h = true;
+                    if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(this.f43342c.getContentEncoding())) {
+                        this.f43347h = true;
                     } else {
-                        this.f42955h = false;
+                        this.f43347h = false;
                     }
-                    this.f42950c.getResponseCode();
-                    InputStream inputStream = this.f42950c.getInputStream();
+                    this.f43342c.getResponseCode();
+                    InputStream inputStream = this.f43342c.getInputStream();
                     try {
                         bufferedOutputStream2.close();
                     } catch (Throwable th) {
@@ -121,10 +121,10 @@ public class b {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                HttpURLConnection httpURLConnection = this.f42950c;
+                HttpURLConnection httpURLConnection = this.f43342c;
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
-                    this.f42950c = null;
+                    this.f43342c = null;
                 }
                 return null;
             }
@@ -133,10 +133,10 @@ public class b {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                HttpURLConnection httpURLConnection2 = this.f42950c;
+                HttpURLConnection httpURLConnection2 = this.f43342c;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
-                    this.f42950c = null;
+                    this.f43342c = null;
                 }
                 return f2;
             } catch (Throwable th) {
@@ -144,10 +144,10 @@ public class b {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                HttpURLConnection httpURLConnection3 = this.f42950c;
+                HttpURLConnection httpURLConnection3 = this.f43342c;
                 if (httpURLConnection3 != null) {
                     httpURLConnection3.disconnect();
-                    this.f42950c = null;
+                    this.f43342c = null;
                 }
                 throw th;
             }
@@ -160,15 +160,15 @@ public class b {
     public final HttpURLConnection c(Map<String, String> map) {
         HttpURLConnection httpURLConnection;
         String str = null;
-        if (this.i || TextUtils.isEmpty(this.f42951d) || TextUtils.isEmpty(this.f42952e)) {
+        if (this.i || TextUtils.isEmpty(this.f43343d) || TextUtils.isEmpty(this.f43344e)) {
             return null;
         }
-        if (!this.f42951d.equals("POST") && !this.f42951d.equals("GET")) {
-            this.f42951d = "POST";
+        if (!this.f43343d.equals("POST") && !this.f43343d.equals("GET")) {
+            this.f43343d = "POST";
         }
-        URL url = new URL(this.f42952e);
+        URL url = new URL(this.f43344e);
         int i = 80;
-        if (2 != d.b.f0.l.c.k(this.f42948a)) {
+        if (2 != d.b.f0.l.c.k(this.f43340a)) {
             if (Build.VERSION.SDK_INT >= 13) {
                 str = System.getProperties().getProperty("http.proxyHost");
                 String property = System.getProperties().getProperty("http.proxyPort");
@@ -181,8 +181,8 @@ public class b {
                 }
                 i = -1;
             } else {
-                str = Proxy.getHost(this.f42948a);
-                i = Proxy.getPort(this.f42948a);
+                str = Proxy.getHost(this.f43340a);
+                i = Proxy.getPort(this.f43340a);
             }
         }
         if (str != null && i > 0) {
@@ -190,21 +190,21 @@ public class b {
         } else {
             httpURLConnection = (HttpURLConnection) url.openConnection();
         }
-        if (this.f42952e.startsWith("https")) {
+        if (this.f43344e.startsWith("https")) {
             c.b((HttpsURLConnection) httpURLConnection);
         }
-        httpURLConnection.setRequestMethod(this.f42951d);
+        httpURLConnection.setRequestMethod(this.f43343d);
         httpURLConnection.setDoInput(true);
-        if ("POST".equals(this.f42951d)) {
+        if ("POST".equals(this.f43343d)) {
             httpURLConnection.setDoOutput(true);
         }
         httpURLConnection.setInstanceFollowRedirects(true);
-        httpURLConnection.setConnectTimeout(this.f42953f);
-        httpURLConnection.setReadTimeout(this.f42954g);
-        httpURLConnection.setRequestProperty("x-device-id", g.b(d.b.f0.l.d.e(this.f42948a)));
+        httpURLConnection.setConnectTimeout(this.f43345f);
+        httpURLConnection.setReadTimeout(this.f43346g);
+        httpURLConnection.setRequestProperty("x-device-id", g.b(d.b.f0.l.d.e(this.f43340a)));
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
-        String str2 = d.b.f0.a.f42809b;
-        String h2 = d.b.f0.l.c.h(this.f42948a);
+        String str2 = d.b.f0.a.f43201b;
+        String h2 = d.b.f0.l.c.h(this.f43340a);
         httpURLConnection.setRequestProperty("User-Agent", "sso/" + str2 + "/" + h2 + "/1.0.5");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -214,7 +214,7 @@ public class b {
         sb.append("1.0.5");
         httpURLConnection.setRequestProperty("x-sdk-ver", sb.toString());
         httpURLConnection.setRequestProperty("x-plu-ver", "sso/1.0.5");
-        httpURLConnection.setRequestProperty("x-app-ver", this.f42948a.getPackageName() + "/" + d.b.f0.l.c.h(this.f42948a));
+        httpURLConnection.setRequestProperty("x-app-ver", this.f43340a.getPackageName() + "/" + d.b.f0.l.c.h(this.f43340a));
         StringBuilder sb2 = new StringBuilder();
         sb2.append("android/");
         sb2.append(d.b.f0.l.c.g());
@@ -228,16 +228,16 @@ public class b {
     }
 
     public final void d(String str, String str2) {
-        this.f42951d = str;
-        this.f42952e = str2;
+        this.f43343d = str;
+        this.f43344e = str2;
     }
 
     public final byte[] e(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
-            int read = inputStream.read(this.f42949b);
+            int read = inputStream.read(this.f43341b);
             if (read != -1) {
-                byteArrayOutputStream.write(this.f42949b, 0, read);
+                byteArrayOutputStream.write(this.f43341b, 0, read);
             } else {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
@@ -251,7 +251,7 @@ public class b {
         if (inputStream == null || (e2 = e(inputStream)) == null) {
             return null;
         }
-        if (this.f42955h) {
+        if (this.f43347h) {
             e2 = f.d(e2);
         }
         return e2 == null ? "" : new String(e2);

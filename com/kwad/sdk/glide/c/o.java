@@ -9,42 +9,42 @@ import java.util.WeakHashMap;
 public final class o implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<com.kwad.sdk.glide.request.a.j<?>> f35123a = Collections.newSetFromMap(new WeakHashMap());
+    public final Set<com.kwad.sdk.glide.request.a.j<?>> f35412a = Collections.newSetFromMap(new WeakHashMap());
 
     @NonNull
     public List<com.kwad.sdk.glide.request.a.j<?>> a() {
-        return com.kwad.sdk.glide.g.k.a(this.f35123a);
+        return com.kwad.sdk.glide.g.k.a(this.f35412a);
     }
 
     public void a(@NonNull com.kwad.sdk.glide.request.a.j<?> jVar) {
-        this.f35123a.add(jVar);
+        this.f35412a.add(jVar);
     }
 
     public void b() {
-        this.f35123a.clear();
+        this.f35412a.clear();
     }
 
     public void b(@NonNull com.kwad.sdk.glide.request.a.j<?> jVar) {
-        this.f35123a.remove(jVar);
+        this.f35412a.remove(jVar);
     }
 
     @Override // com.kwad.sdk.glide.c.i
     public void c() {
-        for (com.kwad.sdk.glide.request.a.j jVar : com.kwad.sdk.glide.g.k.a(this.f35123a)) {
+        for (com.kwad.sdk.glide.request.a.j jVar : com.kwad.sdk.glide.g.k.a(this.f35412a)) {
             jVar.c();
         }
     }
 
     @Override // com.kwad.sdk.glide.c.i
     public void d() {
-        for (com.kwad.sdk.glide.request.a.j jVar : com.kwad.sdk.glide.g.k.a(this.f35123a)) {
+        for (com.kwad.sdk.glide.request.a.j jVar : com.kwad.sdk.glide.g.k.a(this.f35412a)) {
             jVar.d();
         }
     }
 
     @Override // com.kwad.sdk.glide.c.i
     public void e() {
-        for (com.kwad.sdk.glide.request.a.j jVar : com.kwad.sdk.glide.g.k.a(this.f35123a)) {
+        for (com.kwad.sdk.glide.request.a.j jVar : com.kwad.sdk.glide.g.k.a(this.f35412a)) {
             jVar.e();
         }
     }

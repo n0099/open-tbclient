@@ -3,16 +3,17 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.security.MessageDigest;
 import java.util.UUID;
 /* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1563a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String f1549a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1564b = "";
+    public static String f1550b = "";
 
     public static String a() {
         String uuid = UUID.randomUUID().toString();
@@ -25,16 +26,16 @@ public class c {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f1564b)) {
+        if (TextUtils.isEmpty(f1550b)) {
             String b2 = b(context);
-            f1564b = b2;
+            f1550b = b2;
             if (TextUtils.isEmpty(b2)) {
                 String c2 = c(context);
-                f1564b = c2;
+                f1550b = c2;
                 a(context, c2);
             }
         }
-        return f1564b;
+        return f1550b;
     }
 
     public static String a(String str) {
@@ -71,7 +72,7 @@ public class c {
 
     public static String c(Context context) {
         try {
-            String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
             String lowerCase = !TextUtils.isEmpty(string) ? string.toLowerCase() : UUID.randomUUID().toString();
             return TextUtils.isEmpty(lowerCase) ? "default" : a(lowerCase + "default");
         }

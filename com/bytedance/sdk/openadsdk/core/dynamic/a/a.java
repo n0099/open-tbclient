@@ -16,52 +16,52 @@ import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements com.bytedance.sdk.openadsdk.core.dynamic.d.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28254a;
+    public String f27939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28255b;
+    public String f27940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28256c;
+    public int f27941c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28257d;
+    public String f27942d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f28258e;
+    public l f27943e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f28259f;
+    public JSONObject f27944f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DynamicRootView f28260g;
+    public DynamicRootView f27945g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.dynamic.c.a f28261h;
+    public com.bytedance.sdk.openadsdk.core.dynamic.c.a f27946h;
     public Context i;
 
     public a(Context context) {
         this.i = context;
-        this.f28260g = new DynamicRootView(context);
-        this.f28261h = new com.bytedance.sdk.openadsdk.core.dynamic.c.a(this.i);
+        this.f27945g = new DynamicRootView(context);
+        this.f27946h = new com.bytedance.sdk.openadsdk.core.dynamic.c.a(this.i);
     }
 
     private JSONObject d() {
         JSONObject jSONObject = new JSONObject();
         if (p.h() != null) {
             try {
-                int d2 = ak.d(this.f28255b);
+                int d2 = ak.d(this.f27940b);
                 int g2 = p.h().g(String.valueOf(d2));
                 boolean b2 = p.h().b(String.valueOf(d2));
                 jSONObject.put("voice_control", p.h().b(d2));
                 jSONObject.put("rv_skip_time", g2);
                 jSONObject.put("fv_skip_show", b2);
-                jSONObject.put("show_dislike", this.f28258e != null && this.f28258e.aJ());
-                jSONObject.put("video_adaptation", this.f28258e != null ? this.f28258e.l() : 0);
+                jSONObject.put("show_dislike", this.f27943e != null && this.f27943e.aJ());
+                jSONObject.put("video_adaptation", this.f27943e != null ? this.f27943e.l() : 0);
             } catch (Exception unused) {
             }
         }
@@ -84,24 +84,24 @@ public class a implements com.bytedance.sdk.openadsdk.core.dynamic.d.b {
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b b(String str) {
-        this.f28255b = str;
+        this.f27940b = str;
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b c(String str) {
-        this.f28257d = str;
+        this.f27942d = str;
         return this;
     }
 
     private String c() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f28259f != null) {
-                this.f28259f.put(com.alipay.sdk.sys.a.j, d());
+            if (this.f27944f != null) {
+                this.f27944f.put(com.alipay.sdk.sys.a.j, d());
             }
-            jSONObject.put("templateInfo", this.f28259f);
-            jSONObject.put("adInfo", new com.bytedance.sdk.openadsdk.core.dynamic.b.a(this.f28258e).a());
+            jSONObject.put("templateInfo", this.f27944f);
+            jSONObject.put("adInfo", new com.bytedance.sdk.openadsdk.core.dynamic.b.a(this.f27943e).a());
             jSONObject.put(DI.APP_INFO_NAME, new com.bytedance.sdk.openadsdk.core.dynamic.b.b().a());
         } catch (Exception unused) {
         }
@@ -110,40 +110,40 @@ public class a implements com.bytedance.sdk.openadsdk.core.dynamic.d.b {
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b a(j jVar) {
-        this.f28260g.setRenderListener(jVar);
+        this.f27945g.setRenderListener(jVar);
         return this;
     }
 
     public DynamicRootView b() {
-        return this.f28260g;
+        return this.f27945g;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b a(l lVar) {
-        this.f28258e = lVar;
+        this.f27943e = lVar;
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b a(String str) {
-        this.f28254a = str;
+        this.f27939a = str;
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b a(int i) {
-        this.f28256c = i;
+        this.f27941c = i;
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.b
     public com.bytedance.sdk.openadsdk.core.dynamic.d.b a(JSONObject jSONObject) {
-        this.f28259f = jSONObject;
+        this.f27944f = jSONObject;
         return this;
     }
 
     public void a() {
-        this.f28261h.a(new c() { // from class: com.bytedance.sdk.openadsdk.core.dynamic.a.a.1
+        this.f27946h.a(new c() { // from class: com.bytedance.sdk.openadsdk.core.dynamic.a.a.1
             @Override // com.bytedance.sdk.openadsdk.core.dynamic.d.c
             public void a(final f fVar) {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.dynamic.a.a.1.1
@@ -154,22 +154,22 @@ public class a implements com.bytedance.sdk.openadsdk.core.dynamic.d.b {
                 });
             }
         });
-        this.f28261h.b(c());
+        this.f27946h.b(c());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(f fVar) {
         if (fVar == null) {
-            this.f28260g.b();
+            this.f27945g.b();
             return;
         }
         try {
-            DynamicBaseWidgetImp dynamicBaseWidgetImp = new DynamicBaseWidgetImp(this.i, this.f28260g, fVar);
+            DynamicBaseWidgetImp dynamicBaseWidgetImp = new DynamicBaseWidgetImp(this.i, this.f27945g, fVar);
             a(fVar, dynamicBaseWidgetImp);
-            this.f28260g.setDynamicBaseWidget(dynamicBaseWidgetImp);
-            this.f28260g.a();
+            this.f27945g.setDynamicBaseWidget(dynamicBaseWidgetImp);
+            this.f27945g.a();
         } catch (Exception unused) {
-            this.f28260g.b();
+            this.f27945g.b();
         }
     }
 
@@ -180,7 +180,7 @@ public class a implements com.bytedance.sdk.openadsdk.core.dynamic.d.b {
         }
         for (f fVar2 : fVar.f()) {
             if (fVar2 != null) {
-                DynamicBaseWidget a2 = b.a(this.i, this.f28260g, fVar2);
+                DynamicBaseWidget a2 = b.a(this.i, this.f27945g, fVar2);
                 a(fVar2, a2);
                 dynamicBaseWidget.a(a2);
             }

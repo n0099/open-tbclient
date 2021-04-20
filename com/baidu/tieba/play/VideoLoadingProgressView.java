@@ -10,21 +10,21 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-/* loaded from: classes5.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes3.dex */
 public class VideoLoadingProgressView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f20504e;
+    public float f20196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20505f;
+    public int f20197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20506g;
+    public float f20198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20507h;
+    public int f20199h;
     public float i;
     public int j;
     public RectF k;
@@ -42,7 +42,7 @@ public class VideoLoadingProgressView extends View {
     public ValueAnimator.AnimatorUpdateListener w;
     public AnimatorListenerAdapter x;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -62,7 +62,7 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends AnimatorListenerAdapter {
         public b() {
         }
@@ -78,17 +78,17 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void onAnimationEnd();
     }
 
     public VideoLoadingProgressView(Context context) {
         super(context);
-        this.f20504e = 7200.0f;
-        this.f20505f = 10000;
-        this.f20506g = 30.0f;
-        this.f20507h = 50;
+        this.f20196e = 7200.0f;
+        this.f20197f = 10000;
+        this.f20198g = 30.0f;
+        this.f20199h = 50;
         this.i = 300.0f;
         this.j = 400;
         this.o = -90.0f;
@@ -134,9 +134,9 @@ public class VideoLoadingProgressView extends View {
         g();
         this.r = 2;
         this.o = this.p;
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f20506g);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f20198g);
         this.u = ofFloat;
-        ofFloat.setDuration(this.f20507h);
+        ofFloat.setDuration(this.f20199h);
         this.u.addListener(this.x);
         this.u.addUpdateListener(this.w);
         this.u.start();
@@ -159,9 +159,9 @@ public class VideoLoadingProgressView extends View {
         this.r = 1;
         this.p = -90.0f;
         this.o = -90.0f;
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f20504e);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f20196e);
         this.t = ofFloat;
-        ofFloat.setDuration(this.f20505f);
+        ofFloat.setDuration(this.f20197f);
         this.t.addListener(this.x);
         this.t.addUpdateListener(this.w);
         this.t.start();
@@ -193,10 +193,10 @@ public class VideoLoadingProgressView extends View {
 
     public VideoLoadingProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20504e = 7200.0f;
-        this.f20505f = 10000;
-        this.f20506g = 30.0f;
-        this.f20507h = 50;
+        this.f20196e = 7200.0f;
+        this.f20197f = 10000;
+        this.f20198g = 30.0f;
+        this.f20199h = 50;
         this.i = 300.0f;
         this.j = 400;
         this.o = -90.0f;
@@ -209,10 +209,10 @@ public class VideoLoadingProgressView extends View {
 
     public VideoLoadingProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20504e = 7200.0f;
-        this.f20505f = 10000;
-        this.f20506g = 30.0f;
-        this.f20507h = 50;
+        this.f20196e = 7200.0f;
+        this.f20197f = 10000;
+        this.f20198g = 30.0f;
+        this.f20199h = 50;
         this.i = 300.0f;
         this.j = 400;
         this.o = -90.0f;

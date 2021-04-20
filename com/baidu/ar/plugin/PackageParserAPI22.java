@@ -15,7 +15,6 @@ import android.os.Build;
 import android.os.UserHandle;
 import com.baidu.ar.plugin.reflect.FieldUtils;
 import com.baidu.ar.plugin.reflect.MethodUtils;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.vivo.push.PushClientConstants;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -161,7 +160,7 @@ public class PackageParserAPI22 extends PackageParser {
 
     @Override // com.baidu.ar.plugin.PackageParser
     public String getPackageName() throws Exception {
-        return (String) FieldUtils.readField(this.mPackage, InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        return (String) FieldUtils.readField(this.mPackage, "packageName");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser

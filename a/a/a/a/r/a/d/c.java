@@ -1,70 +1,126 @@
 package a.a.a.a.r.a.d;
 
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
+import a.a.a.a.s.e;
+import a.a.a.a.v.d;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.fun.ad.sdk.FunAdSlot;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBVideo;
+import com.win.opensdk.PBVideoListener;
 /* loaded from: classes.dex */
-public class c implements AdEventListener {
+public class c extends a.a.a.a.b<PBVideo> {
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f1164a;
+    /* loaded from: classes.dex */
+    public class a implements PBVideoListener {
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f1165b;
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f1212a;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ NativeExpressADData2 f1166c;
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f1213b;
 
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f1167d;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PBVideo f1214c;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ b f1168e;
+        public a(PBVideo pBVideo) {
+            this.f1214c = pBVideo;
+        }
 
-    public c(b bVar, NativeExpressADData2 nativeExpressADData2, String str) {
-        this.f1168e = bVar;
-        this.f1166c = nativeExpressADData2;
-        this.f1167d = str;
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            d.a();
+            c.this.f1010g.a(this.f1213b);
+            this.f1213b = true;
+            c.this.e();
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            d.b("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
+            c.this.f1010g.b(Integer.valueOf(pBError.getCode()));
+            c.this.b(pBError.getCode(), pBError.getMsg());
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            d.a();
+            c.this.f1010g.b();
+            c cVar = c.this;
+            cVar.a((c) this.f1214c);
+            cVar.h();
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdClosed() {
+            d.a();
+            c.this.f1010g.d();
+            c.this.f();
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdOpened() {
+            d.a();
+            c.this.f1010g.b(this.f1212a);
+            this.f1212a = true;
+            c.this.a((c) null, (String) null);
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedShowFail(String str) {
+            d.b("onRewardedShowFail: errorCode: 0, , errorMessage: " + str, new Object[0]);
+            c.this.f1010g.b(str);
+            c.this.a(0, str);
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onUserEarnedReward(boolean z, long j) {
+            d.a();
+            c.this.f1010g.f();
+            c.this.i();
+        }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onAdClosed() {
-        a.a.a.a.v.d.a();
-        this.f1168e.f1010g.d();
-        this.f1168e.f();
+    public c(e.a aVar) {
+        super(aVar);
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onClick() {
-        a.a.a.a.v.d.a();
-        this.f1168e.f1010g.a(this.f1165b);
-        this.f1165b = true;
-        this.f1168e.e();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
+    @Override // a.a.a.a.b
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, PBVideo pBVideo) {
+        PBVideo pBVideo2 = pBVideo;
+        this.f1010g.g();
+        if (pBVideo2.isReady()) {
+            pBVideo2.show();
+            return true;
+        }
+        d.b("Ad isn't ready now", new Object[0]);
+        return false;
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onExposed() {
-        a.a.a.a.v.d.b();
-        this.f1168e.f1010g.b(this.f1164a);
-        this.f1164a = true;
-        b bVar = this.f1168e;
-        NativeExpressADData2 nativeExpressADData2 = this.f1166c;
-        bVar.a((b) nativeExpressADData2, bVar.m.remove(nativeExpressADData2));
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.f1011h.f1320c);
+        pBVideo.setVideoListener(new a(pBVideo));
+        this.f1010g.a(funAdSlot, this.f1011h);
+        pBVideo.load();
+        g();
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderFail() {
-        a.a.a.a.v.d.a();
-        a.a.a.a.v.f.g.c.a(this.f1168e.f1010g.f1391a, "render_failed", new Object[0]);
-        this.f1168e.b(0, "RenderFail");
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // a.a.a.a.b
+    public void b(PBVideo pBVideo) {
+        PBVideo pBVideo2 = pBVideo;
+        if (pBVideo2 != null) {
+            pBVideo2.destroy();
+        }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderSuccess() {
-        a.a.a.a.v.d.a();
-        this.f1168e.f1010g.e();
-        this.f1168e.m.put(this.f1166c, this.f1167d);
-        b bVar = this.f1168e;
-        bVar.a((b) this.f1166c);
-        bVar.h();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // a.a.a.a.b
+    public boolean c(PBVideo pBVideo) {
+        PBVideo pBVideo2 = pBVideo;
+        return pBVideo2 != null && pBVideo2.isReady();
     }
 }

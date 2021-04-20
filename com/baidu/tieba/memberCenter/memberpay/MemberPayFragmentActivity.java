@@ -36,10 +36,10 @@ import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
-import d.b.h0.s.c.s;
-import d.b.i0.q1.f.f;
+import d.b.h0.s.c.u;
+import d.b.i0.r1.f.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -97,7 +97,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                         MemberPayFragmentActivity.this.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(MemberPayFragmentActivity.this.mCurrentShowType)));
                         MemberPayFragmentActivity.this.setResult(-1);
-                        d.b.h0.r.d0.b.i().s("show_member_deid_line", true);
+                        d.b.h0.r.d0.b.j().t("show_member_deid_line", true);
                         if (!MemberPayFragmentActivity.this.mIsClose) {
                             MemberPayFragmentActivity.this.requestMemberPayInfo();
                         } else {
@@ -123,7 +123,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (responseMemberPayMessage.getMemberPayResult() != null) {
-                        d.b.i0.q1.f.f memberPayResult = responseMemberPayMessage.getMemberPayResult();
+                        d.b.i0.r1.f.f memberPayResult = responseMemberPayMessage.getMemberPayResult();
                         MemberPayFragmentActivity.this.initFragment(memberPayResult);
                         if (MemberPayFragmentActivity.this.mFragmentAdapter != null) {
                             int count = MemberPayFragmentActivity.this.mFragmentAdapter.getCount();
@@ -284,14 +284,14 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f13313c = fragment;
-        bVar.f13311a = i;
+        bVar.f12974c = fragment;
+        bVar.f12972a = i;
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f13312b = fragmentTabIndicator;
+        bVar.f12973b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -337,12 +337,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void initFragment(d.b.i0.q1.f.f fVar) {
+    public void initFragment(d.b.i0.r1.f.f fVar) {
         if (this.mHasInit) {
             return;
         }
         this.mHasInit = true;
-        boolean z = fVar.f59404a.f59430c.f59426a == 2 || this.mWantedMemberType == 2;
+        boolean z = fVar.f61098a.f61124c.f61120a == 2 || this.mWantedMemberType == 2;
         ArrayList arrayList = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putString("member_refer_page", this.mReferPage);
@@ -350,9 +350,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         bundle.putBoolean("member_is_pay_dialog", this.mIsPayDialog.booleanValue());
         bundle.putInt("member_from_type", this.mFrom);
         if (!z) {
-            f.b bVar = fVar.f59405b;
-            if (bVar.f59411a != null) {
-                if (bVar.f59412b == null) {
+            f.b bVar = fVar.f61099b;
+            if (bVar.f61105a != null) {
+                if (bVar.f61106b == null) {
                     MemberPayFragment memberPayFragment = new MemberPayFragment();
                     bundle.putInt("member_type", 1);
                     this.mCurrentShowType = 1;
@@ -497,7 +497,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public d.b.h0.k0.d getPageStayDurationItem() {
         d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
         }
         return pageStayDurationItem;
     }
@@ -536,7 +536,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         handleIntent();
-        s consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+        u consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
         if (consumePathData != null) {
             this.mIsPayDialog = Boolean.valueOf(consumePathData.b(1, this.mSceneId));
         }

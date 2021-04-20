@@ -7,39 +7,40 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import d.b.b.a.j;
+import d.b.c.a.j;
 import d.b.h0.r.s.a;
-import d.b.i0.c3.z;
+import d.b.i0.d3.z;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: d.b.h0.s.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1097a implements a.e {
+    public static class C1110a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f51356e;
+        public final /* synthetic */ int f51773e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f51357f;
+        public final /* synthetic */ Context f51774f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f51358g;
+        public final /* synthetic */ DialogInterface.OnCancelListener f51775g;
 
-        public C1097a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
-            this.f51356e = i;
-            this.f51357f = context;
-            this.f51358g = onCancelListener;
+        public C1110a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
+            this.f51773e = i;
+            this.f51774f = context;
+            this.f51775g = onCancelListener;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            a.d(this.f51356e, this.f51357f);
+            a.d(this.f51773e, this.f51774f);
             aVar.dismiss();
-            DialogInterface.OnCancelListener onCancelListener = this.f51358g;
+            DialogInterface.OnCancelListener onCancelListener = this.f51775g;
             if (onCancelListener != null) {
                 onCancelListener.onCancel(aVar.getDialog());
             }
@@ -50,16 +51,16 @@ public class a {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f51359e;
+        public final /* synthetic */ DialogInterface.OnCancelListener f51776e;
 
         public b(DialogInterface.OnCancelListener onCancelListener) {
-            this.f51359e = onCancelListener;
+            this.f51776e = onCancelListener;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            DialogInterface.OnCancelListener onCancelListener = this.f51359e;
+            DialogInterface.OnCancelListener onCancelListener = this.f51776e;
             if (onCancelListener != null) {
                 onCancelListener.onCancel(aVar.getDialog());
             }
@@ -102,7 +103,7 @@ public class a {
             intent = new Intent("android.intent.action.MAIN");
             ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
             intent.addCategory("android.intent.category.LAUNCHER");
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.setComponent(componentName);
             context.startActivity(intent);
         } else if (i == 8 || i == 4) {
@@ -111,7 +112,7 @@ public class a {
                 return;
             }
             intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent);
         } else if (i != 6) {
             intent = null;
@@ -123,7 +124,7 @@ public class a {
             intent.setAction("android.intent.action.VIEW");
             intent.addCategory("android.intent.category.DEFAULT");
             intent.setData(Uri.parse("sinaweibo://splash"));
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         if (intent != null) {
             context.startActivity(intent);
@@ -134,7 +135,7 @@ public class a {
         if (shareItem == null || TextUtils.isEmpty(shareItem.s) || TextUtils.isEmpty(shareItem.r) || !(context instanceof Activity)) {
             return;
         }
-        d.b.b.e.p.a.a(shareItem.l0);
+        d.b.c.e.p.a.a(shareItem.l0);
         Activity activity = (Activity) context;
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(activity);
         aVar.setTitle(context.getString(R.string.command_share_tips));
@@ -142,7 +143,7 @@ public class a {
         aVar.setAutoNight(false);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
-        aVar.setPositiveButton(c(i, context), new C1097a(i, context, onCancelListener));
+        aVar.setPositiveButton(c(i, context), new C1110a(i, context, onCancelListener));
         aVar.setNegativeButton(R.string.cancel, new b(onCancelListener)).create(j.a(activity));
         if (onCancelListener != null) {
             aVar.setOnCalcelListener(onCancelListener);

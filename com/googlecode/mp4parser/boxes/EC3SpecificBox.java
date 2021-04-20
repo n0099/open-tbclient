@@ -12,15 +12,15 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dec3";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_8 = null;
     public int dataRate;
     public List<Entry> entries;
     public int numIndSub;

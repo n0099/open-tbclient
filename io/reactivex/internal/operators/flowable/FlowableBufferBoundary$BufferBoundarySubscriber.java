@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.e;
-import f.a.g;
-import f.a.w.h;
-import f.a.x.f.a;
+import f.b.e;
+import f.b.g;
+import f.b.w.h;
+import f.b.x.f.a;
 import g.d.b;
 import g.d.c;
 import g.d.d;
@@ -28,14 +28,14 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
     public long emitted;
     public long index;
     public final a<C> queue = new a<>(e.a());
-    public final f.a.t.a subscribers = new f.a.t.a();
+    public final f.b.t.a subscribers = new f.b.t.a();
     public final AtomicLong requested = new AtomicLong();
     public final AtomicReference<d> upstream = new AtomicReference<>();
     public Map<Long, C> buffers = new LinkedHashMap();
     public final AtomicThrowable errors = new AtomicThrowable();
 
     /* loaded from: classes7.dex */
-    public static final class BufferOpenSubscriber<Open> extends AtomicReference<d> implements g<Open>, f.a.t.b {
+    public static final class BufferOpenSubscriber<Open> extends AtomicReference<d> implements g<Open>, f.b.t.b {
         public static final long serialVersionUID = -8498650778633225126L;
         public final FlowableBufferBoundary$BufferBoundarySubscriber<?, ?, Open, ?> parent;
 
@@ -43,12 +43,12 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
             this.parent = flowableBufferBoundary$BufferBoundarySubscriber;
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             SubscriptionHelper.cancel(this);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get() == SubscriptionHelper.CANCELLED;
         }
@@ -70,7 +70,7 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
             this.parent.open(open);
         }
 
-        @Override // f.a.g, g.d.c
+        @Override // f.b.g, g.d.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
@@ -85,7 +85,7 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
         this.bufferClose = hVar;
     }
 
-    public void boundaryError(f.a.t.b bVar, Throwable th) {
+    public void boundaryError(f.b.t.b bVar, Throwable th) {
         SubscriptionHelper.cancel(this.upstream);
         this.subscribers.c(bVar);
         onError(th);
@@ -235,7 +235,7 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     @Override // g.d.c
@@ -251,7 +251,7 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this.upstream, dVar)) {
             BufferOpenSubscriber bufferOpenSubscriber = new BufferOpenSubscriber(this);
@@ -264,10 +264,10 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
     public void open(Open open) {
         try {
             C call = this.bufferSupplier.call();
-            f.a.x.b.a.b(call, "The bufferSupplier returned a null Collection");
+            f.b.x.b.a.b(call, "The bufferSupplier returned a null Collection");
             C c2 = call;
             b<? extends Close> apply = this.bufferClose.apply(open);
-            f.a.x.b.a.b(apply, "The bufferClose returned a null Publisher");
+            f.b.x.b.a.b(apply, "The bufferClose returned a null Publisher");
             b<? extends Close> bVar = apply;
             long j = this.index;
             this.index = 1 + j;
@@ -282,7 +282,7 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
                 bVar.subscribe(flowableBufferBoundary$BufferCloseSubscriber);
             }
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             SubscriptionHelper.cancel(this.upstream);
             onError(th);
         }
@@ -299,7 +299,7 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
 
     @Override // g.d.d
     public void request(long j) {
-        f.a.x.i.b.a(this.requested, j);
+        f.b.x.i.b.a(this.requested, j);
         drain();
     }
 }

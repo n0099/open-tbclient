@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Keep;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
@@ -62,10 +63,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     private void inflateJsBridgeContext() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.mJsBridgeContext = aVar;
-        aVar.f34286b = this.mAdTemplate;
-        aVar.f34285a = 0;
-        aVar.f34290f = this.mAdWebView;
-        aVar.f34289e = this.mWebContainer;
+        aVar.f34575b = this.mAdTemplate;
+        aVar.f34574a = 0;
+        aVar.f34579f = this.mAdWebView;
+        aVar.f34578e = this.mWebContainer;
     }
 
     private void initTipBarView() {
@@ -137,7 +138,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
             return;
         }
         Intent intent = new Intent(context, AdWebViewActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("key_template", adTemplate);
         context.startActivity(intent);
         if (context instanceof ResContext) {

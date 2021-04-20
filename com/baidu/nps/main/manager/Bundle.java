@@ -9,11 +9,10 @@ import android.util.Log;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
 import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import d.b.z.g.a;
-import d.b.z.h.c;
-import d.b.z.h.d;
+import d.b.w.g.a;
+import d.b.w.h.c;
+import d.b.w.h.d;
 /* loaded from: classes2.dex */
 public class Bundle {
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";
@@ -31,7 +30,7 @@ public class Bundle {
 
     private boolean bindProviders() {
         Application applicationContext = ContextHolder.getApplicationContext();
-        PackageInfo a2 = d.a(c.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+        PackageInfo a2 = d.a(c.d(applicationContext, this.mBundleInfo.getPackageName() + ".apk").getAbsolutePath(), 138);
         if (a2 == null) {
             return false;
         }

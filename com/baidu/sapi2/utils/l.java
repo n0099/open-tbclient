@@ -12,13 +12,13 @@ import java.util.List;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11528a = "weixin";
+    public static final String f11112a = "weixin";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11529b = "qzone";
+    public static final String f11113b = "qzone";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11530c = "tsina";
+    public static final String f11114c = "tsina";
 
     public static boolean a(Context context) {
         return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;
@@ -69,7 +69,7 @@ public class l {
         if (str.equals("qzone")) {
             message.what = SocialType.QQ_SSO.getType();
             message.obj = SocialType.QQ_SSO;
-        } else if (str.equals(f11528a)) {
+        } else if (str.equals(f11112a)) {
             message.what = SocialType.WEIXIN.getType();
             message.obj = SocialType.WEIXIN;
         } else if (str.equals("tsina")) {

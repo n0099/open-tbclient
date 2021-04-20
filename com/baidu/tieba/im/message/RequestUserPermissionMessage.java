@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import protobuf.QueryUserPermission.DataReq;
 import protobuf.QueryUserPermission.QueryUserPermissionReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestUserPermissionMessage extends TbSocketMessage {
     public long forumId;
 

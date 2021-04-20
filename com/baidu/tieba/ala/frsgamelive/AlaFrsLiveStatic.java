@@ -20,8 +20,8 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import d.b.i0.p0.j0;
-import d.b.i0.p0.k0;
+import d.b.i0.q0.j0;
+import d.b.i0.q0.k0;
 /* loaded from: classes4.dex */
 public class AlaFrsLiveStatic {
 
@@ -41,7 +41,7 @@ public class AlaFrsLiveStatic {
             if (data instanceof k0) {
                 k0 k0Var = (k0) data;
                 d.b.i0.t.e.c.a aVar = new d.b.i0.t.e.c.a(true);
-                aVar.getFragmentTabStructure().f50159e = 2;
+                aVar.getFragmentTabStructure().f50552e = 2;
                 aVar.b(k0Var.c());
                 aVar.c(k0Var.d());
                 aVar.a(k0Var.b());
@@ -68,7 +68,7 @@ public class AlaFrsLiveStatic {
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
                 d.b.i0.t.e.c.a aVar = new d.b.i0.t.e.c.a(true);
-                aVar.getFragmentTabStructure().f50159e = 9;
+                aVar.getFragmentTabStructure().f50552e = 9;
                 aVar.b(j0Var.d());
                 aVar.c(j0Var.e());
                 aVar.a(j0Var.c());
@@ -97,7 +97,7 @@ public class AlaFrsLiveStatic {
             if (data instanceof k0) {
                 k0 k0Var = (k0) data;
                 d.b.i0.t.e.c.a aVar = new d.b.i0.t.e.c.a(false);
-                aVar.getFragmentTabStructure().f50159e = 1;
+                aVar.getFragmentTabStructure().f50552e = 1;
                 aVar.b(k0Var.c());
                 aVar.c(k0Var.d());
                 aVar.a(k0Var.b());
@@ -124,7 +124,7 @@ public class AlaFrsLiveStatic {
             if (data instanceof k0) {
                 k0 k0Var = (k0) data;
                 d.b.i0.t.g.a.a aVar = new d.b.i0.t.g.a.a();
-                aVar.getFragmentTabStructure().f50159e = 3;
+                aVar.getFragmentTabStructure().f50552e = 3;
                 aVar.a(k0Var.c());
                 aVar.b(k0Var.d());
                 aVar.c(false);
@@ -149,8 +149,8 @@ public class AlaFrsLiveStatic {
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
                 d.b.i0.t.g.a.a aVar = new d.b.i0.t.g.a.a();
-                aVar.getFragmentTabStructure().f50159e = 8;
-                aVar.getFragmentTabStructure().f50156b = R.string.ala_video;
+                aVar.getFragmentTabStructure().f50552e = 8;
+                aVar.getFragmentTabStructure().f50549b = R.string.ala_video;
                 aVar.a(j0Var.d());
                 aVar.b(j0Var.e());
                 aVar.c(true);

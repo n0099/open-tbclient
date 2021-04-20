@@ -21,7 +21,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
-import d.b.b.a.a;
+import d.b.c.a.a;
 import io.flutter.Log;
 import io.flutter.embedding.android.DrawableSplashScreen;
 import io.flutter.embedding.android.FlutterView;

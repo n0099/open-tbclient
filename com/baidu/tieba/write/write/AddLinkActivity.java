@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 /* loaded from: classes5.dex */
 public class AddLinkActivity extends BaseActivity {
     public TextView mAddLinkTip;
@@ -181,10 +181,10 @@ public class AddLinkActivity extends BaseActivity {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f22400e;
+        public final /* synthetic */ String f22085e;
 
         public i(String str) {
-            this.f22400e = str;
+            this.f22085e = str;
         }
 
         @Override // java.lang.Runnable
@@ -195,7 +195,7 @@ public class AddLinkActivity extends BaseActivity {
             }
             WriteTipBubbleController writeTipBubbleController = AddLinkActivity.this.mFindNewLinkBubbleController;
             EditText editText = AddLinkActivity.this.mLinkEditView;
-            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f22400e, this.f22400e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f22085e, this.f22085e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
         }
     }
 
@@ -257,7 +257,7 @@ public class AddLinkActivity extends BaseActivity {
 
     private void setCompleteBtnColor() {
         int color = SkinManager.getColor(R.color.CAM_X0302);
-        this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{d.b.i0.c3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), d.b.i0.c3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{d.b.i0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), d.b.i0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -287,9 +287,9 @@ public class AddLinkActivity extends BaseActivity {
         setCompleteBtnColor();
         SkinManager.setViewTextColor(this.mLinkEditView, R.color.CAM_X0105);
         this.mLinkEditView.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.mEditAreaLayout);
-        a2.h(R.string.J_X01);
-        a2.c(R.color.CAM_X0209);
+        d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.mEditAreaLayout);
+        d2.k(R.string.J_X01);
+        d2.f(R.color.CAM_X0209);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SkinManager.setViewTextColor(this.mAddLinkTip, R.color.CAM_X0110);
     }

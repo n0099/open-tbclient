@@ -1,69 +1,60 @@
 package d.b.i0.y2;
 
+import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.NetWork;
-/* loaded from: classes5.dex */
-public class e {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f62620c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+import com.baidu.tbadk.TbSingleton;
+@Singleton
+@Service
+/* loaded from: classes4.dex */
+public class e implements d.b.l.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62621a;
+    public static String f64203a = "";
 
-    /* renamed from: b  reason: collision with root package name */
-    public NetWork f62622b = null;
-
-    public void a() {
-        NetWork netWork = this.f62622b;
-        if (netWork != null) {
-            netWork.cancelNetConnect();
-        }
+    @Override // d.b.l.c.c
+    public String a(String str, boolean z) {
+        return str;
     }
 
-    public String b() {
-        NetWork netWork = this.f62622b;
-        if (netWork != null) {
-            return netWork.getErrorString();
-        }
+    @Override // d.b.l.c.c
+    public String getBDVCInfo() {
         return null;
     }
 
-    public boolean c() {
-        NetWork netWork = this.f62622b;
-        if (netWork != null) {
-            return netWork.getNetContext().getResponse().isRequestSuccess();
-        }
-        return false;
+    @Override // d.b.l.c.c
+    public String getC3Aid() {
+        return null;
     }
 
-    public void d(String str) {
-        this.f62621a = str;
+    @Override // d.b.l.c.c
+    public String getCfrom() {
+        return TbConfig.getCurrentFrom();
     }
 
-    public String e(String str) {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        String id = currentAccountObj != null ? currentAccountObj.getID() : null;
-        NetWork netWork = new NetWork(f62620c);
-        this.f62622b = netWork;
-        netWork.addPostData("user_id", id);
-        this.f62622b.addPostData("forum_ids", str);
-        this.f62622b.addPostData("authsid", this.f62621a);
-        this.f62622b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-        this.f62622b.getNetContext().getRequest().mIsNeedTbs = true;
-        this.f62622b.setNeedSig(true);
-        return this.f62622b.postNetData();
+    @Override // d.b.l.c.c
+    public String getDeviceId() {
+        return AppCuidRuntime.getAppCuidManager().getCuid();
     }
 
-    public String f() {
-        NetWork netWork = new NetWork(f62620c);
-        this.f62622b = netWork;
-        netWork.addPostData("authsid", this.f62621a);
-        this.f62622b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-        this.f62622b.getNetContext().getRequest().mIsNeedTbs = true;
-        this.f62622b.setNeedSig(true);
-        return this.f62622b.postNetData();
+    @Override // d.b.l.c.c
+    public String getFrom() {
+        return TbConfig.getCurrentFrom();
+    }
+
+    @Override // d.b.l.c.c
+    public String getSchemeHeader() {
+        return null;
+    }
+
+    @Override // d.b.l.c.c
+    public String getSid() {
+        return TbSingleton.getInstance().getSampleId();
+    }
+
+    @Override // d.b.l.c.c
+    public String getZid() {
+        return f64203a;
     }
 }

@@ -14,15 +14,15 @@ public class p {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final p f49300a = new p();
+        public static final p f49692a = new p();
     }
 
     public static p b() {
-        return b.f49300a;
+        return b.f49692a;
     }
 
     public Flow a(String str, String str2, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -47,7 +47,7 @@ public class p {
     }
 
     public void e(String str, String str2, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             if (e.g() == null && TextUtils.isEmpty(str)) {
                 return;
             }
@@ -73,7 +73,7 @@ public class p {
     }
 
     public void g(String str, JSONObject jSONObject, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             if (e.g() == null && TextUtils.isEmpty(str)) {
                 return;
             }

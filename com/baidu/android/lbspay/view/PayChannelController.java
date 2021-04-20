@@ -208,7 +208,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                     iChannelPay2.payCancel();
                 }
             } else {
-                string.equalsIgnoreCase(e.f1969a);
+                string.equalsIgnoreCase(e.f1994a);
             }
         }
     }

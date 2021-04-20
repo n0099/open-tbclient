@@ -1,5 +1,5 @@
 package com.baidu.fsg.base;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class ApollonConstants {
     public static final String APOLLON_PUBLIC_SHARE_PREF = "apollon_share";
     public static final String APOLLON_REST_TAG = "apollon_rest";

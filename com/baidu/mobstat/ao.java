@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
@@ -9,42 +10,42 @@ import org.json.JSONObject;
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8942a;
+    public String f8516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8943b;
+    public String f8517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8944c;
+    public String f8518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f8945d;
+    public long f8519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8946e;
+    public long f8520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f8947f;
+    public float f8521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f8948g;
+    public float f8522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f8949h;
+    public float f8523h;
     public float i;
     public String j;
     public boolean k;
     public String l;
 
     public ao(String str, String str2, String str3, long j, long j2, float f2, float f3, float f4, float f5, String str4, boolean z, String str5) {
-        this.f8942a = str;
-        this.f8943b = str2;
-        this.f8944c = str3;
-        this.f8945d = j;
-        this.f8946e = j2;
-        this.f8947f = f2;
-        this.f8948g = f3;
-        this.f8949h = f4;
+        this.f8516a = str;
+        this.f8517b = str2;
+        this.f8518c = str3;
+        this.f8519d = j;
+        this.f8520e = j2;
+        this.f8521f = f2;
+        this.f8522g = f3;
+        this.f8523h = f4;
         this.i = f5;
         this.j = str4;
         this.k = z;
@@ -52,7 +53,7 @@ public class ao {
     }
 
     public String a() {
-        return this.f8942a;
+        return this.f8516a;
     }
 
     public String b() {
@@ -66,21 +67,21 @@ public class ao {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("n", str);
-            jSONObject.put("t", this.f8943b);
-            jSONObject.put("d", this.f8945d);
-            long j2 = this.f8946e - j;
+            jSONObject.put("t", this.f8517b);
+            jSONObject.put("d", this.f8519d);
+            long j2 = this.f8520e - j;
             if (j2 <= 0) {
                 j2 = 0;
             }
             jSONObject.put("ps", j2);
             jSONObject.put("at", 1);
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
+            DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8947f));
-            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8948g));
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8949h));
+            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8521f));
+            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8522g));
+            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8523h));
             jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.i));
             jSONObject.put("h5", 0);
             jSONObject.put("sign", this.l);

@@ -9,7 +9,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static final Class<?> TAG = ConstrainedExecutorService.class;
     public final Executor mExecutor;
@@ -20,7 +20,7 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final Worker mTaskRunner;
     public final BlockingQueue<Runnable> mWorkQueue;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class Worker implements Runnable {
         public Worker() {
         }

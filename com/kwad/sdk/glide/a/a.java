@@ -28,25 +28,25 @@ import java.util.concurrent.TimeUnit;
 public final class a implements Closeable {
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f35027b;
+    public final File f35316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f35028c;
+    public final File f35317c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final File f35029d;
+    public final File f35318d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final File f35030e;
+    public final File f35319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f35031f;
+    public final int f35320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f35032g;
+    public long f35321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f35033h;
+    public final int f35322h;
     public Writer j;
     public int l;
     public long i = 0;
@@ -54,7 +54,7 @@ public final class a implements Closeable {
     public long m = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadPoolExecutor f35026a = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC0406a());
+    public final ThreadPoolExecutor f35315a = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC0420a());
     public final Callable<Void> n = new Callable<Void>() { // from class: com.kwad.sdk.glide.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
@@ -76,8 +76,8 @@ public final class a implements Closeable {
 
     /* renamed from: com.kwad.sdk.glide.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class ThreadFactoryC0406a implements ThreadFactory {
-        public ThreadFactoryC0406a() {
+    public static final class ThreadFactoryC0420a implements ThreadFactory {
+        public ThreadFactoryC0420a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -93,31 +93,31 @@ public final class a implements Closeable {
     public final class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public final c f35036b;
+        public final c f35325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean[] f35037c;
+        public final boolean[] f35326c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f35038d;
+        public boolean f35327d;
 
         public b(c cVar) {
-            this.f35036b = cVar;
-            this.f35037c = cVar.f35044f ? null : new boolean[a.this.f35033h];
+            this.f35325b = cVar;
+            this.f35326c = cVar.f35333f ? null : new boolean[a.this.f35322h];
         }
 
         public File a(int i) {
             File b2;
             synchronized (a.this) {
-                if (this.f35036b.f35045g != this) {
+                if (this.f35325b.f35334g != this) {
                     throw new IllegalStateException();
                 }
-                if (!this.f35036b.f35044f) {
-                    this.f35037c[i] = true;
+                if (!this.f35325b.f35333f) {
+                    this.f35326c[i] = true;
                 }
-                b2 = this.f35036b.b(i);
-                if (!a.this.f35027b.exists()) {
-                    a.this.f35027b.mkdirs();
+                b2 = this.f35325b.b(i);
+                if (!a.this.f35316b.exists()) {
+                    a.this.f35316b.mkdirs();
                 }
             }
             return b2;
@@ -125,7 +125,7 @@ public final class a implements Closeable {
 
         public void a() {
             a.this.a(this, true);
-            this.f35038d = true;
+            this.f35327d = true;
         }
 
         public void b() {
@@ -133,7 +133,7 @@ public final class a implements Closeable {
         }
 
         public void c() {
-            if (this.f35038d) {
+            if (this.f35327d) {
                 return;
             }
             try {
@@ -147,51 +147,51 @@ public final class a implements Closeable {
     public final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public File[] f35039a;
+        public File[] f35328a;
 
         /* renamed from: b  reason: collision with root package name */
-        public File[] f35040b;
+        public File[] f35329b;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f35042d;
+        public final String f35331d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long[] f35043e;
+        public final long[] f35332e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f35044f;
+        public boolean f35333f;
 
         /* renamed from: g  reason: collision with root package name */
-        public b f35045g;
+        public b f35334g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f35046h;
+        public long f35335h;
 
         public c(String str) {
-            this.f35042d = str;
-            this.f35043e = new long[a.this.f35033h];
-            this.f35039a = new File[a.this.f35033h];
-            this.f35040b = new File[a.this.f35033h];
+            this.f35331d = str;
+            this.f35332e = new long[a.this.f35322h];
+            this.f35328a = new File[a.this.f35322h];
+            this.f35329b = new File[a.this.f35322h];
             StringBuilder sb = new StringBuilder(str);
             sb.append(IStringUtil.EXTENSION_SEPARATOR);
             int length = sb.length();
-            for (int i = 0; i < a.this.f35033h; i++) {
+            for (int i = 0; i < a.this.f35322h; i++) {
                 sb.append(i);
-                this.f35039a[i] = new File(a.this.f35027b, sb.toString());
+                this.f35328a[i] = new File(a.this.f35316b, sb.toString());
                 sb.append(".tmp");
-                this.f35040b[i] = new File(a.this.f35027b, sb.toString());
+                this.f35329b[i] = new File(a.this.f35316b, sb.toString());
                 sb.setLength(length);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String[] strArr) {
-            if (strArr.length != a.this.f35033h) {
+            if (strArr.length != a.this.f35322h) {
                 throw b(strArr);
             }
             for (int i = 0; i < strArr.length; i++) {
                 try {
-                    this.f35043e[i] = Long.parseLong(strArr[i]);
+                    this.f35332e[i] = Long.parseLong(strArr[i]);
                 } catch (NumberFormatException unused) {
                     throw b(strArr);
                 }
@@ -203,13 +203,13 @@ public final class a implements Closeable {
         }
 
         public File a(int i) {
-            return this.f35039a[i];
+            return this.f35328a[i];
         }
 
         public String a() {
             long[] jArr;
             StringBuilder sb = new StringBuilder();
-            for (long j : this.f35043e) {
+            for (long j : this.f35332e) {
                 sb.append(' ');
                 sb.append(j);
             }
@@ -217,7 +217,7 @@ public final class a implements Closeable {
         }
 
         public File b(int i) {
-            return this.f35040b[i];
+            return this.f35329b[i];
         }
     }
 
@@ -225,51 +225,51 @@ public final class a implements Closeable {
     public final class d {
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f35048b;
+        public final String f35337b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f35049c;
+        public final long f35338c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long[] f35050d;
+        public final long[] f35339d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final File[] f35051e;
+        public final File[] f35340e;
 
         public d(String str, long j, File[] fileArr, long[] jArr) {
-            this.f35048b = str;
-            this.f35049c = j;
-            this.f35051e = fileArr;
-            this.f35050d = jArr;
+            this.f35337b = str;
+            this.f35338c = j;
+            this.f35340e = fileArr;
+            this.f35339d = jArr;
         }
 
         public File a(int i) {
-            return this.f35051e[i];
+            return this.f35340e[i];
         }
     }
 
     public a(File file, int i, int i2, long j) {
-        this.f35027b = file;
-        this.f35031f = i;
-        this.f35028c = new File(file, "journal");
-        this.f35029d = new File(file, "journal.tmp");
-        this.f35030e = new File(file, "journal.bkp");
-        this.f35033h = i2;
-        this.f35032g = j;
+        this.f35316b = file;
+        this.f35320f = i;
+        this.f35317c = new File(file, "journal");
+        this.f35318d = new File(file, "journal.tmp");
+        this.f35319e = new File(file, "journal.bkp");
+        this.f35322h = i2;
+        this.f35321g = j;
     }
 
     private synchronized b a(String str, long j) {
         f();
         c cVar = this.k.get(str);
-        if (j == -1 || (cVar != null && cVar.f35046h == j)) {
+        if (j == -1 || (cVar != null && cVar.f35335h == j)) {
             if (cVar == null) {
                 cVar = new c(str);
                 this.k.put(str, cVar);
-            } else if (cVar.f35045g != null) {
+            } else if (cVar.f35334g != null) {
                 return null;
             }
             b bVar = new b(cVar);
-            cVar.f35045g = bVar;
+            cVar.f35334g = bVar;
             this.j.append((CharSequence) "DIRTY");
             this.j.append(' ');
             this.j.append((CharSequence) str);
@@ -293,7 +293,7 @@ public final class a implements Closeable {
                     }
                 }
                 a aVar = new a(file, i, i2, j);
-                if (aVar.f35028c.exists()) {
+                if (aVar.f35317c.exists()) {
                     try {
                         aVar.b();
                         aVar.c();
@@ -316,13 +316,13 @@ public final class a implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(b bVar, boolean z) {
-        c cVar = bVar.f35036b;
-        if (cVar.f35045g != bVar) {
+        c cVar = bVar.f35325b;
+        if (cVar.f35334g != bVar) {
             throw new IllegalStateException();
         }
-        if (z && !cVar.f35044f) {
-            for (int i = 0; i < this.f35033h; i++) {
-                if (!bVar.f35037c[i]) {
+        if (z && !cVar.f35333f) {
+            for (int i = 0; i < this.f35322h; i++) {
+                if (!bVar.f35326c[i]) {
                     bVar.b();
                     throw new IllegalStateException("Newly created entry didn't create value for index " + i);
                 } else if (!cVar.b(i).exists()) {
@@ -331,43 +331,43 @@ public final class a implements Closeable {
                 }
             }
         }
-        for (int i2 = 0; i2 < this.f35033h; i2++) {
+        for (int i2 = 0; i2 < this.f35322h; i2++) {
             File b2 = cVar.b(i2);
             if (!z) {
                 a(b2);
             } else if (b2.exists()) {
                 File a2 = cVar.a(i2);
                 b2.renameTo(a2);
-                long j = cVar.f35043e[i2];
+                long j = cVar.f35332e[i2];
                 long length = a2.length();
-                cVar.f35043e[i2] = length;
+                cVar.f35332e[i2] = length;
                 this.i = (this.i - j) + length;
             }
         }
         this.l++;
-        cVar.f35045g = null;
-        if (cVar.f35044f || z) {
-            cVar.f35044f = true;
+        cVar.f35334g = null;
+        if (cVar.f35333f || z) {
+            cVar.f35333f = true;
             this.j.append((CharSequence) "CLEAN");
             this.j.append(' ');
-            this.j.append((CharSequence) cVar.f35042d);
+            this.j.append((CharSequence) cVar.f35331d);
             this.j.append((CharSequence) cVar.a());
             this.j.append('\n');
             if (z) {
                 long j2 = this.m;
                 this.m = 1 + j2;
-                cVar.f35046h = j2;
+                cVar.f35335h = j2;
             }
         } else {
-            this.k.remove(cVar.f35042d);
+            this.k.remove(cVar.f35331d);
             this.j.append((CharSequence) "REMOVE");
             this.j.append(' ');
-            this.j.append((CharSequence) cVar.f35042d);
+            this.j.append((CharSequence) cVar.f35331d);
             this.j.append('\n');
         }
         b(this.j);
-        if (this.i > this.f35032g || e()) {
-            this.f35026a.submit(this.n);
+        if (this.i > this.f35321g || e()) {
+            this.f35315a.submit(this.n);
         }
     }
 
@@ -402,14 +402,14 @@ public final class a implements Closeable {
     }
 
     private void b() {
-        com.kwad.sdk.glide.a.b bVar = new com.kwad.sdk.glide.a.b(new FileInputStream(this.f35028c), com.kwad.sdk.glide.a.c.f35058a);
+        com.kwad.sdk.glide.a.b bVar = new com.kwad.sdk.glide.a.b(new FileInputStream(this.f35317c), com.kwad.sdk.glide.a.c.f35347a);
         try {
             String a2 = bVar.a();
             String a3 = bVar.a();
             String a4 = bVar.a();
             String a5 = bVar.a();
             String a6 = bVar.a();
-            if (!"libcore.io.DiskLruCache".equals(a2) || !"1".equals(a3) || !Integer.toString(this.f35031f).equals(a4) || !Integer.toString(this.f35033h).equals(a5) || !"".equals(a6)) {
+            if (!"libcore.io.DiskLruCache".equals(a2) || !"1".equals(a3) || !Integer.toString(this.f35320f).equals(a4) || !Integer.toString(this.f35322h).equals(a5) || !"".equals(a6)) {
                 throw new IOException("unexpected journal header: [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + a3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + a5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + a6 + "]");
             }
             int i = 0;
@@ -422,7 +422,7 @@ public final class a implements Closeable {
                     if (bVar.b()) {
                         d();
                     } else {
-                        this.j = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f35028c, true), com.kwad.sdk.glide.a.c.f35058a));
+                        this.j = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f35317c, true), com.kwad.sdk.glide.a.c.f35347a));
                     }
                     com.kwad.sdk.glide.a.c.a(bVar);
                     return;
@@ -450,19 +450,19 @@ public final class a implements Closeable {
     }
 
     private void c() {
-        a(this.f35029d);
+        a(this.f35318d);
         Iterator<c> it = this.k.values().iterator();
         while (it.hasNext()) {
             c next = it.next();
             int i = 0;
-            if (next.f35045g == null) {
-                while (i < this.f35033h) {
-                    this.i += next.f35043e[i];
+            if (next.f35334g == null) {
+                while (i < this.f35322h) {
+                    this.i += next.f35332e[i];
                     i++;
                 }
             } else {
-                next.f35045g = null;
-                while (i < this.f35033h) {
+                next.f35334g = null;
+                while (i < this.f35322h) {
                     a(next.a(i));
                     a(next.b(i));
                     i++;
@@ -477,26 +477,26 @@ public final class a implements Closeable {
         if (this.j != null) {
             a(this.j);
         }
-        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f35029d), com.kwad.sdk.glide.a.c.f35058a));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f35318d), com.kwad.sdk.glide.a.c.f35347a));
         bufferedWriter.write("libcore.io.DiskLruCache");
         bufferedWriter.write("\n");
         bufferedWriter.write("1");
         bufferedWriter.write("\n");
-        bufferedWriter.write(Integer.toString(this.f35031f));
+        bufferedWriter.write(Integer.toString(this.f35320f));
         bufferedWriter.write("\n");
-        bufferedWriter.write(Integer.toString(this.f35033h));
+        bufferedWriter.write(Integer.toString(this.f35322h));
         bufferedWriter.write("\n");
         bufferedWriter.write("\n");
         for (c cVar : this.k.values()) {
-            bufferedWriter.write(cVar.f35045g != null ? "DIRTY " + cVar.f35042d + '\n' : "CLEAN " + cVar.f35042d + cVar.a() + '\n');
+            bufferedWriter.write(cVar.f35334g != null ? "DIRTY " + cVar.f35331d + '\n' : "CLEAN " + cVar.f35331d + cVar.a() + '\n');
         }
         a(bufferedWriter);
-        if (this.f35028c.exists()) {
-            a(this.f35028c, this.f35030e, true);
+        if (this.f35317c.exists()) {
+            a(this.f35317c, this.f35319e, true);
         }
-        a(this.f35029d, this.f35028c, false);
-        this.f35030e.delete();
-        this.j = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f35028c, true), com.kwad.sdk.glide.a.c.f35058a));
+        a(this.f35318d, this.f35317c, false);
+        this.f35319e.delete();
+        this.j = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.f35317c, true), com.kwad.sdk.glide.a.c.f35347a));
     }
 
     private void d(String str) {
@@ -523,11 +523,11 @@ public final class a implements Closeable {
         }
         if (indexOf2 != -1 && indexOf == 5 && str.startsWith("CLEAN")) {
             String[] split = str.substring(indexOf2 + 1).split(" ");
-            cVar.f35044f = true;
-            cVar.f35045g = null;
+            cVar.f35333f = true;
+            cVar.f35334g = null;
             cVar.a(split);
         } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
-            cVar.f35045g = new b(cVar);
+            cVar.f35334g = new b(cVar);
         } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
         } else {
             throw new IOException("unexpected journal line: " + str);
@@ -548,7 +548,7 @@ public final class a implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        while (this.i > this.f35032g) {
+        while (this.i > this.f35321g) {
             c(this.k.entrySet().iterator().next().getKey());
         }
     }
@@ -559,8 +559,8 @@ public final class a implements Closeable {
         if (cVar == null) {
             return null;
         }
-        if (cVar.f35044f) {
-            for (File file : cVar.f35039a) {
+        if (cVar.f35333f) {
+            for (File file : cVar.f35328a) {
                 if (!file.exists()) {
                     return null;
                 }
@@ -571,16 +571,16 @@ public final class a implements Closeable {
             this.j.append((CharSequence) str);
             this.j.append('\n');
             if (e()) {
-                this.f35026a.submit(this.n);
+                this.f35315a.submit(this.n);
             }
-            return new d(str, cVar.f35046h, cVar.f35039a, cVar.f35043e);
+            return new d(str, cVar.f35335h, cVar.f35328a, cVar.f35332e);
         }
         return null;
     }
 
     public void a() {
         close();
-        com.kwad.sdk.glide.a.c.a(this.f35027b);
+        com.kwad.sdk.glide.a.c.a(this.f35316b);
     }
 
     public b b(String str) {
@@ -590,14 +590,14 @@ public final class a implements Closeable {
     public synchronized boolean c(String str) {
         f();
         c cVar = this.k.get(str);
-        if (cVar != null && cVar.f35045g == null) {
-            for (int i = 0; i < this.f35033h; i++) {
+        if (cVar != null && cVar.f35334g == null) {
+            for (int i = 0; i < this.f35322h; i++) {
                 File a2 = cVar.a(i);
                 if (a2.exists() && !a2.delete()) {
                     throw new IOException("failed to delete " + a2);
                 }
-                this.i -= cVar.f35043e[i];
-                cVar.f35043e[i] = 0;
+                this.i -= cVar.f35332e[i];
+                cVar.f35332e[i] = 0;
             }
             this.l++;
             this.j.append((CharSequence) "REMOVE");
@@ -606,7 +606,7 @@ public final class a implements Closeable {
             this.j.append('\n');
             this.k.remove(str);
             if (e()) {
-                this.f35026a.submit(this.n);
+                this.f35315a.submit(this.n);
             }
             return true;
         }
@@ -621,8 +621,8 @@ public final class a implements Closeable {
         Iterator it = new ArrayList(this.k.values()).iterator();
         while (it.hasNext()) {
             c cVar = (c) it.next();
-            if (cVar.f35045g != null) {
-                cVar.f35045g.b();
+            if (cVar.f35334g != null) {
+                cVar.f35334g.b();
             }
         }
         g();

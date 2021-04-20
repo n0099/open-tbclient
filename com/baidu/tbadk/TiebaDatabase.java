@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.core.util.TiebaMainSdDatabaseHelper;
-import d.b.b.a.k.b;
+import d.b.c.a.k.b;
 /* loaded from: classes3.dex */
 public class TiebaDatabase {
     public static TiebaDatabase _instance = new TiebaDatabase();

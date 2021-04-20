@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51127a = false;
+    public boolean f51537a = false;
 
     public boolean a() {
-        return this.f51127a;
+        return this.f51537a;
     }
 
     public void b(JSONObject jSONObject) {
@@ -26,15 +26,15 @@ public class a {
 
     public final void c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f51127a = true;
+            this.f51537a = true;
         }
     }
 
     public void d(JSONObject jSONObject) {
         if (jSONObject != null) {
-            d.b.h0.r.d0.b.i().w("praise_abtest_switch_json", jSONObject.toString());
+            d.b.h0.r.d0.b.j().x("praise_abtest_switch_json", jSONObject.toString());
         } else {
-            d.b.h0.r.d0.b.i().w("praise_abtest_switch_json", "");
+            d.b.h0.r.d0.b.j().x("praise_abtest_switch_json", "");
         }
     }
 }

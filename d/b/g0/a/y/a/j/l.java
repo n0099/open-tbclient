@@ -6,10 +6,10 @@ import org.json.JSONArray;
 public class l extends a {
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
-        int alpha = bVar.f46970f.getAlpha();
-        bVar.d(bVar.f46970f);
-        canvas.drawPath(bVar.j, bVar.f46970f);
-        bVar.f46970f.setAlpha(alpha);
+        int alpha = bVar.f47362f.getAlpha();
+        bVar.d(bVar.f47362f);
+        canvas.drawPath(bVar.j, bVar.f47362f);
+        bVar.f47362f.setAlpha(alpha);
     }
 
     @Override // d.b.g0.a.y.a.j.a

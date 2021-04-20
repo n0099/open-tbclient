@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.message;
 
 import com.squareup.wire.Wire;
-import d.b.i0.d1.w.b;
+import d.b.i0.e1.w.b;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     public ResponseCommitGroupMessage() {
         super(202001);

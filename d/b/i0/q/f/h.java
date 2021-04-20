@@ -4,16 +4,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.b.e.p.m;
+import d.b.c.e.p.m;
 /* loaded from: classes4.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SQLiteDatabase f59257a;
+    public static volatile SQLiteDatabase f59010a;
 
     public static synchronized void a() {
         synchronized (h.class) {
-            m.b(f59257a);
+            m.b(f59010a);
         }
     }
 
@@ -26,11 +26,11 @@ public class h {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 return null;
             }
-            if (f59257a != null && f59257a.isOpen()) {
-                return f59257a;
+            if (f59010a != null && f59010a.isOpen()) {
+                return f59010a;
             }
-            f59257a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-            return f59257a;
+            f59010a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+            return f59010a;
         }
     }
 }

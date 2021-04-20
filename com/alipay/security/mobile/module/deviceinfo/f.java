@@ -7,22 +7,22 @@ import android.telephony.TelephonyManager;
 public final class f extends PhoneStateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f2083a;
+    public final /* synthetic */ e f2108a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ TelephonyManager f2084b;
+    public final /* synthetic */ TelephonyManager f2109b;
 
     public f(e eVar, TelephonyManager telephonyManager) {
-        this.f2083a = eVar;
-        this.f2084b = telephonyManager;
+        this.f2108a = eVar;
+        this.f2109b = telephonyManager;
     }
 
     @Override // android.telephony.PhoneStateListener
     public final void onSignalStrengthsChanged(SignalStrength signalStrength) {
         super.onSignalStrengthsChanged(signalStrength);
         if (signalStrength != null) {
-            this.f2083a.a(signalStrength.getGsmSignalStrength());
+            this.f2108a.a(signalStrength.getGsmSignalStrength());
         }
-        this.f2084b.listen(this, 0);
+        this.f2109b.listen(this, 0);
     }
 }

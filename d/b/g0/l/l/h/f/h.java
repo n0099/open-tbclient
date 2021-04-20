@@ -1,6 +1,7 @@
 package d.b.g0.l.l.h.f;
 
 import android.text.TextUtils;
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.pms.constants.ErrorConstant;
 import com.baidu.searchbox.pms.db.PackageTable;
 import d.b.g0.l.l.j.a;
@@ -16,7 +17,7 @@ public class h {
             j(t, PackageTable.MD5, cVar);
             return false;
         } else if (TextUtils.isEmpty(str2)) {
-            j(t, "downloadUrl", cVar);
+            j(t, BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL, cVar);
             return false;
         } else {
             return true;
@@ -30,8 +31,8 @@ public class h {
         if (t instanceof d.b.g0.l.k.e) {
             d.b.g0.l.k.e eVar = (d.b.g0.l.k.e) t;
             return a(cVar, t, eVar.l, eVar.n);
-        } else if (t instanceof a.C1020a) {
-            d.b.g0.l.k.f fVar = ((a.C1020a) t).f48980d;
+        } else if (t instanceof a.C1032a) {
+            d.b.g0.l.k.f fVar = ((a.C1032a) t).f49372d;
             return a(cVar, t, fVar.l, fVar.n);
         } else {
             return false;
@@ -39,26 +40,26 @@ public class h {
     }
 
     public static f<d.b.g0.l.k.b> c(d.b.g0.l.k.b bVar, d.b.g0.l.h.g gVar) {
-        if (gVar != null && b(bVar, gVar.r())) {
-            return new f<>(new e(bVar), bVar, new c(gVar.r()));
+        if (gVar != null && b(bVar, gVar.q())) {
+            return new f<>(new e(bVar), bVar, new c(gVar.q()));
         }
         return null;
     }
 
     public static f<d.b.g0.l.k.d> d(d.b.g0.l.k.d dVar, d.b.g0.l.h.g gVar) {
-        if (gVar != null && b(dVar, gVar.s())) {
-            return new f<>(new e(dVar), dVar, new c(gVar.s()));
+        if (gVar != null && b(dVar, gVar.r())) {
+            return new f<>(new e(dVar), dVar, new c(gVar.r()));
         }
         return null;
     }
 
-    public static List<f<a.C1020a>> e(List<a.C1020a> list, d.b.g0.l.h.g gVar) {
+    public static List<f<a.C1032a>> e(List<a.C1032a> list, d.b.g0.l.h.g gVar) {
         ArrayList arrayList = new ArrayList();
         if (gVar != null && list != null && list.size() > 0) {
-            for (a.C1020a c1020a : list) {
-                d.b.g0.l.k.f fVar = c1020a.f48980d;
-                if (fVar != null && b(c1020a, gVar.v())) {
-                    arrayList.add(new f(new e(fVar), c1020a, new c(gVar.v())));
+            for (a.C1032a c1032a : list) {
+                d.b.g0.l.k.f fVar = c1032a.f49372d;
+                if (fVar != null && b(c1032a, gVar.u())) {
+                    arrayList.add(new f(new e(fVar), c1032a, new c(gVar.u())));
                 }
             }
         }
@@ -66,8 +67,8 @@ public class h {
     }
 
     public static f<d.b.g0.l.k.f> f(d.b.g0.l.k.f fVar, d.b.g0.l.h.g gVar) {
-        if (gVar != null && b(fVar, gVar.u())) {
-            return new f<>(new e(fVar), fVar, new c(gVar.u()));
+        if (gVar != null && b(fVar, gVar.t())) {
+            return new f<>(new e(fVar), fVar, new c(gVar.t()));
         }
         return null;
     }
@@ -76,8 +77,8 @@ public class h {
         ArrayList arrayList = new ArrayList();
         if (gVar != null && list != null && list.size() > 0) {
             for (d.b.g0.l.k.g gVar2 : list) {
-                if (b(gVar2, gVar.A())) {
-                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.A())));
+                if (b(gVar2, gVar.z())) {
+                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.z())));
                 }
             }
         }
@@ -85,15 +86,15 @@ public class h {
     }
 
     public static f<d.b.g0.l.k.h> h(d.b.g0.l.k.h hVar, d.b.g0.l.h.g gVar) {
-        if (gVar != null && b(hVar, gVar.x())) {
-            return new f<>(new e(hVar), hVar, new c(gVar.x()));
+        if (gVar != null && b(hVar, gVar.w())) {
+            return new f<>(new e(hVar), hVar, new c(gVar.w()));
         }
         return null;
     }
 
     public static f<d.b.g0.l.k.i> i(d.b.g0.l.k.i iVar, d.b.g0.l.h.g gVar) {
-        if (gVar != null && b(iVar, gVar.z())) {
-            return new f<>(new e(iVar), iVar, new c(gVar.z()));
+        if (gVar != null && b(iVar, gVar.y())) {
+            return new f<>(new e(iVar), iVar, new c(gVar.y()));
         }
         return null;
     }

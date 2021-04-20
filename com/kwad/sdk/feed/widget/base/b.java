@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 public class b extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f34923a;
+    public float f35212a;
 
     public b(@NonNull Context context) {
         this(context, null);
@@ -22,20 +22,20 @@ public class b extends LinearLayout {
 
     public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f34923a = 0.0f;
+        this.f35212a = 0.0f;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.f34923a != 0.0f) {
+        if (this.f35212a != 0.0f) {
             int size = View.MeasureSpec.getSize(i);
             com.kwad.sdk.core.d.a.a("RatioFrameLayout", "widthSize:" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.f34923a), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.f35212a), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
     public void setRatio(float f2) {
-        this.f34923a = f2;
+        this.f35212a = f2;
     }
 }

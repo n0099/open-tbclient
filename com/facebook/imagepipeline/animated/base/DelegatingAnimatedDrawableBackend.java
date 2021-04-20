@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.animated.base;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import com.facebook.common.references.CloseableReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawableBackend {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
 

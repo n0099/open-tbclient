@@ -11,31 +11,31 @@ import org.json.JSONObject;
 public class b implements w0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Boolean> f47840a = new HashMap<>();
+    public HashMap<String, Boolean> f48232a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.f.g.a f47841b = new d.b.g0.f.g.a();
+    public d.b.g0.f.g.a f48233b = new d.b.g0.f.g.a();
 
     /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.p0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.p0.b f47842a;
+        public final /* synthetic */ d.b.g0.a.p0.b f48234a;
 
         public a(d.b.g0.a.p0.b bVar) {
-            this.f47842a = bVar;
+            this.f48234a = bVar;
         }
 
         @Override // d.b.g0.a.p0.b
         public void a(@Nullable JSONObject jSONObject) {
             b.this.g(true);
-            this.f47842a.a(jSONObject);
+            this.f48234a.a(jSONObject);
         }
 
         @Override // d.b.g0.a.p0.b
         public void onFail(int i, @Nullable String str) {
             b.this.g(false);
-            this.f47842a.onFail(i, str);
+            this.f48234a.onFail(i, str);
         }
     }
 
@@ -46,7 +46,7 @@ public class b implements w0 {
             bVar.a(null);
             return null;
         }
-        return this.f47841b.a(jSONObject, c(bVar));
+        return this.f48233b.a(jSONObject, c(bVar));
     }
 
     public final d.b.g0.a.p0.b c(@NonNull d.b.g0.a.p0.b bVar) {
@@ -62,13 +62,13 @@ public class b implements w0 {
     }
 
     public boolean e(String str) {
-        return TextUtils.equals(this.f47841b.f47845a, str);
+        return TextUtils.equals(this.f48233b.f48237a, str);
     }
 
     public boolean f() {
         Boolean bool;
         String d2 = d();
-        if (TextUtils.isEmpty(d2) || (bool = this.f47840a.get(d2)) == null) {
+        if (TextUtils.isEmpty(d2) || (bool = this.f48232a.get(d2)) == null) {
             return false;
         }
         return bool.booleanValue();
@@ -79,6 +79,6 @@ public class b implements w0 {
         if (TextUtils.isEmpty(d2)) {
             return;
         }
-        this.f47840a.put(d2, Boolean.valueOf(z));
+        this.f48232a.put(d2, Boolean.valueOf(z));
     }
 }

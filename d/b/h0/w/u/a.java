@@ -3,13 +3,13 @@ package d.b.h0.w.u;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51549a;
+    public int f51967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51550b;
+    public String f51968b;
 
     public a(int i, boolean z, String str) {
-        this.f51549a = i;
-        this.f51550b = str;
+        this.f51967a = i;
+        this.f51968b = str;
     }
 }

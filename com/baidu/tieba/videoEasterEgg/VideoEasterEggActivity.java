@@ -21,16 +21,16 @@ import com.baidu.tbadk.widget.ScaleVideoView;
 import com.baidu.tieba.R;
 import d.b.h0.r.s.a;
 /* loaded from: classes5.dex */
-public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements d.b.i0.q3.b {
+public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements d.b.i0.r3.b {
     public boolean isComplite;
     public ImageView mClose;
-    public d.b.i0.q3.a mDialog;
+    public d.b.i0.r3.a mDialog;
     public View mErrorContainer;
     public TextView mLoadErrorText;
     public TextView mPlayText;
     public d.b.h0.r.f0.a mProgressDialog;
     public ImageView mShare;
-    public d.b.i0.q3.d.a mVideoEasterEggPresenter;
+    public d.b.i0.r3.d.a mVideoEasterEggPresenter;
     public ScaleVideoView mVideoView;
     public int mSkinType = 3;
     public int mLastPlayPosition = 0;
@@ -115,7 +115,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
             if (i == 3) {
                 VideoEasterEggActivity.this.setVideoMask(false);
-                d.b.b.e.m.e.a().removeCallbacks(VideoEasterEggActivity.this.mTimeoutRunnable);
+                d.b.c.e.m.e.a().removeCallbacks(VideoEasterEggActivity.this.mTimeoutRunnable);
             }
             return false;
         }
@@ -223,11 +223,11 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    private d.b.i0.q3.a buildDialog(String str, String str2) {
-        d.b.i0.q3.a aVar = new d.b.i0.q3.a(this);
+    private d.b.i0.r3.a buildDialog(String str, String str2) {
+        d.b.i0.r3.a aVar = new d.b.i0.r3.a(this);
         this.mDialog = aVar;
         aVar.e(str2);
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             str = getResources().getString(R.string.easter_dialog_default_message);
         }
         this.mDialog.f(str);
@@ -318,7 +318,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
     }
 
-    @Override // d.b.i0.q3.b
+    @Override // d.b.i0.r3.b
     public void finishActivity() {
         finish();
     }
@@ -346,7 +346,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         UtilHelper.useNavigationBarStyleImmersiveSticky(this, true);
-        this.mVideoEasterEggPresenter = new d.b.i0.q3.d.b(getPageContext(), this, getIntent());
+        this.mVideoEasterEggPresenter = new d.b.i0.r3.d.b(getPageContext(), this, getIntent());
         initUI();
         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHOW));
     }
@@ -354,7 +354,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.q3.d.a aVar = this.mVideoEasterEggPresenter;
+        d.b.i0.r3.d.a aVar = this.mVideoEasterEggPresenter;
         if (aVar != null) {
             aVar.onDestroy();
         }
@@ -364,7 +364,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public void onPause() {
         super.onPause();
         pauseVideo();
-        d.b.i0.q3.d.a aVar = this.mVideoEasterEggPresenter;
+        d.b.i0.r3.d.a aVar = this.mVideoEasterEggPresenter;
         if (aVar != null) {
             aVar.onPause();
         }
@@ -373,13 +373,13 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.q3.d.a aVar = this.mVideoEasterEggPresenter;
+        d.b.i0.r3.d.a aVar = this.mVideoEasterEggPresenter;
         if (aVar != null) {
             aVar.onResume();
         }
     }
 
-    @Override // d.b.i0.q3.b
+    @Override // d.b.i0.r3.b
     public void rePlayVideo(String str) {
         this.mErrorContainer.setVisibility(8);
         this.isContinuePlay = true;
@@ -388,7 +388,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         startPlayVideo(str);
     }
 
-    @Override // d.b.i0.q3.b
+    @Override // d.b.i0.r3.b
     public void showDialog(String str, String str2) {
         if (this.mDialog == null) {
             this.mDialog = buildDialog(str, str2);
@@ -396,17 +396,17 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         this.mDialog.show();
     }
 
-    @Override // d.b.i0.q3.b
+    @Override // d.b.i0.r3.b
     public void showErrorView() {
-        d.b.b.e.m.e.a().removeCallbacks(this.mTimeoutRunnable);
+        d.b.c.e.m.e.a().removeCallbacks(this.mTimeoutRunnable);
         this.mVideoView.pause();
         this.mProgressDialog.h(false);
         this.mErrorContainer.setVisibility(0);
     }
 
-    @Override // d.b.i0.q3.b
+    @Override // d.b.i0.r3.b
     public void startPlayVideo(String str) {
-        if (d.b.b.e.p.k.isEmpty(str) || this.mVideoView.isPlaying() || this.isComplite) {
+        if (d.b.c.e.p.k.isEmpty(str) || this.mVideoView.isPlaying() || this.isComplite) {
             return;
         }
         if (this.isContinuePlay) {
@@ -414,7 +414,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.isContinuePlay = false;
         } else {
             this.mVideoView.setVideoURI(Uri.parse(str));
-            d.b.b.e.m.e.a().postDelayed(this.mTimeoutRunnable, 5000L);
+            d.b.c.e.m.e.a().postDelayed(this.mTimeoutRunnable, 5000L);
         }
         this.mVideoView.start();
     }

@@ -18,7 +18,7 @@ public class a {
         d.b.g0.g.w.b V = e.y().V();
         HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
         newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(com.alipay.sdk.cons.b.f1858h, e.y().B());
+        newBuilder.addQueryParameter(com.alipay.sdk.cons.b.f1883h, e.y().B());
         newBuilder.addQueryParameter("source", "4");
         V.b(new Request.Builder().url(newBuilder.build()).build(), callback);
     }

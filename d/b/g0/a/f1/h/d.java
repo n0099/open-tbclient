@@ -9,7 +9,7 @@ import d.b.g0.a.k;
 public class d extends a {
     @Override // d.b.g0.a.f1.h.a
     public boolean a(Bitmap bitmap, Rect rect) {
-        if (a.f44447c) {
+        if (a.f44839c) {
             Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
         }
         if (bitmap == null) {
@@ -26,14 +26,14 @@ public class d extends a {
                     i = pixel;
                 }
                 if (i != pixel && pixel != 0) {
-                    if (k.f45051a) {
+                    if (k.f45443a) {
                         Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
                     }
                     return false;
                 }
             }
         }
-        if (a.f44447c) {
+        if (a.f44839c) {
             Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
         }
         return true;

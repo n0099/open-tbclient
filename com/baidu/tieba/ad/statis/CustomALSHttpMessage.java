@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 /* loaded from: classes4.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     public static final TbHttpMessageTask task;

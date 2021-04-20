@@ -12,32 +12,32 @@ import com.baidu.adp.plugin.util.Util;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import d.b.b.e.d.l;
-import d.b.b.e.p.f;
+import d.b.c.e.d.l;
+import d.b.c.e.p.f;
 import java.io.File;
 import java.io.IOException;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class d implements d.b.b.h.j.f.b {
+public class d implements d.b.c.h.j.f.b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f50396c = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
+    public static final String f50803c = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.h.j.f.a f50397a;
+    public d.b.c.h.j.f.a f50804a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f50398b;
+    public boolean f50805b;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f50399a;
+        public File f50806a;
 
         public a(d dVar, File file) {
-            this.f50399a = null;
-            this.f50399a = file;
+            this.f50806a = null;
+            this.f50806a = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,11 +54,11 @@ public class d implements d.b.b.h.j.f.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            File file = this.f50399a;
+            File file = this.f50806a;
             if (file == null || !file.exists()) {
                 return null;
             }
-            Util.a(this.f50399a);
+            Util.a(this.f50806a);
             return null;
         }
     }
@@ -67,18 +67,18 @@ public class d implements d.b.b.h.j.f.b {
     public class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f50400a;
+        public NetWork f50807a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.b.h.j.f.c f50401b;
+        public d.b.c.h.j.f.c f50808b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f50402c;
+        public boolean f50809c;
 
-        public b(d.b.b.h.j.f.c cVar, boolean z) {
-            this.f50402c = false;
-            this.f50401b = cVar;
-            this.f50402c = z;
+        public b(d.b.c.h.j.f.c cVar, boolean z) {
+            this.f50809c = false;
+            this.f50808b = cVar;
+            this.f50809c = z;
         }
 
         public final String b(l<String> lVar, String str) {
@@ -90,18 +90,18 @@ public class d implements d.b.b.h.j.f.b {
             if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
                 return null;
             }
-            NetWork netWork = new NetWork(d.f50396c);
-            this.f50400a = netWork;
+            NetWork netWork = new NetWork(d.f50803c);
+            this.f50807a = netWork;
             netWork.addPostData("plugin_upload_config", str);
-            return this.f50400a.postNetData();
+            return this.f50807a.postNetData();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            d.this.f50398b = false;
-            this.f50400a.cancelNetConnect();
-            this.f50400a = null;
+            d.this.f50805b = false;
+            this.f50807a.cancelNetConnect();
+            this.f50807a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,17 +109,17 @@ public class d implements d.b.b.h.j.f.b {
         /* renamed from: d */
         public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
             super.onProgressUpdate(pluginNetConfigInfosArr);
-            d.this.f50398b = false;
+            d.this.f50805b = false;
             boolean z = pluginNetConfigInfosArr[0] != null;
             String str = null;
-            NetWork netWork = this.f50400a;
+            NetWork netWork = this.f50807a;
             if (netWork != null && !netWork.isNetSuccess()) {
-                str = this.f50400a.getNetException();
-                if (this.f50400a.getServerErrorCode() != 0) {
-                    str = str + "-" + this.f50400a.getErrorString();
+                str = this.f50807a.getNetException();
+                if (this.f50807a.getServerErrorCode() != 0) {
+                    str = str + "-" + this.f50807a.getErrorString();
                 }
             }
-            d.this.f50397a.a(z, this.f50401b, pluginNetConfigInfosArr[0], str);
+            d.this.f50804a.a(z, this.f50808b, pluginNetConfigInfosArr[0], str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001224));
         }
 
@@ -138,21 +138,21 @@ public class d implements d.b.b.h.j.f.b {
             boolean z;
             String str2;
             PluginNetConfigInfos pluginNetConfigInfos;
-            d.b.b.h.j.f.c cVar = this.f50401b;
+            d.b.c.h.j.f.c cVar = this.f50808b;
             if (cVar == null) {
                 publishProgress(null);
                 return null;
             }
-            if (cVar.a() == null || this.f50401b.a().size() <= 0) {
+            if (cVar.a() == null || this.f50808b.a().size() <= 0) {
                 str = "";
             } else {
                 StringBuilder sb = new StringBuilder(50);
-                int size = this.f50401b.a().size();
+                int size = this.f50808b.a().size();
                 for (int i = 0; i < size; i++) {
                     if (i != 0) {
                         sb.append(",");
                     }
-                    BasicNameValuePair basicNameValuePair = this.f50401b.a().get(i);
+                    BasicNameValuePair basicNameValuePair = this.f50808b.a().get(i);
                     if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                         sb.append(basicNameValuePair.getName());
                         sb.append(":");
@@ -164,11 +164,11 @@ public class d implements d.b.b.h.j.f.b {
             BdCacheService j = BdCacheService.j("baidu_plugin.db");
             l<String> c2 = j.c("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
             String str3 = c2.get("time");
-            if (!this.f50402c && str3 != null) {
-                long f2 = d.b.b.e.m.b.f(str3, -1L);
+            if (!this.f50809c && str3 != null) {
+                long f2 = d.b.c.e.m.b.f(str3, -1L);
                 if (f2 != -1 && System.currentTimeMillis() - f2 < 86400000) {
                     z = false;
-                    PluginSettings l = d.b.b.h.j.g.d.k().l();
+                    PluginSettings l = d.b.c.h.j.g.d.k().l();
                     String str4 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + "_" + (l == null ? l.getContainerVersion() : null) + "_" + str;
                     if (!z) {
                         str2 = c(c2, str);
@@ -196,7 +196,7 @@ public class d implements d.b.b.h.j.f.b {
                 }
             }
             z = true;
-            PluginSettings l2 = d.b.b.h.j.g.d.k().l();
+            PluginSettings l2 = d.b.c.h.j.g.d.k().l();
             if (l2 == null) {
             }
             String str42 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + "_" + (l2 == null ? l2.getContainerVersion() : null) + "_" + str;
@@ -209,8 +209,8 @@ public class d implements d.b.b.h.j.f.b {
         }
     }
 
-    @Override // d.b.b.h.j.f.b
-    public void a(boolean z, d.b.b.h.j.f.c cVar, d.b.b.h.j.f.a aVar) {
+    @Override // d.b.c.h.j.f.b
+    public void a(boolean z, d.b.c.h.j.f.c cVar, d.b.c.h.j.f.a aVar) {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
             if (aVar != null) {
                 aVar.a(false, cVar, null, null);
@@ -218,9 +218,9 @@ public class d implements d.b.b.h.j.f.b {
             }
             return;
         }
-        this.f50397a = aVar;
-        if (!this.f50398b) {
-            this.f50398b = true;
+        this.f50804a = aVar;
+        if (!this.f50805b) {
+            this.f50805b = true;
             new b(cVar, z).execute(new Void[0]);
         }
         try {

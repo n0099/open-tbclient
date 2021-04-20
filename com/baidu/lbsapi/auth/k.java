@@ -5,19 +5,19 @@ import com.baidu.lbsapi.auth.c;
 public class k implements c.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f6344a;
+    public final /* synthetic */ String f6379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f6345b;
+    public final /* synthetic */ LBSAuthManager f6380b;
 
     public k(LBSAuthManager lBSAuthManager, String str) {
-        this.f6345b = lBSAuthManager;
-        this.f6344a = str;
+        this.f6380b = lBSAuthManager;
+        this.f6379a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.lbsapi.auth.c.a
     public void a(String str) {
-        this.f6345b.a(str, this.f6344a);
+        this.f6380b.a(str, this.f6379a);
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import d.b.b.e.f.a;
+import d.b.c.e.f.a;
 /* loaded from: classes3.dex */
 public class CustomPlayerSwitch extends a {
     public static final String CUSTOM_PLAYER_SWITCH = "android_custom_player_enabled_2";
@@ -16,31 +16,31 @@ public class CustomPlayerSwitch extends a {
         mSwitchStatus = i;
     }
 
-    @Override // d.b.b.e.f.a
+    @Override // d.b.c.e.f.a
     public void changeSettingByType(int i) {
     }
 
-    @Override // d.b.b.e.f.a
+    @Override // d.b.c.e.f.a
     public String[] getCrashKeys() {
         return new String[0];
     }
 
-    @Override // d.b.b.e.f.a
+    @Override // d.b.c.e.f.a
     public int getDefaultType() {
         return 1;
     }
 
-    @Override // d.b.b.e.f.a
+    @Override // d.b.c.e.f.a
     public int getMaxCrashTimes() {
         return 10;
     }
 
-    @Override // d.b.b.e.f.a
+    @Override // d.b.c.e.f.a
     public String getName() {
         return CUSTOM_PLAYER_SWITCH;
     }
 
-    @Override // d.b.b.e.f.a
+    @Override // d.b.c.e.f.a
     public int getOffType() {
         return 0;
     }

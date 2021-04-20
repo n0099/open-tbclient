@@ -2,18 +2,18 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonChangeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f20354e;
+    public PersonChangeData f20046e;
 
     public PersonChangeModel(PersonChangeData personChangeData) {
         super(null);
-        this.f20354e = null;
-        this.f20354e = personChangeData;
+        this.f20046e = null;
+        this.f20046e = personChangeData;
         if (personChangeData == null) {
-            this.f20354e = new PersonChangeData();
+            this.f20046e = new PersonChangeData();
         }
     }
 
@@ -28,6 +28,6 @@ public class PersonChangeModel extends BdBaseModel {
     }
 
     public PersonChangeData s() {
-        return this.f20354e;
+        return this.f20046e;
     }
 }

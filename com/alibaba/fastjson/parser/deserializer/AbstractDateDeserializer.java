@@ -1,15 +1,18 @@
 package com.alibaba.fastjson.parser.deserializer;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONScanner;
+import com.alibaba.fastjson.util.TypeUtils;
 import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class AbstractDateDeserializer extends ContextObjectDeserializer implements ObjectDeserializer {
     public abstract <T> T cast(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2);
@@ -22,52 +25,86 @@ public abstract class AbstractDateDeserializer extends ContextObjectDeserializer
     @Override // com.alibaba.fastjson.parser.deserializer.ContextObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i) {
         SimpleDateFormat simpleDateFormat;
-        Date parse;
+        Date date;
+        SimpleDateFormat simpleDateFormat2;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         Object obj2 = null;
         if (jSONLexer.token() == 2) {
-            obj2 = Long.valueOf(jSONLexer.longValue());
+            long longValue = jSONLexer.longValue();
             jSONLexer.nextToken(16);
+            if ("unixtime".equals(str)) {
+                longValue *= 1000;
+            }
+            obj2 = Long.valueOf(longValue);
         } else if (jSONLexer.token() == 4) {
             String stringVal = jSONLexer.stringVal();
             if (str != null) {
+                if ("yyyy-MM-dd HH:mm:ss.SSSSSSSSS".equals(str) && (type instanceof Class) && ((Class) type).getName().equals("java.sql.Timestamp")) {
+                    return (T) TypeUtils.castToTimestamp(stringVal);
+                }
                 try {
-                    simpleDateFormat = new SimpleDateFormat(str, JSON.defaultLocale);
-                } catch (IllegalArgumentException unused) {
-                    if (str.equals("yyyy-MM-ddTHH:mm:ss.SSS")) {
-                        str = "yyyy-MM-dd'T'HH:mm:ss.SSS";
-                        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                    } else if (str.equals("yyyy-MM-ddTHH:mm:ss")) {
-                        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(Jdk8DateCodec.formatter_iso8601_pattern);
-                        str = Jdk8DateCodec.formatter_iso8601_pattern;
-                        simpleDateFormat = simpleDateFormat2;
+                    simpleDateFormat = new SimpleDateFormat(str, defaultJSONParser.lexer.getLocale());
+                } catch (IllegalArgumentException e2) {
+                    if (str.contains(ExifInterface.GPS_DIRECTION_TRUE)) {
+                        try {
+                            simpleDateFormat = new SimpleDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"), defaultJSONParser.lexer.getLocale());
+                        } catch (IllegalArgumentException unused) {
+                            throw e2;
+                        }
                     } else {
                         simpleDateFormat = null;
                     }
                 }
+                if (JSON.defaultTimeZone != null) {
+                    simpleDateFormat.setTimeZone(defaultJSONParser.lexer.getTimeZone());
+                }
                 try {
-                    parse = simpleDateFormat.parse(stringVal);
+                    date = simpleDateFormat.parse(stringVal);
                 } catch (ParseException unused2) {
-                    if (str.equals("yyyy-MM-dd'T'HH:mm:ss.SSS") && stringVal.length() == 19) {
-                        try {
-                            parse = new SimpleDateFormat(Jdk8DateCodec.formatter_iso8601_pattern).parse(stringVal);
-                        } catch (ParseException unused3) {
+                    date = null;
+                }
+                if (date == null && JSON.defaultLocale == Locale.CHINA) {
+                    try {
+                        simpleDateFormat2 = new SimpleDateFormat(str, Locale.US);
+                    } catch (IllegalArgumentException e3) {
+                        simpleDateFormat2 = simpleDateFormat;
+                        if (str.contains(ExifInterface.GPS_DIRECTION_TRUE)) {
+                            try {
+                                simpleDateFormat2 = new SimpleDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"), defaultJSONParser.lexer.getLocale());
+                            } catch (IllegalArgumentException unused3) {
+                                throw e3;
+                            }
                         }
                     }
+                    simpleDateFormat2.setTimeZone(defaultJSONParser.lexer.getTimeZone());
+                    try {
+                        date = simpleDateFormat2.parse(stringVal);
+                    } catch (ParseException unused4) {
+                        date = null;
+                    }
                 }
-                obj2 = parse;
+                if (date != null) {
+                    obj2 = date;
+                } else if (str.equals("yyyy-MM-dd'T'HH:mm:ss.SSS") && stringVal.length() == 19) {
+                    try {
+                        SimpleDateFormat simpleDateFormat3 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", JSON.defaultLocale);
+                        simpleDateFormat3.setTimeZone(JSON.defaultTimeZone);
+                        obj2 = simpleDateFormat3.parse(stringVal);
+                    } catch (ParseException unused5) {
+                    }
+                }
             }
             if (obj2 == null) {
                 jSONLexer.nextToken(16);
                 String str2 = stringVal;
                 if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
                     JSONScanner jSONScanner = new JSONScanner(stringVal);
-                    Date date = stringVal;
+                    Date date2 = stringVal;
                     if (jSONScanner.scanISO8601DateIfMatch()) {
-                        date = jSONScanner.getCalendar().getTime();
+                        date2 = jSONScanner.getCalendar().getTime();
                     }
                     jSONScanner.close();
-                    str2 = date;
+                    str2 = date2;
                 }
                 obj2 = str2;
             }
@@ -88,9 +125,9 @@ public abstract class AbstractDateDeserializer extends ContextObjectDeserializer
                 }
                 jSONLexer.nextTokenWithColon(2);
                 if (jSONLexer.token() == 2) {
-                    long longValue = jSONLexer.longValue();
+                    long longValue2 = jSONLexer.longValue();
                     jSONLexer.nextToken();
-                    obj2 = Long.valueOf(longValue);
+                    obj2 = Long.valueOf(longValue2);
                     defaultJSONParser.accept(13);
                 } else {
                     throw new JSONException("syntax error : " + jSONLexer.tokenName());

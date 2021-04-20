@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18057a;
+        public String f17734a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18058b;
+        public String f17735b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18059c;
+        public String f17736c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18060d;
+        public int f17737d;
     }
 
     public MemoryUpdateHeadNameMessage(a aVar) {

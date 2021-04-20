@@ -13,7 +13,7 @@ public class bb implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo130b() {
+    public String mo134b() {
         return null;
     }
 

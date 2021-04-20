@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
-import d.b.b.e.p.l;
-/* loaded from: classes5.dex */
+import d.b.c.e.m.e;
+import d.b.c.e.p.l;
+/* loaded from: classes3.dex */
 public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public static final int w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
     public static final int x = l.k(TbadkCoreApplication.getInst());
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f20133e;
+    public ImageView f19825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f20134f;
+    public ImageView f19826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20135g;
+    public ImageView f19827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f20136h;
+    public ImageView f19828h;
     public ImageView i;
     public ImageView j;
     public TextView k;
@@ -50,7 +50,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public Runnable u;
     public Runnable v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -61,7 +61,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -76,7 +76,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void onAnimationEnd();
     }
@@ -101,10 +101,10 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
 
     public final void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.pb_full_screen_floating_huaji_view, this);
-        this.f20133e = (ImageView) findViewById(R.id.pb_video_floating_big_huaji);
-        this.f20134f = (ImageView) findViewById(R.id.pb_video_floating_small_huaji1);
-        this.f20135g = (ImageView) findViewById(R.id.pb_video_floating_small_huaji2);
-        this.f20136h = (ImageView) findViewById(R.id.pb_video_floating_small_huaji3);
+        this.f19825e = (ImageView) findViewById(R.id.pb_video_floating_big_huaji);
+        this.f19826f = (ImageView) findViewById(R.id.pb_video_floating_small_huaji1);
+        this.f19827g = (ImageView) findViewById(R.id.pb_video_floating_small_huaji2);
+        this.f19828h = (ImageView) findViewById(R.id.pb_video_floating_small_huaji3);
         this.i = (ImageView) findViewById(R.id.pb_video_floating_small_huaji4);
         this.j = (ImageView) findViewById(R.id.pb_video_floating_small_huaji5);
         TextView textView = (TextView) findViewById(R.id.pb_video_floating_huaji_tip);
@@ -117,28 +117,28 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public final void d() {
         this.l = new AnimatorSet();
         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_floor_bigpraised_floating);
-        ImageView imageView = this.f20133e;
+        ImageView imageView = this.f19825e;
         float intrinsicWidth = (x - drawable.getIntrinsicWidth()) / 2;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "X", x, intrinsicWidth);
         ofFloat.setDuration(400L);
-        ImageView imageView2 = this.f20133e;
+        ImageView imageView2 = this.f19825e;
         float intrinsicWidth2 = 0 - drawable.getIntrinsicWidth();
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView2, "X", intrinsicWidth, intrinsicWidth2);
         ofFloat2.setDuration(500L);
         ofFloat2.setStartDelay(1000L);
         this.l.playTogether(ofFloat, ofFloat2);
         this.m = new AnimatorSet();
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f20134f, "X", x, intrinsicWidth2);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f19826f, "X", x, intrinsicWidth2);
         ofFloat3.setDuration(600L);
         ofFloat3.setStartDelay(800L);
         this.m.play(ofFloat3);
         this.n = new AnimatorSet();
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.f20135g, "X", x, intrinsicWidth2);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.f19827g, "X", x, intrinsicWidth2);
         ofFloat4.setDuration(600L);
         ofFloat4.setStartDelay(800L);
         this.n.play(ofFloat4);
         this.o = new AnimatorSet();
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.f20136h, "X", x, intrinsicWidth2);
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.f19828h, "X", x, intrinsicWidth2);
         ofFloat5.setDuration(300L);
         ofFloat5.setStartDelay(1100L);
         this.o.play(ofFloat5);
@@ -174,10 +174,10 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             i2 = R.drawable.icon_floor_praised_floating_xmas;
             i3 = R.drawable.icon_floor_bigpraised_floating_xmas;
         }
-        SkinManager.setImageResource(this.f20133e, i3);
-        SkinManager.setImageResource(this.f20134f, i2);
-        SkinManager.setImageResource(this.f20135g, i2);
-        SkinManager.setImageResource(this.f20136h, i2);
+        SkinManager.setImageResource(this.f19825e, i3);
+        SkinManager.setImageResource(this.f19826f, i2);
+        SkinManager.setImageResource(this.f19827g, i2);
+        SkinManager.setImageResource(this.f19828h, i2);
         SkinManager.setImageResource(this.i, i2);
         SkinManager.setImageResource(this.j, i2);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);

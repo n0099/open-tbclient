@@ -19,24 +19,24 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.google.android.material.tabs.TabLayout;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.u.c;
-import d.b.i0.p0.m;
+import d.b.i0.q0.m;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ForumTabSelectedView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsTabItemData f22366e;
+    public FrsTabItemData f22051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f22367f;
+    public ImageView f22052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22368g;
+    public TextView f22053g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TabLayout f22369h;
+    public TabLayout f22054h;
     public int i;
     public TabLayout.OnTabSelectedListener j;
     public BaseActivity k;
@@ -55,12 +55,12 @@ public class ForumTabSelectedView extends LinearLayout {
             FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
             if (frsTabItemData.isSelected) {
                 frsTabItemData.isSelected = false;
-                ForumTabSelectedView.this.f22366e = null;
+                ForumTabSelectedView.this.f22051e = null;
                 ForumTabSelectedView.this.setTabColorUnSelected(tab);
                 return;
             }
             frsTabItemData.isSelected = true;
-            ForumTabSelectedView.this.f22366e = frsTabItemData;
+            ForumTabSelectedView.this.f22051e = frsTabItemData;
             ForumTabSelectedView.this.setTabColorSelected(tab);
         }
 
@@ -71,7 +71,7 @@ public class ForumTabSelectedView extends LinearLayout {
             }
             FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
             frsTabItemData.isSelected = true;
-            ForumTabSelectedView.this.f22366e = frsTabItemData;
+            ForumTabSelectedView.this.f22051e = frsTabItemData;
             ForumTabSelectedView.this.setTabColorSelected(tab);
         }
 
@@ -128,13 +128,13 @@ public class ForumTabSelectedView extends LinearLayout {
     }
 
     public final void e() {
-        this.f22367f = new ImageView(getContext());
+        this.f22052f = new ImageView(getContext());
         int g2 = l.g(getContext(), R.dimen.tbds31);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g2);
         layoutParams.setMargins(l.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
-        this.f22367f.setLayoutParams(layoutParams);
-        this.f22367f.setOnClickListener(this.l);
-        addView(this.f22367f);
+        this.f22052f.setLayoutParams(layoutParams);
+        this.f22052f.setOnClickListener(this.l);
+        addView(this.f22052f);
     }
 
     public final void f(TabLayout tabLayout) {
@@ -159,16 +159,16 @@ public class ForumTabSelectedView extends LinearLayout {
     }
 
     public final void g() {
-        this.f22369h = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
+        this.f22054h = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.setMargins(l.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
-        this.f22369h.setLayoutParams(layoutParams);
-        addView(this.f22369h);
-        this.f22369h.setOnTabSelectedListener(this.j);
+        this.f22054h.setLayoutParams(layoutParams);
+        addView(this.f22054h);
+        this.f22054h.setOnTabSelectedListener(this.j);
     }
 
     public FrsTabItemData getSelectedTabItemData() {
-        FrsTabItemData frsTabItemData = this.f22366e;
+        FrsTabItemData frsTabItemData = this.f22051e;
         if (frsTabItemData == null || !frsTabItemData.isSelected) {
             return null;
         }
@@ -176,12 +176,12 @@ public class ForumTabSelectedView extends LinearLayout {
     }
 
     public final void h() {
-        this.f22368g = new EMTextView(getContext());
-        this.f22368g.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        c.a(this.f22368g).r(R.dimen.T_X08);
-        this.f22368g.setText(R.string.forum_tab_select_title);
-        this.f22368g.setOnClickListener(this.l);
-        addView(this.f22368g);
+        this.f22053g = new EMTextView(getContext());
+        this.f22053g.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        c.d(this.f22053g).u(R.dimen.T_X08);
+        this.f22053g.setText(R.string.forum_tab_select_title);
+        this.f22053g.setOnClickListener(this.l);
+        addView(this.f22053g);
     }
 
     public final void i() {
@@ -197,9 +197,9 @@ public class ForumTabSelectedView extends LinearLayout {
     }
 
     public void k(int i) {
-        f(this.f22369h);
-        SkinManager.setViewTextColor(this.f22368g, R.color.CAM_X0107);
-        this.f22367f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_post_section12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+        f(this.f22054h);
+        SkinManager.setViewTextColor(this.f22053g, R.color.CAM_X0107);
+        this.f22052f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_post_section12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r18v0, resolved type: com.google.android.material.tabs.TabLayout */
@@ -292,7 +292,7 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setData(FrsTabInfoData frsTabInfoData) {
         if (frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
             setVisibility(0);
-            l(frsTabInfoData.tabList, this.f22369h, frsTabInfoData.selectedTabId);
+            l(frsTabInfoData.tabList, this.f22054h, frsTabInfoData.selectedTabId);
             return;
         }
         setVisibility(8);

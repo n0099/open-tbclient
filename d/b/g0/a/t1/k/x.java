@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class x extends a0 {
     public x(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/preventPullDownRefresh");
@@ -16,7 +16,7 @@ public class x extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject a2 = a0.a(unitedSchemeEntity, "params");
@@ -38,9 +38,9 @@ public class x extends a0 {
             return false;
         }
         boolean optBoolean = a2.optBoolean("prevent", false);
-        PullToRefreshBaseWebView Y = ((d.b.g0.a.p.d.b) j).Y();
-        if (Y != null) {
-            Y.setIsPreventPullToRefresh(optBoolean);
+        PullToRefreshBaseWebView b0 = ((d.b.g0.a.p.d.b) j).b0();
+        if (b0 != null) {
+            b0.setIsPreventPullToRefresh(optBoolean);
             return true;
         }
         return true;

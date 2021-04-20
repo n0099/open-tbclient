@@ -4,34 +4,34 @@ import android.util.Log;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public static boolean q = k.f45051a;
+    public static boolean q = k.f45443a;
     public static String r = "LocationResult";
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f46450a;
+    public final String f46842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f46451b;
+    public final double f46843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f46452c;
+    public final double f46844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f46453d;
+    public final float f46845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final double f46454e;
+    public final double f46846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f46455f;
+    public final double f46847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final double f46456g = 0.0d;
+    public final double f46848g = 0.0d;
 
     /* renamed from: h  reason: collision with root package name */
-    public final double f46457h;
+    public final double f46849h;
     public final String i;
     public final String j;
     public final String k;
@@ -42,13 +42,13 @@ public class b {
     public final String p;
 
     public b(String str, double d2, double d3, float f2, double d4, double d5, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        this.f46450a = str;
-        this.f46451b = d2;
-        this.f46452c = d3;
-        this.f46453d = f2;
-        this.f46454e = d4;
-        this.f46455f = d5;
-        this.f46457h = d4;
+        this.f46842a = str;
+        this.f46843b = d2;
+        this.f46844c = d3;
+        this.f46845d = f2;
+        this.f46846e = d4;
+        this.f46847f = d5;
+        this.f46849h = d4;
         this.i = str2;
         this.j = str3;
         this.k = str4;
@@ -62,13 +62,13 @@ public class b {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("longitude", this.f46451b);
-            jSONObject.put("latitude", this.f46452c);
-            jSONObject.put("speed", this.f46453d);
-            jSONObject.put("accuracy", this.f46454e);
-            jSONObject.put("altitude", this.f46455f);
-            jSONObject.put("verticalAccuracy", this.f46456g);
-            jSONObject.put("horizontalAccuracy", this.f46457h);
+            jSONObject.put("longitude", this.f46843b);
+            jSONObject.put("latitude", this.f46844c);
+            jSONObject.put("speed", this.f46845d);
+            jSONObject.put("accuracy", this.f46846e);
+            jSONObject.put("altitude", this.f46847f);
+            jSONObject.put("verticalAccuracy", this.f46848g);
+            jSONObject.put("horizontalAccuracy", this.f46849h);
             jSONObject.put("country", this.i);
             jSONObject.put("countryCode", this.j);
             jSONObject.put("city", this.k);

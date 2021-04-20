@@ -8,10 +8,10 @@ import java.io.IOException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f26954a = false;
+    public static boolean f26639a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f26955b = -1;
+    public static int f26640b = -1;
 
     public static synchronized void a() {
         synchronized (b.class) {
@@ -26,13 +26,13 @@ public final class b {
 
     public static synchronized int b() {
         synchronized (b.class) {
-            if (!f26954a) {
+            if (!f26639a) {
                 File filesDir = WebViewFactory.getContext().getFilesDir();
                 StringBuilder sb = new StringBuilder();
                 sb.append(WebKitFactory.getProcessTypeString());
                 sb.append("zeus_init_model_opt");
-                f26955b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
-                f26954a = true;
+                f26640b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
+                f26639a = true;
             }
         }
         return 1;

@@ -14,7 +14,7 @@ import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 public class ap implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40233a;
+    public static boolean f40522a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f116a;
@@ -32,7 +32,7 @@ public class ap implements ar {
     public volatile boolean f120b = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f40234b = null;
+    public volatile String f40523b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f118a = new Object();
@@ -47,7 +47,7 @@ public class ap implements ar {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 ap.this.f119a = b.a(iBinder);
-                ap.this.f120b = b.m131a(iBinder);
+                ap.this.f120b = b.m135a(iBinder);
                 ap.this.b();
                 ap.this.f115a = 2;
                 synchronized (ap.this.f118a) {
@@ -100,7 +100,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m131a(IBinder iBinder) {
+        public static boolean m135a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -170,7 +170,7 @@ public class ap implements ar {
         }
         synchronized (this.f118a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m51a("huawei's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m55a("huawei's " + str + " wait...");
                 this.f118a.wait(3000L);
             } catch (Exception unused) {
             }
@@ -178,12 +178,12 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m129a(Context context) {
+    public static boolean m133a(Context context) {
         boolean z;
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
             z = (packageInfo.applicationInfo.flags & 1) != 0;
-            f40233a = packageInfo.versionCode >= 20602000;
+            f40522a = packageInfo.versionCode >= 20602000;
         } catch (Exception unused) {
         }
         return z;
@@ -207,12 +207,12 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f40233a;
+        return f40522a;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo130b() {
+    public String mo134b() {
         a("getOAID");
         return this.f119a;
     }
@@ -224,13 +224,13 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        if (this.f40234b == null) {
+        if (this.f40523b == null) {
             synchronized (this) {
-                if (this.f40234b == null) {
-                    this.f40234b = a(this.f116a);
+                if (this.f40523b == null) {
+                    this.f40523b = a(this.f116a);
                 }
             }
         }
-        return this.f40234b;
+        return this.f40523b;
     }
 }

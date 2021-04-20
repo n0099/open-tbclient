@@ -1,19 +1,19 @@
 package com.bytedance.sdk.openadsdk.h.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f29435a;
+    public static volatile e f29120a;
 
     public static e c() {
-        if (f29435a == null) {
+        if (f29120a == null) {
             synchronized (e.class) {
-                if (f29435a == null) {
-                    f29435a = new e();
+                if (f29120a == null) {
+                    f29120a = new e();
                 }
             }
         }
-        return f29435a;
+        return f29120a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.h.c.a

@@ -18,13 +18,13 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f49045c;
+    public static volatile b f49437c;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f49047b = false;
+    public volatile boolean f49439b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f49046a = new a();
+    public a f49438a = new a();
 
     /* loaded from: classes3.dex */
     public static class a extends i {
@@ -34,25 +34,25 @@ public class b {
     }
 
     public static b b() {
-        if (f49045c == null) {
+        if (f49437c == null) {
             synchronized (b.class) {
-                if (f49045c == null) {
-                    f49045c = new b();
+                if (f49437c == null) {
+                    f49437c = new b();
                 }
             }
         }
-        return f49045c;
+        return f49437c;
     }
 
     public String a() {
-        if (this.f49046a.contains("version")) {
-            return this.f49046a.getString("version", "0");
+        if (this.f49438a.contains("version")) {
+            return this.f49438a.getString("version", "0");
         }
-        return c() ? this.f49046a.getString("version", "0") : "0";
+        return c() ? this.f49438a.getString("version", "0") : "0";
     }
 
     public final synchronized boolean c() {
-        if (this.f49047b) {
+        if (this.f49439b) {
             return true;
         }
         String q = d.b.g0.p.d.q(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -78,10 +78,10 @@ public class b {
                 }
             }
             e(optString, optString2, optString3, String.valueOf(optInt), hashSet);
-            this.f49047b = true;
+            this.f49439b = true;
             return true;
         } catch (JSONException e2) {
-            if (f.f48889a) {
+            if (f.f49281a) {
                 e2.printStackTrace();
             }
             return false;
@@ -92,13 +92,13 @@ public class b {
         if (aVar == null) {
             return;
         }
-        if (f.f48889a) {
-            Log.d(Node.TAG, "update host data version " + aVar.f49042f);
+        if (f.f49281a) {
+            Log.d(Node.TAG, "update host data version " + aVar.f49434f);
         }
-        SharedPreferences.Editor putString = this.f49046a.edit().putString("hostName", aVar.f49040d).putString("schemeHead", aVar.f49044h).putString("shareCallbackUrl", aVar.f49041e).putString("contentType", aVar.f49037a).putInt("containerNo", aVar.f49039c).putInt("officialNo", aVar.f49038b).putString("version", aVar.f49042f);
-        Set<String> set = aVar.f49043g;
+        SharedPreferences.Editor putString = this.f49438a.edit().putString("hostName", aVar.f49432d).putString("schemeHead", aVar.f49436h).putString("shareCallbackUrl", aVar.f49433e).putString("contentType", aVar.f49429a).putInt("containerNo", aVar.f49431c).putInt("officialNo", aVar.f49430b).putString("version", aVar.f49434f);
+        Set<String> set = aVar.f49435g;
         if (set != null && !set.isEmpty()) {
-            putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.f49043g);
+            putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.f49435g);
         }
         putString.apply();
     }
@@ -107,7 +107,7 @@ public class b {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str4)) {
             return;
         }
-        SharedPreferences.Editor putString = this.f49046a.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallbackUrl", str3).putString("version", str4);
+        SharedPreferences.Editor putString = this.f49438a.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallbackUrl", str3).putString("version", str4);
         if (set != null && !set.isEmpty()) {
             putString.putStringSet(SocialOperation.GAME_SIGNATURE, set);
         }

@@ -269,7 +269,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     public static final Byte toByteExactOrNull(long j) {
         long j2 = 127;
-        if (((long) a.f1896g) <= j && j2 >= j) {
+        if (((long) a.f1921g) <= j && j2 >= j) {
             return Byte.valueOf((byte) j);
         }
         return null;
@@ -387,7 +387,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     public static final Byte toByteExactOrNull(short s) {
         short s2 = (short) 127;
-        if (((short) a.f1896g) <= s && s2 >= s) {
+        if (((short) a.f1921g) <= s && s2 >= s) {
             return Byte.valueOf((byte) s);
         }
         return null;
@@ -472,7 +472,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     public static final Byte toByteExactOrNull(double d2) {
         double d3 = 127;
-        if (d2 < ((double) a.f1896g) || d2 > d3) {
+        if (d2 < ((double) a.f1921g) || d2 > d3) {
             return null;
         }
         return Byte.valueOf((byte) d2);
@@ -547,7 +547,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     public static final Byte toByteExactOrNull(float f2) {
         float f3 = 127;
-        if (f2 < ((float) a.f1896g) || f2 > f3) {
+        if (f2 < ((float) a.f1921g) || f2 > f3) {
             return null;
         }
         return Byte.valueOf((byte) f2);

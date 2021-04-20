@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
@@ -25,7 +26,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessVideoLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f5869a;
+    public LoadingDialog f5904a;
 
     private void a() {
         f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
@@ -33,11 +34,11 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void b() {
-        if (this.f5869a != null) {
-            if (isFinishing() && this.f5869a.isShowing()) {
+        if (this.f5904a != null) {
+            if (isFinishing() && this.f5904a.isShowing()) {
                 return;
             }
-            this.f5869a.dismiss();
+            this.f5904a.dismiss();
             finish();
         }
     }
@@ -58,7 +59,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.livenessRecogDTO.getSpno() + "");
             arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-            RimStatisticsUtil.onEventEndWithValues(d.f5978e, i2, arrayList);
+            RimStatisticsUtil.onEventEndWithValues(d.f6013e, i2, arrayList);
         }
         b();
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -91,14 +92,14 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
         if (livenessRecogDTO != null && livenessRecogDTO.showGuidePage) {
             Intent intent = new Intent(this, LivenessVideoGuidActivity.class);
             intent.putExtra(KEY_VIDEOGETPORTRAITMODEL, videoGetPortraitModel);
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             startActivity(intent);
             return;
         }
         b();
         Intent intent2 = new Intent(this, LivenessVideoActivity.class);
         intent2.putExtra(KEY_VIDEOGETPORTRAITMODEL, videoGetPortraitModel);
-        intent2.setFlags(268435456);
+        intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         startActivity(intent2);
     }
 
@@ -126,15 +127,15 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
 
     private void a(Context context) {
         LoadingDialog loadingDialog;
-        if (this.f5869a == null) {
+        if (this.f5904a == null) {
             LoadingDialog loadingDialog2 = new LoadingDialog(context);
-            this.f5869a = loadingDialog2;
+            this.f5904a = loadingDialog2;
             loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f5869a.setCancelable(false);
+            this.f5904a.setCancelable(false);
         }
-        if (((Activity) context).isFinishing() || (loadingDialog = this.f5869a) == null || loadingDialog.isShowing()) {
+        if (((Activity) context).isFinishing() || (loadingDialog = this.f5904a) == null || loadingDialog.isShowing()) {
             return;
         }
-        this.f5869a.show();
+        this.f5904a.show();
     }
 }

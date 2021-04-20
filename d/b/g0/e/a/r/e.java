@@ -21,28 +21,28 @@ import org.json.JSONObject;
 public class e implements d.b.g0.e.a.m.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f47700a;
+    public Context f48092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47701b;
+    public String f48093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47702c;
+    public String f48094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f47703d;
+    public i f48095d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.e.a.r.f f47704e;
+    public d.b.g0.e.a.r.f f48096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.e.a.r.b f47705f;
+    public d.b.g0.e.a.r.b f48097f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdElementInfo f47706g;
+    public AdElementInfo f48098g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.e.a.a f47707h;
+    public d.b.g0.e.a.a f48099h;
     public boolean i;
     public String j;
     public a.e k;
@@ -53,17 +53,17 @@ public class e implements d.b.g0.e.a.m.b {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f47708e;
+        public final /* synthetic */ l f48100e;
 
         public a(l lVar) {
-            this.f47708e = lVar;
+            this.f48100e = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f47707h != null && d.b.g0.g.k0.e.c.g(e.this.f47707h.h())) {
-                e.this.f47707h.n();
-                l lVar = this.f47708e;
+            if (e.this.f48099h != null && d.b.g0.g.k0.e.c.g(e.this.f48099h.h())) {
+                e.this.f48099h.n();
+                l lVar = this.f48100e;
                 if (lVar != null) {
                     lVar.c();
                 }
@@ -72,21 +72,21 @@ public class e implements d.b.g0.e.a.m.b {
                 }
                 e.this.i = true;
                 if (e.this.l) {
-                    d.b.g0.e.a.p.d.f(e.this.f47706g, e.this.f47705f);
+                    d.b.g0.e.a.p.d.f(e.this.f48098g, e.this.f48097f);
                     return;
                 }
-                d.b.g0.e.a.p.c.g(e.this.f47706g, e.this.f47705f);
-                String str = e.this.f47702c;
+                d.b.g0.e.a.p.c.g(e.this.f48098g, e.this.f48097f);
+                String str = e.this.f48094c;
                 e eVar = e.this;
-                d.b.g0.e.a.p.c.c(str, eVar.f47701b, eVar.j, e.this.f47705f);
+                d.b.g0.e.a.p.c.c(str, eVar.f48093b, eVar.j, e.this.f48097f);
                 return;
             }
-            l lVar2 = this.f47708e;
+            l lVar2 = this.f48100e;
             if (lVar2 != null) {
                 lVar2.b("3010010");
             }
-            if (e.this.f47703d != null) {
-                e.this.f47703d.onError("3010010");
+            if (e.this.f48095d != null) {
+                e.this.f48095d.onError("3010010");
             }
         }
     }
@@ -98,8 +98,8 @@ public class e implements d.b.g0.e.a.m.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f47707h != null) {
-                e.this.f47707h.i();
+            if (e.this.f48099h != null) {
+                e.this.f48099h.i();
             }
         }
     }
@@ -111,12 +111,12 @@ public class e implements d.b.g0.e.a.m.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f47707h != null) {
-                d.b.g0.g.k0.e.c.i(e.this.f47707h.h());
+            if (e.this.f48099h != null) {
+                d.b.g0.g.k0.e.c.i(e.this.f48099h.h());
             }
-            e.this.f47707h = null;
-            e.this.f47703d = null;
-            e.this.f47706g = null;
+            e.this.f48099h = null;
+            e.this.f48095d = null;
+            e.this.f48098g = null;
             if (e.this.m != null) {
                 e.this.m.i();
                 e.this.m = null;
@@ -128,39 +128,39 @@ public class e implements d.b.g0.e.a.m.b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47712e;
+        public final /* synthetic */ String f48104e;
 
         public d(String str) {
-            this.f47712e = str;
+            this.f48104e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.e.a.r.f fVar = e.this.f47704e;
+            d.b.g0.e.a.r.f fVar = e.this.f48096e;
             boolean z = fVar.width != fVar.realWidth;
             e.this.x();
-            if (e.this.f47707h != null) {
-                e.this.f47707h.g(e.this.f47704e.width);
-                d.b.g0.g.k0.e.c.k(e.this.f47707h.h(), new d.b.g0.a.e1.d.a.a(h0.f(e.this.f47704e.left), h0.f(e.this.f47704e.top), h0.f(e.this.f47704e.realWidth), h0.f(e.this.f47704e.realHeight)));
+            if (e.this.f48099h != null) {
+                e.this.f48099h.g(e.this.f48096e.width);
+                d.b.g0.g.k0.e.c.k(e.this.f48099h.h(), new d.b.g0.a.e1.d.a.a(h0.f(e.this.f48096e.left), h0.f(e.this.f48096e.top), h0.f(e.this.f48096e.realWidth), h0.f(e.this.f48096e.realHeight)));
             }
-            if (this.f47712e.equals("width") && z && e.this.f47703d != null) {
-                e.this.f47703d.b(e.this.f47704e);
+            if (this.f48104e.equals("width") && z && e.this.f48095d != null) {
+                e.this.f48095d.b(e.this.f48096e);
             }
         }
     }
 
     /* renamed from: d.b.g0.e.a.r.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0938e implements Runnable {
-        public RunnableC0938e() {
+    public class RunnableC0950e implements Runnable {
+        public RunnableC0950e() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f47707h == null || !d.b.g0.g.k0.e.c.g(e.this.f47707h.h())) {
+            if (e.this.f48099h == null || !d.b.g0.g.k0.e.c.g(e.this.f48099h.h())) {
                 return;
             }
-            d.b.g0.g.k0.e.c.i(e.this.f47707h.h());
+            d.b.g0.g.k0.e.c.i(e.this.f48099h.h());
         }
     }
 
@@ -191,16 +191,16 @@ public class e implements d.b.g0.e.a.m.b {
         public void e(CommandType commandType, Uri uri) {
             d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
             if (W == null) {
-                if (e.this.f47700a != null) {
-                    d.b.g0.a.q1.b.f.d.e(e.this.f47700a, d.b.g0.a.h.aiapps_open_fragment_failed_toast).C();
+                if (e.this.f48092a != null) {
+                    d.b.g0.a.q1.b.f.d.e(e.this.f48092a, d.b.g0.a.h.aiapps_open_fragment_failed_toast).C();
                 }
-            } else if (e.this.f47706g != null) {
-                String l = e.this.f47706g.l();
+            } else if (e.this.f48098g != null) {
+                String l = e.this.f48098g.l();
                 d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(l, l);
                 f.b i = W.i("adLanding");
-                i.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
+                i.n(d.b.g0.a.e0.l.f.f44405g, d.b.g0.a.e0.l.f.i);
                 i.k("adLanding", c2).b();
-                d.b.g0.e.a.p.c.d(e.this.f47706g, e.this.f47705f);
+                d.b.g0.e.a.p.c.d(e.this.f48098g, e.this.f48097f);
             }
         }
     }
@@ -219,12 +219,12 @@ public class e implements d.b.g0.e.a.m.b {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str2);
                 if (e.this.m == null) {
-                    e.this.m = new d.b.g0.e.a.r.g(e.this.f47700a, e.this.f47706g, e.this.f47705f);
+                    e.this.m = new d.b.g0.e.a.r.g(e.this.f48092a, e.this.f48098g, e.this.f48097f);
                 }
                 e.this.m.k(str);
-                d.b.g0.a.w0.a.d().a(e.this.f47700a, jSONObject, SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, e.this.m);
+                d.b.g0.a.w0.a.d().a(e.this.f48092a, jSONObject, SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, e.this.m);
             } catch (JSONException e2) {
-                if (d.b.g0.a.k.f45051a) {
+                if (d.b.g0.a.k.f45443a) {
                     e2.printStackTrace();
                 }
             }
@@ -236,41 +236,41 @@ public class e implements d.b.g0.e.a.m.b {
     }
 
     public e(String str, String str2, d.b.g0.e.a.r.f fVar, a.e eVar, boolean z) {
-        this.f47704e = null;
+        this.f48096e = null;
         Context appContext = AppRuntime.getAppContext();
-        this.f47700a = appContext;
-        this.f47702c = str;
-        this.f47701b = str2;
-        this.f47704e = fVar;
+        this.f48092a = appContext;
+        this.f48094c = str;
+        this.f48093b = str2;
+        this.f48096e = fVar;
         this.k = eVar;
-        this.f47705f = new d.b.g0.e.a.r.b(appContext);
+        this.f48097f = new d.b.g0.e.a.r.b(appContext);
         this.l = z;
         x();
         B();
     }
 
     public final void A() {
-        d.b.g0.e.a.a aVar = new d.b.g0.e.a.a(this.f47700a, this.f47706g, this.f47701b, this.l);
-        this.f47707h = aVar;
+        d.b.g0.e.a.a aVar = new d.b.g0.e.a.a(this.f48092a, this.f48098g, this.f48093b, this.l);
+        this.f48099h = aVar;
         aVar.k(this.k);
         if (this.l) {
-            this.f47707h.m(new f());
+            this.f48099h.m(new f());
         } else {
-            this.f47707h.l(new g());
+            this.f48099h.l(new g());
         }
-        this.f47707h.g(this.f47704e.width);
-        if (d.b.g0.g.k0.e.c.g(this.f47707h.h())) {
-            d.b.g0.g.k0.e.c.i(this.f47707h.h());
+        this.f48099h.g(this.f48096e.width);
+        if (d.b.g0.g.k0.e.c.g(this.f48099h.h())) {
+            d.b.g0.g.k0.e.c.i(this.f48099h.h());
         }
-        if (d.b.g0.g.k0.e.c.a(this.f47707h.h(), new d.b.g0.a.e1.d.a.a(h0.f(this.f47704e.left), h0.f(this.f47704e.top), h0.f(this.f47704e.realWidth), h0.f(this.f47704e.realHeight)))) {
-            i iVar = this.f47703d;
+        if (d.b.g0.g.k0.e.c.a(this.f48099h.h(), new d.b.g0.a.e1.d.a.a(h0.f(this.f48096e.left), h0.f(this.f48096e.top), h0.f(this.f48096e.realWidth), h0.f(this.f48096e.realHeight)))) {
+            i iVar = this.f48095d;
             if (iVar != null) {
                 iVar.a();
                 return;
             }
             return;
         }
-        i iVar2 = this.f47703d;
+        i iVar2 = this.f48095d;
         if (iVar2 != null) {
             iVar2.onError("3010000");
         }
@@ -280,28 +280,28 @@ public class e implements d.b.g0.e.a.m.b {
         d.b.g0.e.a.o.d cVar;
         d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
         String B = y != null ? y.B() : "";
-        b.C0937b c0937b = new b.C0937b();
-        c0937b.l(this.f47702c);
-        c0937b.i(this.f47701b);
-        c0937b.m(B);
-        c0937b.k(this.f47704e.width);
-        c0937b.h(this.f47704e.height);
-        d.b.g0.e.a.o.b g2 = c0937b.g();
+        b.C0949b c0949b = new b.C0949b();
+        c0949b.l(this.f48094c);
+        c0949b.i(this.f48093b);
+        c0949b.m(B);
+        c0949b.k(this.f48096e.width);
+        c0949b.h(this.f48096e.height);
+        d.b.g0.e.a.o.b g2 = c0949b.g();
         if (this.l) {
-            cVar = new d.b.g0.e.a.o.e(this.f47700a, g2, 1, y());
+            cVar = new d.b.g0.e.a.o.e(this.f48092a, g2, 1, y());
             d.b.g0.g.k0.e.b.b("gdtbanner", null);
         } else {
-            cVar = new d.b.g0.e.a.o.c(this.f47700a, g2);
+            cVar = new d.b.g0.e.a.o.c(this.f48092a, g2);
             this.j = cVar.c();
             d.b.g0.g.k0.e.b.b("banner", null);
         }
-        d.b.g0.e.a.o.a aVar = new d.b.g0.e.a.o.a(this.f47700a, this.l);
+        d.b.g0.e.a.o.a aVar = new d.b.g0.e.a.o.a(this.f48092a, this.l);
         aVar.i(this);
-        aVar.h(cVar, this.f47705f);
+        aVar.h(cVar, this.f48097f);
     }
 
     public void C(i iVar) {
-        this.f47703d = iVar;
+        this.f48095d = iVar;
     }
 
     public void D(String str) {
@@ -310,12 +310,12 @@ public class e implements d.b.g0.e.a.m.b {
 
     @Override // d.b.g0.e.a.m.b
     public void c(String str) {
-        i iVar = this.f47703d;
+        i iVar = this.f48095d;
         if (iVar != null) {
             iVar.onError(str);
         }
         d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
-        String str2 = y != null ? y.f45740f : "";
+        String str2 = y != null ? y.f46132f : "";
         if (str2.lastIndexOf("_dev") >= 0 && str2.lastIndexOf("_dev") < str2.length() && str.equals("201000")) {
             w();
         }
@@ -324,7 +324,7 @@ public class e implements d.b.g0.e.a.m.b {
 
     @Override // d.b.g0.e.a.m.b
     public void f(AdElementInfo adElementInfo) {
-        this.f47706g = adElementInfo;
+        this.f48098g = adElementInfo;
         A();
         d.b.g0.g.k0.e.b.b(this.l ? "gdtbanner" : "banner", "success");
     }
@@ -342,61 +342,61 @@ public class e implements d.b.g0.e.a.m.b {
     }
 
     public final void w() {
-        d.b.g0.e.a.a aVar = new d.b.g0.e.a.a(this.f47700a);
-        this.f47707h = aVar;
-        aVar.g(this.f47704e.width);
-        if (d.b.g0.g.k0.e.c.g(this.f47707h.h())) {
-            d.b.g0.g.k0.e.c.i(this.f47707h.h());
+        d.b.g0.e.a.a aVar = new d.b.g0.e.a.a(this.f48092a);
+        this.f48099h = aVar;
+        aVar.g(this.f48096e.width);
+        if (d.b.g0.g.k0.e.c.g(this.f48099h.h())) {
+            d.b.g0.g.k0.e.c.i(this.f48099h.h());
         }
-        d.b.g0.g.k0.e.c.a(this.f47707h.h(), new d.b.g0.a.e1.d.a.a(h0.f(this.f47704e.left), h0.f(this.f47704e.top), h0.f(this.f47704e.realWidth), h0.f(this.f47704e.realHeight)));
-        this.f47707h.h().postDelayed(new RunnableC0938e(), 20000L);
+        d.b.g0.g.k0.e.c.a(this.f48099h.h(), new d.b.g0.a.e1.d.a.a(h0.f(this.f48096e.left), h0.f(this.f48096e.top), h0.f(this.f48096e.realWidth), h0.f(this.f48096e.realHeight)));
+        this.f48099h.h().postDelayed(new RunnableC0950e(), 20000L);
     }
 
     public final void x() {
-        d.b.g0.e.a.r.f fVar = this.f47704e;
+        d.b.g0.e.a.r.f fVar = this.f48096e;
         if (fVar == null) {
             return;
         }
         if (h0.f(fVar.width) < 300) {
-            this.f47704e.width = h0.H(300.0f);
+            this.f48096e.width = h0.H(300.0f);
         }
         int c2 = d.b.g0.g.k0.e.c.c();
         int b2 = d.b.g0.g.k0.e.c.b();
-        if (h0.f(this.f47704e.width) > c2) {
-            this.f47704e.width = h0.H(c2);
+        if (h0.f(this.f48096e.width) > c2) {
+            this.f48096e.width = h0.H(c2);
         }
-        d.b.g0.e.a.r.f fVar2 = this.f47704e;
-        fVar2.height = (int) (fVar2.width / d.b.g0.e.a.q.d.f47682a);
+        d.b.g0.e.a.r.f fVar2 = this.f48096e;
+        fVar2.height = (int) (fVar2.width / d.b.g0.e.a.q.d.f48074a);
         if (fVar2.left < 0) {
             fVar2.left = 0;
         }
         int H = h0.H(c2);
-        d.b.g0.e.a.r.f fVar3 = this.f47704e;
+        d.b.g0.e.a.r.f fVar3 = this.f48096e;
         int i = H - fVar3.width;
         if (fVar3.left > i) {
             fVar3.left = i;
         }
-        d.b.g0.e.a.r.f fVar4 = this.f47704e;
+        d.b.g0.e.a.r.f fVar4 = this.f48096e;
         if (fVar4.top < 0) {
             fVar4.top = 0;
         }
         int H2 = h0.H(b2);
-        d.b.g0.e.a.r.f fVar5 = this.f47704e;
+        d.b.g0.e.a.r.f fVar5 = this.f48096e;
         int i2 = H2 - fVar5.height;
         if (fVar5.top > i2) {
             fVar5.top = i2;
         }
-        d.b.g0.e.a.r.f fVar6 = this.f47704e;
+        d.b.g0.e.a.r.f fVar6 = this.f48096e;
         fVar6.realWidth = fVar6.width;
         fVar6.realHeight = fVar6.height;
     }
 
     public final int y() {
-        if (this.f47704e == null) {
+        if (this.f48096e == null) {
             return 2;
         }
         int H = h0.H(d.b.g0.g.k0.e.c.b());
-        int i = this.f47704e.top;
+        int i = this.f48096e.top;
         int i2 = H / 3;
         if (i < i2) {
             return 1;
@@ -406,38 +406,38 @@ public class e implements d.b.g0.e.a.m.b {
 
     public final void z(View view) {
         AdElementInfo adElementInfo;
-        if (!this.l || (adElementInfo = this.f47706g) == null || this.f47704e == null || view == null) {
+        if (!this.l || (adElementInfo = this.f48098g) == null || this.f48096e == null || view == null) {
             return;
         }
-        d.b.g0.e.a.p.d.d(adElementInfo, this.f47705f);
+        d.b.g0.e.a.p.d.d(adElementInfo, this.f48097f);
         d.b.g0.e.a.p.b bVar = new d.b.g0.e.a.p.b();
-        bVar.f47670a = String.valueOf(this.f47704e.width);
-        bVar.f47671b = String.valueOf(this.f47704e.height);
-        bVar.f47672c = String.valueOf(this.f47704e.width);
-        bVar.f47673d = String.valueOf(this.f47704e.height);
-        bVar.f47674e = String.valueOf((int) view.getX());
-        bVar.f47675f = String.valueOf((int) view.getY());
-        bVar.f47676g = String.valueOf((int) view.getX());
-        bVar.f47677h = String.valueOf((int) view.getY());
-        if (this.f47706g.h() == 2) {
-            d.b.g0.e.a.p.d.a(bVar, this.f47706g, this.f47705f, new h());
+        bVar.f48062a = String.valueOf(this.f48096e.width);
+        bVar.f48063b = String.valueOf(this.f48096e.height);
+        bVar.f48064c = String.valueOf(this.f48096e.width);
+        bVar.f48065d = String.valueOf(this.f48096e.height);
+        bVar.f48066e = String.valueOf((int) view.getX());
+        bVar.f48067f = String.valueOf((int) view.getY());
+        bVar.f48068g = String.valueOf((int) view.getX());
+        bVar.f48069h = String.valueOf((int) view.getY());
+        if (this.f48098g.h() == 2) {
+            d.b.g0.e.a.p.d.a(bVar, this.f48098g, this.f48097f, new h());
             return;
         }
         d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
         if (W == null) {
-            Context context = this.f47700a;
+            Context context = this.f48092a;
             if (context != null) {
                 d.b.g0.a.q1.b.f.d.e(context, d.b.g0.a.h.aiapps_open_fragment_failed_toast).C();
                 return;
             }
             return;
         }
-        AdElementInfo adElementInfo2 = this.f47706g;
+        AdElementInfo adElementInfo2 = this.f48098g;
         if (adElementInfo2 != null) {
             String c2 = d.b.g0.e.a.p.d.c(adElementInfo2.l(), bVar);
             d.b.g0.a.e1.b c3 = d.b.g0.a.e1.b.c(c2, c2);
             f.b i = W.i("adLanding");
-            i.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
+            i.n(d.b.g0.a.e0.l.f.f44405g, d.b.g0.a.e0.l.f.i);
             i.k("adLanding", c3).b();
         }
     }

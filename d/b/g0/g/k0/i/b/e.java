@@ -25,7 +25,7 @@ public class e {
 
     public static Map<String, String> a(@NonNull d.b.g0.a.r1.e eVar, int i, String str) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put(com.alipay.sdk.cons.b.f1858h, eVar.B());
+        treeMap.put(com.alipay.sdk.cons.b.f1883h, eVar.B());
         treeMap.put("to_app_key", str);
         treeMap.put("source", String.valueOf(i));
         treeMap.put("timestamp", c());
@@ -47,7 +47,7 @@ public class e {
             responseCallback.onFail(new Exception("framework error: swan app is null."));
             return;
         }
-        y.V().getRequest().cookieManager(d.b.g0.a.w0.a.m().a()).url(d.b.g0.a.w0.a.l().l()).addUrlParam(com.alipay.sdk.cons.b.f1858h, y.B()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
+        y.V().getRequest().cookieManager(d.b.g0.a.w0.a.m().a()).url(d.b.g0.a.w0.a.l().l()).addUrlParam(com.alipay.sdk.cons.b.f1883h, y.B()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
     }
 
     public static String c() {

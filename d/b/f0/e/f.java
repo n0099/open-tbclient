@@ -16,15 +16,15 @@ public class f extends j {
     public class a implements PreCodeListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f42901a;
+        public final /* synthetic */ int f43293a;
 
         public a(int i) {
-            this.f42901a = i;
+            this.f43293a = i;
         }
 
         @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
         public void onResult(String str) {
-            f.this.v(str, this.f42901a, 1);
+            f.this.v(str, this.f43293a, 1);
         }
     }
 
@@ -32,15 +32,15 @@ public class f extends j {
     public class b implements PreCodeListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f42903a;
+        public final /* synthetic */ int f43295a;
 
         public b(int i) {
-            this.f42903a = i;
+            this.f43295a = i;
         }
 
         @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
         public void onResult(String str) {
-            f.this.v(str, this.f42903a, 3);
+            f.this.v(str, this.f43295a, 3);
         }
     }
 
@@ -48,28 +48,28 @@ public class f extends j {
     public class c extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f42905f;
+        public final /* synthetic */ String f43297f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42906g;
+        public final /* synthetic */ int f43298g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f42907h;
+        public final /* synthetic */ int f43299h;
 
         public c(String str, int i, int i2) {
-            this.f42905f = str;
-            this.f42906g = i;
-            this.f42907h = i2;
+            this.f43297f = str;
+            this.f43298g = i;
+            this.f43299h = i2;
         }
 
         @Override // d.b.f0.k.c
         public void b() {
             try {
-                JSONObject jSONObject = new JSONObject(this.f42905f);
+                JSONObject jSONObject = new JSONObject(this.f43297f);
                 if (jSONObject.optInt("result", -1) == 0) {
-                    f.this.y(jSONObject, this.f42906g, this.f42907h);
+                    f.this.y(jSONObject, this.f43298g, this.f43299h);
                 } else {
-                    f.this.w(jSONObject, this.f42906g, this.f42907h);
+                    f.this.w(jSONObject, this.f43298g, this.f43299h);
                 }
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
@@ -81,45 +81,45 @@ public class f extends j {
     public class d extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42908f;
+        public final /* synthetic */ int f43300f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42909g;
+        public final /* synthetic */ int f43301g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f42910h;
+        public final /* synthetic */ JSONObject f43302h;
 
         public d(int i, int i2, JSONObject jSONObject) {
-            this.f42908f = i;
-            this.f42909g = i2;
-            this.f42910h = jSONObject;
+            this.f43300f = i;
+            this.f43301g = i2;
+            this.f43302h = jSONObject;
         }
 
         @Override // d.b.f0.k.c
         public void b() {
             String str;
             try {
-                if (d.b.f0.b.c.f42829c) {
-                    f.this.d(this.f42908f, 1, 999, f.this.f42936c, "device has risk.", this.f42909g);
+                if (d.b.f0.b.c.f43221c) {
+                    f.this.d(this.f43300f, 1, 999, f.this.f43328c, "device has risk.", this.f43301g);
                     return;
                 }
-                JSONObject optJSONObject = this.f42910h.optJSONObject("data");
-                if (this.f42909g == 1) {
-                    f.this.f42938e = optJSONObject.optString("accessCode", "");
-                    f.this.f42940g = optJSONObject.optString(IdCardActivity.KEY_NUMBER, "");
-                    f.this.f42939f = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
+                JSONObject optJSONObject = this.f43302h.optJSONObject("data");
+                if (this.f43301g == 1) {
+                    f.this.f43330e = optJSONObject.optString("accessCode", "");
+                    f.this.f43332g = optJSONObject.optString(IdCardActivity.KEY_NUMBER, "");
+                    f.this.f43331f = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, f.this.f42940g);
+                    jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, f.this.f43332g);
                     str = jSONObject.toString();
                 } else {
-                    f.this.f42941h = optJSONObject.optString("accessCode", "");
+                    f.this.f43333h = optJSONObject.optString("accessCode", "");
                     f.this.i = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
                     str = "preVerify success";
                 }
-                f.this.d(this.f42908f, 0, 0, f.this.f42936c, str, this.f42909g);
+                f.this.d(this.f43300f, 0, 0, f.this.f43328c, str, this.f43301g);
             } catch (Throwable unused) {
                 f fVar = f.this;
-                fVar.d(this.f42908f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar.f42936c, "ct on handle pre login or verify unknown error.", this.f42909g);
+                fVar.d(this.f43300f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar.f43328c, "ct on handle pre login or verify unknown error.", this.f43301g);
             }
         }
     }
@@ -128,41 +128,41 @@ public class f extends j {
     public class e extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f42911f;
+        public final /* synthetic */ JSONObject f43303f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42912g;
+        public final /* synthetic */ int f43304g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f42913h;
+        public final /* synthetic */ int f43305h;
 
         public e(JSONObject jSONObject, int i, int i2) {
-            this.f42911f = jSONObject;
-            this.f42912g = i;
-            this.f42913h = i2;
+            this.f43303f = jSONObject;
+            this.f43304g = i;
+            this.f43305h = i2;
         }
 
         @Override // d.b.f0.k.c
         public void b() {
             try {
-                int optInt = this.f42911f.optInt("result", -1);
-                String optString = this.f42911f.optString("msg", "");
-                if (f.this.f42936c != f.this.f42937d && (optInt == -10009 || optInt == -10008)) {
-                    f.this.d(this.f42912g, 3, 2002, f.this.f42936c, "pre login error, wrong sim operator", this.f42913h);
+                int optInt = this.f43303f.optInt("result", -1);
+                String optString = this.f43303f.optString("msg", "");
+                if (f.this.f43328c != f.this.f43329d && (optInt == -10009 || optInt == -10008)) {
+                    f.this.d(this.f43304g, 3, 2002, f.this.f43328c, "pre login error, wrong sim operator", this.f43305h);
                 } else {
                     f fVar = f.this;
-                    int i = this.f42912g;
-                    int i2 = f.this.f42936c;
+                    int i = this.f43304g;
+                    int i2 = f.this.f43328c;
                     StringBuilder sb = new StringBuilder();
                     sb.append("ct pre login error.");
                     sb.append(optString);
                     sb.append(", status ");
                     sb.append(optInt);
-                    fVar.d(i, 2, optInt, i2, sb.toString(), this.f42913h);
+                    fVar.d(i, 2, optInt, i2, sb.toString(), this.f43305h);
                 }
             } catch (Throwable unused) {
                 f fVar2 = f.this;
-                fVar2.d(this.f42912g, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar2.f42936c, "ct on handle pre login or verify unknown error.", this.f42913h);
+                fVar2.d(this.f43304g, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar2.f43328c, "ct on handle pre login or verify unknown error.", this.f43305h);
             }
         }
     }
@@ -170,42 +170,42 @@ public class f extends j {
     public f(Context context) {
         super(context);
         this.s = false;
-        this.f42936c = 3;
+        this.f43328c = 3;
     }
 
     @Override // d.b.f0.e.i
     public void g(Context context, int i) {
         super.g(context, i);
-        if (!d.b.f0.b.a.g(this.f42934a).c()) {
-            d(i, 3, 997, this.f42936c, "pre login error. sdk stop run.", 1);
+        if (!d.b.f0.b.a.g(this.f43326a).c()) {
+            d(i, 3, 997, this.f43328c, "pre login error. sdk stop run.", 1);
         } else if (!q()) {
-            d(i, 3, 2006, this.f42936c, "pre login error. ct has not valid config.", 1);
-        } else if (d.b.f0.b.a.g(this.f42934a).n0()) {
+            d(i, 3, 2006, this.f43328c, "pre login error. ct has not valid config.", 1);
+        } else if (d.b.f0.b.a.g(this.f43326a).n0()) {
             if (!this.s) {
                 CtAuth.init(0, 0, 8000, null);
                 this.s = true;
             }
             CtAuth.requestPreAuthCode(context, i.m, i.n, new a(i));
         } else {
-            d(i, 3, 996, this.f42936c, "pre login error. ct sdk stop run.", 1);
+            d(i, 3, 996, this.f43328c, "pre login error. ct sdk stop run.", 1);
         }
     }
 
     @Override // d.b.f0.e.i
     public void n(Context context, int i) {
         super.n(context, i);
-        if (!d.b.f0.b.a.g(this.f42934a).c()) {
-            d(i, 3, 997, this.f42936c, "pre verify error. sdk stop run.", 3);
+        if (!d.b.f0.b.a.g(this.f43326a).c()) {
+            d(i, 3, 997, this.f43328c, "pre verify error. sdk stop run.", 3);
         } else if (!q()) {
-            d(i, 3, 2006, this.f42936c, "pre verify error. ct has not valid config.", 3);
-        } else if (d.b.f0.b.a.g(this.f42934a).n0()) {
+            d(i, 3, 2006, this.f43328c, "pre verify error. ct has not valid config.", 3);
+        } else if (d.b.f0.b.a.g(this.f43326a).n0()) {
             if (!this.s) {
                 CtAuth.init(0, 0, 8000, null);
                 this.s = true;
             }
             CtAuth.requestPreAuthCode(context, i.m, i.n, new b(i));
         } else {
-            d(i, 3, 996, this.f42936c, "pre verify error. ct sdk stop run.", 3);
+            d(i, 3, 996, this.f43328c, "pre verify error. ct sdk stop run.", 3);
         }
     }
 

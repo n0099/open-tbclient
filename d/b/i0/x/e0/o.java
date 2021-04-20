@@ -7,16 +7,16 @@ public class o extends BaseCardInfo implements p {
     public static final BdUniqueId n = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f62225e;
+    public long f63800e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62226f;
+    public String f63801f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62227g;
+    public String f63802g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62228h;
+    public String f63803h;
     public String i;
     public String j;
     public String k;
@@ -32,7 +32,7 @@ public class o extends BaseCardInfo implements p {
         return (int) this.l;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return n;
     }

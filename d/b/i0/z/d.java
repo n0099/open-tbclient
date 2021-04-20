@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -17,7 +18,7 @@ public class d {
     @Nullable
     public static Intent a(Context context, String str, String str2, boolean z, c cVar) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         int i = 0;
         List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
         while (true) {
@@ -61,7 +62,7 @@ public class d {
             }
             String str3 = parseUri.getPackage();
             if (str3 != null && !TextUtils.isEmpty(str3)) {
-                parseUri.setFlags(268435456);
+                parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 Set<String> categories = parseUri.getCategories();
                 if (categories == null || categories.isEmpty()) {
                     parseUri.addCategory("android.intent.category.LAUNCHER");

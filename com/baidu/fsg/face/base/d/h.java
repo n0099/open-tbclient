@@ -33,28 +33,28 @@ import org.apache.http.conn.util.InetAddressUtils;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5621a = "armeabi";
+    public static final String f5656a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5622b = "armeabi-v7a";
+    public static final String f5657b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5623c = "x86";
+    public static final String f5658c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5624d = "arm64-v8a";
+    public static final String f5659d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5625e = 480;
+    public static final int f5660e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5626f = 480;
+    public static final int f5661f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5627g = 192;
+    public static final int f5662g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5628h = 480;
+    public static final int f5663h = 480;
     public static final int i = 620;
     public static final int j = 728;
     public static final int k = 750;
@@ -334,7 +334,7 @@ public class h {
     }
 
     public static String a(String str, Context context) {
-        return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5592a;
+        return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5627a;
     }
 
     public static int a(Context context, float f2) {

@@ -1,34 +1,41 @@
 package a.a.a.a.r.a.a;
 
-import android.view.View;
-import com.baidu.mobads.nativecpu.IBasicCPUData;
-import com.fun.ad.sdk.FunAdInteractionListener;
+import a.a.a.a.k;
+import a.a.a.a.m;
+import a.a.a.a.s.e;
+import com.fun.ad.sdk.FunAdType;
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IBasicCPUData f1088a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ FunAdInteractionListener f1089b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f1090c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f1091d;
-
-    public c(a aVar, IBasicCPUData iBasicCPUData, FunAdInteractionListener funAdInteractionListener, String str) {
-        this.f1091d = aVar;
-        this.f1088a = iBasicCPUData;
-        this.f1089b = funAdInteractionListener;
-        this.f1090c = str;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1088a.handleClick(view);
-        this.f1091d.e();
-        this.f1089b.onAdClicked(this.f1090c);
+public class c implements m.a {
+    @Override // a.a.a.a.m.a
+    public k a(e.a aVar) {
+        char c2;
+        String str = aVar.f1321d;
+        int hashCode = str.hashCode();
+        if (hashCode == -1900686778) {
+            if (str.equals(FunAdType.JY_NATIVE)) {
+                c2 = 0;
+            }
+            c2 = 65535;
+        } else if (hashCode != -39027267) {
+            if (hashCode == 1872382491 && str.equals(FunAdType.JY_INTERSTITIAL)) {
+                c2 = 1;
+            }
+            c2 = 65535;
+        } else {
+            if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                c2 = 2;
+            }
+            c2 = 65535;
+        }
+        if (c2 != 0) {
+            if (c2 != 1) {
+                if (c2 != 2) {
+                    return null;
+                }
+                return new a.a.a.a.r.a.d.c(aVar);
+            }
+            return new a.a.a.a.r.a.d.a(aVar);
+        }
+        return new a.a.a.a.r.a.d.b(aVar);
     }
 }

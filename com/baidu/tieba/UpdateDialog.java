@@ -12,8 +12,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.webkit.URLUtil;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -26,7 +26,7 @@ import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.m.g;
+import d.b.c.e.m.g;
 import d.b.i0.j;
 import d.b.i0.l;
 import java.io.File;
@@ -220,7 +220,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         PackageInfo packageArchiveInfo;
         VersionData versionData = this.mData;
         if (versionData != null && !StringUtils.isNull(versionData.getUrl()) && URLUtil.isNetworkUrl(this.mData.getUrl())) {
-            String str = getPageContext().getString(R.string.app_name) + TbadkCoreApplication.getInst().getVersionName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+            String str = getPageContext().getString(R.string.app_name) + TbadkCoreApplication.getInst().getVersionName() + ".apk";
             String fileDireciory = FileHelper.getFileDireciory(str);
             if (fileDireciory != null && (packageArchiveInfo = getPageContext().getPageActivity().getPackageManager().getPackageArchiveInfo(fileDireciory, 1)) != null) {
                 String str2 = packageArchiveInfo.versionName;
@@ -328,7 +328,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         this.mDownloadAs = z2;
         this.mDownloadOther = z3;
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         if (z && (versionData = this.mData) != null && URLUtil.isNetworkUrl(versionData.getUrl()) && !TextUtils.isEmpty(this.mData.getApkMD5RSA())) {
             intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.mData.getUrl());
             intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.mData);

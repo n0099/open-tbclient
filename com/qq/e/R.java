@@ -53,6 +53,6 @@ public final class R {
 
     /* loaded from: classes6.dex */
     public static final class xml {
-        public static final int gdt_file_path = 0x7f120004;
+        public static final int gdt_file_path = 0x7f120003;
     }
 }

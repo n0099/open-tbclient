@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
+import d.b.c.e.m.e;
 import d.b.h0.r.u.c;
 /* loaded from: classes5.dex */
 public class TitleTipView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22381e;
+    public int f22066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22382f;
+    public int f22067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f22383g;
+    public LinearLayout f22068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22384h;
+    public ImageView f22069h;
     public ImageView i;
     public TextView j;
     public View k;
@@ -57,8 +57,8 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context) {
         super(context);
-        this.f22381e = 3;
-        this.f22382f = 5000;
+        this.f22066e = 3;
+        this.f22067f = 5000;
         this.l = new a();
         this.m = new b();
         b();
@@ -71,8 +71,8 @@ public class TitleTipView extends RelativeLayout {
 
     public final void b() {
         View.inflate(getContext(), R.layout.title_tip_layout, this);
-        this.f22383g = (LinearLayout) findViewById(R.id.tip_bg);
-        this.f22384h = (ImageView) findViewById(R.id.img_icon);
+        this.f22068g = (LinearLayout) findViewById(R.id.tip_bg);
+        this.f22069h = (ImageView) findViewById(R.id.img_icon);
         this.i = (ImageView) findViewById(R.id.img_close);
         this.j = (TextView) findViewById(R.id.tv_tip);
         this.k = findViewById(R.id.tv_line);
@@ -82,31 +82,31 @@ public class TitleTipView extends RelativeLayout {
     }
 
     public void c(int i) {
-        if (this.f22381e != i) {
-            c a2 = c.a(this.f22383g);
-            a2.h(R.string.J_X05);
-            a2.f(R.dimen.L_X01);
-            a2.e(R.color.CAM_X0602);
-            a2.c(R.color.CAM_X0206);
-            c.a(this.k).c(R.color.CAM_X0203);
-            c.a(this.j).n(R.color.CAM_X0107);
+        if (this.f22066e != i) {
+            c d2 = c.d(this.f22068g);
+            d2.k(R.string.J_X05);
+            d2.i(R.dimen.L_X01);
+            d2.h(R.color.CAM_X0602);
+            d2.f(R.color.CAM_X0206);
+            c.d(this.k).f(R.color.CAM_X0203);
+            c.d(this.j).q(R.color.CAM_X0107);
             this.i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
-            if (this.f22384h != null) {
-                this.f22384h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
+            if (this.f22069h != null) {
+                this.f22069h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
             }
         }
-        this.f22381e = i;
+        this.f22066e = i;
     }
 
     public void d() {
         setVisibility(0);
-        e.a().postDelayed(this.m, this.f22382f);
+        e.a().postDelayed(this.m, this.f22067f);
     }
 
     public TitleTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22381e = 3;
-        this.f22382f = 5000;
+        this.f22066e = 3;
+        this.f22067f = 5000;
         this.l = new a();
         this.m = new b();
         b();
@@ -114,8 +114,8 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f22381e = 3;
-        this.f22382f = 5000;
+        this.f22066e = 3;
+        this.f22067f = 5000;
         this.l = new a();
         this.m = new b();
         b();

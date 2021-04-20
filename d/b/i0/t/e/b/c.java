@@ -7,20 +7,20 @@ import d.b.h0.r.q.a2;
 public class c extends BaseCardInfo {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f60684f = BdUniqueId.gen();
+    public static final BdUniqueId f62248f = BdUniqueId.gen();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f60685g = BdUniqueId.gen();
+    public static final BdUniqueId f62249g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f60686e;
+    public a2 f62250e;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        a2 a2Var = this.f60686e;
-        if (a2Var != null && a2Var.q1() != null && this.f60686e.q1().live_type == 1) {
-            return f60685g;
+        a2 a2Var = this.f62250e;
+        if (a2Var != null && a2Var.q1() != null && this.f62250e.q1().live_type == 1) {
+            return f62249g;
         }
-        return f60684f;
+        return f62248f;
     }
 }

@@ -6,20 +6,20 @@ import tbclient.TiebaFieldsInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55594a;
+    public String f56717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55595b;
+    public String f56718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MetaData f55596c;
+    public MetaData f56719c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f55597d;
+    public long f56720d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55598e;
+    public String f56721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TiebaFieldsInfo f55599f;
+    public TiebaFieldsInfo f56722f;
 }

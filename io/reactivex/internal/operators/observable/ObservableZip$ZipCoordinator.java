@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.b.a;
-import f.a.x.e.c.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.b.a;
+import f.b.x.e.c.n;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -43,7 +43,7 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
         } else if (z) {
             if (z3) {
                 if (z2) {
-                    Throwable th = nVar.f67518h;
+                    Throwable th = nVar.f68524h;
                     cancel();
                     if (th != null) {
                         oVar.onError(th);
@@ -54,7 +54,7 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
                 }
                 return false;
             }
-            Throwable th2 = nVar.f67518h;
+            Throwable th2 = nVar.f68524h;
             if (th2 != null) {
                 cancel();
                 oVar.onError(th2);
@@ -73,11 +73,11 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
 
     public void clear() {
         for (n<T, R> nVar : this.observers) {
-            nVar.f67516f.clear();
+            nVar.f68522f.clear();
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -104,8 +104,8 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
             int i3 = 0;
             for (n<T, R> nVar : nVarArr) {
                 if (tArr[i3] == null) {
-                    boolean z2 = nVar.f67517g;
-                    T poll = nVar.f67516f.poll();
+                    boolean z2 = nVar.f68523g;
+                    T poll = nVar.f68522f.poll();
                     boolean z3 = poll == null;
                     if (checkTerminated(z2, z3, oVar, z, nVar)) {
                         return;
@@ -115,7 +115,7 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
                     } else {
                         tArr[i3] = poll;
                     }
-                } else if (nVar.f67517g && !z && (th = nVar.f67518h) != null) {
+                } else if (nVar.f68523g && !z && (th = nVar.f68524h) != null) {
                     cancel();
                     oVar.onError(th);
                     return;
@@ -134,7 +134,7 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
                     oVar.onNext(obj);
                     Arrays.fill(tArr, (Object) null);
                 } catch (Throwable th2) {
-                    f.a.u.a.a(th2);
+                    f.b.u.a.a(th2);
                     cancel();
                     oVar.onError(th2);
                     return;
@@ -143,12 +143,12 @@ public final class ObservableZip$ZipCoordinator<T, R> extends AtomicInteger impl
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }
 
-    public void subscribe(f.a.n<? extends T>[] nVarArr, int i) {
+    public void subscribe(f.b.n<? extends T>[] nVarArr, int i) {
         n<T, R>[] nVarArr2 = this.observers;
         int length = nVarArr2.length;
         for (int i2 = 0; i2 < length; i2++) {

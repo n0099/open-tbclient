@@ -13,29 +13,29 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46689e;
+        public final /* synthetic */ CallbackHandler f47081e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46690f;
+        public final /* synthetic */ UnitedSchemeEntity f47082f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46691g;
+        public final /* synthetic */ String f47083g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46692h;
+        public final /* synthetic */ d.b.g0.a.r1.e f47084h;
 
         public a(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, d.b.g0.a.r1.e eVar2) {
-            this.f46689e = callbackHandler;
-            this.f46690f = unitedSchemeEntity;
-            this.f46691g = str;
-            this.f46692h = eVar2;
+            this.f47081e = callbackHandler;
+            this.f47082f = unitedSchemeEntity;
+            this.f47083g = str;
+            this.f47084h = eVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,16 +43,16 @@ public class e extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<JSONObject> hVar) {
             JSONObject jSONObject;
-            if (hVar.c() && (jSONObject = hVar.f46808a) != null) {
-                UnitedSchemeUtility.safeCallback(this.f46689e, this.f46690f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f46691g);
-                d.b.g0.a.r1.e eVar = this.f46692h;
+            if (hVar.c() && (jSONObject = hVar.f47200a) != null) {
+                UnitedSchemeUtility.safeCallback(this.f47081e, this.f47082f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f47083g);
+                d.b.g0.a.r1.e eVar = this.f47084h;
                 if (eVar != null) {
-                    this.f46692h.R().A(a.f.a(eVar), hVar.f46808a.toString());
+                    this.f47084h.R().A(a.f.a(eVar), hVar.f47200a.toString());
                 }
                 d.b.g0.a.c0.c.g("getSwanId", "getSwanId success");
                 return;
             }
-            UnitedSchemeUtility.safeCallback(this.f46689e, this.f46690f, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), this.f46691g);
+            UnitedSchemeUtility.safeCallback(this.f47081e, this.f47082f, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), this.f47083g);
             d.b.g0.a.c0.c.b("getSwanId", "getSwanId failed: internal_error");
         }
     }

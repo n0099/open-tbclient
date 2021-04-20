@@ -1,7 +1,7 @@
 package d.b.g0.a.t1;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static String a(int i) {
         switch (i) {

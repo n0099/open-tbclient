@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class s extends d.b.g0.a.v1.c.i.f {
-    public static final boolean s = d.b.g0.a.k.f45051a;
+    public static final boolean s = d.b.g0.a.k.f45443a;
     public String r;
 
     /* loaded from: classes3.dex */
@@ -90,10 +90,10 @@ public class s extends d.b.g0.a.v1.c.i.f {
 
         public c() {
             b.c cVar;
-            if (s.this.n == null || (cVar = s.this.m) == null || !cVar.f45945a) {
+            if (s.this.n == null || (cVar = s.this.m) == null || !cVar.f46337a) {
                 return;
             }
-            long j = cVar.f45946b;
+            long j = cVar.f46338b;
             if (s.s) {
                 Log.d("LoginRequest", "send timeout " + j + "ms msg");
             }
@@ -118,9 +118,9 @@ public class s extends d.b.g0.a.v1.c.i.f {
         JSONObject jSONObject = new JSONObject();
         try {
             boolean isEmpty = TextUtils.isEmpty(this.p);
-            jSONObject.put("ma_id", isEmpty ? G().f45740f : this.p);
+            jSONObject.put("ma_id", isEmpty ? G().f46132f : this.p);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(com.alipay.sdk.cons.b.f1858h, isEmpty ? G().B() : this.p);
+            jSONObject2.put(com.alipay.sdk.cons.b.f1883h, isEmpty ? G().B() : this.p);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", d.b.g0.a.v1.c.c.g());
             jSONObject2.put("stoken", this.r);

@@ -12,30 +12,30 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43767a;
+        public final /* synthetic */ CallbackHandler f44159a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43768b;
+        public final /* synthetic */ UnitedSchemeEntity f44160b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f43769c;
+        public final /* synthetic */ String f44161c;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f43767a = callbackHandler;
-            this.f43768b = unitedSchemeEntity;
-            this.f43769c = str;
+            this.f44159a = callbackHandler;
+            this.f44160b = unitedSchemeEntity;
+            this.f44161c = str;
         }
 
         @Override // d.b.g0.a.c2.b.d.b
         public void a(int i) {
-            b.this.k(i, this.f43767a, this.f43768b, this.f43769c);
+            b.this.k(i, this.f44159a, this.f44160b, this.f44161c);
         }
     }
 
@@ -89,7 +89,7 @@ public class b extends a0 {
         }
         try {
             jSONObject.put("volume", f2);
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("startMediaVolumeListen", "NewVolume: " + f2);
             }
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);

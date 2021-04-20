@@ -1,5 +1,5 @@
 package com.facebook.common.memory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NoOpMemoryTrimmableRegistry implements MemoryTrimmableRegistry {
     public static NoOpMemoryTrimmableRegistry sInstance;
 

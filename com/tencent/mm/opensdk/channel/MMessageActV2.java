@@ -3,19 +3,20 @@ package com.tencent.mm.opensdk.channel;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.alibaba.fastjson.asm.Label;
 import com.tencent.mm.opensdk.channel.a.b;
 import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MMessageActV2 {
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
     public static final String MM_ENTRY_PACKAGE_NAME = "com.tencent.mm";
     public static final String MM_MSG_ENTRY_CLASS_NAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Args {
         public static final int INVALID_FLAGS = -1;
         public Bundle bundle;
@@ -55,7 +56,7 @@ public class MMessageActV2 {
             intent.putExtra(ConstantsAPI.TOKEN, args.token);
             int i = args.flags;
             if (i == -1) {
-                intent.addFlags(268435456).addFlags(134217728);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT).addFlags(134217728);
             } else {
                 intent.setFlags(i);
             }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
 public class FrsGoodActivityConfig extends IntentConfig {
@@ -21,7 +22,7 @@ public class FrsGoodActivityConfig extends IntentConfig {
         intent.putExtras(bundle);
         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }

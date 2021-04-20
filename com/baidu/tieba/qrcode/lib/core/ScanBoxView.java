@@ -23,8 +23,8 @@ import android.view.View;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.i0.o2.b.a.a;
-/* loaded from: classes5.dex */
+import d.b.i0.p2.b.a.a;
+/* loaded from: classes3.dex */
 public class ScanBoxView extends View {
     public Drawable A;
     public Bitmap B;
@@ -55,19 +55,19 @@ public class ScanBoxView extends View {
     public Bitmap d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20667e;
+    public Bitmap f20359e;
     public Bitmap e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f20668f;
+    public Bitmap f20360f;
     public float f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f20669g;
+    public Bitmap f20361g;
     public StaticLayout g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20670h;
+    public Bitmap f20362h;
     public int h0;
     public int i;
     public boolean i0;
@@ -223,10 +223,10 @@ public class ScanBoxView extends View {
     public final void d(Canvas canvas) {
         this.n.reset();
         this.n.setAntiAlias(false);
-        canvas.drawBitmap(this.f20667e, getMainFrameLeft(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20668f, getMainFrameRight() - this.f20667e.getWidth(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20669g, getMainFrameLeft(), getMainFrameBottom() - this.f20667e.getHeight(), this.n);
-        canvas.drawBitmap(this.f20670h, getMainFrameRight() - this.f20667e.getWidth(), getMainFrameBottom() - this.f20667e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20359e, getMainFrameLeft(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20360f, getMainFrameRight() - this.f20359e.getWidth(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20361g, getMainFrameLeft(), getMainFrameBottom() - this.f20359e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20362h, getMainFrameRight() - this.f20359e.getWidth(), getMainFrameBottom() - this.f20359e.getHeight(), this.n);
     }
 
     public final void e(Canvas canvas) {
@@ -497,17 +497,17 @@ public class ScanBoxView extends View {
         int i = this.q;
         options.outWidth = i;
         options.outHeight = i;
-        this.f20667e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
+        this.f20359e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
-        Bitmap bitmap = this.f20667e;
-        this.f20668f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20667e.getHeight(), matrix, false);
+        Bitmap bitmap = this.f20359e;
+        this.f20360f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20359e.getHeight(), matrix, false);
         matrix.postRotate(180.0f);
-        Bitmap bitmap2 = this.f20667e;
-        this.f20669g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20667e.getHeight(), matrix, false);
+        Bitmap bitmap2 = this.f20359e;
+        this.f20361g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20359e.getHeight(), matrix, false);
         matrix.postRotate(270.0f);
-        Bitmap bitmap3 = this.f20667e;
-        this.f20670h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20667e.getHeight(), matrix, false);
+        Bitmap bitmap3 = this.f20359e;
+        this.f20362h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20359e.getHeight(), matrix, false);
     }
 
     public final void j(int i, TypedArray typedArray) {

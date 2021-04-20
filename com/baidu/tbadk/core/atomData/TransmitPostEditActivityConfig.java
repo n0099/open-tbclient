@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";

@@ -12,11 +12,11 @@ import d.b.g0.a.f;
 import d.b.g0.a.g;
 import d.b.g0.a.h;
 import d.b.g0.a.i2.h0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12520h;
+    public int f12181h;
     public int i;
     public int j;
     public int k;
@@ -24,7 +24,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public RefreshingAnimView m;
     public HeaderRefreshIndicator n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -35,14 +35,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f12522e;
+        public final /* synthetic */ Runnable f12183e;
 
         public b(Runnable runnable) {
-            this.f12522e = runnable;
+            this.f12183e = runnable;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -51,7 +51,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            CommonHeaderLoadingLayout.this.postDelayed(this.f12522e, 800L);
+            CommonHeaderLoadingLayout.this.postDelayed(this.f12183e, 800L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -67,10 +67,10 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
-        this.f12520h = 0;
+        this.f12181h = 0;
         this.m = (RefreshingAnimView) findViewById(f.refreshing_anim_view);
         int e2 = h0.e(getContext(), 29.0f);
-        this.f12520h = e2;
+        this.f12181h = e2;
         this.i = (int) (e2 * 2.4f);
         int i = (int) (e2 * 1.5f);
         this.k = i;
@@ -170,7 +170,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         float f2;
         int i2 = this.i;
         if (i < i2) {
-            int i3 = this.f12520h;
+            int i3 = this.f12181h;
             f2 = i < i3 ? 0.0f : (i - i3) / (i2 - i3);
         } else {
             f2 = 1.0f;

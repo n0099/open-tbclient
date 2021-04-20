@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
-    public static final int L = d.b.b.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    public static final int L = d.b.c.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     public ConstrainImageGroup A;
     public View B;
     public boolean C;
@@ -80,16 +80,16 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             if (n.this.i() != null) {
                 n.this.i().a(view, n.this.w);
             }
-            if (n.this.w == null || n.this.w.f62197e == null) {
+            if (n.this.w == null || n.this.w.f63772e == null) {
                 return;
             }
-            m.a(n.this.w.f62197e.o0());
+            m.a(n.this.w.f63772e.o0());
             if (n.this.I()) {
                 return;
             }
             m.l(n.this.y, n.this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.z, n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.p.getGodReplyContent(), n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.z, n.this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.p.getGodReplyContent(), n.this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -103,20 +103,20 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             if (n.this.i() != null) {
                 n.this.i().a(view, n.this.w);
             }
-            if (n.this.w == null || n.this.w.f62197e == null) {
+            if (n.this.w == null || n.this.w.f63772e == null) {
                 return;
             }
             n nVar = n.this;
-            if (view == nVar.u.f13535e) {
+            if (view == nVar.u.f13196e) {
                 return;
             }
-            m.a(nVar.w.f62197e.o0());
+            m.a(nVar.w.f63772e.o0());
             if (n.this.I()) {
                 return;
             }
             m.l(n.this.y, n.this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.z, n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.p.getGodReplyContent(), n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.z, n.this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.p.getGodReplyContent(), n.this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -124,14 +124,14 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
     public class c implements d.b.h0.b1.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f62270a;
+        public final /* synthetic */ LinkedList f63845a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a2 f62271b;
+        public final /* synthetic */ a2 f63846b;
 
         public c(LinkedList linkedList, a2 a2Var) {
-            this.f62270a = linkedList;
-            this.f62271b = a2Var;
+            this.f63845a = linkedList;
+            this.f63846b = a2Var;
         }
 
         @Override // d.b.h0.b1.j.d
@@ -147,7 +147,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             if (z) {
                 n.this.J();
             } else {
-                n.this.W(view, this.f62270a, i, this.f62271b);
+                n.this.W(view, this.f63845a, i, this.f63846b);
             }
         }
     }
@@ -233,7 +233,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             this.m.getHeadView().setDrawBorder(false);
             this.m.getHeadView().setDefaultResource(17170445);
             this.m.getHeadView().setPlaceHolder(1);
-            this.m.getHeadView().setRadius(d.b.b.e.p.l.g(this.x.getPageActivity(), R.dimen.ds70));
+            this.m.getHeadView().setRadius(d.b.c.e.p.l.g(this.x.getPageActivity(), R.dimen.ds70));
         }
         this.m.setHasPendantStyle();
         if (this.m.getPendantView() != null) {
@@ -258,7 +258,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
         this.q = (ThreadUserInfoLayout) m.findViewById(R.id.card_home_page_normal_thread_user_info_layout);
         this.s = new NEGFeedBackView(this.x);
         this.E = (RelativeLayout) m.findViewById(R.id.card_home_page_normal_thread_root);
-        this.s.g(this.E, d.b.b.e.p.l.g(this.f62182g, R.dimen.tbds120), 0);
+        this.s.g(this.E, d.b.c.e.p.l.g(this.f63757g, R.dimen.tbds120), 0);
         if (this.o.getLayoutParams() instanceof LinearLayout.LayoutParams) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams.rightMargin = 0;
@@ -279,7 +279,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
         threadGodReplyLayout.setOnClickListener(this.I);
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.card_home_page_source_read_share_layout);
         this.u = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this.I);
+        threadSourceShareAndPraiseLayout.f13197f.setOnClickListener(this.I);
         this.u.setFrom(1);
         this.u.setShareReportFrom(3);
         this.u.setForumAfterClickListener(new b());
@@ -301,19 +301,19 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
 
     public final void K(boolean z) {
         d.b.i0.x.e0.k kVar = this.w;
-        if (kVar == null || kVar.f62197e == null) {
+        if (kVar == null || kVar.f63772e == null) {
             return;
         }
         if (!I()) {
-            m.a(this.w.f62197e.o0());
+            m.a(this.w.f63772e.o0());
             m.l(this.y, this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(this.z, this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(this.p.getGodReplyContent(), this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.z, this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.p.getGodReplyContent(), this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
-        PbActivityConfig addLocateParam = new PbActivityConfig(this.x.getPageActivity()).createFromThreadCfg(this.w.f62197e, null, m.g(), 18003, true, false, false).addLocateParam(this.w.j());
-        addLocateParam.setForumId(String.valueOf(this.w.f62197e.c0()));
+        PbActivityConfig addLocateParam = new PbActivityConfig(this.x.getPageActivity()).createFromThreadCfg(this.w.f63772e, null, m.g(), 18003, true, false, false).addLocateParam(this.w.j());
+        addLocateParam.setForumId(String.valueOf(this.w.f63772e.c0()));
         addLocateParam.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
-        addLocateParam.setForumName(this.w.f62197e.i0());
+        addLocateParam.setForumName(this.w.f63772e.i0());
         addLocateParam.setStartFrom(this.l);
         if (z) {
             addLocateParam.setJumpGodReply(true);
@@ -343,8 +343,8 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
                     v0Var.j(this.w.feedBackReasonMap);
                     this.s.setData(v0Var);
                     this.s.setFirstRowSingleColumn(true);
-                    if (kVar.f62197e.T() != null && !StringUtils.isNull(kVar.f62197e.T().getUserId())) {
-                        if (kVar.f62197e.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    if (kVar.f63772e.T() != null && !StringUtils.isNull(kVar.f63772e.T().getUserId())) {
+                        if (kVar.f63772e.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                             this.s.setVisibility(8);
                         } else {
                             NEGFeedBackView nEGFeedBackView = this.s;
@@ -357,13 +357,13 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
                     this.s.setVisibility(8);
                 }
             }
-            this.q.j(kVar.f62197e);
+            this.q.j(kVar.f63772e);
             this.p.setFromCDN(this.C);
-            this.p.setData(kVar.f62197e.z1());
-            if (!I() && m.k(this.w.f62197e.o0())) {
+            this.p.setData(kVar.f63772e.z1());
+            if (!I() && m.k(this.w.f63772e.o0())) {
                 m.l(this.y, this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                m.l(this.z, this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                m.l(this.p.getGodReplyContent(), this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                m.l(this.z, this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                m.l(this.p.getGodReplyContent(), this.w.f63772e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             this.q.setUserAfterClickListener(this.K);
             a2 n = kVar.n();
@@ -383,7 +383,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             }
             ThreadCardUtils.setTitle(this.y, n);
             ThreadCardUtils.setAbstract(this.z, this.y, n, L);
-            ArrayList<VoiceData$VoiceModel> H1 = kVar.f62197e.H1();
+            ArrayList<VoiceData$VoiceModel> H1 = kVar.f63772e.H1();
             if (ListUtils.isEmpty(H1)) {
                 this.n.setVisibility(8);
                 z = false;
@@ -392,11 +392,11 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
                 VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
                 this.n.setVoiceModel(voiceData$VoiceModel);
                 this.n.setTag(voiceData$VoiceModel);
-                this.n.d();
+                this.n.b();
                 if (voiceData$VoiceModel != null) {
-                    this.n.m(voiceData$VoiceModel.voice_status.intValue());
+                    this.n.k(voiceData$VoiceModel.voice_status.intValue());
                 }
-                this.n.o();
+                this.n.m();
                 z = true;
             }
             if (this.w.S && z) {
@@ -441,14 +441,14 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
         T(bdUniqueId);
     }
 
-    public void O(d.b.b.e.k.b<TbImageView> bVar) {
+    public void O(d.b.c.e.k.b<TbImageView> bVar) {
         ConstrainImageGroup constrainImageGroup = this.A;
         if (constrainImageGroup != null) {
             constrainImageGroup.setImageViewPool(bVar);
         }
     }
 
-    public void P(d.b.b.e.k.b<ConstrainImageLayout> bVar) {
+    public void P(d.b.c.e.k.b<ConstrainImageLayout> bVar) {
         ConstrainImageGroup constrainImageGroup = this.A;
         if (constrainImageGroup != null) {
             constrainImageGroup.setConstrainLayoutPool(bVar);
@@ -507,18 +507,18 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
 
     public void V(int i) {
         d.b.i0.x.e0.k kVar = this.w;
-        if (kVar == null || kVar.f62197e == null) {
+        if (kVar == null || kVar.f63772e == null) {
             return;
         }
         this.H = m.g();
         if (i == 1) {
             this.o.setVisibility(8);
             this.u.setStType(this.H);
-            this.u.g(this.w.f62197e);
+            this.u.g(this.w.f63772e);
             this.q.l(false);
             return;
         }
-        this.o.setData(this.w.f62197e);
+        this.o.setData(this.w.f63772e);
         this.o.setStType(this.H);
         this.u.setVisibility(8);
         this.q.l(true);
@@ -526,7 +526,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
 
     public final void W(View view, List<MediaData> list, int i, a2 a2Var) {
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-            d.b.b.e.p.l.K(this.x.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
+            d.b.c.e.p.l.K(this.x.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -542,7 +542,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
                     imageUrlData.originalSize = mediaData.getOriginalSize();
                     imageUrlData.isLongPic = mediaData.isLongPic();
                     imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                    imageUrlData.threadId = d.b.b.e.m.b.f(a2Var.w1(), -1L);
+                    imageUrlData.threadId = d.b.c.e.m.b.f(a2Var.w1(), -1L);
                     imageUrlData.postId = mediaData.getPostId();
                     concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
                 }

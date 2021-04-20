@@ -8,30 +8,30 @@ import org.json.JSONObject;
 public class as {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final as f8963e = new as();
+    public static final as f8537e = new as();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8964a = false;
+    public boolean f8538a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f8965b = 50.0f;
+    public float f8539b = 50.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8966c = 500;
+    public long f8540c = 500;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f8967d;
+    public volatile boolean f8541d;
 
     public static as a() {
-        return f8963e;
+        return f8537e;
     }
 
     public boolean b() {
-        return this.f8964a;
+        return this.f8538a;
     }
 
     public float c() {
-        float f2 = this.f8965b;
+        float f2 = this.f8539b;
         if (f2 < 0.0f) {
             f2 = 0.0f;
         } else if (f2 > 100.0f) {
@@ -41,7 +41,7 @@ public class as {
     }
 
     public long d() {
-        return this.f8966c;
+        return this.f8540c;
     }
 
     public void a(String str) {
@@ -54,19 +54,19 @@ public class as {
                 int optInt = jSONObject.optInt(IntentConfig.CLOSE);
                 String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                 String optString2 = jSONObject.optString("duration");
-                this.f8964a = optInt != 0;
+                this.f8538a = optInt != 0;
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f8965b = Float.valueOf(optString).floatValue();
+                        this.f8539b = Float.valueOf(optString).floatValue();
                     } catch (Exception unused) {
                     }
                 }
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.f8966c = Long.valueOf(optString2).longValue();
+                    this.f8540c = Long.valueOf(optString2).longValue();
                 }
             }
         } catch (Exception unused2) {
         }
-        this.f8967d = true;
+        this.f8541d = true;
     }
 }

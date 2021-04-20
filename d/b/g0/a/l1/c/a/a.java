@@ -12,8 +12,8 @@ public class a extends d {
 
     /* renamed from: d.b.g0.a.l1.c.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0729a implements d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> {
-        public C0729a() {
+    public class C0741a implements d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> {
+        public C0741a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class a extends d {
             d.b.g0.a.l1.d.a.a(u.toString());
             return u.i;
         }
-        return new e().k(u, new C0729a());
+        return new e().k(u, new C0741a());
     }
 
     public d.b.g0.a.t.e.b t(String str) {
@@ -117,14 +117,14 @@ public class a extends d {
                 String str3 = TextUtils.isEmpty(optString5) ? "release" : optString5;
                 JSONObject optJSONObject = jSONObject.optJSONObject("args");
                 String optString6 = jSONObject.optString("cb");
-                bVar.f45187a = str2;
-                bVar.f45188b = optString;
-                bVar.f45189c = optString2;
-                bVar.f45190d = str3;
-                bVar.f45191e = optString3;
-                bVar.f45192f = optString4;
-                bVar.f45193g = optJSONObject;
-                bVar.f45194h = optString6;
+                bVar.f45579a = str2;
+                bVar.f45580b = optString;
+                bVar.f45581c = optString2;
+                bVar.f45582d = str3;
+                bVar.f45583e = optString3;
+                bVar.f45584f = optString4;
+                bVar.f45585g = optJSONObject;
+                bVar.f45586h = optString6;
                 return bVar;
             }
         }

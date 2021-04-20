@@ -5,13 +5,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<Object> f50058a = new AtomicReference<>(null);
+    public static final AtomicReference<Object> f50451a = new AtomicReference<>(null);
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f50059a = new c();
+        public static c f50452a = new c();
     }
 
     static {
@@ -19,7 +19,7 @@ public class c {
     }
 
     public static c a() {
-        return b.f50059a;
+        return b.f50452a;
     }
 
     public c() {

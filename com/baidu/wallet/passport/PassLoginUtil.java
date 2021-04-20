@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -27,28 +28,28 @@ public class PassLoginUtil {
     public static final int LOGIN_STATUS_ERROR_CODE = 603;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25326a = "PassLoginUtil";
+    public static final String f25011a = "PassLoginUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f25327b = 300;
+    public static final long f25012b = 300;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f25328c = 7000;
+    public static final long f25013c = 7000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f25329d = 601;
+    public static final int f25014d = 601;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f25330e = 602;
+    public static final int f25015e = 602;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f25331f = 604;
+    public static final int f25016f = 604;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f25332g = 605;
+    public static final int f25017g = 605;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f25333h = -201;
+    public static final int f25018h = -201;
     public static final int i = -202;
     public static final int j = -203;
     public static final int k = -901;
@@ -69,11 +70,11 @@ public class PassLoginUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PassLoginUtil f25343a = new PassLoginUtil();
+        public static final PassLoginUtil f25028a = new PassLoginUtil();
     }
 
     public static PassLoginUtil getInstance() {
-        return a.f25343a;
+        return a.f25028a;
     }
 
     public void clearOpenBduss() {
@@ -346,12 +347,12 @@ public class PassLoginUtil {
 
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFinish() {
-                LogUtil.d(PassLoginUtil.f25326a, "Get Open BDUSS : onFinish");
+                LogUtil.d(PassLoginUtil.f25011a, "Get Open BDUSS : onFinish");
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onStart() {
-                LogUtil.d(PassLoginUtil.f25326a, "Get Open BDUSS : onStart");
+                LogUtil.d(PassLoginUtil.f25011a, "Get Open BDUSS : onStart");
             }
         });
     }
@@ -369,7 +370,7 @@ public class PassLoginUtil {
         if (z) {
             b();
             boolean z2 = iLoginBackListener instanceof LoginBackListenerProxy;
-            long j2 = f25328c;
+            long j2 = f25013c;
             if (z2 && (context = ((LoginBackListenerProxy) iLoginBackListener).getContext()) != null && !TextUtils.isEmpty(SdkInitResponse.getInstance().getLoadingDurationInterval(context))) {
                 try {
                     long parseLong = Long.parseLong(SdkInitResponse.getInstance().getLoadingDurationInterval(context));
@@ -444,7 +445,7 @@ public class PassLoginUtil {
                 activity.overridePendingTransition(0, 0);
                 return;
             }
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.getApplicationContext().startActivity(intent);
         }
     }

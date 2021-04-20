@@ -12,7 +12,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static final void a(Map map, OutputStream outputStream) throws XmlPullParserException, IOException {
         a aVar = new a();
@@ -60,14 +60,14 @@ public class e {
                 obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
             } else if (name.equals("int-array")) {
                 xmlPullParser.next();
-                int[] m46a = m46a(xmlPullParser, "int-array", strArr);
+                int[] m50a = m50a(xmlPullParser, "int-array", strArr);
                 strArr[0] = attributeValue;
-                return m46a;
+                return m50a;
             } else if (name.equals("map")) {
                 xmlPullParser.next();
-                HashMap m45a = m45a(xmlPullParser, "map", strArr);
+                HashMap m49a = m49a(xmlPullParser, "map", strArr);
                 strArr[0] = attributeValue;
-                return m45a;
+                return m49a;
             } else if (name.equals("list")) {
                 xmlPullParser.next();
                 ArrayList a2 = a(xmlPullParser, "list", strArr);
@@ -235,7 +235,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m45a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m49a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         HashMap hashMap = new HashMap();
         int eventType = xmlPullParser.getEventType();
         do {
@@ -275,7 +275,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m46a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m50a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         try {
             int[] iArr = new int[Integer.parseInt(xmlPullParser.getAttributeValue(null, "num"))];
             int i = 0;

@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final z f9276a = new z();
+    public static final z f8850a = new z();
 
     private void c(Context context) {
         bb.c().a("collectAPWithStretegy 1");
@@ -118,7 +118,7 @@ public class z {
             if (!k.APP_TRACE.b(10000) && !z) {
                 e(context);
             }
-            if (ab.f8879e && !k.APP_APK.b(10000) && !z) {
+            if (ab.f8453e && !k.APP_APK.b(10000) && !z) {
                 f(context);
             }
             boolean q = bw.q(context);
@@ -252,9 +252,9 @@ public class z {
 
     private void a(JSONObject jSONObject) {
         ac acVar = new ac(jSONObject);
-        ab.f8876b = acVar.f8880a;
-        ab.f8877c = acVar.f8881b;
-        ab.f8878d = acVar.f8882c;
+        ab.f8450b = acVar.f8454a;
+        ab.f8451c = acVar.f8455b;
+        ab.f8452d = acVar.f8456c;
     }
 
     public void a(Context context, String str) {

@@ -23,16 +23,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b implements d.b.i0.v.c.d {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61933c;
+    public int f62942c;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f61936f;
+    public Context f62945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Camera f61937g;
+    public Camera f62946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Camera.Parameters f61938h;
+    public Camera.Parameters f62947h;
     public d.b.i0.v.c.e i;
     public f k;
     public View l;
@@ -41,22 +41,22 @@ public class b implements d.b.i0.v.c.d {
     public SurfaceTexture r;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61931a = 0;
+    public int f62940a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61932b = 0;
+    public int f62941b = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f61934d = new AtomicBoolean(false);
+    public AtomicBoolean f62943d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f61935e = new AtomicBoolean(false);
+    public AtomicBoolean f62944e = new AtomicBoolean(false);
     public Rect j = new Rect();
     public int m = 0;
     public int o = 0;
     public int q = 0;
     public byte[] s = null;
-    public Camera.PreviewCallback t = new C1635b();
+    public Camera.PreviewCallback t = new C1655b();
     public TextureView.SurfaceTextureListener u = new c();
     public Comparator<Camera.Size> v = new e(this);
 
@@ -64,19 +64,19 @@ public class b implements d.b.i0.v.c.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b f61939e;
+        public final /* synthetic */ d.b f62948e;
 
         /* renamed from: d.b.i0.v.c.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1634a implements Camera.PictureCallback {
-            public C1634a() {
+        public class C1654a implements Camera.PictureCallback {
+            public C1654a() {
             }
 
             @Override // android.hardware.Camera.PictureCallback
             public void onPictureTaken(byte[] bArr, Camera camera) {
                 b.this.J(false);
-                b.this.f61934d.set(false);
-                d.b bVar = a.this.f61939e;
+                b.this.f62943d.set(false);
+                d.b bVar = a.this.f62948e;
                 if (bVar != null) {
                     bVar.a(bArr);
                 }
@@ -84,48 +84,48 @@ public class b implements d.b.i0.v.c.d {
         }
 
         public a(d.b bVar) {
-            this.f61939e = bVar;
+            this.f62948e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                b.this.f61937g.takePicture(null, null, new C1634a());
+                b.this.f62946g.takePicture(null, null, new C1654a());
             } catch (Exception e2) {
                 e2.printStackTrace();
                 b.this.J(false);
-                b.this.f61934d.set(false);
+                b.this.f62943d.set(false);
             }
         }
     }
 
     /* renamed from: d.b.i0.v.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1635b implements Camera.PreviewCallback {
+    public class C1655b implements Camera.PreviewCallback {
 
         /* renamed from: d.b.i0.v.c.b$b$a */
         /* loaded from: classes4.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f61943e;
+            public final /* synthetic */ byte[] f62952e;
 
             public a(byte[] bArr) {
-                this.f61943e = bArr;
+                this.f62952e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.D(this.f61943e);
+                b.this.D(this.f62952e);
             }
         }
 
-        public C1635b() {
+        public C1655b() {
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
-            if (!b.this.f61935e.get() && b.s(b.this) % 5 == 0 && bArr.length == b.this.f61938h.getPreviewSize().width * b.this.f61938h.getPreviewSize().height * 1.5d) {
+            if (!b.this.f62944e.get() && b.s(b.this) % 5 == 0 && bArr.length == b.this.f62947h.getPreviewSize().width * b.this.f62947h.getPreviewSize().height * 1.5d) {
                 camera.addCallbackBuffer(b.this.s);
                 d.b.i0.v.c.c.c(new a(bArr));
             }
@@ -181,9 +181,9 @@ public class b implements d.b.i0.v.c.d {
         @Override // java.lang.Runnable
         public void run() {
             synchronized (b.this) {
-                if (b.this.f61937g != null && !b.this.f61934d.get()) {
+                if (b.this.f62946g != null && !b.this.f62943d.get()) {
                     try {
-                        b.this.f61937g.autoFocus(new a(this));
+                        b.this.f62946g.autoFocus(new a(this));
                     } catch (Throwable unused) {
                     }
                 }
@@ -208,21 +208,21 @@ public class b implements d.b.i0.v.c.d {
     public class f extends FrameLayout {
 
         /* renamed from: e  reason: collision with root package name */
-        public TextureView f61947e;
+        public TextureView f62956e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f61948f;
+        public float f62957f;
 
         public f(Context context) {
             super(context);
-            this.f61948f = 0.75f;
+            this.f62957f = 0.75f;
         }
 
         public final void d(int i, int i2) {
             if (i < i2) {
-                i2 = (int) (i * this.f61948f);
+                i2 = (int) (i * this.f62957f);
             } else {
-                i = (int) (i2 * this.f61948f);
+                i = (int) (i2 * this.f62957f);
             }
             int width = (getWidth() - i) / 2;
             int height = (getHeight() - i2) / 2;
@@ -233,13 +233,13 @@ public class b implements d.b.i0.v.c.d {
         }
 
         public void e(float f2) {
-            this.f61948f = f2;
+            this.f62957f = f2;
             requestLayout();
             d(getWidth(), getHeight());
         }
 
         public void f(TextureView textureView) {
-            this.f61947e = textureView;
+            this.f62956e = textureView;
             removeAllViews();
             addView(textureView);
         }
@@ -247,7 +247,7 @@ public class b implements d.b.i0.v.c.d {
         @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
         public void onLayout(boolean z, int i, int i2, int i3, int i4) {
             super.onLayout(z, i, i2, i3, i4);
-            this.f61947e.layout(b.this.j.left, b.this.j.top, b.this.j.right, b.this.j.bottom);
+            this.f62956e.layout(b.this.j.left, b.this.j.top, b.this.j.right, b.this.j.bottom);
         }
 
         @Override // android.view.View
@@ -258,7 +258,7 @@ public class b implements d.b.i0.v.c.d {
     }
 
     public b(Context context) {
-        this.f61936f = context;
+        this.f62945f = context;
         this.k = new f(context);
         F();
     }
@@ -272,9 +272,9 @@ public class b implements d.b.i0.v.c.d {
     public final Camera.Size A(List<Camera.Size> list) {
         int i;
         int i2;
-        int width = this.k.f61947e.getWidth();
-        int height = this.k.f61947e.getHeight();
-        float f2 = this.k.f61948f;
+        int width = this.k.f62956e.getWidth();
+        int height = this.k.f62956e.getHeight();
+        float f2 = this.k.f62957f;
         Camera.Size size = list.get(0);
         ArrayList arrayList = new ArrayList();
         for (Camera.Size size2 : list) {
@@ -305,7 +305,7 @@ public class b implements d.b.i0.v.c.d {
     }
 
     public final int B() {
-        int i = this.f61931a;
+        int i = this.f62940a;
         if (i != 90) {
             return i != 270 ? 90 : 180;
         }
@@ -314,23 +314,23 @@ public class b implements d.b.i0.v.c.d {
 
     public final void C() {
         try {
-            if (this.f61937g == null) {
+            if (this.f62946g == null) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                 for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
                     Camera.getCameraInfo(i, cameraInfo);
                     if (cameraInfo.facing == 0) {
-                        this.f61932b = i;
+                        this.f62941b = i;
                     }
                 }
-                this.f61937g = Camera.open(this.f61932b);
+                this.f62946g = Camera.open(this.f62941b);
             }
-            if (this.f61938h == null) {
-                Camera.Parameters parameters = this.f61937g.getParameters();
-                this.f61938h = parameters;
+            if (this.f62947h == null) {
+                Camera.Parameters parameters = this.f62946g.getParameters();
+                this.f62947h = parameters;
                 parameters.setPreviewFormat(17);
             }
             E(this.k.getWidth(), this.k.getHeight());
-            this.f61937g.setPreviewTexture(this.r);
+            this.f62946g.setPreviewTexture(this.r);
             G();
             J(false);
         } catch (IOException e2) {
@@ -341,7 +341,7 @@ public class b implements d.b.i0.v.c.d {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x0064 -> B:34:0x0067). Please submit an issue!!! */
     public final void D(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream;
-        if (this.f61937g == null || bArr == null || this.p == null) {
+        if (this.f62946g == null || bArr == null || this.p == null) {
             return;
         }
         Camera.Size size = this.p;
@@ -384,17 +384,17 @@ public class b implements d.b.i0.v.c.d {
 
     public final void E(int i, int i2) {
         Camera camera;
-        if (this.f61938h == null || (camera = this.f61937g) == null || i <= 0) {
+        if (this.f62947h == null || (camera = this.f62946g) == null || i <= 0) {
             return;
         }
         try {
             Camera.Size A = A(camera.getParameters().getSupportedPreviewSizes());
             this.p = A;
-            this.f61938h.setPreviewSize(A.width, A.height);
+            this.f62947h.setPreviewSize(A.width, A.height);
             this.k.e((this.p.width * 1.0f) / this.p.height);
-            this.f61937g.setDisplayOrientation(B());
+            this.f62946g.setDisplayOrientation(B());
             K();
-            this.f61937g.setParameters(this.f61938h);
+            this.f62946g.setParameters(this.f62947h);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -408,17 +408,17 @@ public class b implements d.b.i0.v.c.d {
         if (this.s == null) {
             this.s = new byte[((this.l.getWidth() * this.l.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
         }
-        Camera camera = this.f61937g;
+        Camera camera = this.f62946g;
         if (camera == null || this.q != 1) {
             return;
         }
         camera.addCallbackBuffer(this.s);
-        this.f61937g.setPreviewCallback(this.t);
+        this.f62946g.setPreviewCallback(this.t);
     }
 
     public final void H() {
-        TextureView textureView = new TextureView(this.f61936f);
-        this.k.f61947e = textureView;
+        TextureView textureView = new TextureView(this.f62945f);
+        this.k.f62956e = textureView;
         this.k.f(textureView);
         this.l = this.k;
         textureView.setSurfaceTextureListener(this.u);
@@ -430,14 +430,14 @@ public class b implements d.b.i0.v.c.d {
 
     public final void J(boolean z) {
         d.b.i0.v.c.e eVar;
-        if (ContextCompat.checkSelfPermission(this.f61936f, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
+        if (ContextCompat.checkSelfPermission(this.f62945f, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
             if (!z || (eVar = this.i) == null) {
                 return;
             }
             eVar.a();
             return;
         }
-        Camera camera = this.f61937g;
+        Camera camera = this.f62946g;
         if (camera == null) {
             C();
             return;
@@ -447,7 +447,7 @@ public class b implements d.b.i0.v.c.d {
     }
 
     public final void K() {
-        Camera camera = this.f61937g;
+        Camera camera = this.f62946g;
         if (camera != null) {
             camera.stopPreview();
         }
@@ -455,15 +455,15 @@ public class b implements d.b.i0.v.c.d {
 
     public final void L(int i) {
         if (i == 0) {
-            this.f61938h.setFlashMode("off");
+            this.f62947h.setFlashMode("off");
         } else if (i == 1) {
-            this.f61938h.setFlashMode("torch");
+            this.f62947h.setFlashMode("torch");
         } else if (i != 2) {
-            this.f61938h.setFlashMode("auto");
+            this.f62947h.setFlashMode("auto");
         } else {
-            this.f61938h.setFlashMode("auto");
+            this.f62947h.setFlashMode("auto");
         }
-        this.f61937g.setParameters(this.f61938h);
+        this.f62946g.setParameters(this.f62947h);
     }
 
     @Override // d.b.i0.v.c.d
@@ -473,10 +473,10 @@ public class b implements d.b.i0.v.c.d {
 
     @Override // d.b.i0.v.c.d
     public void b(int i) {
-        if (this.f61933c == i) {
+        if (this.f62942c == i) {
             return;
         }
-        this.f61933c = i;
+        this.f62942c = i;
         L(i);
     }
 
@@ -492,34 +492,34 @@ public class b implements d.b.i0.v.c.d {
 
     @Override // d.b.i0.v.c.d
     public void e(d.b bVar) {
-        if (this.f61934d.get()) {
+        if (this.f62943d.get()) {
             return;
         }
-        int i = this.f61931a;
+        int i = this.f62940a;
         if (i == 0) {
-            this.f61938h.setRotation(90);
+            this.f62947h.setRotation(90);
         } else if (i == 90) {
-            this.f61938h.setRotation(0);
+            this.f62947h.setRotation(0);
         } else if (i == 270) {
-            this.f61938h.setRotation(180);
+            this.f62947h.setRotation(180);
         }
         try {
-            Camera.Size A = A(this.f61937g.getParameters().getSupportedPictureSizes());
-            this.f61938h.setPictureSize(A.width, A.height);
-            this.f61937g.setParameters(this.f61938h);
-            this.f61934d.set(true);
+            Camera.Size A = A(this.f62946g.getParameters().getSupportedPictureSizes());
+            this.f62947h.setPictureSize(A.width, A.height);
+            this.f62946g.setParameters(this.f62947h);
+            this.f62943d.set(true);
             x();
             d.b.i0.v.c.c.c(new a(bVar));
         } catch (RuntimeException e2) {
             e2.printStackTrace();
             J(false);
-            this.f61934d.set(false);
+            this.f62943d.set(false);
         }
     }
 
     @Override // d.b.i0.v.c.d
     public void f(int i) {
-        this.f61931a = i;
+        this.f62940a = i;
         if (i == 0) {
             this.m = 90;
         } else if (i == 90) {
@@ -534,12 +534,12 @@ public class b implements d.b.i0.v.c.d {
 
     @Override // d.b.i0.v.c.d
     public int g() {
-        return this.f61933c;
+        return this.f62942c;
     }
 
     @Override // d.b.i0.v.c.d
     public void h() {
-        this.f61934d.set(false);
+        this.f62943d.set(false);
     }
 
     @Override // d.b.i0.v.c.d
@@ -549,7 +549,7 @@ public class b implements d.b.i0.v.c.d {
 
     @Override // d.b.i0.v.c.d
     public void pause() {
-        if (this.f61937g != null) {
+        if (this.f62946g != null) {
             K();
         }
         b(0);
@@ -557,10 +557,10 @@ public class b implements d.b.i0.v.c.d {
 
     @Override // d.b.i0.v.c.d
     public void resume() {
-        this.f61934d.set(false);
-        if (this.f61937g != null) {
-            this.k.f61947e.setSurfaceTextureListener(this.u);
-            if (this.k.f61947e.isAvailable()) {
+        this.f62943d.set(false);
+        if (this.f62946g != null) {
+            this.k.f62956e.setSurfaceTextureListener(this.u);
+            if (this.k.f62956e.isAvailable()) {
                 J(false);
                 return;
             }
@@ -576,25 +576,25 @@ public class b implements d.b.i0.v.c.d {
 
     @Override // d.b.i0.v.c.d
     public void stop() {
-        Camera camera = this.f61937g;
+        Camera camera = this.f62946g;
         if (camera != null) {
             camera.setPreviewCallback(null);
             K();
-            Camera camera2 = this.f61937g;
-            this.f61937g = null;
+            Camera camera2 = this.f62946g;
+            this.f62946g = null;
             camera2.release();
-            this.f61937g = null;
+            this.f62946g = null;
             this.s = null;
         }
     }
 
     public final void x() {
-        this.f61937g.cancelAutoFocus();
+        this.f62946g.cancelAutoFocus();
         d.b.i0.v.c.c.a();
     }
 
     public final void y() {
-        Camera camera = this.f61937g;
+        Camera camera = this.f62946g;
         if (camera == null || this.q != 1) {
             return;
         }

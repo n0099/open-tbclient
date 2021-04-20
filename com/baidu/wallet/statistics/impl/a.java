@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f26813b = new ArrayList<String>() { // from class: com.baidu.wallet.statistics.impl.HeaderService$1
+    public static final List<String> f26498b = new ArrayList<String>() { // from class: com.baidu.wallet.statistics.impl.HeaderService$1
         {
             add("9774d56d682e549c");
             add("0123456789abcdef");
@@ -19,18 +19,18 @@ public class a {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public Pattern f26814a;
+    public Pattern f26499a;
 
     /* renamed from: com.baidu.wallet.statistics.impl.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0283a {
+    public static class C0285a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f26815a = new a();
+        public static a f26500a = new a();
     }
 
     public static a a() {
-        return C0283a.f26815a;
+        return C0285a.f26500a;
     }
 
     public String b(Context context) {
@@ -39,7 +39,7 @@ public class a {
             e = e2;
         }
         try {
-            return this.f26814a.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+            return this.f26499a.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
         } catch (Exception e3) {
             e = e3;
             e.printStackTrace();
@@ -65,7 +65,7 @@ public class a {
     }
 
     public a() {
-        this.f26814a = Pattern.compile("\\s*|\t|\r|\n");
+        this.f26499a = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -74,7 +74,7 @@ public class a {
             e = e2;
         }
         try {
-            return this.f26814a.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+            return this.f26499a.matcher(PhoneUtils.getCUID(context)).replaceAll("");
         } catch (Exception e3) {
             e = e3;
             e.printStackTrace();

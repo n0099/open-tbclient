@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.alibaba.fastjson.asm.Label;
 import com.bytedance.frameworks.encryptor.EncryptorUtil;
 import com.google.protobuf.CodedInputStream;
 import com.ss.android.downloadlib.activity.JumpKllkActivity;
@@ -21,60 +22,60 @@ import d.o.a.d.j;
 import java.lang.reflect.Field;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f66775e;
+        public final /* synthetic */ Context f67768e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66776f;
+        public final /* synthetic */ String f67769f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.f f66777g;
+        public final /* synthetic */ c.f f67770g;
 
         /* renamed from: d.o.a.d.n.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1838a implements p {
+        /* loaded from: classes6.dex */
+        public class C1873a implements p {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f66778a;
+            public final /* synthetic */ JSONObject f67771a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f66779b;
+            public final /* synthetic */ JSONObject f67772b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f66780c;
+            public final /* synthetic */ String f67773c;
 
-            public C1838a(JSONObject jSONObject, JSONObject jSONObject2, String str) {
-                this.f66778a = jSONObject;
-                this.f66779b = jSONObject2;
-                this.f66780c = str;
+            public C1873a(JSONObject jSONObject, JSONObject jSONObject2, String str) {
+                this.f67771a = jSONObject;
+                this.f67772b = jSONObject2;
+                this.f67773c = str;
             }
 
             @Override // d.o.a.a.a.a.p
             public void a(String str) {
                 a aVar = a.this;
-                h.m(aVar.f66775e, aVar.f66776f, str, aVar.f66777g, true, this.f66778a, this.f66779b, this.f66780c);
+                h.m(aVar.f67768e, aVar.f67769f, str, aVar.f67770g, true, this.f67771a, this.f67772b, this.f67773c);
             }
 
             @Override // d.o.a.a.a.a.p
             public void a(Throwable th) {
-                Context context = a.this.f66775e;
-                h.a(context, Uri.parse("market://details?id=" + a.this.f66776f));
-                k.r(this.f66778a, "error_code", 4);
-                k.r(this.f66778a, "ttdownloader_type", 1);
-                j.c.a().t("am_result", this.f66778a, a.this.f66777g);
+                Context context = a.this.f67768e;
+                h.a(context, Uri.parse("market://details?id=" + a.this.f67769f));
+                k.r(this.f67771a, "error_code", 4);
+                k.r(this.f67771a, "ttdownloader_type", 1);
+                j.c.a().t("am_result", this.f67771a, a.this.f67770g);
             }
         }
 
         public a(Context context, String str, c.f fVar) {
-            this.f66775e = context;
-            this.f66776f = str;
-            this.f66777g = fVar;
+            this.f67768e = context;
+            this.f67769f = str;
+            this.f67770g = fVar;
         }
 
         @Override // java.lang.Runnable
@@ -84,56 +85,56 @@ public class h {
             JSONObject jSONObject = new JSONObject();
             String b2 = d.o.a.e.a.h.b.b(s.optString("x"), optString);
             if (n.o() == null) {
-                Context context = this.f66775e;
-                h.a(context, Uri.parse("market://details?id=" + this.f66776f));
+                Context context = this.f67768e;
+                h.a(context, Uri.parse("market://details?id=" + this.f67769f));
                 k.r(jSONObject, "error_code", 5);
                 k.r(jSONObject, "ttdownloader_type", 1);
-                j.c.a().t("am_result", jSONObject, this.f66777g);
+                j.c.a().t("am_result", jSONObject, this.f67770g);
                 return;
             }
             JSONObject jSONObject2 = new JSONObject();
-            k.r(jSONObject2, "p", this.f66776f);
+            k.r(jSONObject2, "p", this.f67769f);
             k.r(jSONObject2, "i", Build.VERSION.INCREMENTAL);
             k.r(jSONObject2, "m", Build.MODEL);
-            k.r(jSONObject2, "im", d.o.a.d.e$i.b.b(this.f66775e));
-            k.r(jSONObject2, "d", d.o.a.d.e$i.b.d(this.f66775e));
+            k.r(jSONObject2, "im", d.o.a.d.e$i.b.b(this.f67768e));
+            k.r(jSONObject2, "d", d.o.a.d.e$i.b.d(this.f67768e));
             k.r(jSONObject2, "t", "m");
             byte[] bytes = jSONObject2.toString().getBytes();
-            n.o().a(b2, EncryptorUtil.a(bytes, bytes.length), "application/octet-stream;tt-data=a", 0, new C1838a(jSONObject, s, optString));
+            n.o().a(b2, EncryptorUtil.a(bytes, bytes.length), "application/octet-stream;tt-data=a", 0, new C1873a(jSONObject, s, optString));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f66782e;
+        public final /* synthetic */ Context f67775e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66783f;
+        public final /* synthetic */ String f67776f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.f f66784g;
+        public final /* synthetic */ c.f f67777g;
 
         public b(Context context, String str, c.f fVar) {
-            this.f66782e = context;
-            this.f66783f = str;
-            this.f66784g = fVar;
+            this.f67775e = context;
+            this.f67776f = str;
+            this.f67777g = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Context context = this.f66782e;
-            g.b.b(h.a(context, Uri.parse("market://details?id=" + this.f66783f)), this.f66784g);
+            Context context = this.f67775e;
+            g.b.b(h.a(context, Uri.parse("market://details?id=" + this.f67776f)), this.f67777g);
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject s = n.s();
                 Thread.sleep(s.optInt("m2_delay_millis", 1000));
-                d.o.a.d.e$j.a.b().e(this.f66782e, true);
+                d.o.a.d.e$j.a.b().e(this.f67775e, true);
                 com.ss.android.downloadlib.a.c.b bVar = new com.ss.android.downloadlib.a.c.b();
-                bVar.f38626a = 1;
-                bVar.f38627b = 0;
-                bVar.f38628c = String.format(d.o.a.e.a.h.b.b(s.optString("v"), s.optString("s")), this.f66783f);
+                bVar.f38915a = 1;
+                bVar.f38916b = 0;
+                bVar.f38917c = String.format(d.o.a.e.a.h.b.b(s.optString("v"), s.optString("s")), this.f67776f);
                 d.o.a.d.e$j.a.b().c(bVar, null);
                 d.o.a.d.e$j.a.b().f();
                 k.r(jSONObject, "error_code", -1);
@@ -159,7 +160,7 @@ public class h {
                 if (d.o.a.e.b.j.a.r().l("fix_jump_market")) {
                     intent.addFlags(335544320);
                 } else if (!(context instanceof Activity)) {
-                    intent.addFlags(268435456);
+                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 }
                 intent.putExtra("start_only_for_android", true);
                 context.startActivity(intent);
@@ -176,7 +177,7 @@ public class h {
             if (d.o.a.e.a.h.c.h() && k.I(context, "com.sec.android.app.samsungapps")) {
                 return p(context, str);
             }
-            if (!fVar.f66544b.t()) {
+            if (!fVar.f67537b.t()) {
                 return a(context, Uri.parse("market://details?id=" + str));
             }
             JSONArray optJSONArray = n.s().optJSONArray("am_plans");
@@ -229,7 +230,7 @@ public class h {
 
     public static c.h e(@NonNull d.o.a.b.a.c.b bVar, String str, String str2) {
         c.h k = k(str, bVar);
-        return (g.C1831g.c(bVar) && k.a() == 2) ? f(str2, bVar) : k;
+        return (g.C1866g.c(bVar) && k.a() == 2) ? f(str2, bVar) : k;
     }
 
     public static c.h f(String str, d.o.a.b.a.c.a aVar) {
@@ -342,7 +343,7 @@ public class h {
         Uri parse = Uri.parse(str);
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(parse);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("open_url", str);
         intent.putExtra("start_only_for_android", true);
         if (d.o.a.e.b.j.a.r().l("fix_app_link_flag")) {
@@ -393,9 +394,9 @@ public class h {
 
     public static c.h n(Context context, c.f fVar, String str) {
         Intent intent = new Intent(context, JumpKllkActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("p", str);
-        intent.putExtra("id", fVar.f66543a);
+        intent.putExtra("id", fVar.f67536a);
         intent.putExtra("start_only_for_android", true);
         JSONObject jSONObject = new JSONObject();
         try {
@@ -418,7 +419,7 @@ public class h {
             Uri parse = Uri.parse(str);
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(parse);
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.putExtra("open_url", str);
             intent.putExtra("start_only_for_android", true);
             context.startActivity(intent);
@@ -436,7 +437,7 @@ public class h {
             intent.setClassName("com.sec.android.app.samsungapps", "com.sec.android.app.samsungapps.Main");
             intent.setData(parse);
             if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             intent.putExtra("start_only_for_android", true);
             context.startActivity(intent);
@@ -495,7 +496,7 @@ public class h {
         }
         Intent intent = new Intent("android.intent.action.VIEW");
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             if (d.o.a.e.b.j.a.r().l("fix_app_link_flag")) {
                 intent.addFlags(32768);
             }

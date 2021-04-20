@@ -6,25 +6,25 @@ import java.util.Locale;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44450a = 0;
+    public long f44842a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44451b = 0;
+    public long f44843b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44452c = 2;
+    public long f44844c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44453d = "";
+    public String f44845d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44454e = "";
+    public String f44846e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public final StringBuilder f44455f = new StringBuilder();
+    public final StringBuilder f44847f = new StringBuilder();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44456g = false;
+    public boolean f44848g = false;
 
     public long a() {
         return (n() * 10000000) + (i() * 10000) + (g() * 1);
@@ -42,45 +42,45 @@ public final class a {
         if (str == null) {
             str = "";
         }
-        this.f44453d = str;
+        this.f44845d = str;
         return this;
     }
 
     public String d() {
-        return this.f44453d;
+        return this.f44845d;
     }
 
     public a e(String str) {
-        StringBuilder sb = this.f44455f;
+        StringBuilder sb = this.f44847f;
         sb.append(str);
         sb.append("\n");
         return this;
     }
 
     public StringBuilder f() {
-        return this.f44455f;
+        return this.f44847f;
     }
 
     public long g() {
-        return this.f44451b;
+        return this.f44843b;
     }
 
     public a h(long j) {
-        this.f44451b = l(j, 9999L, "error");
+        this.f44843b = l(j, 9999L, "error");
         return this;
     }
 
     public long i() {
-        return this.f44450a;
+        return this.f44842a;
     }
 
     public a j(long j) {
-        this.f44450a = l(j, 999L, "feature");
+        this.f44842a = l(j, 999L, "feature");
         return this;
     }
 
     public boolean k() {
-        return this.f44456g;
+        return this.f44848g;
     }
 
     public final long l(long j, long j2, String str) {
@@ -92,15 +92,15 @@ public final class a {
     }
 
     public void m() {
-        this.f44456g = true;
+        this.f44848g = true;
     }
 
     public long n() {
-        return this.f44452c;
+        return this.f44844c;
     }
 
     public a o(long j) {
-        this.f44452c = l(j, 9L, Constants.PARAM_PLATFORM);
+        this.f44844c = l(j, 9L, Constants.PARAM_PLATFORM);
         return this;
     }
 
@@ -108,12 +108,12 @@ public final class a {
         if (str == null) {
             str = "";
         }
-        this.f44454e = str;
+        this.f44846e = str;
         return this;
     }
 
     public String q() {
-        return this.f44454e;
+        return this.f44846e;
     }
 
     public String r(int i) {

@@ -1,177 +1,150 @@
 package d.b.i0.l3;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.VideoPlatformStatic;
-import d.b.i0.s1.f;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.app.Activity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.ueg.UEGCancelModel;
+import d.b.c.a.g;
+import d.b.c.e.p.k;
+import d.b.h0.r.s.a;
 /* loaded from: classes5.dex */
 public class b {
 
+    /* renamed from: d  reason: collision with root package name */
+    public static boolean f58135d = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public UEGCancelModel.b f58137b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f58138c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+
     /* renamed from: a  reason: collision with root package name */
-    public static b f56784a = new b();
+    public UEGCancelModel f58136a = new UEGCancelModel();
 
     /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public class a implements UEGCancelModel.b {
         public a() {
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            List h2 = b.h();
-            int size = h2.size();
-            for (int i = 0; i < size; i++) {
-                d.b.i0.l3.a aVar = (d.b.i0.l3.a) h2.get(i);
-                b.this.j(aVar.f56782a, aVar.f56783b);
+        @Override // com.baidu.tieba.ueg.UEGCancelModel.b
+        public void a(BlockPopInfoData blockPopInfoData) {
+            if (blockPopInfoData == null || b.f58135d) {
+                return;
             }
-            return null;
+            b.this.d(blockPopInfoData);
         }
     }
 
     /* renamed from: d.b.i0.l3.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1338b extends BdAsyncTask<d.b.i0.l3.a, Void, Void> {
-        public C1338b() {
+    public class C1387b implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BlockPopInfoData f58140e;
+
+        public C1387b(BlockPopInfoData blockPopInfoData) {
+            this.f58140e = blockPopInfoData;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(d.b.i0.l3.a... aVarArr) {
-            if (aVarArr != null && aVarArr.length == 1 && aVarArr[0] != null) {
-                b.this.c(aVarArr[0]);
-            }
-            return null;
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", b.this.f58138c).param("obj_type", this.f58140e.win_type));
         }
     }
 
-    public static b d() {
-        return f56784a;
-    }
+    /* loaded from: classes5.dex */
+    public class c implements a.e {
 
-    public static JSONObject e(String str) {
-        if (!StringUtils.isNull(str) && new File(str).exists()) {
-            try {
-                return new JSONObject().put("running", l(d.b.i0.s1.d.d(str)));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return null;
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BlockPopInfoData f58142e;
 
-    public static JSONObject f(String str) {
-        JSONObject jSONObject;
-        File file = new File(str);
-        if (file.exists()) {
-            try {
-                jSONObject = new JSONObject(d.b.i0.s1.d.e(file));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            if (m(jSONObject)) {
-                return jSONObject;
-            }
-            return null;
+        public c(BlockPopInfoData blockPopInfoData) {
+            this.f58142e = blockPopInfoData;
         }
-        return null;
-    }
 
-    public static File[] g() {
-        File file = new File(f.f60155e);
-        if (file.exists()) {
-            return file.listFiles();
-        }
-        return null;
-    }
-
-    public static List<d.b.i0.l3.a> h() {
-        ArrayList arrayList = new ArrayList();
-        File[] g2 = g();
-        if (g2 == null) {
-            return arrayList;
-        }
-        for (File file : g2) {
-            String name = file.getName();
-            JSONObject f2 = f(file.getAbsolutePath() + f.f60151a + "kpi");
-            if (f2 == null) {
-                d.b.i0.s1.d.b(name);
-            } else {
-                JSONObject e2 = e(file.getAbsolutePath() + f.f60151a + "debug");
-                if (e2 == null) {
-                    d.b.i0.s1.d.b(name);
-                } else {
-                    arrayList.add(new d.b.i0.l3.a(name, i(VideoPlatformStatic.c(), f2, e2)));
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
-        try {
-            JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put("kpiInfo", jSONObject2);
-            jSONObject4.put("baseInfo", jSONObject);
-            jSONObject4.put("debugInfo", jSONObject3);
-            return jSONObject4;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            b.this.e(this.f58142e);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", b.this.f58138c).param("obj_type", this.f58142e.win_type));
         }
     }
 
-    public static JSONArray l(JSONArray jSONArray) {
-        int optInt;
-        if (jSONArray == null) {
-            return null;
+    public b() {
+        if (this.f58137b == null) {
+            this.f58137b = new a();
         }
-        int length = jSONArray.length();
+        this.f58136a.u(this.f58137b);
+    }
+
+    public void c(int i) {
+        this.f58138c = i;
+        this.f58136a.t();
+    }
+
+    public final void d(BlockPopInfoData blockPopInfoData) {
+        if (blockPopInfoData == null || d.b.c.a.b.f().b() == null) {
+            return;
+        }
+        String str = blockPopInfoData.block_id_code;
+        int i = blockPopInfoData.win_type;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        String str2 = blockPopInfoData.ahead_url;
+        String str3 = blockPopInfoData.ok_info;
+        String str4 = blockPopInfoData.ahead_info;
+        String str5 = blockPopInfoData.block_info;
+        if ((i != 1 && i != 2 && i != 3 && i != 4) || k.isEmpty(currentAccount) || k.isEmpty(str)) {
+            return;
+        }
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
         boolean z = false;
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
-                z = true;
-                break;
-            }
+        boolean g2 = j.g(str + i + currentAccount, false);
+        if ((!k.isEmpty(str2) || i == 4) && !k.isEmpty(str3) && ((!k.isEmpty(str4) || i == 4) && !k.isEmpty(str5))) {
+            z = true;
         }
-        if (!z) {
-            jSONArray.put(new d.b.i0.k2.c(502, "unknown", -4399, "").a());
+        if (g2 || !z) {
+            return;
         }
-        return jSONArray;
+        d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+        j2.t(str + i + currentAccount, true);
+        h(blockPopInfoData);
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f58138c).param("obj_type", i));
     }
 
-    public static boolean m(JSONObject jSONObject) {
-        int optInt = jSONObject.optInt("errorTimes", -1);
-        int optInt2 = jSONObject.optInt("postSuccess", -1);
-        int optInt3 = jSONObject.optInt("posted", -1);
-        return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
+    public final void e(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        if (blockPopInfoData == null || (b2 = d.b.c.a.b.f().b()) == null) {
+            return;
+        }
+        AntiHelper.p(b2, blockPopInfoData.ahead_url);
     }
 
-    public final void c(d.b.i0.l3.a aVar) {
-        try {
-            byte[] b2 = c.b(aVar.f56783b);
-            c.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            d.b.i0.s1.d.b(aVar.f56782a);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+    public void f() {
+        UEGCancelModel uEGCancelModel = this.f58136a;
+        if (uEGCancelModel != null) {
+            uEGCancelModel.onDestroy();
         }
     }
 
-    public void j(String str, JSONObject jSONObject) {
-        new C1338b().execute(new d.b.i0.l3.a(str, jSONObject));
+    public void g(boolean z) {
+        f58135d = z;
     }
 
-    public void k() {
-        if (d.b.b.e.p.f.c()) {
-            new a().execute(new Void[0]);
+    public final void h(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        if (blockPopInfoData == null || (b2 = d.b.c.a.b.f().b()) == null) {
+            return;
         }
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(b2);
+        aVar.setMessage(blockPopInfoData.block_info);
+        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1387b(blockPopInfoData));
+        aVar.setPositiveButton(blockPopInfoData.ahead_info, new c(blockPopInfoData));
+        aVar.create(((g) b2).getPageContext());
+        aVar.show();
     }
 }

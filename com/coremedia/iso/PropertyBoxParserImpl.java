@@ -11,7 +11,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     public static String[] EMPTY_STRING_ARRAY = new String[0];
     public String clazzName;

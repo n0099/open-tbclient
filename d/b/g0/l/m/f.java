@@ -30,7 +30,7 @@ public class f {
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (d.b.g0.l.f.f48889a) {
+            if (d.b.g0.l.f.f49281a) {
                 e2.printStackTrace();
             }
             return null;

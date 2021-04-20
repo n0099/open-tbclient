@@ -20,10 +20,10 @@ import java.util.Map;
 public class DlnaApi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DlnaProvider.DlnaSearchListener f7932a;
+    public static DlnaProvider.DlnaSearchListener f7967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f7933b = new a(Looper.getMainLooper());
+    public static Handler f7968b = new a(Looper.getMainLooper());
 
     /* loaded from: classes2.dex */
     public static class a extends Handler {
@@ -38,14 +38,14 @@ public class DlnaApi {
                 if (i == 1) {
                     Map<String, Object> map = (Map) message.obj;
                     synchronized (DlnaApi.class) {
-                        if (DlnaApi.f7932a != null && map != null) {
-                            DlnaApi.f7932a.onDeviceChangeNotification(map);
+                        if (DlnaApi.f7967a != null && map != null) {
+                            DlnaApi.f7967a.onDeviceChangeNotification(map);
                         }
                     }
                 } else if (i == 2) {
                     synchronized (DlnaApi.class) {
-                        if (DlnaApi.f7932a != null) {
-                            DlnaApi.f7932a.onRefreshFinishNotification(message.arg1, message.arg2);
+                        if (DlnaApi.f7967a != null) {
+                            DlnaApi.f7967a.onRefreshFinishNotification(message.arg1, message.arg2);
                         }
                     }
                 }
@@ -115,7 +115,7 @@ public class DlnaApi {
         HashMap hashMap = new HashMap();
         hashMap.put("friendlyName", str);
         hashMap.put("uuid", str2);
-        Message.obtain(f7933b, 1, hashMap).sendToTarget();
+        Message.obtain(f7968b, 1, hashMap).sendToTarget();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0075, code lost:
@@ -168,20 +168,20 @@ public class DlnaApi {
 
     @Keep
     public static void onRefreshFinished(int i, int i2) {
-        Message obtain = Message.obtain(f7933b, 2);
+        Message obtain = Message.obtain(f7968b, 2);
         obtain.arg1 = i;
         obtain.arg2 = i2;
         obtain.sendToTarget();
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        f7932a = dlnaSearchListener;
+        f7967a = dlnaSearchListener;
         nativeSearch();
     }
 
     public static void stop() {
         synchronized (DlnaApi.class) {
-            f7932a = null;
+            f7967a = null;
         }
         nativeStop();
     }

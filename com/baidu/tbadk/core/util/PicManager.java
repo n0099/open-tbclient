@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
-import d.b.b.j.d.a;
+import d.b.c.j.d.a;
 import d.b.h0.a0.c;
 /* loaded from: classes3.dex */
 public class PicManager {
@@ -44,7 +44,7 @@ public class PicManager {
     }
 
     public static void addPicMemoryCache(String str, a aVar) {
-        c.j().d(str, aVar);
+        c.k().d(str, aVar);
     }
 
     public static synchronized PicManager getInstance() {
@@ -145,7 +145,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    c.j().h(imageSize);
+                    c.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.i0.m2.b;
-import d.b.i0.m2.d;
-import d.b.i0.m2.g;
-/* loaded from: classes5.dex */
+import d.b.i0.n2.b;
+import d.b.i0.n2.d;
+import d.b.i0.n2.g;
+/* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
     public static final String FORUM_SEARCH_CLICK = "c12842";
     public static final int TAB_ID_ONLY_THREAD = 3;
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public String mSearchKey;
     public g mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public a() {
         }

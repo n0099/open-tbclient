@@ -12,15 +12,15 @@ public class d {
     public static class a implements SwanAppNetworkUtils.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43869a;
+        public final /* synthetic */ String f44261a;
 
         public a(String str) {
-            this.f43869a = str;
+            this.f44261a = str;
         }
 
         @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
         public void onResult(int i) {
-            d.c(this.f43869a, null, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
+            d.c(this.f44261a, null, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
         }
     }
 
@@ -34,12 +34,12 @@ public class d {
 
     public static void c(String str, @Nullable String str2, String str3) {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47251a = "swan";
-        eVar.f47252b = str;
+        eVar.f47643a = "swan";
+        eVar.f47644b = str;
         if (str2 == null) {
             str2 = "";
         }
-        eVar.f47254d = str2;
+        eVar.f47646d = str2;
         eVar.a("appid", d.b.g0.a.r1.d.e().getAppId());
         eVar.a(DpStatConstants.KEY_NETWORK_STATUS, str3);
         eVar.a("isShow", c.b() ? "1" : "0");

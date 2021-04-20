@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 public class FaceImageLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f19242e;
+    public a f18919e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class FaceImageLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        a aVar = this.f19242e;
+        a aVar = this.f18919e;
         if (aVar != null) {
             aVar.a();
         }
@@ -29,7 +29,7 @@ public class FaceImageLayout extends FrameLayout {
     }
 
     public void setListener(a aVar) {
-        this.f19242e = aVar;
+        this.f18919e = aVar;
     }
 
     public FaceImageLayout(Context context, AttributeSet attributeSet) {

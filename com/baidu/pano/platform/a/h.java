@@ -7,14 +7,14 @@ import java.security.NoSuchAlgorithmException;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f9373a = "0123456789ABCDEF".toCharArray();
+    public static final char[] f8931a = "0123456789ABCDEF".toCharArray();
 
     public static String a(byte[] bArr) {
         char[] cArr = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
             int i2 = bArr[i] & 255;
             int i3 = i * 2;
-            char[] cArr2 = f9373a;
+            char[] cArr2 = f8931a;
             cArr[i3] = cArr2[i2 >>> 4];
             cArr[i3 + 1] = cArr2[i2 & 15];
         }

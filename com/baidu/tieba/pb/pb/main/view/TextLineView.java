@@ -10,22 +10,22 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.u.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TextLineView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19855e;
+    public Paint f19540e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19856f;
+    public int f19541f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19857g;
+    public int f19542g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19858h;
+    public int f19543h;
     public int i;
     public int j;
     public RectF k;
@@ -40,26 +40,26 @@ public class TextLineView extends TextView {
 
     private void setTextSelectedUI(boolean z) {
         if (z) {
-            c a2 = c.a(this);
-            a2.n(R.color.CAM_X0105);
-            a2.s(R.string.F_X02);
+            c d2 = c.d(this);
+            d2.q(R.color.CAM_X0105);
+            d2.v(R.string.F_X02);
             return;
         }
-        c a3 = c.a(this);
-        a3.n(R.color.CAM_X0108);
-        a3.s(R.string.F_X01);
+        c d3 = c.d(this);
+        d3.q(R.color.CAM_X0108);
+        d3.v(R.string.F_X01);
     }
 
     public final void a() {
-        if (this.f19855e == null) {
-            this.f19855e = new Paint();
+        if (this.f19540e == null) {
+            this.f19540e = new Paint();
         }
-        this.f19855e.setAntiAlias(true);
-        this.f19855e.setStyle(Paint.Style.FILL);
+        this.f19540e.setAntiAlias(true);
+        this.f19540e.setStyle(Paint.Style.FILL);
         if (isSelected()) {
-            this.f19855e.setColor(SkinManager.getColor(R.color.transparent));
+            this.f19540e.setColor(SkinManager.getColor(R.color.transparent));
         } else {
-            this.f19855e.setColor(SkinManager.getColor(R.color.transparent));
+            this.f19540e.setColor(SkinManager.getColor(R.color.transparent));
         }
     }
 
@@ -79,11 +79,11 @@ public class TextLineView extends TextView {
         RectF rectF = this.k;
         int i = this.n;
         int i2 = this.m;
-        int i3 = this.f19858h;
-        rectF.set(i + 0, (i2 - i3) - this.f19856f, this.l - i, i2 - i3);
+        int i3 = this.f19543h;
+        rectF.set(i + 0, (i2 - i3) - this.f19541f, this.l - i, i2 - i3);
         RectF rectF2 = this.k;
         int i4 = this.o;
-        canvas.drawRoundRect(rectF2, i4, i4, this.f19855e);
+        canvas.drawRoundRect(rectF2, i4, i4, this.f19540e);
     }
 
     @Override // android.view.View
@@ -104,12 +104,12 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TextLineView);
-        this.f19856f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
-        this.f19857g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
-        this.f19858h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
+        this.f19541f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
+        this.f19542g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
+        this.f19543h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
         this.i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
         obtainStyledAttributes.getColor(R$styleable.TextLineView_text_unselected_color, SkinManager.getColor(R.color.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19857g + this.f19856f + this.f19858h);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19542g + this.f19541f + this.f19543h);
         setTextColor(this.i);
         this.j = l.g(context, R.dimen.ds56);
         this.k = new RectF();

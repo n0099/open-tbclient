@@ -19,13 +19,13 @@ public class f extends Service {
     public static String replaceFileName = "repll.jar";
 
     /* renamed from: a  reason: collision with root package name */
-    public LLSInterface f6723a = null;
+    public LLSInterface f6758a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f6724b = null;
+    public LLSInterface f6759b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f6725c = null;
+    public LLSInterface f6760c = null;
 
     private boolean a(File file) {
         int readInt;
@@ -65,7 +65,7 @@ public class f extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.f6725c.onBind(intent);
+        return this.f6760c.onBind(intent);
     }
 
     @Override // android.app.Service
@@ -73,7 +73,7 @@ public class f extends Service {
     public void onCreate() {
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.f6724b = new com.baidu.location.c.a();
+        this.f6759b = new com.baidu.location.c.a();
         try {
             File file = new File(j.h() + File.separator + replaceFileName);
             File file2 = new File(j.h() + File.separator + "app.jar");
@@ -85,28 +85,28 @@ public class f extends Service {
             }
             if (file2.exists()) {
                 if (a(new File(j.h() + File.separator + "app.jar"))) {
-                    this.f6723a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                    this.f6758a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
                 }
             }
         } catch (Exception unused) {
-            this.f6723a = null;
+            this.f6758a = null;
         }
-        LLSInterface lLSInterface = this.f6723a;
-        if (lLSInterface == null || lLSInterface.getVersion() < this.f6724b.getVersion()) {
-            this.f6725c = this.f6724b;
-            this.f6723a = null;
+        LLSInterface lLSInterface = this.f6758a;
+        if (lLSInterface == null || lLSInterface.getVersion() < this.f6759b.getVersion()) {
+            this.f6760c = this.f6759b;
+            this.f6758a = null;
         } else {
-            this.f6725c = this.f6723a;
-            this.f6724b = null;
+            this.f6760c = this.f6758a;
+            this.f6759b = null;
         }
         isServing = true;
-        this.f6725c.onCreate(this);
+        this.f6760c.onCreate(this);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         isServing = false;
-        this.f6725c.onDestroy();
+        this.f6760c.onDestroy();
         if (isStartedServing) {
             stopForeground(true);
         }
@@ -128,16 +128,16 @@ public class f extends Service {
                 e2.printStackTrace();
             }
         }
-        return this.f6725c.onStartCommand(intent, i, i2);
+        return this.f6760c.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        this.f6725c.onTaskRemoved(intent);
+        this.f6760c.onTaskRemoved(intent);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return this.f6725c.onUnBind(intent);
+        return this.f6760c.onUnBind(intent);
     }
 }

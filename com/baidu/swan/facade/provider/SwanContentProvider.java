@@ -20,7 +20,7 @@ import java.util.Set;
 public class SwanContentProvider extends ContentProvider {
     public static final int PER_USER_RANGE = 100000;
     public static final String TAG = "SwanContentProvider";
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
     public static UriMatcher sUriMatcher = new UriMatcher(-1);
     public static HashSet<String> sAccreditedSet = new HashSet<>();

@@ -13,12 +13,12 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.b.a.b;
-import d.b.b.a.g;
-import d.b.b.a.i;
-import d.b.b.e.l.d;
-import d.b.b.e.p.l;
-import d.b.b.j.e.q;
+import d.b.c.a.b;
+import d.b.c.a.g;
+import d.b.c.a.i;
+import d.b.c.e.l.d;
+import d.b.c.e.p.l;
+import d.b.c.j.e.q;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback, g {
     public static final int PRELOAD_DELAY = 100;
@@ -43,8 +43,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (view == null) {
             return;
         }
-        if (view instanceof d.b.b.f.a.i) {
-            ((d.b.b.f.a.i) view).refresh();
+        if (view instanceof d.b.c.f.a.i) {
+            ((d.b.c.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -55,7 +55,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -65,7 +65,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         return false;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
@@ -120,7 +120,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public void onPreLoad(q qVar) {
     }
 
@@ -149,7 +149,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(d.b.b.c.g.a aVar) {
+    public void registerListener(d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
@@ -191,7 +191,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
@@ -200,7 +200,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         l.L(getApplicationContext(), str);
     }
 
-    public void registerListener(int i, d.b.b.c.g.a aVar) {
+    public void registerListener(int i, d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }

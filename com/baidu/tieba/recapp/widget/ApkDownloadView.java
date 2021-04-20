@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
@@ -20,30 +21,30 @@ import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import d.b.h0.s.c.d;
-import d.b.i0.o.c.e.b;
-import d.b.i0.r2.x.e;
-import d.b.i0.r2.x.i;
+import d.b.i0.o.d.f.b;
+import d.b.i0.s2.a0.e;
+import d.b.i0.s2.a0.i;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
+/* loaded from: classes4.dex */
+public class ApkDownloadView extends FrameLayout implements d.b.i0.o.d.f.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.r2.e0.a f20892e;
+    public d.b.i0.s2.i0.a f20577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FeedAdProgressButton f20893f;
+    public FeedAdProgressButton f20578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FeedAdProgressText f20894g;
+    public FeedAdProgressText f20579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadData f20895h;
+    public DownloadData f20580h;
     public b.a i;
     public DownloadStatus j;
     public CustomMessageListener k;
     public CustomMessageListener l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -52,7 +53,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.f20895h != null) {
+            if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.f20580h != null) {
                 DownloadData downloadData = null;
                 List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                 int i = 0;
@@ -61,9 +62,9 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
                         break;
                     }
                     DownloadData downloadData2 = data.get(i);
-                    if (TextUtils.isEmpty(ApkDownloadView.this.f20895h.getId())) {
+                    if (TextUtils.isEmpty(ApkDownloadView.this.f20580h.getId())) {
                         i++;
-                    } else if (ApkDownloadView.this.f20895h.getId().equals(downloadData2.getId())) {
+                    } else if (ApkDownloadView.this.f20580h.getId().equals(downloadData2.getId())) {
                         downloadData = downloadData2;
                     }
                 }
@@ -72,7 +73,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
                     if (i.n(downloadData) == 1) {
                         ApkDownloadView.this.w(k);
                     } else if (i.n(downloadData) == 3) {
-                        ApkDownloadView.this.f20892e.setButtonText(ApkDownloadView.this.getResources().getString(R.string.immediately_install));
+                        ApkDownloadView.this.f20577e.setButtonText(ApkDownloadView.this.getResources().getString(R.string.immediately_install));
                     } else {
                         ApkDownloadView.this.p(downloadData);
                     }
@@ -82,7 +83,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -91,11 +92,11 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || ApkDownloadView.this.f20895h == null) {
+            if (customResponsedMessage == null || ApkDownloadView.this.f20580h == null) {
                 return;
             }
             DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-            if (ApkDownloadView.this.f20895h.getId() == null || downloadData == null || !ApkDownloadView.this.f20895h.getId().equals(downloadData.getId())) {
+            if (ApkDownloadView.this.f20580h.getId() == null || downloadData == null || !ApkDownloadView.this.f20580h.getId().equals(downloadData.getId())) {
                 return;
             }
             ApkDownloadView.this.v(downloadData);
@@ -128,14 +129,14 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
         return i.n(downloadData);
     }
 
-    @Override // d.b.i0.o.c.e.b
+    @Override // d.b.i0.o.d.f.b
     public void a(int i) {
         if (this.j == DownloadStatus.STATUS_DOWNLOADING) {
             w(i);
         }
     }
 
-    @Override // d.b.i0.o.c.e.b
+    @Override // d.b.i0.o.d.f.b
     public boolean b(View view) {
         b.a aVar = this.i;
         if (aVar != null) {
@@ -144,23 +145,23 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
         return false;
     }
 
-    @Override // d.b.i0.o.c.e.b
+    @Override // d.b.i0.o.d.f.b
     public void c(@NonNull DownloadStatus downloadStatus) {
         this.j = downloadStatus;
-        DownloadData downloadData = this.f20895h;
+        DownloadData downloadData = this.f20580h;
         if (downloadData != null) {
             downloadData.setStatus(getDownloadStatus());
-            v(this.f20895h);
+            v(this.f20580h);
         }
     }
 
-    @Override // d.b.i0.o.c.e.b
+    @Override // d.b.i0.o.d.f.b
     public void d(DownloadStatus downloadStatus, int i) {
         c(downloadStatus);
         a(i);
     }
 
-    @Override // d.b.i0.o.c.e.b
+    @Override // d.b.i0.o.d.f.b
     public View getActionBar() {
         return this;
     }
@@ -182,14 +183,14 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
         return downloadStatus == DownloadStatus.STATUS_INSTALL_SUCCESS ? 8 : 6;
     }
 
-    @Override // d.b.i0.o.c.e.b
+    @Override // d.b.i0.o.d.f.b
     @NonNull
     public View getRealView() {
         return this;
     }
 
     public void i() {
-        this.f20892e.d();
+        this.f20577e.d();
     }
 
     public void j(BdUniqueId bdUniqueId) {
@@ -214,14 +215,14 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
 
     public final void n(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.apk_download_view_layout, (ViewGroup) this, true);
-        this.f20893f = (FeedAdProgressButton) inflate.findViewById(R.id.feed_ad_operate_progress_button);
-        this.f20894g = (FeedAdProgressText) inflate.findViewById(R.id.feed_ad_operate_progress_text);
-        this.f20892e = this.f20893f;
+        this.f20578f = (FeedAdProgressButton) inflate.findViewById(R.id.feed_ad_operate_progress_button);
+        this.f20579g = (FeedAdProgressText) inflate.findViewById(R.id.feed_ad_operate_progress_text);
+        this.f20577e = this.f20578f;
         o(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void o(int i) {
-        this.f20892e.a();
+        this.f20577e.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -238,7 +239,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
     }
 
     public void p(DownloadData downloadData) {
-        this.f20892e.setButtonText(getResources().getString(R.string.go_on_download), l(downloadData));
+        this.f20577e.setButtonText(getResources().getString(R.string.go_on_download), l(downloadData));
     }
 
     public final void q() {
@@ -251,7 +252,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
     }
 
     public void r(DownloadData downloadData) {
-        this.f20892e.setButtonText(getResources().getString(R.string.install_app));
+        this.f20577e.setButtonText(getResources().getString(R.string.install_app));
     }
 
     public void s(DownloadData downloadData) {
@@ -259,7 +260,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
     }
 
     public void setBackgroundSkin(@DrawableRes int i) {
-        d.b.i0.r2.e0.a aVar = this.f20892e;
+        d.b.i0.s2.i0.a aVar = this.f20577e;
         if (aVar instanceof FeedAdProgressButton) {
             ((FeedAdProgressButton) aVar).setBackgroundSkin(i);
         }
@@ -270,7 +271,7 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
             return;
         }
         DownloadData downloadData2 = (DownloadData) downloadData.clone();
-        this.f20895h = downloadData2;
+        this.f20580h = downloadData2;
         if (downloadData2 == null) {
             return;
         }
@@ -279,15 +280,15 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
     }
 
     public void setDefaultText(String str) {
-        d.b.i0.r2.e0.a aVar;
-        if (TextUtils.isEmpty(str) || (aVar = this.f20892e) == null) {
+        d.b.i0.s2.i0.a aVar;
+        if (TextUtils.isEmpty(str) || (aVar = this.f20577e) == null) {
             return;
         }
         aVar.setButtonText(str);
     }
 
     public void setForegroundSkin(@DrawableRes int i) {
-        d.b.i0.r2.e0.a aVar = this.f20892e;
+        d.b.i0.s2.i0.a aVar = this.f20577e;
         if (aVar instanceof FeedAdProgressButton) {
             ((FeedAdProgressButton) aVar).setForeground(i);
         }
@@ -295,37 +296,51 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
 
     public void setIsPbDownload(boolean z) {
         if (z) {
-            this.f20893f.setVisibility(8);
-            this.f20894g.setVisibility(0);
-            this.f20892e = this.f20894g;
+            this.f20578f.setVisibility(8);
+            this.f20579g.setVisibility(0);
+            this.f20577e = this.f20579g;
             return;
         }
-        this.f20894g.setVisibility(8);
-        this.f20893f.setVisibility(0);
-        this.f20892e = this.f20893f;
+        this.f20579g.setVisibility(8);
+        this.f20578f.setVisibility(0);
+        this.f20577e = this.f20578f;
     }
 
     public void setOnClickInterceptListener(b.a aVar) {
         this.i = aVar;
     }
 
+    public void setStrokeWidth(@DimenRes int i) {
+        d.b.i0.s2.i0.a aVar = this.f20577e;
+        if (aVar instanceof FeedAdProgressButton) {
+            ((FeedAdProgressButton) aVar).setStrokeWidth(i);
+        }
+    }
+
     public void setTextColor(int i) {
-        this.f20892e.setButtonTextColor(i);
+        this.f20577e.setButtonTextColor(i);
     }
 
     public void setTextColorInitSkin(@ColorRes int i) {
-        d.b.i0.r2.e0.a aVar = this.f20892e;
+        d.b.i0.s2.i0.a aVar = this.f20577e;
         if (aVar instanceof FeedAdProgressButton) {
             ((FeedAdProgressButton) aVar).setTextColorInitSkin(i);
         }
     }
 
+    public void setTextColorSkin(@ColorRes int i) {
+        d.b.i0.s2.i0.a aVar = this.f20577e;
+        if (aVar instanceof FeedAdProgressButton) {
+            ((FeedAdProgressButton) aVar).setTextColorSkin(i);
+        }
+    }
+
     public void setTextNightColor(int i) {
-        this.f20892e.setButtonTextNightColor(i);
+        this.f20577e.setButtonTextNightColor(i);
     }
 
     public void setTextSize(int i) {
-        this.f20892e.setButtonTextSize(i);
+        this.f20577e.setButtonTextSize(i);
     }
 
     @Override // android.view.View
@@ -361,10 +376,10 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
                 return;
             case 2:
             case 7:
-                this.f20892e.setButtonText(getResources().getString(R.string.go_on_download), l(downloadData));
+                this.f20577e.setButtonText(getResources().getString(R.string.go_on_download), l(downloadData));
                 return;
             case 3:
-                this.f20892e.setButtonText(getResources().getString(R.string.immediately_install), 0);
+                this.f20577e.setButtonText(getResources().getString(R.string.immediately_install), 0);
                 return;
             case 4:
             default:
@@ -373,16 +388,16 @@ public class ApkDownloadView extends FrameLayout implements d.b.i0.o.c.e.b {
                 w(l(downloadData));
                 return;
             case 6:
-                this.f20892e.setButtonText(getResources().getString(R.string.install_app));
+                this.f20577e.setButtonText(getResources().getString(R.string.install_app));
                 return;
             case 8:
-                this.f20892e.setButtonText(getResources().getString(R.string.immediately_open), 0);
+                this.f20577e.setButtonText(getResources().getString(R.string.immediately_open), 0);
                 return;
         }
     }
 
     public final void w(int i) {
-        this.f20892e.setProgress(Math.max(0, i));
+        this.f20577e.setProgress(Math.max(0, i));
     }
 
     public ApkDownloadView(Context context, AttributeSet attributeSet) {

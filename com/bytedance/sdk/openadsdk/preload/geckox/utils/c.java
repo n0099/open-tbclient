@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static void a(Throwable th) {
         if (!e.a()) {

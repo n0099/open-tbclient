@@ -3,14 +3,14 @@ package d.b.i0.t.d.g.b;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60610a;
+    public String f62174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60611b;
+    public String f62175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60612c;
+    public String f62176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f60613d = false;
+    public boolean f62177d = false;
 }

@@ -1,9 +1,9 @@
 package io.reactivex.subjects;
 
-import f.a.q;
-import f.a.r;
-import f.a.t.b;
-import f.a.x.b.a;
+import f.b.q;
+import f.b.r;
+import f.b.t.b;
+import f.b.x.b.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -12,16 +12,16 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
     public static final SingleDisposable[] j = new SingleDisposable[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public T f68117g;
+    public T f69123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Throwable f68118h;
+    public Throwable f69124h;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f68116f = new AtomicBoolean();
+    public final AtomicBoolean f69122f = new AtomicBoolean();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<SingleDisposable<T>[]> f68115e = new AtomicReference<>(i);
+    public final AtomicReference<SingleDisposable<T>[]> f69121e = new AtomicReference<>(i);
 
     /* loaded from: classes7.dex */
     public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements b {
@@ -33,7 +33,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
             lazySet(singleSubject);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             SingleSubject<T> andSet = getAndSet(null);
             if (andSet != null) {
@@ -41,14 +41,14 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
             }
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get() == null;
         }
     }
 
     /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: T, ? super T */
-    @Override // f.a.q
+    @Override // f.b.q
     public void b(r<? super T> rVar) {
         SingleDisposable<T> singleDisposable = new SingleDisposable<>(rVar, this);
         rVar.onSubscribe(singleDisposable);
@@ -59,11 +59,11 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
             }
             return;
         }
-        Throwable th = this.f68118h;
+        Throwable th = this.f69124h;
         if (th != null) {
             rVar.onError(th);
         } else {
-            rVar.onSuccess((T) this.f68117g);
+            rVar.onSuccess((T) this.f69123g);
         }
     }
 
@@ -71,7 +71,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
         SingleDisposable<T>[] singleDisposableArr;
         SingleDisposable<T>[] singleDisposableArr2;
         do {
-            singleDisposableArr = this.f68115e.get();
+            singleDisposableArr = this.f69121e.get();
             if (singleDisposableArr == j) {
                 return false;
             }
@@ -79,7 +79,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
             singleDisposableArr2 = new SingleDisposable[length + 1];
             System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, length);
             singleDisposableArr2[length] = singleDisposable;
-        } while (!this.f68115e.compareAndSet(singleDisposableArr, singleDisposableArr2));
+        } while (!this.f69121e.compareAndSet(singleDisposableArr, singleDisposableArr2));
         return true;
     }
 
@@ -89,7 +89,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
         SingleDisposable<T>[] singleDisposableArr;
         SingleDisposable[] singleDisposableArr2;
         do {
-            singleDisposableArr = this.f68115e.get();
+            singleDisposableArr = this.f69121e.get();
             int length = singleDisposableArr.length;
             if (length == 0) {
                 return;
@@ -117,35 +117,35 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
                 System.arraycopy(singleDisposableArr, i2 + 1, singleDisposableArr3, i2, (length - i2) - 1);
                 singleDisposableArr2 = singleDisposableArr3;
             }
-        } while (!this.f68115e.compareAndSet(singleDisposableArr, singleDisposableArr2));
+        } while (!this.f69121e.compareAndSet(singleDisposableArr, singleDisposableArr2));
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f68116f.compareAndSet(false, true)) {
-            this.f68118h = th;
-            for (SingleDisposable<T> singleDisposable : this.f68115e.getAndSet(j)) {
+        if (this.f69122f.compareAndSet(false, true)) {
+            this.f69124h = th;
+            for (SingleDisposable<T> singleDisposable : this.f69121e.getAndSet(j)) {
                 singleDisposable.actual.onError(th);
             }
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
-        if (this.f68115e.get() == j) {
+        if (this.f69121e.get() == j) {
             bVar.dispose();
         }
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         a.b(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f68116f.compareAndSet(false, true)) {
-            this.f68117g = t;
-            for (SingleDisposable<T> singleDisposable : this.f68115e.getAndSet(j)) {
+        if (this.f69122f.compareAndSet(false, true)) {
+            this.f69123g = t;
+            for (SingleDisposable<T> singleDisposable : this.f69121e.getAndSet(j)) {
                 singleDisposable.actual.onSuccess(t);
             }
         }

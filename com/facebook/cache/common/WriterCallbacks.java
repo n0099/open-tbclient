@@ -4,7 +4,7 @@ import com.facebook.common.internal.ByteStreams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WriterCallbacks {
     public static WriterCallback from(final InputStream inputStream) {
         return new WriterCallback() { // from class: com.facebook.cache.common.WriterCallbacks.1

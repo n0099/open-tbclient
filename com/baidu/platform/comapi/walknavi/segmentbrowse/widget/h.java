@@ -11,28 +11,28 @@ import java.util.ArrayList;
 public class h extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10199a = 600;
+    public static int f9757a = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10200b;
+    public Context f9758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10201c;
+    public int f9759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Scroller f10202d;
+    public Scroller f9760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f10203e;
+    public boolean f9761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f10204f;
+    public a f9762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10205g;
+    public int f9763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<d> f10206h;
+    public ArrayList<d> f9764h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -49,35 +49,35 @@ public class h extends ViewGroup {
 
     public void a(int i) {
         if (this.k) {
-            if (i == com.baidu.platform.comapi.walknavi.segmentbrowse.c.k() * this.f10205g) {
+            if (i == com.baidu.platform.comapi.walknavi.segmentbrowse.c.k() * this.f9763g) {
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
                     this.k = false;
                 }
-                this.f10203e = false;
+                this.f9761e = false;
                 if (getChildCount() == 2) {
                     removeViews(0, 1);
-                    this.f10206h.remove(0);
+                    this.f9764h.remove(0);
                 } else {
                     removeViews(0, 2);
-                    this.f10206h.remove(0);
-                    this.f10206h.remove(0);
+                    this.f9764h.remove(0);
+                    this.f9764h.remove(0);
                 }
-                d dVar = new d(this.f10200b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()), this.f10201c);
+                d dVar = new d(this.f9758b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()), this.f9759c);
                 dVar.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()));
                 addView(dVar);
-                this.f10206h.add(0, dVar);
+                this.f9764h.add(0, dVar);
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() < com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                    d dVar2 = new d(this.f10200b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()), this.f10201c);
+                    d dVar2 = new d(this.f9758b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()), this.f9759c);
                     dVar2.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()));
                     addView(dVar2);
-                    this.f10206h.add(dVar2);
+                    this.f9764h.add(dVar2);
                 }
             }
-            if (i <= ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f10205g))) {
-                this.f10203e = true;
+            if (i <= ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f9763g))) {
+                this.f9761e = true;
             }
-            this.f10201c = i;
-            f.a().a(this.f10201c);
+            this.f9759c = i;
+            f.a().a(this.f9759c);
             a();
             invalidate();
         }
@@ -85,71 +85,71 @@ public class h extends ViewGroup {
 
     @Override // android.view.View
     public void computeScroll() {
-        com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "computeScroll--->" + this.f10202d.computeScrollOffset());
-        if (this.f10202d.computeScrollOffset()) {
-            com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", this.f10202d.getCurrX() + "======" + this.f10202d.getCurrY());
-            scrollTo(this.f10202d.getCurrX(), this.f10202d.getCurrY());
+        com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "computeScroll--->" + this.f9760d.computeScrollOffset());
+        if (this.f9760d.computeScrollOffset()) {
+            com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", this.f9760d.getCurrX() + "======" + this.f9760d.getCurrY());
+            scrollTo(this.f9760d.getCurrX(), this.f9760d.getCurrY());
             postInvalidate();
             return;
         }
         com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "istime:isGoToNext:" + this.i + "isGoToLast:" + this.j);
         if (this.i) {
             this.i = false;
-            this.f10204f.a(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+            this.f9762f.a(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
         }
         if (this.j) {
             this.j = false;
-            this.f10204f.a("last");
+            this.f9762f.a("last");
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (!this.f10203e) {
+        if (!this.f9761e) {
             if (getChildCount() == 2) {
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                    this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-                    this.f10206h.get(1).layout(0, 0, this.f10201c, this.l);
+                    this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+                    this.f9764h.get(1).layout(0, 0, this.f9759c, this.l);
                     return;
                 }
-                if (this.f10201c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
-                    this.f10206h.get(0).layout(0, 0, this.f10201c + 0, this.l);
+                if (this.f9759c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
+                    this.f9764h.get(0).layout(0, 0, this.f9759c + 0, this.l);
                 } else {
-                    com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f10201c);
-                    this.f10206h.get(0).layout(0, 0, this.f10201c + 0, this.l);
+                    com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f9759c);
+                    this.f9764h.get(0).layout(0, 0, this.f9759c + 0, this.l);
                 }
-                int i5 = this.f10201c;
-                this.f10206h.get(1).layout(i5 + 0, 0, i5 + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)), this.l);
+                int i5 = this.f9759c;
+                this.f9764h.get(1).layout(i5 + 0, 0, i5 + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)), this.l);
                 return;
             }
-            this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-            if (this.f10201c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
-                this.f10206h.get(1).layout(0, 0, this.f10201c + 0, this.l);
+            this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+            if (this.f9759c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
+                this.f9764h.get(1).layout(0, 0, this.f9759c + 0, this.l);
             } else {
-                com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f10201c);
-                this.f10206h.get(1).layout(0, 0, this.f10201c + 0, this.l);
+                com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f9759c);
+                this.f9764h.get(1).layout(0, 0, this.f9759c + 0, this.l);
             }
-            int i6 = this.f10201c;
-            this.f10206h.get(2).layout(i6 + 0, 0, i6 + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)), this.l);
+            int i6 = this.f9759c;
+            this.f9764h.get(2).layout(i6 + 0, 0, i6 + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)), this.l);
             return;
         }
-        com.baidu.platform.comapi.wnplatform.d.a.a("on layout false", "width" + this.f10201c);
+        com.baidu.platform.comapi.wnplatform.d.a.a("on layout false", "width" + this.f9759c);
         if (getChildCount() == 2) {
             com.baidu.platform.comapi.wnplatform.d.a.a("getchild cur uid", "uid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
             if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-                this.f10206h.get(1).layout(0, 0, com.baidu.platform.comapi.walknavi.segmentbrowse.c.o(), this.l);
+                this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+                this.f9764h.get(1).layout(0, 0, com.baidu.platform.comapi.walknavi.segmentbrowse.c.o(), this.l);
                 return;
             }
-            this.f10206h.get(0).layout(this.f10201c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f10205g)), 0, this.f10201c, this.l);
-            int i7 = this.f10201c;
-            this.f10206h.get(1).layout(i7, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)) + i7, this.l);
+            this.f9764h.get(0).layout(this.f9759c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f9763g)), 0, this.f9759c, this.l);
+            int i7 = this.f9759c;
+            this.f9764h.get(1).layout(i7, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)) + i7, this.l);
             return;
         }
-        this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-        this.f10206h.get(1).layout(this.f10201c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f10205g)), 0, this.f10201c, this.l);
-        int i8 = this.f10201c;
-        this.f10206h.get(2).layout(i8, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)) + i8, this.l);
+        this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+        this.f9764h.get(1).layout(this.f9759c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f9763g)), 0, this.f9759c, this.l);
+        int i8 = this.f9759c;
+        this.f9764h.get(2).layout(i8, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)) + i8, this.l);
     }
 
     @Override // android.view.View
@@ -161,17 +161,17 @@ public class h extends ViewGroup {
         float x = motionEvent.getX();
         int action = motionEvent.getAction();
         if (action == 0) {
-            Scroller scroller = this.f10202d;
+            Scroller scroller = this.f9760d;
             if (scroller != null && !scroller.isFinished()) {
-                this.f10202d.abortAnimation();
+                this.f9760d.abortAnimation();
             }
             this.o = x;
         } else if (action == 1) {
             VelocityTracker velocityTracker = this.p;
             velocityTracker.computeCurrentVelocity(1000);
             int xVelocity = (int) velocityTracker.getXVelocity();
-            if (xVelocity > f10199a) {
-                com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent width" + this.f10201c);
+            if (xVelocity > f9757a) {
+                com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent width" + this.f9759c);
                 this.m = true;
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.g()) {
                     this.m = false;
@@ -179,7 +179,7 @@ public class h extends ViewGroup {
                 if (this.m) {
                     this.j = true;
                     com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent up startScroll---------------");
-                    this.f10202d.startScroll(getScrollX(), 0, (-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n()) - getScrollX(), 0, 1000);
+                    this.f9760d.startScroll(getScrollX(), 0, (-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n()) - getScrollX(), 0, 1000);
                     invalidate();
                 }
             } else if (xVelocity < 0) {
@@ -187,13 +187,13 @@ public class h extends ViewGroup {
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
                     this.m = false;
                 }
-                com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent width" + this.f10201c);
+                com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent width" + this.f9759c);
                 com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent getscrollx" + getScrollX());
                 com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent isNeedMove" + this.m);
                 if (this.m) {
                     this.i = true;
                     com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent down startScroll---------------");
-                    this.f10202d.startScroll(getScrollX(), 0, this.f10201c - getScrollX(), 0, 500);
+                    this.f9760d.startScroll(getScrollX(), 0, this.f9759c - getScrollX(), 0, 500);
                     invalidate();
                 }
             }
@@ -223,50 +223,50 @@ public class h extends ViewGroup {
     }
 
     private void a() {
-        if (!this.f10203e) {
+        if (!this.f9761e) {
             if (getChildCount() == 2) {
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                    this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-                    this.f10206h.get(1).layout(0, 0, this.f10201c, this.l);
+                    this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+                    this.f9764h.get(1).layout(0, 0, this.f9759c, this.l);
                     return;
                 }
-                if (this.f10201c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
-                    this.f10206h.get(0).layout(0, 0, this.f10201c + 0, this.l);
+                if (this.f9759c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
+                    this.f9764h.get(0).layout(0, 0, this.f9759c + 0, this.l);
                 } else {
-                    com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f10201c);
-                    this.f10206h.get(0).layout(0, 0, this.f10201c + 0, this.l);
+                    com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f9759c);
+                    this.f9764h.get(0).layout(0, 0, this.f9759c + 0, this.l);
                 }
-                int i = this.f10201c;
-                this.f10206h.get(1).layout(i + 0, 0, i + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)), this.l);
+                int i = this.f9759c;
+                this.f9764h.get(1).layout(i + 0, 0, i + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)), this.l);
                 return;
             }
-            this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-            if (this.f10201c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
-                this.f10206h.get(1).layout(0, 0, this.f10201c + 0, this.l);
+            this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+            if (this.f9759c == com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
+                this.f9764h.get(1).layout(0, 0, this.f9759c + 0, this.l);
             } else {
-                com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f10201c);
-                this.f10206h.get(1).layout(0, 0, this.f10201c + 0, this.l);
+                com.baidu.platform.comapi.wnplatform.d.a.a("on layout true", "width" + this.f9759c);
+                this.f9764h.get(1).layout(0, 0, this.f9759c + 0, this.l);
             }
-            int i2 = this.f10201c;
-            this.f10206h.get(2).layout(i2 + 0, 0, i2 + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)), this.l);
+            int i2 = this.f9759c;
+            this.f9764h.get(2).layout(i2 + 0, 0, i2 + 0 + ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)), this.l);
             return;
         }
-        com.baidu.platform.comapi.wnplatform.d.a.a("on layout false", "width" + this.f10201c);
+        com.baidu.platform.comapi.wnplatform.d.a.a("on layout false", "width" + this.f9759c);
         if (getChildCount() == 2) {
             com.baidu.platform.comapi.wnplatform.d.a.a("getchild cur uid", "uid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
             if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-                this.f10206h.get(1).layout(0, 0, com.baidu.platform.comapi.walknavi.segmentbrowse.c.o(), this.l);
+                this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+                this.f9764h.get(1).layout(0, 0, com.baidu.platform.comapi.walknavi.segmentbrowse.c.o(), this.l);
                 return;
             }
-            this.f10206h.get(0).layout(this.f10201c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f10205g)), 0, this.f10201c, this.l);
-            int i3 = this.f10201c;
-            this.f10206h.get(1).layout(i3, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)) + i3, this.l);
+            this.f9764h.get(0).layout(this.f9759c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f9763g)), 0, this.f9759c, this.l);
+            int i3 = this.f9759c;
+            this.f9764h.get(1).layout(i3, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)) + i3, this.l);
             return;
         }
-        this.f10206h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
-        this.f10206h.get(1).layout(this.f10201c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f10205g)), 0, this.f10201c, this.l);
-        int i4 = this.f10201c;
-        this.f10206h.get(2).layout(i4, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f10205g)) + i4, this.l);
+        this.f9764h.get(0).layout(-com.baidu.platform.comapi.walknavi.segmentbrowse.c.n(), 0, 0, this.l);
+        this.f9764h.get(1).layout(this.f9759c - ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.q() * this.f9763g)), 0, this.f9759c, this.l);
+        int i4 = this.f9759c;
+        this.f9764h.get(2).layout(i4, 0, ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.l() * this.f9763g)) + i4, this.l);
     }
 }

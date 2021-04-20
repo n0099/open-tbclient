@@ -5,13 +5,13 @@ import com.baidu.searchbox.v8engine.JsObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48102a;
+    public int f48494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsObject f48103b;
+    public JsObject f48495b;
 
     public d(int i, JsObject jsObject) {
-        this.f48102a = i;
-        this.f48103b = jsObject;
+        this.f48494a = i;
+        this.f48495b = jsObject;
     }
 }

@@ -17,7 +17,7 @@ public class a {
             hashMap = hashMap2;
         } else {
             int columnIndex = query.getColumnIndex(Constants.APP_ID);
-            int columnIndex2 = query.getColumnIndex(com.alipay.sdk.cons.b.f1858h);
+            int columnIndex2 = query.getColumnIndex(com.alipay.sdk.cons.b.f1883h);
             int columnIndex3 = query.getColumnIndex("app_sign");
             int columnIndex4 = query.getColumnIndex("version_code");
             int columnIndex5 = query.getColumnIndex("version_name");

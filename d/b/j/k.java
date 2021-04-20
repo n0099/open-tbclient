@@ -27,10 +27,10 @@ import java.util.Random;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63768a;
+    public Context f64468a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f63769b;
+    public f f64469b;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -49,8 +49,8 @@ public class k {
     }
 
     public k(Context context, f fVar) {
-        this.f63768a = context;
-        this.f63769b = fVar;
+        this.f64468a = context;
+        this.f64469b = fVar;
     }
 
     public static void g(String str, String str2) {
@@ -106,18 +106,18 @@ public class k {
     }
 
     public final j a(Context context) {
-        List<e> h2 = this.f63769b.h(context);
+        List<e> h2 = this.f64469b.h(context);
         j jVar = null;
         if (h2 != null) {
-            String str = com.baidu.fsg.face.base.b.c.f5557g;
+            String str = com.baidu.fsg.face.base.b.c.f5592g;
             File filesDir = context.getFilesDir();
-            if (!com.baidu.fsg.face.base.b.c.f5557g.equals(filesDir.getName())) {
+            if (!com.baidu.fsg.face.base.b.c.f5592g.equals(filesDir.getName())) {
                 Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                 str = filesDir.getName();
             }
             for (e eVar : h2) {
-                if (!eVar.f63749d) {
-                    File file = new File(new File(eVar.f63746a.dataDir, str), "libcuid.so");
+                if (!eVar.f64449d) {
+                    File file = new File(new File(eVar.f64446a.dataDir, str), "libcuid.so");
                     if (file.exists() && (jVar = j.e(d.b.j.i.c.a(file))) != null) {
                         break;
                     }
@@ -128,7 +128,7 @@ public class k {
     }
 
     public j b(String str) {
-        j a2 = a(this.f63768a);
+        j a2 = a(this.f64468a);
         if (a2 == null) {
             a2 = j.e(k("com.baidu.deviceid.v2"));
         }
@@ -173,7 +173,7 @@ public class k {
         boolean j;
         j n;
         String str;
-        File file = new File(this.f63768a.getFilesDir(), "libcuid.so");
+        File file = new File(this.f64468a.getFilesDir(), "libcuid.so");
         String h2 = jVar.h();
         if (file.exists()) {
             j e2 = j.e(d.b.j.i.c.a(file));
@@ -219,7 +219,7 @@ public class k {
             if (j || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (n = n(m(""))) == null || !n.k()) {
                 return;
             }
-            g(n.f63765b, n.f63764a);
+            g(n.f64465b, n.f64464a);
             return;
         }
         h(h2);
@@ -241,7 +241,7 @@ public class k {
 
     public final boolean e(String str, String str2) {
         try {
-            return Settings.System.putString(this.f63768a.getContentResolver(), str, str2);
+            return Settings.System.putString(this.f64468a.getContentResolver(), str, str2);
         } catch (Exception e2) {
             d.b.j.i.c.c(e2);
             return false;
@@ -265,7 +265,7 @@ public class k {
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                fileOutputStream = this.f63768a.openFileOutput("libcuid.so", i2);
+                fileOutputStream = this.f64468a.openFileOutput("libcuid.so", i2);
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
                 if (fileOutputStream != null) {
@@ -278,10 +278,10 @@ public class k {
                 if (Build.VERSION.SDK_INT >= 21) {
                     if (i2 == 0 && DeviceId.sDataCuidInfoShable) {
                         i = 436;
-                        file = new File(this.f63768a.getFilesDir(), "libcuid.so");
+                        file = new File(this.f64468a.getFilesDir(), "libcuid.so");
                     } else if (!DeviceId.sDataCuidInfoShable) {
                         i = 432;
-                        file = new File(this.f63768a.getFilesDir(), "libcuid.so");
+                        file = new File(this.f64468a.getFilesDir(), "libcuid.so");
                     }
                     return a.a(file.getAbsolutePath(), i);
                 }
@@ -314,12 +314,12 @@ public class k {
     }
 
     public final boolean j(String str) {
-        return this.f63768a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f64468a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     public final String k(String str) {
         try {
-            return Settings.System.getString(this.f63768a.getContentResolver(), str);
+            return Settings.System.getString(this.f64468a.getContentResolver(), str);
         } catch (Exception e2) {
             d.b.j.i.c.c(e2);
             return null;

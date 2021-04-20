@@ -8,77 +8,77 @@ public class a extends InputStream {
     public static final String i = a.class.getName();
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f63802e;
+    public InputStream f64502e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f63803f;
+    public b f64503f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f63804g = 0;
+    public long f64504g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63805h = false;
+    public boolean f64505h = false;
 
     public a(InputStream inputStream, b bVar) {
-        this.f63802e = inputStream;
-        this.f63803f = bVar;
+        this.f64502e = inputStream;
+        this.f64503f = bVar;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
         try {
-            return this.f63802e.available();
+            return this.f64502e.available();
         } catch (IOException e2) {
-            this.f63803f.a(e2, this.f63804g);
+            this.f64503f.a(e2, this.f64504g);
             throw e2;
         }
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f63805h) {
+        if (this.f64505h) {
             return;
         }
-        this.f63805h = true;
+        this.f64505h = true;
         try {
             try {
-                if (this.f63802e.read() == -1) {
-                    this.f63803f.onComplete(this.f63804g);
+                if (this.f64502e.read() == -1) {
+                    this.f64503f.onComplete(this.f64504g);
                 } else {
-                    this.f63803f.b(this.f63804g);
+                    this.f64503f.b(this.f64504g);
                 }
-                this.f63802e.close();
+                this.f64502e.close();
             } catch (Exception unused) {
-                this.f63802e.close();
+                this.f64502e.close();
             } catch (Throwable th) {
                 try {
-                    this.f63802e.close();
+                    this.f64502e.close();
                 } catch (Exception e2) {
-                    this.f63803f.a(e2, this.f63804g);
+                    this.f64503f.a(e2, this.f64504g);
                 }
                 throw th;
             }
         } catch (Exception e3) {
-            this.f63803f.a(e3, this.f63804g);
+            this.f64503f.a(e3, this.f64504g);
         }
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        if (this.f63805h) {
+        if (this.f64505h) {
             return -1;
         }
         try {
-            int read = this.f63802e.read(bArr, 0, bArr.length);
+            int read = this.f64502e.read(bArr, 0, bArr.length);
             if (read >= 0) {
-                this.f63804g += read;
+                this.f64504g += read;
             } else {
-                this.f63805h = true;
-                this.f63803f.onComplete(this.f63804g);
+                this.f64505h = true;
+                this.f64503f.onComplete(this.f64504g);
             }
             return read;
         } catch (IOException e2) {
-            this.f63803f.a(e2, this.f63804g);
+            this.f64503f.a(e2, this.f64504g);
             throw e2;
         } catch (IllegalStateException e3) {
             Log.e(i, "Exception reading data from InputStream", e3);
@@ -89,36 +89,36 @@ public class a extends InputStream {
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
         try {
-            this.f63802e.reset();
+            this.f64502e.reset();
         } catch (IOException e2) {
-            this.f63803f.a(e2, this.f63804g);
+            this.f64503f.a(e2, this.f64504g);
             throw e2;
         }
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        long skip = this.f63802e.skip(j);
-        this.f63804g += skip;
+        long skip = this.f64502e.skip(j);
+        this.f64504g += skip;
         return skip;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i2, int i3) throws IOException {
-        if (this.f63805h) {
+        if (this.f64505h) {
             return -1;
         }
         try {
-            int read = this.f63802e.read(bArr, i2, i3);
+            int read = this.f64502e.read(bArr, i2, i3);
             if (read >= 0) {
-                this.f63804g += read;
+                this.f64504g += read;
             } else {
-                this.f63805h = true;
-                this.f63803f.onComplete(this.f63804g);
+                this.f64505h = true;
+                this.f64503f.onComplete(this.f64504g);
             }
             return read;
         } catch (IOException e2) {
-            this.f63803f.a(e2, this.f63804g);
+            this.f64503f.a(e2, this.f64504g);
             throw e2;
         } catch (IllegalStateException e3) {
             Log.e(i, "Exception reading data from InputStream", e3);
@@ -128,20 +128,20 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        if (this.f63805h) {
+        if (this.f64505h) {
             return -1;
         }
         try {
-            int read = this.f63802e.read();
+            int read = this.f64502e.read();
             if (read >= 0) {
-                this.f63804g += read;
+                this.f64504g += read;
             } else {
-                this.f63805h = true;
-                this.f63803f.onComplete(this.f63804g);
+                this.f64505h = true;
+                this.f64503f.onComplete(this.f64504g);
             }
             return read;
         } catch (IOException e2) {
-            this.f63803f.a(e2, this.f63804g);
+            this.f64503f.a(e2, this.f64504g);
             throw e2;
         } catch (IllegalStateException e3) {
             Log.e(i, "Exception reading data from InputStream", e3);

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.tbadk.TbadkSettings;
-import d.b.b.e.n.b;
+import d.b.c.e.n.b;
 /* loaded from: classes3.dex */
 public class BdLogSetting implements b {
     public static BdLogSetting mInstance;
@@ -29,7 +29,7 @@ public class BdLogSetting implements b {
         return TbadkSettings.getInst().loadLong("log_stat_error_time", 0L);
     }
 
-    @Override // d.b.b.e.n.b
+    @Override // d.b.c.e.n.b
     public long getLogUploadTime(String str) {
         return TbadkSettings.getInst().loadLong(generateKey(str), 0L);
     }
@@ -54,7 +54,7 @@ public class BdLogSetting implements b {
         TbadkSettings.getInst().saveLong("log_stat_error_time", j);
     }
 
-    @Override // d.b.b.e.n.b
+    @Override // d.b.c.e.n.b
     public void setLogUploadTime(String str, long j) {
         TbadkSettings.getInst().saveLong(generateKey(str), j);
     }

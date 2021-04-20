@@ -38,10 +38,10 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import d.b.b.a.b;
-import d.b.b.e.p.l;
+import d.b.c.a.b;
+import d.b.c.e.p.l;
 import d.b.h0.r.u.a;
-import d.b.i0.c3.c;
+import d.b.i0.d3.c;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -296,7 +296,7 @@ public class SkinManager {
 
     public static String getCurrentSkinTypeString() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        return skinType == 1 ? SKIN_TYPE_STR_NIGHT : skinType == 4 ? "dark" : "default";
+        return skinType == 1 ? SKIN_TYPE_STR_NIGHT : skinType == 4 ? SKIN_TYPE_STR_DARK : "default";
     }
 
     public static int getDarkResourceId(Resources resources, int i) {
@@ -809,8 +809,8 @@ public class SkinManager {
                 return;
             }
             TbadkCoreApplication.getInst().setSkinType(0);
-        } else if (d.b.h0.r.d0.b.i().g("key_is_dark_mode_notify_shown", false)) {
-            boolean g2 = d.b.h0.r.d0.b.i().g("key_is_follow_system_mode", false);
+        } else if (d.b.h0.r.d0.b.j().g("key_is_dark_mode_notify_shown", false)) {
+            boolean g2 = d.b.h0.r.d0.b.j().g("key_is_follow_system_mode", false);
             if (z) {
                 UtilHelper.showSkinChangeAnimation(b2);
             }
@@ -822,8 +822,8 @@ public class SkinManager {
             }
             TbadkCoreApplication.getInst().setSkinType(i);
         } else {
-            d.b.h0.r.d0.b.i().s("key_is_dark_mode_notify_shown", true);
-            d.b.h0.r.d0.b.i().s("key_is_follow_system_mode", true);
+            d.b.h0.r.d0.b.j().t("key_is_dark_mode_notify_shown", true);
+            d.b.h0.r.d0.b.j().t("key_is_follow_system_mode", true);
             TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
         }
     }

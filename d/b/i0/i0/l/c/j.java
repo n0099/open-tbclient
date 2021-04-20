@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
-import d.b.b.j.e.w;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
+import d.b.c.j.e.w;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.z1;
 import d.b.i.k0;
@@ -22,7 +22,7 @@ import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
 /* loaded from: classes4.dex */
-public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
+public class j extends d.b.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
     public TbPageContext<?> o;
@@ -51,7 +51,7 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         public b() {
         }
 
-        @Override // d.b.b.j.e.w
+        @Override // d.b.c.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if ((nVar instanceof z1) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
@@ -62,7 +62,7 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     j.this.q.a(threadCardViewHolder.a(), z1Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1118a(1));
+                threadCardViewHolder.b().o(new a.C1131a(1));
             }
         }
     }
@@ -71,24 +71,24 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f55690a;
+        public final /* synthetic */ ViewGroup f56813a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f55691b;
+        public final /* synthetic */ View f56814b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f55692c;
+        public final /* synthetic */ int f56815c;
 
         public c(j jVar, ViewGroup viewGroup, View view, int i) {
-            this.f55690a = viewGroup;
-            this.f55691b = view;
-            this.f55692c = i;
+            this.f56813a = viewGroup;
+            this.f56814b = view;
+            this.f56815c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f55690a, this.f55691b, this.f55692c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f56813a, this.f56814b, this.f56815c));
             }
         }
     }
@@ -102,14 +102,14 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public ThreadCardViewHolder R(ViewGroup viewGroup) {
         k0.b bVar = new k0.b(this.o.getPageActivity(), false);
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50763b = 22;
-        eVar.f50769h = 19;
+        eVar.f51170b = 22;
+        eVar.f51176h = 19;
         m0Var.v(eVar);
         m0Var.C(this.n);
         m0Var.w(18);
@@ -127,7 +127,7 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder threadCardViewHolder) {
         a2 a2Var;

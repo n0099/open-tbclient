@@ -3,40 +3,40 @@ package com.airbnb.lottie.model.layer;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.model.content.Mask;
 import d.a.a.d;
-import d.a.a.s.i.j;
-import d.a.a.s.i.k;
-import d.a.a.s.i.l;
-import d.a.a.s.j.b;
-import d.a.a.w.a;
+import d.a.a.u.i.j;
+import d.a.a.u.i.k;
+import d.a.a.u.i.l;
+import d.a.a.u.j.b;
+import d.a.a.y.a;
 import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class Layer {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<b> f1616a;
+    public final List<b> f1618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f1617b;
+    public final d f1619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1618c;
+    public final String f1620c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f1619d;
+    public final long f1621d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LayerType f1620e;
+    public final LayerType f1622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f1621f;
+    public final long f1623f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f1622g;
+    public final String f1624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<Mask> f1623h;
+    public final List<Mask> f1625h;
     public final l i;
     public final int j;
     public final int k;
@@ -50,38 +50,41 @@ public class Layer {
     @Nullable
     public final k r;
     @Nullable
-    public final d.a.a.s.i.b s;
+    public final d.a.a.u.i.b s;
     public final List<a<Float>> t;
     public final MatteType u;
+    public final boolean v;
 
     /* loaded from: classes.dex */
     public enum LayerType {
-        PreComp,
-        Solid,
-        Image,
-        Null,
-        Shape,
-        Text,
-        Unknown
+        PRE_COMP,
+        SOLID,
+        IMAGE,
+        NULL,
+        SHAPE,
+        TEXT,
+        UNKNOWN
     }
 
     /* loaded from: classes.dex */
     public enum MatteType {
-        None,
-        Add,
-        Invert,
-        Unknown
+        NONE,
+        ADD,
+        INVERT,
+        LUMA,
+        LUMA_INVERTED,
+        UNKNOWN
     }
 
-    public Layer(List<b> list, d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f2, float f3, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<a<Float>> list3, MatteType matteType, @Nullable d.a.a.s.i.b bVar) {
-        this.f1616a = list;
-        this.f1617b = dVar;
-        this.f1618c = str;
-        this.f1619d = j;
-        this.f1620e = layerType;
-        this.f1621f = j2;
-        this.f1622g = str2;
-        this.f1623h = list2;
+    public Layer(List<b> list, d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f2, float f3, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<a<Float>> list3, MatteType matteType, @Nullable d.a.a.u.i.b bVar, boolean z) {
+        this.f1618a = list;
+        this.f1619b = dVar;
+        this.f1620c = str;
+        this.f1621d = j;
+        this.f1622e = layerType;
+        this.f1623f = j2;
+        this.f1624g = str2;
+        this.f1625h = list2;
         this.i = lVar;
         this.j = i;
         this.k = i2;
@@ -95,14 +98,15 @@ public class Layer {
         this.t = list3;
         this.u = matteType;
         this.s = bVar;
+        this.v = z;
     }
 
     public d a() {
-        return this.f1617b;
+        return this.f1619b;
     }
 
     public long b() {
-        return this.f1619d;
+        return this.f1621d;
     }
 
     public List<a<Float>> c() {
@@ -110,11 +114,11 @@ public class Layer {
     }
 
     public LayerType d() {
-        return this.f1620e;
+        return this.f1622e;
     }
 
     public List<Mask> e() {
-        return this.f1623h;
+        return this.f1625h;
     }
 
     public MatteType f() {
@@ -122,11 +126,11 @@ public class Layer {
     }
 
     public String g() {
-        return this.f1618c;
+        return this.f1620c;
     }
 
     public long h() {
-        return this.f1621f;
+        return this.f1623f;
     }
 
     public int i() {
@@ -139,11 +143,11 @@ public class Layer {
 
     @Nullable
     public String k() {
-        return this.f1622g;
+        return this.f1624g;
     }
 
     public List<b> l() {
-        return this.f1616a;
+        return this.f1618a;
     }
 
     public int m() {
@@ -159,7 +163,7 @@ public class Layer {
     }
 
     public float p() {
-        return this.n / this.f1617b.e();
+        return this.n / this.f1619b.e();
     }
 
     @Nullable
@@ -173,7 +177,7 @@ public class Layer {
     }
 
     @Nullable
-    public d.a.a.s.i.b s() {
+    public d.a.a.u.i.b s() {
         return this.s;
     }
 
@@ -182,27 +186,31 @@ public class Layer {
     }
 
     public String toString() {
-        return v("");
+        return w("");
     }
 
     public l u() {
         return this.i;
     }
 
-    public String v(String str) {
+    public boolean v() {
+        return this.v;
+    }
+
+    public String w(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str);
         sb.append(g());
         sb.append("\n");
-        Layer o = this.f1617b.o(h());
-        if (o != null) {
+        Layer s = this.f1619b.s(h());
+        if (s != null) {
             sb.append("\t\tParents: ");
-            sb.append(o.g());
-            Layer o2 = this.f1617b.o(o.h());
-            while (o2 != null) {
+            sb.append(s.g());
+            Layer s2 = this.f1619b.s(s.h());
+            while (s2 != null) {
                 sb.append("->");
-                sb.append(o2.g());
-                o2 = this.f1617b.o(o2.h());
+                sb.append(s2.g());
+                s2 = this.f1619b.s(s2.h());
             }
             sb.append(str);
             sb.append("\n");
@@ -218,10 +226,10 @@ public class Layer {
             sb.append("\tBackground: ");
             sb.append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(o()), Integer.valueOf(n()), Integer.valueOf(m())));
         }
-        if (!this.f1616a.isEmpty()) {
+        if (!this.f1618a.isEmpty()) {
             sb.append(str);
             sb.append("\tShapes:\n");
-            for (b bVar : this.f1616a) {
+            for (b bVar : this.f1618a) {
                 sb.append(str);
                 sb.append("\t\t");
                 sb.append(bVar);

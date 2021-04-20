@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.w.g;
+import f.b.i;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.w.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -13,7 +13,7 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
     public final i<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68058d;
+    public b f69064d;
     public final g<? super D> disposer;
     public final boolean eager;
 
@@ -24,10 +24,10 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
         this.eager = z;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
-        this.f68058d.dispose();
-        this.f68058d = DisposableHelper.DISPOSED;
+        this.f69064d.dispose();
+        this.f69064d = DisposableHelper.DISPOSED;
         disposeResourceAfter();
     }
 
@@ -38,19 +38,19 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
                 this.disposer.accept(andSet);
             } catch (Throwable th) {
                 a.a(th);
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             }
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f68058d.isDisposed();
+        return this.f69064d.isDisposed();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
-        this.f68058d = DisposableHelper.DISPOSED;
+        this.f69064d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -71,9 +71,9 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
         disposeResourceAfter();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
-        this.f68058d = DisposableHelper.DISPOSED;
+        this.f69064d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -93,17 +93,17 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
         disposeResourceAfter();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68058d, bVar)) {
-            this.f68058d = bVar;
+        if (DisposableHelper.validate(this.f69064d, bVar)) {
+            this.f69064d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
-        this.f68058d = DisposableHelper.DISPOSED;
+        this.f69064d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {

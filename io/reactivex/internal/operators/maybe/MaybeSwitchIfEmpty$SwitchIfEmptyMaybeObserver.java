@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.j;
-import f.a.t.b;
+import f.b.i;
+import f.b.j;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -15,34 +15,34 @@ public final class MaybeSwitchIfEmpty$SwitchIfEmptyMaybeObserver<T> extends Atom
     public static final class a<T> implements i<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f68051e;
+        public final i<? super T> f69057e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicReference<b> f68052f;
+        public final AtomicReference<b> f69058f;
 
         public a(i<? super T> iVar, AtomicReference<b> atomicReference) {
-            this.f68051e = iVar;
-            this.f68052f = atomicReference;
+            this.f69057e = iVar;
+            this.f69058f = atomicReference;
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onComplete() {
-            this.f68051e.onComplete();
+            this.f69057e.onComplete();
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onError(Throwable th) {
-            this.f68051e.onError(th);
+            this.f69057e.onError(th);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSubscribe(b bVar) {
-            DisposableHelper.setOnce(this.f68052f, bVar);
+            DisposableHelper.setOnce(this.f69058f, bVar);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSuccess(T t) {
-            this.f68051e.onSuccess(t);
+            this.f69057e.onSuccess(t);
         }
     }
 
@@ -51,17 +51,17 @@ public final class MaybeSwitchIfEmpty$SwitchIfEmptyMaybeObserver<T> extends Atom
         this.other = jVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         b bVar = get();
         if (bVar == DisposableHelper.DISPOSED || !compareAndSet(bVar, null)) {
@@ -70,19 +70,19 @@ public final class MaybeSwitchIfEmpty$SwitchIfEmptyMaybeObserver<T> extends Atom
         this.other.a(new a(this.actual, this));
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
         if (DisposableHelper.setOnce(this, bVar)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         this.actual.onSuccess(t);
     }

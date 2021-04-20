@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f51969c;
+    public TbPageContext f53255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f51970d;
+    public View f53256d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51971e;
+    public boolean f53257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51972f;
+    public String f53258f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51973g;
+    public String f53259g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51974h;
+    public boolean f53260h;
     public int r;
     public int s;
     public int t;
@@ -43,10 +43,10 @@ public class e {
     public boolean y;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f51967a = null;
+    public Handler f53253a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.e.g.c f51968b = null;
+    public d.b.c.e.g.c f53254b = null;
     public int i = R.drawable.pic_sign_tip;
     public int j = 0;
     public boolean k = false;
@@ -75,21 +75,21 @@ public class e {
 
         /* renamed from: d.b.i0.b0.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1126a implements d.b.b.e.g.b {
-            public C1126a() {
+        public class C1178a implements d.b.c.e.g.b {
+            public C1178a() {
             }
 
-            @Override // d.b.b.e.g.b
+            @Override // d.b.c.e.g.b
             public int a() {
                 return e.this.w;
             }
 
-            @Override // d.b.b.e.g.b
+            @Override // d.b.c.e.g.b
             public View b(LayoutInflater layoutInflater) {
                 Drawable drawable;
                 int i;
-                TextView textView = new TextView(e.this.f51969c.getPageActivity());
-                textView.setText(e.this.f51972f);
+                TextView textView = new TextView(e.this.f53255c.getPageActivity());
+                textView.setText(e.this.f53258f);
                 if (e.this.F != 0) {
                     textView.setGravity(e.this.F);
                 } else {
@@ -100,11 +100,11 @@ public class e {
                 } else {
                     SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
                 }
-                textView.setTextSize(0, e.this.f51969c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                textView.setTextSize(0, e.this.f53255c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
                 if (e.this.B != 0) {
                     textView.setHeight(e.this.B);
                 } else {
-                    textView.setHeight(e.this.f51969c.getResources().getDimensionPixelSize(R.dimen.ds76));
+                    textView.setHeight(e.this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds76));
                 }
                 if (e.this.C != 0) {
                     textView.setWidth(e.this.C);
@@ -137,17 +137,17 @@ public class e {
                 return textView;
             }
 
-            @Override // d.b.b.e.g.b
+            @Override // d.b.c.e.g.b
             public int c() {
                 return e.this.v;
             }
 
-            @Override // d.b.b.e.g.b
+            @Override // d.b.c.e.g.b
             public int getXOffset() {
                 return e.this.p;
             }
 
-            @Override // d.b.b.e.g.b
+            @Override // d.b.c.e.g.b
             public int getYOffset() {
                 return e.this.q;
             }
@@ -158,22 +158,22 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f51968b == null && !StringUtils.isNull(e.this.f51972f)) {
+            if (e.this.f53254b == null && !StringUtils.isNull(e.this.f53258f)) {
                 if (!e.this.y || e.this.G()) {
-                    d.b.b.e.g.d dVar = new d.b.b.e.g.d();
-                    dVar.j(e.this.f51970d);
+                    d.b.c.e.g.d dVar = new d.b.c.e.g.d();
+                    dVar.j(e.this.f53256d);
                     dVar.c(0);
                     dVar.i(true);
                     dVar.h(true);
-                    dVar.a(new C1126a());
-                    e.this.f51968b = dVar.b();
-                    e.this.f51968b.l(false);
-                    e.this.f51968b.m(e.this.z);
-                    e.this.f51968b.o(e.this.f51969c.getPageActivity(), e.this.o);
-                    e.this.f51971e = true;
+                    dVar.a(new C1178a());
+                    e.this.f53254b = dVar.b();
+                    e.this.f53254b.l(false);
+                    e.this.f53254b.m(e.this.z);
+                    e.this.f53254b.o(e.this.f53255c.getPageActivity(), e.this.o);
+                    e.this.f53257e = true;
                     e.this.J();
-                    e.this.f51974h = true;
-                    e.this.f51967a.postDelayed(e.this.J, e.this.n);
+                    e.this.f53260h = true;
+                    e.this.f53253a.postDelayed(e.this.J, e.this.n);
                 }
             }
         }
@@ -195,42 +195,42 @@ public class e {
         this.s = 0;
         this.t = 0;
         this.u = 0;
-        this.f51969c = tbPageContext;
-        this.f51970d = view;
+        this.f53255c = tbPageContext;
+        this.f53256d = view;
         this.r = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.s = this.f51969c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.t = this.f51969c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.u = this.f51969c.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.s = this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.t = this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.u = this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds10);
     }
 
     public boolean G() {
-        View view = this.f51970d;
-        return view != null && view.getVisibility() == 0 && ((double) this.f51970d.getAlpha()) >= 0.4d;
+        View view = this.f53256d;
+        return view != null && view.getVisibility() == 0 && ((double) this.f53256d.getAlpha()) >= 0.4d;
     }
 
     public void H() {
-        d.b.b.e.g.c cVar = this.f51968b;
+        d.b.c.e.g.c cVar = this.f53254b;
         if (cVar != null) {
             cVar.d();
-            this.f51968b = null;
+            this.f53254b = null;
         }
-        Handler handler = this.f51967a;
+        Handler handler = this.f53253a;
         if (handler != null) {
             handler.removeCallbacks(this.I);
-            this.f51967a.removeCallbacks(this.J);
+            this.f53253a.removeCallbacks(this.J);
         }
-        this.f51974h = false;
+        this.f53260h = false;
     }
 
     public boolean I() {
-        return this.f51974h;
+        return this.f53260h;
     }
 
     public final void J() {
         if (this.k) {
             return;
         }
-        d.b.h0.r.d0.b.i().u(this.f51973g, this.j + 1);
+        d.b.h0.r.d0.b.j().v(this.f53259g, this.j + 1);
     }
 
     public void K(int i) {
@@ -252,7 +252,7 @@ public class e {
     }
 
     public void O(@DimenRes int i) {
-        this.B = this.f51969c.getResources().getDimensionPixelSize(i);
+        this.B = this.f53255c.getResources().getDimensionPixelSize(i);
     }
 
     public void P(boolean z) {
@@ -325,7 +325,7 @@ public class e {
     }
 
     public void e0(@DimenRes int i) {
-        this.C = this.f51969c.getResources().getDimensionPixelSize(i);
+        this.C = this.f53255c.getResources().getDimensionPixelSize(i);
     }
 
     public void f0(int i) {
@@ -340,11 +340,11 @@ public class e {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f51972f = str;
-        if (this.f51967a == null) {
-            this.f51967a = new Handler();
+        this.f53258f = str;
+        if (this.f53253a == null) {
+            this.f53253a = new Handler();
         }
-        this.f51967a.postDelayed(this.I, this.m);
+        this.f53253a.postDelayed(this.I, this.m);
     }
 
     public void i0(String str, String str2) {
@@ -357,23 +357,23 @@ public class e {
 
     public boolean k0(String str, String str2, boolean z, boolean z2) {
         View view;
-        if (this.f51971e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f51970d) == null || view.getVisibility() != 0) {
+        if (this.f53257e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f53256d) == null || view.getVisibility() != 0) {
             return false;
         }
-        this.f51972f = str;
-        this.f51973g = str2;
+        this.f53258f = str;
+        this.f53259g = str2;
         this.k = z2;
-        int j = d.b.h0.r.d0.b.i().j(str2, 0);
-        this.j = j;
-        if (j < this.l || this.k) {
+        int k = d.b.h0.r.d0.b.j().k(str2, 0);
+        this.j = k;
+        if (k < this.l || this.k) {
             if (z) {
                 J();
-                this.f51971e = true;
+                this.f53257e = true;
             }
-            if (this.f51967a == null) {
-                this.f51967a = new Handler();
+            if (this.f53253a == null) {
+                this.f53253a = new Handler();
             }
-            this.f51967a.postDelayed(this.I, this.m);
+            this.f53253a.postDelayed(this.I, this.m);
             return true;
         }
         return false;

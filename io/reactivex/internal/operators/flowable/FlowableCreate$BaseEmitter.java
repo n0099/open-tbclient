@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.a0.a;
-import f.a.f;
-import f.a.x.i.b;
+import f.b.a0.a;
+import f.b.f;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.disposables.CancellableDisposable;
@@ -57,12 +57,12 @@ public abstract class FlowableCreate$BaseEmitter<T> extends AtomicLong implement
         return this.serial.isDisposed();
     }
 
-    @Override // f.a.d
+    @Override // f.b.d
     public void onComplete() {
         complete();
     }
 
-    @Override // f.a.d
+    @Override // f.b.d
     public final void onError(Throwable th) {
         if (tryOnError(th)) {
             return;
@@ -70,7 +70,7 @@ public abstract class FlowableCreate$BaseEmitter<T> extends AtomicLong implement
         a.f(th);
     }
 
-    @Override // f.a.d
+    @Override // f.b.d
     public abstract /* synthetic */ void onNext(T t);
 
     public void onRequested() {
@@ -95,11 +95,11 @@ public abstract class FlowableCreate$BaseEmitter<T> extends AtomicLong implement
         return new FlowableCreate$SerializedEmitter(this);
     }
 
-    public final void setCancellable(f.a.w.f fVar) {
+    public final void setCancellable(f.b.w.f fVar) {
         setDisposable(new CancellableDisposable(fVar));
     }
 
-    public final void setDisposable(f.a.t.b bVar) {
+    public final void setDisposable(f.b.t.b bVar) {
         this.serial.update(bVar);
     }
 

@@ -11,10 +11,10 @@ import java.util.Date;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4747a;
+    public static SimpleDateFormat f4782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4748b;
+    public static PackageManager f4783b;
 
     public static String a(long j) {
         StringBuilder sb;
@@ -41,10 +41,10 @@ public final class c {
     }
 
     public static String b(Date date) {
-        if (f4747a == null) {
-            f4747a = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4782a == null) {
+            f4782a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return f4747a.format(date);
+        return f4782a.format(date);
     }
 
     public static void c(SharedPreferences.Editor editor, boolean z) {
@@ -64,10 +64,10 @@ public final class c {
     }
 
     public static boolean e(Context context, String str) {
-        if (f4748b == null) {
-            f4748b = context.getPackageManager();
+        if (f4783b == null) {
+            f4783b = context.getPackageManager();
         }
-        return f4748b.checkPermission(str, context.getPackageName()) == 0;
+        return f4783b.checkPermission(str, context.getPackageName()) == 0;
     }
 
     public static String f(Throwable th) {

@@ -10,7 +10,7 @@ public abstract class a {
 
     /* renamed from: d.b.h0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1065a {
+    public interface InterfaceC1078a {
         void a(boolean z, boolean z2, String str);
     }
 
@@ -44,5 +44,5 @@ public abstract class a {
 
     public abstract void i(MarkData markData);
 
-    public abstract void j(InterfaceC1065a interfaceC1065a);
+    public abstract void j(InterfaceC1078a interfaceC1078a);
 }

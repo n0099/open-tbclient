@@ -8,26 +8,26 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.y0.e.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class q extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46542e;
+        public final /* synthetic */ String f46934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46543f;
+        public final /* synthetic */ JSONObject f46935f;
 
         public a(q qVar, String str, JSONObject jSONObject) {
-            this.f46542e = str;
-            this.f46543f = jSONObject;
+            this.f46934e = str;
+            this.f46935f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.n.e.l(this.f46542e, this.f46543f);
+            d.b.g0.n.e.l(this.f46934e, this.f46935f);
         }
     }
 
@@ -64,7 +64,7 @@ public class q extends a0 {
             optParamsAsJo.putOpt("eventType", "0");
             optParamsAsJo.putOpt("propagation", d.b.g0.a.i2.v.d(optParamsAsJo.optJSONObject("propagation"), "source", d.b.g0.a.r1.d.e().s().J().S()));
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
         }

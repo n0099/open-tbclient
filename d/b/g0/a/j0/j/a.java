@@ -11,15 +11,15 @@ import org.json.JSONObject;
 public class a implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f44863a;
+    public final String f45255a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f44864b;
+    public JSONObject f45256b;
 
     public a(String str, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        this.f44864b = jSONObject;
-        this.f44863a = str;
+        this.f45256b = jSONObject;
+        this.f45255a = str;
         try {
             jSONObject.put(IntentConfig.PKG_ID, str);
             if (z) {
@@ -38,30 +38,30 @@ public class a implements b.a {
 
     @Override // d.b.g0.a.j0.j.b.a
     public String a() {
-        return this.f44863a;
+        return this.f45255a;
     }
 
     @Override // d.b.g0.a.j0.j.b.a
     public JSONObject b() {
-        return this.f44864b;
+        return this.f45256b;
     }
 
     public final void d() throws JSONException {
         PMSAppInfo r;
-        if (!isValid() || (r = d.b.g0.l.i.a.h().r(this.f44863a)) == null) {
+        if (!isValid() || (r = d.b.g0.l.i.a.h().r(this.f45255a)) == null) {
             return;
         }
-        this.f44864b.put(DpStatConstants.KEY_APP_NAME, r.appName);
-        this.f44864b.put("pkg_vername", r.versionName);
-        this.f44864b.put("pkg_vercode", r.versionCode);
-        this.f44864b.put("create_time", r.createTime);
-        this.f44864b.put("last_launch_time", r.g());
-        this.f44864b.put("launch_count", r.h());
-        this.f44864b.put("install_src", r.f());
+        this.f45256b.put(DpStatConstants.KEY_APP_NAME, r.appName);
+        this.f45256b.put("pkg_vername", r.versionName);
+        this.f45256b.put("pkg_vercode", r.versionCode);
+        this.f45256b.put("create_time", r.createTime);
+        this.f45256b.put("last_launch_time", r.g());
+        this.f45256b.put("launch_count", r.h());
+        this.f45256b.put("install_src", r.f());
     }
 
     @Override // d.b.g0.a.j0.j.b.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.f44863a);
+        return !TextUtils.isEmpty(this.f45255a);
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.tieba.pb.pb.godreply;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.z0.w;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LookMoreReqMessage extends NetMessage {
     public int is_comm_reverse;
     public Long kz;

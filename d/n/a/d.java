@@ -1,17 +1,18 @@
 package d.n.a;
 
+import com.alibaba.fastjson.asm.Label;
 import com.squareup.wire2.FieldEncoding;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedSink f66324a;
+    public final BufferedSink f67317a;
 
     public d(BufferedSink bufferedSink) {
-        this.f66324a = bufferedSink;
+        this.f67317a = bufferedSink;
     }
 
     public static int a(int i) {
@@ -70,7 +71,7 @@ public final class d {
     }
 
     public static int i(int i) {
-        if ((i & com.alipay.sdk.encrypt.a.f1896g) == 0) {
+        if ((i & com.alipay.sdk.encrypt.a.f1921g) == 0) {
             return 1;
         }
         if ((i & (-16384)) == 0) {
@@ -79,7 +80,7 @@ public final class d {
         if (((-2097152) & i) == 0) {
             return 3;
         }
-        return (i & (-268435456)) == 0 ? 4 : 5;
+        return (i & Label.FORWARD_REFERENCE_TYPE_MASK) == 0 ? 4 : 5;
     }
 
     public static int j(long j) {
@@ -111,15 +112,15 @@ public final class d {
     }
 
     public void k(ByteString byteString) throws IOException {
-        this.f66324a.write(byteString);
+        this.f67317a.write(byteString);
     }
 
     public void l(int i) throws IOException {
-        this.f66324a.writeIntLe(i);
+        this.f67317a.writeIntLe(i);
     }
 
     public void m(long j) throws IOException {
-        this.f66324a.writeLongLe(j);
+        this.f67317a.writeLongLe(j);
     }
 
     public void n(int i) throws IOException {
@@ -131,7 +132,7 @@ public final class d {
     }
 
     public void o(String str) throws IOException {
-        this.f66324a.writeUtf8(str);
+        this.f67317a.writeUtf8(str);
     }
 
     public void p(int i, FieldEncoding fieldEncoding) throws IOException {
@@ -139,18 +140,18 @@ public final class d {
     }
 
     public void q(int i) throws IOException {
-        while ((i & com.alipay.sdk.encrypt.a.f1896g) != 0) {
-            this.f66324a.writeByte((i & 127) | 128);
+        while ((i & com.alipay.sdk.encrypt.a.f1921g) != 0) {
+            this.f67317a.writeByte((i & 127) | 128);
             i >>>= 7;
         }
-        this.f66324a.writeByte(i);
+        this.f67317a.writeByte(i);
     }
 
     public void r(long j) throws IOException {
         while (((-128) & j) != 0) {
-            this.f66324a.writeByte((((int) j) & 127) | 128);
+            this.f67317a.writeByte((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        this.f66324a.writeByte((int) j);
+        this.f67317a.writeByte((int) j);
     }
 }

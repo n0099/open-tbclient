@@ -10,39 +10,39 @@ public class p extends a2 {
     public int H3;
 
     public boolean A4() {
-        return this.G3;
+        return this.E3;
     }
 
     public boolean B4() {
+        return this.G3;
+    }
+
+    public boolean C4() {
         return this.F3;
     }
 
-    public void C4(int i) {
+    public void D4(int i) {
         this.H3 = i;
     }
 
-    public void D4(boolean z) {
+    public void E4(boolean z) {
         this.E3 = z;
     }
 
-    public void E4(boolean z) {
+    public void F4(boolean z) {
         this.G3 = z;
     }
 
-    public void F4(boolean z) {
+    public void G4(boolean z) {
         this.F3 = z;
     }
 
-    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return I3;
     }
 
-    public int y4() {
+    public int z4() {
         return this.H3;
-    }
-
-    public boolean z4() {
-        return this.E3;
     }
 }

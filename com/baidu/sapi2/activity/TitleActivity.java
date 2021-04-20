@@ -27,12 +27,12 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SoftKeyBoardListener;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.views.ViewUtility;
-import d.b.a0.a.a;
-import d.b.a0.a.b;
-import d.b.a0.a.d;
-import d.b.a0.a.e;
-import d.b.a0.a.f;
-import d.b.a0.a.h;
+import d.b.x.a.a;
+import d.b.x.a.b;
+import d.b.x.a.d;
+import d.b.x.a.e;
+import d.b.x.a.f;
+import d.b.x.a.h;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {

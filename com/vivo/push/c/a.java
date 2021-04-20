@@ -8,7 +8,7 @@ public final class a extends com.vivo.push.v {
     @Override // com.vivo.push.v
     public final void a(com.vivo.push.y yVar) {
         com.vivo.push.b.c cVar = (com.vivo.push.b.c) yVar;
-        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39589a);
+        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39878a);
         if (a2 == null) {
             com.vivo.push.p.a().a(cVar.h(), 1005, new Object[0]);
             return;
@@ -24,6 +24,6 @@ public final class a extends com.vivo.push.v {
                 return;
             }
         }
-        com.vivo.push.a.a.a(this.f39589a, a3, yVar);
+        com.vivo.push.a.a.a(this.f39878a, a3, yVar);
     }
 }

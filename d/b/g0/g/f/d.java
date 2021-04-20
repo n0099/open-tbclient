@@ -17,30 +17,30 @@ import java.util.Date;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48111b = k.f45051a;
+    public static final boolean f48503b = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f48112c;
+    public static d f48504c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f48113a;
+    public boolean f48505a;
 
     /* loaded from: classes3.dex */
     public class a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f48114a;
+        public final /* synthetic */ File f48506a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f48115b;
+        public final /* synthetic */ e f48507b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f48116c;
+        public final /* synthetic */ boolean f48508c;
 
         public a(File file, e eVar, boolean z) {
-            this.f48114a = file;
-            this.f48115b = eVar;
-            this.f48116c = z;
+            this.f48506a = file;
+            this.f48507b = eVar;
+            this.f48508c = z;
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -49,8 +49,8 @@ public class d {
 
         @Override // d.b.g0.a.u0.d.c
         public void onFailed() {
-            this.f48115b.a(false);
-            d.this.f48113a = this.f48116c;
+            this.f48507b.a(false);
+            d.this.f48505a = this.f48508c;
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -59,14 +59,14 @@ public class d {
             if (k.exists()) {
                 d.b.g0.p.d.f(k);
             }
-            boolean F = d.b.g0.p.d.F(this.f48114a.getAbsolutePath(), k.getAbsolutePath());
+            boolean F = d.b.g0.p.d.F(this.f48506a.getAbsolutePath(), k.getAbsolutePath());
             if (F) {
                 d.this.r();
                 d.this.q(j.e(new Date(), "'debug'-HH:mm:ss"));
             }
-            d.b.g0.p.d.f(this.f48114a);
-            this.f48115b.a(F);
-            d.this.f48113a = this.f48116c;
+            d.b.g0.p.d.f(this.f48506a);
+            this.f48507b.a(F);
+            d.this.f48505a = this.f48508c;
         }
     }
 
@@ -74,15 +74,15 @@ public class d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f48118e;
+        public final /* synthetic */ e f48510e;
 
         public b(e eVar) {
-            this.f48118e = eVar;
+            this.f48510e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f48118e.a(d.this.n());
+            this.f48510e.a(d.this.n());
         }
     }
 
@@ -105,10 +105,10 @@ public class d {
 
     /* renamed from: d.b.g0.g.f.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0962d implements d.b.g0.g.f.b {
+    public class C0974d implements d.b.g0.g.f.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f48120a;
+        public final /* synthetic */ e f48512a;
 
         /* renamed from: d.b.g0.g.f.d$d$a */
         /* loaded from: classes3.dex */
@@ -118,13 +118,13 @@ public class d {
 
             @Override // java.lang.Runnable
             public void run() {
-                C0962d c0962d = C0962d.this;
-                c0962d.f48120a.a(d.this.n());
+                C0974d c0974d = C0974d.this;
+                c0974d.f48512a.a(d.this.n());
             }
         }
 
-        public C0962d(e eVar) {
-            this.f48120a = eVar;
+        public C0974d(e eVar) {
+            this.f48512a = eVar;
         }
 
         @Override // d.b.g0.g.f.b
@@ -140,28 +140,28 @@ public class d {
     }
 
     public d() {
-        this.f48113a = f48111b && d.b.g0.a.m1.a.a.s();
+        this.f48505a = f48503b && d.b.g0.a.m1.a.a.s();
     }
 
     public static d m() {
-        if (f48112c == null) {
+        if (f48504c == null) {
             synchronized (d.class) {
-                if (f48112c == null) {
-                    f48112c = new d();
+                if (f48504c == null) {
+                    f48504c = new d();
                 }
             }
         }
-        return f48112c;
+        return f48504c;
     }
 
     public void c(String str, e eVar) {
-        if (f48111b) {
-            boolean z = this.f48113a;
-            this.f48113a = true;
-            d.C0849d c0849d = new d.C0849d();
-            c0849d.f46599a = str;
+        if (f48503b) {
+            boolean z = this.f48505a;
+            this.f48505a = true;
+            d.C0861d c0861d = new d.C0861d();
+            c0861d.f46991a = str;
             File g2 = g();
-            new d.b.g0.a.h0.a().e(c0849d, g2.getAbsolutePath(), new a(g2, eVar, z));
+            new d.b.g0.a.h0.a().e(c0861d, g2.getAbsolutePath(), new a(g2, eVar, z));
         }
     }
 
@@ -175,7 +175,7 @@ public class d {
 
     public final File f() {
         File file = new File(d.b.g0.g.q.a.d(), "game_core_console");
-        if (f48111b && this.f48113a) {
+        if (f48503b && this.f48505a) {
             file = new File(file, "debug");
         }
         if (!file.exists()) {
@@ -196,7 +196,7 @@ public class d {
         try {
             return h().toURI().toURL().toString();
         } catch (Exception e2) {
-            if (f48111b) {
+            if (f48503b) {
                 Log.e("ConsoleResourceManager", "getGameConsoleHtmlUrl:" + e2);
                 return "";
             }
@@ -221,10 +221,10 @@ public class d {
     }
 
     public void o(@NonNull e eVar) {
-        if (f48111b && this.f48113a) {
+        if (f48503b && this.f48505a) {
             k0.X(new b(eVar));
         } else {
-            d.b.g0.l.c.c(new d.b.g0.l.l.k.a(e()), new d.b.g0.g.f.j.a(new c(this), new C0962d(eVar)));
+            d.b.g0.l.c.c(new d.b.g0.l.l.k.a(e()), new d.b.g0.g.f.j.a(new c(this), new C0974d(eVar)));
         }
     }
 

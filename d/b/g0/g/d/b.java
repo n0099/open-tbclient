@@ -3,5 +3,5 @@ package d.b.g0.g.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f48029a = {0, -98};
+    public static final byte[] f48421a = {0, -98};
 }

@@ -11,13 +11,13 @@ import com.google.android.material.R;
 public final class TbTabItem extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f2397e;
+    public final CharSequence f2432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Drawable f2398f;
+    public final Drawable f2433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f2399g;
+    public final int f2434g;
 
     public TbTabItem(Context context) {
         this(context, null);
@@ -27,9 +27,9 @@ public final class TbTabItem extends View {
     public TbTabItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
-        this.f2397e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
-        this.f2398f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.f2399g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.f2432e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
+        this.f2433f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
+        this.f2434g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

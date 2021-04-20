@@ -39,7 +39,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         }
         FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i);
         try {
-            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7664a, cancellationSignal);
+            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7699a, cancellationSignal);
             File file = getFile(openFileDescriptor);
             if (file != null && file.canRead()) {
                 Typeface createFromFile = Typeface.createFromFile(file);

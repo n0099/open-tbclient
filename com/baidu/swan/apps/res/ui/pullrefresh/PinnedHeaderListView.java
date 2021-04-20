@@ -7,24 +7,24 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PinnedHeaderListView extends ListView {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12550e;
+    public b f12211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12551f;
+    public View f12212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12552g;
+    public boolean f12213g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12553h;
+    public int f12214h;
     public int i;
     public AbsListView.OnScrollListener j;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements AbsListView.OnScrollListener {
         public a() {
         }
@@ -45,7 +45,7 @@ public class PinnedHeaderListView extends ListView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(View view, int i, int i2);
 
@@ -60,36 +60,36 @@ public class PinnedHeaderListView extends ListView {
     public void b(int i) {
         b bVar;
         int i2;
-        if (this.f12551f == null || (bVar = this.f12550e) == null) {
+        if (this.f12212f == null || (bVar = this.f12211e) == null) {
             return;
         }
         int b2 = bVar.b(i);
         if (b2 == 0) {
-            this.f12552g = false;
+            this.f12213g = false;
             return;
         }
         int i3 = 255;
         if (b2 == 1) {
-            this.f12550e.a(this.f12551f, i, 255);
-            if (this.f12551f.getTop() != 0) {
-                this.f12551f.layout(0, 0, this.f12553h, this.i);
+            this.f12211e.a(this.f12212f, i, 255);
+            if (this.f12212f.getTop() != 0) {
+                this.f12212f.layout(0, 0, this.f12214h, this.i);
             }
-            this.f12552g = true;
+            this.f12213g = true;
         } else if (b2 != 2) {
         } else {
             int bottom = getChildAt(0).getBottom();
-            int height = this.f12551f.getHeight();
+            int height = this.f12212f.getHeight();
             if (bottom < height) {
                 i2 = bottom - height;
                 i3 = ((height + i2) * 255) / height;
             } else {
                 i2 = 0;
             }
-            this.f12550e.a(this.f12551f, i, i3);
-            if (this.f12551f.getTop() != i2) {
-                this.f12551f.layout(0, i2, this.f12553h, this.i + i2);
+            this.f12211e.a(this.f12212f, i, i3);
+            if (this.f12212f.getTop() != i2) {
+                this.f12212f.layout(0, i2, this.f12214h, this.i + i2);
             }
-            this.f12552g = true;
+            this.f12213g = true;
         }
     }
 
@@ -100,21 +100,21 @@ public class PinnedHeaderListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.f12552g) {
-            drawChild(canvas, this.f12551f, getDrawingTime());
+        if (this.f12213g) {
+            drawChild(canvas, this.f12212f, getDrawingTime());
         }
     }
 
     public View getPinnedHeaderView() {
-        return this.f12551f;
+        return this.f12212f;
     }
 
     @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        View view = this.f12551f;
+        View view = this.f12212f;
         if (view != null) {
-            view.layout(0, 0, this.f12553h, this.i);
+            view.layout(0, 0, this.f12214h, this.i);
             b(getFirstVisiblePosition());
         }
     }
@@ -122,11 +122,11 @@ public class PinnedHeaderListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        View view = this.f12551f;
+        View view = this.f12212f;
         if (view != null) {
             measureChild(view, i, i2);
-            this.f12553h = this.f12551f.getMeasuredWidth();
-            this.i = this.f12551f.getMeasuredHeight();
+            this.f12214h = this.f12212f.getMeasuredWidth();
+            this.i = this.f12212f.getMeasuredHeight();
         }
     }
 
@@ -136,7 +136,7 @@ public class PinnedHeaderListView extends ListView {
     }
 
     public void setPinnedHeaderView(View view) {
-        this.f12551f = view;
+        this.f12212f = view;
         if (view != null) {
             setFadingEdgeLength(0);
         }
@@ -148,7 +148,7 @@ public class PinnedHeaderListView extends ListView {
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter(listAdapter);
         if (listAdapter instanceof b) {
-            this.f12550e = (b) listAdapter;
+            this.f12211e = (b) listAdapter;
         }
     }
 

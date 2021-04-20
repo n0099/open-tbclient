@@ -8,13 +8,13 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import d.b.b.e.i.a;
-/* loaded from: classes5.dex */
+import d.b.c.e.i.a;
+/* loaded from: classes4.dex */
 public class UpdateInfoService extends BdBaseService {
     public a.c locationCallBack = new b();
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements ReportUserInfoModel.b {
         public a() {
         }
@@ -38,19 +38,19 @@ public class UpdateInfoService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.c {
         public b() {
         }
 
-        @Override // d.b.b.e.i.a.c
+        @Override // d.b.c.e.i.a.c
         public void onLocationGeted(int i, String str, Address address) {
             if (i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                d.b.i0.r2.a0.a.e().j(String.valueOf(longitude));
-                d.b.i0.r2.a0.a.e().i(String.valueOf(latitude));
-                d.b.i0.r2.a0.a.e().k(System.currentTimeMillis());
+                d.b.i0.s2.d0.a.e().j(String.valueOf(longitude));
+                d.b.i0.s2.d0.a.e().i(String.valueOf(latitude));
+                d.b.i0.s2.d0.a.e().k(System.currentTimeMillis());
                 if (UpdateInfoService.this.mModel.t() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     UpdateInfoService.this.mModel.v(1, longitude, latitude);
                     UpdateInfoService.this.mModel.w();
@@ -60,11 +60,11 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        d.b.b.e.i.a.l().i(true, this.locationCallBack);
+        d.b.c.e.i.a.l().i(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        d.b.b.e.i.a.l().q(this.locationCallBack);
+        d.b.c.e.i.a.l().q(this.locationCallBack);
     }
 
     @Override // android.app.Service

@@ -9,29 +9,29 @@ public class p extends com.kwad.sdk.core.network.d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.f f33832a;
+        public com.kwad.sdk.core.g.a.f f34121a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.c f33833b;
+        public com.kwad.sdk.core.g.a.c f34122b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f33834c;
+        public long f34123c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f33835d;
+        public long f34124d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f33836e;
+        public String f34125e;
     }
 
     public p(a aVar) {
         JSONArray jSONArray = new JSONArray();
-        com.kwad.sdk.utils.o.a(jSONArray, aVar.f33832a.toJson());
+        com.kwad.sdk.utils.o.a(jSONArray, aVar.f34121a.toJson());
         a("impInfo", jSONArray);
-        a(URLPackage.KEY_AUTHOR_ID, aVar.f33834c);
-        a("tabId", aVar.f33835d);
-        a("contentInfo", aVar.f33833b);
-        b("pcursor", aVar.f33836e);
+        a(URLPackage.KEY_AUTHOR_ID, aVar.f34123c);
+        a("tabId", aVar.f34124d);
+        a("contentInfo", aVar.f34122b);
+        b("pcursor", aVar.f34125e);
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g

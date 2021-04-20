@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.a0.a.g;
+import d.b.x.a.g;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickListener {

@@ -8,13 +8,13 @@ public enum b {
     
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37793e;
+    public int f38082e;
 
     b(int i) {
-        this.f37793e = i;
+        this.f38082e = i;
     }
 
     public int a() {
-        return this.f37793e;
+        return this.f38082e;
     }
 }

@@ -3,7 +3,7 @@ package com.squareup.wire;
 import com.squareup.wire.ProtoEnum;
 import java.util.Arrays;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EnumAdapter<E extends ProtoEnum> {
     public static final Comparator<ProtoEnum> COMPARATOR = new Comparator<ProtoEnum>() { // from class: com.squareup.wire.EnumAdapter.1
         /* JADX DEBUG: Method merged with bridge method */

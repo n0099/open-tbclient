@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.httpNet.NetWorkParam;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.google.gson.Gson;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.i0.g0.d;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class EasterEggH5Service extends Service {
     public static String KEY_URL = "url";
     public EasterEggBridge eggBridge;
-    public d.b.i0.c3.l0.a jsBridge;
+    public d.b.i0.d3.l0.a jsBridge;
     public d.b.i0.g0.g.a mHttpRule;
     public d.b.i0.g0.g.b mSocketRule;
     public BaseWebView mWebView;
@@ -141,11 +141,11 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.i0.c3.l0.c {
+    public class f implements d.b.i0.d3.l0.c {
         public f() {
         }
 
-        @Override // d.b.i0.c3.l0.c
+        @Override // d.b.i0.d3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             return EasterEggH5Service.this.jsBridge != null && EasterEggH5Service.this.jsBridge.b(EasterEggH5Service.this.mWebView, str, jsPromptResult);
         }
@@ -169,7 +169,7 @@ public class EasterEggH5Service extends Service {
     private void initWebView() {
         try {
             this.mWebView = new BaseWebView(this);
-            this.jsBridge = new d.b.i0.c3.l0.a();
+            this.jsBridge = new d.b.i0.d3.l0.a();
             this.mWebView.initCommonJsBridge(this);
             if (Build.VERSION.SDK_INT >= 21) {
                 this.mWebView.getSettings().setMixedContentMode(0);

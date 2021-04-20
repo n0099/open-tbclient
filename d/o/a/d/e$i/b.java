@@ -3,8 +3,9 @@ package d.o.a.d.e$i;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import d.o.a.d.f.n;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a() {
         return d(n.a());
@@ -25,7 +26,7 @@ public class b {
     public static String d(Context context) {
         String str;
         try {
-            str = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            str = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception e2) {
             e2.printStackTrace();
             str = null;

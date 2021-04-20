@@ -1,196 +1,178 @@
 package d.b.i0.o1;
 
-import android.text.TextWatcher;
-import android.view.MotionEvent;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.majorsearch.SearchMajorActivity;
-import com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter;
-import d.b.b.e.p.l;
-import java.util.List;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public SearchMajorActivity f57258a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f57259b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f57260c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f57261d;
+public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f57262e;
+    public final BaseActivity<?> f58783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f57263f;
+    public final boolean f58784f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f57264g;
+    public ArrayList<ForumSuggestModel.Forum> f58785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f57265h;
-    public LinearLayoutManager i;
-    public SearchMajorResultItemAdapter j;
-    public LinearLayout k;
-
-    /* renamed from: d.b.i0.o1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class View$OnTouchListenerC1371a implements View.OnTouchListener {
-        public View$OnTouchListenerC1371a() {
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == 0) {
-                a.this.f57261d.setFocusable(true);
-                a.this.f57261d.setFocusableInTouchMode(true);
-                if (a.this.f57262e.hasFocus()) {
-                    l.w(a.this.f57258a, a.this.f57262e);
-                    return false;
-                }
-                return false;
-            }
-            return false;
-        }
-    }
+    public String f58786h;
 
     /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public b() {
+    public class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public View f58787a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f58788b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public BarImageView f58789c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TextView f58790d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public TextView f58791e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public TextView f58792f;
+
+        public b(a aVar) {
         }
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            a.this.f57262e.setText("");
+    public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
+        this.f58783e = baseActivity;
+        this.f58785g = arrayList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ForumSuggestModel.Forum getItem(int i) {
+        int count = getCount();
+        if (count <= 0 || i >= count) {
+            return null;
         }
+        return this.f58785g.get(i);
     }
 
-    public a(View view, SearchMajorActivity searchMajorActivity) {
-        this.f57259b = view;
-        this.f57258a = searchMajorActivity;
-        h();
-    }
-
-    public LinearLayout d() {
-        return this.k;
-    }
-
-    public final void e() {
-        NavigationBar navigationBar = (NavigationBar) this.f57259b.findViewById(R.id.navigation_bar);
-        this.f57260c = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f57260c.setCenterTextTitle(this.f57258a.getResources().getString(R.string.search_major));
-    }
-
-    public final void f() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.f57259b.findViewById(R.id.search_container);
-        this.f57261d = relativeLayout;
-        relativeLayout.setOnTouchListener(new View$OnTouchListenerC1371a());
-        this.f57264g = (ImageView) this.f57259b.findViewById(R.id.search_icon);
-        this.f57262e = (EditText) this.f57259b.findViewById(R.id.search_box);
-        ImageView imageView = (ImageView) this.f57259b.findViewById(R.id.search_del);
-        this.f57263f = imageView;
-        imageView.setOnClickListener(new b());
-        k(false);
-        this.f57262e.setText("");
-        this.f57262e.requestFocus();
-    }
-
-    public final void g() {
-        this.k = (LinearLayout) this.f57259b.findViewById(R.id.layout_container);
-        this.f57265h = (RecyclerView) this.f57259b.findViewById(R.id.rv_major_list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.f57258a);
-        this.i = linearLayoutManager;
-        this.f57265h.setLayoutManager(linearLayoutManager);
-        SearchMajorResultItemAdapter searchMajorResultItemAdapter = new SearchMajorResultItemAdapter(this.f57258a);
-        this.j = searchMajorResultItemAdapter;
-        this.f57265h.setAdapter(searchMajorResultItemAdapter);
-    }
-
-    public final void h() {
-        e();
-        f();
-        g();
-    }
-
-    public void i(int i) {
-        SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
-        if (searchMajorResultItemAdapter != null) {
-            searchMajorResultItemAdapter.notifyDataSetChanged();
+    public String b(int i) {
+        if (i >= 100000) {
+            return String.valueOf(i / 10000) + this.f58783e.getPageContext().getString(R.string.member_count_unit);
         }
-        this.f57260c.onChangeSkinType(this.f57258a.getPageContext(), i);
-        this.f57262e.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-        this.f57262e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f57264g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setBackgroundResource(this.f57261d, R.drawable.search_major_bg);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f57263f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        return String.valueOf(i);
     }
 
-    public void j() {
-        if (StringUtils.isNull(this.f57262e.getText().toString())) {
+    public void c(TextView textView, String str) {
+        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f58786h)) {
             return;
         }
-        this.f57261d.setFocusable(true);
-        this.f57261d.setFocusableInTouchMode(true);
-        this.f57261d.requestFocus();
+        String lowerCase = str.toLowerCase();
+        String lowerCase2 = this.f58786h.toLowerCase();
+        if (!lowerCase.contains(lowerCase2)) {
+            textView.setText(str);
+            return;
+        }
+        int indexOf = lowerCase.indexOf(lowerCase2);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f58786h.length() + indexOf, 33);
+        textView.setText(spannableStringBuilder);
     }
 
-    public void k(boolean z) {
-        this.f57263f.setVisibility(z ? 0 : 8);
-    }
-
-    public void l(List<String> list, String str) {
-        this.f57265h.setVisibility(0);
-        SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
-        if (searchMajorResultItemAdapter != null) {
-            searchMajorResultItemAdapter.g(str);
-            this.j.setData(list);
-            this.f57265h.setAdapter(this.j);
+    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
+        this.f58785g = arrayList;
+        if (arrayList != null) {
+            notifyDataSetChanged();
         }
     }
 
-    public void m(ErrorData errorData) {
-        this.f57265h.setVisibility(8);
-        SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
-        if (searchMajorResultItemAdapter != null) {
-            searchMajorResultItemAdapter.m();
+    public void e(String str) {
+        this.f58786h = str;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        ArrayList<ForumSuggestModel.Forum> arrayList = this.f58785g;
+        if (arrayList == null) {
+            return 0;
         }
+        return arrayList.size();
     }
 
-    public void n(SearchMajorResultItemAdapter.b bVar) {
-        this.j.n(bVar);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    public void o(RecyclerView.OnScrollListener onScrollListener) {
-        this.f57265h.addOnScrollListener(onScrollListener);
-    }
-
-    public void p(TextView.OnEditorActionListener onEditorActionListener) {
-        this.f57262e.setOnEditorActionListener(onEditorActionListener);
-    }
-
-    public void q(View.OnFocusChangeListener onFocusChangeListener) {
-        this.f57262e.setOnFocusChangeListener(onFocusChangeListener);
-    }
-
-    public void r(TextWatcher textWatcher) {
-        this.f57262e.addTextChangedListener(textWatcher);
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        b bVar;
+        String str;
+        if (view == null) {
+            view = LayoutInflater.from(this.f58783e.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
+            bVar = new b();
+            BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
+            bVar.f58789c = barImageView;
+            barImageView.setGifIconSupport(false);
+            bVar.f58788b = (TextView) view.findViewById(R.id.name);
+            bVar.f58790d = (TextView) view.findViewById(R.id.forum_member_count);
+            bVar.f58791e = (TextView) view.findViewById(R.id.forum_thread_count);
+            bVar.f58792f = (TextView) view.findViewById(R.id.slogan);
+            bVar.f58787a = view.findViewById(R.id.offical_icon);
+            view.setTag(bVar);
+        } else {
+            bVar = (b) view.getTag();
+        }
+        ForumSuggestModel.Forum item = getItem(i);
+        if (item == null) {
+            return view;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        String str2 = item.avatar;
+        bVar.f58789c.setTag(str2);
+        bVar.f58789c.W(str2, 10, false);
+        bVar.f58789c.invalidate();
+        if (this.f58784f) {
+            str = this.f58783e.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
+        } else {
+            str = item.forum_name;
+        }
+        c(bVar.f58788b, str);
+        bVar.f58789c.setTag(item.avatar);
+        TextView textView = bVar.f58790d;
+        textView.setText(this.f58783e.getPageContext().getString(R.string.attention) + " " + b(item.member_num));
+        TextView textView2 = bVar.f58791e;
+        textView2.setText(this.f58783e.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
+        if (!this.f58784f && TextUtils.isEmpty(item.slogan)) {
+            bVar.f58792f.setVisibility(8);
+        } else {
+            bVar.f58792f.setVisibility(0);
+            bVar.f58792f.setText(item.slogan);
+        }
+        if (item.is_offical == 1) {
+            bVar.f58787a.setVisibility(0);
+            SkinManager.setBackgroundResource(bVar.f58787a, R.drawable.icon_search_official);
+        } else {
+            bVar.f58787a.setVisibility(8);
+        }
+        this.f58783e.getLayoutMode().k(skinType == 1);
+        this.f58783e.getLayoutMode().j(view);
+        return view;
     }
 }

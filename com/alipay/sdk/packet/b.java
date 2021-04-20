@@ -6,30 +6,30 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f1909a;
+    public final String f1934a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1910b;
+    public final String f1935b;
 
     public b(String str, String str2) {
-        this.f1909a = str;
-        this.f1910b = str2;
+        this.f1934a = str;
+        this.f1935b = str2;
     }
 
     public String a() {
-        return this.f1909a;
+        return this.f1934a;
     }
 
     public String b() {
-        return this.f1910b;
+        return this.f1935b;
     }
 
     public JSONObject c() {
-        if (TextUtils.isEmpty(this.f1910b)) {
+        if (TextUtils.isEmpty(this.f1935b)) {
             return null;
         }
         try {
-            return new JSONObject(this.f1910b);
+            return new JSONObject(this.f1935b);
         } catch (Exception e2) {
             com.alipay.sdk.util.c.a(e2);
             return null;
@@ -37,6 +37,6 @@ public final class b {
     }
 
     public String toString() {
-        return String.format("<Letter envelop=%s body=%s>", this.f1909a, this.f1910b);
+        return String.format("<Letter envelop=%s body=%s>", this.f1934a, this.f1935b);
     }
 }

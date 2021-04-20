@@ -10,26 +10,26 @@ import d.b.g0.a.z0.f;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f48158a;
+    public b f48550a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f48159e;
+        public final /* synthetic */ SwanAppActivity f48551e;
 
         public a(d dVar, SwanAppActivity swanAppActivity) {
-            this.f48159e = swanAppActivity;
+            this.f48551e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.i0.a.a(this.f48159e);
+            d.b.g0.g.i0.a.a(this.f48551e);
         }
     }
 
     public d(JsObject jsObject) {
-        this.f48158a = b.d(d.b.g0.g.e.d.c.F(jsObject));
+        this.f48550a = b.d(d.b.g0.g.e.d.c.F(jsObject));
         d.b.g0.g.h0.a.a().f(this);
     }
 
@@ -40,7 +40,7 @@ public class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(c cVar) {
-        if (this.f48158a == null || !JSEvent.isValid(cVar)) {
+        if (this.f48550a == null || !JSEvent.isValid(cVar)) {
             return;
         }
         char c2 = 0;
@@ -59,12 +59,12 @@ public class d {
             c2 = 65535;
         }
         if (c2 == 0) {
-            this.f48158a.a(cVar);
+            this.f48550a.a(cVar);
         } else if (c2 == 1) {
-            this.f48158a.c();
+            this.f48550a.c();
         } else if (c2 != 2) {
         } else {
-            this.f48158a.b();
+            this.f48550a.b();
         }
     }
 

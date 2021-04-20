@@ -13,13 +13,13 @@ public interface d extends IInterface {
 
         /* renamed from: com.baidu.sso.m.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0163a implements d {
+        public static class C0164a implements d {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f11863a;
+            public IBinder f11524a;
 
-            public C0163a(IBinder iBinder) {
-                this.f11863a = iBinder;
+            public C0164a(IBinder iBinder) {
+                this.f11524a = iBinder;
             }
 
             @Override // com.baidu.sso.m.d
@@ -28,7 +28,7 @@ public interface d extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f11863a.transact(1, obtain, obtain2, 0);
+                    this.f11524a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -39,7 +39,7 @@ public interface d extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f11863a;
+                return this.f11524a;
             }
         }
 
@@ -48,7 +48,7 @@ public interface d extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C0163a(iBinder) : (d) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C0164a(iBinder) : (d) queryLocalInterface;
         }
     }
 

@@ -3,58 +3,58 @@ package d.b.h0.r.q;
 public class x0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f50926a;
+    public long f51333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50927b;
+    public String f51334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50928c;
+    public String f51335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50929d;
+    public String f51336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f50930e;
+    public long f51337e;
 
     public x0() {
-        this.f50926a = -1L;
-        this.f50927b = null;
-        this.f50928c = null;
-        this.f50929d = "";
-        this.f50930e = -1L;
+        this.f51333a = -1L;
+        this.f51334b = null;
+        this.f51335c = null;
+        this.f51336d = "";
+        this.f51337e = -1L;
     }
 
     public String a() {
-        return this.f50928c;
+        return this.f51335c;
     }
 
     public String b() {
-        return this.f50927b;
+        return this.f51334b;
     }
 
     public long c() {
-        return this.f50926a;
+        return this.f51333a;
     }
 
     public String d() {
-        return this.f50929d;
+        return this.f51336d;
     }
 
     public long e() {
-        return this.f50930e;
+        return this.f51337e;
     }
 
     public x0(long j, long j2, String str, String str2, String str3, long j3) {
-        this.f50926a = -1L;
-        this.f50927b = null;
-        this.f50928c = null;
-        this.f50929d = "";
-        this.f50930e = -1L;
-        this.f50926a = j;
-        this.f50930e = j2;
-        this.f50927b = str;
-        this.f50928c = str2;
-        this.f50929d = str3;
+        this.f51333a = -1L;
+        this.f51334b = null;
+        this.f51335c = null;
+        this.f51336d = "";
+        this.f51337e = -1L;
+        this.f51333a = j;
+        this.f51337e = j2;
+        this.f51334b = str;
+        this.f51335c = str2;
+        this.f51336d = str3;
     }
 }

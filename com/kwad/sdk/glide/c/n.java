@@ -17,38 +17,38 @@ import java.util.Set;
 public class n extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.glide.c.a f35116a;
+    public final com.kwad.sdk.glide.c.a f35405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f35117b;
+    public final l f35406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<n> f35118c;
+    public final Set<n> f35407c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public n f35119d;
+    public n f35408d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.glide.g f35120e;
+    public com.kwad.sdk.glide.g f35409e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public KsFragment f35121f;
+    public KsFragment f35410f;
 
     /* loaded from: classes6.dex */
     public static class a implements l {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<n> f35122a;
+        public WeakReference<n> f35411a;
 
         public a(n nVar) {
-            this.f35122a = new WeakReference<>(nVar);
+            this.f35411a = new WeakReference<>(nVar);
         }
 
         public String toString() {
-            return super.toString() + "{fragment=" + this.f35122a.get() + "}";
+            return super.toString() + "{fragment=" + this.f35411a.get() + "}";
         }
     }
 
@@ -59,50 +59,50 @@ public class n extends KsFragment {
     @SuppressLint({"ValidFragment"})
     @VisibleForTesting
     public n(@NonNull com.kwad.sdk.glide.c.a aVar) {
-        this.f35117b = new a(this);
-        this.f35118c = new HashSet();
-        this.f35116a = aVar;
+        this.f35406b = new a(this);
+        this.f35407c = new HashSet();
+        this.f35405a = aVar;
     }
 
     private void a(KsFragmentManager ksFragmentManager, @NonNull Activity activity) {
         e();
         n a2 = com.kwad.sdk.glide.c.a(getActivity()).g().a(ksFragmentManager, activity);
-        this.f35119d = a2;
+        this.f35408d = a2;
         if (equals(a2)) {
             return;
         }
-        this.f35119d.a(this);
+        this.f35408d.a(this);
     }
 
     private void a(n nVar) {
-        this.f35118c.add(nVar);
+        this.f35407c.add(nVar);
     }
 
     private void b(n nVar) {
-        this.f35118c.remove(nVar);
+        this.f35407c.remove(nVar);
     }
 
     @Nullable
     private KsFragment d() {
         KsFragment parentFragment = getParentFragment();
-        return parentFragment != null ? parentFragment : this.f35121f;
+        return parentFragment != null ? parentFragment : this.f35410f;
     }
 
     private void e() {
-        n nVar = this.f35119d;
+        n nVar = this.f35408d;
         if (nVar != null) {
             nVar.b(this);
-            this.f35119d = null;
+            this.f35408d = null;
         }
     }
 
     @NonNull
     public com.kwad.sdk.glide.c.a a() {
-        return this.f35116a;
+        return this.f35405a;
     }
 
     public void a(@Nullable KsFragment ksFragment) {
-        this.f35121f = ksFragment;
+        this.f35410f = ksFragment;
         if (ksFragment == null || ksFragment.getActivity() == null) {
             return;
         }
@@ -110,17 +110,17 @@ public class n extends KsFragment {
     }
 
     public void a(@Nullable com.kwad.sdk.glide.g gVar) {
-        this.f35120e = gVar;
+        this.f35409e = gVar;
     }
 
     @Nullable
     public com.kwad.sdk.glide.g b() {
-        return this.f35120e;
+        return this.f35409e;
     }
 
     @NonNull
     public l c() {
-        return this.f35117b;
+        return this.f35406b;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -138,27 +138,27 @@ public class n extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         super.onDestroy();
-        this.f35116a.c();
+        this.f35405a.c();
         e();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDetach() {
         super.onDetach();
-        this.f35121f = null;
+        this.f35410f = null;
         e();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onStart() {
         super.onStart();
-        this.f35116a.a();
+        this.f35405a.a();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onStop() {
         super.onStop();
-        this.f35116a.b();
+        this.f35405a.b();
     }
 
     public String toString() {

@@ -4,15 +4,15 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.b.i0.r.a.e.d;
-import d.b.i0.r.a.h.c;
+import d.b.i0.r.a.f.d;
+import d.b.i0.r.a.i.c;
 /* loaded from: classes4.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static final TbHttpMessageTask mTask;
@@ -40,7 +40,7 @@ public class SplashHttpRequest extends HttpMessage {
         addParam("nt", d.b(context).intValue());
         addParam(Config.EXCEPTION_CRASH_TYPE, 2);
         addParam("sw", d.f(context).intValue());
-        addParam(IXAdRequestInfo.SCREEN_HEIGHT, d.e(context).intValue());
+        addParam(IAdRequestParam.SCREEN_HEIGHT, d.e(context).intValue());
         addParam("imei", d.a(context));
         addParam("fmt", "json");
         addParam("adw", adInfo.adWidth);

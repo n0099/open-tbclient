@@ -13,32 +13,32 @@ import java.io.IOException;
 public class SM {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38319b;
+    public String f38608b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f38320c;
+    public a f38609c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38322e;
+    public String f38611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f38323f;
+    public d f38612f;
     public String i;
     public String k;
     public Context m;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f38324g = null;
+    public d f38613g = null;
     public String l = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public a f38318a = new a();
+    public a f38607a = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public a f38321d = new a();
+    public a f38610d = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public d f38325h = new b();
+    public d f38614h = new b();
     public c j = new c();
     public String n = SystemUtil.buildNewPathByProcessName("e_qq_com_setting");
 
@@ -61,8 +61,8 @@ public class SM {
             GDTLogger.d("Load Local SDK Cloud setting fail");
             return;
         }
-        this.f38322e = b2.a();
-        this.f38323f = b2.b();
+        this.f38611e = b2.a();
+        this.f38612f = b2.b();
     }
 
     private void b() {
@@ -71,8 +71,8 @@ public class SM {
             GDTLogger.d("Load Local DEV Cloud setting fail");
             return;
         }
-        this.f38320c = a2.b();
-        this.f38319b = a2.a();
+        this.f38609c = a2.b();
+        this.f38608b = a2.a();
     }
 
     private void c() {
@@ -94,12 +94,12 @@ public class SM {
             return null;
         }
         try {
-            if (this.f38318a == null || (a5 = this.f38318a.a(str)) == null) {
-                if (this.f38320c == null || (a4 = this.f38320c.a(str)) == null) {
-                    if (this.f38321d == null || (a3 = this.f38321d.a(str)) == null) {
-                        if (this.f38323f == null || (a2 = this.f38323f.a(str)) == null) {
-                            if (this.f38325h != null) {
-                                return this.f38325h.a(str);
+            if (this.f38607a == null || (a5 = this.f38607a.a(str)) == null) {
+                if (this.f38609c == null || (a4 = this.f38609c.a(str)) == null) {
+                    if (this.f38610d == null || (a3 = this.f38610d.a(str)) == null) {
+                        if (this.f38612f == null || (a2 = this.f38612f.a(str)) == null) {
+                            if (this.f38614h != null) {
+                                return this.f38614h.a(str);
                             }
                             return null;
                         }
@@ -121,7 +121,7 @@ public class SM {
     }
 
     public String getDevCloudSettingSig() {
-        return this.f38319b;
+        return this.f38608b;
     }
 
     public Object getForPlacement(String str, String str2) {
@@ -136,7 +136,7 @@ public class SM {
             return get(str);
         }
         try {
-            return (this.j == null || (a5 = this.j.a(str, str2)) == null) ? (this.f38318a == null || (a4 = this.f38318a.a(str, str2)) == null) ? (this.f38320c == null || (a3 = this.f38320c.a(str, str2)) == null) ? (this.f38321d == null || (a2 = this.f38321d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
+            return (this.j == null || (a5 = this.j.a(str, str2)) == null) ? (this.f38607a == null || (a4 = this.f38607a.a(str, str2)) == null) ? (this.f38609c == null || (a3 = this.f38609c.a(str, str2)) == null) ? (this.f38610d == null || (a2 = this.f38610d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
         } catch (Throwable th) {
             GDTLogger.report("Exception in settingManager.getForPlacement", th);
             return null;
@@ -158,7 +158,7 @@ public class SM {
     }
 
     public String getSdkCloudSettingSig() {
-        return this.f38322e;
+        return this.f38611e;
     }
 
     public String getSettingDir() {
@@ -200,11 +200,11 @@ public class SM {
     }
 
     public void setDEVCodeSetting(String str, Object obj) {
-        this.f38321d.a(str, obj);
+        this.f38610d.a(str, obj);
     }
 
     public void setDEVCodeSetting(String str, Object obj, String str2) {
-        this.f38321d.a(str, obj, str2);
+        this.f38610d.a(str, obj, str2);
     }
 
     public void updateContextSetting(String str) {
@@ -213,7 +213,7 @@ public class SM {
             if (!TextUtils.isEmpty(str)) {
                 aVar = new a(new String(Base64.decode(str, 0), "UTF-8"));
             }
-            this.f38318a = aVar;
+            this.f38607a = aVar;
         } catch (Throwable th) {
             GDTLogger.report("Exception while update Context Setting", th);
         }

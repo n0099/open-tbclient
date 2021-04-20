@@ -29,22 +29,22 @@ import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46590a = k.f45051a;
+    public static final boolean f46982a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f46591b;
+    public static final Set<String> f46983b;
 
     static {
         HashSet hashSet = new HashSet();
-        f46591b = hashSet;
+        f46983b = hashSet;
         hashSet.add("_baiduboxapp");
-        f46591b.add("callback");
-        f46591b.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-        f46591b.add("_naExtParams");
+        f46983b.add("callback");
+        f46983b.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        f46983b.add("_naExtParams");
     }
 
     public final String a(Uri uri) {
@@ -57,7 +57,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     public final String b(Uri uri) {
-        return i0.h(uri.getEncodedQuery(), f46591b);
+        return i0.h(uri.getEncodedQuery(), f46983b);
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -65,11 +65,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         return "aiapps_launch_interceptor";
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0229  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x024b  */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x02bd  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x02c6  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x02cb  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0224  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0246  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x02b4  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x02bd  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x02c2  */
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -87,7 +87,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             return true;
         }
         String i = i0.i(uri);
-        if (f46590a) {
+        if (f46982a) {
             Log.d("SwanLaunchInterceptor", "mAppId: " + i);
         }
         String h2 = SwanLauncher.h();
@@ -108,11 +108,11 @@ public class a extends UnitedSchemeBaseInterceptor {
             return true;
         }
         String m = i0.m(i, uri, true);
-        if (f46590a) {
+        if (f46982a) {
             Log.d("SwanLaunchInterceptor", "pagePath: " + m);
         }
         String b2 = b(uri);
-        if (f46590a) {
+        if (f46982a) {
             Log.d("SwanLaunchInterceptor", "query: " + b2);
         }
         String uri2 = uri.toString();
@@ -166,7 +166,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                                     e = e2;
                                     str = str;
                                     str2 = str2;
-                                    if (f46590a) {
+                                    if (f46982a) {
                                     }
                                     if (TextUtils.isEmpty(str)) {
                                     }
@@ -182,7 +182,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                                     aVar2.w("contentId", unitedSchemeEntity.getParam("contentId"));
                                     if (TextUtils.isEmpty(queryParameter)) {
                                     }
-                                    if (f46590a) {
+                                    if (f46982a) {
                                     }
                                     String param2 = unitedSchemeEntity.getParam("cb");
                                     SwanLauncher.j().n(aVar2, bundle);
@@ -195,8 +195,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         } catch (JSONException e4) {
                             e = e4;
                             str2 = null;
-                            if (f46590a) {
-                                Log.d("SwanLaunchInterceptor", "getLaunchFrom failed: " + Log.getStackTraceString(e));
+                            if (f46982a) {
                             }
                             if (TextUtils.isEmpty(str)) {
                             }
@@ -212,7 +211,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                             aVar2.w("contentId", unitedSchemeEntity.getParam("contentId"));
                             if (TextUtils.isEmpty(queryParameter)) {
                             }
-                            if (f46590a) {
+                            if (f46982a) {
                             }
                             String param22 = unitedSchemeEntity.getParam("cb");
                             SwanLauncher.j().n(aVar2, bundle);
@@ -233,7 +232,8 @@ public class a extends UnitedSchemeBaseInterceptor {
                         }
                     } catch (JSONException e5) {
                         e = e5;
-                        if (f46590a) {
+                        if (f46982a) {
+                            Log.d("SwanLaunchInterceptor", "getLaunchFrom failed: " + Log.getStackTraceString(e));
                         }
                         if (TextUtils.isEmpty(str)) {
                         }
@@ -249,7 +249,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         aVar2.w("contentId", unitedSchemeEntity.getParam("contentId"));
                         if (TextUtils.isEmpty(queryParameter)) {
                         }
-                        if (f46590a) {
+                        if (f46982a) {
                         }
                         String param222 = unitedSchemeEntity.getParam("cb");
                         SwanLauncher.j().n(aVar2, bundle);
@@ -285,7 +285,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         } else {
             bundle = null;
         }
-        if (f46590a) {
+        if (f46982a) {
             Log.d("SwanLaunchInterceptor", "launchParams: " + aVar2 + " \n_naExtParmas: " + queryParameter);
         }
         String param2222 = unitedSchemeEntity.getParam("cb");

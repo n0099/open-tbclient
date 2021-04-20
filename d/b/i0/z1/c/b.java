@@ -1,88 +1,43 @@
 package d.b.i0.z1.c;
-
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
-import d.b.h0.m.f;
 /* loaded from: classes3.dex */
-public class b extends d.b.b.j.e.a<d.b.i0.z1.d.b, C1717b> {
-    public f<d.b.i0.z1.d.b> m;
+public class b {
 
-    /* loaded from: classes3.dex */
-    public class a implements f<d.b.i0.z1.d.b> {
-        public a(b bVar) {
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public int f64244a;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.m.f
-        /* renamed from: b */
-        public void c(View view, d.b.i0.z1.d.b bVar, int i, long j) {
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public String f64245b;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.m.f
-        /* renamed from: d */
-        public void a(View view, d.b.i0.z1.d.b bVar, int i, long j) {
-            if (bVar == null) {
-                return;
-            }
-            d.b.i0.z1.a.a("c13737", bVar, i);
-        }
+    /* renamed from: c  reason: collision with root package name */
+    public int f64246c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f64247d;
+
+    public b(int i, String str, int i2, boolean z) {
+        this.f64244a = i;
+        this.f64245b = str;
+        this.f64246c = i2;
+        this.f64247d = z;
     }
 
-    /* renamed from: d.b.i0.z1.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1717b extends TypeAdapter.ViewHolder {
-
-        /* renamed from: a  reason: collision with root package name */
-        public HotTopicListInfoItem f63433a;
-
-        public C1717b(HotTopicListInfoItem hotTopicListInfoItem) {
-            super(hotTopicListInfoItem);
-            this.f63433a = hotTopicListInfoItem;
-        }
-
-        public void b(d.b.i0.z1.d.b bVar) {
-            if (bVar != null) {
-                this.f63433a.a(bVar);
-            }
-        }
-
-        public void c(int i) {
-            this.f63433a.d(i);
-        }
+    public int a() {
+        return this.f64246c;
     }
 
-    public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.z1.d.a.f63434a);
-        this.m = new a(this);
+    public int b() {
+        return this.f64244a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: h0 */
-    public C1717b R(ViewGroup viewGroup) {
-        HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
-        hotTopicListInfoItem.setOnItemCoverListener(this.m);
-        hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-        C1717b c1717b = new C1717b(hotTopicListInfoItem);
-        c1717b.c(TbadkCoreApplication.getInst().getSkinType());
-        return c1717b;
+    public String c() {
+        return this.f64245b;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: i0 */
-    public View X(int i, View view, ViewGroup viewGroup, d.b.i0.z1.d.b bVar, C1717b c1717b) {
-        if (bVar == null || c1717b == null) {
-            return null;
-        }
-        c1717b.b(bVar);
-        c1717b.c(TbadkCoreApplication.getInst().getSkinType());
-        return c1717b.a();
+    public boolean d() {
+        return this.f64247d;
+    }
+
+    public void e(boolean z) {
+        this.f64247d = z;
     }
 }

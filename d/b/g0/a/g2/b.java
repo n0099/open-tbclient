@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import d.b.g0.a.k;
@@ -12,44 +13,44 @@ import d.b.g0.a.l;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44594a = k.f45051a;
+    public static final boolean f44986a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44595b;
+    public static String f44987b;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: f  reason: collision with root package name */
-        public static String f44596f = "%s/%s";
+        public static String f44988f = "%s/%s";
 
         /* renamed from: g  reason: collision with root package name */
-        public static String f44597g = "%s-%s/%s";
+        public static String f44989g = "%s-%s/%s";
 
         /* renamed from: h  reason: collision with root package name */
-        public static String f44598h = "(Baidu; P1 %s)";
+        public static String f44990h = "(Baidu; P1 %s)";
         public static String i = "%s/%s";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44599a;
+        public String f44991a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44600b;
+        public String f44992b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44601c;
+        public String f44993c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44602d;
+        public String f44994d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f44603e;
+        public String f44995e;
 
         public String a() {
-            String format = String.format(f44596f, this.f44599a, this.f44600b);
-            String format2 = String.format(f44597g, this.f44599a, this.f44601c, this.f44602d);
-            String format3 = String.format(i, this.f44601c, this.f44602d);
-            String format4 = String.format(f44598h, this.f44603e);
+            String format = String.format(f44988f, this.f44991a, this.f44992b);
+            String format2 = String.format(f44989g, this.f44991a, this.f44993c, this.f44994d);
+            String format3 = String.format(i, this.f44993c, this.f44994d);
+            String format4 = String.format(f44990h, this.f44995e);
             if (e()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
@@ -57,31 +58,31 @@ public class b {
         }
 
         public a b(String str) {
-            this.f44599a = str;
+            this.f44991a = str;
             return this;
         }
 
         public a c(String str) {
-            this.f44601c = str;
+            this.f44993c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f44602d = str;
+            this.f44994d = str;
             return this;
         }
 
         public final boolean e() {
-            return TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f44601c);
+            return TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f44993c);
         }
 
         public a f(String str) {
-            this.f44603e = str;
+            this.f44995e = str;
             return this;
         }
 
         public a g(String str) {
-            this.f44600b = str;
+            this.f44992b = str;
             return this;
         }
     }
@@ -92,7 +93,7 @@ public class b {
 
     public static String b() {
         String str = Build.VERSION.RELEASE;
-        return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+        return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
     }
 
     public static String c() {
@@ -115,15 +116,15 @@ public class b {
     }
 
     public static String f() {
-        if (!TextUtils.isEmpty(f44595b)) {
-            return f44595b;
+        if (!TextUtils.isEmpty(f44987b)) {
+            return f44987b;
         }
         try {
             String str = a().getPackageManager().getPackageInfo(a().getPackageName(), 0).versionName;
-            f44595b = str;
+            f44987b = str;
             return str;
         } catch (PackageManager.NameNotFoundException e2) {
-            if (f44594a) {
+            if (f44986a) {
                 e2.printStackTrace();
                 return "0.8";
             }

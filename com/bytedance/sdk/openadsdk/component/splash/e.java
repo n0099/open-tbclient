@@ -28,32 +28,32 @@ import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e implements TTSplashAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f27988a;
+    public AtomicBoolean f27673a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f27989b;
+    public AtomicBoolean f27674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27990c;
+    public int f27675c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f27991d;
+    public final Context f27676d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final l f27992e;
+    public final l f27677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TsView f27993f;
+    public TsView f27678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTSplashAd.AdInteractionListener f27994g;
+    public TTSplashAd.AdInteractionListener f27679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27995h;
+    public boolean f27680h;
     public long i;
     public com.bytedance.sdk.openadsdk.downloadnew.core.a j;
     public d k;
@@ -72,7 +72,7 @@ public class e implements TTSplashAd {
     public TTAppDownloadListener x;
 
     public e(@NonNull Context context, @NonNull l lVar, AdSlot adSlot, String str) {
-        this.f27990c = 3;
+        this.f27675c = 3;
         this.i = 0L;
         this.l = null;
         this.m = false;
@@ -81,10 +81,10 @@ public class e implements TTSplashAd {
         this.q = -1;
         this.v = new AtomicBoolean(false);
         this.w = new AtomicBoolean(false);
-        this.f27988a = new AtomicBoolean(false);
-        this.f27989b = new AtomicBoolean(false);
-        this.f27991d = context;
-        this.f27992e = lVar;
+        this.f27673a = new AtomicBoolean(false);
+        this.f27674b = new AtomicBoolean(false);
+        this.f27676d = context;
+        this.f27677e = lVar;
         this.n = lVar.ax();
         this.t = adSlot;
         this.s = str;
@@ -93,7 +93,7 @@ public class e implements TTSplashAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTSplashAd
     public int getInteractionType() {
-        l lVar = this.f27992e;
+        l lVar = this.f27677e;
         if (lVar == null) {
             return -1;
         }
@@ -102,7 +102,7 @@ public class e implements TTSplashAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTSplashAd
     public Map<String, Object> getMediaExtraInfo() {
-        l lVar = this.f27992e;
+        l lVar = this.f27677e;
         if (lVar != null) {
             return lVar.ay();
         }
@@ -112,9 +112,9 @@ public class e implements TTSplashAd {
     @Override // com.bytedance.sdk.openadsdk.TTSplashAd
     @NonNull
     public View getSplashView() {
-        l lVar = this.f27992e;
-        if (lVar == null || lVar.X() == null || this.f27993f.getVideoContainer() == null || this.l == null || c()) {
-            return this.f27993f;
+        l lVar = this.f27677e;
+        if (lVar == null || lVar.X() == null || this.f27678f.getVideoContainer() == null || this.l == null || c()) {
+            return this.f27678f;
         }
         return null;
     }
@@ -136,8 +136,8 @@ public class e implements TTSplashAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTSplashAd
     public void setNotAllowSdkCountdown() {
-        this.f27995h = true;
-        TsView tsView = this.f27993f;
+        this.f27680h = true;
+        TsView tsView = this.f27678f;
         if (tsView != null) {
             tsView.setSkipIconVisibility(8);
         }
@@ -145,19 +145,19 @@ public class e implements TTSplashAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTSplashAd
     public void setSplashInteractionListener(TTSplashAd.AdInteractionListener adInteractionListener) {
-        this.f27994g = adInteractionListener;
+        this.f27679g = adInteractionListener;
     }
 
     private void b() {
-        this.f27993f = new TsView(this.f27991d);
-        com.bytedance.sdk.openadsdk.c.d.a(this.f27992e);
-        if (this.f27992e.X() != null && this.n) {
-            this.f27993f.setVideoViewVisibility(0);
-            this.f27993f.setImageViewVisibility(8);
-            this.f27993f.setVoiceViewListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.1
+        this.f27678f = new TsView(this.f27676d);
+        com.bytedance.sdk.openadsdk.c.d.a(this.f27677e);
+        if (this.f27677e.X() != null && this.n) {
+            this.f27678f.setVideoViewVisibility(0);
+            this.f27678f.setImageViewVisibility(8);
+            this.f27678f.setVoiceViewListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    e.this.f27993f.setVoiceViewImageResource(e.this.p ? ad.d(e.this.f27991d, "tt_splash_unmute") : ad.d(e.this.f27991d, "tt_splash_mute"));
+                    e.this.f27678f.setVoiceViewImageResource(e.this.p ? ad.d(e.this.f27676d, "tt_splash_unmute") : ad.d(e.this.f27676d, "tt_splash_mute"));
                     e eVar = e.this;
                     eVar.p = !eVar.p;
                     if (e.this.k != null) {
@@ -167,34 +167,34 @@ public class e implements TTSplashAd {
             });
         }
         if (!this.n) {
-            this.f27993f.setVideoViewVisibility(8);
-            this.f27993f.setImageViewVisibility(0);
+            this.f27678f.setVideoViewVisibility(8);
+            this.f27678f.setImageViewVisibility(0);
         }
-        if (this.f27992e.m() == 0) {
-            TsView tsView = this.f27993f;
+        if (this.f27677e.m() == 0) {
+            TsView tsView = this.f27678f;
             if (tsView != null) {
                 tsView.setAdlogoViewVisibility(8);
             }
         } else {
-            TsView tsView2 = this.f27993f;
+            TsView tsView2 = this.f27678f;
             if (tsView2 != null) {
                 tsView2.setAdlogoViewVisibility(0);
             }
         }
-        if (this.f27992e.au() <= 0) {
+        if (this.f27677e.au() <= 0) {
             a(3);
         } else {
-            int au = this.f27992e.au();
-            this.f27990c = au;
+            int au = this.f27677e.au();
+            this.f27675c = au;
             a(au);
         }
-        a(this.f27992e);
+        a(this.f27677e);
         e();
         d();
     }
 
     private boolean c() {
-        this.k = new d(this.f27991d, this.f27993f.getVideoContainer(), this.f27992e);
+        this.k = new d(this.f27676d, this.f27678f.getVideoContainer(), this.f27677e);
         u.f("wzj", "mVideoCachePath:" + this.l);
         this.k.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.2
             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
@@ -202,8 +202,8 @@ public class e implements TTSplashAd {
                 if (e.this.k != null) {
                     e.this.k.m();
                 }
-                if (e.this.f27994g != null) {
-                    e.this.f27994g.onAdTimeOver();
+                if (e.this.f27679g != null) {
+                    e.this.f27679g.onAdTimeOver();
                 }
             }
 
@@ -219,35 +219,35 @@ public class e implements TTSplashAd {
             public void b(long j, int i) {
             }
         });
-        boolean a2 = this.k.a(this.l, this.f27992e.am(), this.f27993f.getVideoContainer().getWidth(), this.f27993f.getVideoContainer().getHeight(), null, this.f27992e.ap(), 0L, this.p);
+        boolean a2 = this.k.a(this.l, this.f27677e.am(), this.f27678f.getVideoContainer().getWidth(), this.f27678f.getVideoContainer().getHeight(), null, this.f27677e.ap(), 0L, this.p);
         this.o = a2;
         return a2;
     }
 
     private void d() {
-        l lVar = this.f27992e;
+        l lVar = this.f27677e;
         if (lVar == null || lVar.d() == 1) {
             return;
         }
-        if (this.f27992e.X() == null) {
-            this.r = new NativeExpressView(this.f27991d, this.f27992e, this.t, this.s);
+        if (this.f27677e.X() == null) {
+            this.r = new NativeExpressView(this.f27676d, this.f27677e, this.t, this.s);
         } else if (!TextUtils.isEmpty(this.l)) {
-            com.bytedance.sdk.openadsdk.core.video.a.a.a(this.f27992e.X().i(), this.l);
-            this.r = new NativeExpressVideoView(this.f27991d, this.f27992e, this.t, this.s);
+            com.bytedance.sdk.openadsdk.core.video.a.a.a(this.f27677e.X().i(), this.l);
+            this.r = new NativeExpressVideoView(this.f27676d, this.f27677e, this.t, this.s);
         }
         NativeExpressView nativeExpressView = this.r;
         if (nativeExpressView == null) {
             return;
         }
-        a(nativeExpressView, this.f27992e);
+        a(nativeExpressView, this.f27677e);
         this.r.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.3
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i) {
                 if (e.this.u != null) {
                     e.this.u.onAdClicked(view, i);
                 }
-                if (e.this.f27994g != null) {
-                    e.this.f27994g.onAdClicked(view, i);
+                if (e.this.f27679g != null) {
+                    e.this.f27679g.onAdClicked(view, i);
                 }
             }
 
@@ -272,8 +272,8 @@ public class e implements TTSplashAd {
                     e.this.u.onRenderFail(view, "width <=0 or height <= 0", 110);
                     return;
                 }
-                e.this.f27993f.a(8, 0, 0, 0, 0);
-                e.this.f27993f.setExpressView(e.this.r);
+                e.this.f27678f.a(8, 0, 0, 0, 0);
+                e.this.f27678f.setExpressView(e.this.r);
                 if (e.this.u != null) {
                     e.this.u.onRenderSuccess(view, f2, f3);
                 }
@@ -283,7 +283,7 @@ public class e implements TTSplashAd {
     }
 
     private void e() {
-        if (this.f27992e.X() != null) {
+        if (this.f27677e.X() != null) {
             if (this.l != null) {
                 this.q = 1;
             } else {
@@ -292,10 +292,10 @@ public class e implements TTSplashAd {
         } else {
             this.q = 0;
         }
-        this.j = b(this.f27992e);
-        EmptyView emptyView = new EmptyView(this.f27991d, this.f27993f);
+        this.j = b(this.f27677e);
+        EmptyView emptyView = new EmptyView(this.f27676d, this.f27678f);
         emptyView.setAdType(3);
-        this.f27993f.addView(emptyView);
+        this.f27678f.addView(emptyView);
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.j;
         if (aVar != null) {
             aVar.a(emptyView);
@@ -331,12 +331,12 @@ public class e implements TTSplashAd {
                 if (e.this.j != null) {
                     e.this.j.a();
                 }
-                if (e.this.j == null || e.this.f27993f == null || e.this.f27993f.getParent() == null) {
+                if (e.this.j == null || e.this.f27678f == null || e.this.f27678f.getParent() == null) {
                     return;
                 }
                 Context context = null;
                 try {
-                    context = ((View) e.this.f27993f.getParent()).getContext();
+                    context = ((View) e.this.f27678f.getParent()).getContext();
                 } catch (Exception unused) {
                 }
                 if (context == null || !(context instanceof Activity)) {
@@ -351,8 +351,8 @@ public class e implements TTSplashAd {
                 e.this.v.set(true);
                 e.this.i = System.currentTimeMillis();
                 HashMap hashMap = new HashMap();
-                if (e.this.f27992e != null) {
-                    if (e.this.f27992e.X() != null) {
+                if (e.this.f27677e != null) {
+                    if (e.this.f27677e.X() != null) {
                         if (e.this.l != null) {
                             hashMap.put("splash_show_type", 1);
                         } else {
@@ -365,9 +365,9 @@ public class e implements TTSplashAd {
                 if (e.this.w.get()) {
                     hashMap.put("splash_show_type", 3);
                 }
-                u.e("AdEvent", "pangolin ad show " + ak.a(e.this.f27992e, view));
-                com.bytedance.sdk.openadsdk.c.d.a(e.this.f27991d, e.this.f27992e, e.this.s, hashMap);
-                if (!e.this.f27995h && e.this.f27993f != null && (countDownView = e.this.f27993f.getCountDownView()) != null) {
+                u.e("AdEvent", "pangolin ad show " + ak.a(e.this.f27677e, view));
+                com.bytedance.sdk.openadsdk.c.d.a(e.this.f27676d, e.this.f27677e, e.this.s, hashMap);
+                if (!e.this.f27680h && e.this.f27678f != null && (countDownView = e.this.f27678f.getCountDownView()) != null) {
                     countDownView.setCountdownListener(new TTCountdownView.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.6.2
                         @Override // com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.a
                         public void a() {
@@ -376,8 +376,8 @@ public class e implements TTSplashAd {
 
                         @Override // com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.a
                         public void b() {
-                            if (e.this.f27994g != null) {
-                                e.this.f27994g.onAdTimeOver();
+                            if (e.this.f27679g != null) {
+                                e.this.f27679g.onAdTimeOver();
                             }
                             try {
                                 if (e.this.k != null) {
@@ -398,12 +398,12 @@ public class e implements TTSplashAd {
                             e.this.f();
                         }
                     });
-                    if (!e.this.f27989b.get()) {
+                    if (!e.this.f27674b.get()) {
                         countDownView.a();
                     }
                 }
-                if (e.this.f27994g != null) {
-                    e.this.f27994g.onAdShow(e.this.f27993f, e.this.f27992e.Z());
+                if (e.this.f27679g != null) {
+                    e.this.f27679g.onAdShow(e.this.f27678f, e.this.f27677e.Z());
                 }
                 u.b("TTSplashAdImpl", "bindViewInteraction 开屏广告展示");
             }
@@ -411,49 +411,49 @@ public class e implements TTSplashAd {
         emptyView.setNeedCheckingShow(true);
         HashMap hashMap = new HashMap();
         hashMap.put("splash_show_type", Integer.valueOf(this.q));
-        com.bytedance.sdk.openadsdk.core.a.a aVar2 = new com.bytedance.sdk.openadsdk.core.a.a(this.f27991d, this.f27992e, this.s, 4);
+        com.bytedance.sdk.openadsdk.core.a.a aVar2 = new com.bytedance.sdk.openadsdk.core.a.a(this.f27676d, this.f27677e, this.s, 4);
         aVar2.a(hashMap);
-        l lVar = this.f27992e;
-        if (lVar != null && this.f27993f != null) {
+        l lVar = this.f27677e;
+        if (lVar != null && this.f27678f != null) {
             if (lVar.M() == 2) {
-                View fullClickBarView = this.f27993f.getFullClickBarView();
+                View fullClickBarView = this.f27678f.getFullClickBarView();
                 if (fullClickBarView != null) {
                     aVar2.a(fullClickBarView);
                     fullClickBarView.setOnClickListener(aVar2);
                     fullClickBarView.setOnTouchListener(aVar2);
                 }
             } else {
-                aVar2.a(this.f27993f);
-                this.f27993f.setOnClickListenerInternal(aVar2);
-                this.f27993f.setOnTouchListenerInternal(aVar2);
+                aVar2.a(this.f27678f);
+                this.f27678f.setOnClickListenerInternal(aVar2);
+                this.f27678f.setOnTouchListenerInternal(aVar2);
             }
         }
-        aVar2.b(this.f27993f.getDislikeView());
+        aVar2.b(this.f27678f.getDislikeView());
         aVar2.a(this.j);
         aVar2.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.7
             @Override // com.bytedance.sdk.openadsdk.core.a.b.a
             public void a(View view, int i) {
-                if (e.this.f27994g != null) {
-                    e.this.f27994g.onAdClicked(view, i);
+                if (e.this.f27679g != null) {
+                    e.this.f27679g.onAdClicked(view, i);
                 }
             }
         });
-        this.f27993f.setSkipListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.8
+        this.f27678f.setSkipListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.f27992e != null && e.this.f27992e.X() != null && e.this.o && e.this.k != null) {
+                if (e.this.f27677e != null && e.this.f27677e.X() != null && e.this.o && e.this.k != null) {
                     e.this.k.m();
                     if (!e.this.w.get()) {
                         e eVar = e.this;
                         eVar.a(eVar.s, "feed_break");
                     }
                 }
-                if (!TextUtils.isEmpty(e.this.f27992e.ap())) {
-                    com.bytedance.sdk.openadsdk.c.d.a(e.this.f27991d, e.this.i > 0 ? System.currentTimeMillis() - e.this.i : 0L, e.this.f27992e);
+                if (!TextUtils.isEmpty(e.this.f27677e.ap())) {
+                    com.bytedance.sdk.openadsdk.c.d.a(e.this.f27676d, e.this.i > 0 ? System.currentTimeMillis() - e.this.i : 0L, e.this.f27677e);
                 }
-                if (e.this.f27994g != null) {
-                    e.this.f27990c = 0;
-                    e.this.f27994g.onAdSkip();
+                if (e.this.f27679g != null) {
+                    e.this.f27675c = 0;
+                    e.this.f27679g.onAdSkip();
                 }
             }
         });
@@ -480,7 +480,7 @@ public class e implements TTSplashAd {
     }
 
     private void a(l lVar) {
-        if (lVar == null || this.f27993f == null) {
+        if (lVar == null || this.f27678f == null) {
             return;
         }
         int M = lVar.M();
@@ -491,22 +491,22 @@ public class e implements TTSplashAd {
         int R = lVar.R();
         if (M == 2) {
             if (!TextUtils.isEmpty(N)) {
-                this.f27993f.a(0, P, O, Q, R);
-                this.f27993f.setClickBarDesc(N);
+                this.f27678f.a(0, P, O, Q, R);
+                this.f27678f.setClickBarDesc(N);
                 return;
             }
-            this.f27993f.a(0, P, O, Q, R);
-            this.f27993f.setClickBarDesc("查看详情");
+            this.f27678f.a(0, P, O, Q, R);
+            this.f27678f.setClickBarDesc("查看详情");
         } else if (TextUtils.isEmpty(N)) {
-            this.f27993f.a(8, P, O, Q, R);
+            this.f27678f.a(8, P, O, Q, R);
         } else {
-            this.f27993f.a(0, P, O, Q, R);
-            this.f27993f.setClickBarDesc(N);
+            this.f27678f.a(0, P, O, Q, R);
+            this.f27678f.setClickBarDesc(N);
         }
     }
 
     public e(@NonNull Context context, @NonNull l lVar, String str, AdSlot adSlot, String str2) {
-        this.f27990c = 3;
+        this.f27675c = 3;
         this.i = 0L;
         this.l = null;
         this.m = false;
@@ -515,10 +515,10 @@ public class e implements TTSplashAd {
         this.q = -1;
         this.v = new AtomicBoolean(false);
         this.w = new AtomicBoolean(false);
-        this.f27988a = new AtomicBoolean(false);
-        this.f27989b = new AtomicBoolean(false);
-        this.f27991d = context;
-        this.f27992e = lVar;
+        this.f27673a = new AtomicBoolean(false);
+        this.f27674b = new AtomicBoolean(false);
+        this.f27676d = context;
+        this.f27677e = lVar;
         this.n = lVar.ax();
         this.l = str;
         this.t = adSlot;
@@ -536,7 +536,7 @@ public class e implements TTSplashAd {
             }
         }
         com.bytedance.sdk.openadsdk.c.d.a(lVar);
-        EmptyView emptyView = new EmptyView(this.f27991d, nativeExpressView);
+        EmptyView emptyView = new EmptyView(this.f27676d, nativeExpressView);
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.j;
         if (aVar != null) {
             aVar.a(emptyView);
@@ -578,14 +578,14 @@ public class e implements TTSplashAd {
         });
         HashMap hashMap = new HashMap();
         hashMap.put("splash_show_type", 3);
-        Context context = this.f27991d;
+        Context context = this.f27676d;
         String str = this.s;
         com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(context, lVar, str, ak.a(str));
         eVar.a(nativeExpressView);
         eVar.a(this.j);
         eVar.a(hashMap);
         this.r.setClickListener(eVar);
-        Context context2 = this.f27991d;
+        Context context2 = this.f27676d;
         String str2 = this.s;
         com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(context2, lVar, str2, ak.a(str2));
         dVar.a(nativeExpressView);
@@ -598,7 +598,7 @@ public class e implements TTSplashAd {
 
     private com.bytedance.sdk.openadsdk.downloadnew.core.a b(l lVar) {
         if (lVar.Z() == 4) {
-            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27991d, lVar, this.s);
+            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27676d, lVar, this.s);
         }
         return null;
     }
@@ -606,15 +606,15 @@ public class e implements TTSplashAd {
     public void a(com.bytedance.sdk.openadsdk.i.a.d dVar) {
         Drawable a2;
         if (dVar.d()) {
-            this.f27993f.setGifView(dVar.b());
-        } else if (this.f27992e.af() == null || this.f27992e.af().get(0) == null) {
+            this.f27678f.setGifView(dVar.b());
+        } else if (this.f27677e.af() == null || this.f27677e.af().get(0) == null) {
         } else {
             if (dVar.a() != null) {
                 a2 = new BitmapDrawable(dVar.a());
             } else {
-                a2 = o.a(dVar.b(), this.f27992e.af().get(0).b());
+                a2 = o.a(dVar.b(), this.f27677e.af().get(0).b());
             }
-            this.f27993f.setDrawable(a2);
+            this.f27678f.setDrawable(a2);
         }
     }
 
@@ -622,7 +622,7 @@ public class e implements TTSplashAd {
         if (this.j == null) {
             return;
         }
-        l lVar = this.f27992e;
+        l lVar = this.f27677e;
         final String am = lVar != null ? lVar.am() : "";
         this.j.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.component.splash.e.5
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -633,7 +633,7 @@ public class e implements TTSplashAd {
                 if (!z || j <= 0) {
                     return;
                 }
-                a.C0319a.a(am, 3, (int) ((j2 * 100) / j));
+                a.C0321a.a(am, 3, (int) ((j2 * 100) / j));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -644,7 +644,7 @@ public class e implements TTSplashAd {
                 if (!z || j <= 0) {
                     return;
                 }
-                a.C0319a.a(am, 4, (int) ((j2 * 100) / j));
+                a.C0321a.a(am, 4, (int) ((j2 * 100) / j));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -653,7 +653,7 @@ public class e implements TTSplashAd {
                     e.this.x.onDownloadFinished(j, str, str2);
                 }
                 if (z) {
-                    a.C0319a.a(am, 5, 100);
+                    a.C0321a.a(am, 5, 100);
                 }
             }
 
@@ -665,7 +665,7 @@ public class e implements TTSplashAd {
                 if (!z || j <= 0) {
                     return;
                 }
-                a.C0319a.a(am, 2, (int) ((j2 * 100) / j));
+                a.C0321a.a(am, 2, (int) ((j2 * 100) / j));
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -674,7 +674,7 @@ public class e implements TTSplashAd {
                     e.this.x.onIdle();
                 }
                 if (z) {
-                    a.C0319a.a(am, 1, 0);
+                    a.C0321a.a(am, 1, 0);
                 }
             }
 
@@ -684,7 +684,7 @@ public class e implements TTSplashAd {
                     e.this.x.onInstalled(str, str2);
                 }
                 if (z) {
-                    a.C0319a.a(am, 6, 100);
+                    a.C0321a.a(am, 6, 100);
                 }
             }
         });
@@ -694,17 +694,17 @@ public class e implements TTSplashAd {
     public void a(String str, String str2) {
         d dVar = this.k;
         if (dVar != null) {
-            com.bytedance.sdk.openadsdk.c.d.a(this.f27991d, this.f27992e, str, str2, this.k.p(), this.k.r(), ak.a(this.f27992e, dVar.o(), this.k.u()));
+            com.bytedance.sdk.openadsdk.c.d.a(this.f27676d, this.f27677e, str, str2, this.k.p(), this.k.r(), ak.a(this.f27677e, dVar.o(), this.k.u()));
         }
     }
 
     public boolean a() {
-        l lVar = this.f27992e;
+        l lVar = this.f27677e;
         return lVar != null && lVar.d() == 2;
     }
 
     private void a(int i) {
-        TsView tsView = this.f27993f;
+        TsView tsView = this.f27678f;
         if (tsView != null) {
             tsView.setCountDownTime(i);
         }

@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.a0.a;
-import f.a.o;
-import f.a.t.b;
+import f.b.a0.a;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -10,10 +10,10 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
     public static final long serialVersionUID = -1185974347409665484L;
     public final o<? super T> actual;
     public final int index;
-    public final f.a.x.e.c.b<T> parent;
+    public final f.b.x.e.c.b<T> parent;
     public boolean won;
 
-    public ObservableAmb$AmbInnerObserver(f.a.x.e.c.b<T> bVar, int i, o<? super T> oVar) {
+    public ObservableAmb$AmbInnerObserver(f.b.x.e.c.b<T> bVar, int i, o<? super T> oVar) {
         this.parent = bVar;
         this.index = i;
         this.actual = oVar;
@@ -23,7 +23,7 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.won) {
             this.actual.onComplete();
@@ -33,7 +33,7 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.won) {
             this.actual.onError(th);
@@ -45,7 +45,7 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.won) {
             this.actual.onNext(t);
@@ -57,7 +57,7 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }

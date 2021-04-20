@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SendAuth {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public static final int LENGTH_LIMIT = 1024;
         public static final String TAG = "MicroMsg.SDK.SendAuth.Req";
@@ -58,7 +58,7 @@ public final class SendAuth {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public static final int LENGTH_LIMIT = 1024;
         public static final String TAG = "MicroMsg.SDK.SendAuth.Resp";

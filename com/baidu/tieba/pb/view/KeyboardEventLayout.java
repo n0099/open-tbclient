@@ -3,33 +3,33 @@ package com.baidu.tieba.pb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class KeyboardEventLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20124e;
+    public int f19816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f20125f;
+    public a f19817f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
     }
 
     public KeyboardEventLayout(Context context) {
         super(context);
-        this.f20124e = 0;
-        this.f20125f = null;
+        this.f19816e = 0;
+        this.f19817f = null;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         a aVar;
         super.onSizeChanged(i, i2, i3, i4);
-        int max = Math.max(Math.max(i4, i2), this.f20124e);
-        this.f20124e = max;
-        if (i4 == 0 || (aVar = this.f20125f) == null) {
+        int max = Math.max(Math.max(i4, i2), this.f19816e);
+        this.f19816e = max;
+        if (i4 == 0 || (aVar = this.f19817f) == null) {
             return;
         }
         if (i4 > i2) {
@@ -41,18 +41,18 @@ public class KeyboardEventLayout extends RelativeLayout {
     }
 
     public void setOnKeyStateChangedListener(a aVar) {
-        this.f20125f = aVar;
+        this.f19817f = aVar;
     }
 
     public KeyboardEventLayout(Context context, AttributeSet attributeSet) {
         super(context);
-        this.f20124e = 0;
-        this.f20125f = null;
+        this.f19816e = 0;
+        this.f19817f = null;
     }
 
     public KeyboardEventLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20124e = 0;
-        this.f20125f = null;
+        this.f19816e = 0;
+        this.f19817f = null;
     }
 }

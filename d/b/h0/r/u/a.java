@@ -35,12 +35,12 @@ public class a {
     }
 
     public static float a(int i) {
-        return d.b.b.e.m.b.c(z(i), 0.0f);
+        return d.b.c.e.m.b.c(z(i), 0.0f);
     }
 
     public static Drawable b(Drawable drawable, int i) {
         b bVar = (b) c(drawable).clone();
-        bVar.x(a(i));
+        bVar.A(a(i));
         return bVar;
     }
 
@@ -48,7 +48,7 @@ public class a {
         if (drawable instanceof b) {
             return (b) drawable;
         }
-        return b.v();
+        return b.y();
     }
 
     public static b d(View view) {
@@ -56,18 +56,18 @@ public class a {
         if (background instanceof b) {
             return (b) background;
         }
-        return b.v();
+        return b.y();
     }
 
     public static Drawable e(Drawable drawable, int i) {
         b bVar = (b) c(drawable).clone();
-        bVar.A(g(i));
+        bVar.E(g(i));
         return bVar;
     }
 
     public static Drawable f(Drawable drawable, int i) {
         b bVar = (b) c(drawable).clone();
-        bVar.B(l(i));
+        bVar.F(l(i));
         return bVar;
     }
 
@@ -77,7 +77,7 @@ public class a {
 
     public static Drawable h(Drawable drawable, int i) {
         b bVar = (b) c(drawable).clone();
-        bVar.y(g(i));
+        bVar.B(g(i));
         return bVar;
     }
 
@@ -87,13 +87,13 @@ public class a {
 
     public static Drawable j(Drawable drawable, int i) {
         b bVar = (b) c(drawable).clone();
-        bVar.L(v(z(i).split(",")));
+        bVar.P(v(z(i).split(",")));
         return bVar;
     }
 
     public static Drawable k(Drawable drawable, int i) {
         b bVar = (b) c(drawable).clone();
-        bVar.C(i);
+        bVar.G(i);
         return bVar;
     }
 
@@ -108,7 +108,7 @@ public class a {
     public static Drawable n(Drawable drawable, int[] iArr) {
         b bVar = (b) c(drawable).clone();
         o(iArr);
-        bVar.z(iArr);
+        bVar.C(iArr);
         return bVar;
     }
 
@@ -138,9 +138,9 @@ public class a {
         String[] split2 = strArr[1].split(",");
         String str = strArr[2];
         b bVar = (b) c(drawable).clone();
-        bVar.z(p(split));
-        bVar.G(s(split2));
-        bVar.D(str);
+        bVar.C(p(split));
+        bVar.K(s(split2));
+        bVar.H(str);
         return bVar;
     }
 
@@ -148,7 +148,7 @@ public class a {
         int min = Math.min(strArr.length, 4);
         float[] fArr = new float[min];
         for (int i = 0; i < min; i++) {
-            fArr[i] = d.b.b.e.m.b.c(strArr[i], 0.0f);
+            fArr[i] = d.b.c.e.m.b.c(strArr[i], 0.0f);
         }
         return fArr;
     }
@@ -192,10 +192,10 @@ public class a {
     public static Drawable w(View view, Drawable drawable, String[] strArr) {
         String[] split = strArr[2].split(",");
         b bVar = (b) c(drawable).clone();
-        bVar.H(i(strArr[0]));
-        bVar.I(m(strArr[1]));
-        bVar.E(m(split[0]));
-        bVar.F(m(split[1]));
+        bVar.L(i(strArr[0]));
+        bVar.M(m(strArr[1]));
+        bVar.I(m(split[0]));
+        bVar.J(m(split[1]));
         return bVar.n(view);
     }
 
@@ -209,13 +209,15 @@ public class a {
         return fArr;
     }
 
-    public static Drawable y(Drawable drawable, int i, int i2) {
+    public static Drawable y(Drawable drawable, int i, int i2, int i3) {
         b c2 = c(drawable);
-        c2.w();
-        GradientDrawable l = c2.l();
+        c2.z();
+        GradientDrawable l = c2.l(i3);
         l.setColor(g(i));
-        GradientDrawable l2 = c2.l();
+        l.setStroke((int) c2.t(), d.b.i0.d3.c.a(c2.s(), c2.r()));
+        GradientDrawable l2 = c2.l(i3);
         l2.setColor(g(i2));
+        l2.setStroke((int) c2.t(), d.b.i0.d3.c.a(c2.s(), SkinManager.RESOURCE_ALPHA_PRESS * c2.r()));
         StateListDrawable stateListDrawable = new StateListDrawable();
         stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
         stateListDrawable.addState(new int[]{16842910, 16842908}, l2);

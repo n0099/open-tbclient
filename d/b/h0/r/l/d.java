@@ -45,20 +45,20 @@ public class d {
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
-                jSONArray.put(d.b.b.e.p.c.j(c(publicKey, bytes)));
+                jSONArray.put(d.b.c.e.p.c.j(c(publicKey, bytes)));
             } else if (i != length - 1) {
                 byte[] bArr = new byte[116];
                 System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                jSONArray.put(d.b.b.e.p.c.j(c(publicKey, bArr)));
+                jSONArray.put(d.b.c.e.p.c.j(c(publicKey, bArr)));
             } else {
                 int i2 = i * 116;
                 int length2 = bytes.length - i2;
                 byte[] bArr2 = new byte[length2];
                 System.arraycopy(bytes, i2, bArr2, 0, length2);
-                jSONArray.put(d.b.b.e.p.c.j(c(publicKey, bArr2)));
+                jSONArray.put(d.b.c.e.p.c.j(c(publicKey, bArr2)));
             }
         }
-        return d.b.b.e.p.c.j(jSONArray.toString().getBytes("UTF-8"));
+        return d.b.c.e.p.c.j(jSONArray.toString().getBytes("UTF-8"));
     }
 
     public final byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {

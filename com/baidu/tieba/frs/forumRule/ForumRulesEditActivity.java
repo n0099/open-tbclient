@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel;
 import com.baidu.tieba.view.BdTopToast;
-import d.b.i0.p0.q1.b.b;
-import d.b.i0.p0.q1.f.a;
+import d.b.i0.q0.q1.b.b;
+import d.b.i0.q0.q1.f.a;
 /* loaded from: classes4.dex */
 public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements b {
     public String bawuHead;
@@ -52,7 +52,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         super.closeAnimation();
     }
 
-    @Override // d.b.i0.p0.q1.b.b
+    @Override // d.b.i0.q0.q1.b.b
     public void commitCallback(int i, String str, boolean z) {
         if (i == 0) {
             Intent intent = getIntent();
@@ -74,7 +74,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
-    @Override // d.b.i0.p0.q1.b.b
+    @Override // d.b.i0.q0.q1.b.b
     public void commitData(ForumRuleBaseData forumRuleBaseData, boolean z) {
         if (TextUtils.isEmpty(this.mForumId)) {
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
@@ -86,7 +86,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         this.mModel.v(this.mForumId, forumRuleBaseData, z);
     }
 
-    @Override // d.b.i0.p0.q1.b.b
+    @Override // d.b.i0.q0.q1.b.b
     public void draftCallback(int i, ForumRuleBaseData forumRuleBaseData, String str) {
         if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS.equals(this.mfrom) && forumRuleBaseData == null) {
             this.mView.p();

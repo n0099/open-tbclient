@@ -30,7 +30,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
     public View B;
     public View.OnClickListener C;
     public LikeModel D;
-    public List<d.b.i0.a1.b.c> E;
+    public List<d.b.i0.b1.b.c> E;
     public String F;
     public String G;
     public String H;
@@ -39,17 +39,17 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
     public CustomMessageListener K;
     public CustomMessageListener L;
     public HListView x;
-    public d.b.i0.a1.b.b y;
+    public d.b.i0.b1.b.b y;
     public CardExtendForumItemHolder z;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.b.a.e {
+    public class a extends d.b.c.a.e {
         public a() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
-            if ((obj instanceof d.b.i0.c3.w) && i.this.D.getErrorCode() == 0) {
+            if ((obj instanceof d.b.i0.d3.w) && i.this.D.getErrorCode() == 0) {
                 return;
             }
             if (AntiHelper.m(i.this.D.getErrorCode(), i.this.D.getErrorString())) {
@@ -104,7 +104,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
                     if (ViewHelper.checkUpIsLogin(i.this.m().getContext())) {
                         String str = (String) view.getTag(R.id.tag_forum_name);
                         String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
-                        if (d.b.b.e.p.k.isForumName(str)) {
+                        if (d.b.c.e.p.k.isForumName(str)) {
                             i.this.D.H(str, valueOf);
                             TiebaStatic.log(new StatisticItem(i.this.F).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                         }
@@ -112,7 +112,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
                 } else if (view.getTag(R.id.tag_forum_name) != null) {
                     String str2 = (String) view.getTag(R.id.tag_forum_name);
                     String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
-                    if (d.b.b.e.p.k.isForumName(str2)) {
+                    if (d.b.c.e.p.k.isForumName(str2)) {
                         if (view.getId() == R.id.m_forum_name_textview) {
                             TiebaStatic.log(new StatisticItem(i.this.H).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                         } else {
@@ -150,7 +150,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
             for (int i = 0; i < 10; i++) {
                 arrayList.add(String.valueOf(i));
             }
-            d.b.i0.a1.b.b bVar = new d.b.i0.a1.b.b(b(), R.layout.extend_forum_item, this.z);
+            d.b.i0.b1.b.b bVar = new d.b.i0.b1.b.b(b(), R.layout.extend_forum_item, this.z);
             this.y = bVar;
             bVar.d(this.C);
             this.x.setAdapter((ListAdapter) this.y);
@@ -164,10 +164,10 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
 
     public final d.b.i0.x.e0.g J(String str) {
         if (ListUtils.getCount(this.E) > 0) {
-            for (d.b.i0.a1.b.c cVar : this.E) {
+            for (d.b.i0.b1.b.c cVar : this.E) {
                 if (cVar != null && (cVar instanceof d.b.i0.x.e0.g)) {
                     d.b.i0.x.e0.g gVar = (d.b.i0.x.e0.g) cVar;
-                    if (String.valueOf(gVar.f62208d).equals(str)) {
+                    if (String.valueOf(gVar.f63783d).equals(str)) {
                         return gVar;
                     }
                 }
@@ -181,25 +181,25 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
         this.C = new d();
     }
 
-    public final boolean L(List<d.b.i0.a1.b.c> list, List<d.b.i0.a1.b.c> list2) {
+    public final boolean L(List<d.b.i0.b1.b.c> list, List<d.b.i0.b1.b.c> list2) {
         int i;
         if (ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0 || ListUtils.getCount(list) != ListUtils.getCount(list2)) {
             return false;
         }
         boolean z = true;
         while (i < ListUtils.getCount(list)) {
-            d.b.i0.a1.b.c cVar = (d.b.i0.a1.b.c) ListUtils.getItem(list, i);
-            d.b.i0.a1.b.c cVar2 = (d.b.i0.a1.b.c) ListUtils.getItem(list2, i);
+            d.b.i0.b1.b.c cVar = (d.b.i0.b1.b.c) ListUtils.getItem(list, i);
+            d.b.i0.b1.b.c cVar2 = (d.b.i0.b1.b.c) ListUtils.getItem(list2, i);
             if (cVar != null && (cVar instanceof d.b.i0.x.e0.g) && cVar2 != null && (cVar2 instanceof d.b.i0.x.e0.g)) {
                 d.b.i0.x.e0.g gVar = (d.b.i0.x.e0.g) cVar;
                 d.b.i0.x.e0.g gVar2 = (d.b.i0.x.e0.g) cVar2;
-                if (gVar.f62208d != gVar2.f62208d) {
+                if (gVar.f63783d != gVar2.f63783d) {
                     z = false;
                 }
-                if (!gVar.f62206b.equals(gVar2.f62206b)) {
+                if (!gVar.f63781b.equals(gVar2.f63781b)) {
                     z = false;
                 }
-                i = gVar.f62207c.equals(gVar2.f62207c) ? i + 1 : 0;
+                i = gVar.f63782c.equals(gVar2.f63782c) ? i + 1 : 0;
             }
             z = false;
         }
@@ -230,14 +230,14 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
                 return;
             }
             m().setVisibility(0);
-            d.b.i0.a1.b.b bVar = this.y;
+            d.b.i0.b1.b.b bVar = this.y;
             if (bVar != null) {
                 if (z) {
                     ArrayList arrayList2 = new ArrayList();
                     for (int i = 0; i < this.E.size(); i++) {
                         arrayList2.add(String.valueOf(i));
                     }
-                    d.b.i0.a1.b.b bVar2 = new d.b.i0.a1.b.b(b(), R.layout.extend_forum_item, this.z);
+                    d.b.i0.b1.b.b bVar2 = new d.b.i0.b1.b.b(b(), R.layout.extend_forum_item, this.z);
                     this.y = bVar2;
                     bVar2.c(this.E);
                     this.y.d(this.C);
@@ -274,9 +274,9 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
     public final void Q(long j, boolean z) {
         d.b.i0.x.e0.g J = J(String.valueOf(j));
         if (J != null) {
-            J.f62209e = z;
+            J.f63784e = z;
         }
-        d.b.i0.a1.b.b bVar = this.y;
+        d.b.i0.b1.b.b bVar = this.y;
         if (bVar != null) {
             bVar.c(this.E);
             this.y.notifyDataSetChanged();
@@ -285,7 +285,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
 
     @Override // d.b.i0.x.c, d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        d.b.i0.a1.b.b bVar;
+        d.b.i0.b1.b.b bVar;
         super.o(tbPageContext, i);
         if (this.x == null || (bVar = this.y) == null) {
             return;

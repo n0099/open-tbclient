@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.tbadk.core.util.AbstractImageProvider;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */

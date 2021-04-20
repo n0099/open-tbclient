@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.parallel;
 
-import f.a.g;
-import f.a.x.c.e;
+import f.b.g;
+import f.b.x.c.e;
 import g.d.d;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -50,7 +50,7 @@ public final class ParallelJoin$JoinInnerSubscriber<T> extends AtomicReference<d
         this.parent.onNext(this, t);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(this.prefetch);

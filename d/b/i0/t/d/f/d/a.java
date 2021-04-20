@@ -16,36 +16,36 @@ import d.b.i0.t.d.f.c.h;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f60553a;
+    public b f62117a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60555c;
+    public boolean f62119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f60556d = new C1552a(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
+    public HttpMessageListener f62120d = new C1605a(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f60554b = BdUniqueId.gen();
+    public BdUniqueId f62118b = BdUniqueId.gen();
 
     /* renamed from: d.b.i0.t.d.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1552a extends HttpMessageListener {
-        public C1552a(int i) {
+    public class C1605a extends HttpMessageListener {
+        public C1605a(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            a.this.f60555c = false;
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.f60554b) {
+            a.this.f62119c = false;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.f62118b) {
                 SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                 if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
-                    if (a.this.f60553a != null) {
-                        a.this.f60553a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.f62117a != null) {
+                        a.this.f62117a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (a.this.f60553a != null) {
-                    a.this.f60553a.b(specialLiveResponseMessage.getData());
+                } else if (a.this.f62117a != null) {
+                    a.this.f62117a.b(specialLiveResponseMessage.getData());
                 }
             }
         }
@@ -59,32 +59,32 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, b bVar) {
-        this.f60553a = bVar;
+        this.f62117a = bVar;
         h();
         g();
     }
 
     public boolean d() {
-        return this.f60555c;
+        return this.f62119c;
     }
 
     public void e() {
-        if (this.f60555c) {
+        if (this.f62119c) {
             return;
         }
-        this.f60555c = true;
+        this.f62119c = true;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        httpMessage.setTag(this.f60554b);
+        httpMessage.setTag(this.f62118b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void f() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        MessageManager.getInstance().unRegisterListener(this.f60556d);
+        MessageManager.getInstance().unRegisterListener(this.f62120d);
     }
 
     public final void g() {
-        MessageManager.getInstance().registerListener(this.f60556d);
+        MessageManager.getInstance().registerListener(this.f62120d);
     }
 
     public final void h() {

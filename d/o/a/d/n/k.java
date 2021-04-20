@@ -16,6 +16,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -28,14 +29,14 @@ import java.io.StringWriter;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object[] f66786a = new Object[0];
+    public static Object[] f67779a = new Object[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f66787b = new Object[73];
+    public static Object[] f67780b = new Object[73];
 
     public static String A(Throwable th) {
         if (th == null) {
@@ -204,7 +205,7 @@ public class k {
         }
         launchIntentForPackage.setPackage(null);
         launchIntentForPackage.addFlags(2097152);
-        launchIntentForPackage.addFlags(268435456);
+        launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         return launchIntentForPackage;
     }
 
@@ -377,10 +378,10 @@ public class k {
             PackageInfo packageInfo = n.a().getPackageManager().getPackageInfo(str, 0);
             if (packageInfo != null) {
                 dVar.d(packageInfo.versionCode);
-                dVar.a(c.d.f66530d);
+                dVar.a(c.d.f67523d);
                 o r = n.r();
                 if (r != null && r.a() && !t(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                    dVar.a(c.d.f66531e);
+                    dVar.a(c.d.f67524e);
                 }
             }
         } catch (Exception unused) {

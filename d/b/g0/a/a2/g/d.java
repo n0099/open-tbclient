@@ -3,11 +3,11 @@ package d.b.g0.a.a2.g;
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import d.b.g0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class d extends ProviderDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43269a = k.f45051a;
+    public static final boolean f43661a = k.f45443a;
 
     public abstract Bundle a(c cVar);
 

@@ -1,18 +1,171 @@
 package d.b.o.a;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import com.baidu.crashpad.ZeusLogUploader;
-import com.baidu.crashpad.ZwCrashpad;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
-import java.io.File;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.LongSparseArray;
+import androidx.annotation.NonNull;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.flutter.cyberplayer.CyberRemotePlayerService;
+import d.b.o.a.c;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
+import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.view.TextureRegistry;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class a {
-    public static void a() {
-        ZwCrashpad.setEnabled(true);
-        File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
-        Context appContext = AppRuntime.getAppContext();
-        ZwCrashpad.doInit(appContext, new String[]{"0", "0", "0", "0", "0", "0", "0", "true", appContext.getFilesDir().getAbsolutePath(), "0.0.0.0", appContext.getApplicationInfo().nativeLibraryDir, appContext.getApplicationInfo().nativeLibraryDir, processCrashpadDir.getAbsolutePath()});
-        ZeusLogUploader.setEnabled(false);
+public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
+
+    /* renamed from: e  reason: collision with root package name */
+    public MethodChannel f64872e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f64873f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f64874g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LongSparseArray<d.b.o.a.c> f64875h;
+    public final BroadcastReceiver i = new c();
+
+    /* renamed from: d.b.o.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class C1750a implements c.a {
+        public C1750a() {
+        }
+
+        @Override // d.b.o.a.c.a
+        public void a(long j) {
+            a.this.f64875h.delete(j);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements CyberPlayerManager.OnDeleteListener {
+        public b() {
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnDeleteListener
+        public void onDeleteComplete(int i, long j) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("result", Integer.valueOf(i));
+            hashMap.put("freeSpaceSize", Long.valueOf(j));
+            a.this.f64872e.invokeMethod("onDeleteComplete", hashMap);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c extends BroadcastReceiver {
+        public c() {
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("android.intent.action.HEADSET_PLUG") && intent.hasExtra("state")) {
+                int intExtra = intent.getIntExtra("state", 0);
+                boolean z = true;
+                z = (intExtra == 0 || intExtra != 1) ? false : false;
+                for (int i = 0; i < a.this.f64875h.size(); i++) {
+                    d.b.o.a.c valueAt = a.this.f64875h.valueAt(i);
+                    if (valueAt != null) {
+                        valueAt.b(z);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static final class d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final Context f64878a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final BinaryMessenger f64879b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final TextureRegistry f64880c;
+
+        public d(Context context, BinaryMessenger binaryMessenger, TextureRegistry textureRegistry) {
+            this.f64878a = context;
+            this.f64879b = binaryMessenger;
+            this.f64880c = textureRegistry;
+        }
+    }
+
+    public void b(String str, int i, HashMap hashMap, String str2) {
+        if (CyberPlayerManager.isCoreLoaded(1)) {
+            return;
+        }
+        try {
+            CyberPlayerManager.install(this.f64873f, str, str2, i, CyberRemotePlayerService.class, hashMap, null);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void c(String str, int i) {
+        CyberPlayerManager.prefetch(str, null, null, i, null);
+    }
+
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        this.f64874g = new d(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getTextureRegistry());
+        MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "cyberplayer");
+        this.f64872e = methodChannel;
+        methodChannel.setMethodCallHandler(this);
+        this.f64873f = flutterPluginBinding.getApplicationContext();
+        this.f64875h = new LongSparseArray<>();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.HEADSET_PLUG");
+        this.f64873f.registerReceiver(this.i, intentFilter);
+    }
+
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        this.f64872e.setMethodCallHandler(null);
+        this.f64873f.unregisterReceiver(this.i);
+        for (int i = 0; i < this.f64875h.size(); i++) {
+            d.b.o.a.c valueAt = this.f64875h.valueAt(i);
+            if (valueAt != null) {
+                valueAt.a();
+            }
+        }
+    }
+
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
+    public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+        if (methodCall.method.equals("create")) {
+            String str = (String) methodCall.argument("url");
+            boolean booleanValue = ((Boolean) methodCall.argument("isLoop")).booleanValue();
+            String str2 = (String) methodCall.argument("clarityInfo");
+            int intValue = ((Integer) methodCall.argument("switchMediaSource")).intValue();
+            HashMap hashMap = (HashMap) methodCall.argument("options");
+            TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.f64874g.f64880c.createSurfaceTexture();
+            d.b.o.a.c cVar = new d.b.o.a.c(this.f64874g.f64878a, this.f64874g.f64879b, createSurfaceTexture, hashMap, str, str2, intValue, booleanValue);
+            cVar.e(new C1750a());
+            this.f64875h.put(createSurfaceTexture.id(), cVar);
+            result.success(Long.valueOf(createSurfaceTexture.id()));
+        } else if (methodCall.method.equals("init")) {
+            HashMap hashMap2 = (HashMap) methodCall.arguments;
+            b((String) hashMap2.get("clientId"), ((Integer) hashMap2.get("installType")).intValue(), (HashMap) hashMap2.get("opt"), (String) hashMap2.get("downloadCoreServer"));
+        } else if (methodCall.method.equals("startPreload")) {
+            HashMap hashMap3 = (HashMap) methodCall.arguments;
+            c((String) hashMap3.get("url"), ((Integer) hashMap3.get("length")).intValue());
+        } else if (methodCall.method.equals("stopPreload")) {
+            CyberPlayerManager.stopPrefetch((String) methodCall.arguments);
+        } else if (methodCall.method.equals("hasCacheFile")) {
+            CyberPlayerManager.hasCacheFile((String) methodCall.arguments);
+        } else if (methodCall.method.equals("deleteVideoCache")) {
+            CyberPlayerManager.deleteVideoCache(new b());
+        } else if (methodCall.method.equals("getDevicePlayQualityScore")) {
+            CyberPlayerManager.getDevicePlayQualityScore((String) methodCall.argument("mimeType"), ((Integer) methodCall.argument("decodeMode")).intValue(), ((Integer) methodCall.argument("width")).intValue(), ((Integer) methodCall.argument("height")).intValue(), (HashMap) methodCall.argument("options"));
+        } else {
+            result.notImplemented();
+        }
     }
 }

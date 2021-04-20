@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import d.b.h0.z0.c;
 import d.b.h0.z0.w;
-import d.b.i0.r2.b0.b;
-import d.b.i0.z0.b.d;
+import d.b.i0.a1.b.d;
+import d.b.i0.s2.f0.b;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public c adInfo;
     public String pageTag;
@@ -28,7 +28,7 @@ public class ConcernPageRequestMessage extends NetMessage {
         String d2 = isEmpty ? "" : b.f().d("CONCERN");
         c cVar = this.adInfo;
         if (cVar != null && !isEmpty) {
-            str = cVar.f51658b;
+            str = cVar.f52076b;
         }
         AdExtParam.a b2 = AdExtParam.a.b();
         b2.g(e2);
@@ -50,9 +50,9 @@ public class ConcernPageRequestMessage extends NetMessage {
                     builder.page_tag = d.w();
                 }
             }
-            builder.last_req_unix = Long.valueOf(d.b.h0.r.d0.b.i().k(d.b.h0.r.d0.b.m("concern_data_res_request_time"), 0L));
+            builder.last_req_unix = Long.valueOf(d.b.h0.r.d0.b.j().l(d.b.h0.r.d0.b.n("concern_data_res_request_time"), 0L));
             int i = 1;
-            builder.follow_type = Integer.valueOf(d.b.h0.b.d.h() ? d.b.h0.r.d0.b.i().j("key_home_concern_all_status", 0) : 1);
+            builder.follow_type = Integer.valueOf(d.b.h0.b.d.h() ? d.b.h0.r.d0.b.j().k("key_home_concern_all_status", 0) : 1);
             if (z) {
                 w.a(builder, true);
             }

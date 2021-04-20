@@ -8,10 +8,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import d.o.a.e.b.d.c;
 import d.o.a.e.b.g.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends Fragment {
     public static Intent d() {
         return new Intent("android.settings.APPLICATION_SETTINGS");
@@ -62,9 +61,9 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(c.f66955c)) {
+            if (lowerCase.contains(c.f67948c)) {
                 Intent intent = new Intent();
-                intent.putExtra(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, packageName);
+                intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
                 return intent;
             } else if (lowerCase.contains(RomUtils.MANUFACTURER_VIVO)) {
@@ -78,7 +77,7 @@ public class a extends Fragment {
                 return intent2;
             } else if (lowerCase.contains(RomUtils.MANUFACTURER_MEIZU) && Build.VERSION.SDK_INT < 25) {
                 Intent intent3 = new Intent("com.meizu.safe.security.SHOW_APPSEC");
-                intent3.putExtra(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, packageName);
+                intent3.putExtra("packageName", packageName);
                 intent3.setComponent(new ComponentName("com.meizu.safe", "com.meizu.safe.security.AppSecActivity"));
                 return intent3;
             }

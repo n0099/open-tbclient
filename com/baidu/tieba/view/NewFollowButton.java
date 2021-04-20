@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import d.b.b.a.e;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
-import d.b.i0.c3.f0;
+import d.b.c.a.e;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
+import d.b.i0.d3.f0;
 /* loaded from: classes5.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public int A;
@@ -48,15 +48,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f22139a;
+        public final /* synthetic */ boolean f21824a;
 
         public a(boolean z) {
-            this.f22139a = z;
+            this.f21824a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            NewFollowButton.this.E(this.f22139a);
+            NewFollowButton.this.E(this.f21824a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -73,7 +73,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public b() {
         }
 
-        @Override // d.b.i0.c3.f0.a
+        @Override // d.b.i0.d3.f0.a
         public void a(String str, long j) {
             if (NewFollowButton.this.y != null) {
                 NewFollowButton.this.y.a(str, j);
@@ -81,7 +81,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             NewFollowButton.this.M = false;
         }
 
-        @Override // d.b.i0.c3.f0.a
+        @Override // d.b.i0.d3.f0.a
         public void b(String str, long j) {
             NewFollowButton newFollowButton = NewFollowButton.this;
             newFollowButton.F(false, newFollowButton.E);
@@ -91,7 +91,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             NewFollowButton.this.M = false;
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             if (NewFollowButton.this.J.getErrorCode() == 22) {
                 l.L(NewFollowButton.this.u.getPageActivity(), NewFollowButton.this.u.getString(R.string.had_liked_forum));

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import d.b.b.e.o.a;
+import d.b.c.e.o.a;
 /* loaded from: classes3.dex */
 public class SyncSwitch {
     public static void initSyncSwitch() {

@@ -13,10 +13,10 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f45428a;
+    public static a f45820a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f45429b = new c();
+    public static final c f45821b = new c();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -29,7 +29,7 @@ public final class c {
     public static final class b<MsgType> implements d.b.g0.a.i2.u0.b<h<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f45430e = new b();
+        public static final b f45822e = new b();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
@@ -37,13 +37,13 @@ public final class c {
         public final void onCallback(h<JSONObject> it) {
             Intrinsics.checkExpressionValueIsNotNull(it, "it");
             if (it.c()) {
-                JSONObject jSONObject = it.f46808a;
+                JSONObject jSONObject = it.f47200a;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a b2 = c.f45429b.b();
+                a b2 = c.f45821b.b();
                 if (optJSONObject != null) {
                     String openId = optJSONObject.optString("openid");
                     if (b2 == null || !ProcessUtils.isMainProcess()) {
-                        c.f45429b.c(null, openId);
+                        c.f45821b.c(null, openId);
                         return;
                     }
                     Intrinsics.checkExpressionValueIsNotNull(openId, "openId");
@@ -60,10 +60,10 @@ public final class c {
 
     /* renamed from: d.b.g0.a.o1.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0751c<MsgType> implements d.b.g0.a.i2.u0.b<h<JSONObject>> {
+    public static final class C0763c<MsgType> implements d.b.g0.a.i2.u0.b<h<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final C0751c f45431e = new C0751c();
+        public static final C0763c f45823e = new C0763c();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
@@ -71,13 +71,13 @@ public final class c {
         public final void onCallback(h<JSONObject> it) {
             Intrinsics.checkExpressionValueIsNotNull(it, "it");
             if (it.c()) {
-                JSONObject jSONObject = it.f46808a;
+                JSONObject jSONObject = it.f47200a;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a b2 = c.f45429b.b();
+                a b2 = c.f45821b.b();
                 if (optJSONObject != null) {
                     String swanId = optJSONObject.optString("swanid");
                     if (b2 == null || !ProcessUtils.isMainProcess()) {
-                        c.f45429b.c(swanId, null);
+                        c.f45821b.c(swanId, null);
                         return;
                     }
                     Intrinsics.checkExpressionValueIsNotNull(swanId, "swanId");
@@ -93,7 +93,7 @@ public final class c {
     }
 
     public final a b() {
-        return f45428a;
+        return f45820a;
     }
 
     public final void c(String str, String str2) {
@@ -120,7 +120,7 @@ public final class c {
         d.b.g0.a.p.a o = e2.o();
         Intrinsics.checkExpressionValueIsNotNull(o, "Swan.get().adaptationProducer");
         d.b.g0.a.v1.c.i.d f2 = o.a().a().f(d.e());
-        f2.p(b.f45430e);
+        f2.p(b.f45822e);
         f2.a();
     }
 
@@ -130,7 +130,7 @@ public final class c {
         d.b.g0.a.p.a o = e2.o();
         Intrinsics.checkExpressionValueIsNotNull(o, "Swan.get().adaptationProducer");
         e d2 = o.a().a().d(d.e());
-        d2.p(C0751c.f45431e);
+        d2.p(C0763c.f45823e);
         d2.a();
     }
 }

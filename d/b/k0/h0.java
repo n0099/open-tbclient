@@ -14,80 +14,80 @@ public class h0 {
     public static final boolean j = AppConfig.isDebug();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63951g = false;
+    public boolean f64651g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63952h = 0;
+    public int f64652h = 0;
     public int i = 614400;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f63945a = new JSONArray();
+    public JSONArray f64645a = new JSONArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Integer> f63946b = new SparseArray<>();
+    public SparseArray<Integer> f64646b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f63947c = new ArrayList<>();
+    public ArrayList<String> f64647c = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63948d = 0;
+    public long f64648d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63949e = 0;
+    public long f64649e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63950f = "0";
+    public String f64650f = "0";
 
     public final void a(JSONObject jSONObject) {
-        this.f63945a.put(jSONObject);
+        this.f64645a.put(jSONObject);
     }
 
     public boolean b(int i) {
-        return this.f63945a.toString().getBytes().length >= i;
+        return this.f64645a.toString().getBytes().length >= i;
     }
 
     public void c() {
-        this.f63946b.clear();
-        this.f63947c.clear();
-        this.f63945a = null;
+        this.f64646b.clear();
+        this.f64647c.clear();
+        this.f64645a = null;
     }
 
     public JSONArray d() {
-        return this.f63945a;
+        return this.f64645a;
     }
 
     public final ArrayList e() {
-        return this.f63947c;
+        return this.f64647c;
     }
 
     public final SparseArray<Integer> f() {
-        return this.f63946b;
+        return this.f64646b;
     }
 
     public long g() {
-        return this.f63949e;
+        return this.f64649e;
     }
 
     public long h() {
-        return this.f63948d;
+        return this.f64648d;
     }
 
     public JSONObject i() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.f63945a);
-            if (this.f63948d == 0 || this.f63949e == 0) {
-                this.f63948d = this.f63949e;
+            jSONObject.put("data", this.f64645a);
+            if (this.f64648d == 0 || this.f64649e == 0) {
+                this.f64648d = this.f64649e;
             }
-            jSONObject2.put("mintime", Long.toString(this.f63948d));
-            jSONObject2.put("maxtime", Long.toString(this.f63949e));
+            jSONObject2.put("mintime", Long.toString(this.f64648d));
+            jSONObject2.put("maxtime", Long.toString(this.f64649e));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put(PackageTable.MD5, f0.b(this.f63945a.toString().getBytes(), true));
+            jSONObject2.put(PackageTable.MD5, f0.b(this.f64645a.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.f63950f);
-            jSONObject.put(Constant.IS_REAL, this.f63951g ? "1" : "0");
+            jSONObject.put("isAbtest", this.f64650f);
+            jSONObject.put(Constant.IS_REAL, this.f64651g ? "1" : "0");
         } catch (JSONException unused) {
             if (j) {
                 Log.d("UBCUploadData", "json exception:");
@@ -97,51 +97,51 @@ public class h0 {
     }
 
     public boolean j() {
-        return this.f63945a.length() == 0;
+        return this.f64645a.length() == 0;
     }
 
     public boolean k() {
-        return this.f63952h >= this.i;
+        return this.f64652h >= this.i;
     }
 
     public boolean l() {
-        return this.f63951g;
+        return this.f64651g;
     }
 
     public void m(int i) {
         if (i <= 0) {
             return;
         }
-        this.f63952h += i;
+        this.f64652h += i;
     }
 
     public final void n(String str) {
-        if (this.f63947c.contains(str)) {
+        if (this.f64647c.contains(str)) {
             return;
         }
-        this.f63947c.add(str);
+        this.f64647c.add(str);
     }
 
     public final void o(int i, int i2) {
-        this.f63946b.put(i, Integer.valueOf(i2));
+        this.f64646b.put(i, Integer.valueOf(i2));
     }
 
     public final void p(long j2, long j3) {
-        long j4 = this.f63948d;
+        long j4 = this.f64648d;
         if ((j2 < j4 || j4 == 0) && j2 != 0) {
-            this.f63948d = j2;
+            this.f64648d = j2;
         }
-        if (j3 > this.f63949e) {
-            this.f63949e = j3;
+        if (j3 > this.f64649e) {
+            this.f64649e = j3;
         }
     }
 
     public void q(String str) {
-        this.f63950f = str;
+        this.f64650f = str;
     }
 
     public void r(boolean z) {
-        this.f63951g = z;
+        this.f64651g = z;
     }
 
     public void s(int i) {

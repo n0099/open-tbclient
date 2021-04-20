@@ -11,7 +11,7 @@ import android.text.TextUtils;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40954a;
+    public static String f41243a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f894a = {"com.mi.globalbrowser", "com.android.browser"};
@@ -21,7 +21,7 @@ public class ap {
             try {
                 return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m51a("get user aggregate failed, " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m55a("get user aggregate failed, " + e2);
             }
         }
         return 0;
@@ -61,7 +61,7 @@ public class ap {
         String str;
         int i = -1;
         while (true) {
-            str = i < 0 ? f40954a : f894a[i];
+            str = i < 0 ? f41243a : f894a[i];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -69,7 +69,7 @@ public class ap {
                         break;
                     }
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m51a("not found xm browser:" + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m55a("not found xm browser:" + e2);
                 }
             }
             i++;
@@ -79,7 +79,7 @@ public class ap {
             }
         }
         intent.setPackage(str);
-        f40954a = str;
+        f41243a = str;
     }
 
     public static boolean a(Notification.Builder builder, boolean z) {
@@ -92,7 +92,7 @@ public class ap {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m579a(ContentResolver contentResolver) {
+    public static boolean m583a(ContentResolver contentResolver) {
         int a2 = a(contentResolver);
         return a2 == 1 || a2 == 2;
     }

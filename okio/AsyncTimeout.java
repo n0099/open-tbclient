@@ -1,6 +1,5 @@
 package okio;
 
-import com.alipay.sdk.data.a;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -139,7 +138,7 @@ public class AsyncTimeout extends Timeout {
     }
 
     public IOException newTimeoutException(@Nullable IOException iOException) {
-        InterruptedIOException interruptedIOException = new InterruptedIOException(a.i);
+        InterruptedIOException interruptedIOException = new InterruptedIOException("timeout");
         if (iOException != null) {
             interruptedIOException.initCause(iOException);
         }

@@ -29,28 +29,28 @@ public class f {
     public static String L = "from_tb_token";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49575a = "com.baidu.tieba";
+    public static String f49967a = "com.baidu.tieba";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f49576b = "unidispatch";
+    public static String f49968b = "unidispatch";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f49577c = "/homepage";
+    public static String f49969c = "/homepage";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f49578d = "/enterforum";
+    public static String f49970d = "/enterforum";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f49579e = "/recommendforum";
+    public static String f49971e = "/recommendforum";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f49580f = "/frs";
+    public static String f49972f = "/frs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f49581g = "/pb";
+    public static String f49973g = "/pb";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f49582h = "/tbwebview";
+    public static String f49974h = "/tbwebview";
     public static String i = "/usercenter";
     public static String j = "/topicdetail";
     public static String k = "/tiebachushou";
@@ -79,15 +79,15 @@ public class f {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f49583a = new f();
+        public static final f f49975a = new f();
     }
 
     public static final f b() {
-        return c.f49583a;
+        return c.f49975a;
     }
 
     public static boolean c(Uri uri) {
-        return uri != null && f49575a.equals(uri.getScheme()) && f49576b.equals(uri.getHost());
+        return uri != null && f49967a.equals(uri.getScheme()) && f49968b.equals(uri.getHost());
     }
 
     public final void a(String str, Uri uri, String str2) {
@@ -105,7 +105,7 @@ public class f {
     }
 
     public void d(Uri uri, b bVar) {
-        if (uri != null && c(uri) && f49580f.equals(uri.getPath())) {
+        if (uri != null && c(uri) && f49972f.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = n;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -135,17 +135,17 @@ public class f {
         l(uri.getQueryParameter(x));
         a("", uri, queryParameter2);
         v.a(uri);
-        if (f49577c.equals(uri.getPath())) {
+        if (f49969c.equals(uri.getPath())) {
             hashMap.put(A, 2);
             String str = C;
             hashMap.put(str, uri.getQueryParameter(str));
             String str2 = D;
             hashMap.put(str2, uri.getQueryParameter(str2));
             hashMap.put(z, queryParameter4);
-        } else if (f49578d.equals(uri.getPath())) {
+        } else if (f49970d.equals(uri.getPath())) {
             hashMap.put(A, 1);
             hashMap.put(B, queryParameter4);
-        } else if (f49579e.equals(uri.getPath())) {
+        } else if (f49971e.equals(uri.getPath())) {
             hashMap.put(A, 1);
             hashMap.put(B, "1_recommend");
         } else if (l.equals(uri.getPath())) {
@@ -156,7 +156,7 @@ public class f {
     }
 
     public void f(Uri uri, b bVar) {
-        if (uri != null && c(uri) && f49581g.equals(uri.getPath())) {
+        if (uri != null && c(uri) && f49973g.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = o;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -209,7 +209,7 @@ public class f {
     }
 
     public void j(String str, Uri uri, b bVar) {
-        if (uri != null && c(uri) && f49582h.equals(uri.getPath())) {
+        if (uri != null && c(uri) && f49974h.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str2 = v;
             hashMap.put(str2, uri.getQueryParameter(str2));
@@ -226,7 +226,7 @@ public class f {
     public final void k(String str, String str2, String str3, Uri uri) {
         String str4;
         Activity currentActivity;
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         d.b.h0.a.b bVar = new d.b.h0.a.b(str);
@@ -235,8 +235,8 @@ public class f {
             return;
         }
         TbSingleton.getInstance().setInvokeSource(bVar.e());
-        d.b.b.e.n.f.f(String.valueOf(bVar.d()));
-        d.b.b.e.n.f.i(String.valueOf(bVar.q()));
+        d.b.c.e.n.f.f(String.valueOf(bVar.d()));
+        d.b.c.e.n.f.i(String.valueOf(bVar.q()));
         int i2 = StringHelper.equals(str2, L) ? 2 : 1;
         String str5 = "";
         if (uri != null) {

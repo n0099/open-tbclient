@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
@@ -24,7 +24,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public int mNormalShowCount;
     public int mPadding;
     public e mTbRecyclerListener;
-    public d.b.b.e.k.b<HeadImageView> mUserPhotoPool;
+    public d.b.c.e.k.b<HeadImageView> mUserPhotoPool;
 
     /* loaded from: classes3.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
@@ -45,18 +45,18 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements d.b.b.e.k.c<HeadImageView> {
+    public static class b implements d.b.c.e.k.c<HeadImageView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13569a;
+        public final /* synthetic */ Context f13230a;
 
         public b(Context context) {
-            this.f13569a = context;
+            this.f13230a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ HeadImageView a(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             e(headImageView2);
@@ -65,7 +65,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ HeadImageView c(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             h(headImageView2);
@@ -77,7 +77,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: f */
         public void b(HeadImageView headImageView) {
             headImageView.setBackgroundResource(0);
@@ -87,10 +87,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: g */
         public HeadImageView d() {
-            return new HeadImageView(this.f13569a);
+            return new HeadImageView(this.f13230a);
         }
 
         public HeadImageView h(HeadImageView headImageView) {
@@ -106,7 +106,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f13570e;
+        public final int f13231e;
 
         public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i, a aVar) {
             this(i);
@@ -115,12 +115,12 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.a(this.f13570e);
+                UserPhotoLayout.this.mChildClickListener.a(this.f13231e);
             }
         }
 
         public c(int i) {
-            this.f13570e = i;
+            this.f13231e = i;
         }
     }
 
@@ -133,16 +133,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public static class e implements AbsListView.RecyclerListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13572e;
+        public int f13233e;
 
         public e(int i) {
-            this.f13572e = 0;
-            this.f13572e = i;
+            this.f13233e = 0;
+            this.f13233e = i;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
-            View findViewById = view.findViewById(this.f13572e);
+            View findViewById = view.findViewById(this.f13233e);
             if (findViewById == null || !(findViewById instanceof UserPhotoLayout)) {
                 return;
             }
@@ -152,7 +152,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes3.dex */
     public interface f {
-        d.b.b.e.k.b<HeadImageView> a();
+        d.b.c.e.k.b<HeadImageView> a();
 
         int b();
 
@@ -163,12 +163,12 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this(context, null);
     }
 
-    public static d.b.b.e.k.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new d.b.b.e.k.b<>(new b(context), i, 0);
+    public static d.b.c.e.k.b<HeadImageView> createUserPhotoPool(Context context, int i) {
+        return new d.b.c.e.k.b<>(new b(context), i, 0);
     }
 
     private HeadImageView getImageView(Context context) {
-        d.b.b.e.k.b<HeadImageView> bVar = this.mUserPhotoPool;
+        d.b.c.e.k.b<HeadImageView> bVar = this.mUserPhotoPool;
         HeadImageView b2 = bVar != null ? bVar.b() : null;
         return (b2 == null || b2.getParent() != null) ? new HeadImageView(context) : b2;
     }

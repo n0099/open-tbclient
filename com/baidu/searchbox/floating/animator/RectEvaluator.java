@@ -13,7 +13,7 @@ public final class RectEvaluator implements TypeEvaluator<ViewRect> {
     public static final class ViewRect {
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f11593h;
+        public final int f11254h;
         public final int w;
         public final int x;
         public final int y;
@@ -22,11 +22,11 @@ public final class RectEvaluator implements TypeEvaluator<ViewRect> {
             this.x = i;
             this.y = i2;
             this.w = i3;
-            this.f11593h = i4;
+            this.f11254h = i4;
         }
 
         public final int getH() {
-            return this.f11593h;
+            return this.f11254h;
         }
 
         public final int getW() {

@@ -23,12 +23,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.plugin.ShadowLayout;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
 import d.b.h0.r.s.a;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public static final float M_BYTE = 1048576.0f;
     public static final int STATUS_FORBIDDEN = 2;
@@ -49,10 +49,10 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public int mStatus;
     public ShadowLayout mStatusContainer;
     public TextView mStatusText;
-    public d.b.b.h.j.d mDownLoadAndInstallCallback = new d();
+    public d.b.c.h.j.d mDownLoadAndInstallCallback = new d();
     public final CustomMessageListener mNetworkChangedMessageListener = new e(2000994);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -63,7 +63,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
         public b() {
         }
@@ -77,7 +77,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -88,12 +88,12 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements d.b.b.h.j.d {
+    /* loaded from: classes3.dex */
+    public class d implements d.b.c.h.j.d {
         public d() {
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
             if (i == 0) {
                 PluginDetailActivity pluginDetailActivity = PluginDetailActivity.this;
@@ -106,7 +106,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             PluginDetailActivity.this.setStatus();
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void b(BdFileDownloadData bdFileDownloadData) {
             if (bdFileDownloadData == null || PluginDetailActivity.this.mPluginConfig == null || !bdFileDownloadData.getId().equals(PluginDetailActivity.this.mPluginConfig.package_name) || PluginDetailActivity.this.mFinished) {
                 return;
@@ -120,7 +120,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             PluginDetailActivity.this.mDownloadProgressBar.setProgress((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void c(BdFileDownloadData bdFileDownloadData) {
             if (bdFileDownloadData == null || PluginDetailActivity.this.mPluginConfig == null || !bdFileDownloadData.getId().equals(PluginDetailActivity.this.mPluginConfig.package_name)) {
                 return;
@@ -130,7 +130,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             PluginDetailActivity.this.mFinished = true;
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void d(BdFileDownloadData bdFileDownloadData) {
             if (bdFileDownloadData == null || PluginDetailActivity.this.mPluginConfig == null || !bdFileDownloadData.getId().equals(PluginDetailActivity.this.mPluginConfig.package_name)) {
                 return;
@@ -141,7 +141,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -158,7 +158,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
 
     private int getDownloadPercent(PluginNetConfigInfos.PluginConfig pluginConfig) {
         PluginSetting h2;
-        if (pluginConfig == null || (h2 = d.b.b.h.j.g.d.k().h(pluginConfig.package_name)) == null) {
+        if (pluginConfig == null || (h2 = d.b.c.h.j.g.d.k().h(pluginConfig.package_name)) == null) {
             return 0;
         }
         String l = Util.l(h2);
@@ -324,8 +324,8 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         textView.setOnClickListener(this);
         this.mStatusContainer = (ShadowLayout) findViewById(R.id.plugin_status_container);
         this.mPluginName = getIntent().getStringExtra("name");
-        if (d.b.b.h.j.f.d.c().d() != null) {
-            this.mPluginConfig = d.b.b.h.j.f.d.c().d().getPluginConfig(this.mPluginName);
+        if (d.b.c.h.j.f.d.c().d() != null) {
+            this.mPluginConfig = d.b.c.h.j.f.d.c().d().getPluginConfig(this.mPluginName);
         }
         if (PluginPackageManager.O().Z(this.mPluginName)) {
             PluginPackageManager.O().u0(this.mDownLoadAndInstallCallback);

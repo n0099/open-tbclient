@@ -3,6 +3,7 @@ package com.win.opensdk.poseidon;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.alibaba.fastjson.asm.Label;
 import com.win.opensdk.activitys.H5Activity;
 import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
@@ -12,7 +13,7 @@ public class PoseidonH5Activity extends H5Activity {
         intent.putExtra("pid", str);
         intent.putExtra("id", info.getId());
         intent.putExtra("traceid", info.getTraceid());
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
     }
 

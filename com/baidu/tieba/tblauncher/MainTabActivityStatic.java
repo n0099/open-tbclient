@@ -29,17 +29,17 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
-import d.b.i0.u3.j;
+import d.b.i0.v3.j;
 import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class MainTabActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f21536a = 0;
+    public static int f21221a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f21537b = false;
+    public static boolean f21222b = false;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -83,7 +83,7 @@ public class MainTabActivityStatic {
                         if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
                             i = -1;
                         } else {
-                            int d2 = d.b.b.e.m.b.d(parse.getQueryParameter("subTabIndex"), 0);
+                            int d2 = d.b.c.e.m.b.d(parse.getQueryParameter("subTabIndex"), 0);
                             i = d2 == 2 ? 19 : d2 == 1 ? 18 : 17;
                             try {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(d2)));
@@ -254,11 +254,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f21536a && c2 == f21537b) {
+        if (b2 == f21221a && c2 == f21222b) {
             return;
         }
-        f21536a = b2;
-        f21537b = c2;
+        f21221a = b2;
+        f21222b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

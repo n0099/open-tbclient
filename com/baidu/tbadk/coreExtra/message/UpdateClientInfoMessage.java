@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;

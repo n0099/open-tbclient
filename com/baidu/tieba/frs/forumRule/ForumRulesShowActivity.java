@@ -18,22 +18,22 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel;
 import com.baidu.tieba.view.BdTopToast;
 import d.b.h0.b1.m.f;
-import d.b.i0.p0.q1.f.c;
+import d.b.i0.q0.q1.f.c;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
     public String mFrom;
     public ForumRulesShowModel mModel;
     public c mView;
-    public d.b.i0.p0.q1.b.a callback = new a();
+    public d.b.i0.q0.q1.b.a callback = new a();
     public CustomMessageListener richTextIntentClickListener = new b(2001332);
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.i0.p0.q1.b.a {
+    public class a implements d.b.i0.q0.q1.b.a {
         public a() {
         }
 
-        @Override // d.b.i0.p0.q1.b.a
+        @Override // d.b.i0.q0.q1.b.a
         public void a() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.m();
@@ -43,7 +43,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // d.b.i0.p0.q1.b.a
+        @Override // d.b.i0.q0.q1.b.a
         public void b(boolean z, String str) {
             if (ForumRulesShowActivity.this.mView == null) {
                 return;
@@ -55,35 +55,35 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // d.b.i0.p0.q1.b.a
-        public void c(d.b.i0.p0.q1.c.b bVar) {
+        @Override // d.b.i0.q0.q1.b.a
+        public void c(d.b.i0.q0.q1.c.b bVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.e(bVar);
             }
         }
 
-        @Override // d.b.i0.p0.q1.b.a
-        public void d(d.b.i0.p0.q1.c.a aVar) {
+        @Override // d.b.i0.q0.q1.b.a
+        public void d(d.b.i0.q0.q1.c.a aVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.f(aVar);
             }
         }
 
-        @Override // d.b.i0.p0.q1.b.a
-        public void e(List<d.b.i0.p0.q1.c.c> list) {
+        @Override // d.b.i0.q0.q1.b.a
+        public void e(List<d.b.i0.q0.q1.c.c> list) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.g(list);
             }
         }
 
-        @Override // d.b.i0.p0.q1.b.a
+        @Override // d.b.i0.q0.q1.b.a
         public void f(String str) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.h(str);
             }
         }
 
-        @Override // d.b.i0.p0.q1.b.a
+        @Override // d.b.i0.q0.q1.b.a
         public void finish() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity forumRulesShowActivity = ForumRulesShowActivity.this;
@@ -108,7 +108,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f49979a, aVar.f49980b, aVar.f49981c);
+            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f50372a, aVar.f50373b, aVar.f50374c);
         }
     }
 
@@ -130,11 +130,11 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         this.mModel.E(this.callback);
     }
 
-    public d.b.b.e.k.b<GifView> getGifViewPool() {
+    public d.b.c.e.k.b<GifView> getGifViewPool() {
         return null;
     }
 
-    public d.b.b.e.k.b<ImageView> getImageViewPool() {
+    public d.b.c.e.k.b<ImageView> getImageViewPool() {
         return null;
     }
 
@@ -142,7 +142,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return null;
     }
 
-    public d.b.b.e.k.b<RelativeLayout> getRelativeLayoutPool() {
+    public d.b.c.e.k.b<RelativeLayout> getRelativeLayoutPool() {
         return null;
     }
 
@@ -150,11 +150,11 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return 0;
     }
 
-    public d.b.b.e.k.b<TextView> getTextViewPool() {
+    public d.b.c.e.k.b<TextView> getTextViewPool() {
         return null;
     }
 
-    public d.b.b.e.k.b<LinearLayout> getTextVoiceViewPool() {
+    public d.b.c.e.k.b<LinearLayout> getTextVoiceViewPool() {
         return null;
     }
 
@@ -162,7 +162,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return this.mView;
     }
 
-    public d.b.b.e.k.b<View> getVoiceViewPool() {
+    public d.b.c.e.k.b<View> getVoiceViewPool() {
         return null;
     }
 

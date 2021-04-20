@@ -3,20 +3,20 @@ package com.kwad.sdk.crash.model;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34461a;
+    public String f34750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34462b;
+    public String f34751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34463c;
+    public int f34752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34464d;
+    public String f34753d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34465e;
+    public int f34754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34466f;
+    public int f34755f;
 }

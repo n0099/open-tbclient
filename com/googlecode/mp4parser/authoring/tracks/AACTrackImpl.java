@@ -48,28 +48,28 @@ public class AACTrackImpl extends AbstractTrack {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31034a;
+        public int f31323a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31035b;
+        public int f31324b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31036c;
+        public int f31325c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31037d;
+        public int f31326d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31038e;
+        public int f31327e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31039f;
+        public int f31328f;
 
         public a(AACTrackImpl aACTrackImpl) {
         }
 
         public int a() {
-            return (this.f31035b == 0 ? 2 : 0) + 7;
+            return (this.f31324b == 0 ? 2 : 0) + 7;
         }
     }
 
@@ -160,7 +160,7 @@ public class AACTrackImpl extends AbstractTrack {
         this.samples = new ArrayList();
         a readSamples = readSamples(dataSource);
         this.firstHeader = readSamples;
-        double d2 = readSamples.f31036c / 1024.0d;
+        double d2 = readSamples.f31325c / 1024.0d;
         double size = this.samples.size() / d2;
         LinkedList linkedList = new LinkedList();
         Iterator<Sample> it = this.samples.iterator();
@@ -191,13 +191,13 @@ public class AACTrackImpl extends AbstractTrack {
         this.bufferSizeDB = PureJavaCrc32C.T8_6_start;
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-        int i2 = this.firstHeader.f31037d;
+        int i2 = this.firstHeader.f31326d;
         if (i2 == 7) {
             audioSampleEntry.setChannelCount(8);
         } else {
             audioSampleEntry.setChannelCount(i2);
         }
-        audioSampleEntry.setSampleRate(this.firstHeader.f31036c);
+        audioSampleEntry.setSampleRate(this.firstHeader.f31325c);
         audioSampleEntry.setDataReferenceIndex(1);
         audioSampleEntry.setSampleSize(16);
         ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
@@ -214,8 +214,8 @@ public class AACTrackImpl extends AbstractTrack {
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
         AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
         audioSpecificConfig.setAudioObjectType(2);
-        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.f31034a);
-        audioSpecificConfig.setChannelConfiguration(this.firstHeader.f31037d);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.f31323a);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.f31326d);
         decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
         eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
         ByteBuffer serialize = eSDescriptor.serialize();
@@ -227,7 +227,7 @@ public class AACTrackImpl extends AbstractTrack {
         this.trackMetaData.setModificationTime(new Date());
         this.trackMetaData.setLanguage(this.lang);
         this.trackMetaData.setVolume(1.0f);
-        this.trackMetaData.setTimescale(this.firstHeader.f31036c);
+        this.trackMetaData.setTimescale(this.firstHeader.f31325c);
         long[] jArr = new long[this.samples.size()];
         this.decTimes = jArr;
         Arrays.fill(jArr, 1024L);
@@ -245,23 +245,23 @@ public class AACTrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(12) == 4095) {
             bitReaderBuffer.readBits(1);
             bitReaderBuffer.readBits(2);
-            aVar.f31035b = bitReaderBuffer.readBits(1);
+            aVar.f31324b = bitReaderBuffer.readBits(1);
             bitReaderBuffer.readBits(2);
             int readBits = bitReaderBuffer.readBits(4);
-            aVar.f31034a = readBits;
-            aVar.f31036c = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
+            aVar.f31323a = readBits;
+            aVar.f31325c = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
             bitReaderBuffer.readBits(1);
-            aVar.f31037d = bitReaderBuffer.readBits(3);
-            bitReaderBuffer.readBits(1);
-            bitReaderBuffer.readBits(1);
+            aVar.f31326d = bitReaderBuffer.readBits(3);
             bitReaderBuffer.readBits(1);
             bitReaderBuffer.readBits(1);
-            aVar.f31038e = bitReaderBuffer.readBits(13);
+            bitReaderBuffer.readBits(1);
+            bitReaderBuffer.readBits(1);
+            aVar.f31327e = bitReaderBuffer.readBits(13);
             bitReaderBuffer.readBits(11);
             int readBits2 = bitReaderBuffer.readBits(2) + 1;
-            aVar.f31039f = readBits2;
+            aVar.f31328f = readBits2;
             if (readBits2 == 1) {
-                if (aVar.f31035b == 0) {
+                if (aVar.f31324b == 0) {
                     dataSource.read(ByteBuffer.allocate(2));
                 }
                 return aVar;
@@ -281,9 +281,9 @@ public class AACTrackImpl extends AbstractTrack {
             if (aVar == null) {
                 aVar = readADTSHeader;
             }
-            ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.f31038e - readADTSHeader.a());
+            ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.f31327e - readADTSHeader.a());
             this.samples.add(new SampleImpl(map));
-            dataSource.position((dataSource.position() + readADTSHeader.f31038e) - readADTSHeader.a());
+            dataSource.position((dataSource.position() + readADTSHeader.f31327e) - readADTSHeader.a());
             map.rewind();
         }
     }
@@ -339,7 +339,7 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     public String toString() {
-        return "AACTrackImpl{sampleRate=" + this.firstHeader.f31036c + ", channelconfig=" + this.firstHeader.f31037d + '}';
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.f31325c + ", channelconfig=" + this.firstHeader.f31326d + '}';
     }
 
     public AACTrackImpl(DataSource dataSource) throws IOException {

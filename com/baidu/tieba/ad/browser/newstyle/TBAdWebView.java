@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 import d.b.i0.a;
-import d.b.i0.o.c.d;
+import d.b.i0.o.d.d;
 /* loaded from: classes4.dex */
 public class TBAdWebView extends BaseAdWebView {
     public TBAdWebView(Context context) {
@@ -18,7 +18,7 @@ public class TBAdWebView extends BaseAdWebView {
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
     public void b(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
-        if (!a.e().f() && !PermissionUtil.checkWriteExternalStorage(getContext())) {
+        if (!a.e().o() && !PermissionUtil.checkWriteExternalStorage(getContext())) {
             PermissionUtil.requestWriteExternalStorage((Activity) getContext(), 0);
         } else {
             d.c().l(downloadCacheKey, null);

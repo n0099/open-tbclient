@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends T> f68157e;
+    public final Iterable<? extends T> f69163e;
 
     /* loaded from: classes7.dex */
     public static final class IterableProducer<T> extends AtomicLong implements f {
@@ -111,7 +111,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
 
     public OnSubscribeFromIterable(Iterable<? extends T> iterable) {
         if (iterable != null) {
-            this.f68157e = iterable;
+            this.f69163e = iterable;
             return;
         }
         throw new NullPointerException("iterable must not be null");
@@ -122,7 +122,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
     /* renamed from: a */
     public void call(j<? super T> jVar) {
         try {
-            Iterator<? extends T> it = this.f68157e.iterator();
+            Iterator<? extends T> it = this.f69163e.iterator();
             boolean hasNext = it.hasNext();
             if (jVar.isUnsubscribed()) {
                 return;

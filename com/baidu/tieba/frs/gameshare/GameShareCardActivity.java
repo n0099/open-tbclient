@@ -18,29 +18,29 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-import d.b.i0.p0.v1.a;
+import d.b.i0.q0.v1.a;
 /* loaded from: classes4.dex */
 public class GameShareCardActivity extends BaseActivity implements a.h {
     public GameShareData mShareData;
     public d.b.h0.s.g.g mShareTool;
-    public d.b.i0.p0.v1.a mView;
+    public d.b.i0.q0.v1.a mView;
 
     /* loaded from: classes4.dex */
     public class a extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16406a;
+        public final /* synthetic */ Bitmap f16067a;
 
         public a(Bitmap bitmap) {
-            this.f16406a = bitmap;
+            this.f16067a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16406a);
-            return GameShareCardActivity.this.generateShareItem(this.f16406a);
+            GameShareCardActivity.this.createWaterMark(this.f16067a);
+            return GameShareCardActivity.this.generateShareItem(this.f16067a);
         }
     }
 
@@ -61,18 +61,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class c extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16409a;
+        public final /* synthetic */ Bitmap f16070a;
 
         public c(Bitmap bitmap) {
-            this.f16409a = bitmap;
+            this.f16070a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16409a);
-            return GameShareCardActivity.this.generateShareItem(this.f16409a);
+            GameShareCardActivity.this.createWaterMark(this.f16070a);
+            return GameShareCardActivity.this.generateShareItem(this.f16070a);
         }
     }
 
@@ -93,18 +93,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class e extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16412a;
+        public final /* synthetic */ Bitmap f16073a;
 
         public e(Bitmap bitmap) {
-            this.f16412a = bitmap;
+            this.f16073a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16412a);
-            return GameShareCardActivity.this.generateShareItem(this.f16412a);
+            GameShareCardActivity.this.createWaterMark(this.f16073a);
+            return GameShareCardActivity.this.generateShareItem(this.f16073a);
         }
     }
 
@@ -125,18 +125,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class g extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16415a;
+        public final /* synthetic */ Bitmap f16076a;
 
         public g(Bitmap bitmap) {
-            this.f16415a = bitmap;
+            this.f16076a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16415a);
-            return GameShareCardActivity.this.generateShareItem(this.f16415a);
+            GameShareCardActivity.this.createWaterMark(this.f16076a);
+            return GameShareCardActivity.this.generateShareItem(this.f16076a);
         }
     }
 
@@ -189,7 +189,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
 
     private void initView() {
         if (this.mView == null) {
-            this.mView = new d.b.i0.p0.v1.a(getActivity(), this);
+            this.mView = new d.b.i0.q0.v1.a(getActivity(), this);
         }
         setContentView(this.mView.i());
         this.mView.m(this.mShareData);
@@ -209,7 +209,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         }
     }
 
-    @Override // d.b.i0.p0.v1.a.h
+    @Override // d.b.i0.q0.v1.a.h
     public void onCancel() {
         finish();
     }
@@ -226,13 +226,13 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.p0.v1.a aVar = this.mView;
+        d.b.i0.q0.v1.a aVar = this.mView;
         if (aVar != null) {
             aVar.j();
         }
     }
 
-    @Override // d.b.i0.p0.v1.a.h
+    @Override // d.b.i0.q0.v1.a.h
     public void onQQShare(Bitmap bitmap) {
         if (bitmap == null) {
             return;
@@ -247,7 +247,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         bundle.putParcelable(GameShareActivityConfig.KEY_GAME_SHARE_DATA, this.mShareData);
     }
 
-    @Override // d.b.i0.p0.v1.a.h
+    @Override // d.b.i0.q0.v1.a.h
     public void onSinaShare(Bitmap bitmap) {
         if (bitmap == null) {
             return;
@@ -256,7 +256,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         h0.b(new g(bitmap), new h());
     }
 
-    @Override // d.b.i0.p0.v1.a.h
+    @Override // d.b.i0.q0.v1.a.h
     public void onWeixinShare(Bitmap bitmap) {
         if (bitmap == null) {
             return;
@@ -265,7 +265,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         h0.b(new a(bitmap), new b());
     }
 
-    @Override // d.b.i0.p0.v1.a.h
+    @Override // d.b.i0.q0.v1.a.h
     public void onWxFriendsShare(Bitmap bitmap) {
         if (bitmap == null) {
             return;

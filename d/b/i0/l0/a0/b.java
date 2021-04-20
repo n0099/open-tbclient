@@ -20,22 +20,22 @@ import com.baidu.tieba.face.view.EmotionPreview;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.EmotionPackageDetailActivity;
 import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public EmotionPackageDetailActivity f56484a;
+    public EmotionPackageDetailActivity f57890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f56485b;
+    public final float f57891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f56486c;
+    public final int f57892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f56487d;
+    public final int f57893d;
     public Handler j;
     public EmotionPreview k;
     public PackageDetailListView l;
@@ -43,22 +43,22 @@ public class b {
     public e q;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f56488e = new Rect();
+    public final Rect f57894e = new Rect();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56489f = -1;
+    public int f57895f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56490g = -1;
+    public int f57896g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56491h = -1;
+    public int f57897h = -1;
     public int i = -1;
     public boolean m = false;
     public boolean n = false;
     public int p = 3;
     public final Runnable r = new a();
-    public final PackageDetailListView.a s = new C1326b();
+    public final PackageDetailListView.a s = new C1379b();
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -73,8 +73,8 @@ public class b {
 
     /* renamed from: d.b.i0.l0.a0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1326b implements PackageDetailListView.a {
-        public C1326b() {
+    public class C1379b implements PackageDetailListView.a {
+        public C1379b() {
         }
 
         @Override // com.baidu.tieba.faceshop.packagedetail.PackageDetailListView.a
@@ -87,17 +87,17 @@ public class b {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        if (b.this.f56489f > -1 && b.this.f56490g > -1) {
-                            b.this.f56491h = (int) motionEvent.getX();
+                        if (b.this.f57895f > -1 && b.this.f57896g > -1) {
+                            b.this.f57897h = (int) motionEvent.getX();
                             b.this.i = (int) motionEvent.getY();
                             if (b.this.m || b.this.q != null) {
                                 if (b.this.q != null && (v = b.this.v()) != null && (b.this.q == null || !b.this.q.equals(v))) {
                                     b.this.z(v);
                                 }
                             } else {
-                                float f2 = b.this.f56491h - b.this.f56489f;
-                                float f3 = b.this.i - b.this.f56490g;
-                                if ((f2 * f2) + (f3 * f3) > b.this.f56485b * b.this.f56485b) {
+                                float f2 = b.this.f57897h - b.this.f57895f;
+                                float f3 = b.this.i - b.this.f57896g;
+                                if ((f2 * f2) + (f3 * f3) > b.this.f57891b * b.this.f57891b) {
                                     b.this.m = true;
                                 }
                             }
@@ -110,8 +110,8 @@ public class b {
                 b.this.u();
                 return false;
             }
-            b.this.f56489f = (int) motionEvent.getX();
-            b.this.f56490g = (int) motionEvent.getY();
+            b.this.f57895f = (int) motionEvent.getX();
+            b.this.f57896g = (int) motionEvent.getY();
             b.this.m = false;
             b.this.A();
             return false;
@@ -154,18 +154,18 @@ public class b {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f56496a;
+        public View f57902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56497b;
+        public int f57903b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f56498c;
+        public int f57904c;
 
         public e(View view, int i, int i2) {
-            this.f56496a = view;
-            this.f56497b = i;
-            this.f56498c = i2;
+            this.f57902a = view;
+            this.f57903b = i;
+            this.f57904c = i2;
         }
 
         public boolean equals(Object obj) {
@@ -173,20 +173,20 @@ public class b {
                 return false;
             }
             e eVar = (e) obj;
-            return eVar.f56497b == this.f56497b && eVar.f56498c == this.f56498c && eVar.f56496a == this.f56496a;
+            return eVar.f57903b == this.f57903b && eVar.f57904c == this.f57904c && eVar.f57902a == this.f57902a;
         }
     }
 
     public b(EmotionPackageDetailActivity emotionPackageDetailActivity) {
-        this.f56484a = emotionPackageDetailActivity;
+        this.f57890a = emotionPackageDetailActivity;
         PackageDetailListView listView = emotionPackageDetailActivity.getListView();
         this.l = listView;
         listView.setTouchEventInterceptHandler(this.s);
         this.j = emotionPackageDetailActivity.getSafeHandler();
         this.l = emotionPackageDetailActivity.getListView();
-        this.f56485b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
-        this.f56486c = l.g(emotionPackageDetailActivity, R.dimen.ds240);
-        this.f56487d = l.g(emotionPackageDetailActivity, R.dimen.ds260);
+        this.f57891b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
+        this.f57892c = l.g(emotionPackageDetailActivity, R.dimen.ds240);
+        this.f57893d = l.g(emotionPackageDetailActivity, R.dimen.ds260);
         this.l.setOnScrollListener(new c());
         SwipeBackLayout swipeBackLayout = emotionPackageDetailActivity.getSwipeBackLayout();
         if (swipeBackLayout != null) {
@@ -219,22 +219,22 @@ public class b {
         Log.d("PackageDetailPreview", "show preview, url: " + singleEmotionData.url);
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        EmotionPreview emotionPreview = new EmotionPreview(this.f56484a);
+        EmotionPreview emotionPreview = new EmotionPreview(this.f57890a);
         this.k = emotionPreview;
         SkinManager.setBackgroundResource(emotionPreview, R.drawable.bg_expression_bubble, this.p);
         this.k.e(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f56486c, this.f56487d);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f57892c, this.f57893d);
         int i = iArr[0] - 60;
         layoutParams.leftMargin = i;
-        layoutParams.topMargin = iArr[1] - this.f56487d;
+        layoutParams.topMargin = iArr[1] - this.f57893d;
         if (i < 0) {
             layoutParams.leftMargin = 0;
         }
-        if (layoutParams.leftMargin + this.f56486c > l.k(this.f56484a)) {
-            layoutParams.leftMargin = l.k(this.f56484a) - this.f56486c;
+        if (layoutParams.leftMargin + this.f57892c > l.k(this.f57890a)) {
+            layoutParams.leftMargin = l.k(this.f57890a) - this.f57892c;
         }
         if (this.o == null) {
-            this.o = (FrameLayout) this.f56484a.getWindow().getDecorView();
+            this.o = (FrameLayout) this.f57890a.getWindow().getDecorView();
         }
         if (this.k.getParent() != null) {
             ViewParent parent = this.k.getParent();
@@ -249,11 +249,11 @@ public class b {
 
     public final void u() {
         this.i = -1;
-        this.f56491h = -1;
-        this.f56490g = -1;
-        this.f56489f = -1;
+        this.f57897h = -1;
+        this.f57896g = -1;
+        this.f57895f = -1;
         this.m = false;
-        this.f56484a.setSwipeBackEnabled(true);
+        this.f57890a.setSwipeBackEnabled(true);
         EmotionPreview emotionPreview = this.k;
         if (emotionPreview == null || this.q == null) {
             return;
@@ -270,27 +270,27 @@ public class b {
     }
 
     public final e v() {
-        int i = this.f56491h;
+        int i = this.f57897h;
         int i2 = this.i;
         if (i < 0) {
-            i = this.f56489f;
+            i = this.f57895f;
         }
         if (i2 < 0) {
-            i2 = this.f56490g;
+            i2 = this.f57896g;
         }
         int pointToPosition = this.l.pointToPosition(i, i2);
         if (pointToPosition >= 0) {
-            this.f56488e.set(i, i2, i + 1, i2 + 1);
+            this.f57894e.set(i, i2, i + 1, i2 + 1);
             View childAt = this.l.getChildAt(pointToPosition);
             if (childAt == null || !(childAt instanceof ViewGroup)) {
                 return null;
             }
             ViewGroup viewGroup = (ViewGroup) childAt;
-            this.l.offsetRectIntoDescendantCoords(childAt, this.f56488e);
+            this.l.offsetRectIntoDescendantCoords(childAt, this.f57894e);
             int childCount = viewGroup.getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt2 = viewGroup.getChildAt(i3);
-                if (childAt2.getLeft() < this.f56488e.left && childAt2.getRight() > this.f56488e.right && childAt2.getTop() < this.f56488e.left && childAt2.getBottom() > this.f56488e.bottom) {
+                if (childAt2.getLeft() < this.f57894e.left && childAt2.getRight() > this.f57894e.right && childAt2.getTop() < this.f57894e.left && childAt2.getBottom() > this.f57894e.bottom) {
                     int headerViewsCount = pointToPosition - this.l.getHeaderViewsCount();
                     e eVar = new e(childAt2, headerViewsCount, i3);
                     Log.d("PackageDetailPreview", "touch cell: (" + headerViewsCount + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + SmallTailInfo.EMOTION_SUFFIX);
@@ -304,7 +304,7 @@ public class b {
 
     public final EmotionPackageData.SingleEmotionData w(int i, int i2) {
         List list;
-        d.b.b.j.e.e adapter2 = this.l.getAdapter2();
+        d.b.c.j.e.e adapter2 = this.l.getAdapter2();
         int i3 = (i * 4) + i2;
         int headerViewsCount = i + this.l.getHeaderViewsCount();
         if (adapter2 == null || headerViewsCount <= -1 || headerViewsCount >= adapter2.getCount() || (list = (List) adapter2.getItem(headerViewsCount)) == null || i3 <= -1 || i3 >= list.size()) {
@@ -341,10 +341,10 @@ public class b {
             return;
         }
         x();
-        if (t(eVar.f56496a, w(eVar.f56497b, eVar.f56498c))) {
+        if (t(eVar.f57902a, w(eVar.f57903b, eVar.f57904c))) {
             this.q = eVar;
             this.l.setDisableListViewTouchIntercept(true);
-            this.f56484a.setSwipeBackEnabled(false);
+            this.f57890a.setSwipeBackEnabled(false);
         }
     }
 }

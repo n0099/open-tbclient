@@ -19,8 +19,8 @@ public class b implements d.b.g0.a.z0.j.a {
 
     /* renamed from: d.b.g0.a.z0.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0893b implements d.b.g0.c.i.a<d.b.g0.a.p.d.d> {
-        public C0893b(b bVar) {
+    public class C0905b implements d.b.g0.c.i.a<d.b.g0.a.p.d.d> {
+        public C0905b(b bVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,6 +46,6 @@ public class b implements d.b.g0.a.z0.j.a {
 
     @Override // d.b.g0.a.z0.j.a
     public void onResume() {
-        a(new C0893b(this));
+        a(new C0905b(this));
     }
 }

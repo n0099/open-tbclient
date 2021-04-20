@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.facebook.imagepipeline";
     public static final String BUILD_TYPE = "release";

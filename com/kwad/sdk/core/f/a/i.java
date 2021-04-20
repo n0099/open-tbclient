@@ -5,10 +5,10 @@ import android.content.Context;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33618a;
+    public Context f33907a;
 
     public i(Context context) {
-        this.f33618a = context;
+        this.f33907a = context;
     }
 
     public String a() {
@@ -16,7 +16,7 @@ public class i {
         Exception e2;
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f33618a);
+            str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f33907a);
         } catch (Exception e3) {
             str = "";
             e2 = e3;

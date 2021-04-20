@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.c.a;
 
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
@@ -10,7 +11,7 @@ public class d implements com.kwad.sdk.core.c<AdInfo.AdConversionInfo> {
         JSONObject jSONObject = new JSONObject();
         com.kwad.sdk.utils.o.a(jSONObject, "h5Url", adConversionInfo.h5Url);
         com.kwad.sdk.utils.o.a(jSONObject, "h5Type", adConversionInfo.h5Type);
-        com.kwad.sdk.utils.o.a(jSONObject, "deeplinkUrl", adConversionInfo.deeplinkUrl);
+        com.kwad.sdk.utils.o.a(jSONObject, BaiduAppJsBridgeHandler.INPUT_PARAM_DEEP_LINK_URL, adConversionInfo.deeplinkUrl);
         com.kwad.sdk.utils.o.a(jSONObject, "appDownloadUrl", adConversionInfo.appDownloadUrl);
         com.kwad.sdk.utils.o.a(jSONObject, "marketUrl", adConversionInfo.marketUrl);
         com.kwad.sdk.utils.o.a(jSONObject, "retryH5TimeStep", adConversionInfo.retryH5TimeStep);
@@ -25,7 +26,7 @@ public class d implements com.kwad.sdk.core.c<AdInfo.AdConversionInfo> {
         }
         adConversionInfo.h5Url = jSONObject.optString("h5Url");
         adConversionInfo.h5Type = jSONObject.optInt("h5Type");
-        adConversionInfo.deeplinkUrl = jSONObject.optString("deeplinkUrl");
+        adConversionInfo.deeplinkUrl = jSONObject.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DEEP_LINK_URL);
         adConversionInfo.appDownloadUrl = jSONObject.optString("appDownloadUrl");
         adConversionInfo.marketUrl = jSONObject.optString("marketUrl");
         adConversionInfo.retryH5TimeStep = jSONObject.optInt("retryH5TimeStep", new Integer("2000").intValue());

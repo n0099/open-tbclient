@@ -6,27 +6,27 @@ import java.util.concurrent.Executors;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static o f67437a;
+    public static o f68430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Executor f67438b;
+    public static Executor f68431b;
 
     public static o b() {
-        if (f67437a == null) {
+        if (f68430a == null) {
             synchronized (o.class) {
-                if (f67437a == null) {
-                    f67437a = new o();
-                    f67438b = Executors.newFixedThreadPool(1);
+                if (f68430a == null) {
+                    f68430a = new o();
+                    f68431b = Executors.newFixedThreadPool(1);
                 }
             }
         }
-        return f67437a;
+        return f68430a;
     }
 
     public void a(Runnable runnable) {
         if (runnable != null) {
             try {
-                f67438b.execute(runnable);
+                f68431b.execute(runnable);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

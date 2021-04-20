@@ -11,52 +11,52 @@ import org.json.JSONObject;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50866a;
+    public boolean f51273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50867b;
+    public int f51274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50868c;
+    public int f51275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50869d;
+    public int f51276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50870e = 25;
+    public int f51277e = 25;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50871f = 25;
+    public int f51278f = 25;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50872g = 10;
+    public int f51279g = 10;
 
     public int a() {
-        return this.f50869d;
+        return this.f51276d;
     }
 
     public int b() {
-        return this.f50871f;
+        return this.f51278f;
     }
 
     public int c() {
-        return this.f50867b;
+        return this.f51274b;
     }
 
     public int d() {
-        return this.f50872g;
+        return this.f51279g;
     }
 
     public int e() {
-        return this.f50870e;
+        return this.f51277e;
     }
 
     public int f() {
-        return this.f50868c;
+        return this.f51275c;
     }
 
     public boolean g() {
-        return this.f50866a;
+        return this.f51273a;
     }
 
     public void h(String str) {
@@ -66,7 +66,7 @@ public class r {
             }
             i(new JSONObject(str));
         } catch (Exception e2) {
-            this.f50866a = false;
+            this.f51273a = false;
             BdLog.e(e2.getMessage());
         }
     }
@@ -77,42 +77,42 @@ public class r {
         }
         try {
             if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
-                this.f50866a = true;
+                this.f51273a = true;
             } else {
-                this.f50866a = false;
+                this.f51273a = false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f50869d = optJSONObject.optInt("num");
+                this.f51276d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f50868c = optJSONObject2.optInt("time");
-                this.f50867b = optJSONObject2.optInt("num");
+                this.f51275c = optJSONObject2.optInt("time");
+                this.f51274b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f50870e = optJSONObject3.optInt("succ");
-                this.f50871f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f50872g = optJSONObject3.optInt("slow");
+                this.f51277e = optJSONObject3.optInt("succ");
+                this.f51278f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f51279g = optJSONObject3.optInt("slow");
             }
-            if (this.f50868c <= 0 || this.f50867b <= 0 || this.f50869d <= 0) {
-                this.f50866a = false;
+            if (this.f51275c <= 0 || this.f51274b <= 0 || this.f51276d <= 0) {
+                this.f51273a = false;
             }
         } catch (Exception e2) {
-            this.f50866a = false;
+            this.f51273a = false;
             BdLog.e(e2.getMessage());
         }
     }
 
     public void j(boolean z) {
-        if (this.f50866a != z) {
-            d.b.b.e.n.a logItem = ImageLogger.getLogItem();
+        if (this.f51273a != z) {
+            d.b.c.e.n.a logItem = ImageLogger.getLogItem();
             logItem.b("act", "fallback");
             logItem.b("result", z ? "1" : "0");
             logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
             BdStatisticsManager.getInstance().debug("img", logItem);
         }
-        this.f50866a = z;
+        this.f51273a = z;
     }
 }

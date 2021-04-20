@@ -5,22 +5,22 @@ import com.baidu.adp.lib.util.StringUtils;
 public class c0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f51659a;
+    public static String f52083a;
 
     public static String a() {
-        if (StringUtils.isNull(f51659a)) {
+        if (StringUtils.isNull(f52083a)) {
             return null;
         }
-        return f51659a;
+        return f52083a;
     }
 
     public static void b(String str) {
-        f51659a = str;
+        f52083a = str;
     }
 
     public static void c() {
-        if (f51659a != null) {
-            f51659a = null;
+        if (f52083a != null) {
+            f52083a = null;
         }
     }
 }

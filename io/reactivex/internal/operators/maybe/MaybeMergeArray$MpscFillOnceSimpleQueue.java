@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.x.b.a;
-import f.a.x.e.b.d;
+import f.b.x.b.a;
+import f.b.x.e.b.d;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
@@ -15,30 +15,30 @@ public final class MaybeMergeArray$MpscFillOnceSimpleQueue<T> extends AtomicRefe
         this.producerIndex = new AtomicInteger();
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public void clear() {
         while (poll() != null && !isEmpty()) {
         }
     }
 
-    @Override // f.a.x.e.b.d
+    @Override // f.b.x.e.b.d
     public int consumerIndex() {
         return this.consumerIndex;
     }
 
-    @Override // f.a.x.e.b.d
+    @Override // f.b.x.e.b.d
     public void drop() {
         int i = this.consumerIndex;
         lazySet(i, null);
         this.consumerIndex = i + 1;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean isEmpty() {
         return this.consumerIndex == producerIndex();
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean offer(T t) {
         a.b(t, "value is null");
         int andIncrement = this.producerIndex.getAndIncrement();
@@ -49,7 +49,7 @@ public final class MaybeMergeArray$MpscFillOnceSimpleQueue<T> extends AtomicRefe
         return false;
     }
 
-    @Override // f.a.x.e.b.d
+    @Override // f.b.x.e.b.d
     public T peek() {
         int i = this.consumerIndex;
         if (i == length()) {
@@ -58,7 +58,7 @@ public final class MaybeMergeArray$MpscFillOnceSimpleQueue<T> extends AtomicRefe
         return get(i);
     }
 
-    @Override // f.a.x.e.b.d, f.a.x.c.f
+    @Override // f.b.x.e.b.d, f.b.x.c.f
     public T poll() {
         int i = this.consumerIndex;
         if (i == length()) {
@@ -76,7 +76,7 @@ public final class MaybeMergeArray$MpscFillOnceSimpleQueue<T> extends AtomicRefe
         return null;
     }
 
-    @Override // f.a.x.e.b.d
+    @Override // f.b.x.e.b.d
     public int producerIndex() {
         return this.producerIndex.get();
     }

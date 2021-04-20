@@ -7,21 +7,21 @@ import com.bytedance.sdk.openadsdk.f.a.q;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29393a;
+    public WeakReference<x> f29078a;
 
     public d(x xVar) {
-        this.f29393a = new WeakReference<>(xVar);
+        this.f29078a = new WeakReference<>(xVar);
     }
 
     public JSONObject c() {
         x xVar;
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f29393a == null || (xVar = this.f29393a.get()) == null) {
+            if (this.f29078a == null || (xVar = this.f29078a.get()) == null) {
                 return jSONObject;
             }
             jSONObject = xVar.k();

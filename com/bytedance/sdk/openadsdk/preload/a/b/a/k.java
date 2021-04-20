@@ -9,11 +9,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class k extends v<Time> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f29951a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.k.1
+    public static final w f29636a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.k.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             if (aVar.a() == Time.class) {
@@ -24,7 +24,7 @@ public final class k extends v<Time> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final DateFormat f29952b = new SimpleDateFormat("hh:mm:ss a");
+    public final DateFormat f29637b = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -35,7 +35,7 @@ public final class k extends v<Time> {
             return null;
         }
         try {
-            return new Time(this.f29952b.parse(aVar.h()).getTime());
+            return new Time(this.f29637b.parse(aVar.h()).getTime());
         } catch (ParseException e2) {
             throw new t(e2);
         }
@@ -44,6 +44,6 @@ public final class k extends v<Time> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public synchronized void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Time time) throws IOException {
-        cVar.b(time == null ? null : this.f29952b.format((Date) time));
+        cVar.b(time == null ? null : this.f29637b.format((Date) time));
     }
 }

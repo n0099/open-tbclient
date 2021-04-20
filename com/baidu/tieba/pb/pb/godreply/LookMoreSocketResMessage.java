@@ -10,7 +10,7 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public List<PostData> list;
 
@@ -39,7 +39,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
         }
         for (Post post : list) {
             PostData postData = new PostData();
-            postData.a0(post, TbadkCoreApplication.getInst());
+            postData.b0(post, TbadkCoreApplication.getInst());
             postData.O = 102;
             this.list.add(postData);
         }

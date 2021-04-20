@@ -39,7 +39,7 @@ public class s extends b<d.b.i0.x.e0.o> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundResource(this.r, R.drawable.label_bg_gray);
             SkinManager.setBackgroundResource(this.s, R.color.CAM_X0204);
@@ -49,16 +49,16 @@ public class s extends b<d.b.i0.x.e0.o> {
             this.n.setPlaceHolder(1);
             this.q.setPlaceHolder(2);
         }
-        this.f62180e = i;
+        this.f63755e = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.n || view == this.o || view == this.r) && !StringUtils.isNull(this.t.f62228h)) {
-            TiebaStatic.log(new StatisticItem(this.v).param("obj_id", String.valueOf(this.t.f62225e)));
-            UrlManager.getInstance().dealOneLink(l(), new String[]{this.t.f62228h});
+        if ((view == this.n || view == this.o || view == this.r) && !StringUtils.isNull(this.t.f63803h)) {
+            TiebaStatic.log(new StatisticItem(this.v).param("obj_id", String.valueOf(this.t.f63800e)));
+            UrlManager.getInstance().dealOneLink(l(), new String[]{this.t.f63803h});
         } else if ((view == this.m || view == this.p || view == this.q) && !StringUtils.isNull(this.t.k)) {
-            TiebaStatic.log(new StatisticItem(this.w).param("obj_id", String.valueOf(this.t.f62225e)));
+            TiebaStatic.log(new StatisticItem(this.w).param("obj_id", String.valueOf(this.t.f63800e)));
             UrlManager.getInstance().dealOneLink(l(), new String[]{this.t.k});
         }
     }
@@ -95,8 +95,8 @@ public class s extends b<d.b.i0.x.e0.o> {
             this.m.setVisibility(0);
         }
         this.t = oVar;
-        this.n.W(oVar.f62227g, 10, false);
-        this.o.setText(UtilHelper.getFixedText(oVar.f62226f, 7, true));
+        this.n.W(oVar.f63802g, 10, false);
+        this.o.setText(UtilHelper.getFixedText(oVar.f63801f, 7, true));
         if (StringUtils.isNull(oVar.m)) {
             this.r.setVisibility(8);
         } else {

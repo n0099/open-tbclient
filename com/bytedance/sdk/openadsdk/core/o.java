@@ -16,110 +16,110 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.d.l f28555a;
+    public final com.bytedance.sdk.openadsdk.core.d.l f28240a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f28556b;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f28241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f28557c;
+    public final Context f28242c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TTNativeAd f28558d;
+    public final TTNativeAd f28243d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<View> f28559e = new ArrayList();
+    public List<View> f28244e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28560f;
+    public String f28245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTNativeAd.AdInteractionListener f28561g;
+    public TTNativeAd.AdInteractionListener f28246g;
 
     public o(Context context, TTNativeAd tTNativeAd, com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
-        this.f28560f = "embeded_ad";
-        this.f28558d = tTNativeAd;
-        this.f28555a = lVar;
-        this.f28557c = context;
-        this.f28560f = str;
+        this.f28245f = "embeded_ad";
+        this.f28243d = tTNativeAd;
+        this.f28240a = lVar;
+        this.f28242c = context;
+        this.f28245f = str;
         if (lVar.Z() == 4) {
-            this.f28556b = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f28557c, this.f28555a, this.f28560f);
+            this.f28241b = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f28242c, this.f28240a, this.f28245f);
         }
     }
 
     public void a(@NonNull Activity activity) {
-        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f28556b;
+        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f28241b;
         if (aVar != null) {
             aVar.a(activity);
         }
     }
 
     public void a(View view, int i) {
-        TTNativeAd.AdInteractionListener adInteractionListener = this.f28561g;
+        TTNativeAd.AdInteractionListener adInteractionListener = this.f28246g;
         if (adInteractionListener != null) {
-            adInteractionListener.onAdCreativeClick(view, this.f28558d);
+            adInteractionListener.onAdCreativeClick(view, this.f28243d);
         }
     }
 
     public com.bytedance.sdk.openadsdk.downloadnew.core.a a() {
-        return this.f28556b;
+        return this.f28241b;
     }
 
     public void a(@NonNull final ViewGroup viewGroup, List<View> list, List<View> list2, @Nullable List<View> list3, @Nullable View view, final TTNativeAd.AdInteractionListener adInteractionListener) {
-        this.f28561g = adInteractionListener;
-        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f28556b;
+        this.f28246g = adInteractionListener;
+        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f28241b;
         if (aVar != null) {
             aVar.b();
         }
-        com.bytedance.sdk.openadsdk.c.d.a(this.f28555a);
+        com.bytedance.sdk.openadsdk.c.d.a(this.f28240a);
         EmptyView a2 = a(viewGroup);
         if (a2 == null) {
-            a2 = new EmptyView(this.f28557c, viewGroup);
+            a2 = new EmptyView(this.f28242c, viewGroup);
             viewGroup.addView(a2);
         }
         a2.a();
         a2.setRefClickViews(list2);
         a2.setRefCreativeViews(list3);
-        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar2 = this.f28556b;
+        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar2 = this.f28241b;
         if (aVar2 != null) {
             aVar2.a(a2);
         }
-        this.f28559e = list;
-        Context context = this.f28557c;
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28555a;
-        String str = this.f28560f;
+        this.f28244e = list;
+        Context context = this.f28242c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28240a;
+        String str = this.f28245f;
         com.bytedance.sdk.openadsdk.core.a.b bVar = new com.bytedance.sdk.openadsdk.core.a.b(context, lVar, str, ak.a(str));
         bVar.a(viewGroup);
         bVar.b(view);
-        bVar.a(this.f28556b);
-        bVar.a(this.f28558d);
+        bVar.a(this.f28241b);
+        bVar.a(this.f28243d);
         bVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.core.o.1
             @Override // com.bytedance.sdk.openadsdk.core.a.b.a
             public void a(View view2, int i) {
                 TTNativeAd.AdInteractionListener adInteractionListener2 = adInteractionListener;
                 if (adInteractionListener2 != null) {
-                    adInteractionListener2.onAdClicked(view2, o.this.f28558d);
+                    adInteractionListener2.onAdClicked(view2, o.this.f28243d);
                 }
             }
         });
-        Context context2 = this.f28557c;
-        com.bytedance.sdk.openadsdk.core.d.l lVar2 = this.f28555a;
-        String str2 = this.f28560f;
+        Context context2 = this.f28242c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar2 = this.f28240a;
+        String str2 = this.f28245f;
         com.bytedance.sdk.openadsdk.core.a.a aVar3 = new com.bytedance.sdk.openadsdk.core.a.a(context2, lVar2, str2, ak.a(str2));
         aVar3.a(viewGroup);
         aVar3.b(view);
-        aVar3.a(this.f28556b);
-        aVar3.a(this.f28558d);
+        aVar3.a(this.f28241b);
+        aVar3.a(this.f28243d);
         aVar3.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.core.o.2
             @Override // com.bytedance.sdk.openadsdk.core.a.b.a
             public void a(View view2, int i) {
                 TTNativeAd.AdInteractionListener adInteractionListener2 = adInteractionListener;
                 if (adInteractionListener2 != null) {
-                    adInteractionListener2.onAdCreativeClick(view2, o.this.f28558d);
+                    adInteractionListener2.onAdCreativeClick(view2, o.this.f28243d);
                 }
             }
         });
@@ -128,35 +128,35 @@ public class o {
         a2.setCallback(new EmptyView.a() { // from class: com.bytedance.sdk.openadsdk.core.o.3
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void a(boolean z) {
-                if (o.this.f28556b != null) {
+                if (o.this.f28241b != null) {
                     if (z) {
-                        o.this.f28556b.b();
+                        o.this.f28241b.b();
                     } else {
-                        o.this.f28556b.c();
+                        o.this.f28241b.c();
                     }
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void b() {
-                if (o.this.f28556b != null) {
-                    o.this.f28556b.d();
+                if (o.this.f28241b != null) {
+                    o.this.f28241b.d();
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void a() {
-                if (o.this.f28556b != null) {
-                    o.this.f28556b.a();
+                if (o.this.f28241b != null) {
+                    o.this.f28241b.a();
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void a(View view2) {
                 HashMap hashMap = new HashMap();
-                if (o.this.f28559e != null) {
+                if (o.this.f28244e != null) {
                     JSONArray jSONArray = new JSONArray();
-                    for (View view3 : o.this.f28559e) {
+                    for (View view3 : o.this.f28244e) {
                         if (view3 != null) {
                             JSONObject jSONObject = new JSONObject();
                             try {
@@ -180,11 +180,11 @@ public class o {
                     }
                     hashMap.put("root_view", jSONObject2.toString());
                 }
-                com.bytedance.sdk.openadsdk.c.d.a(o.this.f28557c, o.this.f28555a, o.this.f28560f, hashMap);
-                com.bytedance.sdk.openadsdk.utils.u.e("AdEvent", "pangolin ad show " + ak.a(o.this.f28555a, view2));
+                com.bytedance.sdk.openadsdk.c.d.a(o.this.f28242c, o.this.f28240a, o.this.f28245f, hashMap);
+                com.bytedance.sdk.openadsdk.utils.u.e("AdEvent", "pangolin ad show " + ak.a(o.this.f28240a, view2));
                 TTNativeAd.AdInteractionListener adInteractionListener2 = adInteractionListener;
                 if (adInteractionListener2 != null) {
-                    adInteractionListener2.onAdShow(o.this.f28558d);
+                    adInteractionListener2.onAdShow(o.this.f28243d);
                 }
             }
         });
@@ -202,7 +202,7 @@ public class o {
     }
 
     public void a(TTAppDownloadListener tTAppDownloadListener) {
-        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f28556b;
+        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f28241b;
         if (aVar != null) {
             aVar.a(tTAppDownloadListener);
         }

@@ -10,53 +10,53 @@ import java.util.Objects;
 public class i1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f50817a;
+    public final long f51224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50818b = "0";
+    public String f51225b = "0";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50819c;
+    public int f51226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50820d;
+    public boolean f51227d;
 
     static {
         MessageManager.getInstance().registerStickyMode(2921526);
     }
 
     public i1(long j) {
-        this.f50817a = j;
+        this.f51224a = j;
     }
 
     public static i1 g(@NonNull WriteData writeData, int i) {
         i1 i1Var = new i1(writeData.startPublishTime());
         if (!TextUtils.isEmpty(writeData.getForumId())) {
-            i1Var.f50818b = writeData.getForumId();
+            i1Var.f51225b = writeData.getForumId();
         }
-        i1Var.f50819c = i;
+        i1Var.f51226c = i;
         return i1Var;
     }
 
     public int a() {
-        return this.f50819c;
+        return this.f51226c;
     }
 
     public void b() {
-        this.f50820d = false;
+        this.f51227d = false;
     }
 
     public boolean c(String str) {
-        return this.f50818b.equals(str);
+        return this.f51225b.equals(str);
     }
 
     public boolean d() {
-        return this.f50820d;
+        return this.f51227d;
     }
 
     public void e(boolean z) {
-        this.f50820d = z;
-        if (this.f50817a > 0) {
+        this.f51227d = z;
+        if (this.f51224a > 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
         }
     }
@@ -65,17 +65,17 @@ public class i1 {
         if (this == obj) {
             return true;
         }
-        return (obj instanceof i1) && this.f50817a == ((i1) obj).f50817a;
+        return (obj instanceof i1) && this.f51224a == ((i1) obj).f51224a;
     }
 
     public void f(@NonNull i1 i1Var) {
-        if (!i1Var.f50820d) {
-            this.f50820d = false;
+        if (!i1Var.f51227d) {
+            this.f51227d = false;
         }
-        this.f50819c = i1Var.a();
+        this.f51226c = i1Var.a();
     }
 
     public int hashCode() {
-        return Objects.hash(Long.valueOf(this.f50817a));
+        return Objects.hash(Long.valueOf(this.f51224a));
     }
 }

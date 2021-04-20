@@ -65,8 +65,8 @@ public final class f implements e {
                     return;
                 }
                 a.a.a.a.s.d dVar = f.this.f1022b;
-                a.a.a.a.v.d.b("callback onError(%s) because of timeout(%d)", dVar.f1320b, Long.valueOf(dVar.f1322d));
-                funAdLoadListener.onError(f.this.f1022b.f1320b);
+                a.a.a.a.v.d.b("callback onError(%s) because of timeout(%d)", dVar.f1306b, Long.valueOf(dVar.f1308d));
+                funAdLoadListener.onError(f.this.f1022b.f1306b);
                 cVar.a();
             } else if (i == 101) {
                 c cVar3 = (c) message.obj;
@@ -95,20 +95,20 @@ public final class f implements e {
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f1029a.onAdError(f.this.f1022b.f1320b);
+            this.f1029a.onAdError(f.this.f1022b.f1306b);
         }
     }
 
     public f(a.a.a.a.s.d dVar, m mVar) {
         this.f1022b = dVar;
-        this.f1024d = new d.c(dVar.f1320b);
+        this.f1024d = new d.c(dVar.f1306b);
         HashMap hashMap = new HashMap();
-        for (d.b bVar : this.f1022b.f1323e) {
-            for (d.a aVar : bVar.f1329c) {
-                k a2 = mVar.a(aVar.f1326d);
+        for (d.b bVar : this.f1022b.f1309e) {
+            for (d.a aVar : bVar.f1315c) {
+                k a2 = mVar.a(aVar.f1312d);
                 if (a2 != null) {
                     a2.a(new d(aVar));
-                    hashMap.put(aVar.f1326d, a2);
+                    hashMap.put(aVar.f1312d, a2);
                 }
             }
         }
@@ -119,7 +119,7 @@ public final class f implements e {
         if (aVar == null) {
             return null;
         }
-        return this.f1023c.get(aVar.f1326d);
+        return this.f1023c.get(aVar.f1312d);
     }
 
     @Override // a.a.a.a.e
@@ -129,10 +129,10 @@ public final class f implements e {
         while (true) {
             k a2 = a(z, arrayList);
             if (a2 == null) {
-                a.a.a.a.v.d.b("getNativeAd for sid:%s with No ready pidLoader found", this.f1022b.f1320b);
+                a.a.a.a.v.d.b("getNativeAd for sid:%s with No ready pidLoader found", this.f1022b.f1306b);
                 return null;
             }
-            FunNativeAd nativeAd = a2.getNativeAd(context, this.f1022b.f1320b);
+            FunNativeAd nativeAd = a2.getNativeAd(context, this.f1022b.f1306b);
             if (nativeAd != null) {
                 return nativeAd;
             }
@@ -168,8 +168,8 @@ public final class f implements e {
         ArrayList arrayList = null;
         if (dVar != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (d.b bVar : dVar.f1323e) {
-                d.a aVar = (d.a) a.a.a.a.a.a(this.f1021a, bVar.f1329c, null);
+            for (d.b bVar : dVar.f1309e) {
+                d.a aVar = (d.a) a.a.a.a.a.a(this.f1021a, bVar.f1315c, null);
                 if (aVar != null) {
                     arrayList2.add(aVar);
                 }
@@ -184,15 +184,15 @@ public final class f implements e {
             Message obtainMessage = f.this.f1027g.obtainMessage(100);
             obtainMessage.obj = cVar;
             f fVar = f.this;
-            fVar.f1027g.sendMessageDelayed(obtainMessage, fVar.f1022b.f1322d);
+            fVar.f1027g.sendMessageDelayed(obtainMessage, fVar.f1022b.f1308d);
             f fVar2 = f.this;
-            if (fVar2.f1022b.f1321c > 0) {
+            if (fVar2.f1022b.f1307c > 0) {
                 Message obtainMessage2 = fVar2.f1027g.obtainMessage(101);
                 obtainMessage2.obj = cVar;
                 f fVar3 = f.this;
-                fVar3.f1027g.sendMessageDelayed(obtainMessage2, fVar3.f1022b.f1321c);
+                fVar3.f1027g.sendMessageDelayed(obtainMessage2, fVar3.f1022b.f1307c);
             }
-            a.a.a.a.v.d.a("Start load for sid:%s", dVar.f1320b);
+            a.a.a.a.v.d.a("Start load for sid:%s", dVar.f1306b);
             for (int i = 0; i < arrayList.size(); i++) {
                 d.a aVar2 = (d.a) arrayList.get(i);
                 k a3 = a(aVar2);
@@ -204,7 +204,7 @@ public final class f implements e {
                     a3.a(context, funAdSlot);
                     z = false;
                 }
-                Iterator<d.a> it = aVar2.f1327e.f1329c.iterator();
+                Iterator<d.a> it = aVar2.f1313e.f1315c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -222,8 +222,8 @@ public final class f implements e {
             }
             return;
         }
-        a.a.a.a.v.d.b("No selected adIds found for sid:%s", dVar.f1320b);
-        funAdLoadListener.onError(dVar.f1320b);
+        a.a.a.a.v.d.b("No selected adIds found for sid:%s", dVar.f1306b);
+        funAdLoadListener.onError(dVar.f1306b);
     }
 
     @Override // a.a.a.a.e
@@ -254,21 +254,21 @@ public final class f implements e {
         public c(FunAdLoadListener funAdLoadListener, List<d.a> list) {
             this.f1034d = funAdLoadListener;
             for (d.a aVar : list) {
-                this.f1031a.add(aVar.f1327e);
+                this.f1031a.add(aVar.f1313e);
             }
         }
 
         public final void a(FunAdLoadListener funAdLoadListener) {
             if (funAdLoadListener != null) {
-                funAdLoadListener.onAdLoaded(f.this.f1022b.f1320b);
+                funAdLoadListener.onAdLoaded(f.this.f1022b.f1306b);
                 a();
             }
         }
 
         public synchronized void a(d.a aVar) {
             this.f1033c = true;
-            e.a aVar2 = aVar.f1326d;
-            a.a.a.a.v.d.a("onAdLoaded group.weight:%d type:%s pid:%s", Integer.valueOf(aVar.f1327e.f1328b), aVar2.f1335d, aVar2.f1334c);
+            e.a aVar2 = aVar.f1312d;
+            a.a.a.a.v.d.a("onAdLoaded group.weight:%d type:%s pid:%s", Integer.valueOf(aVar.f1313e.f1314b), aVar2.f1321d, aVar2.f1320c);
             FunAdLoadListener funAdLoadListener = this.f1034d;
             if (funAdLoadListener == null) {
                 return;
@@ -276,30 +276,30 @@ public final class f implements e {
             if (this.f1031a.isEmpty()) {
                 return;
             }
-            d.b bVar = aVar.f1327e;
+            d.b bVar = aVar.f1313e;
             int indexOf = this.f1031a.indexOf(bVar);
             if (indexOf < 0) {
                 return;
             }
             this.f1031a.remove(indexOf);
-            if (f.this.f1022b.f1321c > 0 && System.currentTimeMillis() - this.f1032b < f.this.f1022b.f1321c) {
+            if (f.this.f1022b.f1307c > 0 && System.currentTimeMillis() - this.f1032b < f.this.f1022b.f1307c) {
                 do {
                     indexOf--;
                     if (indexOf < 0) {
-                        a.a.a.a.v.d.a("callback onAdLoaded(%s) because max priority adId is loaded.", f.this.f1022b.f1320b);
+                        a.a.a.a.v.d.a("callback onAdLoaded(%s) because max priority adId is loaded.", f.this.f1022b.f1306b);
                         a(funAdLoadListener);
                         return;
                     }
-                } while (this.f1031a.get(indexOf).f1328b == bVar.f1328b);
+                } while (this.f1031a.get(indexOf).f1314b == bVar.f1314b);
                 return;
             }
             a(funAdLoadListener);
         }
 
         public synchronized void a(d.a aVar, int i, String str) {
-            e.a aVar2 = aVar.f1326d;
-            a.a.a.a.v.d.a("onError code:%d message:%s group.weight:%d type:%s pid:%s", Integer.valueOf(i), str, Integer.valueOf(aVar.f1327e.f1328b), aVar2.f1335d, aVar2.f1334c);
-            this.f1031a.remove(aVar.f1327e);
+            e.a aVar2 = aVar.f1312d;
+            a.a.a.a.v.d.a("onError code:%d message:%s group.weight:%d type:%s pid:%s", Integer.valueOf(i), str, Integer.valueOf(aVar.f1313e.f1314b), aVar2.f1321d, aVar2.f1320c);
+            this.f1031a.remove(aVar.f1313e);
             FunAdLoadListener funAdLoadListener = this.f1034d;
             if (funAdLoadListener != null && this.f1031a.isEmpty()) {
                 if (this.f1033c) {
@@ -307,8 +307,8 @@ public final class f implements e {
                     a(funAdLoadListener);
                     return;
                 }
-                a.a.a.a.v.d.b("callback onError(%s) as all group failed to load", f.this.f1022b.f1320b);
-                funAdLoadListener.onError(f.this.f1022b.f1320b);
+                a.a.a.a.v.d.b("callback onError(%s) as all group failed to load", f.this.f1022b.f1306b);
+                funAdLoadListener.onError(f.this.f1022b.f1306b);
                 a();
             }
         }
@@ -334,14 +334,14 @@ public final class f implements e {
         public void a(int i, String str) {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str2 = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdShowError(str2, aVar.f1335d, aVar.f1334c, aVar.k.f1330b, i, str);
+                String str2 = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdShowError(str2, aVar.f1321d, aVar.f1320c, aVar.k.f1316b, i, str);
             }
             f fVar = f.this;
             FunAdInteractionListener funAdInteractionListener = fVar.f1026f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdError(fVar.f1022b.f1320b);
+                funAdInteractionListener.onAdError(fVar.f1022b.f1306b);
             }
         }
 
@@ -349,9 +349,9 @@ public final class f implements e {
         public void b() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdLoad(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdLoad(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
         }
 
@@ -359,14 +359,14 @@ public final class f implements e {
         public void onAdClicked() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdClicked(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdClicked(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             f fVar = f.this;
             FunAdInteractionListener funAdInteractionListener = fVar.f1026f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClicked(fVar.f1022b.f1320b);
+                funAdInteractionListener.onAdClicked(fVar.f1022b.f1306b);
             }
         }
 
@@ -374,14 +374,14 @@ public final class f implements e {
         public void onAdClose() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdClose(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdClose(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             f fVar = f.this;
             FunAdInteractionListener funAdInteractionListener = fVar.f1026f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(fVar.f1022b.f1320b);
+                funAdInteractionListener.onAdClose(fVar.f1022b.f1306b);
             }
         }
 
@@ -389,14 +389,14 @@ public final class f implements e {
         public void onAdShow() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdShow(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdShow(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             f fVar = f.this;
             FunAdInteractionListener funAdInteractionListener = fVar.f1026f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdShow(fVar.f1022b.f1320b);
+                funAdInteractionListener.onAdShow(fVar.f1022b.f1306b);
             }
         }
 
@@ -404,9 +404,9 @@ public final class f implements e {
         public void onError(int i, String str) {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str2 = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdLoadError(str2, aVar.f1335d, aVar.f1334c, aVar.k.f1330b, i, str);
+                String str2 = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdLoadError(str2, aVar.f1321d, aVar.f1320c, aVar.k.f1316b, i, str);
             }
             c cVar = f.this.f1025e;
             if (cVar != null) {
@@ -418,9 +418,9 @@ public final class f implements e {
         public void onLoaded() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onAdLoaded(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onAdLoaded(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             c cVar = f.this.f1025e;
             if (cVar != null) {
@@ -432,25 +432,25 @@ public final class f implements e {
         public void a() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = f.this.f1022b.f1320b;
-                e.a aVar = this.f1036a.f1326d;
-                adCallback.onRewardedVideo(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = f.this.f1022b.f1306b;
+                e.a aVar = this.f1036a.f1312d;
+                adCallback.onRewardedVideo(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             f fVar = f.this;
             FunAdInteractionListener funAdInteractionListener = fVar.f1026f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onRewardedVideo(fVar.f1022b.f1320b);
+                funAdInteractionListener.onRewardedVideo(fVar.f1022b.f1306b);
             }
         }
     }
 
     public final k a(boolean z, List<k> list) {
-        a.a.a.a.u.p d2;
+        a.a.a.a.u.o d2;
         HashMap hashMap = new HashMap();
-        for (d.b bVar : this.f1022b.f1323e) {
-            for (d.a aVar : bVar.f1329c) {
+        for (d.b bVar : this.f1022b.f1309e) {
+            for (d.a aVar : bVar.f1315c) {
                 k a2 = a(aVar);
-                if (a2 != null && !list.contains(a2) && a2.c() && (!z || ((d2 = a2.d()) != null && d2.f1357a))) {
+                if (a2 != null && !list.contains(a2) && a2.c() && (!z || ((d2 = a2.d()) != null && d2.f1343a))) {
                     List list2 = (List) hashMap.get(bVar);
                     if (list2 == null) {
                         list2 = new ArrayList();
@@ -477,7 +477,7 @@ public final class f implements e {
             arrayList.add(a2);
             a2 = a(z, arrayList);
         }
-        a.a.a.a.v.d.b("showFailed for sid:%s with No ready pidLoader found or all pidLoader showFailed", this.f1022b.f1320b);
+        a.a.a.a.v.d.b("showFailed for sid:%s with No ready pidLoader found or all pidLoader showFailed", this.f1022b.f1306b);
         this.f1027g.post(new b(funAdInteractionListener));
     }
 }

@@ -1,7 +1,7 @@
 package io.reactivex.internal.disposables;
 
-import f.a.a0.a;
-import f.a.t.b;
+import f.b.a0.a;
+import f.b.t.b;
 import io.reactivex.exceptions.ProtocolViolationException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -65,7 +65,7 @@ public enum DisposableHelper implements b {
     }
 
     public static boolean setOnce(AtomicReference<b> atomicReference, b bVar) {
-        f.a.x.b.a.b(bVar, "d is null");
+        f.b.x.b.a.b(bVar, "d is null");
         if (atomicReference.compareAndSet(null, bVar)) {
             return true;
         }
@@ -101,11 +101,11 @@ public enum DisposableHelper implements b {
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return true;
     }

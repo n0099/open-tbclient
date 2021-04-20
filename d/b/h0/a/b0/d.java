@@ -15,7 +15,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.a.h;
 import d.b.h0.a.n;
 import java.util.HashMap;
@@ -31,30 +31,30 @@ import org.json.JSONObject;
 public class d implements Handler.Callback {
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f49522f;
+    public BdUniqueId f49914f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.h0.m.b<d.b.h0.a.b> f49523g;
+    public d.b.h0.m.b<d.b.h0.a.b> f49915g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.a.b0.b f49524h;
+    public d.b.h0.a.b0.b f49916h;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Queue<c> f49521e = new LinkedList();
+    public final Queue<c> f49913e = new LinkedList();
     public boolean i = false;
     public final Handler j = new Handler(this);
-    public d.b.b.c.g.a k = new a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
+    public d.b.c.c.g.a k = new a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
     public CustomMessageListener l = new b(2921379);
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: d.b.h0.a.b0.d$f */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             d.b.h0.a.b0.a data;
             d.this.i = false;
@@ -75,15 +75,15 @@ public class d implements Handler.Callback {
             if (data == null) {
                 return;
             }
-            if (d.this.f49524h == null) {
-                d.this.f49524h = new d.b.h0.a.b0.b();
+            if (d.this.f49916h == null) {
+                d.this.f49916h = new d.b.h0.a.b0.b();
             }
-            d.this.f49524h.d(data);
-            d.this.f49524h.e();
+            d.this.f49916h.d(data);
+            d.this.f49916h.e();
             Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                d.b.h0.a.b bVar = fVar.f49532a;
+                d.b.h0.a.b bVar = fVar.f49924a;
                 if (data != null && data.x == 1) {
                     bVar.z = true;
                 }
@@ -91,13 +91,13 @@ public class d implements Handler.Callback {
                 eVar = fVar;
             } else if (obj instanceof e) {
                 e eVar2 = (e) obj;
-                d.this.s(eVar2.f49530a);
+                d.this.s(eVar2.f49922a);
                 eVar = eVar2;
             } else if (obj instanceof g) {
                 n.b().g();
             }
             if (eVar != null) {
-                d.this.f49521e.remove(eVar);
+                d.this.f49913e.remove(eVar);
             }
             d.this.u();
         }
@@ -112,12 +112,12 @@ public class d implements Handler.Callback {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof C1040d)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof C1052d)) {
                 return;
             }
-            C1040d c1040d = (C1040d) customResponsedMessage.getData();
-            d.this.k(c1040d.f49527a);
-            d.this.l(c1040d.f49528b);
+            C1052d c1052d = (C1052d) customResponsedMessage.getData();
+            d.this.k(c1052d.f49919a);
+            d.this.l(c1052d.f49920b);
         }
     }
 
@@ -127,33 +127,33 @@ public class d implements Handler.Callback {
 
     /* renamed from: d.b.h0.a.b0.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1040d {
+    public static class C1052d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<h> f49527a;
+        public List<h> f49919a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<d.b.h0.a.b> f49528b;
+        public List<d.b.h0.a.b> f49920b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<d.b.h0.a.b> f49529c;
+        public List<d.b.h0.a.b> f49921c;
 
         public void a(d.b.h0.a.b bVar) {
-            List<d.b.h0.a.b> list = this.f49528b;
+            List<d.b.h0.a.b> list = this.f49920b;
             if (list != null) {
                 list.add(bVar);
             }
         }
 
         public void b(h hVar) {
-            List<h> list = this.f49527a;
+            List<h> list = this.f49919a;
             if (list != null) {
                 list.add(hVar);
             }
         }
 
         public void c(d.b.h0.a.b bVar) {
-            List<d.b.h0.a.b> list = this.f49529c;
+            List<d.b.h0.a.b> list = this.f49921c;
             if (list != null) {
                 list.add(bVar);
             }
@@ -164,13 +164,13 @@ public class d implements Handler.Callback {
     public static class e extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49530a;
+        public String f49922a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49531b;
+        public String f49923b;
 
         public e(String str) {
-            this.f49530a = str;
+            this.f49922a = str;
         }
     }
 
@@ -178,10 +178,10 @@ public class d implements Handler.Callback {
     public static class f extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.h0.a.b f49532a;
+        public d.b.h0.a.b f49924a;
 
         public f(d.b.h0.a.b bVar) {
-            this.f49532a = bVar;
+            this.f49924a = bVar;
         }
     }
 
@@ -190,7 +190,7 @@ public class d implements Handler.Callback {
     }
 
     public d(BdUniqueId bdUniqueId) {
-        this.f49522f = bdUniqueId;
+        this.f49914f = bdUniqueId;
         p();
         q();
     }
@@ -257,8 +257,8 @@ public class d implements Handler.Callback {
             }
         }
         e eVar = new e(jSONObject.toString());
-        eVar.f49531b = jSONObject2.toString();
-        this.f49521e.add(eVar);
+        eVar.f49923b = jSONObject2.toString();
+        this.f49913e.add(eVar);
         u();
     }
 
@@ -271,34 +271,34 @@ public class d implements Handler.Callback {
                 bVar.e0(bVar.F());
                 o(bVar);
             } else {
-                this.f49521e.add(new f(bVar));
+                this.f49913e.add(new f(bVar));
             }
         }
         u();
     }
 
     public void m() {
-        d.b.h0.a.b0.b bVar = this.f49524h;
+        d.b.h0.a.b0.b bVar = this.f49916h;
         if (bVar != null) {
             bVar.a();
         }
     }
 
     public BdUniqueId n() {
-        return this.f49522f;
+        return this.f49914f;
     }
 
     public final void o(d.b.h0.a.b bVar) {
         d.b.h0.m.b<d.b.h0.a.b> bVar2;
-        if (bVar == null || (bVar2 = this.f49523g) == null) {
+        if (bVar == null || (bVar2 = this.f49915g) == null) {
             return;
         }
         bVar2.a(bVar);
     }
 
     public final void p() {
-        d.b.i0.c3.d0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, d.b.i0.c3.d0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
+        d.b.i0.d3.d0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, d.b.i0.d3.d0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
         tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -321,13 +321,13 @@ public class d implements Handler.Callback {
         Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
         if (obj instanceof f) {
             f fVar = (f) obj;
-            o(fVar.f49532a);
+            o(fVar.f49924a);
             eVar = fVar;
         } else if (obj instanceof e) {
             eVar = (e) obj;
         }
         if (eVar != null) {
-            this.f49521e.remove(eVar);
+            this.f49913e.remove(eVar);
         }
         u();
     }
@@ -355,8 +355,8 @@ public class d implements Handler.Callback {
                 if (string != null && (split = string.split(",")) != null) {
                     for (String str2 : split) {
                         d.b.h0.a.b bVar = new d.b.h0.a.b();
-                        bVar.S(d.b.b.e.m.b.d(next, 0));
-                        bVar.b0(d.b.b.e.m.b.d(str2, 0));
+                        bVar.S(d.b.c.e.m.b.d(next, 0));
+                        bVar.b0(d.b.c.e.m.b.d(str2, 0));
                         if (bVar.d() != 0 && bVar.q() != 0) {
                             linkedList.add(bVar);
                         }
@@ -388,7 +388,7 @@ public class d implements Handler.Callback {
         if (j.z()) {
             this.i = true;
             CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i);
-            completeTaskReqMsg.setTag(this.f49522f);
+            completeTaskReqMsg.setTag(this.f49914f);
             completeTaskReqMsg.completeId = str;
             completeTaskReqMsg.setToken(str2);
             completeTaskReqMsg.extra = obj;
@@ -398,7 +398,7 @@ public class d implements Handler.Callback {
     }
 
     public void w(d.b.h0.m.b<d.b.h0.a.b> bVar) {
-        this.f49523g = bVar;
+        this.f49915g = bVar;
     }
 
     public final boolean x() {
@@ -407,22 +407,22 @@ public class d implements Handler.Callback {
         String str;
         d.b.h0.a.b bVar;
         try {
-            if (this.i || (peek = this.f49521e.peek()) == null) {
+            if (this.i || (peek = this.f49913e.peek()) == null) {
                 return false;
             }
             if (peek instanceof f) {
                 f fVar = (f) peek;
-                if (fVar == null || (bVar = fVar.f49532a) == null) {
+                if (fVar == null || (bVar = fVar.f49924a) == null) {
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(String.valueOf(bVar.d()), String.valueOf(bVar.q()));
                 v(jSONObject.toString(), 1, bVar.E(), fVar);
                 return true;
-            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f49530a) == null) {
+            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f49922a) == null) {
                 return false;
             } else {
-                v(str, 1, eVar.f49531b, eVar);
+                v(str, 1, eVar.f49923b, eVar);
                 return true;
             }
         } catch (Exception e2) {

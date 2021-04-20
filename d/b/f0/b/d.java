@@ -6,35 +6,35 @@ import android.content.SharedPreferences;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f42832a;
+    public SharedPreferences f43224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f42833b;
+    public SharedPreferences.Editor f43225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f42834c;
+    public Context f43226c;
 
     public d(Context context) {
         try {
-            this.f42834c = context;
+            this.f43226c = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
-            this.f42832a = sharedPreferences;
-            this.f42833b = sharedPreferences.edit();
+            this.f43224a = sharedPreferences;
+            this.f43225b = sharedPreferences.edit();
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }
     }
 
     public String a() {
-        return this.f42832a.getString("xyus", "");
+        return this.f43224a.getString("xyus", "");
     }
 
     public void b(String str) {
-        this.f42833b.putString("xyusec", str);
-        this.f42833b.commit();
+        this.f43225b.putString("xyusec", str);
+        this.f43225b.commit();
     }
 
     public String c() {
-        return this.f42832a.getString("xyusec", "");
+        return this.f43224a.getString("xyusec", "");
     }
 }

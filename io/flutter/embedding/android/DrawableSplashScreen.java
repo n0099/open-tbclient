@@ -1,6 +1,7 @@
 package io.flutter.embedding.android;
 
 import android.animation.Animator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import f.a.a.a.a;
 /* loaded from: classes7.dex */
 public final class DrawableSplashScreen implements SplashScreen {
     public final long crossfadeDurationInMillis;
@@ -54,13 +56,16 @@ public final class DrawableSplashScreen implements SplashScreen {
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
-    public boolean doesSplashViewRememberItsTransition() {
-        return SplashScreen$$CC.doesSplashViewRememberItsTransition(this);
+    @SuppressLint({"NewApi"})
+    public /* synthetic */ boolean doesSplashViewRememberItsTransition() {
+        return a.$default$doesSplashViewRememberItsTransition(this);
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
-    public Bundle saveSplashScreenState() {
-        return SplashScreen$$CC.saveSplashScreenState(this);
+    @Nullable
+    @SuppressLint({"NewApi"})
+    public /* synthetic */ Bundle saveSplashScreenState() {
+        return a.$default$saveSplashScreenState(this);
     }
 
     @Override // io.flutter.embedding.android.SplashScreen

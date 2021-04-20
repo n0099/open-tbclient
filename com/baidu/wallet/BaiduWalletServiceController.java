@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.LogUtil;
 import com.baidu.wallet.api.ILightappInvokerCallback;
@@ -27,40 +28,40 @@ public class BaiduWalletServiceController {
     public static final String H5CHECKPWDCB = "H5CheckPwd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23332b = "BaiduWalletServiceController";
+    public static final String f23017b = "BaiduWalletServiceController";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f23333c = new Object();
+    public static final Object f23018c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public static LoginBackListenerProxy f23334d;
+    public static LoginBackListenerProxy f23019d;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f23335a;
+    public ILightappInvokerCallback f23020a;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f23336e;
+    public long f23021e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduWalletServiceController f23354a = new BaiduWalletServiceController();
+        public static BaiduWalletServiceController f23039a = new BaiduWalletServiceController();
     }
 
     private boolean b() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f23336e;
+        long j = currentTimeMillis - this.f23021e;
         LogUtil.logd("timeD=" + j);
         if (0 >= j || j >= 800) {
-            this.f23336e = currentTimeMillis;
+            this.f23021e = currentTimeMillis;
             return false;
         }
         return true;
     }
 
     public static BaiduWalletServiceController getInstance() {
-        return a.f23354a;
+        return a.f23039a;
     }
 
     public static void getOpenBdussFirst(final Context context, final Intent intent, final boolean z, boolean z2) {
@@ -95,15 +96,15 @@ public class BaiduWalletServiceController {
 
     public static void loginFirst(final Context context, final Intent intent, final boolean z) {
         if (context instanceof Activity) {
-            com.baidu.wallet.core.utils.LogUtil.d(f23332b, "context is activity!");
+            com.baidu.wallet.core.utils.LogUtil.d(f23017b, "context is activity!");
         } else {
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        f23334d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
+        f23019d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i, String str) {
                 if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23334d);
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23019d);
                 }
             }
 
@@ -121,7 +122,7 @@ public class BaiduWalletServiceController {
                 }
             }
         });
-        WalletLoginHelper.getInstance().login(f23334d);
+        WalletLoginHelper.getInstance().login(f23019d);
     }
 
     public void accessBusCardChargeNFC(Context context, Parcelable parcelable) {
@@ -183,7 +184,7 @@ public class BaiduWalletServiceController {
     }
 
     public BaiduWalletServiceController() {
-        this.f23335a = null;
+        this.f23020a = null;
     }
 
     private void a(Context context, boolean z) {
@@ -207,7 +208,7 @@ public class BaiduWalletServiceController {
 
     public void gotoWalletService(Context context, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
         if (iLightappInvokerCallback != null) {
-            this.f23335a = iLightappInvokerCallback;
+            this.f23020a = iLightappInvokerCallback;
             gotoWalletService(context, str, str2, true);
         }
     }
@@ -308,12 +309,12 @@ public class BaiduWalletServiceController {
         } else if (j == WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_FINANCE) {
             DXMSdkSAUtils.onEvent(StatServiceEvent.EVENT_API_START_WALLET_FINANCE);
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_START_WALLET_FINANCE);
-            LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_TAB).action("startWalletFinance").data("withAnim", Boolean.toString(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.11
+            LocalRouter.getInstance(context).route(context, new RouterRequest().provider("tab").action("startWalletFinance").data("withAnim", Boolean.toString(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.11
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i, HashMap hashMap2) {
                     if (i == 5) {
                         HashMap hashMap3 = new HashMap();
-                        hashMap3.put("provider", BaiduWalletServiceProviderMap.PLUGIN_TAB);
+                        hashMap3.put("provider", "tab");
                         hashMap3.put("action", "startWalletFinance");
                         DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
                         PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());

@@ -1,114 +1,83 @@
 package d.b.i0.u3;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsTabItemData;
-import d.b.i0.b0.c;
-import d.b.i0.u3.r.d.a;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SimpleForum;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 /* loaded from: classes5.dex */
-public class b implements d.b.i0.b0.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.u3.r.d.a f61473a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<SimpleForum> f61475c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c.a f61476d;
+public class b extends TimePickerDialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61477e;
+    public int f62835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61478f;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f61474b = new ArrayList<>();
+    public int f62836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.b f61479g = new a();
+    public boolean f62837g;
 
-    /* loaded from: classes5.dex */
-    public class a implements a.b {
-        public a() {
-        }
-
-        @Override // d.b.i0.u3.r.d.a.b
-        public void a(List<SimpleForum> list, int i) {
-            b.this.f61475c = list;
-            b.this.f61478f = i;
-            b.this.h();
-        }
-
-        @Override // d.b.i0.u3.r.d.a.b
-        public void onError() {
-            b.this.g();
-        }
+    public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
+        this.f62835e = -1;
+        this.f62836f = -1;
+        this.f62837g = false;
+        this.f62835e = i;
+        this.f62836f = i2;
     }
 
-    public b() {
-        BdUniqueId gen = BdUniqueId.gen();
-        d.b.i0.u3.r.d.a aVar = new d.b.i0.u3.r.d.a(gen);
-        this.f61473a = aVar;
-        aVar.i(this.f61479g);
-        this.f61473a.j(gen);
-    }
-
-    @Override // d.b.i0.b0.c
-    public void a(c.a aVar) {
-        this.f61476d = aVar;
-    }
-
-    @Override // d.b.i0.b0.c
-    public void b() {
-        d.b.i0.u3.r.d.a aVar;
-        if (this.f61476d == null || (aVar = this.f61473a) == null) {
-            return;
-        }
-        this.f61477e = false;
-        aVar.l(null);
-        this.f61473a.k(null);
-        this.f61473a.h();
-    }
-
-    public final void g() {
-        if (this.f61477e) {
-            return;
-        }
-        c.a aVar = this.f61476d;
-        if (aVar != null) {
-            aVar.a(null, false, 2, 0);
-        }
-        this.f61477e = true;
-    }
-
-    public final void h() {
-        Long l;
-        this.f61474b.clear();
-        if (ListUtils.getCount(this.f61475c) > 0) {
-            for (SimpleForum simpleForum : this.f61475c) {
-                if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                    TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
-                    transmitForumData.tabItemDatas = new ArrayList<>();
-                    for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
-                        if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                            transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
-                        }
-                    }
-                    this.f61474b.add(transmitForumData);
-                }
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        int i2;
+        if (i == -1) {
+            this.f62837g = true;
+        } else {
+            int i3 = this.f62835e;
+            if (i3 >= 0 && (i2 = this.f62836f) >= 0) {
+                updateTime(i3, i2);
             }
         }
-        c.a aVar = this.f61476d;
-        if (aVar != null) {
-            aVar.a(this.f61474b, true, 2, this.f61478f);
+        super.onClick(dialogInterface, i);
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        updateTime(0, 0);
+        this.f62835e = bundle.getInt("hour_key");
+        int i = bundle.getInt("min_key");
+        this.f62836f = i;
+        updateTime(this.f62835e, i);
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public Bundle onSaveInstanceState() {
+        Bundle bundle;
+        try {
+            bundle = super.onSaveInstanceState();
+        } catch (Exception unused) {
+            bundle = null;
         }
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        bundle.putInt("hour_key", this.f62835e);
+        bundle.putInt("min_key", this.f62836f);
+        return bundle;
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        if (!this.f62837g) {
+            updateTime(this.f62835e, this.f62836f);
+        }
+        super.onStop();
+    }
+
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
+        super.updateTime(i, i2);
+        this.f62835e = i;
+        this.f62836f = i2;
+        this.f62837g = false;
     }
 }

@@ -7,41 +7,41 @@ import okhttp3.RequestBody;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48879a;
+    public String f49271a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f48881c;
+    public Map<String, String> f49273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestBody f48882d;
+    public RequestBody f49274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ResponseCallback f48883e;
+    public ResponseCallback f49275e;
     public Object i;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48880b = "GET";
+    public String f49272b = "GET";
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48884f = false;
+    public boolean f49276f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48885g = false;
+    public boolean f49277g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48886h = false;
+    public boolean f49278h = false;
 
     public a() {
     }
 
     public a(String str, ResponseCallback responseCallback) {
-        this.f48879a = str;
-        this.f48883e = responseCallback;
+        this.f49271a = str;
+        this.f49275e = responseCallback;
     }
 
     public a(String str, RequestBody requestBody, ResponseCallback responseCallback) {
-        this.f48879a = str;
-        this.f48882d = requestBody;
-        this.f48883e = responseCallback;
+        this.f49271a = str;
+        this.f49274d = requestBody;
+        this.f49275e = responseCallback;
     }
 }

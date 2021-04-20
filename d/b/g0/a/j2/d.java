@@ -39,33 +39,33 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 /* loaded from: classes3.dex */
 public class d {
-    public static final boolean A = k.f45051a;
+    public static final boolean A = k.f45443a;
     public static View B;
     public static View C;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f44988a;
+    public View f45380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f44989b;
+    public TextView f45381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppRoundedImageView f44990c;
+    public SwanAppRoundedImageView f45382c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f44991d;
+    public ImageView f45383d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44992e;
+    public ImageView f45384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f44993f;
+    public ImageView f45385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f44994g;
+    public ImageView f45386g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f44995h;
+    public RelativeLayout f45387h;
     public BdBaseImageView i;
     public TextView j;
     public View k;
@@ -89,15 +89,15 @@ public class d {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f44996e;
+        public final /* synthetic */ Context f45388e;
 
         public a(Context context) {
-            this.f44996e = context;
+            this.f45388e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.u(this.f44996e);
+            d.u(this.f45388e);
         }
     }
 
@@ -132,8 +132,8 @@ public class d {
 
     /* renamed from: d.b.g0.a.j2.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0712d implements View.OnClickListener {
-        public View$OnClickListenerC0712d() {
+    public class View$OnClickListenerC0724d implements View.OnClickListener {
+        public View$OnClickListenerC0724d() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -157,10 +157,10 @@ public class d {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45000e;
+        public final /* synthetic */ int f45392e;
 
         public e(int i) {
-            this.f45000e = i;
+            this.f45392e = i;
         }
 
         @Override // java.lang.Runnable
@@ -169,7 +169,7 @@ public class d {
                 i.n().A(new UbcFlowEvent("first_anim_end"));
                 d.b.g0.a.y1.a.d().i("first_anim_end");
                 if (d.this.l != null) {
-                    d.this.l.g(d.this.m, this.f45000e);
+                    d.this.l.g(d.this.m, this.f45392e);
                 }
                 d.this.s = false;
             }
@@ -195,17 +195,17 @@ public class d {
     public class g implements s.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45003a;
+        public final /* synthetic */ String f45395a;
 
         public g(d dVar, String str) {
-            this.f45003a = str;
+            this.f45395a = str;
         }
 
         @Override // d.b.g0.a.i2.s.b
         public void a(String str, Bitmap bitmap) {
             SwanAppActivity n;
             d loadingView;
-            if (bitmap == null || (n = d.b.g0.a.r1.d.e().n()) == null || n.isDestroyed() || (loadingView = n.getLoadingView()) == null || !TextUtils.equals(this.f45003a, d.b.g0.a.r1.d.e().getAppId())) {
+            if (bitmap == null || (n = d.b.g0.a.r1.d.e().n()) == null || n.isDestroyed() || (loadingView = n.getLoadingView()) == null || !TextUtils.equals(this.f45395a, d.b.g0.a.r1.d.e().getAppId())) {
                 return;
             }
             loadingView.F(bitmap);
@@ -216,19 +216,19 @@ public class d {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f45004e;
+        public final boolean f45396e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f45005f;
+        public final String f45397f;
         public final d.b.g0.a.r1.b i;
         public int k;
         public boolean l;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f45006g = false;
+        public boolean f45398g = false;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f45007h = false;
+        public boolean f45399h = false;
         public int j = -1;
 
         /* loaded from: classes3.dex */
@@ -280,8 +280,8 @@ public class d {
 
         /* renamed from: d.b.g0.a.j2.d$h$d  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0713d implements d.b.g0.a.i2.u0.b<i.a> {
-            public C0713d(d dVar) {
+        public class C0725d implements d.b.g0.a.i2.u0.b<i.a> {
+            public C0725d(d dVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -346,13 +346,13 @@ public class d {
         }
 
         public h(String str, boolean z) {
-            this.f45005f = str;
-            this.f45004e = z;
+            this.f45397f = str;
+            this.f45396e = z;
             d.b.g0.a.r1.b bVar = new d.b.g0.a.r1.b();
             bVar.e(new g(d.this), "event_pms_check_start");
             bVar.e(new f(d.this), "event_pms_check_finish");
             bVar.e(new e(this, d.this), "event_pkg_download_start");
-            bVar.e(new C0713d(d.this), "event_pkg_download_finish");
+            bVar.e(new C0725d(d.this), "event_pkg_download_finish");
             bVar.e(new c(this, d.this), "event_preload_start");
             bVar.e(new b(this, d.this), "event_preload_error");
             bVar.e(new a(d.this), "event_preload_finish");
@@ -383,8 +383,8 @@ public class d {
                 sb.append(z ? "post" : Log.getStackTraceString(new Exception()));
                 Log.i("SwanAppLoadingView", sb.toString());
             }
-            this.f45007h = true;
-            d.this.t(this.f45004e, this.f45006g);
+            this.f45399h = true;
+            d.this.t(this.f45396e, this.f45398g);
         }
 
         public boolean g() {
@@ -437,7 +437,7 @@ public class d {
         }
 
         public h l() {
-            this.f45006g = true;
+            this.f45398g = true;
             return this;
         }
 
@@ -490,14 +490,14 @@ public class d {
         this.w = 0L;
         String U = d.b.g0.a.r1.d.e().s().J().U();
         h hVar = this.x;
-        boolean z4 = hVar == null || (hVar.f45004e ^ z) || TextUtils.isEmpty(U) || !TextUtils.equals(U, this.x.f45005f);
+        boolean z4 = hVar == null || (hVar.f45396e ^ z) || TextUtils.isEmpty(U) || !TextUtils.equals(U, this.x.f45397f);
         if (A) {
             Log.i("SwanAppLoadingView", "showSwanAppStartView: newLaunchId = " + U + " newIsGameLoading = " + z + " reCreateStarter = " + z4 + " mViewStarter = " + this.x);
         }
         Handler g2 = d.b.g0.a.r1.d.g();
         if (this.x != null) {
             if (A) {
-                Log.i("SwanAppLoadingView", "showSwanAppStartView: oldLaunchId = " + this.x.f45005f + " oldIsGameLoading = " + this.x.f45004e);
+                Log.i("SwanAppLoadingView", "showSwanAppStartView: oldLaunchId = " + this.x.f45397f + " oldIsGameLoading = " + this.x.f45396e);
             }
             g2.removeCallbacks(this.x);
         }
@@ -509,7 +509,7 @@ public class d {
         }
         z3 = (aVar == null || !aVar.d(" event_params_pkg_update", false)) ? false : false;
         h hVar2 = this.x;
-        if (hVar2.f45007h) {
+        if (hVar2.f45399h) {
             if (A) {
                 Log.i("SwanAppLoadingView", "showSwanAppStartView: return by executing pkgUpdating = " + z3 + " trace = " + Log.getStackTraceString(new Exception()));
             }
@@ -612,13 +612,13 @@ public class d {
         }
         String appId = d.b.g0.a.r1.d.e().getAppId();
         if (this.s) {
-            this.f44990c.setImageBitmap(k0.l(str, "SwanAppLoadingView", true, new g(this, appId)));
+            this.f45382c.setImageBitmap(k0.l(str, "SwanAppLoadingView", true, new g(this, appId)));
         }
     }
 
     public final void F(Bitmap bitmap) {
         SwanAppRoundedImageView swanAppRoundedImageView;
-        if (bitmap == null || (swanAppRoundedImageView = this.f44990c) == null) {
+        if (bitmap == null || (swanAppRoundedImageView = this.f45382c) == null) {
             return;
         }
         swanAppRoundedImageView.setImageBitmap(bitmap);
@@ -628,7 +628,7 @@ public class d {
         if (!this.s || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f44989b.setText(str);
+        this.f45381b.setText(str);
     }
 
     public final void H() {
@@ -666,8 +666,8 @@ public class d {
         }
         String valueOf = String.valueOf(System.currentTimeMillis() - launchInfo.k("launch_time", 0L));
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47252b = Config.LAUNCH;
-        fVar.f47254d = "realcancel";
+        fVar.f47644b = Config.LAUNCH;
+        fVar.f47646d = "realcancel";
         fVar.r = valueOf;
         fVar.a("reason", IntentConfig.CLOSE);
         if (launchInfo.F() == 1) {
@@ -678,11 +678,11 @@ public class d {
     }
 
     public final void o() {
-        SwanLoadingTipsView swanLoadingTipsView = (SwanLoadingTipsView) this.f44988a.findViewById(d.b.g0.a.f.aigames_loading_game_tips);
+        SwanLoadingTipsView swanLoadingTipsView = (SwanLoadingTipsView) this.f45380a.findViewById(d.b.g0.a.f.aigames_loading_game_tips);
         this.o = swanLoadingTipsView;
         swanLoadingTipsView.setTipsAnimationFinishCallback(new b());
         this.p = new SwanLoadingTips();
-        this.f44988a.addOnAttachStateChangeListener(new c());
+        this.f45380a.addOnAttachStateChangeListener(new c());
     }
 
     public final void p(int i) {
@@ -757,56 +757,56 @@ public class d {
                 this.l = new d.b.g0.a.s.a();
             }
             View q = q(this.m, z);
-            this.f44988a = q;
+            this.f45380a = q;
             if (!z) {
-                q.setPadding(0, d.b.g0.a.q1.b.a.f45539b ? h0.s() : 0, 0, 0);
+                q.setPadding(0, d.b.g0.a.q1.b.a.f45931b ? h0.s() : 0, 0, 0);
             } else {
                 o();
             }
-            this.q = (TextView) this.f44988a.findViewById(d.b.g0.a.f.aiapps_loading_progress);
+            this.q = (TextView) this.f45380a.findViewById(d.b.g0.a.f.aiapps_loading_progress);
             b.a J = d.b.g0.a.r1.d.e().s().J();
             PMSAppInfo c0 = J.c0();
             C(z, z2);
-            this.m.getFloatLayer().j(this.f44988a);
+            this.m.getFloatLayer().j(this.f45380a);
             this.s = true;
-            this.f44989b = (TextView) this.f44988a.findViewById(d.b.g0.a.f.aiapps_title);
-            this.f44990c = (SwanAppRoundedImageView) this.f44988a.findViewById(d.b.g0.a.f.aiapps_icon);
-            this.i = (BdBaseImageView) this.f44988a.findViewById(d.b.g0.a.f.aiapps_label_bg);
-            this.j = (TextView) this.f44988a.findViewById(d.b.g0.a.f.aiapps_label_tv);
-            this.f44995h = (RelativeLayout) this.f44988a.findViewById(d.b.g0.a.f.aiapps_icon_rl);
+            this.f45381b = (TextView) this.f45380a.findViewById(d.b.g0.a.f.aiapps_title);
+            this.f45382c = (SwanAppRoundedImageView) this.f45380a.findViewById(d.b.g0.a.f.aiapps_icon);
+            this.i = (BdBaseImageView) this.f45380a.findViewById(d.b.g0.a.f.aiapps_label_bg);
+            this.j = (TextView) this.f45380a.findViewById(d.b.g0.a.f.aiapps_label_tv);
+            this.f45387h = (RelativeLayout) this.f45380a.findViewById(d.b.g0.a.f.aiapps_icon_rl);
             G(J.J());
             E(J.P());
             p(J.m1());
-            this.f44991d = (ImageView) this.f44988a.findViewById(d.b.g0.a.f.light_print);
-            this.f44992e = (ImageView) this.f44988a.findViewById(d.b.g0.a.f.dark_print);
-            this.f44993f = (ImageView) this.f44988a.findViewById(d.b.g0.a.f.titlebar_right_menu_img);
-            this.f44994g = (ImageView) this.f44988a.findViewById(d.b.g0.a.f.titlebar_right_menu_exit);
-            this.k = this.f44988a.findViewById(d.b.g0.a.f.titlebar_right_menu);
+            this.f45383d = (ImageView) this.f45380a.findViewById(d.b.g0.a.f.light_print);
+            this.f45384e = (ImageView) this.f45380a.findViewById(d.b.g0.a.f.dark_print);
+            this.f45385f = (ImageView) this.f45380a.findViewById(d.b.g0.a.f.titlebar_right_menu_img);
+            this.f45386g = (ImageView) this.f45380a.findViewById(d.b.g0.a.f.titlebar_right_menu_exit);
+            this.k = this.f45380a.findViewById(d.b.g0.a.f.titlebar_right_menu);
             if (z) {
-                this.f44993f.setClickable(true);
-                this.f44993f.setImageResource(d.b.g0.a.e.aiapps_action_bar_single_menu_white_selector);
-                this.f44994g.setImageResource(d.b.g0.a.e.aiapps_action_bar_exit_white_selector);
+                this.f45385f.setClickable(true);
+                this.f45385f.setImageResource(d.b.g0.a.e.aiapps_action_bar_single_menu_white_selector);
+                this.f45386g.setImageResource(d.b.g0.a.e.aiapps_action_bar_exit_white_selector);
                 this.k.setBackgroundResource(d.b.g0.a.e.aiapps_action_bar_right_menu_bg_solid);
-                View findViewById = this.f44988a.findViewById(d.b.g0.a.f.titlebar_right_menu_line);
+                View findViewById = this.f45380a.findViewById(d.b.g0.a.f.titlebar_right_menu_line);
                 this.n = findViewById;
                 findViewById.setBackgroundResource(d.b.g0.a.c.aiapps_action_bar_menu_line_white);
             } else {
-                this.f44993f.setImageResource(d.b.g0.a.e.aiapps_action_bar_menu_black_selector);
-                this.f44994g.setImageResource(d.b.g0.a.e.aiapps_action_bar_exit_black_selector);
+                this.f45385f.setImageResource(d.b.g0.a.e.aiapps_action_bar_menu_black_selector);
+                this.f45386g.setImageResource(d.b.g0.a.e.aiapps_action_bar_exit_black_selector);
                 this.k.setBackgroundResource(d.b.g0.a.e.aiapps_action_bar_right_menu_bg);
             }
             int i = c0 == null ? PMSConstants$PayProtected.NO_PAY_PROTECTED.type : c0.payProtected;
             if (!z && k0.D() && i == PMSConstants$PayProtected.PAY_PROTECTED.type) {
-                ((RelativeLayout) this.f44988a.findViewById(d.b.g0.a.f.guarantee_plan_rl)).setVisibility(0);
+                ((RelativeLayout) this.f45380a.findViewById(d.b.g0.a.f.guarantee_plan_rl)).setVisibility(0);
             }
-            this.f44992e.setAlpha(0.0f);
+            this.f45384e.setAlpha(0.0f);
             this.l.h(this.m);
             x();
         }
     }
 
     public final void x() {
-        this.f44994g.setOnClickListener(new View$OnClickListenerC0712d());
+        this.f45386g.setOnClickListener(new View$OnClickListenerC0724d());
     }
 
     public final void y(float f2) {
@@ -827,7 +827,7 @@ public class d {
         }
         sb.append(str);
         h hVar = this.x;
-        if (hVar != null && !hVar.f45004e) {
+        if (hVar != null && !hVar.f45396e) {
             if (hVar.j()) {
                 if (A) {
                     Log.i("SwanAppLoadingView", "setProgressText: checking update");

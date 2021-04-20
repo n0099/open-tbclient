@@ -22,31 +22,31 @@ import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f29143a;
+    public View f28828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f29144b;
+    public ImageView f28829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f29145c;
+    public EditText f28830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f29146d;
+    public TextView f28831d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f29147e;
+    public TextView f28832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f29148f;
+    public l f28833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f29149g;
+    public a f28834g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -57,14 +57,14 @@ public class c extends Dialog {
 
     public c(@NonNull Context context, l lVar) {
         super(context, ad.g(context, "quick_option_dialog"));
-        this.f29148f = lVar;
+        this.f28833f = lVar;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        InputMethodManager inputMethodManager = (InputMethodManager) this.f29145c.getContext().getSystemService("input_method");
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f28830c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f29143a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f28828a.getWindowToken(), 0);
         }
         super.dismiss();
     }
@@ -73,7 +73,7 @@ public class c extends Dialog {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         View inflate = LayoutInflater.from(getContext()).inflate(ad.f(getContext(), "tt_dislike_comment_layout"), (ViewGroup) null);
-        this.f29143a = inflate;
+        this.f28828a = inflate;
         setContentView(inflate);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
@@ -85,11 +85,11 @@ public class c extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        InputMethodManager inputMethodManager = (InputMethodManager) this.f29145c.getContext().getSystemService("input_method");
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f28830c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f29143a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f28828a.getWindowToken(), 0);
         }
-        this.f29145c.clearFocus();
+        this.f28830c.clearFocus();
         Window window = getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.gravity = 80;
@@ -98,24 +98,24 @@ public class c extends Dialog {
 
     private void a(Context context) {
         EditText editText = (EditText) findViewById(ad.e(getContext(), "tt_comment_content"));
-        this.f29145c = editText;
+        this.f28830c = editText;
         a(editText);
         TextView textView = (TextView) findViewById(ad.e(getContext(), "tt_comment_commit"));
-        this.f29146d = textView;
+        this.f28831d = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String obj = c.this.f29145c.getText().toString();
+                String obj = c.this.f28830c.getText().toString();
                 if (obj.length() <= 0 || obj.isEmpty()) {
                     return;
                 }
                 FilterWord filterWord = new FilterWord("0:00", obj);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(filterWord);
-                com.bytedance.sdk.openadsdk.c.d.a(c.this.f29148f, arrayList);
-                if (c.this.f29149g != null) {
+                com.bytedance.sdk.openadsdk.c.d.a(c.this.f28833f, arrayList);
+                if (c.this.f28834g != null) {
                     try {
-                        c.this.f29149g.a(0, filterWord);
+                        c.this.f28834g.a(0, filterWord);
                     } catch (Throwable unused) {
                     }
                 }
@@ -123,15 +123,15 @@ public class c extends Dialog {
             }
         });
         ImageView imageView = (ImageView) findViewById(ad.e(getContext(), "tt_comment_close"));
-        this.f29144b = imageView;
+        this.f28829b = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
             }
         });
-        this.f29147e = (TextView) findViewById(ad.e(getContext(), "tt_comment_number"));
-        this.f29145c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.c.3
+        this.f28832e = (TextView) findViewById(ad.e(getContext(), "tt_comment_number"));
+        this.f28830c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.c.3
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
@@ -143,14 +143,14 @@ public class c extends Dialog {
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 int round = Math.round(charSequence.length());
-                c.this.f29147e.setText(round + "");
+                c.this.f28832e.setText(round + "");
                 if (round > 0) {
-                    c.this.f29146d.setTextColor(-16777216);
-                    c.this.f29146d.setClickable(true);
+                    c.this.f28831d.setTextColor(-16777216);
+                    c.this.f28831d.setClickable(true);
                     return;
                 }
-                c.this.f29146d.setTextColor(-7829368);
-                c.this.f29146d.setClickable(false);
+                c.this.f28831d.setTextColor(-7829368);
+                c.this.f28831d.setClickable(false);
             }
         });
     }
@@ -168,16 +168,16 @@ public class c extends Dialog {
         setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.4
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (c.this.f29149g != null) {
-                    c.this.f29149g.a();
+                if (c.this.f28834g != null) {
+                    c.this.f28834g.a();
                 }
             }
         });
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (c.this.f29149g != null) {
-                    c.this.f29149g.b();
+                if (c.this.f28834g != null) {
+                    c.this.f28834g.b();
                 }
             }
         });
@@ -187,18 +187,18 @@ public class c extends Dialog {
         if (lVar == null) {
             return;
         }
-        this.f29148f = lVar;
+        this.f28833f = lVar;
     }
 
     public void a() {
-        EditText editText = this.f29145c;
+        EditText editText = this.f28830c;
         if (editText != null) {
             editText.setText((CharSequence) null);
         }
     }
 
     public void a(a aVar) {
-        this.f29149g = aVar;
+        this.f28834g = aVar;
     }
 
     public static void a(EditText editText) {

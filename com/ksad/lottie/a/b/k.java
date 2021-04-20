@@ -13,13 +13,13 @@ public class k extends f<com.ksad.lottie.e.d> {
     public com.ksad.lottie.e.d a(com.ksad.lottie.e.a<com.ksad.lottie.e.d> aVar, float f2) {
         com.ksad.lottie.e.d dVar;
         com.ksad.lottie.e.d dVar2;
-        com.ksad.lottie.e.d dVar3 = aVar.f31383a;
-        if (dVar3 == null || (dVar = aVar.f31384b) == null) {
+        com.ksad.lottie.e.d dVar3 = aVar.f31672a;
+        if (dVar3 == null || (dVar = aVar.f31673b) == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
         com.ksad.lottie.e.d dVar4 = dVar3;
         com.ksad.lottie.e.d dVar5 = dVar;
-        com.ksad.lottie.e.c<A> cVar = this.f31289b;
-        return (cVar == 0 || (dVar2 = (com.ksad.lottie.e.d) cVar.a(aVar.f31386d, aVar.f31387e.floatValue(), dVar4, dVar5, f2, c(), f())) == null) ? new com.ksad.lottie.e.d(com.ksad.lottie.d.e.a(dVar4.a(), dVar5.a(), f2), com.ksad.lottie.d.e.a(dVar4.b(), dVar5.b(), f2)) : dVar2;
+        com.ksad.lottie.e.c<A> cVar = this.f31578b;
+        return (cVar == 0 || (dVar2 = (com.ksad.lottie.e.d) cVar.a(aVar.f31675d, aVar.f31676e.floatValue(), dVar4, dVar5, f2, c(), f())) == null) ? new com.ksad.lottie.e.d(com.ksad.lottie.d.e.a(dVar4.a(), dVar5.a(), f2), com.ksad.lottie.d.e.a(dVar4.b(), dVar5.b(), f2)) : dVar2;
     }
 }

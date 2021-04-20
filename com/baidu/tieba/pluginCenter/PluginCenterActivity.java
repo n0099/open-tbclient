@@ -26,18 +26,18 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, d.b.h0.g0.c.a {
     public static final int ITEM_TYPE_DESC = 1;
     public static final int ITEM_TYPE_FUNCTION = 0;
-    public d.b.b.h.j.d mDownLoadAndInstallCallback = new d();
+    public d.b.c.h.j.d mDownLoadAndInstallCallback = new d();
     public ViewEventCenter mEventCenter;
     public int mFromType;
     public BdListView mListView;
@@ -47,7 +47,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public View mRootView;
     public List<Object> mShowList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.h0.g0.f.b<Object, d.b.h0.g0.d.b, d.b.h0.g0.f.a<Object, d.b.h0.g0.d.b>> {
         public a(TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
             super(tbPageContext, clsArr, iArr, viewEventCenter);
@@ -59,23 +59,23 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f20540e;
+        public final /* synthetic */ PluginConfigWrapper f20232e;
 
         public b(PluginConfigWrapper pluginConfigWrapper) {
-            this.f20540e = pluginConfigWrapper;
+            this.f20232e = pluginConfigWrapper;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             if (l.C()) {
-                PluginPackageManager.O().x0(this.f20540e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
-                this.f20540e.setDownLoadPercent(0);
-                this.f20540e.setDownLoadStatus(3);
-                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20540e);
+                PluginPackageManager.O().x0(this.f20232e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
+                this.f20232e.setDownLoadPercent(0);
+                this.f20232e.setDownLoadStatus(3);
+                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20232e);
             } else {
                 PluginCenterActivity.this.showToast(R.string.neterror);
             }
@@ -83,7 +83,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -94,12 +94,12 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements d.b.b.h.j.d {
+    /* loaded from: classes3.dex */
+    public class d implements d.b.c.h.j.d {
         public d() {
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
             PluginConfigWrapper findData;
             if (bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = PluginCenterActivity.this.findData(bdFileDownloadData.getId())) == null) {
@@ -115,7 +115,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             PluginCenterActivity.this.resetPluginList();
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void b(BdFileDownloadData bdFileDownloadData) {
             PluginConfigWrapper findData;
             if (bdFileDownloadData == null || bdFileDownloadData.getId() == null || bdFileDownloadData.getStatus() == 2 || (findData = PluginCenterActivity.this.findData(bdFileDownloadData.getId())) == null) {
@@ -126,11 +126,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             PluginCenterActivity.this.mPluginCenterAdapter.n(findData);
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void c(BdFileDownloadData bdFileDownloadData) {
         }
 
-        @Override // d.b.b.h.j.d
+        @Override // d.b.c.h.j.d
         public void d(BdFileDownloadData bdFileDownloadData) {
             PluginConfigWrapper findData;
             if (bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = PluginCenterActivity.this.findData(bdFileDownloadData.getId())) == null) {
@@ -150,7 +150,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         ArrayList arrayList3 = new ArrayList();
         if (list != null && list.size() != 0) {
             for (PluginNetConfigInfos.PluginConfig pluginConfig : list) {
-                if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((h2 = d.b.b.h.j.g.d.k().h(pluginConfig.package_name)) == null || (newest = pluginConfig.newest) == null || h2.versionCode <= newest.version_code)) {
+                if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((h2 = d.b.c.h.j.g.d.k().h(pluginConfig.package_name)) == null || (newest = pluginConfig.newest) == null || h2.versionCode <= newest.version_code)) {
                     if (this.mFromType == 0) {
                         if (PluginPackageManager.O().y(pluginConfig.package_name) && !PluginPackageManager.O().Z(pluginConfig.package_name)) {
                             arrayList3.add(new PluginConfigWrapper(pluginConfig));
@@ -193,7 +193,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
     private int getDownloadPercent(PluginNetConfigInfos.PluginConfig pluginConfig) {
         PluginSetting h2;
-        if (pluginConfig == null || (h2 = d.b.b.h.j.g.d.k().h(pluginConfig.package_name)) == null) {
+        if (pluginConfig == null || (h2 = d.b.c.h.j.g.d.k().h(pluginConfig.package_name)) == null) {
             return 0;
         }
         String l = Util.l(h2);
@@ -217,7 +217,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(R.id.list_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(getActivity(), R.dimen.ds220)), NoDataViewFactory.e.a(R.string.plugin_no_plugins), null);
         this.mNoDataView = a2;
         this.mListView.setEmptyView(a2);
-        a aVar = new a(getPageContext(), new Class[]{d.b.i0.j2.a.a.class, d.b.i0.j2.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
+        a aVar = new a(getPageContext(), new Class[]{d.b.i0.k2.a.a.class, d.b.i0.k2.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
         this.mPluginCenterAdapter = aVar;
         this.mListView.setAdapter((ListAdapter) aVar);
         this.mListView.setOnItemClickListener(this);
@@ -235,7 +235,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetPluginList() {
-        PluginNetConfigInfos d2 = d.b.b.h.j.f.d.c().d();
+        PluginNetConfigInfos d2 = d.b.c.h.j.f.d.c().d();
         if (d2 == null || d2.getConfigs() == null || d2.getConfigs().size() <= 0) {
             return;
         }
@@ -339,7 +339,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void onResume() {
         super.onResume();
         PluginPackageManager.O().u0(this.mDownLoadAndInstallCallback);
-        PluginNetConfigInfos d2 = d.b.b.h.j.f.d.c().d();
+        PluginNetConfigInfos d2 = d.b.c.h.j.f.d.c().d();
         if (d2 != null && d2.getConfigs() != null && d2.getConfigs().size() > 0) {
             List<Object> dealPluginConfigList = dealPluginConfigList(d2.getConfigs());
             this.mShowList = dealPluginConfigList;

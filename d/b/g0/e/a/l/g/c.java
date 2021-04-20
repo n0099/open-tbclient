@@ -13,22 +13,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c implements d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f47601a;
+    public final ExecutorService f47993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.g0.e.a.l.i.d f47602b;
+    public final d.b.g0.e.a.l.i.d f47994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadInfo f47603c;
+    public final DownloadInfo f47995c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f47604d;
+    public final a f47996d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f47605e = System.currentTimeMillis();
+    public long f47997e = System.currentTimeMillis();
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile AtomicBoolean f47606f = new AtomicBoolean(false);
+    public volatile AtomicBoolean f47998f = new AtomicBoolean(false);
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,48 +36,48 @@ public class c implements d.a {
     }
 
     public c(ExecutorService executorService, d.b.g0.e.a.l.i.d dVar, DownloadInfo downloadInfo, a aVar) {
-        this.f47601a = executorService;
-        this.f47602b = dVar;
-        this.f47603c = downloadInfo;
-        this.f47604d = aVar;
+        this.f47993a = executorService;
+        this.f47994b = dVar;
+        this.f47995c = downloadInfo;
+        this.f47996d = aVar;
     }
 
     @Override // d.b.g0.e.a.l.g.d.a
     public void a() {
-        if (this.f47603c.getProgress() == this.f47603c.getSize()) {
-            String d2 = e.d(AppRuntime.getAppContext(), this.f47603c.getPath());
-            if (k.f45051a) {
+        if (this.f47995c.getProgress() == this.f47995c.getSize()) {
+            String d2 = e.d(AppRuntime.getAppContext(), this.f47995c.getPath());
+            if (k.f45443a) {
                 Log.d("AdDownload", "解析包名" + d2);
             }
-            this.f47603c.setPackageName(d2);
-            this.f47603c.setStatus(SwanAdDownloadState.DOWNLOADED.value());
-            this.f47602b.b(this.f47603c);
-            a aVar = this.f47604d;
+            this.f47995c.setPackageName(d2);
+            this.f47995c.setStatus(SwanAdDownloadState.DOWNLOADED.value());
+            this.f47994b.b(this.f47995c);
+            a aVar = this.f47996d;
             if (aVar != null) {
-                aVar.e(this.f47603c);
+                aVar.e(this.f47995c);
             }
         }
     }
 
     @Override // d.b.g0.e.a.l.g.d.a
     public void b() {
-        if (this.f47606f.get()) {
+        if (this.f47998f.get()) {
             return;
         }
         synchronized (this) {
-            if (!this.f47606f.get()) {
-                this.f47606f.set(true);
+            if (!this.f47998f.get()) {
+                this.f47998f.set(true);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f47605e > 1000) {
-                    this.f47602b.b(this.f47603c);
-                    this.f47605e = currentTimeMillis;
+                if (currentTimeMillis - this.f47997e > 1000) {
+                    this.f47994b.b(this.f47995c);
+                    this.f47997e = currentTimeMillis;
                 }
-                this.f47606f.set(false);
+                this.f47998f.set(false);
             }
         }
     }
 
     public void c() {
-        this.f47601a.submit(new d(this.f47602b, this.f47603c, this));
+        this.f47993a.submit(new d(this.f47994b, this.f47995c, this));
     }
 }

@@ -18,11 +18,11 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f44920a;
+    public static final File f45312a;
 
     static {
-        boolean z = k.f45051a;
-        f44920a = AppRuntime.getAppContext().getExternalCacheDir();
+        boolean z = k.f45443a;
+        f45312a = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
     public static void a(List<UbcFlowEvent> list) {
@@ -35,7 +35,7 @@ public class a {
                 if (!ubcFlowEvent.b()) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("id", ubcFlowEvent.f12404a);
+                        jSONObject.put("id", ubcFlowEvent.f12065a);
                         jSONObject.put("time", ubcFlowEvent.g());
                         jSONObject.put("value", ubcFlowEvent.j());
                         jSONArray.put(jSONObject);
@@ -44,7 +44,7 @@ public class a {
                     }
                 }
             }
-            File file = new File(f44920a, "swan_perf");
+            File file = new File(f45312a, "swan_perf");
             if (!file.exists()) {
                 file.mkdirs();
             }

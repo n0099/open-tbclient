@@ -6,10 +6,10 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f48462a;
+    public boolean f48854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f48463b;
+    public boolean f48855b;
     @V8JavascriptField
     public long lastAccessedTime;
     @V8JavascriptField
@@ -20,20 +20,20 @@ public class j {
     public long size;
 
     public void a(boolean z) {
-        this.f48462a = z;
+        this.f48854a = z;
     }
 
     public void b(boolean z) {
-        this.f48463b = z;
+        this.f48855b = z;
     }
 
     @JavascriptInterface
     public boolean isDirectory() {
-        return this.f48462a;
+        return this.f48854a;
     }
 
     @JavascriptInterface
     public boolean isFile() {
-        return this.f48463b;
+        return this.f48855b;
     }
 }

@@ -25,25 +25,25 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     public static int q = 24;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f24634a;
+    public final int f24319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f24635b;
+    public final int f24320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f24636c;
+    public final int f24321c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f24637e;
+    public final float f24322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f24638f;
+    public final float f24323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f24639g;
+    public NetImageView f24324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskTextView f24640h;
+    public MaskTextView f24325h;
     public NetImageView i;
     public MaskTextView j;
     public LinearLayout k;
@@ -56,11 +56,11 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
 
     public CHBigCreditCardGroup(Context context) {
         super(context);
-        this.f24634a = 3;
-        this.f24635b = 44;
-        this.f24636c = 22;
-        this.f24637e = 19.0f;
-        this.f24638f = 10.0f;
+        this.f24319a = 3;
+        this.f24320b = 44;
+        this.f24321c = 22;
+        this.f24322e = 19.0f;
+        this.f24323f = 10.0f;
         this.p = true;
         this.r = new ArrayList();
     }
@@ -74,8 +74,8 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_layout"), this);
         this.o = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_bg"));
-        this.f24639g = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_logo"));
-        this.f24640h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_title"));
+        this.f24324g = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_logo"));
+        this.f24325h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_title"));
         this.j = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_lines_number"));
         this.k = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_card_tips"));
         this.l = (Button) findViewById(ResUtils.id(getContext(), "ch_credit_card_button"));
@@ -133,13 +133,13 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
         NetImageView netImageView = this.o;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
         if (!TextUtils.isEmpty(this.mConfigData.list[0].logo)) {
-            this.f24639g.setVisibility(0);
-            NetImageView netImageView2 = this.f24639g;
+            this.f24324g.setVisibility(0);
+            NetImageView netImageView2 = this.f24324g;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.list[0].logo);
         } else {
-            this.f24639g.setVisibility(8);
+            this.f24324g.setVisibility(8);
         }
-        this.f24640h.setMaskText(this.mConfigData.list[0].name);
+        this.f24325h.setMaskText(this.mConfigData.list[0].name);
         this.j.setMaskText(this.mConfigData.list[0].value2);
         boolean z = !TextUtils.isEmpty(this.mConfigData.list[0].value2) && this.mConfigData.list[0].value2.contains(PayTypeItemView.PayTypeItemViewData.MASK_FLAG);
         this.j.setTextSize(1, z ? 44.0f : 22.0f);
@@ -223,11 +223,11 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
 
     public CHBigCreditCardGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24634a = 3;
-        this.f24635b = 44;
-        this.f24636c = 22;
-        this.f24637e = 19.0f;
-        this.f24638f = 10.0f;
+        this.f24319a = 3;
+        this.f24320b = 44;
+        this.f24321c = 22;
+        this.f24322e = 19.0f;
+        this.f24323f = 10.0f;
         this.p = true;
         this.r = new ArrayList();
     }

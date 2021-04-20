@@ -52,36 +52,26 @@ public class e implements d.b.g0.k.a {
     }
 
     @Override // d.b.g0.k.a
-    public Context f() {
-        return AppRuntime.getAppContext();
-    }
-
-    @Override // d.b.g0.k.a
-    public int g() {
-        b.a h2 = h();
-        if (h2 != null) {
-            return h2.f45769a;
+    public int f() {
+        b.a g2 = g();
+        if (g2 != null) {
+            return g2.f46161a;
         }
         return -1;
     }
 
-    @Override // d.b.g0.k.a
-    public int getReadTimeout() {
-        return 60000;
-    }
-
-    public final b.a h() {
+    public final b.a g() {
         b.a aVar;
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
         if (O == null) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 Log.e("SwanNetworkImpl", "swanapp is null");
             }
             return null;
         }
         SwanAppConfigData D = O.D();
-        if (D == null || (aVar = D.f12619g) == null) {
-            if (k.f45051a) {
+        if (D == null || (aVar = D.f12280g) == null) {
+            if (k.f45443a) {
                 Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
             }
             return null;
@@ -90,7 +80,17 @@ public class e implements d.b.g0.k.a {
     }
 
     @Override // d.b.g0.k.a
+    public Context getAppContext() {
+        return AppRuntime.getAppContext();
+    }
+
+    @Override // d.b.g0.k.a
+    public int getReadTimeout() {
+        return 60000;
+    }
+
+    @Override // d.b.g0.k.a
     public boolean isDebug() {
-        return k.f45051a;
+        return k.f45443a;
     }
 }

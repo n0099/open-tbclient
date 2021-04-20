@@ -1,7 +1,7 @@
 package io.reactivex.internal.observers;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes7.dex */
 public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements o<T> {
@@ -12,13 +12,13 @@ public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposa
         super(oVar);
     }
 
-    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public void dispose() {
         super.dispose();
         this.s.dispose();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         T t = this.value;
         if (t != null) {
@@ -29,16 +29,16 @@ public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposa
         complete();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.value = null;
         error(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public abstract /* synthetic */ void onNext(T t);
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

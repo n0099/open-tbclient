@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.VideoItemData;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.s.a;
 import java.text.MessageFormat;
@@ -36,7 +36,7 @@ public class AntiHelper {
     public static class a implements a.e {
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            d.b.h0.r.d0.b.i().s("anti_vcode_no_longer_tip", true);
+            d.b.h0.r.d0.b.j().t("anti_vcode_no_longer_tip", true);
             aVar.dismiss();
         }
     }
@@ -45,28 +45,28 @@ public class AntiHelper {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f21404e;
+        public final /* synthetic */ k f21089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f21405f;
+        public final /* synthetic */ Context f21090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f21406g;
+        public final /* synthetic */ BlockPopInfoData f21091g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
-            this.f21404e = kVar;
-            this.f21405f = context;
-            this.f21406g = blockPopInfoData;
+            this.f21089e = kVar;
+            this.f21090f = context;
+            this.f21091g = blockPopInfoData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            k kVar = this.f21404e;
+            k kVar = this.f21089e;
             if (kVar != null) {
                 kVar.onPositiveButtonClick(aVar);
             }
             aVar.dismiss();
-            d.b.h0.l.a.l(this.f21405f, this.f21406g.ahead_url);
+            d.b.h0.l.a.l(this.f21090f, this.f21091g.ahead_url);
         }
     }
 
@@ -74,15 +74,15 @@ public class AntiHelper {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f21407e;
+        public final /* synthetic */ k f21092e;
 
         public c(k kVar) {
-            this.f21407e = kVar;
+            this.f21092e = kVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            k kVar = this.f21407e;
+            k kVar = this.f21092e;
             if (kVar != null) {
                 kVar.onNavigationButtonClick(aVar);
             }
@@ -94,16 +94,16 @@ public class AntiHelper {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f21408e;
+        public final /* synthetic */ Context f21093e;
 
         public d(Context context) {
-            this.f21408e = context;
+            this.f21093e = context;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            d.b.h0.l.a.l(this.f21408e, "http://tieba.baidu.com/mo/q/userappeal");
+            d.b.h0.l.a.l(this.f21093e, "http://tieba.baidu.com/mo/q/userappeal");
         }
     }
 
@@ -119,16 +119,16 @@ public class AntiHelper {
     public static class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f21409e;
+        public final /* synthetic */ Context f21094e;
 
         public f(Context context) {
-            this.f21409e = context;
+            this.f21094e = context;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            d.b.h0.l.a.l(this.f21409e, "http://tieba.baidu.com/mo/q/userappeal");
+            d.b.h0.l.a.l(this.f21094e, "http://tieba.baidu.com/mo/q/userappeal");
         }
     }
 
@@ -152,20 +152,20 @@ public class AntiHelper {
     public static class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f21410e;
+        public final /* synthetic */ Context f21095e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f21411f;
+        public final /* synthetic */ PageType f21096f;
 
         public i(Context context, PageType pageType) {
-            this.f21410e = context;
-            this.f21411f = pageType;
+            this.f21095e = context;
+            this.f21096f = pageType;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f21410e, this.f21411f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f21095e, this.f21096f)));
         }
     }
 
@@ -187,7 +187,7 @@ public class AntiHelper {
     public static void A(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         String string;
         String string2;
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.b.a.j.a(context).getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.c.a.j.a(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (n(antiData)) {
@@ -207,7 +207,7 @@ public class AntiHelper {
         aVar.setPositiveButton(context.getString(R.string.anti_vcode_pos), new d(context));
         aVar.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new e());
         if (context instanceof Activity) {
-            aVar.create(d.b.b.a.j.a(context)).show();
+            aVar.create(d.b.c.a.j.a(context)).show();
         }
     }
 
@@ -264,7 +264,7 @@ public class AntiHelper {
     }
 
     public static boolean j(a2 a2Var) {
-        return a2Var != null && a2Var.x2() && a2Var.d2;
+        return a2Var != null && a2Var.y2() && a2Var.d2;
     }
 
     public static boolean k(VideoItemData videoItemData) {
@@ -279,7 +279,7 @@ public class AntiHelper {
         if (i2 != 3250013) {
             return i2 == 3250002 || i2 == 3250001 || i2 == 3250003 || i2 == 3250004 || i2 == 3250013;
         }
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
         }
         BdToast.h(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
@@ -291,11 +291,11 @@ public class AntiHelper {
     }
 
     public static boolean o(a2 a2Var) {
-        return a2Var != null && a2Var.m1 && a2Var.x2();
+        return a2Var != null && a2Var.m1 && a2Var.y2();
     }
 
     public static void p(Context context, String str) {
-        if (context == null || d.b.b.e.p.k.isEmpty(str)) {
+        if (context == null || d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -305,15 +305,15 @@ public class AntiHelper {
     }
 
     public static void q() {
-        d.b.h0.r.d0.b.i().B("anti_vcode_no_longer_tip");
+        d.b.h0.r.d0.b.j().C("anti_vcode_no_longer_tip");
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
-        if (d.b.h0.r.d0.b.i().g("anti_vcode_no_longer_tip", false)) {
+        if (d.b.h0.r.d0.b.j().g("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.b.a.j.a(context).getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.c.a.j.a(context).getPageActivity());
         aVar.setMessage(context.getString(isHas_chance ? R.string.anti_vocode_on_chance_tip : R.string.anti_vcode_tip));
         if (!isHas_chance) {
             aVar.setNegativeButton(context.getString(R.string.anti_vcode_pos), new i(context, pageType));
@@ -322,7 +322,7 @@ public class AntiHelper {
         }
         aVar.setPositiveButton(context.getString(R.string.anti_vcode_neg), new a());
         if (context instanceof Activity) {
-            aVar.create(d.b.b.a.j.a(context)).show();
+            aVar.create(d.b.c.a.j.a(context)).show();
         }
     }
 
@@ -334,15 +334,15 @@ public class AntiHelper {
         if (blockPopInfoData == null) {
             return null;
         }
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.b.a.j.a(context).getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.c.a.j.a(context).getPageActivity());
         if (blockPopInfoData.block_info == null) {
             blockPopInfoData.block_info = "";
         }
         aVar.setMessage(blockPopInfoData.block_info);
-        aVar.setPositiveButton(d.b.b.e.p.k.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new b(kVar, context, blockPopInfoData));
-        aVar.setNegativeButton(d.b.b.e.p.k.isEmpty(blockPopInfoData.ok_info) ? context.getString(R.string.anti_account_exception_neg) : blockPopInfoData.ok_info, new c(kVar));
+        aVar.setPositiveButton(d.b.c.e.p.k.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new b(kVar, context, blockPopInfoData));
+        aVar.setNegativeButton(d.b.c.e.p.k.isEmpty(blockPopInfoData.ok_info) ? context.getString(R.string.anti_account_exception_neg) : blockPopInfoData.ok_info, new c(kVar));
         if (context instanceof Activity) {
-            aVar.create(d.b.b.a.j.a(context)).show();
+            aVar.create(d.b.c.a.j.a(context)).show();
             return aVar;
         }
         return null;
@@ -407,7 +407,7 @@ public class AntiHelper {
     public static void y(Context context, AntiData antiData, OperationType operationType) {
         String format;
         String string;
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.b.a.j.a(context).getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.c.a.j.a(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (n(antiData)) {
@@ -427,14 +427,14 @@ public class AntiHelper {
         aVar.setPositiveButton(context.getString(R.string.anti_vcode_pos), new f(context));
         aVar.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new g());
         if (context instanceof Activity) {
-            aVar.create(d.b.b.a.j.a(context)).show();
+            aVar.create(d.b.c.a.j.a(context)).show();
         }
     }
 
     public static void z(Context context, AntiData antiData, OperationType operationType) {
         String string;
         String string2;
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.b.a.j.a(context).getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(d.b.c.a.j.a(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (n(antiData)) {
@@ -453,7 +453,7 @@ public class AntiHelper {
         aVar.setMessage(string);
         aVar.setPositiveButton(context.getString(R.string.confirm), new h());
         if (context instanceof Activity) {
-            aVar.create(d.b.b.a.j.a(context)).show();
+            aVar.create(d.b.c.a.j.a(context)).show();
         }
     }
 }

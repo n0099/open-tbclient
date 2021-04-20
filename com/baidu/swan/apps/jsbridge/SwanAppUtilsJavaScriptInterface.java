@@ -17,7 +17,7 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppUtilsJavaScriptInterface {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
     public static final String KEY_SHARE_FORCE_LIGHT_THEME = "forceLightTheme";
     public static final String KEY_SHARE_SNAPSHOT = "snapshot";
@@ -33,15 +33,15 @@ public class SwanAppUtilsJavaScriptInterface {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12231e;
+        public final /* synthetic */ String f11892e;
 
         public a(String str) {
-            this.f12231e = str;
+            this.f11892e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = this.f12231e;
+            String str = this.f11892e;
             if (!str.startsWith("javascript:")) {
                 str = "javascript:" + str;
             }
@@ -56,24 +56,24 @@ public class SwanAppUtilsJavaScriptInterface {
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f12233a;
+        public final /* synthetic */ String f11894a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f12234b;
+        public final /* synthetic */ String f11895b;
 
         public b(String str, String str2) {
-            this.f12233a = str;
-            this.f12234b = str2;
+            this.f11894a = str;
+            this.f11895b = str2;
         }
 
         @Override // d.b.g0.a.w0.c.i.a
         public void a() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f12234b, String.valueOf(false));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f11895b, String.valueOf(false));
         }
 
         @Override // d.b.g0.a.w0.c.i.a
         public void b() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f12233a, String.valueOf(true));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f11894a, String.valueOf(true));
         }
     }
 
@@ -81,10 +81,10 @@ public class SwanAppUtilsJavaScriptInterface {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12236e;
+        public final /* synthetic */ String f11897e;
 
         public c(String str) {
-            this.f12236e = str;
+            this.f11897e = str;
         }
 
         @Override // java.lang.Runnable
@@ -92,7 +92,7 @@ public class SwanAppUtilsJavaScriptInterface {
             if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                 Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
             }
-            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f12236e);
+            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f11897e);
         }
     }
 

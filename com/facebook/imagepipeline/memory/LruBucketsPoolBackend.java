@@ -4,7 +4,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class LruBucketsPoolBackend<T> implements PoolBackend<T> {
     public final Set<T> mCurrentItems = new HashSet();
     public final BucketMap<T> mMap = new BucketMap<>();

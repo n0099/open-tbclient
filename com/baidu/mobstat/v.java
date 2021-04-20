@@ -6,35 +6,35 @@ import org.json.JSONObject;
 public class v implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public z f9260a = z.f9276a;
+    public z f8834a = z.f8850a;
 
     @Override // com.baidu.mobstat.a
     public void a(Context context, JSONObject jSONObject) {
-        this.f9260a.a(context, jSONObject);
+        this.f8834a.a(context, jSONObject);
     }
 
     @Override // com.baidu.mobstat.a
     public void b(Context context, String str) {
-        this.f9260a.b(context, str);
+        this.f8834a.b(context, str);
     }
 
     @Override // com.baidu.mobstat.a
     public void a(Context context, String str) {
-        this.f9260a.a(context, str);
+        this.f8834a.a(context, str);
     }
 
     @Override // com.baidu.mobstat.a
     public boolean b(Context context) {
-        return this.f9260a.b(context);
+        return this.f8834a.b(context);
     }
 
     @Override // com.baidu.mobstat.a
     public void a(Context context, long j) {
-        this.f9260a.a(context, j);
+        this.f8834a.a(context, j);
     }
 
     @Override // com.baidu.mobstat.a
     public boolean a(Context context) {
-        return this.f9260a.a(context);
+        return this.f8834a.a(context);
     }
 }

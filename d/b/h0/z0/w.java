@@ -79,11 +79,11 @@ public class w {
             }
             builder.pversion = "1.0.3";
             builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (d.b.h0.r.d0.b.i().j("android_safe_sdk_open", 0) == 1) {
+            if (d.b.h0.r.d0.b.j().k("android_safe_sdk_open", 0) == 1) {
                 builder.z_id = TbadkCoreApplication.getInst().getZid();
             }
-            builder.net_type = Integer.valueOf(d.b.b.e.p.j.I());
-            builder.oaid = d.b.q.b.d(TbadkCoreApplication.getInst()).e();
+            builder.net_type = Integer.valueOf(d.b.c.e.p.j.I());
+            builder.oaid = d.b.p.b.d(TbadkCoreApplication.getInst()).e();
             builder.sample_id = TbSingleton.getInstance().getSampleId();
             if (!d.b.h0.c1.b.c.d()) {
                 i = 0;
@@ -93,13 +93,14 @@ public class w {
             builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
             builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
             builder.q_type = Integer.valueOf(d.b.h0.r.k.c().e());
-            builder.scr_h = Integer.valueOf(d.b.b.e.p.l.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(d.b.b.e.p.l.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(d.b.b.e.p.l.h(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(d.b.c.e.p.l.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(d.b.c.e.p.l.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(d.b.c.e.p.l.h(TbadkCoreApplication.getInst()));
             builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
             builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
             builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
             builder.event_day = TbSingleton.getInstance().getData();
+            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
             field.set(obj, builder.build(false));
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {

@@ -6,15 +6,15 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.BaseFragment;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 /* loaded from: classes3.dex */
 public abstract class CollectFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13150e = false;
+    public boolean f12811e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f13151f = new a(2000994);
+    public final CustomMessageListener f12812f = new a(2000994);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -29,7 +29,7 @@ public abstract class CollectFragment extends BaseFragment {
                 CollectFragment collectFragment = CollectFragment.this;
                 collectFragment.H0(collectFragment.E0());
                 CollectFragment collectFragment2 = CollectFragment.this;
-                if (collectFragment2.f13150e) {
+                if (collectFragment2.f12811e) {
                     return;
                 }
                 collectFragment2.I0(false, collectFragment2.E0());
@@ -42,13 +42,13 @@ public abstract class CollectFragment extends BaseFragment {
     public abstract boolean F0();
 
     public boolean G0() {
-        return this.f13150e;
+        return this.f12811e;
     }
 
     public void H0(int i) {
         Bundle bundle = new Bundle();
         boolean z = !F0() && j.z();
-        this.f13150e = z;
+        this.f12811e = z;
         bundle.putBoolean("is_enable_edit", z);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
@@ -64,12 +64,12 @@ public abstract class CollectFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.f13151f);
+        registerListener(this.f12812f);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.f13151f);
+        MessageManager.getInstance().unRegisterListener(this.f12812f);
     }
 }

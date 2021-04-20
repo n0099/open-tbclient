@@ -5,63 +5,63 @@ import org.json.JSONObject;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8950a;
+    public String f8524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8951b;
+    public long f8525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8952c;
+    public long f8526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8953d;
+    public boolean f8527d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8954e;
+    public long f8528e;
 
     public ap(String str, long j, long j2, long j3, boolean z) {
-        this.f8950a = str;
-        this.f8951b = j;
-        this.f8952c = j2;
-        this.f8954e = j3;
-        this.f8953d = z;
+        this.f8524a = str;
+        this.f8525b = j;
+        this.f8526c = j2;
+        this.f8528e = j3;
+        this.f8527d = z;
     }
 
     public void a(long j) {
-        this.f8952c = j;
+        this.f8526c = j;
     }
 
     public long b() {
-        return this.f8951b;
+        return this.f8525b;
     }
 
     public long c() {
-        return this.f8952c;
+        return this.f8526c;
     }
 
     public boolean d() {
-        return this.f8953d;
+        return this.f8527d;
     }
 
     public long e() {
-        return this.f8954e;
+        return this.f8528e;
     }
 
     public String a() {
-        return this.f8950a;
+        return this.f8524a;
     }
 
     public void b(long j) {
-        this.f8954e = j;
+        this.f8528e = j;
     }
 
     public JSONObject a(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", str);
-            jSONObject.put("s", this.f8951b);
-            jSONObject.put("e", this.f8952c);
-            jSONObject.put("user", this.f8953d ? 1 : 0);
+            jSONObject.put("s", this.f8525b);
+            jSONObject.put("e", this.f8526c);
+            jSONObject.put("user", this.f8527d ? 1 : 0);
             return jSONObject;
         } catch (Exception unused) {
             return null;

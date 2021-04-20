@@ -21,7 +21,7 @@ public final class OnErrorThrowable extends RuntimeException {
         public static final class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final Set<Class<?>> f68145a = a();
+            public static final Set<Class<?>> f69151a = a();
 
             public static Set<Class<?>> a() {
                 HashSet hashSet = new HashSet();
@@ -53,7 +53,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return StringUtil.NULL_STRING;
             }
-            if (a.f68145a.contains(obj.getClass())) {
+            if (a.f69151a.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {

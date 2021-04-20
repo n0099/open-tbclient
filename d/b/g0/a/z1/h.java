@@ -26,66 +26,66 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47216a = d.b.g0.a.k.f45051a;
+    public static final boolean f47608a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f47217b = Sets.newHashSet("hmma.baidu.com");
+    public static final Set<String> f47609b = Sets.newHashSet("hmma.baidu.com");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CopyOnWriteArrayList<String> f47218c;
+    public static final CopyOnWriteArrayList<String> f47610c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47219c;
+        public final /* synthetic */ String f47611c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f47220d;
+        public final /* synthetic */ int f47612d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47221e;
+        public final /* synthetic */ String f47613e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47222f;
+        public final /* synthetic */ String f47614f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47223g;
+        public final /* synthetic */ String f47615g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f47224h;
+        public final /* synthetic */ String f47616h;
         public final /* synthetic */ int i;
 
         /* renamed from: d.b.g0.a.z1.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0895a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0907a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.z1.k.c f47225e;
+            public final /* synthetic */ d.b.g0.a.z1.k.c f47617e;
 
-            public RunnableC0895a(a aVar, d.b.g0.a.z1.k.c cVar) {
-                this.f47225e = cVar;
+            public RunnableC0907a(a aVar, d.b.g0.a.z1.k.c cVar) {
+                this.f47617e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                JSONObject f2 = this.f47225e.f();
+                JSONObject f2 = this.f47617e.f();
                 d.b.g0.a.z1.b.j("834", f2);
                 d.b.g0.a.c0.c.h("SwanAppUBCStatistic", "834-downloadFile event=" + f2.toString());
             }
         }
 
         public a(String str, int i, String str2, String str3, String str4, String str5, int i2) {
-            this.f47219c = str;
-            this.f47220d = i;
-            this.f47221e = str2;
-            this.f47222f = str3;
-            this.f47223g = str4;
-            this.f47224h = str5;
+            this.f47611c = str;
+            this.f47612d = i;
+            this.f47613e = str2;
+            this.f47614f = str3;
+            this.f47615g = str4;
+            this.f47616h = str5;
             this.i = i2;
         }
 
@@ -94,254 +94,254 @@ public final class h {
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
             d.b.g0.a.z1.k.c cVar;
             int i = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            if (h.f47216a) {
+            if (h.f47608a) {
                 Log.d("SwanAppUBCStatistic", "get NetworkQuality: " + i);
             }
-            if (TextUtils.equals(this.f47219c, "1")) {
-                cVar = new d.b.g0.a.z1.k.c(this.f47220d, this.f47221e, this.f47222f, i);
+            if (TextUtils.equals(this.f47611c, "1")) {
+                cVar = new d.b.g0.a.z1.k.c(this.f47612d, this.f47613e, this.f47614f, i);
             } else {
-                cVar = new d.b.g0.a.z1.k.c(this.f47221e, i);
+                cVar = new d.b.g0.a.z1.k.c(this.f47613e, i);
             }
-            if (!TextUtils.isEmpty(this.f47223g)) {
-                cVar.o(this.f47223g);
+            if (!TextUtils.isEmpty(this.f47615g)) {
+                cVar.o(this.f47615g);
             }
-            if (!TextUtils.isEmpty(this.f47224h)) {
-                cVar.n(this.f47224h);
+            if (!TextUtils.isEmpty(this.f47616h)) {
+                cVar.n(this.f47616h);
             }
-            cVar.f47252b = "downloadFile";
+            cVar.f47644b = "downloadFile";
             if (d.b.g0.a.r1.e.y() != null && d.b.g0.a.r1.e.y().L() != null) {
-                cVar.f47253c = d.b.g0.a.r1.e.y().L().S();
+                cVar.f47645c = d.b.g0.a.r1.e.y().L().S();
             }
-            cVar.f47255e = d.b.g0.a.r1.e.T();
-            cVar.f47251a = h.n(this.i);
-            p.j(new RunnableC0895a(this, cVar), "SwanAppDownloadFile");
+            cVar.f47647e = d.b.g0.a.r1.e.T();
+            cVar.f47643a = h.n(this.i);
+            p.j(new RunnableC0907a(this, cVar), "SwanAppDownloadFile");
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.e f47226e;
+        public final /* synthetic */ d.b.g0.a.z1.k.e f47618e;
 
         public b(d.b.g0.a.z1.k.e eVar) {
-            this.f47226e = eVar;
+            this.f47618e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.b.j("894", this.f47226e.f());
+            d.b.g0.a.z1.b.j("894", this.f47618e.f());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.b f47227e;
+        public final /* synthetic */ d.b.g0.a.z1.k.b f47619e;
 
         public c(d.b.g0.a.z1.k.b bVar) {
-            this.f47227e = bVar;
+            this.f47619e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.b.j("751", this.f47227e.f());
+            d.b.g0.a.z1.b.j("751", this.f47619e.f());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.e f47228e;
+        public final /* synthetic */ d.b.g0.a.z1.k.e f47620e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.a f47229f;
+        public final /* synthetic */ d.b.g0.a.z1.a f47621f;
 
         public d(d.b.g0.a.z1.k.e eVar, d.b.g0.a.z1.a aVar) {
-            this.f47228e = eVar;
-            this.f47229f = aVar;
+            this.f47620e = eVar;
+            this.f47621f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.k.e eVar = this.f47228e;
+            d.b.g0.a.z1.k.e eVar = this.f47620e;
             if (eVar != null) {
-                d.b.g0.a.z1.b.f(this.f47229f, eVar.f().toString());
+                d.b.g0.a.z1.b.f(this.f47621f, eVar.f().toString());
             }
-            d.b.g0.a.z1.b.c(this.f47229f);
+            d.b.g0.a.z1.b.c(this.f47621f);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.d f47230e;
+        public final /* synthetic */ d.b.g0.a.z1.k.d f47622e;
 
         public e(d.b.g0.a.z1.k.d dVar) {
-            this.f47230e = dVar;
+            this.f47622e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TextUtils.isEmpty(this.f47230e.g())) {
-                this.f47230e.k(d.b.g0.a.r1.d.e().s().J().U());
+            if (TextUtils.isEmpty(this.f47622e.g())) {
+                this.f47622e.k(d.b.g0.a.r1.d.e().s().J().U());
             }
-            d.b.g0.a.z1.b.j("671", this.f47230e.f());
-            d.b.g0.a.c0.c.h("SwanAppUBCStatistic", "671 event=" + this.f47230e.f().toString());
+            d.b.g0.a.z1.b.j("671", this.f47622e.f());
+            d.b.g0.a.c0.c.h("SwanAppUBCStatistic", "671 event=" + this.f47622e.f().toString());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47231e;
+        public final /* synthetic */ String f47623e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.e f47232f;
+        public final /* synthetic */ d.b.g0.a.z1.k.e f47624f;
 
         public f(String str, d.b.g0.a.z1.k.e eVar) {
-            this.f47231e = str;
-            this.f47232f = eVar;
+            this.f47623e = str;
+            this.f47624f = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.b.j(this.f47231e, this.f47232f.f());
+            d.b.g0.a.z1.b.j(this.f47623e, this.f47624f.f());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47233e;
+        public final /* synthetic */ String f47625e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47234f;
+        public final /* synthetic */ String f47626f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.e f47235g;
+        public final /* synthetic */ d.b.g0.a.z1.k.e f47627g;
 
         public g(String str, String str2, d.b.g0.a.z1.k.e eVar) {
-            this.f47233e = str;
-            this.f47234f = str2;
-            this.f47235g = eVar;
+            this.f47625e = str;
+            this.f47626f = str2;
+            this.f47627g = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.b.h(this.f47233e, this.f47234f, this.f47235g.f());
+            d.b.g0.a.z1.b.h(this.f47625e, this.f47626f, this.f47627g.f());
         }
     }
 
     /* renamed from: d.b.g0.a.z1.h$h  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class RunnableC0896h implements Runnable {
+    /* loaded from: classes3.dex */
+    public static class RunnableC0908h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.b f47236e;
+        public final /* synthetic */ d.b.g0.a.z1.k.b f47628e;
 
-        public RunnableC0896h(d.b.g0.a.z1.k.b bVar) {
-            this.f47236e = bVar;
+        public RunnableC0908h(d.b.g0.a.z1.k.b bVar) {
+            this.f47628e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.b.j("751", this.f47236e.f());
+            d.b.g0.a.z1.b.j("751", this.f47628e.f());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.b f47237e;
+        public final /* synthetic */ d.b.g0.a.z1.k.b f47629e;
 
         public i(d.b.g0.a.z1.k.b bVar) {
-            this.f47237e = bVar;
+            this.f47629e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.z1.b.j("751", this.f47237e.f());
+            d.b.g0.a.z1.b.j("751", this.f47629e.f());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class j implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.e f47238e;
+        public final /* synthetic */ d.b.g0.a.z1.k.e f47630e;
 
         public j(d.b.g0.a.z1.k.e eVar) {
-            this.f47238e = eVar;
+            this.f47630e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f47238e.b(h.K());
-            d.b.g0.a.z1.b.j("778", this.f47238e.f());
+            this.f47630e.b(h.K());
+            d.b.g0.a.z1.b.j("778", this.f47630e.f());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class k extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47239c;
+        public final /* synthetic */ String f47631c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f47240d;
+        public final /* synthetic */ int f47632d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47241e;
+        public final /* synthetic */ String f47633e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47242f;
+        public final /* synthetic */ String f47634f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f47243g;
+        public final /* synthetic */ long f47635g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f47244h;
+        public final /* synthetic */ long f47636h;
         public final /* synthetic */ String i;
         public final /* synthetic */ String j;
         public final /* synthetic */ int k;
         public final /* synthetic */ NetworkStatRecord l;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.z1.k.c f47245e;
+            public final /* synthetic */ d.b.g0.a.z1.k.c f47637e;
 
             public a(k kVar, d.b.g0.a.z1.k.c cVar) {
-                this.f47245e = cVar;
+                this.f47637e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (h.f47216a) {
-                    Log.d("SwanAppUBCStatistic", "Reporting: " + this.f47245e.f());
+                if (h.f47608a) {
+                    Log.d("SwanAppUBCStatistic", "Reporting: " + this.f47637e.f());
                 }
-                JSONObject f2 = this.f47245e.f();
+                JSONObject f2 = this.f47637e.f();
                 d.b.g0.a.z1.b.j("834", f2);
-                h.E(this.f47245e.l(), this.f47245e.m(), f2);
+                h.E(this.f47637e.l(), this.f47637e.m(), f2);
                 d.b.g0.a.c0.c.h("SwanAppUBCStatistic", "834-request event=" + f2.toString());
             }
         }
 
         public k(String str, int i, String str2, String str3, long j, long j2, String str4, String str5, int i2, NetworkStatRecord networkStatRecord) {
-            this.f47239c = str;
-            this.f47240d = i;
-            this.f47241e = str2;
-            this.f47242f = str3;
-            this.f47243g = j;
-            this.f47244h = j2;
+            this.f47631c = str;
+            this.f47632d = i;
+            this.f47633e = str2;
+            this.f47634f = str3;
+            this.f47635g = j;
+            this.f47636h = j2;
             this.i = str4;
             this.j = str5;
             this.k = i2;
@@ -353,13 +353,13 @@ public final class h {
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
             d.b.g0.a.z1.k.c cVar;
             int i = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            if (h.f47216a) {
+            if (h.f47608a) {
                 Log.d("SwanAppUBCStatistic", "get NetworkQuality: " + i);
             }
-            if (TextUtils.equals(this.f47239c, "1")) {
-                cVar = new d.b.g0.a.z1.k.c(this.f47240d, this.f47241e, this.f47242f, i, this.f47243g, this.f47244h);
+            if (TextUtils.equals(this.f47631c, "1")) {
+                cVar = new d.b.g0.a.z1.k.c(this.f47632d, this.f47633e, this.f47634f, i, this.f47635g, this.f47636h);
             } else {
-                cVar = new d.b.g0.a.z1.k.c(this.f47241e, i);
+                cVar = new d.b.g0.a.z1.k.c(this.f47633e, i);
             }
             if (!TextUtils.isEmpty(this.i)) {
                 cVar.o(this.i);
@@ -367,12 +367,12 @@ public final class h {
             if (!TextUtils.isEmpty(this.j)) {
                 cVar.n(this.j);
             }
-            cVar.f47252b = "request";
+            cVar.f47644b = "request";
             if (d.b.g0.a.r1.d.e().s().d()) {
-                cVar.f47253c = d.b.g0.a.r1.d.e().s().J().S();
+                cVar.f47645c = d.b.g0.a.r1.d.e().s().J().S();
             }
-            cVar.f47255e = d.b.g0.a.r1.e.T();
-            cVar.f47251a = h.n(this.k);
+            cVar.f47647e = d.b.g0.a.r1.e.T();
+            cVar.f47643a = h.n(this.k);
             JSONObject I = h.I(this.l);
             if (I != null) {
                 cVar.e(I);
@@ -383,10 +383,10 @@ public final class h {
 
     static {
         CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f47218c = copyOnWriteArrayList;
+        f47610c = copyOnWriteArrayList;
         copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f47218c.add("https://dxp.baidu.com/mini");
-        f47218c.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
+        f47610c.add("https://dxp.baidu.com/mini");
+        f47610c.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
     }
 
     public static void A(String str, String str2, ArrayList<String> arrayList) {
@@ -401,10 +401,10 @@ public final class h {
             str3 = "";
         }
         d.b.g0.a.z1.k.b bVar = new d.b.g0.a.z1.k.b();
-        bVar.f47252b = "pay";
-        bVar.f47253c = str;
-        bVar.f47255e = d.b.g0.a.r1.e.T();
-        bVar.f47251a = n(i2);
+        bVar.f47644b = "pay";
+        bVar.f47645c = str;
+        bVar.f47647e = d.b.g0.a.r1.e.T();
+        bVar.f47643a = n(i2);
         try {
             JSONObject jSONObject = new JSONObject(str3);
             if (!TextUtils.isEmpty(str2)) {
@@ -429,14 +429,14 @@ public final class h {
         if (d.b.g0.a.r1.d.e().s().d()) {
             bVar.d(J.n0().getString(UBCCloudControlProcessor.UBC_KEY));
         }
-        bVar.f47252b = "pay";
-        bVar.f47254d = z ? "success" : "fail";
-        bVar.f47253c = str;
-        bVar.f47255e = d.b.g0.a.r1.e.T();
-        bVar.f47251a = n(i2);
+        bVar.f47644b = "pay";
+        bVar.f47646d = z ? "success" : "fail";
+        bVar.f47645c = str;
+        bVar.f47647e = d.b.g0.a.r1.e.T();
+        bVar.f47643a = n(i2);
         bVar.a("money", str2);
         bVar.b(K());
-        p.j(new RunnableC0896h(bVar), "SwanAppUBCOnPay");
+        p.j(new RunnableC0908h(bVar), "SwanAppUBCOnPay");
     }
 
     public static void C(String str, boolean z, boolean z2) {
@@ -445,11 +445,11 @@ public final class h {
         if (d.b.g0.a.r1.d.e().s().d()) {
             bVar.d(J.n0().getString(UBCCloudControlProcessor.UBC_KEY));
         }
-        bVar.f47252b = "paylogin";
-        bVar.f47253c = str;
-        bVar.f47255e = J.H();
-        bVar.f47251a = n(J.F());
-        bVar.f47254d = z ? "success" : "fail";
+        bVar.f47644b = "paylogin";
+        bVar.f47645c = str;
+        bVar.f47647e = J.H();
+        bVar.f47643a = n(J.F());
+        bVar.f47646d = z ? "success" : "fail";
         bVar.a("nativeAppId", d.b.g0.a.w0.a.k().g());
         bVar.a("paylogin", z2 ? "1" : "0");
         d.b.g0.a.e0.l.e A = d.b.g0.a.z0.f.V().A();
@@ -464,7 +464,7 @@ public final class h {
     public static void D(int i2, String str, int i3, String str2, @Nullable String str3, @Nullable String str4, String str5, long j2, long j3, @Nullable NetworkStatRecord networkStatRecord) {
         if (SwanAppNetworkUtils.h(null)) {
             if (o(str)) {
-                if (f47216a) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "onRequest: ignore " + str);
                     return;
                 }
@@ -484,7 +484,7 @@ public final class h {
                 }
             }
             if (z && j4 < 5000) {
-                if (f47216a) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "code 200 & cost(" + j4 + ") is ok, don't report");
                     return;
                 }
@@ -496,17 +496,17 @@ public final class h {
 
     public static void E(String str, String str2, @NonNull JSONObject jSONObject) {
         if (!TextUtils.equals(str, "1")) {
-            if (f47216a) {
+            if (f47608a) {
                 Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. requestType=" + str);
             }
         } else if (TextUtils.isEmpty(str2)) {
-            if (f47216a) {
+            if (f47608a) {
                 Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. url is empty");
             }
         } else {
             HttpUrl parse = HttpUrl.parse(str2);
             if (parse == null) {
-                if (f47216a) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. url is illegal, url=" + str2);
                     return;
                 }
@@ -514,15 +514,15 @@ public final class h {
             }
             String host = parse.host();
             if (TextUtils.isEmpty(host)) {
-                if (f47216a) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. host is empty, url=" + str2);
                 }
-            } else if (f47217b.contains(host)) {
-                if (f47216a) {
+            } else if (f47609b.contains(host)) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. host is ignored, host=" + host + " ,url=" + str2);
                 }
             } else {
-                if (f47216a) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: hit. url=" + str2);
                     Log.d("SwanAppUBCStatistic", "value=" + jSONObject);
                 }
@@ -567,7 +567,7 @@ public final class h {
             jSONObject2.put("connectTime", jSONObject);
             return jSONObject2;
         } catch (JSONException e2) {
-            if (f47216a) {
+            if (f47608a) {
                 e2.printStackTrace();
             }
             return null;
@@ -583,18 +583,18 @@ public final class h {
             if (n0.getLong("launch_flag_for_statistic") > 0) {
                 String valueOf = String.valueOf(System.currentTimeMillis() - s.J().l1());
                 d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-                fVar.f47251a = n(J.F());
-                fVar.f47252b = Config.LAUNCH;
-                fVar.f47254d = QueryResponse.Options.CANCEL;
+                fVar.f47643a = n(J.F());
+                fVar.f47644b = Config.LAUNCH;
+                fVar.f47646d = QueryResponse.Options.CANCEL;
                 fVar.r = valueOf;
                 fVar.j(J);
                 fVar.d(n0.getString(UBCCloudControlProcessor.UBC_KEY));
                 fVar.b(l(J.V()));
                 onEvent(fVar);
                 d.b.g0.a.z1.k.f fVar2 = new d.b.g0.a.z1.k.f();
-                fVar2.f47251a = n(J.F());
-                fVar2.f47252b = Config.LAUNCH;
-                fVar2.f47254d = "realcancel";
+                fVar2.f47643a = n(J.F());
+                fVar2.f47644b = Config.LAUNCH;
+                fVar2.f47646d = "realcancel";
                 fVar2.r = valueOf;
                 fVar2.j(J);
                 fVar2.b(l(J.V()));
@@ -629,16 +629,16 @@ public final class h {
             return;
         }
         b.a L = d.b.g0.a.r1.e.y().L();
-        fVar.f47251a = n(L.F());
-        fVar.f47255e = L.G();
+        fVar.f47643a = n(L.F());
+        fVar.f47647e = L.G();
         fVar.a("appkey", L.H());
         u("1032", fVar);
     }
 
     public static void g(String str) {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47251a = n(0);
-        eVar.f47252b = str;
+        eVar.f47643a = n(0);
+        eVar.f47644b = str;
         u("956", eVar);
     }
 
@@ -646,11 +646,11 @@ public final class h {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
         if (d.b.g0.a.r1.e.y() != null && d.b.g0.a.r1.e.y().L() != null) {
             b.a L = d.b.g0.a.r1.e.y().L();
-            eVar.f47251a = n(L.F());
-            eVar.f47255e = L.G();
-            eVar.f47252b = str;
-            eVar.f47253c = str2;
-            eVar.f47254d = str3;
+            eVar.f47643a = n(L.F());
+            eVar.f47647e = L.G();
+            eVar.f47644b = str;
+            eVar.f47645c = str2;
+            eVar.f47646d = str3;
             eVar.a("appkey", L.H());
         }
         u("923", eVar);
@@ -659,9 +659,9 @@ public final class h {
     public static void i(d.b.g0.a.z1.k.e eVar) {
         if (d.b.g0.a.r1.e.y() != null && d.b.g0.a.r1.e.y().L() != null) {
             b.a L = d.b.g0.a.r1.e.y().L();
-            eVar.f47251a = n(L.F());
-            eVar.f47255e = L.G();
-            eVar.f47253c = L.S();
+            eVar.f47643a = n(L.F());
+            eVar.f47647e = L.G();
+            eVar.f47645c = L.S();
         }
         u("936", eVar);
     }
@@ -669,9 +669,9 @@ public final class h {
     public static void j(d.b.g0.a.z1.k.e eVar) {
         if (d.b.g0.a.r1.e.y() != null && d.b.g0.a.r1.e.y().L() != null) {
             b.a L = d.b.g0.a.r1.e.y().L();
-            eVar.f47251a = n(L.F());
-            eVar.f47255e = L.G();
-            eVar.f47253c = L.S();
+            eVar.f47643a = n(L.F());
+            eVar.f47647e = L.G();
+            eVar.f47645c = L.S();
         }
         u("914", eVar);
     }
@@ -697,7 +697,7 @@ public final class h {
                     }
                 }
             } catch (JSONException e2) {
-                if (f47216a) {
+                if (f47608a) {
                     e2.printStackTrace();
                 }
             }
@@ -714,17 +714,17 @@ public final class h {
     }
 
     public static boolean o(String str) {
-        if (f47216a) {
+        if (f47608a) {
             Log.d("SwanAppUBCStatistic", "isIgnoreRequest: start with " + str);
         }
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        int size = f47218c.size();
+        int size = f47610c.size();
         for (int i2 = 0; i2 < size; i2++) {
-            String str2 = f47218c.get(i2);
+            String str2 = f47610c.get(i2);
             if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                if (f47216a) {
+                if (f47608a) {
                     Log.d("SwanAppUBCStatistic", "isIgnoreRequest: ignore " + str);
                     return true;
                 }
@@ -744,13 +744,13 @@ public final class h {
 
     public static void p(String str, String str2, boolean z) {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47252b = str;
-        eVar.f47254d = str2;
-        eVar.f47255e = d.b.g0.a.r1.e.T();
+        eVar.f47644b = str;
+        eVar.f47646d = str2;
+        eVar.f47647e = d.b.g0.a.r1.e.T();
         if (d.b.g0.a.r1.e.y() != null && d.b.g0.a.r1.e.y().L() != null) {
             b.a L = d.b.g0.a.r1.e.y().L();
-            eVar.f47253c = L.S();
-            eVar.f47251a = n(L.F());
+            eVar.f47645c = L.S();
+            eVar.f47643a = n(L.F());
         }
         if (TextUtils.equals(PrefetchEvent.STATE_CLICK, str)) {
             eVar.a("authorize", z ? "success" : "fail");
@@ -761,7 +761,7 @@ public final class h {
     public static void q(int i2, d.b.g0.a.v1.c.e eVar) {
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
         if (O == null) {
-            if (f47216a) {
+            if (f47608a) {
                 Log.e("SwanAppUBCStatistic", "onAuthorizeFailed-swanApp is null");
                 return;
             }
@@ -778,11 +778,11 @@ public final class h {
             jSONObject.put("msg", d.b.g0.a.v1.c.c.f(i2));
             jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, O.R().p("cur_request_id", ""));
             if (eVar != null) {
-                jSONObject.put("scope", eVar.f46769b);
-                jSONObject.put("scopeData", eVar.f46768a);
+                jSONObject.put("scope", eVar.f47161b);
+                jSONObject.put("scopeData", eVar.f47160a);
             }
         } catch (JSONException e2) {
-            if (f47216a) {
+            if (f47608a) {
                 e2.printStackTrace();
             }
         }
@@ -834,15 +834,15 @@ public final class h {
             long k2 = J.k("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-            fVar.f47251a = n(d.b.g0.a.r1.d.e().h());
-            fVar.f47255e = J.G();
+            fVar.f47643a = n(d.b.g0.a.r1.d.e().h());
+            fVar.f47647e = J.G();
             if (d.b.g0.a.m1.a.a.B(J.d0())) {
-                fVar.f47253c = "remote-debug";
+                fVar.f47645c = "remote-debug";
             } else {
-                fVar.f47253c = J.S();
+                fVar.f47645c = J.S();
             }
-            fVar.f47252b = Config.LAUNCH;
-            fVar.f47254d = "success";
+            fVar.f47644b = Config.LAUNCH;
+            fVar.f47646d = "success";
             fVar.s = String.valueOf(currentTimeMillis - k2);
             fVar.a("status", "0");
             d.b.g0.a.z1.e.k(fVar, J.V(), J.n0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -862,10 +862,10 @@ public final class h {
         if (d.b.g0.a.r1.d.e().s().d()) {
             eVar.d(d.b.g0.a.r1.d.e().s().J().n0().getString(UBCCloudControlProcessor.UBC_KEY));
         }
-        eVar.f47252b = "show";
-        eVar.f47253c = str;
-        eVar.f47254d = z ? "success" : "fail";
-        eVar.f47255e = d.b.g0.a.r1.e.T();
+        eVar.f47644b = "show";
+        eVar.f47645c = str;
+        eVar.f47646d = z ? "success" : "fail";
+        eVar.f47647e = d.b.g0.a.r1.e.T();
         p.k(new j(eVar), "SwanAppUBCOnPagesRoute");
     }
 }

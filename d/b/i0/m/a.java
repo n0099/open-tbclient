@@ -1,34 +1,34 @@
 package d.b.i0.m;
 
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f56796a = new HashMap<>();
+    public HashMap<String, b> f58152a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f56797b;
+    public ArrayList<Integer> f58153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f56798c;
+    public c f58154c;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.f56797b = arrayList;
-        this.f56798c = cVar;
+        this.f58153b = arrayList;
+        this.f58154c = cVar;
     }
 
     public int a(String str, int i) {
         ArrayList<Integer> arrayList;
-        if (this.f56796a == null || k.isEmpty(str) || (arrayList = this.f56797b) == null || !arrayList.contains(Integer.valueOf(i))) {
+        if (this.f58152a == null || k.isEmpty(str) || (arrayList = this.f58153b) == null || !arrayList.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.f56796a.containsKey(str)) {
+        if (!this.f58152a.containsKey(str)) {
             b(str);
         }
-        b bVar = this.f56796a.get(str);
+        b bVar = this.f58152a.get(str);
         if (bVar == null) {
             return 0;
         }
@@ -36,17 +36,17 @@ public class a {
     }
 
     public void b(String str) {
-        if (this.f56796a == null || k.isEmpty(str) || this.f56798c == null) {
+        if (this.f58152a == null || k.isEmpty(str) || this.f58154c == null) {
             return;
         }
-        if (this.f56796a.containsKey(str)) {
-            b bVar = this.f56796a.get(str);
-            this.f56798c.b(this.f56797b, bVar);
-            this.f56796a.put(str, bVar);
+        if (this.f58152a.containsKey(str)) {
+            b bVar = this.f58152a.get(str);
+            this.f58154c.b(this.f58153b, bVar);
+            this.f58152a.put(str, bVar);
             return;
         }
         b bVar2 = new b();
-        this.f56798c.b(this.f56797b, bVar2);
-        this.f56796a.put(str, bVar2);
+        this.f58154c.b(this.f58153b, bVar2);
+        this.f58152a.put(str, bVar2);
     }
 }

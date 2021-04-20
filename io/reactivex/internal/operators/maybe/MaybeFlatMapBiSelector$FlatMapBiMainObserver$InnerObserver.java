@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.t.b;
-import f.a.w.c;
-import f.a.x.b.a;
+import f.b.i;
+import f.b.t.b;
+import f.b.w.c;
+import f.b.x.b.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -18,22 +18,22 @@ public final class MaybeFlatMapBiSelector$FlatMapBiMainObserver$InnerObserver<T,
         this.resultSelector = cVar;
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         this.actual.onComplete();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(U u) {
         T t = this.value;
         this.value = null;
@@ -42,7 +42,7 @@ public final class MaybeFlatMapBiSelector$FlatMapBiMainObserver$InnerObserver<T,
             a.b(apply, "The resultSelector returned a null value");
             this.actual.onSuccess(apply);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.actual.onError(th);
         }
     }

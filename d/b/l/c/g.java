@@ -9,17 +9,17 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64021a;
+    public String f64721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64022b;
+    public String f64722b;
 
     public g() {
         d();
     }
 
     public String a() {
-        return this.f64022b;
+        return this.f64722b;
     }
 
     public final String b(Context context) {
@@ -33,7 +33,7 @@ public class g {
         stringBuffer.append("_");
         stringBuffer.append("android");
         stringBuffer.append("_");
-        stringBuffer.append(this.f64021a);
+        stringBuffer.append(this.f64721a);
         stringBuffer.append("_");
         stringBuffer.append(densityDpi);
         return stringBuffer.toString();
@@ -54,7 +54,7 @@ public class g {
 
     public final void d() {
         Context appContext = AppRuntime.getAppContext();
-        this.f64021a = c(appContext);
-        this.f64022b = b(appContext);
+        this.f64721a = c(appContext);
+        this.f64722b = b(appContext);
     }
 }

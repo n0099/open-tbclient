@@ -14,13 +14,13 @@ import com.baidu.wallet.paysdk.ui.widget.HalfScreenContainerLayout;
 public abstract class HalfScreenBaseActivity extends PayBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f26039a;
+    public static int f25724a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AnimationDrawable f26040b;
+    public AnimationDrawable f25725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f26041c;
+    public View f25726c;
     public View mActionBar;
     public ViewGroup mContentView;
     public HalfScreenContainerLayout mHalfScreenContainer;
@@ -32,7 +32,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
 
     private void a() {
         int size;
-        if (f26039a <= 1 || BaseActivity.mActivityStack.size() - 2 < 0 || !(BaseActivity.mActivityStack.get(size) instanceof HalfScreenBaseActivity)) {
+        if (f25724a <= 1 || BaseActivity.mActivityStack.size() - 2 < 0 || !(BaseActivity.mActivityStack.get(size) instanceof HalfScreenBaseActivity)) {
             return;
         }
         findViewById(ResUtils.id(getActivity(), "ebpay_top_half")).setVisibility(4);
@@ -40,7 +40,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
 
     private void b() {
         int drawable;
-        if (f26039a > 1) {
+        if (f25724a > 1) {
             drawable = ResUtils.drawable(this, "wallet_base_new_halfscreen_actionbar_back");
             this.mLeftImg.setContentDescription("返回");
         } else {
@@ -51,7 +51,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     }
 
     public static void resetInstanceCount() {
-        f26039a = 0;
+        f25724a = 0;
     }
 
     public abstract void addContentView();
@@ -59,18 +59,18 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
     public void finish() {
         super.finish();
-        int i = f26039a;
+        int i = f25724a;
         if (i > 0) {
-            f26039a = i - 1;
+            f25724a = i - 1;
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity
     public void finishWithoutAnim() {
         super.finishWithoutAnim();
-        int i = f26039a;
+        int i = f25724a;
         if (i > 0) {
-            f26039a = i - 1;
+            f25724a = i - 1;
         }
     }
 
@@ -87,12 +87,12 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        f26039a++;
+        f25724a++;
         setFlagPaySdk();
         setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_half_scrren_activity"));
         this.mHalfScreenPageView = (ViewGroup) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_page"));
         View findViewById = findViewById(ResUtils.id(getActivity(), "welcome_page"));
-        this.f26041c = findViewById;
+        this.f25726c = findViewById;
         findViewById.setVisibility(8);
         this.mRootView = findViewById(ResUtils.id(getActivity(), "root_view"));
         this.mHalfScreenContainer = (HalfScreenContainerLayout) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_container"));
@@ -102,7 +102,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
         this.mTitle = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_title"));
         this.mRightTxt = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_left_txt"));
         b();
-        this.f26040b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
+        this.f25725b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
         addContentView();
     }
 
@@ -110,10 +110,10 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public void onDestroy() {
         int i;
         super.onDestroy();
-        if (isFinishing() || (i = f26039a) <= 0) {
+        if (isFinishing() || (i = f25724a) <= 0) {
             return;
         }
-        f26039a = i - 1;
+        f25724a = i - 1;
     }
 
     public void setPageTransparent(boolean z) {
@@ -121,20 +121,20 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     }
 
     public void showLikeDismissLadingPage() {
-        this.f26041c.setVisibility(8);
-        this.f26040b.stop();
+        this.f25726c.setVisibility(8);
+        this.f25725b.stop();
     }
 
     public void showLikeLoadingPage(boolean z) {
         setPageTransparent(false);
         if (z) {
             this.mHalfScreenPageView.setVisibility(8);
-            this.f26041c.setVisibility(0);
-            this.f26040b.start();
+            this.f25726c.setVisibility(0);
+            this.f25725b.start();
             return;
         }
         this.mHalfScreenPageView.setVisibility(0);
-        this.f26041c.setVisibility(8);
-        this.f26040b.stop();
+        this.f25726c.setVisibility(8);
+        this.f25725b.stop();
     }
 }

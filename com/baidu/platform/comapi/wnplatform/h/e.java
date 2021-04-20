@@ -6,15 +6,15 @@ public class e {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f10276a = 0;
+        public static int f9834a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f10277b = 1;
+        public static int f9835b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f10278c = 2;
+        public static int f9836c = 2;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f10279d = 3;
+        public static int f9837d = 3;
     }
 }

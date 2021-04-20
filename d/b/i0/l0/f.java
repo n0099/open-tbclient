@@ -22,22 +22,22 @@ import java.util.List;
 public class f {
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f56514f = new f();
+    public static f f57920f = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f56515a;
+    public c f57921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f56516b;
+    public List<String> f57922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56517c = 5;
+    public int f57923c = 5;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f56518d = new a(2001140);
+    public CustomMessageListener f57924d = new a(2001140);
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f56519e = new b(2001119);
+    public CustomMessageListener f57925e = new b(2001119);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -64,9 +64,9 @@ public class f {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                f.this.f56516b = ((QueryDownloadMessage) customResponsedMessage).getData();
+                f.this.f57922b = ((QueryDownloadMessage) customResponsedMessage).getData();
                 f fVar = f.this;
-                fVar.g(fVar.f56516b);
+                fVar.g(fVar.f57922b);
             }
         }
     }
@@ -104,7 +104,7 @@ public class f {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : d.b.h0.v.d.j().i()) {
-                for (String str : f.this.f56516b) {
+                for (String str : f.this.f57922b) {
                     if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                         list.add(downloadData);
                     }
@@ -115,12 +115,12 @@ public class f {
     }
 
     public f() {
-        MessageManager.getInstance().registerListener(this.f56519e);
-        MessageManager.getInstance().registerListener(this.f56518d);
+        MessageManager.getInstance().registerListener(this.f57925e);
+        MessageManager.getInstance().registerListener(this.f57924d);
     }
 
     public static f f() {
-        return f56514f;
+        return f57920f;
     }
 
     public void d() {
@@ -133,7 +133,7 @@ public class f {
 
     public final void g(List<String> list) {
         c cVar = new c();
-        this.f56515a = cVar;
+        this.f57921a = cVar;
         cVar.execute(list);
     }
 
@@ -148,7 +148,7 @@ public class f {
     }
 
     public void j(String str, String str2, String str3) {
-        if (d.b.b.e.p.k.isEmpty(str) || d.b.b.e.p.k.isEmpty(str3)) {
+        if (d.b.c.e.p.k.isEmpty(str) || d.b.c.e.p.k.isEmpty(str3)) {
             return;
         }
         DownloadData downloadData = new DownloadData(str, str2, str3, new e());
@@ -161,8 +161,8 @@ public class f {
                 if (split2.length == 5) {
                     downloadData.setDescription(split2[1]);
                     downloadData.setCheck(split2[2]);
-                    downloadData.setWidth(d.b.b.e.m.b.d(split2[3], 200));
-                    downloadData.setHeight(d.b.b.e.m.b.d(split2[4].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0], 200));
+                    downloadData.setWidth(d.b.c.e.m.b.d(split2[3], 200));
+                    downloadData.setHeight(d.b.c.e.m.b.d(split2[4].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0], 200));
                 } else if (split2.length == 3) {
                     downloadData.setDescription(split2[1]);
                     downloadData.setCheck(split2[2].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0]);
@@ -191,6 +191,6 @@ public class f {
         sb.append(str);
         downloadData.setPath(sb.toString());
         BdLog.d("download:path:" + downloadData.getPath());
-        d.b.h0.v.d.j().l(downloadData, this.f56517c);
+        d.b.h0.v.d.j().l(downloadData, this.f57923c);
     }
 }

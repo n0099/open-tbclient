@@ -7,7 +7,7 @@ import d.b.g0.a.c;
 import d.b.g0.a.e;
 import d.b.g0.a.i2.h0;
 import d.b.g0.a.w0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public boolean r;
     public boolean s;

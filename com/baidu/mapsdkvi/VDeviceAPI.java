@@ -31,10 +31,10 @@ import java.util.List;
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f7909a;
+    public static PowerManager.WakeLock f7944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f7910b;
+    public static BroadcastReceiver f7945b;
 
     public static String getAppVersion() {
         try {
@@ -299,24 +299,24 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        f7910b = new a();
-        b.a().registerReceiver(f7910b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f7945b = new a();
+        b.a().registerReceiver(f7945b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f7909a == null) {
-                f7909a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f7944a == null) {
+                f7944a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f7909a.acquire();
+            f7944a.acquire();
             return;
         }
-        PowerManager.WakeLock wakeLock = f7909a;
+        PowerManager.WakeLock wakeLock = f7944a;
         if (wakeLock == null || !wakeLock.isHeld()) {
             return;
         }
-        f7909a.release();
-        f7909a = null;
+        f7944a.release();
+        f7944a = null;
     }
 
     public static void setupSoftware(String str) {
@@ -326,9 +326,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (f7910b != null) {
-            b.a().unregisterReceiver(f7910b);
-            f7910b = null;
+        if (f7945b != null) {
+            b.a().unregisterReceiver(f7945b);
+            f7945b = null;
         }
     }
 }

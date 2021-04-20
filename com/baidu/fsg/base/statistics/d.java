@@ -11,25 +11,25 @@ import org.json.JSONObject;
 public class d implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f5283a;
+    public Thread.UncaughtExceptionHandler f5318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f5284b;
+    public Context f5319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f5285c;
+    public JSONObject f5320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<Thread, Throwable> f5286d;
+    public ConcurrentHashMap<Thread, Throwable> f5321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5287e;
+    public String f5322e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f5288a = new d(null);
+        public static d f5323a = new d(null);
     }
 
     public /* synthetic */ d(e eVar) {
@@ -37,14 +37,14 @@ public class d implements Thread.UncaughtExceptionHandler {
     }
 
     public static d a() {
-        return a.f5288a;
+        return a.f5323a;
     }
 
     public String b() {
-        if (this.f5287e == null) {
-            this.f5287e = "com.baidu.fsg.rimdemo," + com.baidu.fsg.base.a.f5106b + ",";
+        if (this.f5322e == null) {
+            this.f5322e = "com.baidu.fsg.rimdemo," + com.baidu.fsg.base.a.f5141b + ",";
         }
-        return this.f5287e;
+        return this.f5322e;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x0065  */
@@ -56,14 +56,14 @@ public class d implements Thread.UncaughtExceptionHandler {
         String str;
         String obj;
         Thread.UncaughtExceptionHandler uncaughtExceptionHandler;
-        if (th == this.f5286d.get(thread)) {
+        if (th == this.f5321d.get(thread)) {
             if (thread.isAlive()) {
                 thread.stop(th);
             }
-            this.f5286d.remove(thread);
+            this.f5321d.remove(thread);
             return;
         }
-        this.f5286d.put(thread, th);
+        this.f5321d.put(thread, th);
         String th2 = th.toString();
         if (th2 != null && !th2.equals("")) {
             try {
@@ -78,11 +78,11 @@ public class d implements Thread.UncaughtExceptionHandler {
             th.printStackTrace(printWriter);
             printWriter.close();
             obj = stringWriter.toString();
-            if (a(this.f5284b, obj)) {
+            if (a(this.f5319b, obj)) {
                 a(System.currentTimeMillis(), obj, th2);
                 new Thread(new e(this)).start();
             }
-            uncaughtExceptionHandler = this.f5283a;
+            uncaughtExceptionHandler = this.f5318a;
             if (this != uncaughtExceptionHandler || uncaughtExceptionHandler == null) {
             }
             uncaughtExceptionHandler.uncaughtException(thread, th);
@@ -97,36 +97,36 @@ public class d implements Thread.UncaughtExceptionHandler {
         th.printStackTrace(printWriter2);
         printWriter2.close();
         obj = stringWriter2.toString();
-        if (a(this.f5284b, obj)) {
+        if (a(this.f5319b, obj)) {
         }
-        uncaughtExceptionHandler = this.f5283a;
+        uncaughtExceptionHandler = this.f5318a;
         if (this != uncaughtExceptionHandler) {
         }
     }
 
     public d() {
-        this.f5283a = null;
-        this.f5284b = null;
-        this.f5285c = null;
-        this.f5286d = new ConcurrentHashMap<>();
+        this.f5318a = null;
+        this.f5319b = null;
+        this.f5320c = null;
+        this.f5321d = new ConcurrentHashMap<>();
     }
 
     public void a(Context context) {
-        if (this.f5284b == null) {
+        if (this.f5319b == null) {
             if (context == null) {
                 return;
             }
-            this.f5284b = context.getApplicationContext();
+            this.f5319b = context.getApplicationContext();
         }
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         if (this != defaultUncaughtExceptionHandler) {
-            this.f5283a = defaultUncaughtExceptionHandler;
+            this.f5318a = defaultUncaughtExceptionHandler;
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
     }
 
     private void a(long j, String str, String str2) {
-        if (this.f5284b != null && str != null && !str.trim().equals("")) {
+        if (this.f5319b != null && str != null && !str.trim().equals("")) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("dim_excep_time", j);
@@ -143,15 +143,15 @@ public class d implements Thread.UncaughtExceptionHandler {
                 } catch (Exception unused) {
                 }
                 try {
-                    jSONObject.put("dim_excep_free_mem", com.baidu.fsg.base.statistics.a.b(this.f5284b));
+                    jSONObject.put("dim_excep_free_mem", com.baidu.fsg.base.statistics.a.b(this.f5319b));
                 } catch (Exception unused2) {
                 }
                 try {
-                    jSONObject.put("dim_excep_total_mem", com.baidu.fsg.base.statistics.a.c(this.f5284b));
+                    jSONObject.put("dim_excep_total_mem", com.baidu.fsg.base.statistics.a.c(this.f5319b));
                 } catch (Exception unused3) {
                 }
                 f.a().a(jSONObject);
-                com.baidu.fsg.base.statistics.a.a(this.f5284b, b.n, f.a().d().toString(), false);
+                com.baidu.fsg.base.statistics.a.a(this.f5319b, b.n, f.a().d().toString(), false);
             } catch (Exception unused4) {
             }
         }

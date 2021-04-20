@@ -38,15 +38,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public List<Long> closeLives;
-    public List<d.b.i0.v1.h.a> datas;
-    public d.b.h0.g0.f.d<d.b.i0.v1.h.a, d.b.h0.g0.d.b, d.b.i0.v1.i.a> mAdapter;
+    public List<d.b.i0.w1.h.a> datas;
+    public d.b.h0.g0.f.d<d.b.i0.w1.h.a, d.b.h0.g0.d.b, d.b.i0.w1.i.a> mAdapter;
     public TextView mEditBtn;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -54,23 +54,23 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView mShadowView;
     public PbHistoryCacheModel model;
     public boolean hasLoadStatus = false;
-    public final CacheModel.c<d.b.i0.v1.h.a> callback = new a();
+    public final CacheModel.c<d.b.i0.w1.h.a> callback = new a();
     public final HttpMessageListener listener = new b(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED);
     public AbsListView.OnScrollListener mOnScrollListener = new c();
 
     /* loaded from: classes3.dex */
-    public class a implements CacheModel.c<d.b.i0.v1.h.a> {
+    public class a implements CacheModel.c<d.b.i0.w1.h.a> {
         public a() {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataGet(ReadCacheRespMsg<List<d.b.i0.v1.h.a>> readCacheRespMsg, ReadCacheMessage<d.b.i0.v1.h.a> readCacheMessage) {
+        public void onCacheDataGet(ReadCacheRespMsg<List<d.b.i0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.b.i0.w1.h.a> readCacheMessage) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                 return;
             }
             PbHistoryActivity.this.datas = readCacheRespMsg.getData();
             ArrayList arrayList = new ArrayList();
-            for (d.b.i0.v1.h.a aVar : readCacheRespMsg.getData()) {
+            for (d.b.i0.w1.h.a aVar : readCacheRespMsg.getData()) {
                 if (!StringUtils.isNull(aVar.g()) && Long.valueOf(aVar.g()).longValue() != 0) {
                     arrayList.add(Long.valueOf(aVar.g()));
                 }
@@ -86,7 +86,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataWrite(WriteCacheRespMsg<List<d.b.i0.v1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.b.i0.v1.h.a> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<d.b.i0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.b.i0.w1.h.a> writeCacheMessage) {
             if (writeCacheRespMsg == null || !writeCacheRespMsg.isSuccess()) {
                 return;
             }
@@ -186,11 +186,11 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d.b.i0.v1.h.a aVar = (d.b.i0.v1.h.a) PbHistoryActivity.this.mAdapter.getItem(i);
+            d.b.i0.w1.h.a aVar = (d.b.i0.w1.h.a) PbHistoryActivity.this.mAdapter.getItem(i);
             if (aVar != null) {
                 if (aVar.m() == 49) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                    alaLiveInfoCoreData.liveID = d.b.b.e.m.b.f(aVar.g(), 0L);
+                    alaLiveInfoCoreData.liveID = d.b.c.e.m.b.f(aVar.g(), 0L);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SCAN_HISTORY, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getCurrentAccount() : "", false, "")));
                 } else if (aVar.u()) {
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaBrowserActivityConfig.class)) {
@@ -218,7 +218,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         if (ListUtils.isEmpty(this.closeLives) || ListUtils.isEmpty(this.datas)) {
             return;
         }
-        for (d.b.i0.v1.h.a aVar : this.datas) {
+        for (d.b.i0.w1.h.a aVar : this.datas) {
             if (!StringUtils.isNull(aVar.g()) && Long.valueOf(aVar.g()).longValue() != 0) {
                 if (this.closeLives.contains(Long.valueOf(aVar.g()))) {
                     aVar.E(false);
@@ -241,8 +241,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateUIByData(List<d.b.i0.v1.h.a> list) {
-        d.b.h0.g0.f.d<d.b.i0.v1.h.a, d.b.h0.g0.d.b, d.b.i0.v1.i.a> dVar = this.mAdapter;
+    public void updateUIByData(List<d.b.i0.w1.h.a> list) {
+        d.b.h0.g0.f.d<d.b.i0.w1.h.a, d.b.h0.g0.d.b, d.b.i0.w1.i.a> dVar = this.mAdapter;
         if (dVar != null) {
             dVar.k(list);
         }
@@ -290,7 +290,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds88)));
         this.mListView.x(textView, 0);
-        this.mAdapter = new d.b.h0.g0.f.d<>(getPageContext(), d.b.i0.v1.i.a.class, R.layout.pb_history_list_item, null);
+        this.mAdapter = new d.b.h0.g0.f.d<>(getPageContext(), d.b.i0.w1.i.a.class, R.layout.pb_history_list_item, null);
         this.mAdapter.j(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds190)), NoDataViewFactory.e.d(null, getResources().getString(R.string.pb_history_no_data_tip_2)), null, null);
         this.mListView.setAdapter((ListAdapter) this.mAdapter);
         this.mListView.setOnItemClickListener(new e());

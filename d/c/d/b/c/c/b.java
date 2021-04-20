@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import d.c.d.b.l;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends a<d.c.d.b.c.a.a> {
     public b() {
         super("duplicatelog");
@@ -28,18 +28,18 @@ public class b extends a<d.c.d.b.c.a.a> {
     /* renamed from: e */
     public ContentValues a(d.c.d.b.c.a.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("path", aVar.f65804a);
-        contentValues.put("insert_time", Long.valueOf(aVar.f65805b));
+        contentValues.put("path", aVar.f66649a);
+        contentValues.put("insert_time", Long.valueOf(aVar.f66650b));
         return contentValues;
     }
 
     public void f(SQLiteDatabase sQLiteDatabase, d.c.d.b.c.a.a aVar) {
-        if (aVar == null || g(sQLiteDatabase, aVar.f65804a)) {
+        if (aVar == null || g(sQLiteDatabase, aVar.f66649a)) {
             return;
         }
         super.d(sQLiteDatabase, aVar);
         try {
-            sQLiteDatabase.execSQL("delete from " + this.f65809a + " where _id in (select _id from " + this.f65809a + " order by insert_time desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
+            sQLiteDatabase.execSQL("delete from " + this.f66654a + " where _id in (select _id from " + this.f66654a + " order by insert_time desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception e2) {
             l.k.c(e2);
         }
@@ -57,7 +57,7 @@ public class b extends a<d.c.d.b.c.a.a> {
             return false;
         }
         try {
-            query = sQLiteDatabase.query(this.f65809a, null, "path=?", new String[]{str}, null, null, null);
+            query = sQLiteDatabase.query(this.f66654a, null, "path=?", new String[]{str}, null, null, null);
             i = query.getCount();
         } catch (Exception e2) {
             e = e2;

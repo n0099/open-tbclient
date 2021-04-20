@@ -4,7 +4,6 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import d.b.g0.a.k;
 import java.util.ArrayList;
@@ -12,36 +11,36 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43906a = k.f45051a;
+    public static final boolean f44298a = k.f45443a;
 
     /* renamed from: d.b.g0.a.e0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0649a {
+    public static class C0661a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43907a;
+        public int f44299a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43908b;
+        public int f44300b;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f43909a = k.f45051a;
+        public static final boolean f44301a = k.f45443a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f43910b = -1;
+        public static int f44302b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f43911c = -1;
+        public static int f44303c = -1;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f43912d = -1;
+        public static int f44304d = -1;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f43913e = -1;
+        public static int f44305e = -1;
 
         public static boolean a(int i) {
             if (i != 0) {
@@ -53,30 +52,30 @@ public final class a {
             return f();
         }
 
-        public static C0649a b() {
-            C0649a c0649a = new C0649a();
-            c0649a.f43907a = c();
-            c0649a.f43908b = d();
-            if (f43909a) {
-                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0649a.f43907a + " ,sizeLimit: " + c0649a.f43908b);
+        public static C0661a b() {
+            C0661a c0661a = new C0661a();
+            c0661a.f44299a = c();
+            c0661a.f44300b = d();
+            if (f44301a) {
+                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0661a.f44299a + " ,sizeLimit: " + c0661a.f44300b);
             }
-            return c0649a;
+            return c0661a;
         }
 
         public static int c() {
-            if (f43912d < 0) {
+            if (f44304d < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_code_cache_max_count", 5);
-                f43912d = 5;
+                f44304d = 5;
             }
-            return f43912d;
+            return f44304d;
         }
 
         public static int d() {
-            if (f43913e < 0) {
+            if (f44305e < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_code_cache_size_limit", 100);
-                f43913e = 100;
+                f44305e = 100;
             }
-            return f43913e * 1024;
+            return f44305e * 1024;
         }
 
         public static String e() {
@@ -86,43 +85,43 @@ public final class a {
         public static boolean f() {
             boolean S = d.b.g0.a.m1.a.a.S();
             if (S) {
-                f43910b = 1;
+                f44302b = 1;
             }
-            if (f43910b < 0) {
+            if (f44302b < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_app_v8_code_cache", 1);
-                f43910b = 1;
+                f44302b = 1;
             }
-            if (f43909a) {
+            if (f44301a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("getSwanAppCodeCacheAbSwitch() switcher: ");
-                sb.append(f43910b);
+                sb.append(f44302b);
                 sb.append(S ? " forceAb" : "");
                 Log.d("CodeCacheSwitcher", sb.toString());
             }
-            return f43910b == 1;
+            return f44302b == 1;
         }
 
         public static boolean g() {
             boolean S = d.b.g0.a.m1.a.a.S();
             if (S) {
-                f43911c = 1;
+                f44303c = 1;
             }
-            if (f43911c < 0) {
+            if (f44303c < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_game_v8_code_cache", 2);
-                f43911c = 2;
+                f44303c = 2;
             }
-            if (f43909a) {
+            if (f44301a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("getSwanGameCodeCacheAbSwitch() switcher: ");
-                sb.append(f43911c);
+                sb.append(f44303c);
                 sb.append(S ? " forceAb" : "");
                 Log.d("CodeCacheSwitcher", sb.toString());
             }
-            return f43911c == 1;
+            return f44303c == 1;
         }
 
         public static boolean h(int i) {
-            if (f43909a) {
+            if (f44301a) {
                 String e2 = e();
                 char c2 = 65535;
                 int hashCode = e2.hashCode();
@@ -160,13 +159,13 @@ public final class a {
         arrayList.add(str2);
         if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
             codeCacheSetting.maxCount = 5;
-            codeCacheSetting.sizeLimit = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
+            codeCacheSetting.sizeLimit = 102400;
         } else {
-            C0649a b2 = b.b();
-            codeCacheSetting.maxCount = b2.f43907a;
-            codeCacheSetting.sizeLimit = b2.f43908b;
+            C0661a b2 = b.b();
+            codeCacheSetting.maxCount = b2.f44299a;
+            codeCacheSetting.sizeLimit = b2.f44300b;
         }
-        if (f43906a) {
+        if (f44298a) {
             Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
             Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);

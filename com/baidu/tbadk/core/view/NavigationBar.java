@@ -31,8 +31,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.b.a.f;
-import d.b.b.e.p.l;
+import d.b.c.a.f;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class NavigationBar extends RelativeLayout {
     public View barBgView;

@@ -11,7 +11,7 @@ import com.qq.e.comm.util.GDTLogger;
 public abstract class LiteAbstractAD<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f38022a;
+    public T f38311a;
 
     public abstract T a(Context context, POFactory pOFactory, String str, String str2);
 
@@ -37,8 +37,8 @@ public abstract class LiteAbstractAD<T> {
                                             LiteAbstractAD.this.a(200102);
                                             return;
                                         }
-                                        LiteAbstractAD.this.f38022a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
-                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f38022a);
+                                        LiteAbstractAD.this.f38311a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
+                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f38311a);
                                     } catch (Throwable th) {
                                         GDTLogger.e("Exception while init Core", th);
                                         LiteAbstractAD.this.a(2001);

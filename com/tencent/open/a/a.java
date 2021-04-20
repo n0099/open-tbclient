@@ -7,38 +7,38 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends i implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f39181a;
+    public b f39470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileWriter f39182b;
+    public FileWriter f39471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f39183c;
+    public File f39472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public char[] f39184d;
+    public char[] f39473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile g f39185e;
+    public volatile g f39474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile g f39186f;
+    public volatile g f39475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile g f39187g;
+    public volatile g f39476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile g f39188h;
+    public volatile g f39477h;
     public volatile boolean i;
     public HandlerThread j;
     public Handler k;
 
     public a(b bVar) {
-        this(c.f39201b, true, h.f39218a, bVar);
+        this(c.f39490b, true, h.f39507a, bVar);
     }
 
     private void f() {
@@ -46,36 +46,36 @@ public class a extends i implements Handler.Callback {
             this.i = true;
             i();
             try {
-                this.f39188h.a(g(), this.f39184d);
+                this.f39477h.a(g(), this.f39473d);
             } catch (IOException unused) {
             } catch (Throwable th) {
-                this.f39188h.b();
+                this.f39477h.b();
                 throw th;
             }
-            this.f39188h.b();
+            this.f39477h.b();
             this.i = false;
         }
     }
 
     private Writer g() {
         File a2 = c().a();
-        if ((a2 != null && !a2.equals(this.f39183c)) || (this.f39182b == null && a2 != null)) {
-            this.f39183c = a2;
+        if ((a2 != null && !a2.equals(this.f39472c)) || (this.f39471b == null && a2 != null)) {
+            this.f39472c = a2;
             h();
             try {
-                this.f39182b = new FileWriter(this.f39183c, true);
+                this.f39471b = new FileWriter(this.f39472c, true);
             } catch (IOException unused) {
                 return null;
             }
         }
-        return this.f39182b;
+        return this.f39471b;
     }
 
     private void h() {
         try {
-            if (this.f39182b != null) {
-                this.f39182b.flush();
-                this.f39182b.close();
+            if (this.f39471b != null) {
+                this.f39471b.flush();
+                this.f39471b.close();
             }
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -84,12 +84,12 @@ public class a extends i implements Handler.Callback {
 
     private void i() {
         synchronized (this) {
-            if (this.f39187g == this.f39185e) {
-                this.f39187g = this.f39186f;
-                this.f39188h = this.f39185e;
+            if (this.f39476g == this.f39474e) {
+                this.f39476g = this.f39475f;
+                this.f39477h = this.f39474e;
             } else {
-                this.f39187g = this.f39185e;
-                this.f39188h = this.f39186f;
+                this.f39476g = this.f39474e;
+                this.f39477h = this.f39475f;
             }
         }
     }
@@ -107,7 +107,7 @@ public class a extends i implements Handler.Callback {
     }
 
     public b c() {
-        return this.f39181a;
+        return this.f39470a;
     }
 
     @Override // android.os.Handler.Callback
@@ -123,11 +123,11 @@ public class a extends i implements Handler.Callback {
         super(i, z, hVar);
         this.i = false;
         a(bVar);
-        this.f39185e = new g();
-        this.f39186f = new g();
-        this.f39187g = this.f39185e;
-        this.f39188h = this.f39186f;
-        this.f39184d = new char[bVar.d()];
+        this.f39474e = new g();
+        this.f39475f = new g();
+        this.f39476g = this.f39474e;
+        this.f39477h = this.f39475f;
+        this.f39473d = new char[bVar.d()];
         g();
         HandlerThread handlerThread = new HandlerThread(bVar.c(), bVar.f());
         this.j = handlerThread;
@@ -146,13 +146,13 @@ public class a extends i implements Handler.Callback {
     }
 
     public void a(String str) {
-        this.f39187g.a(str);
-        if (this.f39187g.a() >= c().d()) {
+        this.f39476g.a(str);
+        if (this.f39476g.a() >= c().d()) {
             a();
         }
     }
 
     public void a(b bVar) {
-        this.f39181a = bVar;
+        this.f39470a = bVar;
     }
 }

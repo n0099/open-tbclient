@@ -9,28 +9,28 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13701a = 0;
+        public int f13362a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13702b = false;
+        public boolean f13363b = false;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13703c = 0;
+        public int f13364c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13704d = 0;
+        public int f13365d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13705e = 0;
+        public int f13366e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f13706f = 0;
+        public int f13367f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f13707g = 0;
+        public int f13368g = 0;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f13708h = false;
+        public boolean f13369h = false;
         public int i = 0;
         public boolean j = false;
 
@@ -44,27 +44,27 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public int getChatCount() {
-        return this.mData.f13707g;
+        return this.mData.f13368g;
     }
 
     public int getMsgAgreeCount() {
-        return this.mData.f13703c;
+        return this.mData.f13364c;
     }
 
     public int getMsgAtCount() {
-        return this.mData.f13705e;
+        return this.mData.f13366e;
     }
 
     public int getMsgCount() {
-        return this.mData.f13701a;
+        return this.mData.f13362a;
     }
 
     public int getMsgFansCount() {
-        return this.mData.f13706f;
+        return this.mData.f13367f;
     }
 
     public int getMsgReplyCount() {
-        return this.mData.f13704d;
+        return this.mData.f13365d;
     }
 
     public int getNotificationCount() {
@@ -72,11 +72,11 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public boolean hasChatRemind() {
-        return this.mData.f13708h;
+        return this.mData.f13369h;
     }
 
     public boolean hasMsgRemind() {
-        return this.mData.f13702b;
+        return this.mData.f13363b;
     }
 
     public boolean hasNotificationRemind() {
@@ -84,15 +84,15 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setChatCount(int i) {
-        this.mData.f13707g = i;
+        this.mData.f13368g = i;
     }
 
     public void setHasChatRemind(boolean z) {
-        this.mData.f13708h = z;
+        this.mData.f13369h = z;
     }
 
     public void setHasMsgRemind(boolean z) {
-        this.mData.f13702b = z;
+        this.mData.f13363b = z;
     }
 
     public void setHasNotificationRemind(boolean z) {
@@ -100,23 +100,23 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setMsgAgreeCount(int i) {
-        this.mData.f13703c = i;
+        this.mData.f13364c = i;
     }
 
     public void setMsgAtCount(int i) {
-        this.mData.f13705e = i;
+        this.mData.f13366e = i;
     }
 
     public void setMsgCount(int i) {
-        this.mData.f13701a = i;
+        this.mData.f13362a = i;
     }
 
     public void setMsgFansCount(int i) {
-        this.mData.f13706f = i;
+        this.mData.f13367f = i;
     }
 
     public void setMsgReplyCount(int i) {
-        this.mData.f13704d = i;
+        this.mData.f13365d = i;
     }
 
     public void setNotificationCount(int i) {

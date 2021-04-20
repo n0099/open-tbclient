@@ -26,10 +26,10 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMess
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.b.e.p.l;
-import d.b.b.j.e.n;
-import d.b.i0.h2.e.i;
-import d.b.i0.h2.e.j;
+import d.b.c.e.p.l;
+import d.b.c.j.e.n;
+import d.b.i0.i2.e.i;
+import d.b.i0.i2.e.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ import tbclient.Abstract;
 import tbclient.BaijiahaoInfo;
 import tbclient.User;
 import tbclient.Voice;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
@@ -57,12 +57,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public d mOnResult;
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
-    public d.b.b.c.g.c pageSocketListener;
+    public d.b.c.c.g.c pageSocketListener;
     public final ArrayList<n> postList;
     public final ArrayList<n> threadList;
     public int view_card_num;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Abs extends OrmObject implements Serializable {
         public int type = 0;
         public String text = "";
@@ -82,7 +82,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public String portrait = "";
         public String name = "";
@@ -118,7 +118,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public int labelHot = 0;
         public String labelName = "";
@@ -134,7 +134,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class LbsInfo implements Serializable {
         public String lat = "";
         public String lon = "";
@@ -150,7 +150,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Media extends OrmObject implements Serializable {
         public int type = 0;
         public String small_pic = "";
@@ -168,7 +168,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public Abs[] post_content = new Abs[0];
         public long create_time = 0;
@@ -196,7 +196,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, n {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public int isAuthorView;
@@ -244,7 +244,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // d.b.b.j.e.n
+        @Override // d.b.c.j.e.n
         public BdUniqueId getType() {
             return POST_INFO;
         }
@@ -323,7 +323,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Quote extends OrmObject implements Serializable {
         public long post_id = 0;
         public String user_name = "";
@@ -343,7 +343,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public String portrait = "";
         public String name_show = "";
@@ -359,7 +359,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Zan extends OrmObject implements Serializable {
         public int num = 0;
 
@@ -371,7 +371,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public int post_num = 0;
         public String title = "";
@@ -426,8 +426,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends d.b.b.c.g.c {
+    /* loaded from: classes3.dex */
+    public class a extends d.b.c.c.g.c {
         public a(int i) {
             super(i);
         }
@@ -453,7 +453,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public b(int i) {
             super(i);
@@ -480,12 +480,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void p0(PersonPostModel personPostModel, boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void D0(PersonPostModel personPostModel, boolean z);
     }

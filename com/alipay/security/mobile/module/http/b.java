@@ -13,39 +13,39 @@ import org.json.JSONObject;
 public class b implements a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f2085d;
+    public static b f2110d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static DataReportResult f2086e;
+    public static DataReportResult f2111e;
 
     /* renamed from: a  reason: collision with root package name */
-    public w f2087a;
+    public w f2112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BugTrackMessageService f2088b;
+    public BugTrackMessageService f2113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DataReportService f2089c;
+    public DataReportService f2114c;
 
     public b(Context context, String str) {
-        this.f2087a = null;
-        this.f2088b = null;
-        this.f2089c = null;
+        this.f2112a = null;
+        this.f2113b = null;
+        this.f2114c = null;
         aa aaVar = new aa();
         aaVar.a(str);
         h hVar = new h(context);
-        this.f2087a = hVar;
-        this.f2088b = (BugTrackMessageService) hVar.a(BugTrackMessageService.class, aaVar);
-        this.f2089c = (DataReportService) this.f2087a.a(DataReportService.class, aaVar);
+        this.f2112a = hVar;
+        this.f2113b = (BugTrackMessageService) hVar.a(BugTrackMessageService.class, aaVar);
+        this.f2114c = (DataReportService) this.f2112a.a(DataReportService.class, aaVar);
     }
 
     public static synchronized b a(Context context, String str) {
         b bVar;
         synchronized (b.class) {
-            if (f2085d == null) {
-                f2085d = new b(context, str);
+            if (f2110d == null) {
+                f2110d = new b(context, str);
             }
-            bVar = f2085d;
+            bVar = f2110d;
         }
         return bVar;
     }
@@ -55,20 +55,20 @@ public class b implements a {
         if (dataReportRequest == null) {
             return null;
         }
-        if (this.f2089c != null) {
-            f2086e = null;
+        if (this.f2114c != null) {
+            f2111e = null;
             new Thread(new c(this, dataReportRequest)).start();
-            for (int i = 300000; f2086e == null && i >= 0; i -= 50) {
+            for (int i = 300000; f2111e == null && i >= 0; i -= 50) {
                 Thread.sleep(50L);
             }
         }
-        return f2086e;
+        return f2111e;
     }
 
     @Override // com.alipay.security.mobile.module.http.a
     public boolean a(String str) {
         BugTrackMessageService bugTrackMessageService;
-        if (com.alipay.security.mobile.module.a.a.a(str) || (bugTrackMessageService = this.f2088b) == null) {
+        if (com.alipay.security.mobile.module.a.a.a(str) || (bugTrackMessageService = this.f2113b) == null) {
             return false;
         }
         String str2 = null;

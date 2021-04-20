@@ -11,43 +11,43 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f49020b;
+    public static volatile b f49412b;
 
     /* renamed from: a  reason: collision with root package name */
-    public C1021b f49021a = new C1021b();
+    public C1033b f49413a = new C1033b();
 
     /* renamed from: d.b.g0.l.m.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1021b extends i {
-        public C1021b() {
+    public static class C1033b extends i {
+        public C1033b() {
             super("updatecore_node_ceres");
         }
     }
 
     public static b c() {
-        if (f49020b == null) {
+        if (f49412b == null) {
             synchronized (b.class) {
-                if (f49020b == null) {
-                    f49020b = new b();
+                if (f49412b == null) {
+                    f49412b = new b();
                 }
             }
         }
-        return f49020b;
+        return f49412b;
     }
 
     public String a() {
-        return this.f49021a.getString("ceres_info", "0");
+        return this.f49413a.getString("ceres_info", "0");
     }
 
     public String b() {
-        return this.f49021a.getString("global_info", "0");
+        return this.f49413a.getString("global_info", "0");
     }
 
     public d.b.g0.l.m.h.a d(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        if (f.f48889a) {
+        if (f.f49281a) {
             Log.d(Node.TAG, "ceres info " + jSONObject.toString());
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
@@ -65,7 +65,7 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.f49021a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.f49413a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new d.b.g0.l.m.h.a(optJSONArray, optJSONObject3);
     }
 }

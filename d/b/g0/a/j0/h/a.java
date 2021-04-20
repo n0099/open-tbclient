@@ -7,7 +7,7 @@ import java.util.List;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44813a = k.f45051a;
+    public static final boolean f45205a = k.f45443a;
 
     @Nullable
     List<String> a(@Nullable List<String> list);

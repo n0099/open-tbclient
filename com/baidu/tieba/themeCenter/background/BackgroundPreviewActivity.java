@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
 import d.b.h0.k0.d;
-import d.b.i0.i3.e.j;
+import d.b.i0.j3.e.j;
 /* loaded from: classes5.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     public BackgroundPreviewModel.b mCallback = new a();
@@ -67,7 +67,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
             pageStayDurationItem.i = String.valueOf(this.mPropId);
         }
         return pageStayDurationItem;

@@ -1,31 +1,61 @@
 package d.b.i0.d1;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
-/* loaded from: classes3.dex */
+import GetSugTopic.TopicList;
+import GetSugTopic.TopicListModule;
+import com.baidu.tbadk.core.util.ListUtils;
+import d.b.c.e.p.k;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
 public class c {
-    public static d.b.h0.v0.a a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        try {
-            d.b.h0.v0.a aVar = new d.b.h0.v0.a(i, cls.newInstance());
-            MessageManager.getInstance().registerTask(aVar);
-            return aVar;
-        } catch (IllegalAccessException e2) {
-            e2.printStackTrace();
-            return null;
-        } catch (InstantiationException e3) {
-            e3.printStackTrace();
-            return null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f53686a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f53687b = -1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<d> f53688c = new ArrayList();
+
+    public String a() {
+        return this.f53686a;
+    }
+
+    public List<d> b() {
+        return this.f53688c;
+    }
+
+    public int c() {
+        return this.f53687b;
+    }
+
+    public void d(TopicListModule topicListModule) {
+        if (topicListModule != null) {
+            this.f53686a = topicListModule.module_title;
+            List<TopicList> list = topicListModule.topic_list;
+            if (list == null) {
+                return;
+            }
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                d dVar = new d();
+                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
+                if (topicList != null) {
+                    dVar.c(topicList);
+                    if (!k.isEmptyStringAfterTrim(dVar.b())) {
+                        this.f53688c.add(dVar);
+                    }
+                }
+            }
         }
     }
 
-    public static d.b.h0.v0.b b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        d.b.h0.v0.b bVar = new d.b.h0.v0.b(i);
-        bVar.setResponsedClass(cls);
-        bVar.h(z);
-        bVar.setParallel(TiebaIMConfig.getParallel());
-        MessageManager.getInstance().registerTask(bVar);
-        return bVar;
+    public void e(String str) {
+        this.f53686a = str;
+    }
+
+    public void f(int i) {
+        this.f53687b = i;
     }
 }

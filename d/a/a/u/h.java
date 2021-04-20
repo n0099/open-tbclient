@@ -1,118 +1,45 @@
 package d.a.a.u;
 
-import android.util.JsonReader;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobstat.Config;
-import java.io.IOException;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.core.util.Pair;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
-public class h implements j0<d.a.a.s.b> {
+public class h<T> {
+    @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f41429a = new h();
+    public T f41651a;
+    @Nullable
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.a.u.j0
-    /* renamed from: b */
-    public d.a.a.s.b a(JsonReader jsonReader, float f2) throws IOException {
-        jsonReader.beginObject();
-        String str = null;
-        String str2 = null;
-        double d2 = 0.0d;
-        double d3 = 0.0d;
-        double d4 = 0.0d;
-        double d5 = 0.0d;
-        int i = 0;
-        int i2 = 0;
-        int i3 = 0;
-        int i4 = 0;
-        boolean z = true;
-        while (jsonReader.hasNext()) {
-            String nextName = jsonReader.nextName();
-            char c2 = 65535;
-            int hashCode = nextName.hashCode();
-            if (hashCode != 102) {
-                if (hashCode != 106) {
-                    if (hashCode != 3261) {
-                        if (hashCode != 3452) {
-                            if (hashCode != 3463) {
-                                if (hashCode != 3543) {
-                                    if (hashCode != 3664) {
-                                        if (hashCode != 3684) {
-                                            if (hashCode != 3710) {
-                                                if (hashCode != 115) {
-                                                    if (hashCode == 116 && nextName.equals("t")) {
-                                                        c2 = 0;
-                                                    }
-                                                } else if (nextName.equals("s")) {
-                                                    c2 = 2;
-                                                }
-                                            } else if (nextName.equals("tr")) {
-                                                c2 = 4;
-                                            }
-                                        } else if (nextName.equals("sw")) {
-                                            c2 = '\t';
-                                        }
-                                    } else if (nextName.equals(Config.STAT_SDK_CHANNEL)) {
-                                        c2 = '\b';
-                                    }
-                                } else if (nextName.equals("of")) {
-                                    c2 = '\n';
-                                }
-                            } else if (nextName.equals("ls")) {
-                                c2 = 6;
-                            }
-                        } else if (nextName.equals(IXAdRequestInfo.QUERY_HEIGHT)) {
-                            c2 = 5;
-                        }
-                    } else if (nextName.equals("fc")) {
-                        c2 = 7;
-                    }
-                } else if (nextName.equals("j")) {
-                    c2 = 3;
-                }
-            } else if (nextName.equals("f")) {
-                c2 = 1;
-            }
-            switch (c2) {
-                case 0:
-                    str = jsonReader.nextString();
-                    break;
-                case 1:
-                    str2 = jsonReader.nextString();
-                    break;
-                case 2:
-                    d2 = jsonReader.nextDouble();
-                    break;
-                case 3:
-                    i = jsonReader.nextInt();
-                    break;
-                case 4:
-                    i2 = jsonReader.nextInt();
-                    break;
-                case 5:
-                    d3 = jsonReader.nextDouble();
-                    break;
-                case 6:
-                    d4 = jsonReader.nextDouble();
-                    break;
-                case 7:
-                    i3 = p.d(jsonReader);
-                    break;
-                case '\b':
-                    i4 = p.d(jsonReader);
-                    break;
-                case '\t':
-                    d5 = jsonReader.nextDouble();
-                    break;
-                case '\n':
-                    z = jsonReader.nextBoolean();
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
-            }
+    /* renamed from: b  reason: collision with root package name */
+    public T f41652b;
+
+    public static boolean a(Object obj, Object obj2) {
+        return obj == obj2 || (obj != null && obj.equals(obj2));
+    }
+
+    public void b(T t, T t2) {
+        this.f41651a = t;
+        this.f41652b = t2;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Pair) {
+            Pair pair = (Pair) obj;
+            return a(pair.first, this.f41651a) && a(pair.second, this.f41652b);
         }
-        jsonReader.endObject();
-        return new d.a.a.s.b(str, str2, d2, i, i2, d3, d4, i3, i4, d5, z);
+        return false;
+    }
+
+    public int hashCode() {
+        T t = this.f41651a;
+        int hashCode = t == null ? 0 : t.hashCode();
+        T t2 = this.f41652b;
+        return hashCode ^ (t2 != null ? t2.hashCode() : 0);
+    }
+
+    public String toString() {
+        return "Pair{" + String.valueOf(this.f41651a) + " " + String.valueOf(this.f41652b) + "}";
     }
 }

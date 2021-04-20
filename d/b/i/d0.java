@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 /* loaded from: classes.dex */
 public class d0 extends c implements p<a2>, q {
-    public static final int s = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
+    public static final int s = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
     public RelativeLayout i;
     public ImageView j;
     public FrameLayout k;
@@ -69,11 +69,11 @@ public class d0 extends c implements p<a2>, q {
             return;
         }
         if (align == Align.ALIGN_RIGHT_TOP) {
-            int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds77);
+            int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds77);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(10);
-            layoutParams.rightMargin = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            layoutParams.rightMargin = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams.topMargin = g2;
             layoutParams.bottomMargin = 0;
             this.k.setLayoutParams(layoutParams);
@@ -81,7 +81,7 @@ public class d0 extends c implements p<a2>, q {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(11);
             layoutParams2.addRule(15);
-            layoutParams2.rightMargin = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            layoutParams2.rightMargin = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams2.topMargin = 0;
             layoutParams2.bottomMargin = 0;
             this.k.setLayoutParams(layoutParams2);
@@ -89,8 +89,8 @@ public class d0 extends c implements p<a2>, q {
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams3.addRule(11);
             layoutParams3.addRule(12);
-            layoutParams3.rightMargin = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-            layoutParams3.bottomMargin = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds51);
+            layoutParams3.rightMargin = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            layoutParams3.bottomMargin = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds51);
             layoutParams3.topMargin = 0;
             this.k.setLayoutParams(layoutParams3);
         }

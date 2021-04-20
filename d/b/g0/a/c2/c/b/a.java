@@ -11,7 +11,7 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     public a(j jVar) {
         super(jVar, "/swanAPI/getBatteryInfo");
@@ -22,7 +22,7 @@ public class a extends b {
         if (j(context, eVar, unitedSchemeEntity)) {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("SwanAppAction", "getBatteryInfo --- params is empty");
                 }
                 d.b.g0.a.c0.c.b("battery", "none params");
@@ -31,25 +31,25 @@ public class a extends b {
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("SwanAppAction", "getBatteryInfo --- cb is empty");
                 }
                 d.b.g0.a.c0.c.b("battery", "cb is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            a.C0635a a2 = d.b.g0.a.c2.c.a.a(context);
+            a.C0647a a2 = d.b.g0.a.c2.c.a.a(context);
             if (a2 == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
-            if (a0.f46288b) {
-                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + a2.f43776a + " ; plugged: " + a2.f43777b);
+            if (a0.f46680b) {
+                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + a2.f44168a + " ; plugged: " + a2.f44169b);
             }
             JSONObject k = k(a2);
             if (k == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
                 }
                 return false;

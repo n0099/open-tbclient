@@ -32,11 +32,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import d.b.b.a.b;
+import d.b.c.a.b;
 import d.b.h0.a.c;
 import d.b.h0.a.f;
 import d.b.h0.a.v;
-import d.b.i0.c3.h0.m;
+import d.b.i0.d3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -132,7 +132,7 @@ public class SchemaRouteActivity extends BaseActivity {
             c.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(f.f49576b + f.k)) {
+                if (dataString.contains(f.f49968b + f.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(f.E);
                     String queryParameter2 = parse.getQueryParameter(f.F);

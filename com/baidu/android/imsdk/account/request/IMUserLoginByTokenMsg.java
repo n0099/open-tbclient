@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,6 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import d.b.q.a;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,7 +80,7 @@ public class IMUserLoginByTokenMsg extends Message {
             jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
             jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
             jSONObject.put("tail", this.mTail);
-            jSONObject.put(a.i, this.mTimeout);
+            jSONObject.put("timeout", this.mTimeout);
             if (!TextUtils.isEmpty(Utility.getLoginCookie(this.mContext))) {
                 jSONObject.put("cookie", Utility.getLoginCookie(this.mContext));
             }
@@ -148,7 +148,7 @@ public class IMUserLoginByTokenMsg extends Message {
                         }
                     }
                 }
-                if (!d.b.r.a.f64552e) {
+                if (!a.f65246e) {
                     ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                 }
             } catch (Exception e2) {

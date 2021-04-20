@@ -1,669 +1,270 @@
 package d.b.i0.u3;
 
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.widget.OvalActionButton;
-import com.baidu.tbadk.widget.layout.GridLayout;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class a {
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f61440b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public g f61441c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f61442d = new View$OnClickListenerC1604a();
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f61439a = b();
+    public Context f62817a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f62818b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f62819c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f62820d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f62821e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f62822f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f62823g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public List<b> f62824h;
+    public e i;
+    public c j;
+    public boolean k;
 
     /* renamed from: d.b.i0.u3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1604a implements View.OnClickListener {
-        public View$OnClickListenerC1604a() {
+    public class View$OnClickListenerC1648a implements View.OnClickListener {
+        public View$OnClickListenerC1648a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            g gVar = a.this.f61441c;
-            if (gVar != null) {
-                if (gVar.j() != 0) {
-                    UtilHelper.setNavigationBarBackground(a.this.f61440b.getPageActivity(), a.this.f61441c.j());
-                }
-                a.this.f61441c.n(true);
-            }
+            a.this.j.onClick();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends a {
-        public View A;
-        public View B;
-        public View C;
-        public int D;
+    public static class b {
+
+        /* renamed from: b  reason: collision with root package name */
+        public a f62827b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public View f62828c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TextView f62829d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f61444e;
+        public View f62830e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LinearLayout f61445f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f61446g;
+        public String f62831f;
 
         /* renamed from: h  reason: collision with root package name */
-        public LinearLayout f61447h;
-        public LinearLayout i;
-        public LinearLayout j;
-        public LinearLayout k;
-        public LinearLayout l;
-        public ImageView m;
-        public ImageView n;
-        public ImageView o;
-        public ImageView p;
-        public ImageView q;
-        public ImageView r;
-        public TextView s;
-        public TextView t;
-        public TextView u;
-        public TextView v;
-        public TextView w;
-        public TextView x;
-        public View y;
-        public View z;
+        public d f62833h;
+        public boolean j;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f62832g = 17;
+        public boolean i = true;
+        public final View.OnClickListener k = new View$OnClickListenerC1649a();
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f62826a = hashCode();
 
         /* renamed from: d.b.i0.u3.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1605a implements View.OnClickListener {
-            public View$OnClickListenerC1605a() {
+        public class View$OnClickListenerC1649a implements View.OnClickListener {
+            public View$OnClickListenerC1649a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61441c;
-                if (gVar != null) {
-                    gVar.r(gVar.l());
+                if (b.this.f62833h != null) {
+                    b.this.f62833h.onClick();
                 }
-            }
-        }
-
-        /* renamed from: d.b.i0.u3.a$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1606b implements View.OnClickListener {
-            public View$OnClickListenerC1606b() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = b.this.f61441c;
-                if (gVar != null) {
-                    gVar.q();
+                if (b.this.f62827b == null || b.this.f62827b.d() == null) {
+                    return;
                 }
+                b.this.f62827b.d().a(b.this.f62826a, view);
             }
         }
 
-        /* loaded from: classes5.dex */
-        public class c implements View.OnClickListener {
-            public c() {
-            }
+        public b(String str, a aVar) {
+            this.f62831f = str;
+            this.f62827b = aVar;
+            f();
+            e();
+        }
 
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = b.this.f61441c;
-                if (gVar != null) {
-                    gVar.v();
-                }
+        public View d() {
+            return this.f62828c;
+        }
+
+        public final void e() {
+            TextView textView = this.f62829d;
+            if (textView != null) {
+                textView.setOnClickListener(this.k);
             }
         }
 
-        /* loaded from: classes5.dex */
-        public class d implements View.OnClickListener {
-            public d() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = b.this.f61441c;
-                if (gVar != null) {
-                    gVar.p();
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class e implements View.OnClickListener {
-            public e() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = b.this.f61441c;
-                if (gVar != null) {
-                    gVar.w(gVar.l());
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class f implements View.OnClickListener {
-            public f() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = b.this.f61441c;
-                if (gVar != null) {
-                    gVar.x();
-                }
-            }
-        }
-
-        public b(TbPageContext tbPageContext, g gVar) {
-            super(tbPageContext, gVar);
-            this.f61444e = this.f61439a.findViewById(R.id.view_background);
-            this.f61445f = (LinearLayout) this.f61439a.findViewById(R.id.type_container);
-            this.f61446g = (LinearLayout) this.f61439a.findViewById(R.id.thread_text);
-            this.m = (ImageView) this.f61439a.findViewById(R.id.thread_text_iv);
-            this.s = (TextView) this.f61439a.findViewById(R.id.thread_text_tv);
-            this.f61447h = (LinearLayout) this.f61439a.findViewById(R.id.thread_pic);
-            this.n = (ImageView) this.f61439a.findViewById(R.id.thread_pic_iv);
-            this.t = (TextView) this.f61439a.findViewById(R.id.thread_pic_tv);
-            this.i = (LinearLayout) this.f61439a.findViewById(R.id.thread_video);
-            this.o = (ImageView) this.f61439a.findViewById(R.id.thread_video_iv);
-            this.u = (TextView) this.f61439a.findViewById(R.id.thread_video_tv);
-            this.j = (LinearLayout) this.f61439a.findViewById(R.id.thread_ala);
-            this.p = (ImageView) this.f61439a.findViewById(R.id.thread_ala_iv);
-            this.v = (TextView) this.f61439a.findViewById(R.id.thread_ala_tv);
-            this.k = (LinearLayout) this.f61439a.findViewById(R.id.thread_vote);
-            this.q = (ImageView) this.f61439a.findViewById(R.id.thread_vote_iv);
-            this.w = (TextView) this.f61439a.findViewById(R.id.thread_vote_tv);
-            this.l = (LinearLayout) this.f61439a.findViewById(R.id.thread_write_score);
-            this.r = (ImageView) this.f61439a.findViewById(R.id.thread_write_score_iv);
-            this.x = (TextView) this.f61439a.findViewById(R.id.thread_write_score_tv);
-            this.y = this.f61439a.findViewById(R.id.line_1);
-            this.z = this.f61439a.findViewById(R.id.line_2);
-            this.A = this.f61439a.findViewById(R.id.line_3);
-            this.B = this.f61439a.findViewById(R.id.line_4);
-            this.C = this.f61439a.findViewById(R.id.line_5);
-            this.s.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_article_title));
-            this.t.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
-            this.u.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
-            this.v.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
-            this.w.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_vote_title));
-            this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.evaluate));
-            this.f61444e.setOnClickListener(this.f61442d);
-            this.f61446g.setOnClickListener(new View$OnClickListenerC1605a());
-            this.f61447h.setOnClickListener(new View$OnClickListenerC1606b());
-            this.i.setOnClickListener(new c());
-            this.j.setOnClickListener(new d());
-            this.k.setOnClickListener(new e());
-            this.l.setOnClickListener(new f());
-            this.D = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-            c(TbadkCoreApplication.getInst().getSkinType());
-        }
-
-        @Override // d.b.i0.u3.a
-        public View b() {
-            return LayoutInflater.from(this.f61440b.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
-        }
-
-        @Override // d.b.i0.u3.a
-        public void c(int i) {
-            super.c(i);
-            SkinManager.setBackgroundColor(this.f61444e, R.color.CAM_X0603);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(this.D).defaultColor(R.color.CAM_X0701).into(this.f61445f);
-            this.m.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_text24, WebPManager.ResourceStateType.NORMAL));
-            this.n.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image24, WebPManager.ResourceStateType.NORMAL));
-            this.o.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_photograph24, WebPManager.ResourceStateType.NORMAL));
-            this.p.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_live24, WebPManager.ResourceStateType.NORMAL));
-            this.q.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_vote24, WebPManager.ResourceStateType.NORMAL));
-            this.r.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_home_publish_grade24, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.s, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.t, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.u, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.v, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.w, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.x, R.color.CAM_X0101);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).tlRadius(this.D).trRadius(this.D).into(this.f61446g);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f61447h);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.i);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.j);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).blRadius(this.D).brRadius(this.D).into(this.k);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).blRadius(this.D).brRadius(this.D).into(this.l);
-            SkinManager.setBackgroundColor(this.y, R.color.CAM_X0613);
-            SkinManager.setBackgroundColor(this.z, R.color.CAM_X0613);
-            SkinManager.setBackgroundColor(this.A, R.color.CAM_X0613);
-            SkinManager.setBackgroundColor(this.B, R.color.CAM_X0613);
-            SkinManager.setBackgroundColor(this.C, R.color.CAM_X0613);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends a {
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f61454e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public View f61455f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TBLottieAnimationView f61456g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public RelativeLayout f61457h;
-        public View i;
-        public View j;
-        public View k;
-        public View l;
-        public View m;
-        public View n;
-
-        /* renamed from: d.b.i0.u3.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1607a implements View.OnClickListener {
-            public View$OnClickListenerC1607a() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = c.this.f61441c;
-                if (gVar != null) {
-                    gVar.r(gVar.l());
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements View.OnClickListener {
-            public b() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = c.this.f61441c;
-                if (gVar != null) {
-                    gVar.q();
-                }
-            }
-        }
-
-        /* renamed from: d.b.i0.u3.a$c$c  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1608c implements View.OnClickListener {
-            public View$OnClickListenerC1608c() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = c.this.f61441c;
-                if (gVar != null) {
-                    gVar.v();
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class d implements View.OnClickListener {
-            public d() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g gVar = c.this.f61441c;
-                if (gVar != null) {
-                    gVar.p();
-                }
-            }
-        }
-
-        public c(TbPageContext tbPageContext, g gVar) {
-            super(tbPageContext, gVar);
-            this.f61454e = this.f61439a.findViewById(R.id.transparent_back_view);
-            this.f61455f = this.f61439a.findViewById(R.id.view_background);
-            this.f61456g = (TBLottieAnimationView) this.f61439a.findViewById(R.id.bottom_bar_background);
-            this.f61457h = (RelativeLayout) this.f61439a.findViewById(R.id.type_container);
-            this.i = this.f61439a.findViewById(R.id.closeView);
-            this.j = this.f61439a.findViewById(R.id.publish_text_view);
-            this.k = this.f61439a.findViewById(R.id.publish_image_view);
-            this.l = this.f61439a.findViewById(R.id.publish_video_view);
-            this.m = this.f61439a.findViewById(R.id.publish_ala_view);
-            this.n = this.f61439a.findViewById(R.id.publish_ala_view_tip);
-            this.f61455f.setOnClickListener(this.f61442d);
-            this.f61457h.setOnClickListener(this.f61442d);
-            this.i.setOnClickListener(this.f61442d);
-            this.j.setOnClickListener(new View$OnClickListenerC1607a());
-            this.k.setOnClickListener(new b());
-            this.l.setOnClickListener(new View$OnClickListenerC1608c());
-            this.m.setOnClickListener(new d());
-            d(false);
-            this.f61456g.setSpeed(1.4f);
-        }
-
-        @Override // d.b.i0.u3.a
-        public View b() {
-            return LayoutInflater.from(this.f61440b.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
-        }
-
-        @Override // d.b.i0.u3.a
-        public void c(int i) {
-            SkinManager.setLottieAnimation(this.f61456g, R.raw.lottie_use_publish_n);
-            SkinManager.setBackgroundResource(this.f61455f, R.color.CAM_X0502);
-            SkinManager.setBackgroundResource(this.n, R.drawable.home_publish_ala_red_tip);
-        }
-
-        public void d(boolean z) {
-            this.f61455f.setClickable(z);
-            this.f61457h.setClickable(z);
-            this.i.setClickable(z);
-            this.j.setClickable(z);
-            this.k.setClickable(z);
-            this.l.setClickable(z);
-            this.m.setClickable(z);
-        }
-
-        public void e(boolean z) {
-            View view = this.n;
-            if (view == null) {
+        public final void f() {
+            a aVar = this.f62827b;
+            if (aVar == null || aVar.c() == null) {
                 return;
             }
-            if (z) {
-                view.setVisibility(0);
+            View inflate = LayoutInflater.from(this.f62827b.c()).inflate(R.layout.bottom_up_list_dialog_item, this.f62827b.e(), false);
+            this.f62828c = inflate;
+            TextView textView = (TextView) inflate.findViewById(R.id.item_view);
+            this.f62829d = textView;
+            textView.setText(this.f62831f);
+            this.f62829d.setGravity(this.f62832g);
+            View findViewById = this.f62828c.findViewById(R.id.divider_line);
+            this.f62830e = findViewById;
+            if (this.i) {
+                findViewById.setVisibility(0);
             } else {
-                view.setVisibility(8);
+                findViewById.setVisibility(8);
             }
+            g();
+        }
+
+        public void g() {
+            TextView textView = this.f62829d;
+            if (textView != null) {
+                if (this.j) {
+                    SkinManager.setBackgroundResource(textView, R.drawable.bg_bottom_up_corner_dialog);
+                } else {
+                    textView.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0211));
+                }
+            }
+            SkinManager.setViewTextColor(this.f62829d, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f62830e, R.color.CAM_X0204);
+        }
+
+        public void h(d dVar) {
+            this.f62833h = dVar;
+            e();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends a {
-        public TextView A;
-        public OvalActionButton B;
-        public GridLayout C;
-        public TBLottieAnimationView D;
+    public interface c {
+        void onClick();
+    }
 
-        /* renamed from: e  reason: collision with root package name */
-        public View f61462e;
+    /* loaded from: classes5.dex */
+    public interface d {
+        void onClick();
+    }
 
-        /* renamed from: f  reason: collision with root package name */
-        public View f61463f;
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(int i, View view);
+    }
 
-        /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f61464g;
+    public a(Context context) {
+        if (context == null) {
+            return;
+        }
+        this.f62817a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
+        this.f62818b = inflate;
+        this.f62819c = (LinearLayout) inflate.findViewById(R.id.content_view);
+        this.f62820d = (TextView) this.f62818b.findViewById(R.id.title);
+        this.f62821e = this.f62818b.findViewById(R.id.title_divide_line);
+        this.f62824h = new ArrayList();
+        this.f62822f = (TextView) this.f62818b.findViewById(R.id.dialog_bottom_cancel_button);
+    }
 
-        /* renamed from: h  reason: collision with root package name */
-        public ImageView f61465h;
-        public TextView i;
-        public LinearLayout j;
-        public ImageView k;
-        public TextView l;
-        public LinearLayout m;
-        public ImageView n;
-        public TextView o;
-        public LinearLayout p;
-        public ImageView q;
-        public TextView r;
-        public LinearLayout s;
-        public ImageView t;
-        public TextView u;
-        public LinearLayout v;
-        public ImageView w;
-        public TextView x;
-        public LinearLayout y;
-        public ImageView z;
+    public View b() {
+        if (!StringUtils.isNull(this.f62823g)) {
+            this.f62820d.setText(this.f62823g);
+            this.f62821e.setVisibility(0);
+        } else {
+            this.f62820d.setVisibility(8);
+            this.f62821e.setVisibility(8);
+        }
+        if (this.j != null) {
+            this.f62822f.setOnClickListener(new View$OnClickListenerC1648a());
+        }
+        f();
+        return this.f62818b;
+    }
 
-        /* renamed from: d.b.i0.u3.a$d$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1609a implements View.OnClickListener {
-            public View$OnClickListenerC1609a() {
+    public Context c() {
+        return this.f62817a;
+    }
+
+    public e d() {
+        return this.i;
+    }
+
+    public ViewGroup e() {
+        return this.f62819c;
+    }
+
+    public void f() {
+        TextView textView;
+        SkinManager.setBackgroundColor(this.f62818b, R.color.CAM_X0204);
+        SkinManager.setBackgroundResource(this.f62820d, R.drawable.bg_title_corner_dialog_item);
+        SkinManager.setViewTextColor(this.f62820d, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.f62821e, R.color.CAM_X0204);
+        SkinManager.setBackgroundResource(this.f62822f, R.drawable.bg_bottom_up_list_dialog_item);
+        SkinManager.setViewTextColor(this.f62822f, R.color.CAM_X0107);
+        List<b> list = this.f62824h;
+        if (list != null) {
+            for (b bVar : list) {
+                bVar.g();
             }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.r(gVar.l());
+        }
+        if (this.k) {
+            if (!StringUtils.isNull(this.f62823g) && (textView = this.f62820d) != null && (textView.getBackground() instanceof GradientDrawable)) {
+                float dimension = c().getResources().getDimension(R.dimen.tbds32);
+                ((GradientDrawable) this.f62820d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
+            } else if (ListUtils.getCount(this.f62824h) > 0) {
+                b bVar2 = this.f62824h.get(0);
+                if (bVar2.j) {
+                    return;
                 }
+                bVar2.j = true;
+                bVar2.g();
             }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements View.OnClickListener {
-            public b() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.v();
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class c implements View.OnClickListener {
-            public c() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.q();
-                }
-            }
-        }
-
-        /* renamed from: d.b.i0.u3.a$d$d  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1610d implements View.OnClickListener {
-            public View$OnClickListenerC1610d() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.p();
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class e implements View.OnClickListener {
-            public e() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.w(gVar.l());
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class f implements View.OnClickListener {
-            public f() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.x();
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class g implements View.OnClickListener {
-            public g() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61441c;
-                if (gVar != null) {
-                    gVar.t();
-                }
-            }
-        }
-
-        public d(TbPageContext tbPageContext, d.b.i0.u3.g gVar) {
-            super(tbPageContext, gVar);
-            if (tbPageContext == null) {
-                return;
-            }
-            this.j = (LinearLayout) this.f61439a.findViewById(R.id.home_write_article);
-            this.k = (ImageView) this.f61439a.findViewById(R.id.home_write_article_icon);
-            this.l = (TextView) this.f61439a.findViewById(R.id.home_write_article_title);
-            this.f61464g = (LinearLayout) this.f61439a.findViewById(R.id.home_write_photo);
-            this.f61465h = (ImageView) this.f61439a.findViewById(R.id.home_write_photo_icon);
-            this.i = (TextView) this.f61439a.findViewById(R.id.home_write_photo_title);
-            this.m = (LinearLayout) this.f61439a.findViewById(R.id.home_write_album);
-            this.n = (ImageView) this.f61439a.findViewById(R.id.home_write_album_icon);
-            this.o = (TextView) this.f61439a.findViewById(R.id.home_write_album_title);
-            this.p = (LinearLayout) this.f61439a.findViewById(R.id.home_write_live);
-            this.q = (ImageView) this.f61439a.findViewById(R.id.home_write_live_icon);
-            this.r = (TextView) this.f61439a.findViewById(R.id.home_write_live_title);
-            this.s = (LinearLayout) this.f61439a.findViewById(R.id.home_write_vote);
-            this.t = (ImageView) this.f61439a.findViewById(R.id.home_write_vote_icon);
-            this.u = (TextView) this.f61439a.findViewById(R.id.home_write_vote_title);
-            this.v = (LinearLayout) this.f61439a.findViewById(R.id.home_write_score);
-            this.w = (ImageView) this.f61439a.findViewById(R.id.home_write_score_icon);
-            this.x = (TextView) this.f61439a.findViewById(R.id.home_write_score_title);
-            this.y = (LinearLayout) this.f61439a.findViewById(R.id.home_write_commodity);
-            this.z = (ImageView) this.f61439a.findViewById(R.id.home_write_commodity_icon);
-            this.A = (TextView) this.f61439a.findViewById(R.id.home_write_commodity_title);
-            this.B = (OvalActionButton) this.f61439a.findViewById(R.id.write_close_view);
-            d.b.i0.u3.g gVar2 = this.f61441c;
-            if (gVar2 != null && "frs".equals(gVar2.k())) {
-                this.B.setIsCircle(true);
-                this.B.setHasShadow(false);
-            }
-            this.f61463f = this.f61439a.findViewById(R.id.view_background_white);
-            this.f61462e = this.f61439a.findViewById(R.id.view_background_translate);
-            GridLayout gridLayout = (GridLayout) this.f61439a.findViewById(R.id.type_container);
-            this.C = gridLayout;
-            gridLayout.setMeasureAllChild(true);
-            this.C.setVerNum(2);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.f61439a.findViewById(R.id.bottom_bar_background);
-            this.D = tBLottieAnimationView;
-            tBLottieAnimationView.setSpeed(1.2f);
-            a();
-            this.f61462e.setOnClickListener(this.f61442d);
-            this.f61462e.setClickable(true);
-            this.k.setOnClickListener(new View$OnClickListenerC1609a());
-            this.f61465h.setOnClickListener(new b());
-            this.n.setOnClickListener(new c());
-            this.q.setOnClickListener(new View$OnClickListenerC1610d());
-            this.s.setOnClickListener(new e());
-            this.v.setOnClickListener(new f());
-            this.y.setOnClickListener(new g());
-        }
-
-        @Override // d.b.i0.u3.a
-        public void a() {
-            float k = l.k(this.f61440b.getPageActivity());
-            int i = (int) (0.13518518f * k);
-            d(this.k, i);
-            d(this.f61465h, i);
-            d(this.n, i);
-            d(this.q, i);
-            d(this.t, i);
-            d(this.w, i);
-            d(this.z, i);
-            float g2 = (k * 1.0f) / l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
-            ViewGroup.LayoutParams layoutParams = this.C.getLayoutParams();
-            if (layoutParams instanceof RelativeLayout.LayoutParams) {
-                ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = (int) (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds423) * g2);
-                this.C.setLayoutParams(layoutParams);
-            }
-            ViewGroup.LayoutParams layoutParams2 = this.f61463f.getLayoutParams();
-            if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                int g3 = (int) (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1023) * g2);
-                if (g3 <= 0) {
-                    g3 = 1023;
-                }
-                ((RelativeLayout.LayoutParams) layoutParams2).height = g3;
-                this.f61463f.setLayoutParams(layoutParams2);
-            }
-            ViewGroup.LayoutParams layoutParams3 = this.D.getLayoutParams();
-            if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
-                ((RelativeLayout.LayoutParams) layoutParams3).height = (int) ((l.g(TbadkCoreApplication.getInst(), R.dimen.tbds800) * g2) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.tbds135) * g2) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()));
-                this.D.setLayoutParams(layoutParams3);
-            }
-        }
-
-        @Override // d.b.i0.u3.a
-        public View b() {
-            return LayoutInflater.from(this.f61440b.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
-        }
-
-        @Override // d.b.i0.u3.a
-        public void c(int i) {
-            this.B.e(i);
-            SkinManager.setLottieAnimation(this.D, R.raw.bottom_bar_bg);
-            SkinManager.setBackgroundResource(this.f61463f, R.drawable.write_tab_background);
-            SkinManager.setImageResource(this.f61465h, R.drawable.icon_mask_post_photograph56);
-            SkinManager.setImageResource(this.k, R.drawable.icon_mask_post_text56);
-            SkinManager.setImageResource(this.n, R.drawable.icon_mask_post_image56);
-            SkinManager.setImageResource(this.q, R.drawable.icon_mask_post_live56);
-            SkinManager.setImageResource(this.t, R.drawable.icon_mask_post_vote56);
-            SkinManager.setImageResource(this.w, R.drawable.icon_mask_post_evaluation56);
-            SkinManager.setImageResource(this.z, R.drawable.icon_mask_post_goods56);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.o, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.r, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.u, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.x, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.A, R.color.CAM_X0107);
-        }
-
-        public final void d(ImageView imageView, int i) {
-            if (imageView == null || i <= 0) {
-                return;
-            }
-            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-            layoutParams.width = i;
-            layoutParams.height = i;
-            imageView.setLayoutParams(layoutParams);
-        }
-
-        public void e(boolean z) {
         }
     }
 
-    public a(TbPageContext tbPageContext, g gVar) {
-        this.f61440b = tbPageContext;
-        this.f61441c = gVar;
+    public void g(List<b> list) {
+        if (list == null) {
+            return;
+        }
+        this.f62824h = list;
+        this.f62819c.removeAllViews();
+        for (int i = 0; i < list.size(); i++) {
+            b bVar = list.get(i);
+            if (bVar != null) {
+                this.f62819c.addView(bVar.d());
+            }
+        }
     }
 
-    public void a() {
+    public void h(c cVar) {
+        this.j = cVar;
     }
 
-    public abstract View b();
-
-    public void c(int i) {
+    public void i(String str) {
+        this.f62823g = str;
     }
 }

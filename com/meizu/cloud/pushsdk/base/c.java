@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,17 +17,17 @@ import java.util.Scanner;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37651a = "";
+    public static String f37940a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37652b = "";
+    public static String f37941b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f37652b)) {
-            f37652b = !a() ? c(context) : d(context);
-            return f37652b;
+        if (TextUtils.isEmpty(f37941b)) {
+            f37941b = !a() ? c(context) : d(context);
+            return f37941b;
         }
-        return f37652b;
+        return f37941b;
     }
 
     public static String a(String str) {
@@ -72,7 +73,7 @@ public class c {
         String str;
         WifiInfo connectionInfo;
         String macAddress;
-        if (TextUtils.isEmpty(f37651a)) {
+        if (TextUtils.isEmpty(f37940a)) {
             try {
                 str = null;
             } catch (Exception unused) {
@@ -84,29 +85,29 @@ public class c {
                     macAddress = connectionInfo.getMacAddress();
                     str = macAddress;
                 }
-                f37651a = str;
-                return f37651a;
+                f37940a = str;
+                return f37940a;
             }
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager != null) {
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo == null) {
-                    macAddress = a("wlan0");
+                    macAddress = a(NetworkInfoUtils.NETWORK_NAME);
                     if (TextUtils.isEmpty(macAddress)) {
                         macAddress = a("eth0");
                     }
                     str = macAddress;
                 } else if (activeNetworkInfo.getType() == 1) {
-                    macAddress = a("wlan0");
+                    macAddress = a(NetworkInfoUtils.NETWORK_NAME);
                     str = macAddress;
                 }
             }
-            f37651a = str;
-            return f37651a;
+            f37940a = str;
+            return f37940a;
             d.j.a.a.a.b("DeviceUtils", "get address exception ");
-            return f37651a;
+            return f37940a;
         }
-        return f37651a;
+        return f37940a;
     }
 
     public static String c(Context context) {
@@ -127,6 +128,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f37635a ? (String) a2.f37636b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f37924a ? (String) a2.f37925b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

@@ -9,13 +9,13 @@ import android.telephony.TelephonyManager;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9442a = false;
+    public static boolean f9000a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9443b = "";
+    public static String f9001b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f9444c;
+    public static int f9002c;
 
     public static NetworkInfo a(Context context) {
         try {

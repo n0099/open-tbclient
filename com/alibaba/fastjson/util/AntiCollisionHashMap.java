@@ -86,12 +86,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             return hashCode ^ (v != null ? v.hashCode() : 0);
         }
 
-        public void recordAccess(AntiCollisionHashMap<K, V> antiCollisionHashMap) {
-        }
-
-        public void recordRemoval(AntiCollisionHashMap<K, V> antiCollisionHashMap) {
-        }
-
         @Override // java.util.Map.Entry
         public final V setValue(V v) {
             V v2 = this.value;
@@ -409,7 +403,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             if (entry.key == null) {
                 V v2 = entry.value;
                 entry.value = v;
-                entry.recordAccess(this);
                 return v2;
             }
         }
@@ -452,10 +445,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         if (i3 >= this.threshold) {
             resize(this.table.length * 2);
         }
-    }
-
-    public int capacity() {
-        return this.table.length;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -576,10 +565,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         return keySet;
     }
 
-    public float loadFactor() {
-        return this.loadFactor;
-    }
-
     public Iterator<Map.Entry<K, V>> newEntryIterator() {
         return new EntryIterator();
     }
@@ -609,7 +594,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             if (entry.hash == hash && ((k2 = entry.key) == k || k.equals(k2))) {
                 V v2 = entry.value;
                 entry.value = v;
-                entry.recordAccess(this);
                 return v2;
             }
         }
@@ -674,7 +658,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
                 } else {
                     entry2.next = entry3;
                 }
-                entry.recordRemoval(this);
                 return entry;
             }
             entry2 = entry;
@@ -708,7 +691,6 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
                     } else {
                         entry3.next = entry4;
                     }
-                    entry2.recordRemoval(this);
                     return entry2;
                 }
                 entry3 = entry2;

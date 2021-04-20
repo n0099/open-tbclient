@@ -16,13 +16,13 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-CheckAppInstall", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-CheckAppInstall", "parse fail");
             }
             return bVar;

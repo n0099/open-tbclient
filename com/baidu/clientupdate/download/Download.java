@@ -25,16 +25,16 @@ public class Download implements Serializable {
     public List mRequestHeaders = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f4610a = 0;
+    public long f4645a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f4611b = 0;
+    public long f4646b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4612c = 0;
+    public int f4647c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4613d = true;
+    public boolean f4648d = true;
 
     public void addRequestHeader(String str, String str2) {
         if (str == null) {

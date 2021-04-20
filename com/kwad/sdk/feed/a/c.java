@@ -21,13 +21,13 @@ import java.io.Serializable;
 public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.feed.a.b.b f34858d;
+    public com.kwad.sdk.feed.a.b.b f35147d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SceneImpl f34859e;
+    public SceneImpl f35148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f34860f;
+    public com.kwad.sdk.core.i.a f35149f;
 
     public static c a(KsScene ksScene) {
         c cVar = new c();
@@ -45,7 +45,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
         Serializable serializable = arguments.getSerializable("KEY_KS_SCENE");
         if (serializable instanceof KsScene) {
             SceneImpl sceneImpl = new SceneImpl((KsScene) serializable);
-            this.f34859e = sceneImpl;
+            this.f35148e = sceneImpl;
             sceneImpl.setUrlPackage(new URLPackage(String.valueOf(hashCode()), 11));
             return true;
         }
@@ -65,7 +65,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
         int a3;
         com.kwad.sdk.contentalliance.profile.tabvideo.a aVar;
         RecyclerView.ItemDecoration itemDecoration;
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f35930b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f36219b.getLayoutParams();
         int i = adResultData.pageInfo.pageType;
         if (i == 2) {
             a2 = ao.a(getContext(), R.dimen.ksad_content_feed_item_single_small_horizontal_padding);
@@ -77,7 +77,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
             marginLayoutParams.topMargin = a4;
             marginLayoutParams.leftMargin = a4;
             marginLayoutParams.rightMargin = a4;
-            this.f35930b.setLayoutParams(marginLayoutParams);
+            this.f36219b.setLayoutParams(marginLayoutParams);
             return itemDecoration;
         } else {
             a2 = ao.a(getContext(), R.dimen.ksad_content_feed_item_single_larger_horizontal_padding);
@@ -88,7 +88,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
         marginLayoutParams.leftMargin = a2;
         marginLayoutParams.rightMargin = a2;
         itemDecoration = aVar;
-        this.f35930b.setLayoutParams(marginLayoutParams);
+        this.f36219b.setLayoutParams(marginLayoutParams);
         return itemDecoration;
     }
 
@@ -114,24 +114,24 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     @Override // com.kwad.sdk.lib.a.c
     public com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> c() {
-        return new d(this.f34859e);
+        return new d(this.f35148e);
     }
 
     @Override // com.kwad.sdk.lib.a.c
     public com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
-        return new b(this, this.f35930b, this.f34858d);
+        return new b(this, this.f36219b, this.f35147d);
     }
 
     @Override // com.kwad.sdk.lib.a.c
     public com.kwad.sdk.lib.a.a.b<AdResultData, AdTemplate> f() {
         com.kwad.sdk.feed.a.b.b bVar = new com.kwad.sdk.feed.a.b.b();
-        this.f34858d = bVar;
-        bVar.f34855a = this.f34859e;
-        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f35929a, 70);
-        this.f34860f = aVar;
+        this.f35147d = bVar;
+        bVar.f35144a = this.f35148e;
+        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f36218a, 70);
+        this.f35149f = aVar;
         aVar.a();
-        com.kwad.sdk.feed.a.b.b bVar2 = this.f34858d;
-        bVar2.f34856b = this.f34860f;
+        com.kwad.sdk.feed.a.b.b bVar2 = this.f35147d;
+        bVar2.f35145b = this.f35149f;
         return bVar2;
     }
 
@@ -158,7 +158,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     @Override // com.kwad.sdk.lib.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        com.kwad.sdk.core.i.a aVar = this.f34860f;
+        com.kwad.sdk.core.i.a aVar = this.f35149f;
         if (aVar != null) {
             aVar.f();
         }
@@ -168,7 +168,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     @Override // com.kwad.sdk.lib.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onPause() {
         super.onPause();
-        com.kwad.sdk.core.i.a aVar = this.f34860f;
+        com.kwad.sdk.core.i.a aVar = this.f35149f;
         if (aVar != null) {
             aVar.d();
         }

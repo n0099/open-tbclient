@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import d.b.i0.a;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
     public final boolean bCeiling;
     public final int cardType;
@@ -17,7 +17,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public String mGroupId;
     public int page;
     public final String sExtras;
-    public final String scheme;
+    public String scheme;
     public final boolean showCover;
     public final String showExtra;
     public final String showKey;
@@ -28,13 +28,13 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public int showSpace = 0;
     public boolean mHasShown = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            a.e().h(jSONObject);
+            a.e().s(jSONObject);
         }
     }
 
@@ -156,7 +156,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return this.statistics;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }

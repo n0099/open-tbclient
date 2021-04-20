@@ -8,25 +8,25 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3619a = 1032;
+    public static final int f3654a = 1032;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Class<?>, Method> f3620b = new HashMap();
+    public static Map<Class<?>, Method> f3655b = new HashMap();
 
     public static void a() {
-        synchronized (f3620b) {
-            f3620b.clear();
+        synchronized (f3655b) {
+            f3655b.clear();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x006c, code lost:
-        r1 = com.baidu.apollon.eventbus.f.f3620b;
+        r1 = com.baidu.apollon.eventbus.f.f3655b;
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x006e, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x006f, code lost:
-        com.baidu.apollon.eventbus.f.f3620b.put(r12, r2);
+        com.baidu.apollon.eventbus.f.f3655b.put(r12, r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0074, code lost:
         monitor-exit(r1);
@@ -39,8 +39,8 @@ public class f {
     */
     public Method a(Class<?> cls) {
         Method method;
-        synchronized (f3620b) {
-            method = f3620b.get(cls);
+        synchronized (f3655b) {
+            method = f3655b.get(cls);
         }
         if (method != null) {
             return method;
@@ -58,7 +58,7 @@ public class f {
                     Method method2 = methods[i];
                     if (method2.getName().equals(EventBus.DEFAULT_METHOD_NAME)) {
                         int modifiers = method2.getModifiers();
-                        if ((modifiers & 1) != 0 && (modifiers & f3619a) == 0) {
+                        if ((modifiers & 1) != 0 && (modifiers & f3654a) == 0) {
                             Class<?>[] parameterTypes = method2.getParameterTypes();
                             if (parameterTypes.length == 1 && parameterTypes[0] == EventBus.Event.class) {
                                 method = method2;

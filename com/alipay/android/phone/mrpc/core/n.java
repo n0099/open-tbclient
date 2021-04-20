@@ -6,11 +6,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class n implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f1677a = new AtomicInteger(1);
+    public final AtomicInteger f1702a = new AtomicInteger(1);
 
     @Override // java.util.concurrent.ThreadFactory
     public final Thread newThread(Runnable runnable) {
-        Thread thread = new Thread(runnable, "com.alipay.mobile.common.transport.http.HttpManager.HttpWorker #" + this.f1677a.getAndIncrement());
+        Thread thread = new Thread(runnable, "com.alipay.mobile.common.transport.http.HttpManager.HttpWorker #" + this.f1702a.getAndIncrement());
         thread.setPriority(4);
         return thread;
     }

@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.p;
-import f.a.x.c.a;
-import f.a.x.c.f;
+import f.b.p;
+import f.b.x.c.a;
+import f.b.x.c.f;
 import g.d.d;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -17,12 +17,12 @@ public final class FlowableObserveOn$ObserveOnConditionalSubscriber<T> extends F
         this.actual = aVar;
     }
 
-    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, f.a.g, g.d.c
+    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(7);
                 if (requestFusion == 1) {
                     this.sourceMode = 1;
@@ -44,7 +44,7 @@ public final class FlowableObserveOn$ObserveOnConditionalSubscriber<T> extends F
         }
     }
 
-    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public T poll() throws Exception {
         T poll = this.queue.poll();
         if (poll != null && this.sourceMode != 1) {
@@ -93,7 +93,7 @@ public final class FlowableObserveOn$ObserveOnConditionalSubscriber<T> extends F
                         j2 = 0;
                     }
                 } catch (Throwable th) {
-                    f.a.u.a.a(th);
+                    f.b.u.a.a(th);
                     this.s.cancel();
                     fVar.clear();
                     aVar.onError(th);
@@ -163,7 +163,7 @@ public final class FlowableObserveOn$ObserveOnConditionalSubscriber<T> extends F
                         j++;
                     }
                 } catch (Throwable th) {
-                    f.a.u.a.a(th);
+                    f.b.u.a.a(th);
                     this.s.cancel();
                     aVar.onError(th);
                     this.worker.dispose();

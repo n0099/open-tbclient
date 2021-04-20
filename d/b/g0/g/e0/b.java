@@ -15,16 +15,16 @@ import d.b.g0.g.w.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48106a = k.f45051a;
+    public static final boolean f48498a = k.f45443a;
 
     /* loaded from: classes3.dex */
     public static class a extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.e0.a f48107c;
+        public final /* synthetic */ d.b.g0.g.e0.a f48499c;
 
         public a(d.b.g0.g.e0.a aVar) {
-            this.f48107c = aVar;
+            this.f48499c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,10 +36,10 @@ public class b {
             } else {
                 i = -2;
             }
-            if (b.f48106a) {
+            if (b.f48498a) {
                 Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
             }
-            d.b.g0.g.e0.a aVar = this.f48107c;
+            d.b.g0.g.e0.a aVar = this.f48499c;
             aVar.l = i;
             h.u("976", aVar);
         }
@@ -52,7 +52,7 @@ public class b {
         d.b.g0.a.n1.c.e.a.C().J(null, d.class, new a(aVar));
     }
 
-    public static void c(d.b.e0.a.d.b bVar) {
+    public static void c(d.b.d0.a.d.b bVar) {
         V8ExceptionInfo a2;
         if (bVar == null || (a2 = bVar.a()) == null) {
             return;
@@ -62,20 +62,20 @@ public class b {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f48106a) {
+        if (f48498a) {
             Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(d.b.g0.g.o.c.b.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
         }
         if (a2.exceptionTime >= d.b.g0.g.o.c.b.a()) {
             return;
         }
         d.b.g0.g.e0.a aVar = new d.b.g0.g.e0.a();
-        aVar.f47252b = "stuck";
-        aVar.f47254d = "jserror";
-        aVar.f47255e = e.T();
+        aVar.f47644b = "stuck";
+        aVar.f47646d = "jserror";
+        aVar.f47647e = e.T();
         if (e.y() != null && e.y().L() != null) {
             b.a L = e.y().L();
-            aVar.f47253c = L.S();
-            aVar.f47251a = h.n(L.F());
+            aVar.f47645c = L.S();
+            aVar.f47643a = h.n(L.F());
         }
         aVar.k = str + ";" + str2;
         aVar.j = d.b.g0.g.c0.d.d() ? 20 : 10;

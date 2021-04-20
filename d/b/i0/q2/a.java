@@ -1,257 +1,248 @@
 package d.b.i0.q2;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
-import d.b.b.e.m.g;
-import d.b.b.e.p.l;
-import d.b.i0.e2.e;
-import d.b.i0.t3.h;
-import java.util.ArrayList;
-import java.util.Date;
-/* loaded from: classes5.dex */
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpResMsg;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+/* loaded from: classes3.dex */
 public class a {
 
-    /* renamed from: c  reason: collision with root package name */
-    public static a f59599c;
-
     /* renamed from: a  reason: collision with root package name */
-    public int f59600a = 0;
+    public final WebView f60494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f59601b;
+    public BdUniqueId f60495b;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f60499f;
+
+    /* renamed from: c  reason: collision with root package name */
+    public HashSet<String> f60496c = new HashSet<>();
+
+    /* renamed from: d  reason: collision with root package name */
+    public HashMap<String, String> f60497d = new HashMap<>();
+
+    /* renamed from: e  reason: collision with root package name */
+    public HashMap<String, String> f60498e = new HashMap<>();
+
+    /* renamed from: g  reason: collision with root package name */
+    public HttpMessageListener f60500g = new C1516a(CmdConfigHttp.CMD_WEB_HTTP_PROXY);
 
     /* renamed from: d.b.i0.q2.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1490a implements h.g {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f59602a;
-
-        public C1490a(TbPageContext tbPageContext) {
-            this.f59602a = tbPageContext;
+    /* loaded from: classes3.dex */
+    public class C1516a extends HttpMessageListener {
+        public C1516a(int i) {
+            super(i);
         }
 
-        @Override // d.b.i0.t3.h.g
-        public void a(int i) {
-            if (a.this.f59601b == null) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0086  */
+        /* JADX WARN: Removed duplicated region for block: B:25:0x00dc  */
+        /* JADX WARN: Removed duplicated region for block: B:26:0x00ea  */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            String str2;
+            String str3;
+            String str4;
+            String q;
+            if (!(httpResponsedMessage instanceof QuickWebViewHttpResMsg)) {
                 return;
             }
-            a.this.f59601b.dismiss();
-            a.this.f59601b = null;
-            a.this.f59600a = i;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", a.this.f59600a));
-            a.this.o(this.f59602a);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements h.e {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f59604a;
-
-        public b(TbPageContext tbPageContext) {
-            this.f59604a = tbPageContext;
-        }
-
-        @Override // d.b.i0.t3.h.e
-        public void onClick() {
-            if (a.this.f59601b == null) {
-                return;
-            }
-            a.this.f59601b.dismiss();
-            a.this.f59601b = null;
-            if (a.this.f59600a == 1 || a.this.f59600a == 2) {
-                a.this.h(this.f59604a);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
-                return;
-            }
-            a.this.i(this.f59604a);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements h.d {
-        public c() {
-        }
-
-        @Override // d.b.i0.t3.h.d
-        public void onClick() {
-            if (a.this.f59601b == null) {
-                return;
-            }
-            a.this.f59601b.dismiss();
-            a.this.f59601b = null;
-            if (a.this.f59600a != 1 && a.this.f59600a != 2) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
-            } else {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_CANCEL));
-            }
-        }
-    }
-
-    public static a g() {
-        if (f59599c == null) {
-            synchronized (a.class) {
-                if (f59599c == null) {
-                    f59599c = new a();
+            int i = 0;
+            QuickWebViewHttpResMsg quickWebViewHttpResMsg = (QuickWebViewHttpResMsg) httpResponsedMessage;
+            String str5 = null;
+            if (quickWebViewHttpResMsg.getOrginalMessage() instanceof QuickWebViewHttpReqMsg) {
+                QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = (QuickWebViewHttpReqMsg) quickWebViewHttpResMsg.getOrginalMessage();
+                if (!StringUtils.isNull(quickWebViewHttpReqMsg.url)) {
+                    String str6 = quickWebViewHttpReqMsg.url;
+                    long j = quickWebViewHttpReqMsg.begin;
+                    str = quickWebViewHttpReqMsg.module;
+                    String str7 = quickWebViewHttpReqMsg.jsCallbackMethod;
+                    if (TextUtils.isEmpty(str7)) {
+                        String str8 = (String) a.this.f60497d.remove(str6);
+                        TextUtils.isEmpty(str8);
+                        str7 = str8;
+                        i = 1;
+                    }
+                    a.this.f60496c.remove(str6);
+                    str5 = str7;
+                    str2 = str6;
+                    if (!quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
+                        str4 = quickWebViewHttpResMsg.getResult();
+                        str3 = BasicPushStatus.SUCCESS_CODE;
+                    } else {
+                        str3 = quickWebViewHttpResMsg.getError() + "";
+                        str4 = "\"\"";
+                    }
+                    q = b.o().q(str);
+                    if (q == null) {
+                        q = "0.0.0.0";
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(StringUtil.ARRAY_START);
+                    sb.append("\"status\":");
+                    sb.append("\"");
+                    sb.append(str3);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"data\":");
+                    sb.append(str4);
+                    sb.append(",");
+                    sb.append("\"cache_version\":");
+                    sb.append("\"");
+                    sb.append(q);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"cache\":");
+                    sb.append("\"");
+                    sb.append(i);
+                    sb.append("\"");
+                    sb.append("}");
+                    if (!StringUtils.isNull(str5)) {
+                        a.this.f60498e.put(str2, sb.toString());
+                        return;
+                    } else {
+                        a.this.g(str5, sb.toString());
+                        return;
+                    }
                 }
             }
+            str = "";
+            str2 = null;
+            if (!quickWebViewHttpResMsg.isSuccess()) {
+            }
+            str3 = quickWebViewHttpResMsg.getError() + "";
+            str4 = "\"\"";
+            q = b.o().q(str);
+            if (q == null) {
+            }
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(StringUtil.ARRAY_START);
+            sb2.append("\"status\":");
+            sb2.append("\"");
+            sb2.append(str3);
+            sb2.append("\"");
+            sb2.append(",");
+            sb2.append("\"data\":");
+            sb2.append(str4);
+            sb2.append(",");
+            sb2.append("\"cache_version\":");
+            sb2.append("\"");
+            sb2.append(q);
+            sb2.append("\"");
+            sb2.append(",");
+            sb2.append("\"cache\":");
+            sb2.append("\"");
+            sb2.append(i);
+            sb2.append("\"");
+            sb2.append("}");
+            if (!StringUtils.isNull(str5)) {
+            }
         }
-        return f59599c;
     }
 
-    public final void h(TbPageContext tbPageContext) {
-        if (tbPageContext == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
+    public a(WebView webView) {
+        this.f60494a = webView;
+        this.f60499f = webView.getSettings().getUserAgentString();
+        BdUniqueId gen = BdUniqueId.gen();
+        this.f60495b = gen;
+        this.f60500g.setTag(gen);
+        this.f60500g.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f60500g);
     }
 
-    public final void i(TbPageContext tbPageContext) {
-        try {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + TbadkCoreApplication.getInst().getPackageName()));
-            intent.addFlags(268435456);
-            tbPageContext.getContext().startActivity(intent);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
+    public void e() {
+        MessageManager.getInstance().unRegisterListener(this.f60495b);
+        MessageManager.getInstance().removeMessage(this.f60495b);
+        this.f60496c.clear();
+        this.f60496c = null;
+        this.f60497d.clear();
+        this.f60497d = null;
+        this.f60498e.clear();
+        this.f60498e = null;
     }
 
-    public void j() {
-        String version = TbConfig.getVersion();
-        if (version.equals(d.b.h0.r.d0.b.i().o("key_rate_version", ""))) {
+    public void f(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
+        if (quickWebViewBridgeData == null || StringUtils.isNull(quickWebViewBridgeData.url) || StringUtils.isNull(quickWebViewBridgeData.type)) {
             return;
         }
-        d.b.h0.r.d0.b.i().w("key_rate_version", version);
-        d.b.h0.r.d0.b.i().v("key_rate_version_time", new Date().getTime());
-    }
-
-    public final void k(TbPageContext tbPageContext) {
-        if (tbPageContext == null || TbConfig.getVersionType() == 2) {
-            return;
-        }
-        if (Long.valueOf(new Date().getTime()).longValue() - d.b.h0.r.d0.b.i().k("key_rate_version_time", 0L) < 86400000) {
-            return;
-        }
-        String version = TbConfig.getVersion();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        if (i.g("key_rate_same_version_is_score" + version + currentAccount, false)) {
-            return;
-        }
-        d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-        i2.s("key_rate_same_version_is_score" + version + currentAccount, true);
-        n(tbPageContext);
-    }
-
-    public void l(TbPageContext tbPageContext) {
-        if (tbPageContext == null) {
-            return;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        int j = i.j("key_rate_like_count" + currentAccount, 0) + 1;
-        if (j < 3) {
-            if (j == 1) {
-                Long valueOf = Long.valueOf(new Date().getTime());
-                d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-                i2.v("key_rate_first_like_time" + currentAccount, valueOf.longValue());
-                d.b.h0.r.d0.b i3 = d.b.h0.r.d0.b.i();
-                i3.u("key_rate_like_count" + currentAccount, j);
+        String remove = this.f60498e.remove(quickWebViewBridgeData.url);
+        if (!StringUtils.isNull(remove) && str != null) {
+            g(str, remove);
+        } else if (this.f60496c.contains(quickWebViewBridgeData.url)) {
+            if (TextUtils.isEmpty(str)) {
                 return;
             }
-            d.b.h0.r.d0.b i4 = d.b.h0.r.d0.b.i();
-            i4.u("key_rate_like_count" + currentAccount, j);
-            return;
-        }
-        d.b.h0.r.d0.b i5 = d.b.h0.r.d0.b.i();
-        if (Long.valueOf(new Date().getTime()).longValue() - i5.k("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-            d.b.h0.r.d0.b i6 = d.b.h0.r.d0.b.i();
-            i6.u("key_rate_like_count" + currentAccount, 0);
-            k(tbPageContext);
-            return;
-        }
-        d.b.h0.r.d0.b i7 = d.b.h0.r.d0.b.i();
-        i7.u("key_rate_like_count" + currentAccount, 0);
-    }
-
-    public void m(TbPageContext tbPageContext) {
-        if (tbPageContext == null) {
-            return;
-        }
-        k(tbPageContext);
-    }
-
-    public void n(TbPageContext tbPageContext) {
-        if (tbPageContext == null) {
-            return;
-        }
-        h hVar = new h(tbPageContext.getContext());
-        hVar.y(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
-        hVar.o(8);
-        hVar.s(0);
-        int g2 = l.g(tbPageContext.getContext(), R.dimen.ds86);
-        int g3 = l.g(tbPageContext.getContext(), R.dimen.ds138);
-        int g4 = l.g(tbPageContext.getContext(), R.dimen.ds27);
-        hVar.x(R.dimen.ds28);
-        hVar.w(0, g2, 0, g4);
-        hVar.q(0, 0, 0, g3);
-        hVar.p(true);
-        hVar.v(new C1490a(tbPageContext));
-        e eVar = new e(tbPageContext.getContext(), hVar.j());
-        this.f59601b = eVar;
-        eVar.a(0.7f);
-        g.j(this.f59601b, tbPageContext);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
-    }
-
-    public void o(TbPageContext tbPageContext) {
-        h.c cVar;
-        if (tbPageContext == null) {
-            return;
-        }
-        h hVar = new h(tbPageContext.getContext());
-        int i = this.f59600a;
-        if (i != 1 && i != 2) {
-            hVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
-            cVar = new h.c(tbPageContext.getContext().getString(R.string.go_score), hVar);
+            this.f60497d.put(quickWebViewBridgeData.url, str);
         } else {
-            hVar.y(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
-            cVar = new h.c(tbPageContext.getContext().getString(R.string.go_feedback), hVar);
+            QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
+            quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
+            quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
+            quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
+            quickWebViewHttpReqMsg.jsCallbackMethod = str;
+            quickWebViewHttpReqMsg.setTag(this.f60495b);
+            CookieSyncManager.createInstance(this.f60494a.getContext());
+            String cookie = CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME);
+            if (!TextUtils.isEmpty(cookie)) {
+                HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
+                if (headers != null) {
+                    String str2 = headers.get("Cookie");
+                    if (!TextUtils.isEmpty(str2)) {
+                        cookie = str2.endsWith(";") ? str2 + cookie : str2 + ";" + cookie;
+                    }
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                } else {
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                }
+            }
+            quickWebViewHttpReqMsg.setUserAgent(this.f60499f);
+            quickWebViewHttpReqMsg.addCookie("cache_version", b.o().q(quickWebViewBridgeData.module));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
+            tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setPriority(4);
+            if (quickWebViewBridgeData.type.toLowerCase().equals("post")) {
+                Map<String, String> map = quickWebViewBridgeData.data;
+                if (map != null && !map.isEmpty()) {
+                    for (Map.Entry<String, String> entry : quickWebViewBridgeData.data.entrySet()) {
+                        quickWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
+                    }
+                }
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            } else {
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+            }
+            MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
+            this.f60496c.add(quickWebViewBridgeData.url);
         }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(cVar);
-        hVar.r(this.f59600a);
-        hVar.s(0);
-        hVar.o(0);
-        hVar.p(false);
-        l.g(tbPageContext.getContext(), R.dimen.ds42);
-        int g2 = l.g(tbPageContext.getContext(), R.dimen.ds32);
-        l.g(tbPageContext.getContext(), R.dimen.ds51);
-        hVar.w(0, l.g(tbPageContext.getContext(), R.dimen.ds21), 0, 0);
-        hVar.q(0, g2, 0, g2);
-        cVar.h(new b(tbPageContext));
-        hVar.u(new c());
-        hVar.t(arrayList);
-        e eVar = new e(tbPageContext.getContext(), hVar.j());
-        this.f59601b = eVar;
-        eVar.a(0.7f);
-        g.j(this.f59601b, tbPageContext);
-        int i2 = this.f59600a;
-        if (i2 != 1 && i2 != 2) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));
-        } else {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_DIALOG_SHOW));
+    }
+
+    public final void g(String str, String str2) {
+        WebView webView = this.f60494a;
+        if (webView != null) {
+            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
         }
     }
 }

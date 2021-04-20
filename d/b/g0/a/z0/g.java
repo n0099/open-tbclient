@@ -9,30 +9,30 @@ import d.b.g0.a.k;
 public class g implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f47173g = k.f45051a;
+    public static final boolean f47565g = k.f45443a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile g f47174h;
+    public static volatile g f47566h;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47175e = false;
+    public boolean f47567e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47176f;
+    public int f47568f;
 
     public static g a() {
-        if (f47174h == null) {
+        if (f47566h == null) {
             synchronized (g.class) {
-                if (f47174h == null) {
-                    f47174h = new g();
+                if (f47566h == null) {
+                    f47566h = new g();
                 }
             }
         }
-        return f47174h;
+        return f47566h;
     }
 
     public boolean b() {
-        return this.f47175e;
+        return this.f47567e;
     }
 
     public void c() {
@@ -40,7 +40,7 @@ public class g implements Application.ActivityLifecycleCallbacks {
     }
 
     public void d(boolean z) {
-        this.f47175e = z;
+        this.f47567e = z;
     }
 
     public void e() {
@@ -61,7 +61,7 @@ public class g implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        this.f47175e = true;
+        this.f47567e = true;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -70,25 +70,25 @@ public class g implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        int i = this.f47176f + 1;
-        this.f47176f = i;
+        int i = this.f47568f + 1;
+        this.f47568f = i;
         if (i == 1) {
-            if (f47173g) {
+            if (f47565g) {
                 Log.d("SwanAppLifecycle", "onBackgroundToForeground");
             }
-            this.f47175e = true;
+            this.f47567e = true;
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        int i = this.f47176f - 1;
-        this.f47176f = i;
+        int i = this.f47568f - 1;
+        this.f47568f = i;
         if (i == 0) {
-            if (f47173g) {
+            if (f47565g) {
                 Log.d("SwanAppLifecycle", "onForegroundToBackground");
             }
-            this.f47175e = false;
+            this.f47567e = false;
         }
     }
 }

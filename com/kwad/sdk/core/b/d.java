@@ -8,29 +8,29 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static i f33433a;
+    public static i f33722a;
 
     public static i a() {
         i gVar;
-        i iVar = f33433a;
+        i iVar = f33722a;
         if (iVar != null) {
             return iVar;
         }
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
         if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
             g gVar2 = new g();
-            f33433a = gVar2;
+            f33722a = gVar2;
             return gVar2;
         }
-        if (com.kwad.sdk.d.f34512a == 1) {
+        if (com.kwad.sdk.d.f34801a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
             gVar = (aVar == null || aVar.a() == null) ? new g() : aVar.a();
         } else {
             com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
             gVar = (bVar == null || bVar.a() == null) ? new g() : bVar.a();
         }
-        f33433a = gVar;
-        return f33433a;
+        f33722a = gVar;
+        return f33722a;
     }
 
     public static String a(String str) {

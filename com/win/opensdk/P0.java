@@ -19,28 +19,28 @@ public class P0 {
     public static SimpleDateFormat k = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZZZZZ", Locale.US);
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39736a;
+    public String f40025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39737b;
+    public String f40026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39738c;
+    public String f40027c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39739d;
+    public String f40028d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39740e;
+    public String f40029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39741f;
+    public String f40030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39742g;
+    public String f40031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39743h;
+    public String f40032h;
     public Q0 i;
 
     public static P0 b(String str) {
@@ -51,82 +51,82 @@ public class P0 {
                 jSONObject.getString("id");
             }
             if (!jSONObject.isNull("description")) {
-                p0.f39736a = jSONObject.getString("description");
+                p0.f40025a = jSONObject.getString("description");
             }
             if (!jSONObject.isNull("location")) {
-                p0.f39737b = jSONObject.getString("location");
+                p0.f40026b = jSONObject.getString("location");
             }
             if (!jSONObject.isNull("summary")) {
-                p0.f39738c = jSONObject.getString("summary");
+                p0.f40027c = jSONObject.getString("summary");
             }
             if (!jSONObject.isNull(IntentConfig.START)) {
-                p0.f39739d = jSONObject.getString(IntentConfig.START);
+                p0.f40028d = jSONObject.getString(IntentConfig.START);
             }
             if (!jSONObject.isNull(ProgressInfo.JSON_KEY_END)) {
                 if (jSONObject.isNull(IntentConfig.START)) {
-                    p0.f39739d = jSONObject.getString(ProgressInfo.JSON_KEY_END);
+                    p0.f40028d = jSONObject.getString(ProgressInfo.JSON_KEY_END);
                 }
-                p0.f39740e = jSONObject.getString(ProgressInfo.JSON_KEY_END);
+                p0.f40029e = jSONObject.getString(ProgressInfo.JSON_KEY_END);
             }
             if (!jSONObject.isNull("status")) {
-                p0.f39741f = jSONObject.getString("status");
+                p0.f40030f = jSONObject.getString("status");
             }
             if (!jSONObject.isNull("freebusy")) {
-                p0.f39742g = jSONObject.getString("freebusy");
+                p0.f40031g = jSONObject.getString("freebusy");
             }
             if (!jSONObject.isNull(NotificationCompat.CATEGORY_REMINDER)) {
-                p0.f39743h = jSONObject.getString(NotificationCompat.CATEGORY_REMINDER);
+                p0.f40032h = jSONObject.getString(NotificationCompat.CATEGORY_REMINDER);
             }
             if (!jSONObject.isNull("recurrence")) {
                 p0.i = new Q0();
                 JSONObject jSONObject2 = jSONObject.getJSONObject("recurrence");
                 if (!jSONObject2.isNull("frequency")) {
-                    p0.i.f39774a = jSONObject2.getString("frequency");
+                    p0.i.f40063a = jSONObject2.getString("frequency");
                 }
                 if (!jSONObject2.isNull("interval")) {
-                    p0.i.f39775b = jSONObject2.getInt("interval");
+                    p0.i.f40064b = jSONObject2.getInt("interval");
                 }
                 if (!jSONObject2.isNull("expires")) {
-                    p0.i.f39776c = jSONObject2.getString("expires");
+                    p0.i.f40065c = jSONObject2.getString("expires");
                 }
                 if (!jSONObject2.isNull("exceptionDates")) {
                     JSONArray jSONArray = jSONObject2.getJSONArray("exceptionDates");
                     int length = jSONArray.length();
-                    p0.i.f39777d = new String[length];
+                    p0.i.f40066d = new String[length];
                     for (int i = 0; i < length; i++) {
-                        p0.i.f39777d[i] = jSONArray.getString(i);
+                        p0.i.f40066d[i] = jSONArray.getString(i);
                     }
                 }
                 if (!jSONObject2.isNull("daysInWeek")) {
                     JSONArray jSONArray2 = jSONObject2.getJSONArray("daysInWeek");
                     int length2 = jSONArray2.length();
-                    p0.i.f39778e = new int[length2];
+                    p0.i.f40067e = new int[length2];
                     for (int i2 = 0; i2 < length2; i2++) {
-                        p0.i.f39778e[i2] = jSONArray2.getInt(i2);
+                        p0.i.f40067e[i2] = jSONArray2.getInt(i2);
                     }
                 }
                 if (!jSONObject2.isNull("daysInMonth")) {
                     JSONArray jSONArray3 = jSONObject2.getJSONArray("daysInMonth");
                     int length3 = jSONArray3.length();
-                    p0.i.f39779f = new int[length3];
+                    p0.i.f40068f = new int[length3];
                     for (int i3 = 0; i3 < length3; i3++) {
-                        p0.i.f39779f[i3] = jSONArray3.getInt(i3);
+                        p0.i.f40068f[i3] = jSONArray3.getInt(i3);
                     }
                 }
                 if (!jSONObject2.isNull("daysInYear")) {
                     JSONArray jSONArray4 = jSONObject2.getJSONArray("daysInYear");
                     int length4 = jSONArray4.length();
-                    p0.i.f39780g = new int[length4];
+                    p0.i.f40069g = new int[length4];
                     for (int i4 = 0; i4 < length4; i4++) {
-                        p0.i.f39780g[i4] = jSONArray4.getInt(i4);
+                        p0.i.f40069g[i4] = jSONArray4.getInt(i4);
                     }
                 }
                 if (!jSONObject2.isNull("weeksInMonth")) {
                     JSONArray jSONArray5 = jSONObject2.getJSONArray("weeksInMonth");
                     int length5 = jSONArray5.length();
-                    p0.i.f39781h = new int[length5];
+                    p0.i.f40070h = new int[length5];
                     for (int i5 = 0; i5 < length5; i5++) {
-                        p0.i.f39781h[i5] = jSONArray5.getInt(i5);
+                        p0.i.f40070h[i5] = jSONArray5.getInt(i5);
                     }
                 }
                 if (!jSONObject2.isNull("monthsInYear")) {
@@ -169,41 +169,41 @@ public class P0 {
         String str2;
         boolean z = Build.VERSION.SDK_INT >= 14;
         Intent data = z ? new Intent("android.intent.action.EDIT").setData(CalendarContract.Events.CONTENT_URI) : new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event");
-        if (!TextUtils.isEmpty(this.f39736a)) {
-            data.putExtra("title", this.f39736a);
+        if (!TextUtils.isEmpty(this.f40025a)) {
+            data.putExtra("title", this.f40025a);
         }
-        if (!TextUtils.isEmpty(this.f39737b)) {
-            data.putExtra("eventLocation", this.f39737b);
+        if (!TextUtils.isEmpty(this.f40026b)) {
+            data.putExtra("eventLocation", this.f40026b);
         }
-        if (!TextUtils.isEmpty(this.f39738c)) {
-            data.putExtra("description", this.f39738c);
+        if (!TextUtils.isEmpty(this.f40027c)) {
+            data.putExtra("description", this.f40027c);
         }
-        if (!TextUtils.isEmpty(this.f39739d)) {
-            long a2 = a(this.f39739d);
+        if (!TextUtils.isEmpty(this.f40028d)) {
+            long a2 = a(this.f40028d);
             if (a2 > 0) {
                 data.putExtra("beginTime", a2);
             }
         }
-        if (!TextUtils.isEmpty(this.f39740e)) {
-            long a3 = a(this.f39740e);
+        if (!TextUtils.isEmpty(this.f40029e)) {
+            long a3 = a(this.f40029e);
             if (a3 > 0) {
                 data.putExtra("endTime", a3);
             }
         }
-        if (!TextUtils.isEmpty(this.f39741f) && z) {
-            data.putExtra("eventStatus", this.f39741f);
+        if (!TextUtils.isEmpty(this.f40030f) && z) {
+            data.putExtra("eventStatus", this.f40030f);
         }
-        if (!TextUtils.isEmpty(this.f39742g) && z) {
-            data.putExtra("visible", !this.f39742g.equals("opaque"));
+        if (!TextUtils.isEmpty(this.f40031g) && z) {
+            data.putExtra("visible", !this.f40031g.equals("opaque"));
         }
-        if (!TextUtils.isEmpty(this.f39743h)) {
-            long a4 = a(this.f39743h);
+        if (!TextUtils.isEmpty(this.f40032h)) {
+            long a4 = a(this.f40032h);
             if (a4 < 0) {
                 if (z) {
                     data.putExtra("minutes", Math.abs(a4 / 60000));
                 }
-            } else if (!TextUtils.isEmpty(this.f39739d) && z) {
-                long a5 = a(this.f39739d);
+            } else if (!TextUtils.isEmpty(this.f40028d) && z) {
+                long a5 = a(this.f40028d);
                 if (a5 > 0) {
                     data.putExtra("minutes", Math.abs((a5 - a4) / 60000));
                 }
@@ -213,7 +213,7 @@ public class P0 {
         StringBuilder sb = new StringBuilder("");
         Q0 q0 = this.i;
         if (q0 != null) {
-            String str4 = q0.f39774a;
+            String str4 = q0.f40063a;
             if (!TextUtils.isEmpty(str4)) {
                 if ("daily".equals(str4)) {
                     str2 = "FREQ=DAILY;";
@@ -227,14 +227,14 @@ public class P0 {
                 sb.append(str2);
                 str3 = str4;
             }
-            if (this.i.f39775b > 0) {
+            if (this.i.f40064b > 0) {
                 sb.append("INTERVAL=");
-                sb.append(this.i.f39775b);
+                sb.append(this.i.f40064b);
                 sb.append(";");
             }
-            if ("weekly".equals(str3) && (iArr5 = this.i.f39778e) != null && iArr5.length > 0) {
+            if ("weekly".equals(str3) && (iArr5 = this.i.f40067e) != null && iArr5.length > 0) {
                 sb.append("BYDAY=");
-                for (int i : this.i.f39778e) {
+                for (int i : this.i.f40067e) {
                     switch (i) {
                         case 0:
                             str = "SU,";
@@ -263,17 +263,17 @@ public class P0 {
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("monthly".equals(str3) && (iArr4 = this.i.f39779f) != null && iArr4.length > 0) {
+            if ("monthly".equals(str3) && (iArr4 = this.i.f40068f) != null && iArr4.length > 0) {
                 sb.append("BYMONTHDAY=");
-                for (int i2 : this.i.f39779f) {
+                for (int i2 : this.i.f40068f) {
                     sb.append(i2);
                     sb.append(",");
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("yearly".equals(str3) && (iArr3 = this.i.f39780g) != null && iArr3.length > 0) {
+            if ("yearly".equals(str3) && (iArr3 = this.i.f40069g) != null && iArr3.length > 0) {
                 sb.append("BYYEARDAY=");
-                for (int i3 : this.i.f39780g) {
+                for (int i3 : this.i.f40069g) {
                     sb.append(i3);
                     sb.append(",");
                 }
@@ -287,23 +287,23 @@ public class P0 {
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("monthly".equals(str3) && (iArr = this.i.f39781h) != null && iArr.length > 0) {
+            if ("monthly".equals(str3) && (iArr = this.i.f40070h) != null && iArr.length > 0) {
                 sb.append("BYWEEKNO=");
-                for (int i5 : this.i.f39781h) {
+                for (int i5 : this.i.f40070h) {
                     sb.append(i5);
                     sb.append(",");
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if (!TextUtils.isEmpty(this.i.f39776c)) {
+            if (!TextUtils.isEmpty(this.i.f40065c)) {
                 sb.append("UNTIL=");
-                sb.append(this.i.f39776c);
+                sb.append(this.i.f40065c);
                 sb.append(";");
             }
-            String[] strArr = this.i.f39777d;
+            String[] strArr = this.i.f40066d;
             if (strArr != null && strArr.length > 0) {
                 sb.append("EXDATE=");
-                for (String str5 : this.i.f39777d) {
+                for (String str5 : this.i.f40066d) {
                     sb.append(str5);
                     sb.append(",");
                 }

@@ -38,7 +38,7 @@ public class h extends b<d.b.i0.d0.g> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.z, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
@@ -47,7 +47,7 @@ public class h extends b<d.b.i0.d0.g> {
             SkinManager.setViewTextColor(this.x, R.color.CAM_X0107, 1);
             w(this.y);
         }
-        this.f62180e = i;
+        this.f63755e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -74,7 +74,7 @@ public class h extends b<d.b.i0.d0.g> {
         this.m.setDefaultBgResource(R.color.CAM_X0205);
         this.m.setDrawBorder(true);
         this.m.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.m.setBorderWidth(this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.m.setBorderWidth(this.f63757g.getResources().getDimensionPixelSize(R.dimen.tbds1));
         this.m.setRadius(b().getResources().getDimensionPixelSize(R.dimen.tbds26));
         m().setOnClickListener(this);
         this.z = view.findViewById(R.id.divider_line);
@@ -93,7 +93,7 @@ public class h extends b<d.b.i0.d0.g> {
         this.p.setText(gVar.g().title_small);
         this.q.setText(String.valueOf(gVar.g().game_score));
         w(gVar);
-        this.x.setText(this.f62182g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.g().game_score_num)));
+        this.x.setText(this.f63757g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.g().game_score_num)));
     }
 
     public final void w(d.b.i0.d0.g gVar) {

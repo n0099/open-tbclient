@@ -21,28 +21,28 @@ public class d0 {
     public static Point j;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f51670a;
+    public Context f52094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51671b;
+    public b f52095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f51672c;
+    public long f52096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f51673d;
+    public a f52097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f51674e;
+    public a f52098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f51675f = new Handler(Looper.getMainLooper());
+    public final Handler f52099f = new Handler(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f51668g = {"_data", "datetaken"};
+    public static final String[] f52092g = {"_data", "datetaken"};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f51669h = {"_data", "datetaken", "width", "height"};
+    public static final String[] f52093h = {"_data", "datetaken", "width", "height"};
     public static final String[] i = {"screenshot", "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
     public static final List<String> k = new ArrayList();
 
@@ -50,17 +50,17 @@ public class d0 {
     public class a extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Uri f51676a;
+        public Uri f52100a;
 
         public a(Uri uri, Handler handler) {
             super(handler);
-            this.f51676a = uri;
+            this.f52100a = uri;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            d0.this.f(this.f51676a);
+            d0.this.f(this.f52100a);
         }
     }
 
@@ -70,7 +70,7 @@ public class d0 {
     }
 
     public d0(Context context) {
-        this.f51670a = context;
+        this.f52094a = context;
         if (j == null) {
             Point e2 = e();
             j = e2;
@@ -101,7 +101,7 @@ public class d0 {
     }
 
     public final boolean c(String str, long j2, int i2, int i3) {
-        if (j2 >= this.f51672c && System.currentTimeMillis() - j2 <= 10000) {
+        if (j2 >= this.f52096c && System.currentTimeMillis() - j2 <= 10000) {
             Point point = j;
             if (point != null && (i2 > point.x || i3 > point.y)) {
                 Point point2 = j;
@@ -132,7 +132,7 @@ public class d0 {
     public final Point e() {
         Exception e2;
         Point point;
-        if (!h() || this.f51670a == null) {
+        if (!h() || this.f52094a == null) {
             return null;
         }
         try {
@@ -142,7 +142,7 @@ public class d0 {
             point = null;
         }
         try {
-            Display defaultDisplay = ((WindowManager) this.f51670a.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f52094a.getSystemService("window")).getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealSize(point);
             } else {
@@ -169,7 +169,7 @@ public class d0 {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f51670a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? f51668g : f51669h, null, null, "date_added desc limit 1");
+                cursor = this.f52094a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? f52092g : f52093h, null, null, "date_added desc limit 1");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (0 == 0 || cursor.isClosed()) {
@@ -224,54 +224,54 @@ public class d0 {
     public final void g(String str, long j2, int i2, int i3) {
         if (c(str, j2, i2, i3)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
-            if (this.f51671b == null || b(str)) {
+            if (this.f52095b == null || b(str)) {
                 return;
             }
-            this.f51671b.onShot(str);
+            this.f52095b.onShot(str);
             return;
         }
         BdLog.d("ScreenShotListenManager: Media content changed, but not screenshot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
     }
 
     public void i(b bVar) {
-        this.f51671b = bVar;
+        this.f52095b = bVar;
     }
 
     public void j() {
         if (h()) {
-            this.f51672c = System.currentTimeMillis();
-            this.f51673d = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f51675f);
-            this.f51674e = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f51675f);
+            this.f52096c = System.currentTimeMillis();
+            this.f52097d = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f52099f);
+            this.f52098e = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f52099f);
             if (Build.VERSION.SDK_INT >= 29) {
-                this.f51670a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.f51673d);
-                this.f51670a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f51674e);
+                this.f52094a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.f52097d);
+                this.f52094a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f52098e);
                 return;
             }
-            this.f51670a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.f51673d);
-            this.f51670a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f51674e);
+            this.f52094a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.f52097d);
+            this.f52094a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f52098e);
         }
     }
 
     public void k() {
         if (h()) {
-            if (this.f51673d != null) {
+            if (this.f52097d != null) {
                 try {
-                    this.f51670a.getContentResolver().unregisterContentObserver(this.f51673d);
+                    this.f52094a.getContentResolver().unregisterContentObserver(this.f52097d);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.f51673d = null;
+                this.f52097d = null;
             }
-            if (this.f51674e != null) {
+            if (this.f52098e != null) {
                 try {
-                    this.f51670a.getContentResolver().unregisterContentObserver(this.f51674e);
+                    this.f52094a.getContentResolver().unregisterContentObserver(this.f52098e);
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
-                this.f51674e = null;
+                this.f52098e = null;
             }
-            this.f51672c = 0L;
-            this.f51671b = null;
+            this.f52096c = 0L;
+            this.f52095b = null;
         }
     }
 }

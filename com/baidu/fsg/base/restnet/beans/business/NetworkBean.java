@@ -31,7 +31,7 @@ import java.util.UUID;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class NetworkBean extends ApollonBean {
     public static final boolean DEBUG = false;
     public static final String PARAM_APPID = "appid";

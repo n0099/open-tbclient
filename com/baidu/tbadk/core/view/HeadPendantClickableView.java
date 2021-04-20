@@ -81,7 +81,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserId(T.getUserId());
         getHeadView().setUserName(T.getUserName());
         getHeadView().setUrl(T.getAvater());
-        if (T.isDefaultAvatar && d.R()) {
+        if (T.isDefaultAvatar && d.T()) {
             getHeadView().W(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(T.getAvater()) && T.getAvater().startsWith("http")) {
             getHeadView().W(T.getAvater(), 10, false);
@@ -110,7 +110,7 @@ public class HeadPendantClickableView extends HeadPendantView {
             return;
         }
         a2 a2Var = new a2();
-        a2Var.p3(metaData);
+        a2Var.q3(metaData);
         setData(a2Var, z);
     }
 }

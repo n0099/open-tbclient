@@ -3,13 +3,12 @@ package d.b.g0.a.i2;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.bumptech.glide.load.resource.bitmap.Downsampler;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,22 +16,22 @@ import java.util.regex.Pattern;
 public final class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44755a = d.b.g0.a.k.f45051a;
+    public static final boolean f45147a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f44756b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    public static final Pattern f45148b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, Integer> f44757c = new HashMap<>();
+    public static HashMap<String, Integer> f45149c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f44758d = new HashMap<>();
+    public static HashMap<String, Integer> f45150d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, String> f44759e = new HashMap<>();
+    public static HashMap<String, String> f45151e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, String> f44760f = new HashMap<>();
+    public static HashMap<String, String> f45152f = new HashMap<>();
 
     static {
         a("application/andrew-inset", "ez", 5);
@@ -85,7 +84,7 @@ public final class r {
         a("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
         a("application/vnd.rim.cod", "cod", 5);
         a("application/vnd.smaf", "mmf", 5);
-        a("application/vnd.stardivision.calc", "sdc", 5);
+        a("application/vnd.stardivision.calc", IAdRequestParam.SDC, 5);
         a("application/vnd.stardivision.draw", "sda", 5);
         a("application/vnd.stardivision.impress", "sdd", 5);
         a("application/vnd.stardivision.impress", "sdp", 5);
@@ -284,7 +283,7 @@ public final class r {
         a("text/plain", "po", 4);
         a("text/richtext", "rtx", 4);
         a("text/rtf", "rtf", 4);
-        a("text/texmacs", TimeDisplaySetting.TIME_DISPLAY_SETTING, 5);
+        a("text/texmacs", "ts", 5);
         a("text/text", "phps", 5);
         a("text/tab-separated-values", "tsv", 5);
         a("text/xml", "xml", 4);
@@ -321,7 +320,7 @@ public final class r {
         a("video/3gpp", "3gpp", 0);
         a("video/3gpp", "3gp", 0);
         a("video/3gpp", "3g2", 0);
-        a("video/dl", IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, 0);
+        a("video/dl", "dl", 0);
         a("video/dv", "dif", 0);
         a("video/dv", "dv", 0);
         a("video/fli", "fli", 0);
@@ -357,13 +356,13 @@ public final class r {
     }
 
     public static void a(String str, String str2, int i) {
-        f44757c.put(str2, Integer.valueOf(i));
-        f44758d.put(str, Integer.valueOf(i));
-        f44759e.put(str2, str);
-        if (f44760f.containsKey(str)) {
+        f45149c.put(str2, Integer.valueOf(i));
+        f45150d.put(str, Integer.valueOf(i));
+        f45151e.put(str2, str);
+        if (f45152f.containsKey(str)) {
             return;
         }
-        f44760f.put(str, str2);
+        f45152f.put(str, str2);
     }
 
     public static String b(String str) {
@@ -376,25 +375,25 @@ public final class r {
         if (str == null) {
             return null;
         }
-        return f44760f.get(str);
+        return f45152f.get(str);
     }
 
     public static String d(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return f44759e.get(str);
+        return f45151e.get(str);
     }
 
     public static String e(String str) {
         try {
-            Matcher matcher = f44756b.matcher(str);
+            Matcher matcher = f45148b.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
             return null;
         } catch (IllegalStateException e2) {
-            if (f44755a) {
+            if (f45147a) {
                 e2.printStackTrace();
                 return null;
             }

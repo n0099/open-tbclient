@@ -1,21 +1,21 @@
 package com.bytedance.sdk.openadsdk.m;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f29792a;
+    public static volatile d f29477a;
 
     public static d b() {
-        if (f29792a == null) {
+        if (f29477a == null) {
             synchronized (d.class) {
-                if (f29792a == null) {
-                    f29792a = new d();
+                if (f29477a == null) {
+                    f29477a = new d();
                 }
             }
         }
-        return f29792a;
+        return f29477a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.m.a

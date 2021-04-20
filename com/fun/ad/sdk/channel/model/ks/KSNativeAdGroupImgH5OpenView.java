@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.ks;
 
-import a.a.a.a.r.b.e.c;
+import a.a.a.a.r.b.d.c;
 import a.a.a.a.v.d;
 import android.app.Activity;
 import android.content.Context;
@@ -21,28 +21,28 @@ import java.util.List;
 public class KSNativeAdGroupImgH5OpenView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30796a;
+    public TextView f30469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f30797b;
+    public LinearLayout f30470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30798c;
+    public ImageView f30471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30799d;
+    public ImageView f30472d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30800e;
+    public ImageView f30473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30801f;
+    public ImageView f30474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f30802g;
+    public TextView f30475g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f30803h;
+    public Button f30476h;
 
     public KSNativeAdGroupImgH5OpenView(Context context) {
         this(context, null);
@@ -56,7 +56,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
         super(context, attributeSet, i);
     }
 
-    @Override // a.a.a.a.r.b.e.c
+    @Override // a.a.a.a.r.b.d.c
     public void a(Activity activity, KsNativeAd ksNativeAd, KsNativeAd.AdInteractionListener adInteractionListener) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
@@ -67,7 +67,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
             if (ksImage != null && ksImage.isValid()) {
                 Context context = getContext();
                 String imageUrl = ksImage.getImageUrl();
-                ImageView imageView = this.f30798c;
+                ImageView imageView = this.f30471c;
                 if (context == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
                 } else if (context instanceof Activity) {
@@ -85,7 +85,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
             if (ksImage2 != null && ksImage2.isValid()) {
                 Context context2 = getContext();
                 String imageUrl2 = ksImage2.getImageUrl();
-                ImageView imageView2 = this.f30799d;
+                ImageView imageView2 = this.f30472d;
                 if (context2 == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
                 } else if (context2 instanceof Activity) {
@@ -103,7 +103,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
             if (ksImage3 != null && ksImage3.isValid()) {
                 Context context3 = getContext();
                 String imageUrl3 = ksImage3.getImageUrl();
-                ImageView imageView3 = this.f30800e;
+                ImageView imageView3 = this.f30473e;
                 if (context3 == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
                 } else if (context3 instanceof Activity) {
@@ -118,35 +118,35 @@ public class KSNativeAdGroupImgH5OpenView extends c {
                 }
             }
         }
-        this.f30801f.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30796a.setText(ksNativeAd.getAdDescription());
-        this.f30802g.setText(ksNativeAd.getAdSource());
-        this.f30803h.setText(ksNativeAd.getActionDescription());
+        this.f30474f.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f30469a.setText(ksNativeAd.getAdDescription());
+        this.f30475g.setText(ksNativeAd.getAdSource());
+        this.f30476h.setText(ksNativeAd.getActionDescription());
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30796a = (TextView) findViewById(R.id.ad_description);
-        this.f30797b = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f30798c = (ImageView) findViewById(R.id.ad_img_1);
-        this.f30799d = (ImageView) findViewById(R.id.ad_img_2);
-        this.f30800e = (ImageView) findViewById(R.id.ad_img_3);
-        this.f30801f = (ImageView) findViewById(R.id.ad_logo);
-        this.f30802g = (TextView) findViewById(R.id.ad_h5_description);
-        this.f30803h = (Button) findViewById(R.id.ad_h5_open);
+        this.f30469a = (TextView) findViewById(R.id.ad_description);
+        this.f30470b = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f30471c = (ImageView) findViewById(R.id.ad_img_1);
+        this.f30472d = (ImageView) findViewById(R.id.ad_img_2);
+        this.f30473e = (ImageView) findViewById(R.id.ad_img_3);
+        this.f30474f = (ImageView) findViewById(R.id.ad_logo);
+        this.f30475g = (TextView) findViewById(R.id.ad_h5_description);
+        this.f30476h = (Button) findViewById(R.id.ad_h5_open);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30797b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30470b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30798c.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30799d.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30800e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30471c.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30472d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30473e.getLayoutParams();
         layoutParams.width = i5;
         layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-        this.f30797b.setLayoutParams(layoutParams);
+        this.f30470b.setLayoutParams(layoutParams);
     }
 }

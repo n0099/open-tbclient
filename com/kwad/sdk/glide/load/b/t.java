@@ -11,16 +11,16 @@ import java.io.InputStream;
 public class t implements com.kwad.sdk.glide.load.a<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35365a;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35654a;
 
     public t(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f35365a = bVar;
+        this.f35654a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.a
     public boolean a(@NonNull InputStream inputStream, @NonNull File file, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        byte[] bArr = (byte[]) this.f35365a.a(65536, byte[].class);
+        byte[] bArr = (byte[]) this.f35654a.a(65536, byte[].class);
         boolean z = false;
         FileOutputStream fileOutputStream = null;
         try {
@@ -43,7 +43,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
                             if (fileOutputStream != null) {
                                 fileOutputStream.close();
                             }
-                            this.f35365a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+                            this.f35654a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
                             return z;
                         } catch (Throwable th) {
                             th = th;
@@ -54,7 +54,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
                                 } catch (IOException unused) {
                                 }
                             }
-                            this.f35365a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+                            this.f35654a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
                             throw th;
                         }
                     }
@@ -66,7 +66,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
             } catch (IOException e3) {
                 e = e3;
             }
-            this.f35365a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+            this.f35654a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
             return z;
         } catch (Throwable th2) {
             th = th2;

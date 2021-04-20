@@ -14,11 +14,11 @@ public class z implements u0 {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final z f45442a = new z();
+        public static final z f45834a = new z();
     }
 
     public static z c() {
-        return b.f45442a;
+        return b.f45834a;
     }
 
     @Override // d.b.g0.a.p.c.u0

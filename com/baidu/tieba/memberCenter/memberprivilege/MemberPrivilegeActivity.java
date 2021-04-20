@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.i0.q1.g.a;
-import d.b.i0.q1.g.d;
+import d.b.c.e.p.k;
+import d.b.i0.r1.g.a;
+import d.b.i0.r1.g.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
@@ -54,7 +54,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     MemberPrivilegeActivity.this.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? MemberPrivilegeActivity.this.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                     return;
                 }
-                d.b.i0.q1.g.a aVar = responseMemberPrivilegeMessage.mData;
+                d.b.i0.r1.g.a aVar = responseMemberPrivilegeMessage.mData;
                 if (aVar != null) {
                     MemberPrivilegeActivity.this.mMemberPrivilegeView.e().h(aVar);
                 } else {
@@ -144,8 +144,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (i == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i)) {
             return;
         }
-        String str = ((a.C1484a) this.mMemberPrivilegeView.e().getItem(i)).f59445d;
-        String str2 = ((a.C1484a) this.mMemberPrivilegeView.e().getItem(i)).f59443b;
+        String str = ((a.C1548a) this.mMemberPrivilegeView.e().getItem(i)).f61139d;
+        String str2 = ((a.C1548a) this.mMemberPrivilegeView.e().getItem(i)).f61137b;
         if (k.isEmpty(str)) {
             return;
         }

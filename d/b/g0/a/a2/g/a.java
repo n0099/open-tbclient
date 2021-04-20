@@ -5,18 +5,18 @@ import android.util.Log;
 import d.b.g0.a.k;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f43236g = k.f45051a;
+    public static final boolean f43628g = k.f45443a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<String> f43237f;
+    public final Set<String> f43629f;
 
     public a(String str) {
         super(str);
-        this.f43237f = new HashSet();
+        this.f43629f = new HashSet();
     }
 
     @Override // d.b.g0.a.a2.g.b, d.b.g0.a.a2.g.g, android.content.SharedPreferences
@@ -45,11 +45,11 @@ public class a extends b {
     }
 
     public boolean l(String str) {
-        return this.f43237f.contains(str);
+        return this.f43629f.contains(str);
     }
 
     public final void m() {
-        if (f43236g) {
+        if (f43628g) {
             IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
             Log.i("IpcReadOnlySP", illegalAccessException.toString());
             illegalAccessException.printStackTrace();

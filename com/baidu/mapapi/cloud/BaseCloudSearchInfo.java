@@ -1,6 +1,6 @@
 package com.baidu.mapapi.cloud;
 
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
@@ -22,7 +22,7 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             String str = this.q;
             if (str != null && !str.equals("") && this.q.length() <= 45) {
                 sb.append("&");
-                sb.append(IXAdRequestInfo.COST_NAME);
+                sb.append(IAdRequestParam.COST_NAME);
                 sb.append("=");
                 try {
                     sb.append(URLEncoder.encode(this.q, "UTF-8"));

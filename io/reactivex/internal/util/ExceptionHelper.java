@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ExceptionHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Throwable f68097a = new Termination();
+    public static final Throwable f69103a = new Termination();
 
     /* loaded from: classes7.dex */
     public static final class Termination extends Throwable {
@@ -26,7 +26,7 @@ public final class ExceptionHelper {
         Throwable th2;
         do {
             th2 = atomicReference.get();
-            if (th2 == f68097a) {
+            if (th2 == f69103a) {
                 return false;
             }
         } while (!atomicReference.compareAndSet(th2, th2 == null ? th : new CompositeException(th2, th)));
@@ -35,7 +35,7 @@ public final class ExceptionHelper {
 
     public static <T> Throwable b(AtomicReference<Throwable> atomicReference) {
         Throwable th = atomicReference.get();
-        Throwable th2 = f68097a;
+        Throwable th2 = f69103a;
         return th != th2 ? atomicReference.getAndSet(th2) : th;
     }
 

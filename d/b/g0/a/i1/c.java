@@ -58,7 +58,7 @@ public class c extends i {
         d.b.g0.a.p.d.e n = n();
         this.y0 = n;
         n.P(G2());
-        this.z0 = this.y0.getWebView();
+        this.z0 = this.y0.F();
         this.y0.loadUrl(this.A0);
         this.y0.m((FrameLayout) inflate.findViewById(d.b.g0.a.f.aiapps_webView_container), this.z0.covertToView());
         if (L1()) {

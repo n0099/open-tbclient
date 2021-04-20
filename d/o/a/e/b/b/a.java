@@ -5,42 +5,42 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import d.o.a.e.b.g.d;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f66935b;
+    public static volatile a f67928b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66936a;
+    public boolean f67929a;
 
     public a() {
         super(d.l(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 14);
-        this.f66936a = false;
+        this.f67929a = false;
     }
 
     public static a a() {
-        if (f66935b == null) {
+        if (f67928b == null) {
             synchronized (a.class) {
-                if (f66935b == null) {
-                    f66935b = new a();
+                if (f67928b == null) {
+                    f67928b = new a();
                 }
             }
         }
-        return f66935b;
+        return f67928b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
         Context l = d.l();
-        if (!this.f66936a && l != null) {
+        if (!this.f67929a && l != null) {
             try {
                 File file = new File("/data/data/" + l.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f66936a = true;
+                this.f67929a = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

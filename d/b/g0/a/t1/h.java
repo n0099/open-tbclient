@@ -13,11 +13,11 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.k;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends UnitedSchemeBaseDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46285a = k.f45051a;
+    public static final boolean f46677a = k.f45443a;
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {
@@ -38,7 +38,7 @@ public class h extends UnitedSchemeBaseDispatcher {
             if (!unitedSchemeEntity.isOnlyVerify()) {
                 UnitedSchemeStatisticUtil.doUBCForInvalidScheme(unitedSchemeEntity.getUri(), "no action");
             }
-            if (f46285a) {
+            if (f46677a) {
                 Log.w("SwanWalletDispatcher", "Uri action is null");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));

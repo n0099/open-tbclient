@@ -14,16 +14,16 @@ import java.lang.ref.WeakReference;
 public class CircleTextProgressbar extends AppCompatTextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12781e;
+    public int f12442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12782f;
+    public int f12443f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12783g;
+    public int f12444g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12784h;
+    public int f12445h;
     public int i;
     public Paint j;
     public RectF k;
@@ -45,17 +45,17 @@ public class CircleTextProgressbar extends AppCompatTextView {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12785a;
+        public static final /* synthetic */ int[] f12446a;
 
         static {
             int[] iArr = new int[ProgressType.values().length];
-            f12785a = iArr;
+            f12446a = iArr;
             try {
                 iArr[ProgressType.COUNT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12785a[ProgressType.COUNT_BACK.ordinal()] = 2;
+                f12446a[ProgressType.COUNT_BACK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -63,7 +63,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a();
+        void onEnd();
 
         void onProgress(float f2);
     }
@@ -72,15 +72,15 @@ public class CircleTextProgressbar extends AppCompatTextView {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<CircleTextProgressbar> f12786e;
+        public WeakReference<CircleTextProgressbar> f12447e;
 
         public c(CircleTextProgressbar circleTextProgressbar) {
-            this.f12786e = new WeakReference<>(circleTextProgressbar);
+            this.f12447e = new WeakReference<>(circleTextProgressbar);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CircleTextProgressbar circleTextProgressbar = this.f12786e.get();
+            CircleTextProgressbar circleTextProgressbar = this.f12447e.get();
             if (circleTextProgressbar == null) {
                 return;
             }
@@ -99,7 +99,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     public final void g(Context context, AttributeSet attributeSet) {
         this.j.setAntiAlias(true);
-        this.f12783g = context.getResources().getColor(d.progress_circle_color);
+        this.f12444g = context.getResources().getColor(d.progress_circle_color);
         this.r = new c(this);
     }
 
@@ -120,7 +120,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     public final void h() {
-        int i = a.f12785a[this.n.ordinal()];
+        int i = a.f12446a[this.n.ordinal()];
         if (i == 1) {
             this.m = 0.0f;
         } else if (i != 2) {
@@ -132,7 +132,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     public final void i() {
         removeCallbacks(this.r);
-        int i = a.f12785a[this.n.ordinal()];
+        int i = a.f12446a[this.n.ordinal()];
         if (i == 1) {
             this.m += 1.0f;
         } else if (i == 2) {
@@ -151,7 +151,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
         this.m = j(this.m);
         b bVar2 = this.q;
         if (bVar2 != null) {
-            bVar2.a();
+            bVar2.onEnd();
         }
     }
 
@@ -172,11 +172,11 @@ public class CircleTextProgressbar extends AppCompatTextView {
         getDrawingRect(this.p);
         float width = (this.p.height() > this.p.width() ? this.p.width() : this.p.height()) / 2;
         this.j.setStyle(Paint.Style.FILL);
-        this.j.setColor(this.f12783g);
+        this.j.setColor(this.f12444g);
         this.j.setAlpha(127);
-        canvas.drawCircle(this.p.centerX(), this.p.centerY(), width - this.f12782f, this.j);
+        canvas.drawCircle(this.p.centerX(), this.p.centerY(), width - this.f12443f, this.j);
         this.j.setStyle(Paint.Style.STROKE);
-        this.j.setColor(this.f12781e);
+        this.j.setColor(this.f12442e);
         this.j.setStrokeWidth(this.i);
         this.j.setStrokeCap(Paint.Cap.ROUND);
         this.j.setAlpha(204);
@@ -186,7 +186,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText(getText().toString(), this.p.centerX(), this.p.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-        this.j.setColor(this.f12784h);
+        this.j.setColor(this.f12445h);
         this.j.setStyle(Paint.Style.STROKE);
         this.j.setStrokeWidth(this.i);
         this.j.setStrokeCap(Paint.Cap.ROUND);
@@ -203,17 +203,17 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     public void setInCircleColor(int i) {
-        this.f12783g = i;
+        this.f12444g = i;
         invalidate();
     }
 
     public void setOutLineColor(int i) {
-        this.f12781e = i;
+        this.f12442e = i;
         invalidate();
     }
 
     public void setOutLineWidth(int i) {
-        this.f12782f = i;
+        this.f12443f = i;
         invalidate();
     }
 
@@ -223,7 +223,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     public void setProgressColor(int i) {
-        this.f12784h = i;
+        this.f12445h = i;
         invalidate();
     }
 
@@ -254,9 +254,9 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12781e = -16777216;
-        this.f12782f = 2;
-        this.f12784h = -16776961;
+        this.f12442e = -16777216;
+        this.f12443f = 2;
+        this.f12445h = -16776961;
         this.i = 8;
         this.j = new Paint();
         this.k = new RectF();

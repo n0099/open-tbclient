@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.h;
 import android.util.Log;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f28422a = new AtomicInteger(1);
+    public static AtomicInteger f28107a = new AtomicInteger(1);
 
     public static boolean a() {
-        return f28422a.get() == 1;
+        return f28107a.get() == 1;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0021  */
@@ -22,9 +22,9 @@ public class g {
         boolean z = true;
         if (i == 1 || i == 2) {
             try {
-                if (f28422a.get() != i) {
+                if (f28107a.get() != i) {
                     try {
-                        f28422a.set(i);
+                        f28107a.set(i);
                     } catch (Throwable th) {
                         th = th;
                         th.printStackTrace();

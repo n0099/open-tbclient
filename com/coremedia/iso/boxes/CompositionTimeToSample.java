@@ -11,15 +11,15 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "ctts";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
     public List<Entry> entries;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public int count;
         public int offset;

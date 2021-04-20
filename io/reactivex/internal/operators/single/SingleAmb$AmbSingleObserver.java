@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.t.a;
-import f.a.t.b;
+import f.b.r;
+import f.b.t.a;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class SingleAmb$AmbSingleObserver<T> extends AtomicBoolean implements r<T> {
@@ -15,22 +15,22 @@ public final class SingleAmb$AmbSingleObserver<T> extends AtomicBoolean implemen
         this.set = aVar;
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         if (compareAndSet(false, true)) {
             this.set.dispose();
             this.s.onError(th);
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
         this.set.b(bVar);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         if (compareAndSet(false, true)) {
             this.set.dispose();

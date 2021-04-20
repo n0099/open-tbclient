@@ -1,11 +1,11 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.h0.s.c.m;
+import d.b.h0.s.c.o;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
-    public m mData;
+    public o mData;
 
     public ChannelConfigResponseMessage(int i) {
         super(i);
@@ -16,12 +16,12 @@ public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject == null || !isSuccess()) {
             return;
         }
-        m mVar = new m();
-        this.mData = mVar;
-        mVar.c(jSONObject);
+        o oVar = new o();
+        this.mData = oVar;
+        oVar.c(jSONObject);
     }
 
-    public m getData() {
+    public o getData() {
         return this.mData;
     }
 }

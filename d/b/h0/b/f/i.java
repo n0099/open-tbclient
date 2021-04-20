@@ -9,44 +9,44 @@ public final class i extends a {
     @JvmField
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f49717c;
+    public static final BdUniqueId f50110c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f49718a;
+    public final ArrayList<String> f50111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.b.e f49719b;
+    public d.b.h0.b.e f50112b;
 
     static {
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkExpressionValueIsNotNull(gen, "BdUniqueId.gen()");
-        f49717c = gen;
+        f50110c = gen;
     }
 
     public i() {
         ArrayList<String> arrayList = new ArrayList<>(2);
-        this.f49718a = arrayList;
+        this.f50111a = arrayList;
         arrayList.add("12_4_promote_login");
-        this.f49718a.add("12_4_promote_login_a");
+        this.f50111a.add("12_4_promote_login_a");
     }
 
     @Override // d.b.h0.b.f.a
     public ArrayList<String> a() {
-        return this.f49718a;
+        return this.f50111a;
     }
 
     @Override // d.b.h0.b.f.a
     public d.b.h0.b.e b() {
-        return this.f49719b;
+        return this.f50112b;
     }
 
     @Override // d.b.h0.b.f.a
     public BdUniqueId c() {
-        return f49717c;
+        return f50110c;
     }
 
     @Override // d.b.h0.b.f.a
     public void f(d.b.h0.b.e eVar) {
-        this.f49719b = eVar;
+        this.f50112b = eVar;
     }
 }

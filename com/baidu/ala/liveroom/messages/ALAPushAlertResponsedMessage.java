@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Wire;
-import d.b.b.e.l.d;
-import d.b.b.j.d.a;
+import d.b.c.e.l.d;
+import d.b.c.j.d.a;
 import d.b.h0.a0.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -77,10 +77,10 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                 if (StringUtils.isNull(str2)) {
                     return;
                 }
-                c j = c.j();
-                a l = j.l(optString4 + 10);
-                if (l != null && l.p() != null) {
-                    NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, l.p(), false);
+                c k = c.k();
+                a m = k.m(optString4 + 10);
+                if (m != null && m.p() != null) {
+                    NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, m.p(), false);
                     return;
                 } else if (!StringUtils.isNull(optString4)) {
                     final String str3 = str;
@@ -88,11 +88,11 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            d.h().m(optString4, 10, new d.b.b.e.l.c<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                            d.h().m(optString4, 10, new d.b.c.e.l.c<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                 /* JADX DEBUG: Method merged with bridge method */
-                                @Override // d.b.b.e.l.c
+                                @Override // d.b.c.e.l.c
                                 public void onLoaded(a aVar, String str5, int i2) {
-                                    super.onLoaded((C00231) aVar, str5, i2);
+                                    super.onLoaded((C00221) aVar, str5, i2);
                                     if (aVar != null && aVar.p() != null) {
                                         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                         int hashCode = Long.valueOf(optLong).hashCode();

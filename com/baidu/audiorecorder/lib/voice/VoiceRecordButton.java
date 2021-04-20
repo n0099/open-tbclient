@@ -27,11 +27,11 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.VoiceButton;
-import d.b.b.a.j;
+import d.b.c.a.j;
 import d.b.h0.r.s.a;
 import d.b.h0.w.n;
 /* loaded from: classes.dex */
-public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, d.b.b.e.q.f, VoiceManager.i, n {
+public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, d.b.c.e.q.f, VoiceManager.i, n {
     public Paint A;
     public int B;
     public int C;
@@ -61,19 +61,19 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f4256e;
+    public long f4291e;
     public final int[] e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f4257f;
+    public final int[] f4292f;
     public final g f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4258g;
+    public int f4293g;
     public SweepGradient g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4259h;
+    public int f4294h;
     public VoiceData$VoiceModel h0;
     public final int i;
     public int i0;
@@ -111,21 +111,21 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.c3.p0.a f4261e;
+        public final /* synthetic */ d.b.i0.d3.p0.a f4296e;
 
-        public b(d.b.i0.c3.p0.a aVar) {
-            this.f4261e = aVar;
+        public b(d.b.i0.d3.p0.a aVar) {
+            this.f4296e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             VoiceData$VoiceModel voiceData$VoiceModel;
             aVar.dismiss();
-            VoiceRecordButton.this.w();
+            VoiceRecordButton.this.s();
             if (VoiceRecordButton.this.getVoiceManager() == null || (voiceData$VoiceModel = VoiceRecordButton.this.h0) == null) {
                 return;
             }
-            d.b.i0.c3.p0.a aVar2 = this.f4261e;
+            d.b.i0.d3.p0.a aVar2 = this.f4296e;
             if (aVar2 != null) {
                 aVar2.a(voiceData$VoiceModel.voiceId);
             }
@@ -206,7 +206,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     VoiceRecordButton.this.b0 = uptimeMillis + 200;
                     VoiceRecordButton.this.V += VoiceRecordButton.this.U * (((float) (uptimeMillis - VoiceRecordButton.this.a0)) / 1000.0f);
                     sendEmptyMessageAtTime(1, VoiceRecordButton.this.b0);
-                    VoiceRecordButton.p(VoiceRecordButton.this);
+                    VoiceRecordButton.m(VoiceRecordButton.this);
                 }
                 VoiceRecordButton voiceRecordButton = VoiceRecordButton.this;
                 voiceRecordButton.n = voiceRecordButton.o % 6;
@@ -223,51 +223,25 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this(context, null);
     }
 
-    public static VoiceRecordButton A(Context context) {
-        return new VoiceRecordButton(context);
-    }
-
-    public static /* synthetic */ int p(VoiceRecordButton voiceRecordButton) {
+    public static /* synthetic */ int m(VoiceRecordButton voiceRecordButton) {
         int i = voiceRecordButton.o;
         voiceRecordButton.o = i + 1;
         return i;
     }
 
-    public final void B() {
-        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
-        if (voiceData$VoiceModel == null) {
-            return;
-        }
-        this.n = 0;
-        int i = voiceData$VoiceModel.duration2;
-        this.U = 360.0f / (i > 0 ? i / 1000.0f : voiceData$VoiceModel.duration);
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.a0 = uptimeMillis;
-        long j = uptimeMillis + 200;
-        this.b0 = j;
-        this.f0.sendEmptyMessageAtTime(1, j);
-        invalidate();
+    public static VoiceRecordButton x(Context context) {
+        return new VoiceRecordButton(context);
     }
 
-    public void E(VoiceData$VoiceModel voiceData$VoiceModel) {
-        this.h0 = voiceData$VoiceModel;
-        this.O.setText("");
-        this.O.setVisibility(4);
-        this.n = 0;
-        I();
-        d(new d.b.h0.w.a(10, -1, voiceData$VoiceModel));
-        d(new d.b.h0.w.a(2, 6, " "));
-    }
-
-    public void F() {
-        w();
+    public void A() {
+        s();
         this.h0 = null;
         this.n = 0;
     }
 
-    public final void G() {
+    public final void B() {
         VoiceData$VoiceModel voiceData$VoiceModel;
-        d.b.i0.c3.p0.a recorderManager = getRecorderManager();
+        d.b.i0.d3.p0.a recorderManager = getRecorderManager();
         if (this.W == null) {
             d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(j.a(getContext()).getPageActivity());
             this.W = aVar;
@@ -286,7 +260,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    public final void I() {
+    public final void E() {
         this.R.setVisibility(4);
         this.T.setVisibility(0);
         this.N.setVisibility(0);
@@ -304,7 +278,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.P.setText(getContext().getString(R.string.voice_play_tip));
     }
 
-    public final void J() {
+    public final void F() {
         this.n = 0;
         this.o = 0;
         this.U = 0.0f;
@@ -313,46 +287,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         ((ViewGroup) getParent()).invalidate();
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public void a(int i) {
-        TextView textView;
-        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
-        if (voiceData$VoiceModel == null || (textView = this.T) == null) {
-            return;
-        }
-        int i2 = i / 1000;
-        if (this.j0 != i2) {
-            textView.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration - i2));
-        }
-        this.j0 = i2;
-    }
-
     @Override // d.b.h0.w.n
     public void b() {
         setVisibility(0);
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public void c(VoiceData$VoiceModel voiceData$VoiceModel) {
-        if (this.S == null || this.T == null) {
-            return;
-        }
-        int intValue = voiceData$VoiceModel.voice_status.intValue();
-        if (intValue == 1) {
-            SkinManager.setViewTextColor(this.T, R.color.CAM_X0106, 1);
-            this.T.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
-            SkinManager.setImageResource(this.S, R.drawable.but_posts_record_play_selector);
-            this.S.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(voiceData$VoiceModel.duration)));
-            this.P.setText(getContext().getString(R.string.voice_play_tip));
-            J();
-        } else if (intValue != 3) {
-        } else {
-            SkinManager.setViewTextColor(this.T, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.S, R.drawable.but_posts_record_stop_selector);
-            this.S.setContentDescription(getContext().getString(R.string.pause_load));
-            this.P.setText(getContext().getString(R.string.voice_stop_tip));
-            B();
-        }
     }
 
     @Override // d.b.h0.w.n
@@ -365,7 +302,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        v(canvas);
+        r(canvas);
         super.dispatchDraw(canvas);
     }
 
@@ -374,15 +311,11 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public void e() {
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
     public VoiceManager.i getRealView() {
         return this;
     }
 
-    public d.b.i0.c3.p0.a getRecorderManager() {
+    public d.b.i0.d3.p0.a getRecorderManager() {
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager == null || voiceManager.getRecorderManager() == null) {
             return null;
@@ -422,18 +355,18 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         if (aVar == null) {
             return;
         }
-        if (aVar.f51524a == 9) {
-            F();
+        if (aVar.f51942a == 9) {
+            A();
             d(new d.b.h0.w.a(2, 6, null));
         }
-        if (aVar.f51524a == 52) {
-            if (aVar.f51526c instanceof VoiceData$VoiceModel) {
-                I();
-                c((VoiceData$VoiceModel) aVar.f51526c);
-                this.h0 = (VoiceData$VoiceModel) aVar.f51526c;
+        if (aVar.f51942a == 52) {
+            if (aVar.f51944c instanceof VoiceData$VoiceModel) {
+                E();
+                onRefreshByPlayStatus((VoiceData$VoiceModel) aVar.f51944c);
+                this.h0 = (VoiceData$VoiceModel) aVar.f51944c;
                 return;
             }
-            F();
+            A();
             d(new d.b.h0.w.a(2, 6, null));
         }
     }
@@ -452,7 +385,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         int id = view.getId();
         if (id == R.id.restart) {
             voiceManager.stopPlay();
-            G();
+            B();
         } else if (id != R.id.play_img || (voiceData$VoiceModel = this.h0) == null) {
         } else {
             if (voiceData$VoiceModel.voice_status.intValue() == 3) {
@@ -464,7 +397,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onDeletedVoice(String str) {
         this.h0 = null;
         d(new d.b.h0.w.a(11, -1, str));
@@ -487,7 +420,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         int measuredHeight = this.R.getMeasuredHeight();
         int measuredWidth2 = this.O.getMeasuredWidth();
         int measuredHeight2 = this.O.getMeasuredHeight();
-        int i6 = this.f4258g;
+        int i6 = this.f4293g;
         this.O.layout((i5 - measuredWidth2) >> 1, i2 + i6, (measuredWidth2 + i5) >> 1, i6 + i2 + measuredHeight2);
         int bottom = this.O.getBottom();
         int i7 = (i5 - measuredWidth) >> 1;
@@ -515,7 +448,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         int measuredWidth7 = this.P.getMeasuredWidth();
         int measuredHeight5 = this.P.getMeasuredHeight();
         int bottom2 = this.R.getBottom();
-        int[] iArr = this.f4257f;
+        int[] iArr = this.f4292f;
         this.P.layout((i5 - measuredWidth7) >> 1, iArr[3] + bottom2, (measuredWidth7 + i5) >> 1, bottom2 + iArr[3] + measuredHeight5);
         this.L.set((i5 - this.J.getIntrinsicWidth()) >> 1, this.S.getTop() - this.k, (i5 + this.J.getIntrinsicHeight()) >> 1, (this.S.getTop() + this.J.getIntrinsicHeight()) - this.k);
         this.J.setBounds(this.L);
@@ -542,10 +475,51 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             }
         }
         setMeasuredDimension(i3, i4);
-        this.f4258g = getContext().getResources().getDimensionPixelSize(R.dimen.ds6) + ((i4 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2);
+        this.f4293g = getContext().getResources().getDimensionPixelSize(R.dimen.ds6) + ((i4 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2);
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public void onPlayElapse(int i) {
+        TextView textView;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
+        if (voiceData$VoiceModel == null || (textView = this.T) == null) {
+            return;
+        }
+        int i2 = i / 1000;
+        if (this.j0 != i2) {
+            textView.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration - i2));
+        }
+        this.j0 = i2;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public void onPlayPrepared() {
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public void onRefreshByPlayStatus(VoiceData$VoiceModel voiceData$VoiceModel) {
+        if (this.S == null || this.T == null) {
+            return;
+        }
+        int intValue = voiceData$VoiceModel.voice_status.intValue();
+        if (intValue == 1) {
+            SkinManager.setViewTextColor(this.T, R.color.CAM_X0106, 1);
+            this.T.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
+            SkinManager.setImageResource(this.S, R.drawable.but_posts_record_play_selector);
+            this.S.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(voiceData$VoiceModel.duration)));
+            this.P.setText(getContext().getString(R.string.voice_play_tip));
+            F();
+        } else if (intValue != 3) {
+        } else {
+            SkinManager.setViewTextColor(this.T, R.color.CAM_X0106, 1);
+            SkinManager.setImageResource(this.S, R.drawable.but_posts_record_stop_selector);
+            this.S.setContentDescription(getContext().getString(R.string.pause_load));
+            this.P.setText(getContext().getString(R.string.voice_stop_tip));
+            y();
+        }
+    }
+
+    @Override // d.b.c.e.q.f
     public void onSendVoice(String str, int i) {
         this.O.setVisibility(4);
         VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
@@ -553,10 +527,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         voiceData$VoiceModel.isLocal = true;
         voiceData$VoiceModel.voiceId = str;
         voiceData$VoiceModel.voice_status = 1;
-        E(voiceData$VoiceModel);
+        z(voiceData$VoiceModel);
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowErr(int i, String str) {
         SkinManager.setViewTextColor(this.Q, R.color.CAM_X0101, 1);
         SkinManager.setViewTextColor(this.O, R.color.CAM_X0101, 1);
@@ -578,27 +552,27 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.O.setText(str);
             postDelayed(new e(), 2000L);
         } else {
-            w();
+            s();
             this.O.setVisibility(0);
             this.O.setText(str);
             postDelayed(new f(), 2000L);
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowRecordTime(int i) {
         SkinManager.setViewTextColor(this.O, R.color.CAM_X0101, 1);
         this.O.setVisibility(0);
         this.O.setText(VoiceManager.formatVoiceTime(i));
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowRecording(int i) {
         this.i0 = Math.max(i, this.i0);
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.f4256e > 200) {
+        if (uptimeMillis - this.f4291e > 200) {
             this.i0 = 0;
-            this.f4256e = uptimeMillis;
+            this.f4291e = uptimeMillis;
         }
         int i2 = this.i0;
         if (i2 < 10) {
@@ -619,43 +593,19 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onStartedRecorder(boolean z) {
         if (z) {
-            w();
+            s();
             this.P.setText(getContext().getString(R.string.voice_record_release_to_stop));
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onStopingRecorder() {
     }
 
-    public void setCallback(d.b.f.a.a.f fVar) {
-    }
-
-    @Override // d.b.h0.w.n
-    public void setEditorTools(EditorTools editorTools) {
-        this.c0 = editorTools;
-    }
-
-    @Override // d.b.h0.w.n
-    public void setToolId(int i) {
-        this.d0 = i;
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        if (getVisibility() == 0 && (i == 4 || i == 8)) {
-            if (getVoiceManager() == null) {
-                return;
-            }
-            getVoiceManager().stopPlay();
-        }
-        super.setVisibility(i);
-    }
-
-    public void v(Canvas canvas) {
+    public void r(Canvas canvas) {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             this.x.setColor(this.F);
             this.y.setColor(this.G);
@@ -685,7 +635,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    public final void w() {
+    public final void s() {
         SkinManager.setImageResource(this.R, R.drawable.but_posts_record_zero_selector);
         this.R.setVisibility(0);
         this.n = 0;
@@ -697,9 +647,33 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.P.setText(getContext().getString(R.string.voice_record_press_to_record));
     }
 
-    public void x(Context context) {
-        z(context);
-        y();
+    public void setCallback(d.b.f.a.a.f fVar) {
+    }
+
+    @Override // d.b.h0.w.n
+    public void setEditorTools(EditorTools editorTools) {
+        this.c0 = editorTools;
+    }
+
+    @Override // d.b.h0.w.n
+    public void setToolId(int i) {
+        this.d0 = i;
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        if (getVisibility() == 0 && (i == 4 || i == 8)) {
+            if (getVoiceManager() == null) {
+                return;
+            }
+            getVoiceManager().stopPlay();
+        }
+        super.setVisibility(i);
+    }
+
+    public void u(Context context) {
+        w(context);
+        v();
         this.e0[0] = SkinManager.getColor(R.color.common_color_10151);
         this.e0[1] = SkinManager.getColor(R.color.common_color_10152);
         VoiceManager voiceManager = getVoiceManager();
@@ -708,7 +682,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    public void y() {
+    public void v() {
         Paint paint = new Paint();
         this.x = paint;
         paint.setAntiAlias(true);
@@ -731,7 +705,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.A.setStrokeWidth(2.0f);
     }
 
-    public final void z(Context context) {
+    public final void w(Context context) {
         LayoutInflater.from(context).inflate(R.layout.record_voice_area, (ViewGroup) this, true);
         setClickable(true);
         TextView textView = (TextView) findViewById(R.id.tip_error);
@@ -748,13 +722,39 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.N.setOnClickListener(this);
         this.S.setOnClickListener(this);
         this.R.setRecorderView(this);
-        w();
+        s();
+    }
+
+    public final void y() {
+        VoiceData$VoiceModel voiceData$VoiceModel = this.h0;
+        if (voiceData$VoiceModel == null) {
+            return;
+        }
+        this.n = 0;
+        int i = voiceData$VoiceModel.duration2;
+        this.U = 360.0f / (i > 0 ? i / 1000.0f : voiceData$VoiceModel.duration);
+        long uptimeMillis = SystemClock.uptimeMillis();
+        this.a0 = uptimeMillis;
+        long j = uptimeMillis + 200;
+        this.b0 = j;
+        this.f0.sendEmptyMessageAtTime(1, j);
+        invalidate();
+    }
+
+    public void z(VoiceData$VoiceModel voiceData$VoiceModel) {
+        this.h0 = voiceData$VoiceModel;
+        this.O.setText("");
+        this.O.setVisibility(4);
+        this.n = 0;
+        E();
+        d(new d.b.h0.w.a(10, -1, voiceData$VoiceModel));
+        d(new d.b.h0.w.a(2, 6, " "));
     }
 
     public VoiceRecordButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4256e = 0L;
-        this.f4257f = new int[4];
+        this.f4291e = 0L;
+        this.f4292f = new int[4];
         this.n = 0;
         this.o = 0;
         this.p = 0;
@@ -781,10 +781,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.f0 = new g(this, null);
         this.i0 = 0;
         this.j0 = 0;
-        this.f4257f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.f4257f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
-        this.f4257f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
-        this.f4257f[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
+        this.f4292f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.f4292f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
+        this.f4292f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.f4292f[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.ds134);
         this.r = dimensionPixelSize;
         int dimensionPixelSize2 = dimensionPixelSize + context.getResources().getDimensionPixelSize(R.dimen.ds14);
@@ -800,8 +800,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.v = context.getResources().getDimensionPixelSize(R.dimen.ds70);
             this.w = context.getResources().getDimensionPixelSize(R.dimen.ds210);
         }
-        this.f4258g = context.getResources().getDimensionPixelSize(R.dimen.ds26);
-        this.f4259h = context.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.f4293g = context.getResources().getDimensionPixelSize(R.dimen.ds26);
+        this.f4294h = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.ds14);
         this.j = context.getResources().getDimensionPixelSize(R.dimen.ds4);
         this.k = context.getResources().getDimensionPixelSize(R.dimen.ds4);
@@ -810,6 +810,6 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.K.setStyle(Paint.Style.STROKE);
         this.K.setStrokeWidth(this.l);
         this.J = (BitmapDrawable) getResources().getDrawable(R.drawable.dot_play_schedule);
-        x(context);
+        u(context);
     }
 }

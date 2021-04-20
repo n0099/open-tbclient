@@ -22,21 +22,21 @@ public class c {
         if (bVar == null) {
             return null;
         }
-        d.b.g0.a.a1.c.h.d dVar = bVar.f48758a;
-        if (dVar != null && dVar.n != null && dVar.f43194f != null) {
+        d.b.g0.a.a1.c.h.d dVar = bVar.f49150a;
+        if (dVar != null && dVar.n != null && dVar.f43586f != null) {
             Paint paint = new Paint();
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(dVar.n.f43200f);
-            paint.setTextSize(dVar.n.f43201g);
+            paint.setColor(dVar.n.f43592f);
+            paint.setTextSize(dVar.n.f43593g);
             d.c cVar2 = dVar.n;
             float f2 = cVar2.i;
             float f3 = cVar2.n;
             Paint paint2 = new Paint();
             paint2.setAntiAlias(true);
             paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(dVar.n.f43202h);
-            String str = dVar.n.f43199e;
+            paint2.setColor(dVar.n.f43594h);
+            String str = dVar.n.f43591e;
             float f4 = f2 * 2.0f;
             float measureText = paint.measureText(str) + f4;
             float f5 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f4;
@@ -67,8 +67,8 @@ public class c {
                 imageView.setImageBitmap(createBitmap);
                 BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
                 MarkerOptions markerOptions = new MarkerOptions();
-                d.b.g0.a.a1.c.h.c cVar4 = dVar.f43194f;
-                MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f43191e, cVar4.f43192f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                d.b.g0.a.a1.c.h.c cVar4 = dVar.f43586f;
+                MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f43583e, cVar4.f43584f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
                 d.b.g0.a.c0.c.g("map", "createLabel end");
                 return zIndex;
             }

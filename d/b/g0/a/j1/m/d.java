@@ -10,7 +10,7 @@ import d.b.g0.a.z1.g;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f44936a = -1;
+    public static int f45328a = -1;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
@@ -33,18 +33,18 @@ public class d {
     }
 
     public static int a() {
-        int i = f44936a;
+        int i = f45328a;
         if (i != -1) {
             return i;
         }
         d.b.g0.a.w0.a.N().getSwitch("swan_backstage_policy", 0);
-        f44936a = 300;
+        f45328a = 300;
         if (300 < 60) {
-            f44936a = 60;
+            f45328a = 60;
         } else if (300 > 3600) {
-            f44936a = 3600;
+            f45328a = 3600;
         }
-        return f44936a;
+        return f45328a;
     }
 
     @AnyThread

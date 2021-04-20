@@ -19,16 +19,16 @@ import d.b.g0.a.g;
 public class a implements d.b.g0.g.k0.i.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48285e;
+    public Context f48677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.g.k0.i.e.a f48286f;
+    public d.b.g0.g.k0.i.e.a f48678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f48287g;
+    public b f48679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f48288h;
+    public Handler f48680h;
     public ViewGroup i;
     public int j;
     public boolean k;
@@ -37,8 +37,8 @@ public class a implements d.b.g0.g.k0.i.b.b {
 
     /* renamed from: d.b.g0.g.k0.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC0975a extends Handler {
-        public HandlerC0975a(Looper looper) {
+    public class HandlerC0987a extends Handler {
+        public HandlerC0987a(Looper looper) {
             super(looper);
         }
 
@@ -49,7 +49,7 @@ public class a implements d.b.g0.g.k0.i.b.b {
             }
             int e2 = a.this.e();
             if (e2 > 0 && a.this.k) {
-                a.this.f48288h.sendEmptyMessageDelayed(1, e2);
+                a.this.f48680h.sendEmptyMessageDelayed(1, e2);
             }
             a.this.k();
         }
@@ -65,7 +65,7 @@ public class a implements d.b.g0.g.k0.i.b.b {
     }
 
     public a(@NonNull Context context, @NonNull d dVar) {
-        this.f48285e = context;
+        this.f48677e = context;
         this.m = dVar;
         j(i());
         g();
@@ -97,7 +97,7 @@ public class a implements d.b.g0.g.k0.i.b.b {
     @Override // d.b.g0.g.k0.i.a
     public void destroy() {
         this.k = false;
-        this.f48288h.removeCallbacksAndMessages(null);
+        this.f48680h.removeCallbacksAndMessages(null);
         d.b.g0.g.k0.c.d(this.i);
     }
 
@@ -116,28 +116,28 @@ public class a implements d.b.g0.g.k0.i.b.b {
 
     public final void g() {
         this.l = d();
-        this.f48288h = new HandlerC0975a(Looper.getMainLooper());
+        this.f48680h = new HandlerC0987a(Looper.getMainLooper());
     }
 
     @Override // d.b.g0.g.k0.i.b.b
     public void h(d.b.g0.g.k0.i.e.a aVar) {
-        this.f48286f = aVar;
+        this.f48678f = aVar;
     }
 
     @Override // d.b.g0.g.k0.i.a
     public void hide() {
         this.k = false;
-        this.f48288h.removeMessages(1);
+        this.f48680h.removeMessages(1);
         this.i.setVisibility(8);
     }
 
     public View i() {
-        return LayoutInflater.from(this.f48285e).inflate(g.swangame_recommend_button, (ViewGroup) null);
+        return LayoutInflater.from(this.f48677e).inflate(g.swangame_recommend_button, (ViewGroup) null);
     }
 
     public final void j(View view) {
-        this.j = (int) this.f48285e.getResources().getDimension(d.b.g0.a.d.swangame_recommend_button_root_padding);
-        this.i = new FrameLayout(this.f48285e);
+        this.j = (int) this.f48677e.getResources().getDimension(d.b.g0.a.d.swangame_recommend_button_root_padding);
+        this.i = new FrameLayout(this.f48677e);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(d.b.g0.g.i0.e.a(this.m.width), d.b.g0.g.i0.e.a(this.m.height));
         int i = this.j;
         layoutParams.setMargins(i, i, i, i);
@@ -151,23 +151,23 @@ public class a implements d.b.g0.g.k0.i.b.b {
 
     @Override // d.b.g0.g.k0.i.b.b
     public void o(b bVar) {
-        this.f48287g = bVar;
+        this.f48679g = bVar;
     }
 
     @Override // d.b.g0.g.k0.i.a
     public void show() {
         this.k = true;
         this.i.setVisibility(0);
-        this.f48288h.removeMessages(1);
-        this.f48288h.sendEmptyMessage(1);
+        this.f48680h.removeMessages(1);
+        this.f48680h.sendEmptyMessage(1);
     }
 
     @Override // d.b.g0.g.k0.i.b.b
     public void z(boolean z) {
         if (this.k) {
-            this.f48288h.removeMessages(1);
+            this.f48680h.removeMessages(1);
             if (z) {
-                this.f48288h.sendEmptyMessage(1);
+                this.f48680h.sendEmptyMessage(1);
             }
         }
     }

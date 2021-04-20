@@ -3,10 +3,10 @@ package com.xiaomi.push;
 public class je {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40876a = Integer.MAX_VALUE;
+    public static int f41165a = Integer.MAX_VALUE;
 
     public static void a(jb jbVar, byte b2) {
-        a(jbVar, b2, f40876a);
+        a(jbVar, b2, f41165a);
     }
 
     public static void a(jb jbVar, byte b2, int i) {
@@ -16,13 +16,13 @@ public class je {
         int i2 = 0;
         switch (b2) {
             case 2:
-                jbVar.m510a();
+                jbVar.m514a();
                 return;
             case 3:
                 jbVar.a();
                 return;
             case 4:
-                jbVar.m498a();
+                jbVar.m502a();
                 return;
             case 5:
             case 7:
@@ -30,21 +30,21 @@ public class je {
             default:
                 return;
             case 6:
-                jbVar.m508a();
+                jbVar.m512a();
                 return;
             case 8:
-                jbVar.m499a();
+                jbVar.m503a();
                 return;
             case 10:
-                jbVar.m500a();
+                jbVar.m504a();
                 return;
             case 11:
-                jbVar.m507a();
+                jbVar.m511a();
                 return;
             case 12:
-                jbVar.m505a();
+                jbVar.m509a();
                 while (true) {
-                    byte b3 = jbVar.m501a().f40867a;
+                    byte b3 = jbVar.m505a().f41156a;
                     if (b3 == 0) {
                         jbVar.f();
                         return;
@@ -54,27 +54,27 @@ public class je {
                     }
                 }
             case 13:
-                ja m503a = jbVar.m503a();
-                while (i2 < m503a.f811a) {
+                ja m507a = jbVar.m507a();
+                while (i2 < m507a.f811a) {
                     int i3 = i - 1;
-                    a(jbVar, m503a.f40872a, i3);
-                    a(jbVar, m503a.f40873b, i3);
+                    a(jbVar, m507a.f41161a, i3);
+                    a(jbVar, m507a.f41162b, i3);
                     i2++;
                 }
                 jbVar.h();
                 return;
             case 14:
-                jf m504a = jbVar.m504a();
-                while (i2 < m504a.f812a) {
-                    a(jbVar, m504a.f40877a, i - 1);
+                jf m508a = jbVar.m508a();
+                while (i2 < m508a.f812a) {
+                    a(jbVar, m508a.f41166a, i - 1);
                     i2++;
                 }
                 jbVar.j();
                 return;
             case 15:
-                iz m502a = jbVar.m502a();
-                while (i2 < m502a.f808a) {
-                    a(jbVar, m502a.f40868a, i - 1);
+                iz m506a = jbVar.m506a();
+                while (i2 < m506a.f808a) {
+                    a(jbVar, m506a.f41157a, i - 1);
                     i2++;
                 }
                 jbVar.i();

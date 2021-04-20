@@ -10,26 +10,26 @@ import com.baidu.tieba.R;
 public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15937a;
+    public TextView f15598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15938b;
+    public TextView f15599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15939c;
+    public RelativeLayout f15600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f15940d;
+    public LinearLayout f15601d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15941e;
+    public int f15602e;
 
     public ManagerApplyViewHolder(View view) {
         super(view);
-        this.f15941e = 3;
-        this.f15940d = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
-        this.f15937a = (TextView) view.findViewById(R.id.assist_apply_tip);
-        this.f15938b = (TextView) view.findViewById(R.id.assist_left_tv);
-        this.f15939c = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
+        this.f15602e = 3;
+        this.f15601d = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
+        this.f15598a = (TextView) view.findViewById(R.id.assist_apply_tip);
+        this.f15599b = (TextView) view.findViewById(R.id.assist_left_tv);
+        this.f15600c = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
     }
 }

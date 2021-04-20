@@ -22,6 +22,6 @@ public abstract class UShortIterator implements Iterator<UShort>, KMappedMarker 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
     public final UShort next() {
-        return UShort.m873boximpl(nextUShort());
+        return UShort.m877boximpl(nextUShort());
     }
 }

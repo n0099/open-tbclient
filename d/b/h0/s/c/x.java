@@ -1,41 +1,37 @@
 package d.b.h0.s.c;
+
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51239a;
+    public int f51658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51240b;
+    public String f51659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51241c;
+    public String f51660c;
 
-    public int a() {
-        return this.f51240b;
+    /* renamed from: d  reason: collision with root package name */
+    public String f51661d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f51662e;
+
+    public boolean a() {
+        return TextUtils.isEmpty(this.f51659b) || this.f51658a <= 0;
     }
 
-    public int b() {
-        return this.f51241c;
-    }
-
-    public int c() {
-        int i = this.f51239a;
-        if (i == 0) {
-            return Integer.MAX_VALUE;
+    public void b(JSONObject jSONObject) {
+        if (jSONObject == null || jSONObject == null) {
+            return;
         }
-        return i;
-    }
-
-    public void d(String str) {
-        this.f51240b = d.b.b.e.m.b.d(str, 0);
-    }
-
-    public void e(String str) {
-        this.f51241c = d.b.b.e.m.b.d(str, 0);
-    }
-
-    public void f(String str) {
-        this.f51239a = d.b.b.e.m.b.d(str, 0);
+        this.f51658a = jSONObject.optInt("tab_type");
+        this.f51659b = jSONObject.optString("tab_name");
+        this.f51660c = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
+        this.f51661d = jSONObject.optString("tab_version");
     }
 }

@@ -6,29 +6,29 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51151c;
+    public int f51561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51152d;
+    public long f51562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51153e;
+    public long f51563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51154f;
+    public String f51564f;
     public String m;
     public boolean q;
     public String r;
     public String s;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51149a = 1;
+    public int f51559a = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51155g = 0;
+    public int f51565g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51156h = 1;
+    public int f51566h = 1;
     public int i = 0;
     public int j = 0;
     public int k = 300;
@@ -38,10 +38,10 @@ public class d {
     public int p = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f51150b = new h();
+    public j f51560b = new j();
 
-    public h a() {
-        return this.f51150b;
+    public j a() {
+        return this.f51560b;
     }
 
     public int b() {
@@ -53,15 +53,15 @@ public class d {
     }
 
     public boolean d() {
-        return this.f51156h == 1;
+        return this.f51566h == 1;
     }
 
     public boolean e() {
-        return this.f51149a > 0;
+        return this.f51559a > 0;
     }
 
     public boolean f() {
-        return this.f51155g == 1;
+        return this.f51565g == 1;
     }
 
     public boolean g() {
@@ -69,9 +69,9 @@ public class d {
     }
 
     public boolean h() {
-        if (this.f51151c == 1) {
+        if (this.f51561c == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.f51152d < currentTimeMillis && currentTimeMillis < this.f51153e;
+            return this.f51562d < currentTimeMillis && currentTimeMillis < this.f51563e;
         }
         return false;
     }
@@ -81,32 +81,32 @@ public class d {
     }
 
     public String j() {
-        return this.f51154f;
+        return this.f51564f;
     }
 
     public void k(JSONObject jSONObject) throws JSONException {
         if (jSONObject == null) {
             return;
         }
-        this.f51149a = jSONObject.optInt("als_control", 1);
+        this.f51559a = jSONObject.optInt("als_control", 1);
         jSONObject.optInt("not_use_lego_patch", 0);
-        this.f51156h = jSONObject.optInt("ad_video_not_autoplay", 1);
+        this.f51566h = jSONObject.optInt("ad_video_not_autoplay", 1);
         this.j = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.f51150b.a(jSONObject);
+        this.f51560b.a(jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
         if (optJSONObject != null) {
-            this.f51151c = optJSONObject.optInt("log_feed_switch", 0);
-            this.f51152d = optJSONObject.optLong("start_time", -1L);
-            this.f51153e = optJSONObject.optLong("end_time", -1L);
-            this.f51154f = optJSONObject.optString("ext_info");
+            this.f51561c = optJSONObject.optInt("log_feed_switch", 0);
+            this.f51562d = optJSONObject.optLong("start_time", -1L);
+            this.f51563e = optJSONObject.optLong("end_time", -1L);
+            this.f51564f = optJSONObject.optString("ext_info");
         }
-        this.f51155g = jSONObject.optInt("ad_collect_switch", 0);
+        this.f51565g = jSONObject.optInt("ad_collect_switch", 0);
         JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
         if (optJSONObject2 != null) {
             this.k = optJSONObject2.optInt("interval", 300);
         }
         this.l = jSONObject.optInt("video_page_style", 1);
-        d.b.h0.r.d0.b.i().u("video_page_style", this.l);
+        d.b.h0.r.d0.b.j().v("video_page_style", this.l);
         this.i = jSONObject.optInt("ad_download_lib", 0);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
         if (optJSONObject3 != null) {

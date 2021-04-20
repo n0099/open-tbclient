@@ -17,8 +17,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.q.h;
+import d.b.c.e.p.k;
+import d.b.c.e.q.h;
 import d.b.h0.s.d.b;
 import d.b.h0.s.d.d;
 /* loaded from: classes3.dex */

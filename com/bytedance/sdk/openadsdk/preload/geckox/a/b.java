@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f30209a;
+    public static volatile b f29894a;
 
     public b(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
         super(context, str, cursorFactory, i);
     }
 
     public static b a(Context context) {
-        if (f30209a == null) {
+        if (f29894a == null) {
             synchronized (b.class) {
-                if (f30209a == null) {
+                if (f29894a == null) {
                     Context applicationContext = context.getApplicationContext();
-                    f30209a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                    f29894a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                 }
             }
         }
-        return f30209a;
+        return f29894a;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

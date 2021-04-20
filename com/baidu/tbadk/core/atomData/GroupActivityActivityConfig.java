@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import android.content.Context;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
 public class GroupActivityActivityConfig extends IntentConfig {
@@ -20,6 +21,6 @@ public class GroupActivityActivityConfig extends IntentConfig {
         if (context instanceof Activity) {
             return;
         }
-        getIntent().addFlags(268435456);
+        getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
     }
 }

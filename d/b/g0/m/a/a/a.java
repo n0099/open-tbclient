@@ -19,33 +19,33 @@ public class a extends d.b.g0.m.a.b.a {
 
     /* renamed from: d.b.g0.m.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC1023a implements Runnable {
+    public static class RunnableC1035a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String[] f49063e;
+        public final /* synthetic */ String[] f49455e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f49064f;
+        public final /* synthetic */ Activity f49456f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f49065g;
+        public final /* synthetic */ int f49457g;
 
-        public RunnableC1023a(String[] strArr, Activity activity, int i) {
-            this.f49063e = strArr;
-            this.f49064f = activity;
-            this.f49065g = i;
+        public RunnableC1035a(String[] strArr, Activity activity, int i) {
+            this.f49455e = strArr;
+            this.f49456f = activity;
+            this.f49457g = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int[] iArr = new int[this.f49063e.length];
-            PackageManager packageManager = this.f49064f.getPackageManager();
-            String packageName = this.f49064f.getPackageName();
-            int length = this.f49063e.length;
+            int[] iArr = new int[this.f49455e.length];
+            PackageManager packageManager = this.f49456f.getPackageManager();
+            String packageName = this.f49456f.getPackageName();
+            int length = this.f49455e.length;
             for (int i = 0; i < length; i++) {
-                iArr[i] = packageManager.checkPermission(this.f49063e[i], packageName);
+                iArr[i] = packageManager.checkPermission(this.f49455e[i], packageName);
             }
-            ((b) this.f49064f).onRequestPermissionsResult(this.f49065g, this.f49063e, iArr);
+            ((b) this.f49456f).onRequestPermissionsResult(this.f49457g, this.f49455e, iArr);
         }
     }
 
@@ -58,40 +58,40 @@ public class a extends d.b.g0.m.a.b.a {
     public static class c extends b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public r f49066a;
+        public r f49458a;
 
         public c(r rVar) {
-            this.f49066a = rVar;
+            this.f49458a = rVar;
         }
 
         @Override // d.b.g0.m.a.a.b.a
         public Parcelable a(View view, Matrix matrix, RectF rectF) {
-            return this.f49066a.a(view, matrix, rectF);
+            return this.f49458a.a(view, matrix, rectF);
         }
 
         @Override // d.b.g0.m.a.a.b.a
         public View b(Context context, Parcelable parcelable) {
-            return this.f49066a.b(context, parcelable);
+            return this.f49458a.b(context, parcelable);
         }
 
         @Override // d.b.g0.m.a.a.b.a
         public void c(List<String> list, Map<String, View> map) {
-            this.f49066a.c(list, map);
+            this.f49458a.c(list, map);
         }
 
         @Override // d.b.g0.m.a.a.b.a
         public void d(List<View> list) {
-            this.f49066a.d(list);
+            this.f49458a.d(list);
         }
 
         @Override // d.b.g0.m.a.a.b.a
         public void e(List<String> list, List<View> list2, List<View> list3) {
-            this.f49066a.e(list, list2, list3);
+            this.f49458a.e(list, list2, list3);
         }
 
         @Override // d.b.g0.m.a.a.b.a
         public void f(List<String> list, List<View> list2, List<View> list3) {
-            this.f49066a.f(list, list2, list3);
+            this.f49458a.f(list, list2, list3);
         }
     }
 
@@ -120,7 +120,7 @@ public class a extends d.b.g0.m.a.b.a {
         if (Build.VERSION.SDK_INT >= 23) {
             d.b.g0.m.a.a.c.a(activity, strArr, i);
         } else if (activity instanceof b) {
-            new Handler(Looper.getMainLooper()).post(new RunnableC1023a(strArr, activity, i));
+            new Handler(Looper.getMainLooper()).post(new RunnableC1035a(strArr, activity, i));
         }
     }
 

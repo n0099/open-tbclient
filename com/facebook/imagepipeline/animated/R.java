@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.animated;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class R {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class attr {
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
@@ -34,25 +34,25 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f040452;
+        public static final int svgImage = 0x7f040458;
         public static final int viewAspectRatio = 0x7f040489;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class id {
-        public static final int center = 0x7f09062a;
-        public static final int centerCrop = 0x7f09062e;
-        public static final int centerInside = 0x7f09062f;
-        public static final int fitBottomStart = 0x7f090af1;
-        public static final int fitCenter = 0x7f090af2;
-        public static final int fitEnd = 0x7f090af3;
-        public static final int fitStart = 0x7f090af4;
-        public static final int fitXY = 0x7f090af5;
-        public static final int focusCrop = 0x7f090b1a;
-        public static final int none = 0x7f091691;
+        public static final int center = 0x7f090637;
+        public static final int centerCrop = 0x7f09063b;
+        public static final int centerInside = 0x7f09063c;
+        public static final int fitBottomStart = 0x7f090b01;
+        public static final int fitCenter = 0x7f090b02;
+        public static final int fitEnd = 0x7f090b03;
+        public static final int fitStart = 0x7f090b04;
+        public static final int fitXY = 0x7f090b05;
+        public static final int focusCrop = 0x7f090b2c;
+        public static final int none = 0x7f0916aa;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class styleable {
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;
         public static final int GenericDraweeHierarchy_backgroundImage = 0x00000001;

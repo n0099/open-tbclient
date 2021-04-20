@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.tbtitle.model.res;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.n0.d.a.b.a;
+import d.b.i0.o0.d.a.b.a;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;

@@ -5,10 +5,10 @@ import android.media.MediaPlayer;
 public class j implements MediaPlayer.OnCompletionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ i f10373a;
+    public final /* synthetic */ i f9931a;
 
     public j(i iVar) {
-        this.f10373a = iVar;
+        this.f9931a = iVar;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener

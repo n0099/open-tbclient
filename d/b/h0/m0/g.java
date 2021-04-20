@@ -5,14 +5,14 @@ import com.baidu.adp.BdUniqueId;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50321a;
+    public int f50728a;
 
     public g() {
         BdUniqueId.gen();
-        this.f50321a = 0;
+        this.f50728a = 0;
     }
 
     public void a(int i) {
-        this.f50321a = i;
+        this.f50728a = i;
     }
 }

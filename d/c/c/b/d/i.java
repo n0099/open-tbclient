@@ -11,27 +11,27 @@ import java.util.concurrent.Executors;
 public class i implements d.c.c.b.f.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f65712a;
+    public final Executor f66557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f65713b = Executors.newCachedThreadPool();
+    public final Executor f66558b = Executors.newCachedThreadPool();
 
     /* renamed from: c  reason: collision with root package name */
-    public d.c.c.b.c.c f65714c = d.c.c.b.c.f.a();
+    public d.c.c.b.c.c f66559c = d.c.c.b.c.f.a();
 
     /* loaded from: classes5.dex */
     public class a implements Executor {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Handler f65715e;
+        public final /* synthetic */ Handler f66560e;
 
         public a(i iVar, Handler handler) {
-            this.f65715e = handler;
+            this.f66560e = handler;
         }
 
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            this.f65715e.post(runnable);
+            this.f66560e.post(runnable);
         }
     }
 
@@ -39,43 +39,43 @@ public class i implements d.c.c.b.f.d {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Request f65716e;
+        public final Request f66561e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final o f65717f;
+        public final o f66562f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Runnable f65718g;
+        public final Runnable f66563g;
 
         public b(Request request, o oVar, Runnable runnable) {
-            this.f65716e = request;
-            this.f65717f = oVar;
-            this.f65718g = runnable;
+            this.f66561e = request;
+            this.f66562f = oVar;
+            this.f66563g = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f65716e.isCanceled()) {
-                this.f65716e.a("canceled-at-delivery");
+            if (this.f66561e.isCanceled()) {
+                this.f66561e.a("canceled-at-delivery");
                 return;
             }
-            this.f65717f.f65745g = this.f65716e.getExtra();
-            this.f65717f.a(SystemClock.elapsedRealtime() - this.f65716e.getStartTime());
-            this.f65717f.g(this.f65716e.getNetDuration());
+            this.f66562f.f66590g = this.f66561e.getExtra();
+            this.f66562f.a(SystemClock.elapsedRealtime() - this.f66561e.getStartTime());
+            this.f66562f.g(this.f66561e.getNetDuration());
             try {
-                if (this.f65717f.f()) {
-                    this.f65716e.a(this.f65717f);
+                if (this.f66562f.f()) {
+                    this.f66561e.a(this.f66562f);
                 } else {
-                    this.f65716e.deliverError(this.f65717f);
+                    this.f66561e.deliverError(this.f66562f);
                 }
             } catch (Throwable unused) {
             }
-            if (this.f65717f.f65742d) {
-                this.f65716e.addMarker("intermediate-response");
+            if (this.f66562f.f66587d) {
+                this.f66561e.addMarker("intermediate-response");
             } else {
-                this.f65716e.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                this.f66561e.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             }
-            Runnable runnable = this.f65718g;
+            Runnable runnable = this.f66563g;
             if (runnable != null) {
                 try {
                     runnable.run();
@@ -86,14 +86,14 @@ public class i implements d.c.c.b.f.d {
     }
 
     public i(Handler handler) {
-        this.f65712a = new a(this, handler);
+        this.f66557a = new a(this, handler);
     }
 
     @Override // d.c.c.b.f.d
     public void a(Request<?> request, VAdError vAdError) {
         request.addMarker("post-error");
         d(request).execute(new b(request, o.b(vAdError), null));
-        d.c.c.b.c.c cVar = this.f65714c;
+        d.c.c.b.c.c cVar = this.f66559c;
         if (cVar != null) {
             cVar.c(request, vAdError);
         }
@@ -102,7 +102,7 @@ public class i implements d.c.c.b.f.d {
     @Override // d.c.c.b.f.d
     public void b(Request<?> request, o<?> oVar) {
         c(request, oVar, null);
-        d.c.c.b.c.c cVar = this.f65714c;
+        d.c.c.b.c.c cVar = this.f66559c;
         if (cVar != null) {
             cVar.b(request, oVar);
         }
@@ -113,13 +113,13 @@ public class i implements d.c.c.b.f.d {
         request.markDelivered();
         request.addMarker("post-response");
         d(request).execute(new b(request, oVar, runnable));
-        d.c.c.b.c.c cVar = this.f65714c;
+        d.c.c.b.c.c cVar = this.f66559c;
         if (cVar != null) {
             cVar.b(request, oVar);
         }
     }
 
     public final Executor d(Request<?> request) {
-        return (request == null || request.isResponseOnMain()) ? this.f65712a : this.f65713b;
+        return (request == null || request.isResponseOnMain()) ? this.f66557a : this.f66558b;
     }
 }

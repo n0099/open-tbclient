@@ -6,13 +6,13 @@ import com.baidu.browser.core.util.BdLog;
 public final class BdCore {
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f4304c;
+    public static BdCore f4339c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4305a;
+    public Context f4340a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4306b;
+    public boolean f4341b;
 
     /* loaded from: classes.dex */
     public enum EditTextType {
@@ -25,22 +25,22 @@ public final class BdCore {
 
     public BdCore() {
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f4306b = false;
+        this.f4341b = false;
     }
 
     public static synchronized BdCore b() {
         BdCore bdCore;
         synchronized (BdCore.class) {
-            if (f4304c == null) {
-                f4304c = new BdCore();
+            if (f4339c == null) {
+                f4339c = new BdCore();
             }
-            bdCore = f4304c;
+            bdCore = f4339c;
         }
         return bdCore;
     }
 
     public Context a() {
-        Context context = this.f4305a;
+        Context context = this.f4340a;
         if (context != null) {
             return context;
         }
@@ -48,11 +48,11 @@ public final class BdCore {
     }
 
     public void c(Context context, boolean z) {
-        if (this.f4306b) {
+        if (this.f4341b) {
             return;
         }
         BdLog.f(z);
-        this.f4305a = context.getApplicationContext();
-        this.f4306b = true;
+        this.f4340a = context.getApplicationContext();
+        this.f4341b = true;
     }
 }

@@ -13,6 +13,9 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,19 +30,19 @@ import java.util.Collections;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64085a;
+    public static String f64813a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64086b;
+    public static String f64814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f64087c;
+    public static String f64815c;
 
     public static String a() {
-        if (TextUtils.isEmpty(f64087c)) {
+        if (TextUtils.isEmpty(f64815c)) {
             k(d.b.m0.a.c.i().g());
         }
-        return f64087c;
+        return f64815c;
     }
 
     public static String b(WifiManager wifiManager) throws Exception {
@@ -80,7 +83,7 @@ public final class i {
     public static String d() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
                     byte[] hardwareAddress = networkInterface.getHardwareAddress();
                     if (hardwareAddress == null) {
                         return "";
@@ -105,10 +108,10 @@ public final class i {
 
     public static String e(Context context) {
         try {
-            return Settings.System.getString(context.getContentResolver(), "android_id");
+            return Settings.System.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception e2) {
             d.b.m0.a.f.i.d(e2);
-            return "NA";
+            return AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
         }
     }
 
@@ -204,9 +207,9 @@ public final class i {
     public static void k(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        f64085a = String.valueOf(displayMetrics.widthPixels);
-        f64086b = String.valueOf(displayMetrics.heightPixels);
-        f64087c = String.valueOf(displayMetrics.density);
+        f64813a = String.valueOf(displayMetrics.widthPixels);
+        f64814b = String.valueOf(displayMetrics.heightPixels);
+        f64815c = String.valueOf(displayMetrics.density);
     }
 
     public static String l(Context context) {
@@ -219,16 +222,16 @@ public final class i {
     }
 
     public static String m() {
-        if (TextUtils.isEmpty(f64085a)) {
+        if (TextUtils.isEmpty(f64813a)) {
             k(d.b.m0.a.c.i().g());
         }
-        return f64085a;
+        return f64813a;
     }
 
     public static String n() {
-        if (TextUtils.isEmpty(f64086b)) {
+        if (TextUtils.isEmpty(f64814b)) {
             k(d.b.m0.a.c.i().g());
         }
-        return f64086b;
+        return f64814b;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.download.http;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BdHttpCancelException extends IOException {
     public static final long serialVersionUID = 6712119810502114101L;
 

@@ -11,34 +11,34 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37818a;
+    public int f38107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37819b = String.valueOf(-1);
+    public String f38108b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37820c = "";
+    public String f38109c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37821d = "";
+    public String f38110d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37822e = -1;
+    public int f38111e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37823f = "";
+    public String f38112f = "";
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37824a;
+        public String f38113a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37825b;
+        public String f38114b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37826c;
+        public String f38115c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -62,23 +62,23 @@ public class e {
         }
 
         public String a() {
-            return this.f37826c;
+            return this.f38115c;
         }
 
         public void a(String str) {
-            this.f37824a = str;
+            this.f38113a = str;
         }
 
         public void b(String str) {
-            this.f37825b = str;
+            this.f38114b = str;
         }
 
         public void c(String str) {
-            this.f37826c = str;
+            this.f38115c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f37824a + "', message='" + this.f37825b + "', publicKey='" + this.f37826c + "'}";
+            return "PublicKeyStatus{code='" + this.f38113a + "', message='" + this.f38114b + "', publicKey='" + this.f38115c + "'}";
         }
     }
 
@@ -190,54 +190,54 @@ public class e {
     }
 
     public int a() {
-        return this.f37818a;
+        return this.f38107a;
     }
 
     public void a(int i) {
-        this.f37818a = i;
+        this.f38107a = i;
     }
 
     public void a(String str) {
-        this.f37819b = str;
+        this.f38108b = str;
     }
 
     public String b() {
-        return this.f37819b;
+        return this.f38108b;
     }
 
     public void b(int i) {
-        this.f37822e = i;
+        this.f38111e = i;
     }
 
     public void b(String str) {
-        this.f37820c = str;
+        this.f38109c = str;
     }
 
     public String c() {
-        return this.f37820c;
+        return this.f38109c;
     }
 
     public void c(String str) {
-        this.f37821d = str;
+        this.f38110d = str;
     }
 
     public String d() {
-        return this.f37821d;
+        return this.f38110d;
     }
 
     public void d(String str) {
-        this.f37823f = str;
+        this.f38112f = str;
     }
 
     public int e() {
-        return this.f37822e;
+        return this.f38111e;
     }
 
     public String f() {
-        return this.f37823f;
+        return this.f38112f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f37818a + ", taskId='" + this.f37819b + "', title='" + this.f37820c + "', content='" + this.f37821d + "', clickType=" + this.f37822e + ", params='" + this.f37823f + "'}";
+        return "SecurityMessage{timestamp=" + this.f38107a + ", taskId='" + this.f38108b + "', title='" + this.f38109c + "', content='" + this.f38110d + "', clickType=" + this.f38111e + ", params='" + this.f38112f + "'}";
     }
 }

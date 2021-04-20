@@ -6,28 +6,28 @@ import kotlin.jvm.internal.ByteCompanionObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1890a = 128;
+    public static final int f1915a = 128;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1891b = 64;
+    public static final int f1916b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1892c = 24;
+    public static final int f1917c = 24;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1893d = 8;
+    public static final int f1918d = 8;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1894e = 16;
+    public static final int f1919e = 16;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1895f = 4;
+    public static final int f1920f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1896g = -128;
+    public static final int f1921g = -128;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final char f1897h = '=';
+    public static final char f1922h = '=';
     public static final byte[] i = new byte[128];
     public static final char[] j = new char[64];
 
@@ -142,8 +142,8 @@ public final class a {
             cArr[i6] = cArr3[(byte) i19];
             int i21 = i20 + 1;
             cArr[i20] = cArr3[b10 << 4];
-            cArr[i21] = f1897h;
-            cArr[i21 + 1] = f1897h;
+            cArr[i21] = f1922h;
+            cArr[i21 + 1] = f1922h;
         } else if (i2 == 16) {
             byte b11 = bArr[i5];
             byte b12 = bArr[i5 + 1];
@@ -166,7 +166,7 @@ public final class a {
             int i27 = i26 + 1;
             cArr[i26] = cArr4[((byte) i25) | (b14 << 4)];
             cArr[i27] = cArr4[b13 << 2];
-            cArr[i27 + 1] = f1897h;
+            cArr[i27 + 1] = f1922h;
         }
         return new String(cArr);
     }

@@ -3,7 +3,7 @@ package com.baidu.fsg.face.base;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5528a = 4;
+    public static final int f5563a = 4;
 
     public static String a(int i) {
         return i != 4 ? "" : "com.baidu.fsg.face.liveness.SapiLivenessRecogManager";

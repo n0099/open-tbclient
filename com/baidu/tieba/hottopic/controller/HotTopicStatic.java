@@ -32,12 +32,12 @@ import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.newlist.HotTopicListActivity;
 import d.b.h0.r.q.a2;
 import d.b.h0.z0.n0;
-import d.b.i0.p0.g;
+import d.b.i0.q0.g;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicStatic {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -55,7 +55,7 @@ public class HotTopicStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -65,12 +65,12 @@ public class HotTopicStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.b.i0.b1.d.c(null, a2.o3));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.b.i0.c1.d.c(null, a2.o3));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c implements UrlManager.UrlSchemaHandler {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlSchemaHandler
         public void deal(TbPageContext<?> tbPageContext, Map<String, String> map) {
@@ -81,30 +81,30 @@ public class HotTopicStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends d.b.h0.e0.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f17558a;
+            public final /* synthetic */ g f17235a;
 
             public a(d dVar, g gVar) {
-                this.f17558a = gVar;
+                this.f17235a = gVar;
             }
 
             @Override // d.b.h0.e0.b
             public d.b.h0.e0.c createFragmentTabStructure() {
                 FrsHottopicFragment frsHottopicFragment = new FrsHottopicFragment();
                 Bundle bundle = new Bundle();
-                bundle.putString("fid", this.f17558a.b());
-                bundle.putString("from", this.f17558a.d());
+                bundle.putString("fid", this.f17235a.b());
+                bundle.putString("from", this.f17235a.d());
                 frsHottopicFragment.setArguments(bundle);
                 d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-                cVar.f50155a = frsHottopicFragment;
-                cVar.f50159e = 401;
-                cVar.f50162h = d.b.h0.e0.c.j;
+                cVar.f50548a = frsHottopicFragment;
+                cVar.f50552e = 401;
+                cVar.i = d.b.h0.e0.c.k;
                 return cVar;
             }
 
@@ -157,8 +157,8 @@ public class HotTopicStatic {
     }
 
     public static void c() {
-        d.b.i0.c3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
     public static void d() {
@@ -168,13 +168,13 @@ public class HotTopicStatic {
     }
 
     public static void e() {
-        d.b.i0.c3.d0.a.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
     }
 
     public static void f() {
-        d.b.i0.c3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
     public static void g() {
@@ -182,7 +182,7 @@ public class HotTopicStatic {
     }
 
     public static void h() {
-        d.b.i0.c3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 }

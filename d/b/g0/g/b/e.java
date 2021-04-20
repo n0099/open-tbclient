@@ -11,10 +11,10 @@ public class e {
     public static class a extends StringResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f47904a;
+        public final /* synthetic */ c f48296a;
 
         public a(c cVar) {
-            this.f47904a = cVar;
+            this.f48296a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,19 +22,19 @@ public class e {
         /* renamed from: a */
         public void onSuccess(String str, int i) {
             if (!TextUtils.isEmpty(str)) {
-                JSONObject b2 = e.b(str, this.f47904a);
+                JSONObject b2 = e.b(str, this.f48296a);
                 if (b2 == null) {
                     return;
                 }
-                this.f47904a.onSuccess(g.a(b2));
+                this.f48296a.onSuccess(g.a(b2));
                 return;
             }
-            this.f47904a.onFail("response is null");
+            this.f48296a.onFail("response is null");
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f47904a.onFail(exc.getMessage());
+            this.f48296a.onFail(exc.getMessage());
         }
     }
 
@@ -42,10 +42,10 @@ public class e {
     public static class b extends StringResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f47905a;
+        public final /* synthetic */ c f48297a;
 
         public b(c cVar) {
-            this.f47905a = cVar;
+            this.f48297a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,19 +53,19 @@ public class e {
         /* renamed from: a */
         public void onSuccess(String str, int i) {
             if (!TextUtils.isEmpty(str)) {
-                JSONObject b2 = e.b(str, this.f47905a);
+                JSONObject b2 = e.b(str, this.f48297a);
                 if (b2 == null) {
                     return;
                 }
-                this.f47905a.onSuccess(f.a(b2));
+                this.f48297a.onSuccess(f.a(b2));
                 return;
             }
-            this.f47905a.onFail("response is null");
+            this.f48297a.onFail("response is null");
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f47905a.onFail(exc.getMessage());
+            this.f48297a.onFail(exc.getMessage());
         }
     }
 

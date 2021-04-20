@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.x.e.a.k;
+import f.b.g;
+import f.b.x.e.a.k;
 import g.d.b;
 import g.d.c;
 import g.d.d;
@@ -43,7 +43,7 @@ public abstract class FlowableSamplePublisher$SamplePublisherSubscriber<T> exten
         if (andSet != null) {
             if (this.requested.get() != 0) {
                 this.actual.onNext(andSet);
-                f.a.x.i.b.e(this.requested, 1L);
+                f.b.x.i.b.e(this.requested, 1L);
                 return;
             }
             cancel();
@@ -73,7 +73,7 @@ public abstract class FlowableSamplePublisher$SamplePublisherSubscriber<T> exten
         lazySet(t);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
@@ -88,7 +88,7 @@ public abstract class FlowableSamplePublisher$SamplePublisherSubscriber<T> exten
     @Override // g.d.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
-            f.a.x.i.b.a(this.requested, j);
+            f.b.x.i.b.a(this.requested, j);
         }
     }
 

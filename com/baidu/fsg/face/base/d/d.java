@@ -5,16 +5,16 @@ import android.util.Log;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5606a = "SAPI_BIOMETRIC";
+    public static final String f5641a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5607b = "%1$s\n%2$s";
+    public static final String f5642b = "%1$s\n%2$s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f5608c = false;
+    public static boolean f5643c = false;
 
     public static void a(boolean z) {
-        f5608c = z;
+        f5643c = z;
     }
 
     public static void b(String str, Object... objArr) {
@@ -42,7 +42,7 @@ public final class d {
     }
 
     public static void a(int i, Throwable th, String str, Object... objArr) {
-        if (f5608c) {
+        if (f5643c) {
             if (objArr.length > 0) {
                 str = String.format(str, objArr);
             }

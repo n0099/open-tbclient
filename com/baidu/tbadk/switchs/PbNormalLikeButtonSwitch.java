@@ -8,7 +8,7 @@ public class PbNormalLikeButtonSwitch extends BaseNormalSwitch {
         return mInstance.isOn();
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.b.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.c.e.f.a
     public String getName() {
         return "android_pb_normal_like_btn";
     }

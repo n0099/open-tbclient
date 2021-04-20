@@ -3,7 +3,6 @@ package d.b.j.b;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import d.b.j.g.a;
 import d.b.j.l;
 import java.util.Comparator;
@@ -12,23 +11,23 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static Comparator<a> f63643e = new C1725a();
+    public static Comparator<a> f64343e = new C1737a();
 
     /* renamed from: a  reason: collision with root package name */
-    public b f63644a;
+    public b f64344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C1728a f63645b;
+    public a.C1740a f64345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f63646c;
+    public final String f64346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63647d;
+    public long f64347d;
 
     /* renamed from: d.b.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C1725a implements Comparator<a> {
+    public static class C1737a implements Comparator<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -42,37 +41,37 @@ public abstract class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f63648a;
+        public Context f64348a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.j.g.a f63649b;
+        public d.b.j.g.a f64349b;
     }
 
     /* loaded from: classes.dex */
     public static abstract class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1728a f63650a;
+        public a.C1740a f64350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63651b;
+        public String f64351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63652c = true;
+        public boolean f64352c = true;
 
-        public c(a.C1728a c1728a, String str) {
-            this.f63650a = c1728a;
-            this.f63651b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
+        public c(a.C1740a c1740a, String str) {
+            this.f64350a = c1740a;
+            this.f64351b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
         public abstract void a(JSONObject jSONObject);
 
         public void b(boolean z) {
-            this.f63652c = z;
+            this.f64352c = z;
         }
 
         public boolean c() {
-            String c2 = this.f63650a.c(this.f63651b, true);
+            String c2 = this.f64350a.c(this.f64351b, true);
             if (!TextUtils.isEmpty(c2)) {
                 try {
                     a(new JSONObject(c2));
@@ -87,11 +86,11 @@ public abstract class a {
         public abstract void d(JSONObject jSONObject);
 
         public boolean e() {
-            if (this.f63652c) {
+            if (this.f64352c) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     d(jSONObject);
-                    this.f63650a.e(this.f63651b, jSONObject.toString(), true);
+                    this.f64350a.e(this.f64351b, jSONObject.toString(), true);
                     b(false);
                     return true;
                 } catch (Exception unused) {
@@ -131,21 +130,21 @@ public abstract class a {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f63653a;
+        public boolean f64353a;
     }
 
     /* loaded from: classes.dex */
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public l.a f63654a;
+        public l.a f64354a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f63655b;
+        public int f64355b;
 
         public h(int i, l.a aVar, Exception exc) {
-            this.f63655b = i;
-            this.f63654a = aVar;
+            this.f64355b = i;
+            this.f64354a = aVar;
         }
 
         public static h a(int i) {
@@ -161,13 +160,13 @@ public abstract class a {
         }
 
         public boolean c() {
-            return this.f63655b == 0;
+            return this.f64355b == 0;
         }
     }
 
     public a(String str, long j) {
-        this.f63646c = str;
-        this.f63647d = j;
+        this.f64346c = str;
+        this.f64347d = j;
     }
 
     public abstract f a(e eVar, l.a aVar);
@@ -175,17 +174,17 @@ public abstract class a {
     public abstract h b(String str, g gVar);
 
     public String c() {
-        return this.f63646c;
+        return this.f64346c;
     }
 
     public final void d(b bVar) {
-        this.f63644a = bVar;
-        this.f63645b = bVar.f63649b.e().b(IXAdRequestInfo.CS);
+        this.f64344a = bVar;
+        this.f64345b = bVar.f64349b.e().b("cs");
     }
 
     public abstract void e(d dVar);
 
     public long f() {
-        return this.f63647d;
+        return this.f64347d;
     }
 }

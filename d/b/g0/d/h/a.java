@@ -16,59 +16,59 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47494a = k.f45051a;
+    public static final boolean f47886a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f47495b = SchemeConfig.getSchemeHead() + "://";
+    public static final String f47887b = SchemeConfig.getSchemeHead() + "://";
 
     /* renamed from: d.b.g0.d.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0920a extends StringResponseCallback {
+    public static class C0932a extends StringResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public Response f47496a;
+        public Response f47888a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f47497b;
+        public final /* synthetic */ String f47889b;
 
-        public C0920a(String str) {
-            this.f47497b = str;
+        public C0932a(String str) {
+            this.f47889b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(String str, int i) {
-            if (a.f47494a) {
+            if (a.f47886a) {
                 Log.d("SwanAppExchanger", "startLaunchAction onSuccess result: " + str);
                 Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
             }
             if (i != 200) {
-                String f2 = a.f(this.f47496a);
+                String f2 = a.f(this.f47888a);
                 if (!TextUtils.isEmpty(f2)) {
                     b.a(f2);
                     return;
                 }
-                a.d("get launch scheme fail: request fail with code " + i, this.f47497b, str, true);
+                a.d("get launch scheme fail: request fail with code " + i, this.f47889b, str, true);
                 return;
             }
             try {
                 b.a(new JSONObject(str).optString("data"));
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                a.d("get launch scheme fail: " + e2.getMessage(), this.f47497b, str, false);
+                a.d("get launch scheme fail: " + e2.getMessage(), this.f47889b, str, false);
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.f47497b, "", true);
+            a.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.f47889b, "", true);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
         public String parseResponse(Response response, int i) throws Exception {
-            this.f47496a = response;
+            this.f47888a = response;
             return super.parseResponse(response, i);
         }
     }
@@ -82,13 +82,13 @@ public class a {
         aVar.h(12L);
         aVar.e(str);
         e.a().f(aVar);
-        if (f47494a) {
+        if (f47886a) {
             Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
         }
     }
 
     public static void e(String str) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(d.b.g0.a.g2.a.a()).url(str).build().executeAsyncOnUIBack(new C0920a(str));
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(d.b.g0.a.g2.a.a()).url(str).build().executeAsyncOnUIBack(new C0932a(str));
     }
 
     public static String f(Response response) {
@@ -97,7 +97,7 @@ public class a {
         }
         String header = response.header("Location");
         if (!TextUtils.isEmpty(header) && header.startsWith("baiduboxapp://")) {
-            return header.replace("baiduboxapp://", f47495b);
+            return header.replace("baiduboxapp://", f47887b);
         }
         return null;
     }

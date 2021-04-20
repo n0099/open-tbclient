@@ -9,6 +9,6 @@ public enum ai extends Session.c {
 
     @Override // com.google.ar.core.Session.c
     public final d.g.b.a.b a(long j, Session session) {
-        return session.f30877b.a(j, session);
+        return session.f30550b.a(j, session);
     }
 }

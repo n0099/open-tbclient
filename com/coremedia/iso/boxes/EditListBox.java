@@ -10,12 +10,12 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EditListBox extends AbstractFullBox {
     public static final String TYPE = "elst";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {
@@ -79,7 +79,7 @@ public class EditListBox extends AbstractFullBox {
         return "EditListBox{entries=" + this.entries + '}';
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public EditListBox editListBox;
         public double mediaRate;

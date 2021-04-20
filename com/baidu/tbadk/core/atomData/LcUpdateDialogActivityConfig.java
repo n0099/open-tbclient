@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -16,7 +17,7 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
     public LcUpdateDialogActivityConfig(Context context, ClientUpdateInfo clientUpdateInfo, String str) {
         super(context);
         Intent intent = getIntent();
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra(KEY_LC_UPDATE_DATA, clientUpdateInfo);
         intent.putExtra(KEY_LC_UPDATE_APKMD5RSA, str);
         TbadkCoreApplication.getInst().setHasNewVersion(true);

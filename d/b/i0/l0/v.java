@@ -18,21 +18,21 @@ import java.util.List;
 public class v extends d.b.h0.w.p.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static v f56646g;
+    public static v f58052g;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<d.b.h0.w.p.c> f56647e;
+    public LinkedList<d.b.h0.w.p.c> f58053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f56648f = new a(2005016);
+    public final CustomMessageListener f58054f = new a(2005016);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
 
         /* renamed from: d.b.i0.l0.v$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1328a implements Runnable {
-            public RunnableC1328a() {
+        public class RunnableC1381a implements Runnable {
+            public RunnableC1381a() {
             }
 
             @Override // java.lang.Runnable
@@ -49,44 +49,44 @@ public class v extends d.b.h0.w.p.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             v.this.d();
-            new Thread(new RunnableC1328a()).start();
+            new Thread(new RunnableC1381a()).start();
         }
     }
 
     public v() {
-        MessageManager.getInstance().registerListener(this.f56648f);
+        MessageManager.getInstance().registerListener(this.f58054f);
     }
 
     public static v e() {
-        if (f56646g == null) {
+        if (f58052g == null) {
             synchronized (v.class) {
-                if (f56646g == null) {
-                    f56646g = new v();
+                if (f58052g == null) {
+                    f58052g = new v();
                 }
             }
         }
-        return f56646g;
+        return f58052g;
     }
 
     @Override // d.b.h0.w.p.a
-    public void b(a.InterfaceC1109a interfaceC1109a) {
+    public void b(a.InterfaceC1122a interfaceC1122a) {
         if (FileHelper.checkSD()) {
-            LinkedList<d.b.h0.w.p.c> linkedList = this.f56647e;
+            LinkedList<d.b.h0.w.p.c> linkedList = this.f58053e;
             if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<d.b.h0.w.p.c> it = this.f56647e.iterator();
+                Iterator<d.b.h0.w.p.c> it = this.f58053e.iterator();
                 while (it.hasNext()) {
                     d.b.h0.w.p.c next = it.next();
-                    if (interfaceC1109a != null) {
-                        interfaceC1109a.a(next);
+                    if (interfaceC1122a != null) {
+                        interfaceC1122a.a(next);
                     }
                 }
                 return;
             }
-            this.f56647e = new LinkedList<>();
+            this.f58053e = new LinkedList<>();
             t tVar = new t();
-            this.f56647e.add(tVar);
-            if (interfaceC1109a != null) {
-                interfaceC1109a.a(tVar);
+            this.f58053e.add(tVar);
+            if (interfaceC1122a != null) {
+                interfaceC1122a.a(tVar);
             }
         }
     }
@@ -113,7 +113,7 @@ public class v extends d.b.h0.w.p.a {
         CollectEmotionData collectEmotionData = new CollectEmotionData();
         collectEmotionData.pid = "setting_icon";
         collectEmotionData.orderId = 301;
-        collectEmotionData.sharpText = d.b.h0.a0.d.f49683d;
+        collectEmotionData.sharpText = d.b.h0.a0.d.f50076d;
         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
         g.k().a(collectEmotionData);
         EmotionGroupData emotionGroupData = new EmotionGroupData();
@@ -128,7 +128,7 @@ public class v extends d.b.h0.w.p.a {
     }
 
     public boolean f(String str) {
-        LinkedList<d.b.h0.w.p.c> linkedList = this.f56647e;
+        LinkedList<d.b.h0.w.p.c> linkedList = this.f58053e;
         if (linkedList == null) {
             return false;
         }
@@ -143,10 +143,10 @@ public class v extends d.b.h0.w.p.a {
     }
 
     public synchronized void g() {
-        if (this.f56647e == null) {
+        if (this.f58053e == null) {
             return;
         }
-        Iterator<d.b.h0.w.p.c> it = this.f56647e.iterator();
+        Iterator<d.b.h0.w.p.c> it = this.f58053e.iterator();
         while (it.hasNext()) {
             d.b.h0.w.p.c next = it.next();
             if (next instanceof t) {

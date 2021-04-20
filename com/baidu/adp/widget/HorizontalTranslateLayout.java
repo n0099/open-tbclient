@@ -23,16 +23,16 @@ import java.util.List;
 public class HorizontalTranslateLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2256e;
+    public int f2291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f2257f;
+    public float f2292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f2258g;
+    public float f2293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2259h;
+    public int f2294h;
     public final int i;
     public TrackDirection j;
     public int k;
@@ -63,21 +63,21 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f2260a;
+        public static final /* synthetic */ int[] f2295a;
 
         static {
             int[] iArr = new int[TrackDirection.values().length];
-            f2260a = iArr;
+            f2295a = iArr;
             try {
                 iArr[TrackDirection.left.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f2260a[TrackDirection.right.ordinal()] = 2;
+                f2295a[TrackDirection.right.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f2260a[TrackDirection.horizontal.ordinal()] = 3;
+                f2295a[TrackDirection.horizontal.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -90,7 +90,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (HorizontalTranslateLayout.this.t.f2268g) {
+            if (HorizontalTranslateLayout.this.t.f2303g) {
                 int i = message.what;
                 if (i == -105) {
                     HorizontalTranslateLayout.this.t.i();
@@ -114,25 +114,25 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public float f2262a;
+        public float f2297a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f2263b;
+        public float f2298b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f2264c;
+        public float f2299c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f2265d;
+        public float f2300d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f2266e;
+        public long f2301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f2267f;
+        public long f2302f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f2268g;
+        public boolean f2303g;
 
         public c() {
             float f2 = HorizontalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
@@ -143,18 +143,18 @@ public class HorizontalTranslateLayout extends FrameLayout {
             if (eVar != null) {
                 eVar.a();
             }
-            this.f2268g = true;
+            this.f2303g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2266e = uptimeMillis;
-            this.f2267f = uptimeMillis + 16;
-            this.f2263b = f2;
-            this.f2262a = 0.0f;
-            this.f2264c = ((-HorizontalTranslateLayout.this.getMeasuredWidth()) + HorizontalTranslateLayout.this.f2257f) - HorizontalTranslateLayout.this.f2259h;
-            this.f2265d = HorizontalTranslateLayout.this.f2259h;
-            BdLog.d("Animator@animateTop " + this.f2264c);
+            this.f2301e = uptimeMillis;
+            this.f2302f = uptimeMillis + 16;
+            this.f2298b = f2;
+            this.f2297a = 0.0f;
+            this.f2299c = ((-HorizontalTranslateLayout.this.getMeasuredWidth()) + HorizontalTranslateLayout.this.f2292f) - HorizontalTranslateLayout.this.f2294h;
+            this.f2300d = HorizontalTranslateLayout.this.f2294h;
+            BdLog.d("Animator@animateTop " + this.f2299c);
             BdLog.d("Animator@animateTop " + f2);
             HorizontalTranslateLayout.this.s.removeMessages(-100);
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-100, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-100, this.f2302f);
         }
 
         public void b(float f2) {
@@ -163,18 +163,18 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     fVar.a();
                 }
             }
-            this.f2268g = true;
+            this.f2303g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2266e = uptimeMillis;
-            this.f2267f = uptimeMillis + 16;
-            this.f2263b = f2;
-            this.f2262a = 0.0f;
-            this.f2264c = 0 - HorizontalTranslateLayout.this.f2259h;
-            this.f2265d = HorizontalTranslateLayout.this.f2259h;
+            this.f2301e = uptimeMillis;
+            this.f2302f = uptimeMillis + 16;
+            this.f2298b = f2;
+            this.f2297a = 0.0f;
+            this.f2299c = 0 - HorizontalTranslateLayout.this.f2294h;
+            this.f2300d = HorizontalTranslateLayout.this.f2294h;
             HorizontalTranslateLayout.this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
-            BdLog.d("Animator@animateTopOpen " + this.f2264c);
+            BdLog.d("Animator@animateTopOpen " + this.f2299c);
             BdLog.d("Animator@animateTopOpen " + f2);
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2302f);
         }
 
         public void c(float f2) {
@@ -182,18 +182,18 @@ public class HorizontalTranslateLayout extends FrameLayout {
             if (gVar != null) {
                 gVar.a();
             }
-            this.f2268g = true;
+            this.f2303g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2266e = uptimeMillis;
-            this.f2267f = uptimeMillis + 16;
-            this.f2263b = f2;
-            this.f2262a = 0.0f;
-            this.f2264c = (HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2258g) - HorizontalTranslateLayout.this.f2259h;
-            this.f2265d = HorizontalTranslateLayout.this.f2259h;
-            BdLog.d("Animator@animateBottom " + this.f2264c);
+            this.f2301e = uptimeMillis;
+            this.f2302f = uptimeMillis + 16;
+            this.f2298b = f2;
+            this.f2297a = 0.0f;
+            this.f2299c = (HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2293g) - HorizontalTranslateLayout.this.f2294h;
+            this.f2300d = HorizontalTranslateLayout.this.f2294h;
+            BdLog.d("Animator@animateBottom " + this.f2299c);
             BdLog.d("Animator@animateBottom " + f2);
             HorizontalTranslateLayout.this.s.removeMessages(-101);
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-101, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-101, this.f2302f);
         }
 
         public void d(float f2) {
@@ -202,103 +202,103 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     fVar.a();
                 }
             }
-            this.f2268g = true;
+            this.f2303g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2266e = uptimeMillis;
-            this.f2267f = uptimeMillis + 16;
-            this.f2263b = f2;
-            this.f2262a = 0.0f;
-            this.f2264c = 0 - HorizontalTranslateLayout.this.f2259h;
-            this.f2265d = HorizontalTranslateLayout.this.f2259h;
-            BdLog.d("Animator@animateBottomOpen " + this.f2264c);
+            this.f2301e = uptimeMillis;
+            this.f2302f = uptimeMillis + 16;
+            this.f2298b = f2;
+            this.f2297a = 0.0f;
+            this.f2299c = 0 - HorizontalTranslateLayout.this.f2294h;
+            this.f2300d = HorizontalTranslateLayout.this.f2294h;
+            BdLog.d("Animator@animateBottomOpen " + this.f2299c);
             BdLog.d("Animator@animateBottomOpen " + f2);
             HorizontalTranslateLayout.this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2302f);
         }
 
         public final void e() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2262a += this.f2263b * (((float) (uptimeMillis - this.f2266e)) / 1000.0f);
-            this.f2266e = uptimeMillis;
-            this.f2267f += 16;
+            this.f2297a += this.f2298b * (((float) (uptimeMillis - this.f2301e)) / 1000.0f);
+            this.f2301e = uptimeMillis;
+            this.f2302f += 16;
         }
 
         public void f() {
             e();
-            float f2 = this.f2262a;
-            float f3 = this.f2264c;
+            float f2 = this.f2297a;
+            float f3 = this.f2299c;
             if (f2 <= f3) {
                 e eVar = HorizontalTranslateLayout.this.v;
                 if (eVar != null) {
                     eVar.b();
                 }
-                this.f2268g = false;
+                this.f2303g = false;
                 HorizontalTranslateLayout.this.k = 10000;
                 HorizontalTranslateLayout.this.p();
                 return;
             }
-            HorizontalTranslateLayout.this.f2259h = (int) (d.b.b.j.h.a(f3, f2, false) + this.f2265d);
+            HorizontalTranslateLayout.this.f2294h = (int) (d.b.c.j.h.a(f3, f2, false) + this.f2300d);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-100, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-100, this.f2302f);
         }
 
         public void g() {
             e();
-            float f2 = this.f2262a;
-            float f3 = this.f2264c;
+            float f2 = this.f2297a;
+            float f3 = this.f2299c;
             if (f2 >= f3) {
                 for (f fVar : HorizontalTranslateLayout.this.x) {
                     if (fVar != null) {
                         fVar.b();
                     }
                 }
-                this.f2268g = false;
+                this.f2303g = false;
                 HorizontalTranslateLayout.this.k = 10004;
                 HorizontalTranslateLayout.this.p();
                 return;
             }
-            HorizontalTranslateLayout.this.f2259h = (int) (d.b.b.j.h.a(f3, f2, false) + this.f2265d);
+            HorizontalTranslateLayout.this.f2294h = (int) (d.b.c.j.h.a(f3, f2, false) + this.f2300d);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2302f);
         }
 
         public void h() {
             e();
-            float f2 = this.f2262a;
-            float f3 = this.f2264c;
+            float f2 = this.f2297a;
+            float f3 = this.f2299c;
             if (f2 >= f3) {
                 g gVar = HorizontalTranslateLayout.this.w;
                 if (gVar != null) {
                     gVar.b();
                 }
-                this.f2268g = false;
+                this.f2303g = false;
                 HorizontalTranslateLayout.this.k = 10001;
                 HorizontalTranslateLayout.this.p();
                 return;
             }
-            HorizontalTranslateLayout.this.f2259h = (int) (d.b.b.j.h.a(f3, f2, false) + this.f2265d);
+            HorizontalTranslateLayout.this.f2294h = (int) (d.b.c.j.h.a(f3, f2, false) + this.f2300d);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-101, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-101, this.f2302f);
         }
 
         public void i() {
             e();
-            float f2 = this.f2262a;
-            float f3 = this.f2264c;
+            float f2 = this.f2297a;
+            float f3 = this.f2299c;
             if (f2 <= f3) {
                 for (f fVar : HorizontalTranslateLayout.this.x) {
                     if (fVar != null) {
                         fVar.b();
                     }
                 }
-                this.f2268g = false;
+                this.f2303g = false;
                 HorizontalTranslateLayout.this.k = 10004;
                 HorizontalTranslateLayout.this.p();
                 return;
             }
-            HorizontalTranslateLayout.this.f2259h = (int) (d.b.b.j.h.a(f3, f2, false) + this.f2265d);
+            HorizontalTranslateLayout.this.f2294h = (int) (d.b.c.j.h.a(f3, f2, false) + this.f2300d);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2267f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2302f);
         }
     }
 
@@ -332,34 +332,34 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public VelocityTracker f2270a;
+        public VelocityTracker f2305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2271b;
+        public boolean f2306b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f2272c;
+        public final int f2307c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f2273d;
+        public final int f2308d;
 
         public h() {
             float f2 = HorizontalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
-            this.f2272c = (int) ((200.0f * f2) + 0.5f);
-            this.f2273d = (int) ((f2 * 500.0f) + 0.5f);
+            this.f2307c = (int) ((200.0f * f2) + 0.5f);
+            this.f2308d = (int) ((f2 * 500.0f) + 0.5f);
         }
 
         public final void b() {
             float max;
-            this.f2270a.computeCurrentVelocity(this.f2272c);
-            float xVelocity = this.f2270a.getXVelocity();
+            this.f2305a.computeCurrentVelocity(this.f2307c);
+            float xVelocity = this.f2305a.getXVelocity();
             BdLog.d("HorizontalTranslateLayout@fling x " + xVelocity);
             if (xVelocity < 0.0f) {
-                max = Math.min(xVelocity, -this.f2273d);
+                max = Math.min(xVelocity, -this.f2308d);
             } else {
-                max = Math.max(xVelocity, this.f2273d);
+                max = Math.max(xVelocity, this.f2308d);
             }
-            int i = a.f2260a[HorizontalTranslateLayout.this.j.ordinal()];
+            int i = a.f2295a[HorizontalTranslateLayout.this.j.ordinal()];
             if (i == 1) {
                 d(max);
             } else if (i == 2) {
@@ -367,20 +367,20 @@ public class HorizontalTranslateLayout extends FrameLayout {
             } else if (i == 3) {
                 c(max);
             }
-            this.f2270a.recycle();
-            this.f2270a = null;
+            this.f2305a.recycle();
+            this.f2305a = null;
         }
 
         public final void c(float f2) {
             BdLog.d("HorizontalTranslateLayout@horizontalFling");
-            int i = HorizontalTranslateLayout.this.f2259h;
-            if (i <= 0 && i >= HorizontalTranslateLayout.this.f2257f - HorizontalTranslateLayout.this.getMeasuredWidth()) {
+            int i = HorizontalTranslateLayout.this.f2294h;
+            if (i <= 0 && i >= HorizontalTranslateLayout.this.f2292f - HorizontalTranslateLayout.this.getMeasuredWidth()) {
                 if (f2 < 0.0f) {
                     HorizontalTranslateLayout.this.t.a(f2);
                 } else {
                     HorizontalTranslateLayout.this.t.b(f2);
                 }
-            } else if (i < 0 || i > HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2258g) {
+            } else if (i < 0 || i > HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2293g) {
             } else {
                 if (f2 < 0.0f) {
                     HorizontalTranslateLayout.this.t.d(f2);
@@ -400,38 +400,38 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
 
         public void e(int i) {
-            if (this.f2271b) {
-                int i2 = HorizontalTranslateLayout.this.f2259h - i;
-                int i3 = a.f2260a[HorizontalTranslateLayout.this.j.ordinal()];
+            if (this.f2306b) {
+                int i2 = HorizontalTranslateLayout.this.f2294h - i;
+                int i3 = a.f2295a[HorizontalTranslateLayout.this.j.ordinal()];
                 if (i3 == 1) {
                     BdLog.d("HorizontalTranslateLayout@move left");
-                    if (i2 <= HorizontalTranslateLayout.this.f2257f - HorizontalTranslateLayout.this.getMeasuredWidth() || i2 >= 0) {
+                    if (i2 <= HorizontalTranslateLayout.this.f2292f - HorizontalTranslateLayout.this.getMeasuredWidth() || i2 >= 0) {
                         return;
                     }
-                    HorizontalTranslateLayout.this.f2259h -= i;
+                    HorizontalTranslateLayout.this.f2294h -= i;
                     HorizontalTranslateLayout.this.invalidate();
                 } else if (i3 == 2) {
                     BdLog.d("HorizontalTranslateLayout@move right");
-                    if (i2 >= HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2258g || i2 <= 0) {
+                    if (i2 >= HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2293g || i2 <= 0) {
                         return;
                     }
-                    HorizontalTranslateLayout.this.f2259h -= i;
+                    HorizontalTranslateLayout.this.f2294h -= i;
                     HorizontalTranslateLayout.this.invalidate();
                 } else if (i3 != 3) {
                 } else {
                     BdLog.d("HorizontalTranslateLayout@move horizontal");
                     float f2 = i2;
-                    if (f2 < HorizontalTranslateLayout.this.f2257f - HorizontalTranslateLayout.this.getMeasuredWidth() || f2 > HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2258g) {
+                    if (f2 < HorizontalTranslateLayout.this.f2292f - HorizontalTranslateLayout.this.getMeasuredWidth() || f2 > HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.f2293g) {
                         return;
                     }
-                    HorizontalTranslateLayout.this.f2259h -= i;
+                    HorizontalTranslateLayout.this.f2294h -= i;
                     HorizontalTranslateLayout.this.invalidate();
                 }
             }
         }
 
         public boolean f(int i) {
-            int i2 = a.f2260a[HorizontalTranslateLayout.this.j.ordinal()];
+            int i2 = a.f2295a[HorizontalTranslateLayout.this.j.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 == 3 && HorizontalTranslateLayout.this.y != null) {
@@ -443,8 +443,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             } else if (HorizontalTranslateLayout.this.k != 10004 && HorizontalTranslateLayout.this.k != 10000) {
                 return false;
             }
-            this.f2270a = VelocityTracker.obtain();
-            this.f2271b = true;
+            this.f2305a = VelocityTracker.obtain();
+            this.f2306b = true;
             return true;
         }
 
@@ -458,7 +458,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
 
         public void h() {
-            this.f2271b = false;
+            this.f2306b = false;
         }
     }
 
@@ -482,23 +482,23 @@ public class HorizontalTranslateLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(this.f2259h, 0.0f);
-        BdLog.d("HorizontalTranslateLayout@dispatchDraw " + this.f2259h);
+        canvas.translate(this.f2294h, 0.0f);
+        BdLog.d("HorizontalTranslateLayout@dispatchDraw " + this.f2294h);
         canvas.drawRect(0.0f, 0.0f, (float) getMeasuredWidth(), (float) getMeasuredHeight(), this.n);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getLeftOffset() {
-        return (int) this.f2257f;
+        return (int) this.f2292f;
     }
 
     public int getLeftTranslate() {
-        return this.f2259h;
+        return this.f2294h;
     }
 
     public int getRightOffset() {
-        return (int) this.f2258g;
+        return (int) this.f2293g;
     }
 
     public int getState() {
@@ -508,17 +508,17 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public final void o(AttributeSet attributeSet) {
         String[] split;
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.HorizontalTranslateLayout);
-        this.f2257f = obtainStyledAttributes.getDimension(R.styleable.HorizontalTranslateLayout_leftOffset, -1.0f);
-        this.f2258g = obtainStyledAttributes.getDimension(R.styleable.HorizontalTranslateLayout_rightOffset, -1.0f);
+        this.f2292f = obtainStyledAttributes.getDimension(R.styleable.HorizontalTranslateLayout_leftOffset, -1.0f);
+        this.f2293g = obtainStyledAttributes.getDimension(R.styleable.HorizontalTranslateLayout_rightOffset, -1.0f);
         String string = obtainStyledAttributes.getString(R.styleable.HorizontalTranslateLayout_transTrack);
         if (string != null && string.length() > 0) {
-            if (this.f2257f != -1.0f && this.f2258g != -1.0f && "horizontal".equals(string)) {
+            if (this.f2292f != -1.0f && this.f2293g != -1.0f && "horizontal".equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack horizontal");
                 this.j = TrackDirection.horizontal;
-            } else if (this.f2258g != -1.0f && "right".equals(string)) {
+            } else if (this.f2293g != -1.0f && "right".equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack right");
                 this.j = TrackDirection.right;
-            } else if (this.f2257f != -1.0f && CustomDialogData.POS_LEFT.equals(string)) {
+            } else if (this.f2292f != -1.0f && CustomDialogData.POS_LEFT.equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack left");
                 this.j = TrackDirection.left;
             } else {
@@ -530,7 +530,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (string2 != null && string2.length() > 0) {
             for (String str : string2.split("\\|")) {
                 BdLog.d("HorizontalTranslateLayout@loadAttrs tap area " + str);
-                if ((!CustomDialogData.POS_LEFT.equals(str) || this.f2257f == -1.0f) && (!"right".equals(str) || this.f2258g == -1.0f)) {
+                if ((!CustomDialogData.POS_LEFT.equals(str) || this.f2292f == -1.0f) && (!"right".equals(str) || this.f2293g == -1.0f)) {
                     BdLog.d("HorizontalTranslateLayout@loadAttrs tap_back_area value illegal");
                 }
             }
@@ -561,7 +561,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
         } else if (action == 2) {
             BdLog.d("HorizontalTranslateLayout@interceptInterceptTouchEvent");
-            motionEvent.offsetLocation(-this.f2259h, 0.0f);
+            motionEvent.offsetLocation(-this.f2294h, 0.0f);
             return q(x, y);
         }
         return false;
@@ -571,16 +571,16 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            float f2 = this.f2257f;
+            float f2 = this.f2292f;
             if (f2 != -1.0f) {
                 this.l.set(i, i2, (int) (i + f2), i4);
             }
-            float f3 = this.f2258g;
+            float f3 = this.f2293g;
             if (f3 != -1.0f) {
                 this.m.set((int) (i3 - f3), i2, i3, i4);
             }
         }
-        if (this.t.f2268g || this.u.f2271b) {
+        if (this.t.f2303g || this.u.f2306b) {
             return;
         }
         p();
@@ -589,7 +589,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f2256e = getMeasuredWidth();
+        this.f2291e = getMeasuredWidth();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:25:0x00c8, code lost:
@@ -609,7 +609,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     if (action != 3) {
                         return false;
                     }
-                } else if (this.u.f2271b) {
+                } else if (this.u.f2306b) {
                     if (!this.r) {
                         int i = this.o;
                         if (x > i) {
@@ -622,12 +622,12 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     }
                     this.u.e(this.q - x);
                     this.q = x;
-                    this.u.f2270a.addMovement(motionEvent);
+                    this.u.f2305a.addMovement(motionEvent);
                 }
             }
             BdLog.d("HorizontalTranslateLayout@onTouchEvent up");
             this.r = false;
-            if (this.u.f2271b) {
+            if (this.u.f2306b) {
                 BdLog.d("HorizontalTranslateLayout@onTouchEvent tracking");
                 this.u.h();
                 this.u.b();
@@ -643,7 +643,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 }
             }
             h hVar = this.u;
-            if (hVar.f2271b) {
+            if (hVar.f2306b) {
                 hVar.h();
                 this.u.b();
             }
@@ -651,16 +651,16 @@ public class HorizontalTranslateLayout extends FrameLayout {
             return false;
         } else {
             h hVar2 = this.u;
-            if (!hVar2.f2271b) {
+            if (!hVar2.f2306b) {
                 this.q = x;
                 hVar2.f(x);
             }
         }
         h hVar3 = this.u;
-        if (hVar3.f2271b) {
+        if (hVar3.f2306b) {
             hVar3.e(this.q - x);
             this.q = x;
-            this.u.f2270a.addMovement(motionEvent);
+            this.u.f2305a.addMovement(motionEvent);
         }
         return true;
     }
@@ -668,14 +668,14 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public final void p() {
         int i = this.k;
         if (i == 10000) {
-            this.f2259h = (int) (this.f2257f - getMeasuredWidth());
+            this.f2294h = (int) (this.f2292f - getMeasuredWidth());
             invalidate();
         } else if (i == 10001) {
-            this.f2259h = (int) (getMeasuredWidth() - this.f2258g);
+            this.f2294h = (int) (getMeasuredWidth() - this.f2293g);
             invalidate();
         } else if (i != 10004) {
         } else {
-            this.f2259h = 0;
+            this.f2294h = 0;
             invalidate();
         }
     }
@@ -715,19 +715,19 @@ public class HorizontalTranslateLayout extends FrameLayout {
             return;
         }
         if (f2 < 0.0f) {
-            this.f2259h = (int) ((this.f2257f - this.f2256e) * (-f2));
+            this.f2294h = (int) ((this.f2292f - this.f2291e) * (-f2));
         } else {
             int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
             if (i2 > 0) {
-                this.f2259h = (int) ((this.f2256e - this.f2258g) * f2);
+                this.f2294h = (int) ((this.f2291e - this.f2293g) * f2);
             } else if (i2 == 0) {
-                this.f2259h = 0;
+                this.f2294h = 0;
                 this.k = 10004;
             } else if (f2 == -1.0f) {
-                this.f2257f -= getMeasuredWidth();
+                this.f2292f -= getMeasuredWidth();
                 this.k = 10000;
             } else if (i == 0) {
-                this.f2257f = getMeasuredWidth() - this.f2258g;
+                this.f2292f = getMeasuredWidth() - this.f2293g;
                 this.k = 10001;
             }
         }

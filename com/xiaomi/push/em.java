@@ -12,37 +12,37 @@ import java.util.Map;
 public class em extends ep {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40446a;
+    public int f40735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f40447b;
+    public Bitmap f40736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f40448c;
+    public Bitmap f40737c;
 
     public em(Context context, String str) {
         super(context, str);
-        this.f40446a = 16777216;
+        this.f40735a = 16777216;
     }
 
     @Override // com.xiaomi.push.ep
     public em a(Bitmap bitmap) {
-        if (m276b() && bitmap != null) {
+        if (m280b() && bitmap != null) {
             if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
-                com.xiaomi.channel.commonutils.logger.b.m51a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
+                com.xiaomi.channel.commonutils.logger.b.m55a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
             } else {
-                this.f40447b = bitmap;
+                this.f40736b = bitmap;
             }
         }
         return this;
     }
 
     public em a(String str) {
-        if (m276b() && !TextUtils.isEmpty(str)) {
+        if (m280b() && !TextUtils.isEmpty(str)) {
             try {
-                this.f40446a = Color.parseColor(str);
+                this.f40735a = Color.parseColor(str);
             } catch (Exception unused) {
-                com.xiaomi.channel.commonutils.logger.b.m51a("parse banner notification image text color error");
+                com.xiaomi.channel.commonutils.logger.b.m55a("parse banner notification image text color error");
             }
         }
         return this;
@@ -64,8 +64,8 @@ public class em extends ep {
     public void a() {
         RemoteViews a2;
         Bitmap bitmap;
-        if (!m276b() || this.f40447b == null) {
-            m275b();
+        if (!m280b() || this.f40736b == null) {
+            m279b();
             return;
         }
         super.a();
@@ -74,27 +74,27 @@ public class em extends ep {
         int a3 = a(resources, "bg", "id", packageName);
         if (l.a(a()) >= 10) {
             a2 = a();
-            bitmap = a(this.f40447b, 30.0f);
+            bitmap = a(this.f40736b, 30.0f);
         } else {
             a2 = a();
-            bitmap = this.f40447b;
+            bitmap = this.f40736b;
         }
         a2.setImageViewBitmap(a3, bitmap);
         int a4 = a(resources, "icon", "id", packageName);
-        if (this.f40448c != null) {
-            a().setImageViewBitmap(a4, this.f40448c);
+        if (this.f40737c != null) {
+            a().setImageViewBitmap(a4, this.f40737c);
         } else {
             a(a4);
         }
         int a5 = a(resources, "title", "id", packageName);
         a().setTextViewText(a5, ((ep) this).f324a);
         Map<String, String> map = ((ep) this).f326a;
-        if (map != null && this.f40446a == 16777216) {
+        if (map != null && this.f40735a == 16777216) {
             a(map.get("notification_image_text_color"));
         }
         RemoteViews a6 = a();
-        int i = this.f40446a;
-        a6.setTextColor(a5, (i == 16777216 || !m274a(i)) ? -1 : -16777216);
+        int i = this.f40735a;
+        a6.setTextColor(a5, (i == 16777216 || !m278a(i)) ? -1 : -16777216);
         setCustomContentView(a());
         Bundle bundle = new Bundle();
         bundle.putBoolean("miui.customHeight", true);
@@ -103,7 +103,7 @@ public class em extends ep {
 
     @Override // com.xiaomi.push.en
     public boolean a() {
-        if (l.m517a(a())) {
+        if (l.m521a(a())) {
             Resources resources = a().getResources();
             String packageName = a().getPackageName();
             return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || l.a(a()) < 9) ? false : true;
@@ -112,8 +112,8 @@ public class em extends ep {
     }
 
     public em b(Bitmap bitmap) {
-        if (m276b() && bitmap != null) {
-            this.f40448c = bitmap;
+        if (m280b() && bitmap != null) {
+            this.f40737c = bitmap;
         }
         return this;
     }

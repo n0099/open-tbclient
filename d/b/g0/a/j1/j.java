@@ -52,16 +52,16 @@ public class j {
         if (cVar == null) {
             return;
         }
-        d.b.g0.a.p.d.b bVar = cVar.f44304a;
+        d.b.g0.a.p.d.b bVar = cVar.f44696a;
         if (bVar != null) {
             bVar.O(str);
         }
         HybridUbcFlow p = i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
         UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
-        ubcFlowEvent.h(cVar.f44307d);
+        ubcFlowEvent.h(cVar.f44699d);
         p.A(ubcFlowEvent);
         UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
-        ubcFlowEvent2.h(cVar.f44308e);
+        ubcFlowEvent2.h(cVar.f44700e);
         p.A(ubcFlowEvent2);
     }
 

@@ -34,15 +34,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
 import d.b.h0.r.s.a;
 import d.b.h0.r.s.l;
-import d.b.i0.u2.a.c;
+import d.b.i0.v2.a.c;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForbiddenForumActivity extends BaseActivity {
     public d.b.h0.r.s.j bottomDialog;
     public d.b.h0.r.s.l bottomDialogView;
-    public d.b.i0.u2.a.a cancelModel;
+    public d.b.i0.v2.a.a cancelModel;
     public PbListView loadMoreView;
-    public d.b.i0.u2.a.c model;
+    public d.b.i0.v2.a.c model;
     public NavigationBar navigationBar;
     public NoDataView noDataView;
     public BdRecyclerView recyclerView;
@@ -53,7 +53,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     public BdRecyclerView.i onItemClickListener = new a();
     public HttpMessageListener cancelForbiddenListener = new b(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements BdRecyclerView.i {
         public a() {
         }
@@ -61,16 +61,16 @@ public class ForbiddenForumActivity extends BaseActivity {
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void c(ViewGroup viewGroup, View view, Object obj, int i, long j) {
             if (ForbiddenForumActivity.this.model != null) {
-                if (ForbiddenForumActivity.this.model.g() == null && ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f61299a)) {
+                if (ForbiddenForumActivity.this.model.g() == null && ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f63037a)) {
                     return;
                 }
-                d.b.i0.u2.a.b bVar = ForbiddenForumActivity.this.model.g().f61299a.get(i);
-                ForbiddenForumActivity.this.showBottomDialog(bVar.f61291b, bVar.f61292c);
+                d.b.i0.v2.a.b bVar = ForbiddenForumActivity.this.model.g().f63037a.get(i);
+                ForbiddenForumActivity.this.showBottomDialog(bVar.f63029b, bVar.f63030c);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public b(int i) {
             super(i);
@@ -114,33 +114,33 @@ public class ForbiddenForumActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements BdListView.p {
         public c() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (ForbiddenForumActivity.this.model.g().f61300b) {
+            if (ForbiddenForumActivity.this.model.g().f63038b) {
                 ForbiddenForumActivity.this.model.j();
                 ForbiddenForumActivity.this.showLoadMoreView();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends RecyclerView.Adapter {
         public d() {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return ForbiddenForumActivity.this.model.g().f61299a.size();
+            return ForbiddenForumActivity.this.model.g().f63037a.size();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-            ((l) viewHolder).a(ForbiddenForumActivity.this.model.g().f61299a.get(i));
+            ((l) viewHolder).a(ForbiddenForumActivity.this.model.g().f63037a.get(i));
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -150,29 +150,29 @@ public class ForbiddenForumActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements c.b {
         public e() {
         }
 
-        @Override // d.b.i0.u2.a.c.b
-        public void a(d.b.i0.u2.a.d dVar) {
+        @Override // d.b.i0.v2.a.c.b
+        public void a(d.b.i0.v2.a.d dVar) {
             if (ForbiddenForumActivity.this.isLoadingViewAttached()) {
                 ForbiddenForumActivity forbiddenForumActivity = ForbiddenForumActivity.this;
                 forbiddenForumActivity.hideLoadingView(forbiddenForumActivity.rootView);
             }
-            if (ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f61299a)) {
+            if (ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f63037a)) {
                 ForbiddenForumActivity.this.showNoDataView();
                 return;
             }
             ForbiddenForumActivity.this.adapter.notifyDataSetChanged();
-            if (dVar == null || dVar.f61300b) {
+            if (dVar == null || dVar.f63038b) {
                 return;
             }
             ForbiddenForumActivity.this.showLoadMoreViewNoMore();
         }
 
-        @Override // d.b.i0.u2.a.c.b
+        @Override // d.b.i0.v2.a.c.b
         public void onError(int i, String str) {
             ForbiddenForumActivity forbiddenForumActivity = ForbiddenForumActivity.this;
             forbiddenForumActivity.hideLoadingView(forbiddenForumActivity.rootView);
@@ -182,7 +182,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements l.c {
         public f() {
         }
@@ -193,46 +193,46 @@ public class ForbiddenForumActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g implements l.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20953a;
+        public final /* synthetic */ String f20638a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20954b;
+        public final /* synthetic */ String f20639b;
 
         public g(String str, String str2) {
-            this.f20953a = str;
-            this.f20954b = str2;
+            this.f20638a = str;
+            this.f20639b = str2;
         }
 
         @Override // d.b.h0.r.s.l.d
         public void onClick() {
             ForbiddenForumActivity.this.hideBottomDialog();
-            ForbiddenForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ForbiddenForumActivity.this.getActivity()).createNormalCfg(this.f20953a, null)));
-            TiebaStatic.log(new StatisticItem("c14058").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f20954b));
+            ForbiddenForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ForbiddenForumActivity.this.getActivity()).createNormalCfg(this.f20638a, null)));
+            TiebaStatic.log(new StatisticItem("c14058").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f20639b));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class h implements l.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20956a;
+        public final /* synthetic */ String f20641a;
 
         public h(String str) {
-            this.f20956a = str;
+            this.f20641a = str;
         }
 
         @Override // d.b.h0.r.s.l.d
         public void onClick() {
             ForbiddenForumActivity.this.hideBottomDialog();
-            ForbiddenForumActivity.this.showCancelForbiddenDialog(this.f20956a);
+            ForbiddenForumActivity.this.showCancelForbiddenDialog(this.f20641a);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class i implements DialogInterface.OnDismissListener {
         public i() {
         }
@@ -243,24 +243,24 @@ public class ForbiddenForumActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class j implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20959e;
+        public final /* synthetic */ String f20644e;
 
         public j(String str) {
-            this.f20959e = str;
+            this.f20644e = str;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            ForbiddenForumActivity.this.cancelModel.a(this.f20959e);
+            ForbiddenForumActivity.this.cancelModel.a(this.f20644e);
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class k implements a.e {
         public k() {
         }
@@ -271,47 +271,47 @@ public class ForbiddenForumActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class l extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f20962a;
+        public BarImageView f20647a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f20963b;
+        public TextView f20648b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f20964c;
+        public int f20649c;
 
         public l(@NonNull View view) {
             super(view);
-            this.f20964c = 3;
+            this.f20649c = 3;
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.img_bar);
-            this.f20962a = barImageView;
+            this.f20647a = barImageView;
             barImageView.setPlaceHolder(1);
-            this.f20962a.setShowOval(true);
-            this.f20962a.setAutoChangeStyle(true);
-            this.f20962a.setStrokeWith(d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            this.f20962a.setStrokeColorResId(R.color.CAM_X0401);
-            this.f20962a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f20963b = (TextView) view.findViewById(R.id.text_bar);
+            this.f20647a.setShowOval(true);
+            this.f20647a.setAutoChangeStyle(true);
+            this.f20647a.setStrokeWith(d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.f20647a.setStrokeColorResId(R.color.CAM_X0401);
+            this.f20647a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f20648b = (TextView) view.findViewById(R.id.text_bar);
         }
 
-        public void a(d.b.i0.u2.a.b bVar) {
+        public void a(d.b.i0.v2.a.b bVar) {
             if (bVar == null) {
                 return;
             }
-            this.f20962a.W(bVar.f61290a, 10, false);
-            TextView textView = this.f20963b;
-            textView.setText(bVar.f61291b + TbadkCoreApplication.getInst().getString(R.string.forum));
+            this.f20647a.W(bVar.f63028a, 10, false);
+            TextView textView = this.f20648b;
+            textView.setText(bVar.f63029b + TbadkCoreApplication.getInst().getString(R.string.forum));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
 
         public final void b(int i) {
-            if (this.f20964c != i) {
+            if (this.f20649c != i) {
                 SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.f20963b, R.color.CAM_X0105);
-                this.f20964c = i;
+                SkinManager.setViewTextColor(this.f20648b, R.color.CAM_X0105);
+                this.f20649c = i;
             }
         }
     }
@@ -366,7 +366,7 @@ public class ForbiddenForumActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
         if (this.noDataView == null) {
-            this.noDataView = NoDataViewFactory.a(this, this.rootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, d.b.b.e.p.l.g(this, R.dimen.tbds308) + this.navigationBar.getBottom()), NoDataViewFactory.e.a(R.string.no_forbidden_forum), null);
+            this.noDataView = NoDataViewFactory.a(this, this.rootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, d.b.c.e.p.l.g(this, R.dimen.tbds308) + this.navigationBar.getBottom()), NoDataViewFactory.e.a(R.string.no_forbidden_forum), null);
             NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
             aVar.i(NoDataViewFactory.ImgType.CREATE);
             this.noDataView.setImgOption(aVar.f());
@@ -398,7 +398,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_forbidden_forum);
         this.rootView = findViewById(R.id.root_view);
-        d.b.i0.u2.a.c cVar = new d.b.i0.u2.a.c(getUniqueId());
+        d.b.i0.v2.a.c cVar = new d.b.i0.v2.a.c(getUniqueId());
         this.model = cVar;
         cVar.k(this.onDataResListener);
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
@@ -414,7 +414,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         this.recyclerView.setOnItemClickListener(this.onItemClickListener);
         this.model.j();
         showLoadingView(this.rootView);
-        this.cancelModel = new d.b.i0.u2.a.a();
+        this.cancelModel = new d.b.i0.v2.a.a();
         registerListener(this.cancelForbiddenListener);
         TiebaStatic.log(new StatisticItem("c14056").param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
@@ -450,6 +450,6 @@ public class ForbiddenForumActivity extends BaseActivity {
         if (pbListView == null) {
             return;
         }
-        pbListView.k(d.b.b.e.p.l.g(this, R.dimen.tbds180));
+        pbListView.k(d.b.c.e.p.l.g(this, R.dimen.tbds180));
     }
 }

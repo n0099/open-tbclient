@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.heytap.mcssdk.PushManager;
 import d.b.g0.a.k;
 import org.json.JSONObject;
@@ -13,7 +12,7 @@ import org.json.JSONObject;
 public class c extends d.b.g0.f.i.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47776c = k.f45051a;
+    public static final boolean f48168c = k.f45443a;
 
     public c() {
         super("checkAppInstalled");
@@ -21,17 +20,17 @@ public class c extends d.b.g0.f.i.a {
 
     @Override // d.b.g0.f.i.a
     public d.b.g0.a.t.e.b a(@NonNull JSONObject jSONObject, @NonNull d.b.g0.a.p0.b bVar) {
-        if (f47776c) {
+        if (f48168c) {
             Log.d("checkAppInstalled", "handle: " + jSONObject);
         }
-        String optString = jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        String optString = jSONObject.optString("packageName");
         if (TextUtils.isEmpty(optString)) {
             bVar.onFail(31010, "package name is empty");
             return null;
         }
         try {
             PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-            if (f47776c) {
+            if (f48168c) {
                 Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
             }
             if (packageInfo != null) {

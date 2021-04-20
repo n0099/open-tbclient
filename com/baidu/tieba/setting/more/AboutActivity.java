@@ -15,26 +15,26 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.AboutModel;
-import d.b.b.a.e;
-import d.b.i0.u2.c.d;
-import d.b.i0.u2.c.i;
+import d.b.c.a.e;
+import d.b.i0.v2.c.d;
+import d.b.i0.v2.c.i;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    public d.b.i0.u2.c.j.a collectorManager;
+    public d.b.i0.v2.c.j.a collectorManager;
     public AboutModel mModel;
-    public d.b.i0.u2.c.a mView;
+    public d.b.i0.v2.c.a mView;
     public i mVisitPreviewServerDialog;
     public c receiver = null;
     public String functionIntroUrl = TbConfig.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
     public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON = 1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements d {
         public a() {
         }
 
-        @Override // d.b.i0.u2.c.d
+        @Override // d.b.i0.v2.c.d
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -45,7 +45,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             } else if (i == 2) {
                 AboutActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
             } else if (i == 3) {
-                d.b.h0.r.d0.b.i().s(SettingTextFunctionIntroView.m, true);
+                d.b.h0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
                 d.b.h0.l.a.o(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.functionIntroUrl, true, false, false);
             } else if (i != 4) {
                 if (i == 5) {
@@ -80,18 +80,18 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends e {
         public b() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             AboutActivity.this.handlCallBack(obj);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends BroadcastReceiver {
         public c() {
         }
@@ -99,7 +99,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (AboutActivity.this.mView != null) {
-                AboutActivity.this.mView.s();
+                AboutActivity.this.mView.v();
             }
         }
 
@@ -110,7 +110,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        d.b.i0.h1.c.b().a(true);
+        d.b.i0.i1.c.b().a(true);
         AboutModel aboutModel = this.mModel;
         if (aboutModel == null) {
             this.mModel = new AboutModel(this, new b());
@@ -118,35 +118,35 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             aboutModel.cancelLoadData();
         }
         this.mModel.w();
-        d.b.i0.u2.c.a aVar = this.mView;
+        d.b.i0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.n();
+            aVar.o();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlCallBack(Object obj) {
-        d.b.i0.u2.c.a aVar = this.mView;
+        d.b.i0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.o();
+            aVar.q();
         }
         d.b.h0.s.e.e eVar = obj != null ? (d.b.h0.s.e.e) obj : null;
         if (eVar != null) {
-            TbadkCoreApplication.getInst().setVersionData(eVar.p());
+            TbadkCoreApplication.getInst().setVersionData(eVar.s());
             TbadkCoreApplication.getInst().refreshNewVersion(false);
-            if (eVar.p().hasNewVer() && TbConfig.COULD_UPDATE) {
-                if (eVar.p().forceUpdate()) {
-                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), eVar.p(), eVar.h())));
+            if (eVar.s().hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (eVar.s().forceUpdate()) {
+                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), eVar.s(), eVar.j())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), eVar.p(), eVar.h()));
+                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), eVar.s(), eVar.j()));
                     TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
             }
-            d.b.i0.u2.c.a aVar2 = this.mView;
+            d.b.i0.v2.c.a aVar2 = this.mView;
             if (aVar2 != null) {
-                aVar2.s();
+                aVar2.v();
                 return;
             }
             return;
@@ -179,19 +179,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.u2.c.a aVar = this.mView;
+        d.b.i0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.v(i);
+            aVar.x(i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.collectorManager = new d.b.i0.u2.c.j.a(this);
-        d.b.i0.u2.c.a aVar = new d.b.i0.u2.c.a(this, new a());
+        this.collectorManager = new d.b.i0.v2.c.j.a(this);
+        d.b.i0.v2.c.a aVar = new d.b.i0.v2.c.a(this, new a());
         this.mView = aVar;
-        aVar.s();
+        aVar.v();
         regReceiver();
     }
 
@@ -203,15 +203,15 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         if (aboutModel != null) {
             aboutModel.cancelLoadData();
         }
-        d.b.i0.u2.c.a aVar = this.mView;
+        d.b.i0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.o();
+            aVar.q();
         }
         i iVar = this.mVisitPreviewServerDialog;
         if (iVar != null) {
             iVar.dismiss();
         }
-        d.b.i0.u2.c.j.a aVar2 = this.collectorManager;
+        d.b.i0.v2.c.j.a aVar2 = this.collectorManager;
         if (aVar2 != null) {
             aVar2.i();
             this.collectorManager = null;
@@ -232,9 +232,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.u2.c.a aVar = this.mView;
+        d.b.i0.v2.c.a aVar = this.mView;
         if (aVar != null) {
-            aVar.s();
+            aVar.v();
         }
     }
 }

@@ -7,7 +7,7 @@ import d.b.g0.a.r1.e;
 public class d implements d.b.g0.a.c0.d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43649a;
+    public static String f44041a;
 
     public static void d() {
         e y = e.y();
@@ -19,7 +19,7 @@ public class d implements d.b.g0.a.c0.d.a {
     }
 
     public static String e() {
-        return f43649a;
+        return f44041a;
     }
 
     @Override // d.b.g0.a.c0.d.a
@@ -29,14 +29,14 @@ public class d implements d.b.g0.a.c0.d.a {
 
     @Override // d.b.g0.a.c0.d.a
     public void b(Bundle bundle) {
-        f43649a = u.i(bundle, "extraWSUrl");
+        f44041a = u.i(bundle, "extraWSUrl");
         d.b.g0.a.c0.d.b.i(u.i(bundle, "masterPreload"));
         d.b.g0.a.c0.d.b.j(u.i(bundle, "slavePreload"));
     }
 
     @Override // d.b.g0.a.c0.d.a
     public void c(Bundle bundle) {
-        bundle.putString("extraWSUrl", f43649a);
+        bundle.putString("extraWSUrl", f44041a);
         bundle.putString("slavePreload", d.b.g0.a.c0.d.b.c());
         bundle.putString("masterPreload", d.b.g0.a.c0.d.b.a());
     }

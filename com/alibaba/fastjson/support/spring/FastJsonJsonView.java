@@ -129,9 +129,9 @@ public class FastJsonJsonView extends AbstractView {
             jSONPObject = filterModel;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        int writeJSONString = JSON.writeJSONString(byteArrayOutputStream, this.fastJsonConfig.getCharset(), jSONPObject, this.fastJsonConfig.getSerializeConfig(), this.fastJsonConfig.getSerializeFilters(), this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, this.fastJsonConfig.getSerializerFeatures());
+        int writeJSONStringWithFastJsonConfig = JSON.writeJSONStringWithFastJsonConfig(byteArrayOutputStream, this.fastJsonConfig.getCharset(), jSONPObject, this.fastJsonConfig.getSerializeConfig(), this.fastJsonConfig.getSerializeFilters(), this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, this.fastJsonConfig.getSerializerFeatures());
         if (this.updateContentLength) {
-            httpServletResponse.setContentLength(writeJSONString);
+            httpServletResponse.setContentLength(writeJSONStringWithFastJsonConfig);
         }
         ServletOutputStream outputStream = httpServletResponse.getOutputStream();
         byteArrayOutputStream.writeTo(outputStream);

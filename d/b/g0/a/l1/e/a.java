@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: d.b.g0.a.l1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0732a implements Comparator<String> {
+    public static class C0744a implements Comparator<String> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -36,7 +36,7 @@ public class a {
         }
         List asList = Arrays.asList(list);
         try {
-            Collections.sort(asList, new C0732a());
+            Collections.sort(asList, new C0744a());
         } catch (NumberFormatException e2) {
             d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e2));
         }
@@ -56,7 +56,7 @@ public class a {
             return;
         }
         h hVar = new h();
-        hVar.f48923g = str;
+        hVar.f49315g = str;
         hVar.j = b.q(j);
         d.b.g0.l.i.a.h().f(hVar);
     }

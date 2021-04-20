@@ -6,52 +6,52 @@ import rx.exceptions.OnErrorThrowable;
 public final class g<T> implements d.a<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<T> f67735e;
+    public final h.d<T> f68742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.f<? super T, Boolean> f67736f;
+    public final h.n.f<? super T, Boolean> f68743f;
 
     /* loaded from: classes7.dex */
     public static final class a<T> extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super T> f67737e;
+        public final h.j<? super T> f68744e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.n.f<? super T, Boolean> f67738f;
+        public final h.n.f<? super T, Boolean> f68745f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f67739g;
+        public boolean f68746g;
 
         public a(h.j<? super T> jVar, h.n.f<? super T, Boolean> fVar) {
-            this.f67737e = jVar;
-            this.f67738f = fVar;
+            this.f68744e = jVar;
+            this.f68745f = fVar;
             request(0L);
         }
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f67739g) {
+            if (this.f68746g) {
                 return;
             }
-            this.f67737e.onCompleted();
+            this.f68744e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (this.f67739g) {
+            if (this.f68746g) {
                 h.r.c.j(th);
                 return;
             }
-            this.f67739g = true;
-            this.f67737e.onError(th);
+            this.f68746g = true;
+            this.f68744e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
             try {
-                if (this.f67738f.call(t).booleanValue()) {
-                    this.f67737e.onNext(t);
+                if (this.f68745f.call(t).booleanValue()) {
+                    this.f68744e.onNext(t);
                 } else {
                     request(1L);
                 }
@@ -65,21 +65,21 @@ public final class g<T> implements d.a<T> {
         @Override // h.j
         public void setProducer(h.f fVar) {
             super.setProducer(fVar);
-            this.f67737e.setProducer(fVar);
+            this.f68744e.setProducer(fVar);
         }
     }
 
     public g(h.d<T> dVar, h.n.f<? super T, Boolean> fVar) {
-        this.f67735e = dVar;
-        this.f67736f = fVar;
+        this.f68742e = dVar;
+        this.f68743f = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.b
     /* renamed from: a */
     public void call(h.j<? super T> jVar) {
-        a aVar = new a(jVar, this.f67736f);
+        a aVar = new a(jVar, this.f68743f);
         jVar.add(aVar);
-        this.f67735e.J(aVar);
+        this.f68742e.L(aVar);
     }
 }

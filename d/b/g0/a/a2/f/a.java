@@ -6,48 +6,48 @@ import d.b.g0.a.k;
 import java.io.File;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReadWriteLock f43231c = new ReentrantReadWriteLock();
+    public static final ReadWriteLock f43623c = new ReentrantReadWriteLock();
 
     /* renamed from: a  reason: collision with root package name */
-    public File f43232a = d();
+    public File f43624a = d();
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f43233b = getMaxSize();
+    public final long f43625b = getMaxSize();
 
     @Override // d.b.g0.a.a2.f.d
     public boolean a(long j) {
-        f43231c.readLock().lock();
+        f43623c.readLock().lock();
         try {
-            return e() + j > this.f43233b;
+            return e() + j > this.f43625b;
         } finally {
-            f43231c.readLock().unlock();
+            f43623c.readLock().unlock();
         }
     }
 
     @Override // d.b.g0.a.a2.f.d
     public void b(long j) {
-        f43231c.writeLock().lock();
+        f43623c.writeLock().lock();
         try {
             try {
-                if (this.f43232a == null) {
-                    this.f43232a = d();
+                if (this.f43624a == null) {
+                    this.f43624a = d();
                 }
-                File file = this.f43232a;
+                File file = this.f43624a;
                 if (!file.exists()) {
                     file.createNewFile();
                 }
                 d.b.g0.p.d.z(String.valueOf(e() + j).getBytes(), file);
             } catch (Exception e2) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     e2.printStackTrace();
                 }
             }
         } finally {
-            f43231c.writeLock().unlock();
+            f43623c.writeLock().unlock();
         }
     }
 
@@ -59,10 +59,10 @@ public abstract class a implements d {
     }
 
     public final long e() {
-        if (this.f43232a == null) {
-            this.f43232a = d();
+        if (this.f43624a == null) {
+            this.f43624a = d();
         }
-        File file = this.f43232a;
+        File file = this.f43624a;
         if (file.exists() && file.isFile()) {
             String r = d.b.g0.p.d.r(file);
             try {
@@ -70,7 +70,7 @@ public abstract class a implements d {
                     return Long.valueOf(r.trim()).longValue();
                 }
             } catch (Exception e2) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     e2.printStackTrace();
                 }
             }

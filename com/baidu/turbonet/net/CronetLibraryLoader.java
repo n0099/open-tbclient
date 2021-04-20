@@ -14,84 +14,84 @@ import java.util.List;
 public class CronetLibraryLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f22692a = new Object();
+    public static final Object f22377a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f22693b = new HandlerThread("TurboNetInit");
+    public static final HandlerThread f22378b = new HandlerThread("TurboNetInit");
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f22694c = false;
+    public static volatile boolean f22379c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f22695d = false;
+    public static boolean f22380d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<Runnable> f22696e = new ArrayList();
+    public static List<Runnable> f22381e = new ArrayList();
 
     /* loaded from: classes5.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f22697e;
+        public final /* synthetic */ Context f22382e;
 
         public a(Context context) {
-            this.f22697e = context;
+            this.f22382e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CronetLibraryLoader.b(this.f22697e);
+            CronetLibraryLoader.b(this.f22382e);
         }
     }
 
     public static void a(Context context, TurbonetEngine.Builder builder) {
-        synchronized (f22692a) {
-            if (f22694c) {
+        synchronized (f22377a) {
+            if (f22379c) {
                 return;
             }
-            f22694c = true;
+            f22379c = true;
             ContextUtils.b(context.getApplicationContext());
             builder.n();
             ContextUtils.c();
             d.b.j0.a.a.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
             ContextUtils.b(context.getApplicationContext());
-            if (!f22693b.isAlive()) {
-                f22693b.start();
+            if (!f22378b.isAlive()) {
+                f22378b.start();
             }
             e(new a(context));
         }
     }
 
     public static void b(Context context) {
-        if (f22695d) {
+        if (f22380d) {
             return;
         }
         NetworkChangeNotifier.init(context);
         NetworkChangeNotifier.n();
         nativeCronetInitOnInitThread();
-        for (Runnable runnable : f22696e) {
+        for (Runnable runnable : f22381e) {
             runnable.run();
         }
-        f22696e.clear();
-        f22695d = true;
+        f22381e.clear();
+        f22380d = true;
     }
 
     public static long c() {
-        if (f22695d) {
+        if (f22380d) {
             return nativeGetTurboNetHandler();
         }
         return 0L;
     }
 
     public static boolean d() {
-        return f22693b.getLooper() == Looper.myLooper();
+        return f22378b.getLooper() == Looper.myLooper();
     }
 
     public static void e(Runnable runnable) {
         if (d()) {
             runnable.run();
         } else {
-            new Handler(f22693b.getLooper()).post(runnable);
+            new Handler(f22378b.getLooper()).post(runnable);
         }
     }
 

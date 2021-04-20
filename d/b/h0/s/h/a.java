@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
 import com.baidu.tieba.R;
-import d.b.b.a.f;
+import d.b.c.a.f;
 import d.b.h0.r.s.a;
 import java.util.Date;
 /* loaded from: classes3.dex */
@@ -22,28 +22,28 @@ public class a {
 
     /* renamed from: d.b.h0.s.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class View$OnClickListenerC1099a implements View.OnClickListener {
+    public static class View$OnClickListenerC1112a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51371e;
+        public final /* synthetic */ TbPageContext f51788e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int[] f51372f;
+        public final /* synthetic */ int[] f51789f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f51373g;
+        public final /* synthetic */ d.b.h0.r.s.a f51790g;
 
-        public View$OnClickListenerC1099a(TbPageContext tbPageContext, int[] iArr, d.b.h0.r.s.a aVar) {
-            this.f51371e = tbPageContext;
-            this.f51372f = iArr;
-            this.f51373g = aVar;
+        public View$OnClickListenerC1112a(TbPageContext tbPageContext, int[] iArr, d.b.h0.r.s.a aVar) {
+            this.f51788e = tbPageContext;
+            this.f51789f = iArr;
+            this.f51790g = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.c(this.f51371e);
-            this.f51372f[0] = 1;
-            this.f51373g.dismiss();
+            a.c(this.f51788e);
+            this.f51789f[0] = 1;
+            this.f51790g.dismiss();
         }
     }
 
@@ -51,20 +51,20 @@ public class a {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f51374e;
+        public final /* synthetic */ int[] f51791e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f51375f;
+        public final /* synthetic */ d.b.h0.r.s.a f51792f;
 
         public b(int[] iArr, d.b.h0.r.s.a aVar) {
-            this.f51374e = iArr;
-            this.f51375f = aVar;
+            this.f51791e = iArr;
+            this.f51792f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f51374e[0] = 2;
-            this.f51375f.dismiss();
+            this.f51791e[0] = 2;
+            this.f51792f.dismiss();
         }
     }
 
@@ -72,21 +72,21 @@ public class a {
     public static class c implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f51376e;
+        public final /* synthetic */ int f51793e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int[] f51377f;
+        public final /* synthetic */ int[] f51794f;
 
         public c(int i, int[] iArr) {
-            this.f51376e = i;
-            this.f51377f = iArr;
+            this.f51793e = i;
+            this.f51794f = iArr;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             StatisticItem statisticItem = new StatisticItem("c13673");
-            statisticItem.param("obj_source", this.f51376e);
-            statisticItem.param("obj_type", this.f51377f[0]);
+            statisticItem.param("obj_source", this.f51793e);
+            statisticItem.param("obj_type", this.f51794f[0]);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -148,8 +148,8 @@ public class a {
         if (NotificationManagerCompat.from(context).areNotificationsEnabled()) {
             return false;
         }
-        Date date = new Date(d.b.h0.r.d0.b.i().k("push_permission_dialog_scene_cold_start_key", 0L));
-        Date date2 = new Date(d.b.h0.r.d0.b.i().k("push_permission_dialog_scene_interaction_key", 0L));
+        Date date = new Date(d.b.h0.r.d0.b.j().l("push_permission_dialog_scene_cold_start_key", 0L));
+        Date date2 = new Date(d.b.h0.r.d0.b.j().l("push_permission_dialog_scene_interaction_key", 0L));
         long currentTimeMillis = System.currentTimeMillis();
         Date date3 = new Date(currentTimeMillis);
         if (i == 0 && TimeHelper.getDayDifference(date3, date2) >= 7 && !TimeHelper.isSameDay(date3, date)) {
@@ -160,9 +160,9 @@ public class a {
         }
         if (z) {
             if (i == 0) {
-                d.b.h0.r.d0.b.i().v("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                d.b.h0.r.d0.b.j().w("push_permission_dialog_scene_interaction_key", currentTimeMillis);
             } else if (i == 1) {
-                d.b.h0.r.d0.b.i().v("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                d.b.h0.r.d0.b.j().w("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
             }
         }
         return z;
@@ -184,7 +184,7 @@ public class a {
         CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
         aVar.setContentView(customPushPremissionDialogView);
         int[] iArr = {-1};
-        customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View$OnClickListenerC1099a(tbPageContext, iArr, aVar));
+        customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View$OnClickListenerC1112a(tbPageContext, iArr, aVar));
         customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, aVar));
         aVar.setOnDismissListener(new c(i, iArr));
         if (j > 0) {

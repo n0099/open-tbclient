@@ -3,20 +3,20 @@ package d.b.m0.a.e;
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f64072b = new e();
+    public static final e f64800b = new e();
 
     /* renamed from: a  reason: collision with root package name */
-    public l f64073a = new l();
+    public l f64801a = new l();
 
     public static e a() {
-        return f64072b;
+        return f64800b;
     }
 
     public final void b(String str) {
-        this.f64073a.a(str);
+        this.f64801a.a(str);
     }
 
     public final void c(String str) {
-        this.f64073a.b(str);
+        this.f64801a.b(str);
     }
 }

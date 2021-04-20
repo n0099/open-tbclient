@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 public class b extends ReplacementSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50531e;
+    public int f50938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f50532f;
+    public final Paint f50939f;
 
     public b(int i) {
         this(i, 0);
@@ -20,18 +20,18 @@ public class b extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
-        canvas.drawRect(f2, i3, f2 + this.f50531e, i5, this.f50532f);
+        canvas.drawRect(f2, i3, f2 + this.f50938e, i5, this.f50939f);
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return this.f50531e;
+        return this.f50938e;
     }
 
     public b(int i, int i2) {
         Paint paint = new Paint();
-        this.f50532f = paint;
-        this.f50531e = i;
+        this.f50939f = paint;
+        this.f50938e = i;
         paint.setColor(i2);
     }
 }

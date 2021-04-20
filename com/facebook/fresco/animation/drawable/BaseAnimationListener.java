@@ -1,5 +1,5 @@
 package com.facebook.fresco.animation.drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BaseAnimationListener implements AnimationListener {
     @Override // com.facebook.fresco.animation.drawable.AnimationListener
     public void onAnimationFrame(AnimatedDrawable2 animatedDrawable2, int i) {

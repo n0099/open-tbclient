@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.i0.x.b0;
 /* loaded from: classes4.dex */
-public class b extends d.b.b.j.e.a<d.b.i0.i0.k.c.c, CardViewHolder<d.b.i0.i0.k.d.b>> {
+public class b extends d.b.c.j.e.a<d.b.i0.i0.k.c.c, CardViewHolder<d.b.i0.i0.k.d.b>> {
     public TbPageContext<?> m;
     public b0<d.b.i0.i0.k.c.c> n;
 
@@ -25,13 +25,13 @@ public class b extends d.b.b.j.e.a<d.b.i0.i0.k.c.c, CardViewHolder<d.b.i0.i0.k.d
     }
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.i0.k.c.c.f55646g);
+        super(tbPageContext.getPageActivity(), d.b.i0.i0.k.c.c.f56769g);
         this.n = new a(this);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: h0 */
     public CardViewHolder<d.b.i0.i0.k.d.b> R(ViewGroup viewGroup) {
         d.b.i0.i0.k.d.b bVar = new d.b.i0.i0.k.d.b(this.m);
@@ -40,7 +40,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.i0.k.c.c, CardViewHolder<d.b.i0.i0.k.d
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.i0.k.c.c cVar, CardViewHolder<d.b.i0.i0.k.d.b> cardViewHolder) {
         if (cVar == null || cardViewHolder == null || cardViewHolder.b() == null) {

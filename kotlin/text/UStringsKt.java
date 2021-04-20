@@ -17,14 +17,14 @@ public final class UStringsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: toString-JSWoG40  reason: not valid java name */
-    public static final String m1542toStringJSWoG40(long j, int i) {
+    public static final String m1546toStringJSWoG40(long j, int i) {
         return UnsignedKt.ulongToString(j, CharsKt__CharJVMKt.checkRadix(i));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: toString-LxnNnR4  reason: not valid java name */
-    public static final String m1543toStringLxnNnR4(byte b2, int i) {
+    public static final String m1547toStringLxnNnR4(byte b2, int i) {
         String num = Integer.toString(b2 & 255, CharsKt__CharJVMKt.checkRadix(i));
         Intrinsics.checkExpressionValueIsNotNull(num, "java.lang.Integer.toStri…(this, checkRadix(radix))");
         return num;
@@ -33,7 +33,7 @@ public final class UStringsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: toString-V7xB4Y4  reason: not valid java name */
-    public static final String m1544toStringV7xB4Y4(int i, int i2) {
+    public static final String m1548toStringV7xB4Y4(int i, int i2) {
         String l = Long.toString(i & 4294967295L, CharsKt__CharJVMKt.checkRadix(i2));
         Intrinsics.checkExpressionValueIsNotNull(l, "java.lang.Long.toString(this, checkRadix(radix))");
         return l;
@@ -42,7 +42,7 @@ public final class UStringsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: toString-olVBNx4  reason: not valid java name */
-    public static final String m1545toStringolVBNx4(short s, int i) {
+    public static final String m1549toStringolVBNx4(short s, int i) {
         String num = Integer.toString(s & UShort.MAX_VALUE, CharsKt__CharJVMKt.checkRadix(i));
         Intrinsics.checkExpressionValueIsNotNull(num, "java.lang.Integer.toStri…(this, checkRadix(radix))");
         return num;
@@ -53,7 +53,7 @@ public final class UStringsKt {
     public static final byte toUByte(String str) {
         UByte uByteOrNull = toUByteOrNull(str);
         if (uByteOrNull != null) {
-            return uByteOrNull.m687unboximpl();
+            return uByteOrNull.m691unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -70,7 +70,7 @@ public final class UStringsKt {
     public static final int toUInt(String str) {
         UInt uIntOrNull = toUIntOrNull(str);
         if (uIntOrNull != null) {
-            return uIntOrNull.m756unboximpl();
+            return uIntOrNull.m760unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -87,7 +87,7 @@ public final class UStringsKt {
     public static final long toULong(String str) {
         ULong uLongOrNull = toULongOrNull(str);
         if (uLongOrNull != null) {
-            return uLongOrNull.m825unboximpl();
+            return uLongOrNull.m829unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -104,7 +104,7 @@ public final class UStringsKt {
     public static final short toUShort(String str) {
         UShort uShortOrNull = toUShortOrNull(str);
         if (uShortOrNull != null) {
-            return uShortOrNull.m920unboximpl();
+            return uShortOrNull.m924unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -121,7 +121,7 @@ public final class UStringsKt {
     public static final byte toUByte(String str, int i) {
         UByte uByteOrNull = toUByteOrNull(str, i);
         if (uByteOrNull != null) {
-            return uByteOrNull.m687unboximpl();
+            return uByteOrNull.m691unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -132,11 +132,11 @@ public final class UStringsKt {
     public static final UByte toUByteOrNull(String str, int i) {
         UInt uIntOrNull = toUIntOrNull(str, i);
         if (uIntOrNull != null) {
-            int m756unboximpl = uIntOrNull.m756unboximpl();
-            if (UnsignedKt.uintCompare(m756unboximpl, UInt.m713constructorimpl(255)) > 0) {
+            int m760unboximpl = uIntOrNull.m760unboximpl();
+            if (UnsignedKt.uintCompare(m760unboximpl, UInt.m717constructorimpl(255)) > 0) {
                 return null;
             }
-            return UByte.m640boximpl(UByte.m646constructorimpl((byte) m756unboximpl));
+            return UByte.m644boximpl(UByte.m650constructorimpl((byte) m760unboximpl));
         }
         return null;
     }
@@ -146,7 +146,7 @@ public final class UStringsKt {
     public static final int toUInt(String str, int i) {
         UInt uIntOrNull = toUIntOrNull(str, i);
         if (uIntOrNull != null) {
-            return uIntOrNull.m756unboximpl();
+            return uIntOrNull.m760unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -168,7 +168,7 @@ public final class UStringsKt {
         } else if (length == 1 || charAt != '+') {
             return null;
         }
-        int m713constructorimpl = UInt.m713constructorimpl(i);
+        int m717constructorimpl = UInt.m717constructorimpl(i);
         int i4 = 119304647;
         while (i3 < length) {
             int digitOf = CharsKt__CharJVMKt.digitOf(str.charAt(i3), i);
@@ -177,21 +177,21 @@ public final class UStringsKt {
             }
             if (UnsignedKt.uintCompare(i2, i4) > 0) {
                 if (i4 == 119304647) {
-                    i4 = UnsignedKt.m939uintDivideJ1ME1BU(-1, m713constructorimpl);
+                    i4 = UnsignedKt.m943uintDivideJ1ME1BU(-1, m717constructorimpl);
                     if (UnsignedKt.uintCompare(i2, i4) > 0) {
                     }
                 }
                 return null;
             }
-            int m713constructorimpl2 = UInt.m713constructorimpl(i2 * m713constructorimpl);
-            int m713constructorimpl3 = UInt.m713constructorimpl(UInt.m713constructorimpl(digitOf) + m713constructorimpl2);
-            if (UnsignedKt.uintCompare(m713constructorimpl3, m713constructorimpl2) < 0) {
+            int m717constructorimpl2 = UInt.m717constructorimpl(i2 * m717constructorimpl);
+            int m717constructorimpl3 = UInt.m717constructorimpl(UInt.m717constructorimpl(digitOf) + m717constructorimpl2);
+            if (UnsignedKt.uintCompare(m717constructorimpl3, m717constructorimpl2) < 0) {
                 return null;
             }
             i3++;
-            i2 = m713constructorimpl3;
+            i2 = m717constructorimpl3;
         }
-        return UInt.m707boximpl(i2);
+        return UInt.m711boximpl(i2);
     }
 
     @SinceKotlin(version = "1.3")
@@ -199,7 +199,7 @@ public final class UStringsKt {
     public static final long toULong(String str, int i) {
         ULong uLongOrNull = toULongOrNull(str, i);
         if (uLongOrNull != null) {
-            return uLongOrNull.m825unboximpl();
+            return uLongOrNull.m829unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -223,7 +223,7 @@ public final class UStringsKt {
             }
             i2 = 1;
         }
-        long m782constructorimpl = ULong.m782constructorimpl(i);
+        long m786constructorimpl = ULong.m786constructorimpl(i);
         long j2 = 0;
         long j3 = 512409557603043100L;
         while (i2 < length) {
@@ -232,22 +232,22 @@ public final class UStringsKt {
             }
             if (UnsignedKt.ulongCompare(j2, j3) > 0) {
                 if (j3 == 512409557603043100L) {
-                    j3 = UnsignedKt.m941ulongDivideeb3DHEI(j, m782constructorimpl);
+                    j3 = UnsignedKt.m945ulongDivideeb3DHEI(j, m786constructorimpl);
                     if (UnsignedKt.ulongCompare(j2, j3) > 0) {
                     }
                 }
                 return null;
             }
-            long m782constructorimpl2 = ULong.m782constructorimpl(j2 * m782constructorimpl);
-            long m782constructorimpl3 = ULong.m782constructorimpl(ULong.m782constructorimpl(UInt.m713constructorimpl(digitOf) & 4294967295L) + m782constructorimpl2);
-            if (UnsignedKt.ulongCompare(m782constructorimpl3, m782constructorimpl2) < 0) {
+            long m786constructorimpl2 = ULong.m786constructorimpl(j2 * m786constructorimpl);
+            long m786constructorimpl3 = ULong.m786constructorimpl(ULong.m786constructorimpl(UInt.m717constructorimpl(digitOf) & 4294967295L) + m786constructorimpl2);
+            if (UnsignedKt.ulongCompare(m786constructorimpl3, m786constructorimpl2) < 0) {
                 return null;
             }
             i2++;
-            j2 = m782constructorimpl3;
+            j2 = m786constructorimpl3;
             j = -1;
         }
-        return ULong.m776boximpl(j2);
+        return ULong.m780boximpl(j2);
     }
 
     @SinceKotlin(version = "1.3")
@@ -255,7 +255,7 @@ public final class UStringsKt {
     public static final short toUShort(String str, int i) {
         UShort uShortOrNull = toUShortOrNull(str, i);
         if (uShortOrNull != null) {
-            return uShortOrNull.m920unboximpl();
+            return uShortOrNull.m924unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(str);
         throw null;
@@ -266,11 +266,11 @@ public final class UStringsKt {
     public static final UShort toUShortOrNull(String str, int i) {
         UInt uIntOrNull = toUIntOrNull(str, i);
         if (uIntOrNull != null) {
-            int m756unboximpl = uIntOrNull.m756unboximpl();
-            if (UnsignedKt.uintCompare(m756unboximpl, UInt.m713constructorimpl(65535)) > 0) {
+            int m760unboximpl = uIntOrNull.m760unboximpl();
+            if (UnsignedKt.uintCompare(m760unboximpl, UInt.m717constructorimpl(65535)) > 0) {
                 return null;
             }
-            return UShort.m873boximpl(UShort.m879constructorimpl((short) m756unboximpl));
+            return UShort.m877boximpl(UShort.m883constructorimpl((short) m760unboximpl));
         }
         return null;
     }

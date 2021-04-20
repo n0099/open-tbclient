@@ -11,10 +11,11 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import d.b.b.h.f.c;
-import d.b.b.h.j.g.d;
+import d.b.c.h.f.c;
+import d.b.c.h.j.g.d;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -166,7 +167,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
         if (intent != null) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         this.mServiceProxy.proxyStartActivity(intent);
     }

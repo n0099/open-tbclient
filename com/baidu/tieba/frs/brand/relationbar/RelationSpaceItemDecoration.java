@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16191a;
+    public int f15852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16192b;
+    public int f15853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16193c;
+    public int f15854c;
 
     public RelationSpaceItemDecoration(int i, int i2, int i3) {
-        this.f16191a = i;
-        this.f16192b = i2;
-        this.f16193c = i3;
+        this.f15852a = i;
+        this.f15853b = i2;
+        this.f15854c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -27,23 +27,23 @@ public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.f16191a;
+                rect.top = this.f15852a;
             } else {
-                rect.top = this.f16192b;
+                rect.top = this.f15853b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.f16193c;
+                rect.bottom = this.f15854c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.f16191a;
+            rect.left = this.f15852a;
         } else {
-            rect.left = this.f16192b;
+            rect.left = this.f15853b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.f16193c;
+            rect.right = this.f15854c;
         }
     }
 }

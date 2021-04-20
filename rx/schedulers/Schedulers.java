@@ -13,47 +13,47 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class Schedulers {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final AtomicReference<Schedulers> f68272d = new AtomicReference<>();
+    public static final AtomicReference<Schedulers> f69278d = new AtomicReference<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f68273a;
+    public final g f69279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f68274b;
+    public final g f69280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f68275c;
+    public final g f69281c;
 
     public Schedulers() {
         h.r.g f2 = f.c().f();
         g g2 = f2.g();
         if (g2 != null) {
-            this.f68273a = g2;
+            this.f69279a = g2;
         } else {
-            this.f68273a = h.r.g.a();
+            this.f69279a = h.r.g.a();
         }
         g i = f2.i();
         if (i != null) {
-            this.f68274b = i;
+            this.f69280b = i;
         } else {
-            this.f68274b = h.r.g.c();
+            this.f69280b = h.r.g.c();
         }
         g j = f2.j();
         if (j != null) {
-            this.f68275c = j;
+            this.f69281c = j;
         } else {
-            this.f68275c = h.r.g.e();
+            this.f69281c = h.r.g.e();
         }
     }
 
     public static Schedulers a() {
         while (true) {
-            Schedulers schedulers = f68272d.get();
+            Schedulers schedulers = f69278d.get();
             if (schedulers != null) {
                 return schedulers;
             }
             Schedulers schedulers2 = new Schedulers();
-            if (f68272d.compareAndSet(null, schedulers2)) {
+            if (f69278d.compareAndSet(null, schedulers2)) {
                 return schedulers2;
             }
             schedulers2.b();
@@ -61,7 +61,7 @@ public final class Schedulers {
     }
 
     public static g computation() {
-        return c.f(a().f68273a);
+        return c.f(a().f69279a);
     }
 
     public static g from(Executor executor) {
@@ -69,19 +69,19 @@ public final class Schedulers {
     }
 
     public static g immediate() {
-        return e.f67900a;
+        return e.f68910a;
     }
 
     public static g io() {
-        return c.k(a().f68274b);
+        return c.k(a().f69280b);
     }
 
     public static g newThread() {
-        return c.l(a().f68275c);
+        return c.l(a().f69281c);
     }
 
     public static void reset() {
-        Schedulers andSet = f68272d.getAndSet(null);
+        Schedulers andSet = f69278d.getAndSet(null);
         if (andSet != null) {
             andSet.b();
         }
@@ -91,7 +91,7 @@ public final class Schedulers {
         Schedulers a2 = a();
         a2.b();
         synchronized (a2) {
-            d.f67898h.shutdown();
+            d.f68908h.shutdown();
         }
     }
 
@@ -99,7 +99,7 @@ public final class Schedulers {
         Schedulers a2 = a();
         a2.c();
         synchronized (a2) {
-            d.f67898h.start();
+            d.f68908h.start();
         }
     }
 
@@ -108,30 +108,30 @@ public final class Schedulers {
     }
 
     public static g trampoline() {
-        return j.f67911a;
+        return j.f68921a;
     }
 
     public synchronized void b() {
-        if (this.f68273a instanceof h) {
-            ((h) this.f68273a).shutdown();
+        if (this.f69279a instanceof h) {
+            ((h) this.f69279a).shutdown();
         }
-        if (this.f68274b instanceof h) {
-            ((h) this.f68274b).shutdown();
+        if (this.f69280b instanceof h) {
+            ((h) this.f69280b).shutdown();
         }
-        if (this.f68275c instanceof h) {
-            ((h) this.f68275c).shutdown();
+        if (this.f69281c instanceof h) {
+            ((h) this.f69281c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.f68273a instanceof h) {
-            ((h) this.f68273a).start();
+        if (this.f69279a instanceof h) {
+            ((h) this.f69279a).start();
         }
-        if (this.f68274b instanceof h) {
-            ((h) this.f68274b).start();
+        if (this.f69280b instanceof h) {
+            ((h) this.f69280b).start();
         }
-        if (this.f68275c instanceof h) {
-            ((h) this.f68275c).start();
+        if (this.f69281c instanceof h) {
+            ((h) this.f69281c).start();
         }
     }
 }

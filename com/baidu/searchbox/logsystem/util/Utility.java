@@ -25,6 +25,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import java.io.BufferedReader;
@@ -108,7 +109,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f1897h);
+            sb.append(a.f1922h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append('}');
@@ -187,7 +188,7 @@ public class Utility {
             String str2 = "NUL";
             String replace = TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
             String str3 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str3) ? "0.0" : str3.replace("_", "-");
+            String replace2 = TextUtils.isEmpty(str3) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str3.replace("_", "-");
             String valueOf = String.valueOf(Build.VERSION.SDK_INT);
             String str4 = Build.MANUFACTURER;
             if (!TextUtils.isEmpty(str4)) {

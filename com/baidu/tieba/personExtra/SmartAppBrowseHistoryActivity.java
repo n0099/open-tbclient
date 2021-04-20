@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
 import d.b.h0.z0.l;
-import d.b.i0.g2.h;
-import d.b.i0.g2.i;
+import d.b.i0.h2.h;
+import d.b.i0.h2.i;
 import tbclient.SmartApp;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public SmartAppBrowseHistoryAdapter mAdapter;
     public i mHistoryRecordMoreDialog;
@@ -45,13 +45,13 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public View.OnClickListener mOnNoNetButtonClickListener = new e();
     public View.OnClickListener mNoDataViewRefreshListener = new f();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements h.b {
         public a() {
         }
 
-        @Override // d.b.i0.g2.h.b
-        public void a(boolean z, d.b.i0.g2.a aVar) {
+        @Override // d.b.i0.h2.h.b
+        public void a(boolean z, d.b.i0.h2.a aVar) {
             if (!z || aVar == null) {
                 SmartAppBrowseHistoryActivity.this.dealNoDataView(true);
                 SmartAppBrowseHistoryActivity.this.dealNoMoreDataView(0);
@@ -64,12 +64,12 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements i.b {
         public b() {
         }
 
-        @Override // d.b.i0.g2.i.b
+        @Override // d.b.i0.h2.i.b
         public void a(String str) {
             if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
                 SmartAppBrowseHistoryActivity.this.mAdapter.k(str);
@@ -83,7 +83,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -112,7 +112,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnLongClickListener {
         public d() {
         }
@@ -134,7 +134,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -152,7 +152,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -187,7 +187,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dealNoMoreDataView(int i) {
-        if (d.b.b.e.p.l.g(getActivity(), R.dimen.tbds177) * i >= d.b.b.e.p.l.i(getActivity()) - this.mNavigationBar.getHeight()) {
+        if (d.b.c.e.p.l.g(getActivity(), R.dimen.tbds177) * i >= d.b.c.e.p.l.i(getActivity()) - this.mNavigationBar.getHeight()) {
             this.mRecyclerView.y(this.mNoMoreDataView);
             this.mRecyclerView.r(this.mNoMoreDataView);
             return;
@@ -230,10 +230,10 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         this.mAdapter.n(this.mOnLongClickListener);
         this.mRecyclerView.setAdapter(this.mAdapter);
         this.mNoMoreDataView = new TextView(getActivity());
-        this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, d.b.b.e.p.l.g(getActivity(), R.dimen.tbds182)));
+        this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, d.b.c.e.p.l.g(getActivity(), R.dimen.tbds182)));
         this.mNoMoreDataView.setGravity(17);
         this.mNoMoreDataView.setText(R.string.list_has_no_more);
-        this.mNoMoreDataView.setTextSize(0, d.b.b.e.p.l.g(getActivity(), R.dimen.tbds33));
+        this.mNoMoreDataView.setTextSize(0, d.b.c.e.p.l.g(getActivity(), R.dimen.tbds33));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

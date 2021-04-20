@@ -25,7 +25,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         String str5 = "onBind errorCode=" + i;
         if (i == 0) {
-            b.i().s(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            b.j().t(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
     }
@@ -61,7 +61,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int d2 = d.b.b.e.m.b.d(str4, 2500);
+            int d2 = d.b.c.e.m.b.d(str4, 2500);
             if (d2 < 2500) {
                 d2 += 2500;
             }

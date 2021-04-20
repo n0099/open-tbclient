@@ -13,15 +13,15 @@ import java.util.List;
 public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26548a;
+    public String f26233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26549b;
+    public String f26234b;
 
     public QueryHceTransRecordsBean(Context context) {
         super(context);
-        this.f26548a = "";
-        this.f26549b = "";
+        this.f26233a = "";
+        this.f26234b = "";
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -32,11 +32,11 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(this.f26548a)) {
-            arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f26548a));
+        if (!TextUtils.isEmpty(this.f26233a)) {
+            arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f26233a));
         }
-        if (!TextUtils.isEmpty(this.f26549b)) {
-            arrayList.add(new RestNameValuePair("type", this.f26549b));
+        if (!TextUtils.isEmpty(this.f26234b)) {
+            arrayList.add(new RestNameValuePair("type", this.f26234b));
         }
         return arrayList;
     }
@@ -57,10 +57,10 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     }
 
     public void setPageNum(String str) {
-        this.f26548a = str;
+        this.f26233a = str;
     }
 
     public void setType(String str) {
-        this.f26549b = str;
+        this.f26234b = str;
     }
 }

@@ -23,24 +23,24 @@ import org.json.JSONObject;
 public class FaceLoginService {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11391b = "FaceLoginService";
+    public static final String f10975b = "FaceLoginService";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11392c = "face_login_model_v2";
+    public static final String f10976c = "face_login_model_v2";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11393d = "livingunames";
+    public static final String f10977d = "livingunames";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f11394e = 10;
+    public static final int f10978e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11395a = SapiAccountManager.getInstance().getConfignation().context;
+    public Context f10979a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f11393d, SapiUtils.map2JsonArray(map, "livinguname", "time"));
+            jSONObject.put(f10977d, SapiUtils.map2JsonArray(map, "livinguname", "time"));
             return jSONObject.toString();
         } catch (JSONException unused) {
             return null;
@@ -60,7 +60,7 @@ public class FaceLoginService {
         ArrayList arrayList = new ArrayList();
         try {
             if (!TextUtils.isEmpty(str)) {
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray(f11393d);
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray(f10977d);
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("livinguname");
@@ -113,11 +113,11 @@ public class FaceLoginService {
     private void a(String str) {
         if (SapiContext.getInstance().getShareCommonStorageEnabel() && !TextUtils.isEmpty(str) && SapiContext.getInstance().shareLivingunameEnable()) {
             ShareStorage shareStorage = new ShareStorage();
-            shareStorage.setSp(f11392c, str);
-            shareStorage.setSd(SecurityUtil.md5(f11392c.getBytes(), false), str);
+            shareStorage.setSp(f10976c, str);
+            shareStorage.setSd(SecurityUtil.md5(f10976c.getBytes(), false), str);
             return;
         }
-        Log.i(f11391b, "setV2ShareFaceUids false");
+        Log.i(f10975b, "setV2ShareFaceUids false");
     }
 
     private Map<String, Long> a(List<a> list) {
@@ -125,8 +125,8 @@ public class FaceLoginService {
         if (list != null && !list.isEmpty()) {
             Collections.sort(list);
             for (a aVar : list) {
-                if (!linkedHashMap.containsKey(aVar.f11396a)) {
-                    linkedHashMap.put(aVar.f11396a, Long.valueOf(aVar.f11397b));
+                if (!linkedHashMap.containsKey(aVar.f10980a)) {
+                    linkedHashMap.put(aVar.f10980a, Long.valueOf(aVar.f10981b));
                 }
             }
             if (linkedHashMap.size() > 10) {
@@ -144,15 +144,15 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> a2 = d.a(this.f11395a);
+            List<Intent> a2 = d.a(this.f10979a);
             if (a2.isEmpty()) {
                 return arrayList;
             }
             ShareStorage shareStorage = new ShareStorage();
             for (Intent intent : a2) {
-                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), f11392c)));
+                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), f10976c)));
             }
-            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(f11392c.getBytes(), false))));
+            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(f10976c.getBytes(), false))));
             return arrayList;
         }
         return arrayList;

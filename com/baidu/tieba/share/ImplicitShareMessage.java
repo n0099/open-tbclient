@@ -3,7 +3,7 @@ package com.baidu.tieba.share;
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImplicitShareMessage extends CustomMessage<ShareItem> {
     public boolean isShowLocation;
     public int mChannel;

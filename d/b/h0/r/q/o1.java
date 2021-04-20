@@ -10,7 +10,7 @@ import tbclient.RecommendForumInfo;
 public class o1 extends w {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50854h;
+    public String f51261h;
     public int i;
     public String j;
     public ArrayList<n1> k;
@@ -53,9 +53,9 @@ public class o1 extends w {
         return new v0();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return w.f50913f;
+        return w.f51320f;
     }
 
     @Override // d.b.h0.r.q.w, d.b.h0.r.q.a

@@ -8,24 +8,24 @@ import android.view.OrientationEventListener;
 public class b extends OrientationEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f24217a;
+    public Context f23902a;
 
     public b(Context context) {
         super(context);
-        this.f24217a = context;
+        this.f23902a = context;
     }
 
     public void a() {
         disable();
-        this.f24217a = null;
+        this.f23902a = null;
     }
 
     @Override // android.view.OrientationEventListener
     public void onOrientationChanged(int i) {
-        Context context = this.f24217a;
+        Context context = this.f23902a;
         if (context instanceof Activity) {
             if (Build.VERSION.SDK_INT != 26 || context.getApplicationInfo().targetSdkVersion <= 26) {
-                ((Activity) this.f24217a).setRequestedOrientation(1);
+                ((Activity) this.f23902a).setRequestedOrientation(1);
             }
         }
     }

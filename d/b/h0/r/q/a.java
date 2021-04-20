@@ -59,7 +59,7 @@ public abstract class a extends BaseCardInfo implements d.b.h0.b.f.k {
         if (n == null) {
             return false;
         }
-        return n.U1 || n.W1 || n.C2();
+        return n.U1 || n.W1 || n.D2();
     }
 
     public boolean v() {
@@ -76,11 +76,11 @@ public abstract class a extends BaseCardInfo implements d.b.h0.b.f.k {
             return false;
         }
         boolean z = n.T1() || n.O1() || n.R1();
-        if (!n.T1 || (!z && !n.C2())) {
+        if (!n.T1 || (!z && !n.D2())) {
             if (!n.V1) {
                 return false;
             }
-            if (!z && !n.C2()) {
+            if (!z && !n.D2()) {
                 return false;
             }
         }

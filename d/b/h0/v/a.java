@@ -3,14 +3,13 @@ package d.b.h0.v;
 import android.content.SharedPreferences;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.nps.utils.Constant;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
-import d.b.i0.r2.x.e;
+import d.b.i0.s2.a0.e;
 /* loaded from: classes3.dex */
 public class a implements c {
     @Override // d.b.h0.v.c
@@ -39,7 +38,7 @@ public class a implements c {
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
         e.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
-            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
         }
     }
 

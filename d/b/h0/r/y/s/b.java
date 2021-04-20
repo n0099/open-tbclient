@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.b.h0.r.y.l;
 import d.b.h0.r.y.n;
 import d.b.h0.r.y.o;
-import d.b.h0.t.g;
+import d.b.h0.t.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -20,11 +20,11 @@ public class b extends n {
             int optInt = jSONObject.optInt("activityId");
             int optInt2 = jSONObject.optInt("state");
             String optString = jSONObject.optString("curNum");
-            g gVar = new g();
-            gVar.d(optInt);
-            gVar.f(optInt2);
-            gVar.e(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, gVar));
+            h hVar = new h();
+            hVar.a(optInt);
+            hVar.c(optInt2);
+            hVar.b(optString);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, hVar));
         }
     }
 

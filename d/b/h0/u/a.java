@@ -13,7 +13,6 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -30,10 +29,10 @@ import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.baidu.webkit.internal.ETAG;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.i0.r2.b0.e;
-import d.b.i0.r2.b0.h;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
+import d.b.i0.s2.f0.e;
+import d.b.i0.s2.f0.h;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,39 +43,39 @@ public class a {
     public static a p = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f51496f = new HandlerC1106a(Looper.getMainLooper());
+    public Handler f51914f = new HandlerC1119a(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f51497g = new b(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+    public d.b.c.c.g.a f51915g = new b(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f51498h = new c(2000994);
+    public CustomMessageListener f51916h = new c(2000994);
     public final CustomMessageListener i = new d(2001118);
     public HashMap<String, AdvertAppInfo> l = new HashMap<>();
     public HashMap<String, AdvertAppInfo> m = new HashMap<>();
     public HashMap<String, DownloadStaticsData> n = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<AdReq> f51492b = new ArrayList<>();
+    public ArrayList<AdReq> f51910b = new ArrayList<>();
     public ArrayList<AdvertAppInfo> j = new ArrayList<>();
     public ArrayList<AdvertAppInfo> k = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51493c = true;
+    public boolean f51911c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51494d = 60000;
+    public long f51912d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51495e = 10;
+    public int f51913e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51491a = j.z();
+    public boolean f51909a = j.z();
 
     /* renamed from: d.b.h0.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC1106a extends Handler {
-        public HandlerC1106a(Looper looper) {
+    public class HandlerC1119a extends Handler {
+        public HandlerC1119a(Looper looper) {
             super(looper);
         }
 
@@ -90,12 +89,12 @@ public class a {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends d.b.b.c.g.a {
+    public class b extends d.b.c.c.g.a {
         public b(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.hasError()) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
@@ -194,7 +193,7 @@ public class a {
                     sb.append(advertAppInfo.S3);
                     sb2.append(advertAppInfo.K3);
                     sb3.append(advertAppInfo.E3);
-                    sb4.append(advertAppInfo.U3.f13203a);
+                    sb4.append(advertAppInfo.U3.f12864a);
                     sb5.append(advertAppInfo.T3);
                     sb6.append(advertAppInfo.O3);
                     sb7.append(advertAppInfo.F3);
@@ -209,7 +208,7 @@ public class a {
                     sb2.append(FieldBuilder.SE);
                     sb3.append(advertAppInfo.E3);
                     sb3.append(FieldBuilder.SE);
-                    sb4.append(advertAppInfo.U3.f13203a);
+                    sb4.append(advertAppInfo.U3.f12864a);
                     sb4.append(FieldBuilder.SE);
                     sb5.append(advertAppInfo.T3);
                     sb5.append(FieldBuilder.SE);
@@ -239,14 +238,14 @@ public class a {
     }
 
     public final synchronized void g(List<AdReq> list) {
-        if (this.f51492b != null) {
-            this.f51492b.addAll(list);
+        if (this.f51910b != null) {
+            this.f51910b.addAll(list);
         }
     }
 
     public final synchronized void h(AdReq adReq) {
-        if (this.f51492b != null && this.f51492b.size() < 20) {
-            this.f51492b.add(adReq);
+        if (this.f51910b != null && this.f51910b.size() < 20) {
+            this.f51910b.add(adReq);
         }
     }
 
@@ -255,7 +254,7 @@ public class a {
     }
 
     public final void j(boolean z) {
-        if (this.f51491a && this.f51493c) {
+        if (this.f51909a && this.f51911c) {
             List<AdReq> m = m(z);
             if (z || !p()) {
                 t();
@@ -278,16 +277,16 @@ public class a {
 
     public final synchronized List<AdReq> m(boolean z) {
         if (!z) {
-            if (this.f51492b.size() < this.f51495e) {
+            if (this.f51910b.size() < this.f51913e) {
                 return null;
             }
         }
-        if (this.f51492b.size() <= 0) {
+        if (this.f51910b.size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f51492b);
-        this.f51492b.clear();
+        arrayList.addAll(this.f51910b);
+        this.f51910b.clear();
         return arrayList;
     }
 
@@ -304,20 +303,20 @@ public class a {
             messageManager.registerTask(n());
         }
         messageManager.registerTask(k());
-        messageManager.registerListener(this.f51497g);
-        messageManager.registerListener(this.f51498h);
+        messageManager.registerListener(this.f51915g);
+        messageManager.registerListener(this.f51916h);
         messageManager.registerListener(this.i);
     }
 
     public final boolean p() {
-        return this.f51496f.hasMessages(1);
+        return this.f51914f.hasMessages(1);
     }
 
     public final void q(DownloadStaticsData downloadStaticsData) {
         if (downloadStaticsData != null) {
-            d.b.i0.r2.b0.c d2 = h.d(downloadStaticsData, 101, 0);
-            d2.q(null);
-            d2.a(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
+            d.b.i0.s2.f0.c d2 = h.d(downloadStaticsData, 101, 0);
+            d2.s(null);
+            d2.a("dl", "delete");
             e.b().d(d2);
         }
     }
@@ -333,8 +332,8 @@ public class a {
             downloadStaticsData.setDa_page(null);
             downloadStaticsData.setFid(null);
         }
-        d.b.i0.r2.b0.c d2 = h.d(downloadStaticsData, 101, 0);
-        d2.a(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, IntentConfig.START);
+        d.b.i0.s2.f0.c d2 = h.d(downloadStaticsData, 101, 0);
+        d2.a("dl", IntentConfig.START);
         e.b().d(d2);
         if (downloadStaticsData == null || !"1".equals(downloadStaticsData.getDa_range_nt())) {
             return;
@@ -343,7 +342,7 @@ public class a {
     }
 
     public final void s(String str, int i) {
-        d.b.i0.r2.b0.c d2;
+        d.b.i0.s2.f0.c d2;
         String str2;
         AdvertAppInfo remove = this.m.remove(str);
         DownloadStaticsData remove2 = this.n.remove(str);
@@ -353,7 +352,7 @@ public class a {
             return;
         } else {
             d2 = h.d(remove2, 101, 0);
-            d2.q(null);
+            d2.s(null);
         }
         if (remove == null && remove2 == null) {
             return;
@@ -367,38 +366,38 @@ public class a {
         } else {
             str2 = QueryResponse.Options.CANCEL;
         }
-        d2.a(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
+        d2.a("dl", str2);
         e.b().d(d2);
     }
 
     public final void t() {
-        this.f51496f.removeMessages(1);
-        this.f51496f.sendEmptyMessageDelayed(1, this.f51494d);
+        this.f51914f.removeMessages(1);
+        this.f51914f.sendEmptyMessageDelayed(1, this.f51912d);
     }
 
     public void u(AdvertAppInfo advertAppInfo, String str, long j, String str2, String str3, int i) {
         if (advertAppInfo == null) {
             return;
         }
-        AdReq z4 = advertAppInfo.z4(str, j, str2, str3, i);
+        AdReq A4 = advertAppInfo.A4(str, j, str2, str3, i);
         if (TextUtils.equals(str3, "show")) {
-            h(z4);
+            h(A4);
         }
         if (TextUtils.equals(str3, PrefetchEvent.STATE_CLICK) || TextUtils.equals(str3, "download")) {
-            if (this.f51491a) {
-                MessageManager.getInstance().sendMessage(new DistributeRequest(z4));
+            if (this.f51909a) {
+                MessageManager.getInstance().sendMessage(new DistributeRequest(A4));
             } else {
-                h(z4);
+                h(A4);
             }
         }
         j(false);
     }
 
     public final void v(boolean z) {
-        if (this.f51491a == z) {
+        if (this.f51909a == z) {
             return;
         }
-        this.f51491a = z;
+        this.f51909a = z;
         if (z) {
             j(true);
         } else {
@@ -408,29 +407,29 @@ public class a {
 
     public void w(int i) {
         if (i > 3600) {
-            this.f51494d = 300000L;
+            this.f51912d = 300000L;
         } else if (i <= 0) {
-            this.f51494d = 60000L;
+            this.f51912d = 60000L;
         } else {
-            this.f51494d = i * 1000;
+            this.f51912d = i * 1000;
         }
     }
 
     public void x(int i) {
         if (i > 20) {
-            this.f51495e = 10;
+            this.f51913e = 10;
         } else if (i <= 0) {
-            this.f51495e = 5;
+            this.f51913e = 5;
         } else {
-            this.f51495e = i;
+            this.f51913e = i;
         }
     }
 
     public void y(boolean z) {
-        this.f51493c = z;
+        this.f51911c = z;
     }
 
     public final void z() {
-        this.f51496f.removeMessages(1);
+        this.f51914f.removeMessages(1);
     }
 }

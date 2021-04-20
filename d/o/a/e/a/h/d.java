@@ -18,11 +18,11 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f66893a;
+    public static Boolean f67886a;
 
     public static String a(@NonNull String str) {
         return e.i(str);
@@ -31,14 +31,14 @@ public class d {
     @WorkerThread
     public static synchronized void b(@NonNull Context context) {
         synchronized (d.class) {
-            if (f66893a == null) {
-                f66893a = Boolean.valueOf((d() || e(context) || g(context) || !i(context) || f() || k(context)) ? false : true);
+            if (f67886a == null) {
+                f67886a = Boolean.valueOf((d() || e(context) || g(context) || !i(context) || f() || k(context)) ? false : true);
             }
         }
     }
 
     public static boolean c() {
-        Boolean bool = f66893a;
+        Boolean bool = f67886a;
         if (bool == null) {
             return true;
         }

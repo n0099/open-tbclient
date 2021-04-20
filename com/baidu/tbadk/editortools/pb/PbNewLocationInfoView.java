@@ -5,23 +5,23 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class PbNewLocationInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13898e;
+    public int f13559e;
 
     public PbNewLocationInfoView(Context context) {
         this(context, null);
     }
 
     public int getState() {
-        return this.f13898e;
+        return this.f13559e;
     }
 
     public void setState(int i, String str) {
-        this.f13898e = i;
+        this.f13559e = i;
         if (i == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);

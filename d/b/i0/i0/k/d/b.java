@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import d.b.b.a.e;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.a.e;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
     public TbPageContext m;
@@ -46,8 +46,8 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
 
     /* renamed from: d.b.i0.i0.k.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1290b implements RecommendForumItemView.a {
-        public C1290b() {
+    public class C1328b implements RecommendForumItemView.a {
+        public C1328b() {
         }
 
         @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
@@ -66,13 +66,13 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
     public class c extends e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendForumItemView f55662a;
+        public final /* synthetic */ RecommendForumItemView f56785a;
 
         public c(RecommendForumItemView recommendForumItemView) {
-            this.f55662a = recommendForumItemView;
+            this.f56785a = recommendForumItemView;
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             if (b.this.q.getErrorCode() == 22) {
                 l.L(b.this.m.getPageActivity(), b.this.m.getString(R.string.had_liked_forum));
@@ -82,7 +82,7 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
                     l.L(b.this.m.getPageActivity(), b.this.q.getErrorString());
                     return;
                 }
-                if (this.f55662a == b.this.n) {
+                if (this.f56785a == b.this.n) {
                     b.this.n.e(true);
                 } else {
                     b.this.o.e(true);
@@ -98,18 +98,18 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
         this.m = tbPageContext;
         F();
         this.n.setForumItemClickListener(new a());
-        this.o.setForumItemClickListener(new C1290b());
+        this.o.setForumItemClickListener(new C1328b());
     }
 
     public final void A(d.b.i0.i0.k.c.b bVar) {
-        this.m.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.m.getPageActivity()).createNormalCfg(bVar.f55640c, FrsActivityConfig.FRS_FROM_TAB_RECOMMEND_FORUM).setCallFrom(11)));
+        this.m.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.m.getPageActivity()).createNormalCfg(bVar.f56763c, FrsActivityConfig.FRS_FROM_TAB_RECOMMEND_FORUM).setCallFrom(11)));
         E(bVar, "2");
     }
 
     public final void B(d.b.i0.i0.k.c.b bVar, RecommendForumItemView recommendForumItemView) {
         if (!l.C()) {
-            UtilHelper.showToast(this.f62181f.getPageActivity(), this.f62181f.getString(R.string.neterror));
-        } else if (bVar == null || StringUtils.isNull(bVar.f55640c) || bVar.f55639b <= 0) {
+            UtilHelper.showToast(this.f63756f.getPageActivity(), this.f63756f.getString(R.string.neterror));
+        } else if (bVar == null || StringUtils.isNull(bVar.f56763c) || bVar.f56762b <= 0) {
         } else {
             if (!ViewHelper.checkUpIsLogin(b())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
@@ -119,8 +119,8 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
                 this.q = new LikeModel(this.m);
             }
             this.q.setLoadDataCallBack(new c(recommendForumItemView));
-            if (k.isForumName(bVar.f55640c)) {
-                this.q.H(bVar.f55640c, String.valueOf(bVar.f55639b));
+            if (k.isForumName(bVar.f56763c)) {
+                this.q.H(bVar.f56763c, String.valueOf(bVar.f56762b));
             }
             E(bVar, "1");
         }
@@ -131,8 +131,8 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13375");
-        statisticItem.param("obj_type", String.valueOf(bVar.f55645h));
-        statisticItem.param("fid", bVar.f55639b);
+        statisticItem.param("obj_type", String.valueOf(bVar.f56768h));
+        statisticItem.param("fid", bVar.f56762b);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", str);
         TiebaStatic.log(statisticItem);
@@ -152,15 +152,15 @@ public class b extends d.b.i0.x.b<d.b.i0.i0.k.c.c> {
             return;
         }
         o(this.m, this.p);
-        if (cVar.f55647e != null) {
+        if (cVar.f56770e != null) {
             this.n.setVisibility(0);
-            this.n.c(cVar.f55647e);
+            this.n.c(cVar.f56770e);
         } else {
             this.n.setVisibility(4);
         }
-        if (cVar.f55648f != null) {
+        if (cVar.f56771f != null) {
             this.o.setVisibility(0);
-            this.o.c(cVar.f55648f);
+            this.o.c(cVar.f56771f);
             return;
         }
         this.o.setVisibility(4);

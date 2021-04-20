@@ -21,80 +21,80 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
-import d.b.b.e.m.b;
-import d.b.b.e.p.l;
+import d.b.c.e.m.b;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
-import d.b.i0.c2.h.e;
-import d.b.i0.c2.k.e.a1.a;
-import d.b.i0.c2.k.e.d;
-import d.b.i0.c2.k.e.p0;
-import d.b.i0.c2.k.e.r;
-/* loaded from: classes4.dex */
+import d.b.i0.d2.h.e;
+import d.b.i0.d2.k.e.c1.a;
+import d.b.i0.d2.k.e.f;
+import d.b.i0.d2.k.e.r0;
+import d.b.i0.d2.k.e.t;
+/* loaded from: classes3.dex */
 public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19539a;
+    public int f19219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19540b;
+    public View f19220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f19541c;
+    public ImageView f19221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f19542d;
+    public View f19222d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbRichTextView f19543e;
+    public TbRichTextView f19223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19544f;
+    public View f19224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19545g;
+    public TbImageView f19225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f19546h;
+    public TbImageView f19226h;
     public ThreadSkinView i;
     public TextView j;
     public LinearLayout k;
     public TextView l;
     public AppletsCellView m;
     public LinearLayout n;
-    public r o;
+    public t o;
     public FrameLayout p;
     public a q;
     public ThreadForumEnterButtonContainer r;
     public PbBusinessPromotionContainer s;
-    public d.b.i0.c2.k.e.c1.a t;
+    public d.b.i0.d2.k.e.e1.a t;
     public VoteView u;
 
     public PbFirstFloorViewHolder(TbPageContext tbPageContext, View view, boolean z, int i) {
         super(view);
-        this.f19539a = 3;
-        this.o = new r(view);
+        this.f19219a = 3;
+        this.o = new t(view);
         ImageView imageView = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.f19541c = imageView;
+        this.f19221c = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -p0.e());
-        this.f19541c.setImageMatrix(matrix);
-        this.f19542d = view.findViewById(R.id.blank_view_above_rich_text);
-        this.f19543e = (TbRichTextView) view.findViewById(R.id.richText);
-        this.f19540b = view;
-        int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f19543e.getPaddingLeft()) - this.f19543e.getPaddingRight();
-        d dVar = new d(this.f19543e.getLayoutStrategy());
-        dVar.D = k;
-        this.f19543e.setLayoutStrategy(dVar);
-        this.f19546h = (TbImageView) view.findViewById(R.id.game_activity_banner);
+        matrix.postTranslate(0.0f, -r0.f());
+        this.f19221c.setImageMatrix(matrix);
+        this.f19222d = view.findViewById(R.id.blank_view_above_rich_text);
+        this.f19223e = (TbRichTextView) view.findViewById(R.id.richText);
+        this.f19220b = view;
+        int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f19223e.getPaddingLeft()) - this.f19223e.getPaddingRight();
+        f fVar = new f(this.f19223e.getLayoutStrategy());
+        fVar.D = k;
+        this.f19223e.setLayoutStrategy(fVar);
+        this.f19226h = (TbImageView) view.findViewById(R.id.game_activity_banner);
         int min = Math.min(k - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i);
-        this.f19543e.getLayoutStrategy().q(min);
-        this.f19543e.getLayoutStrategy().p((int) (min * 1.618f));
-        this.f19543e.setTextSize(TbConfig.getContentSize());
-        this.f19543e.setDisplayImage(z, false);
-        this.f19543e.setVoiceViewRes(R.layout.voice_play_btn_new);
-        this.f19544f = view.findViewById(R.id.divider_bottom_first_floor);
-        this.f19545g = (TbImageView) view.findViewById(R.id.user_head_mask);
+        this.f19223e.getLayoutStrategy().q(min);
+        this.f19223e.getLayoutStrategy().p((int) (min * 1.618f));
+        this.f19223e.setTextSize(TbConfig.getContentSize());
+        this.f19223e.setDisplayImage(z, false);
+        this.f19223e.setVoiceViewRes(R.layout.voice_play_btn_new);
+        this.f19224f = view.findViewById(R.id.divider_bottom_first_floor);
+        this.f19225g = (TbImageView) view.findViewById(R.id.user_head_mask);
         this.i = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
         this.k = (LinearLayout) view.findViewById(R.id.pb_list_content);
         this.j = (TextView) view.findViewById(R.id.pb_item_tail_content);
@@ -104,7 +104,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
         this.r = threadForumEnterButtonContainer;
         threadForumEnterButtonContainer.setFrom(1);
-        this.t = new d.b.i0.c2.k.e.c1.a(tbPageContext);
+        this.t = new d.b.i0.d2.k.e.e1.a(tbPageContext);
         this.s = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
         this.p = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
         VoteView voteView = (VoteView) view.findViewById(R.id.vote_view);
@@ -113,15 +113,15 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void b(boolean z, int i) {
-        View view = this.f19542d;
+        View view = this.f19222d;
         if (view == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i;
-            this.f19542d.setLayoutParams(layoutParams);
-            this.f19542d.setVisibility(0);
+            this.f19222d.setLayoutParams(layoutParams);
+            this.f19222d.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -131,7 +131,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         if (this.r == null || eVar == null || eVar.l() == null) {
             return;
         }
-        if (eVar.Z() && eVar.e0()) {
+        if (eVar.a0() && eVar.f0()) {
             this.r.setVisibility(8);
             return;
         }
@@ -140,17 +140,17 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
             ListUtils.isEmpty(eVar.p());
         }
         a2 a2Var = new a2();
-        a2Var.D3(eVar.N());
-        a2Var.t3(b.f(eVar.l().getId(), 0L));
-        a2Var.x3(eVar.l().getName());
-        a2Var.u3(eVar.l().getFirst_class());
-        a2Var.c4(eVar.l().getSecond_class());
+        a2Var.E3(eVar.N());
+        a2Var.u3(b.f(eVar.l().getId(), 0L));
+        a2Var.y3(eVar.l().getName());
+        a2Var.v3(eVar.l().getFirst_class());
+        a2Var.d4(eVar.l().getSecond_class());
         if (eVar.L() != null) {
-            a2Var.k4(eVar.L().Z);
+            a2Var.l4(eVar.L().Z);
         }
         if (eVar.i) {
             this.r.setVisibility(8);
-            this.s.f(a2Var, eVar.h(), eVar.e0());
+            this.s.f(a2Var, eVar.h(), eVar.f0());
             return;
         }
         this.s.setVisibility(8);
@@ -158,19 +158,19 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
 
     public void d(e eVar, boolean z, boolean z2) {
         if (eVar != null && eVar.j) {
-            this.f19541c.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.f19541c.setVisibility(0);
+            this.f19221c.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.f19221c.setVisibility(0);
         } else if (z && z2) {
-            this.f19541c.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.f19541c.setVisibility(0);
+            this.f19221c.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.f19221c.setVisibility(0);
         } else if (z) {
-            this.f19541c.setImageResource(R.drawable.pic_pb_refined_n);
-            this.f19541c.setVisibility(0);
+            this.f19221c.setImageResource(R.drawable.pic_pb_refined_n);
+            this.f19221c.setVisibility(0);
         } else if (z2) {
-            this.f19541c.setImageResource(R.drawable.pic_pb_stick_n);
-            this.f19541c.setVisibility(0);
+            this.f19221c.setImageResource(R.drawable.pic_pb_stick_n);
+            this.f19221c.setVisibility(0);
         } else {
-            this.f19541c.setVisibility(8);
+            this.f19221c.setVisibility(8);
         }
     }
 }

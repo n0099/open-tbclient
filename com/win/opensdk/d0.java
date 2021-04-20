@@ -6,19 +6,19 @@ import com.win.opensdk.image.gif2.GifImageView;
 public class d0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f39915a;
+    public final /* synthetic */ GifImageView f40204a;
 
     public d0(GifImageView gifImageView) {
-        this.f39915a = gifImageView;
+        this.f40204a = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap bitmap = this.f39915a.f39948b;
+        Bitmap bitmap = this.f40204a.f40237b;
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        GifImageView gifImageView = this.f39915a;
-        gifImageView.setImageBitmap(gifImageView.f39948b);
+        GifImageView gifImageView = this.f40204a;
+        gifImageView.setImageBitmap(gifImageView.f40237b);
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes3.dex */
 public class c {
     public static void a() {
-        d.b.h0.r.d0.b.i().B("key_youngster_verify");
+        d.b.h0.r.d0.b.j().C("key_youngster_verify");
     }
 
     public static String b(d.b.h0.c1.a.a aVar) {
@@ -28,8 +28,8 @@ public class c {
     }
 
     public static boolean d() {
-        String o = d.b.h0.r.d0.b.i().o("key_youngster_verify", "");
-        if (StringUtils.isNull(o)) {
+        String p = d.b.h0.r.d0.b.j().p("key_youngster_verify", "");
+        if (StringUtils.isNull(p)) {
             a();
             return false;
         }
@@ -38,7 +38,7 @@ public class c {
             a();
             return false;
         }
-        d.b.h0.c1.a.a c2 = c(o);
+        d.b.h0.c1.a.a c2 = c(p);
         if (c2 == null || StringUtils.isNull(c2.c()) || !c2.c().equals(currentAccountInfo.getID()) || StringUtils.isNull(c2.b()) || !c2.b().equals(currentAccountInfo.getPortrait())) {
             a();
             return false;
@@ -50,12 +50,12 @@ public class c {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        String o = d.b.h0.r.d0.b.i().o("key_youngster_verify", "");
-        if (StringUtils.isNull(o)) {
+        String p = d.b.h0.r.d0.b.j().p("key_youngster_verify", "");
+        if (StringUtils.isNull(p)) {
             a();
             return false;
         }
-        d.b.h0.c1.a.a c2 = c(o);
+        d.b.h0.c1.a.a c2 = c(p);
         if (c2 == null) {
             return false;
         }
@@ -67,6 +67,6 @@ public class c {
         if (StringUtils.isNull(str) || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
             return;
         }
-        d.b.h0.r.d0.b.i().w("key_youngster_verify", b(new d.b.h0.c1.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+        d.b.h0.r.d0.b.j().x("key_youngster_verify", b(new d.b.h0.c1.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
     }
 }

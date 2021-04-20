@@ -3,10 +3,10 @@ package d.b.g0.a.i1;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f44657a;
+    public static d f45049a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f44658b = new a();
+    public static final d f45050b = new a();
 
     /* loaded from: classes2.dex */
     public static class a implements d {
@@ -16,13 +16,13 @@ public class e {
     }
 
     public static d a() {
-        d dVar = f44657a;
-        return dVar == null ? f44658b : dVar;
+        d dVar = f45049a;
+        return dVar == null ? f45050b : dVar;
     }
 
     public static void b(d dVar) {
-        if (f44657a != dVar) {
-            f44657a = dVar;
+        if (f45049a != dVar) {
+            f45049a = dVar;
         }
     }
 }

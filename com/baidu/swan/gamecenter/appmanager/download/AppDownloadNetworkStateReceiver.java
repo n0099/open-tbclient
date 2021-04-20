@@ -13,7 +13,7 @@ import d.b.g0.f.f.a;
 import d.b.g0.f.f.d.b;
 /* loaded from: classes3.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String KEY_OPERATION = "operation";
 
     @Override // android.content.BroadcastReceiver

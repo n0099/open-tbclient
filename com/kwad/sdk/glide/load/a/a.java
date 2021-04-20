@@ -16,7 +16,7 @@ public final class a extends l<AssetFileDescriptor> {
     @Override // com.kwad.sdk.glide.load.a.l
     /* renamed from: a */
     public AssetFileDescriptor b(Uri uri, ContentResolver contentResolver) {
-        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7664a);
+        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7699a);
         if (openAssetFileDescriptor != null) {
             return openAssetFileDescriptor;
         }

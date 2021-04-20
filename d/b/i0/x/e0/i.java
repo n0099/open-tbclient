@@ -7,43 +7,43 @@ import java.util.List;
 public class i extends a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f62214h = BdUniqueId.gen();
+    public static final BdUniqueId f63789h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.i0.a1.b.c> f62215e = new ArrayList();
+    public List<d.b.i0.b1.b.c> f63790e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62216f;
+    public String f63791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62217g;
+    public String f63792g;
 
-    public void g(d.b.i0.a1.b.c cVar) {
-        this.f62215e.add(cVar);
+    public void g(d.b.i0.b1.b.c cVar) {
+        this.f63790e.add(cVar);
     }
 
-    public List<d.b.i0.a1.b.c> getDataList() {
-        return this.f62215e;
+    public List<d.b.i0.b1.b.c> getDataList() {
+        return this.f63790e;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f62214h;
+        return f63789h;
     }
 
     public String j() {
-        return this.f62216f;
+        return this.f63791f;
     }
 
     public String n() {
-        return this.f62217g;
+        return this.f63792g;
     }
 
     public void o(String str) {
-        this.f62216f = str;
+        this.f63791f = str;
     }
 
     public void s(String str) {
-        this.f62217g = str;
+        this.f63792g = str;
     }
 }

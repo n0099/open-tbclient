@@ -10,25 +10,25 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.i0.t2.d;
+import d.b.c.e.p.k;
+import d.b.i0.u2.d;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ScreenLockHeaderView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20917e;
+    public TextView f20602e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20918f;
+    public View f20603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f20919g;
+    public View f20604g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20920h;
+    public TextView f20605h;
     public TextView i;
     public TextView j;
     public View k;
@@ -40,10 +40,10 @@ public class ScreenLockHeaderView extends LinearLayout {
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.f20917e = (TextView) findViewById(R.id.friend_name_show1);
-        this.f20918f = findViewById(R.id.friend_name_layout);
-        this.f20919g = findViewById(R.id.msg_content_layout);
-        this.f20920h = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.f20602e = (TextView) findViewById(R.id.friend_name_show1);
+        this.f20603f = findViewById(R.id.friend_name_layout);
+        this.f20604g = findViewById(R.id.msg_content_layout);
+        this.f20605h = (TextView) findViewById(R.id.last_msg_time_show1);
         this.i = (TextView) findViewById(R.id.one_msg_content_show1);
         this.j = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.k = findViewById(R.id.line);
@@ -79,9 +79,9 @@ public class ScreenLockHeaderView extends LinearLayout {
 
     public void d(d dVar) {
         this.l = dVar;
-        this.f20917e.setText(dVar.f61118a);
-        this.f20920h.setText(a(dVar.l));
-        this.i.setText(dVar.f61122e);
+        this.f20602e.setText(dVar.f62807a);
+        this.f20605h.setText(a(dVar.l));
+        this.i.setText(dVar.f62811e);
         this.j.setText(b(dVar.i));
     }
 
@@ -103,8 +103,8 @@ public class ScreenLockHeaderView extends LinearLayout {
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         this.m.setOnClickListener(onClickListener);
-        this.f20918f.setOnClickListener(onClickListener2);
-        this.f20919g.setOnClickListener(onClickListener2);
+        this.f20603f.setOnClickListener(onClickListener2);
+        this.f20604g.setOnClickListener(onClickListener2);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {

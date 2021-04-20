@@ -5,25 +5,25 @@ import java.util.HashMap;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38519a = "aes_key";
+    public static String f38808a = "aes_key";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38520b;
+    public static boolean f38809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f38521c;
+    public static boolean f38810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f38522d;
+    public static boolean f38811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f38523e;
+    public static boolean f38812e;
 
     static {
         new HashMap();
-        f38520b = false;
-        f38521c = true;
-        f38522d = false;
-        f38523e = false;
+        f38809b = false;
+        f38810c = true;
+        f38811d = false;
+        f38812e = false;
     }
 }

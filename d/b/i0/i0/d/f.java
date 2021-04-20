@@ -14,7 +14,7 @@ import tbclient.ThemeColorInfo;
 public class f extends w implements d.b.h0.g0.b.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55490h;
+    public String f56613h;
     public String i;
     public int j;
     public int k;
@@ -43,7 +43,7 @@ public class f extends w implements d.b.h0.g0.b.a {
     }
 
     public String D() {
-        return this.f55490h;
+        return this.f56613h;
     }
 
     public int E() {
@@ -72,12 +72,12 @@ public class f extends w implements d.b.h0.g0.b.a {
             return null;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(Integer.valueOf(d.b.i0.i1.o.k.b.b(this.s.day.light_color)));
-        arrayList.add(Integer.valueOf(d.b.i0.i1.o.k.b.b(this.s.day.dark_color)));
-        arrayList.add(Integer.valueOf(d.b.i0.i1.o.k.b.b(this.s.night.light_color)));
-        arrayList.add(Integer.valueOf(d.b.i0.i1.o.k.b.b(this.s.night.dark_color)));
-        arrayList.add(Integer.valueOf(d.b.i0.i1.o.k.b.b(this.s.dark.light_color)));
-        arrayList.add(Integer.valueOf(d.b.i0.i1.o.k.b.b(this.s.dark.dark_color)));
+        arrayList.add(Integer.valueOf(d.b.i0.j1.o.k.b.b(this.s.day.light_color)));
+        arrayList.add(Integer.valueOf(d.b.i0.j1.o.k.b.b(this.s.day.dark_color)));
+        arrayList.add(Integer.valueOf(d.b.i0.j1.o.k.b.b(this.s.night.light_color)));
+        arrayList.add(Integer.valueOf(d.b.i0.j1.o.k.b.b(this.s.night.dark_color)));
+        arrayList.add(Integer.valueOf(d.b.i0.j1.o.k.b.b(this.s.dark.light_color)));
+        arrayList.add(Integer.valueOf(d.b.i0.j1.o.k.b.b(this.s.dark.dark_color)));
         return arrayList;
     }
 
@@ -127,7 +127,7 @@ public class f extends w implements d.b.h0.g0.b.a {
             return;
         }
         try {
-            this.f55490h = String.valueOf(likeForum.forum_id);
+            this.f56613h = String.valueOf(likeForum.forum_id);
             this.i = likeForum.forum_name;
             this.k = likeForum.is_sign.intValue();
             this.j = likeForum.level_id.intValue();

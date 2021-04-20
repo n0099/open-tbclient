@@ -7,14 +7,14 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 public final class h implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f66059e;
+    public final /* synthetic */ InstallActivity f66904e;
 
     public h(InstallActivity installActivity) {
-        this.f66059e = installActivity;
+        this.f66904e = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f66059e.finishWithFailure(new UnavailableUserDeclinedInstallationException());
+        this.f66904e.finishWithFailure(new UnavailableUserDeclinedInstallationException());
     }
 }

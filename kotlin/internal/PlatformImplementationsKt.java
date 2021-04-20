@@ -4,6 +4,7 @@ import androidx.exifinterface.media.ExifInterface;
 import androidx.transition.Transition;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.media.duplayer.LibsInfoDef;
+import com.baidu.mobads.container.util.AdIconUtil;
 import kotlin.KotlinVersion;
 import kotlin.Metadata;
 import kotlin.PublishedApi;
@@ -129,7 +130,7 @@ public final class PlatformImplementationsKt {
                 try {
                     return Integer.parseInt(property) * 65536;
                 } catch (NumberFormatException unused) {
-                    return 65542;
+                    return AdIconUtil.BAIDU_LOGO_ID;
                 }
             }
             int i = indexOf$default + 1;
@@ -146,13 +147,13 @@ public final class PlatformImplementationsKt {
                     try {
                         return (Integer.parseInt(substring) * 65536) + Integer.parseInt(substring2);
                     } catch (NumberFormatException unused2) {
-                        return 65542;
+                        return AdIconUtil.BAIDU_LOGO_ID;
                     }
                 }
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
-        return 65542;
+        return AdIconUtil.BAIDU_LOGO_ID;
     }
 }

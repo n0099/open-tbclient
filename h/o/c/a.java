@@ -18,55 +18,55 @@ import rx.internal.util.RxThreadFactory;
 public final class a extends h.g implements h {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f67852g;
+    public static final long f68862g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final TimeUnit f67853h = TimeUnit.SECONDS;
+    public static final TimeUnit f68863h = TimeUnit.SECONDS;
     public static final c i;
-    public static final C1876a j;
+    public static final C1911a j;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ThreadFactory f67854e;
+    public final ThreadFactory f68864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<C1876a> f67855f = new AtomicReference<>(j);
+    public final AtomicReference<C1911a> f68865f = new AtomicReference<>(j);
 
     /* renamed from: h.o.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1876a {
+    public static final class C1911a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ThreadFactory f67856a;
+        public final ThreadFactory f68866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f67857b;
+        public final long f68867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<c> f67858c;
+        public final ConcurrentLinkedQueue<c> f68868c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final h.u.b f67859d;
+        public final h.u.b f68869d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ScheduledExecutorService f67860e;
+        public final ScheduledExecutorService f68870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Future<?> f67861f;
+        public final Future<?> f68871f;
 
         /* renamed from: h.o.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class ThreadFactoryC1877a implements ThreadFactory {
+        public class ThreadFactoryC1912a implements ThreadFactory {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ThreadFactory f67862e;
+            public final /* synthetic */ ThreadFactory f68872e;
 
-            public ThreadFactoryC1877a(C1876a c1876a, ThreadFactory threadFactory) {
-                this.f67862e = threadFactory;
+            public ThreadFactoryC1912a(C1911a c1911a, ThreadFactory threadFactory) {
+                this.f68872e = threadFactory;
             }
 
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(Runnable runnable) {
-                Thread newThread = this.f67862e.newThread(runnable);
+                Thread newThread = this.f68872e.newThread(runnable);
                 newThread.setName(newThread.getName() + " (Evictor)");
                 return newThread;
             }
@@ -80,59 +80,59 @@ public final class a extends h.g implements h {
 
             @Override // java.lang.Runnable
             public void run() {
-                C1876a.this.a();
+                C1911a.this.a();
             }
         }
 
-        public C1876a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+        public C1911a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
             ScheduledFuture<?> scheduledFuture;
-            this.f67856a = threadFactory;
-            this.f67857b = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.f67858c = new ConcurrentLinkedQueue<>();
-            this.f67859d = new h.u.b();
+            this.f68866a = threadFactory;
+            this.f68867b = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.f68868c = new ConcurrentLinkedQueue<>();
+            this.f68869d = new h.u.b();
             ScheduledExecutorService scheduledExecutorService = null;
             if (timeUnit != null) {
-                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC1877a(this, threadFactory));
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC1912a(this, threadFactory));
                 g.k(scheduledExecutorService);
                 b bVar = new b();
-                long j2 = this.f67857b;
+                long j2 = this.f68867b;
                 scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(bVar, j2, j2, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.f67860e = scheduledExecutorService;
-            this.f67861f = scheduledFuture;
+            this.f68870e = scheduledExecutorService;
+            this.f68871f = scheduledFuture;
         }
 
         public void a() {
-            if (this.f67858c.isEmpty()) {
+            if (this.f68868c.isEmpty()) {
                 return;
             }
             long c2 = c();
-            Iterator<c> it = this.f67858c.iterator();
+            Iterator<c> it = this.f68868c.iterator();
             while (it.hasNext()) {
                 c next = it.next();
                 if (next.l() > c2) {
                     return;
                 }
-                if (this.f67858c.remove(next)) {
-                    this.f67859d.b(next);
+                if (this.f68868c.remove(next)) {
+                    this.f68869d.b(next);
                 }
             }
         }
 
         public c b() {
-            if (this.f67859d.isUnsubscribed()) {
+            if (this.f68869d.isUnsubscribed()) {
                 return a.i;
             }
-            while (!this.f67858c.isEmpty()) {
-                c poll = this.f67858c.poll();
+            while (!this.f68868c.isEmpty()) {
+                c poll = this.f68868c.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.f67856a);
-            this.f67859d.a(cVar);
+            c cVar = new c(this.f68866a);
+            this.f68869d.a(cVar);
             return cVar;
         }
 
@@ -141,20 +141,20 @@ public final class a extends h.g implements h {
         }
 
         public void d(c cVar) {
-            cVar.m(c() + this.f67857b);
-            this.f67858c.offer(cVar);
+            cVar.m(c() + this.f68867b);
+            this.f68868c.offer(cVar);
         }
 
         public void e() {
             try {
-                if (this.f67861f != null) {
-                    this.f67861f.cancel(true);
+                if (this.f68871f != null) {
+                    this.f68871f.cancel(true);
                 }
-                if (this.f67860e != null) {
-                    this.f67860e.shutdownNow();
+                if (this.f68870e != null) {
+                    this.f68870e.shutdownNow();
                 }
             } finally {
-                this.f67859d.unsubscribe();
+                this.f68869d.unsubscribe();
             }
         }
     }
@@ -163,26 +163,26 @@ public final class a extends h.g implements h {
     public static final class b extends g.a implements h.n.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final C1876a f67865f;
+        public final C1911a f68875f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c f67866g;
+        public final c f68876g;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.b f67864e = new h.u.b();
+        public final h.u.b f68874e = new h.u.b();
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicBoolean f67867h = new AtomicBoolean();
+        public final AtomicBoolean f68877h = new AtomicBoolean();
 
         /* renamed from: h.o.c.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1878a implements h.n.a {
+        public class C1913a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.n.a f67868e;
+            public final /* synthetic */ h.n.a f68878e;
 
-            public C1878a(h.n.a aVar) {
-                this.f67868e = aVar;
+            public C1913a(h.n.a aVar) {
+                this.f68878e = aVar;
             }
 
             @Override // h.n.a
@@ -190,13 +190,13 @@ public final class a extends h.g implements h {
                 if (b.this.isUnsubscribed()) {
                     return;
                 }
-                this.f67868e.call();
+                this.f68878e.call();
             }
         }
 
-        public b(C1876a c1876a) {
-            this.f67865f = c1876a;
-            this.f67866g = c1876a.b();
+        public b(C1911a c1911a) {
+            this.f68875f = c1911a;
+            this.f68876g = c1911a.b();
         }
 
         @Override // h.g.a
@@ -206,31 +206,31 @@ public final class a extends h.g implements h {
 
         @Override // h.g.a
         public k c(h.n.a aVar, long j, TimeUnit timeUnit) {
-            if (this.f67864e.isUnsubscribed()) {
+            if (this.f68874e.isUnsubscribed()) {
                 return h.u.e.c();
             }
-            ScheduledAction h2 = this.f67866g.h(new C1878a(aVar), j, timeUnit);
-            this.f67864e.a(h2);
-            h2.addParent(this.f67864e);
+            ScheduledAction h2 = this.f68876g.h(new C1913a(aVar), j, timeUnit);
+            this.f68874e.a(h2);
+            h2.addParent(this.f68874e);
             return h2;
         }
 
         @Override // h.n.a
         public void call() {
-            this.f67865f.d(this.f67866g);
+            this.f68875f.d(this.f68876g);
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f67864e.isUnsubscribed();
+            return this.f68874e.isUnsubscribed();
         }
 
         @Override // h.k
         public void unsubscribe() {
-            if (this.f67867h.compareAndSet(false, true)) {
-                this.f67866g.b(this);
+            if (this.f68877h.compareAndSet(false, true)) {
+                this.f68876g.b(this);
             }
-            this.f67864e.unsubscribe();
+            this.f68874e.unsubscribe();
         }
     }
 
@@ -256,42 +256,42 @@ public final class a extends h.g implements h {
         c cVar = new c(RxThreadFactory.NONE);
         i = cVar;
         cVar.unsubscribe();
-        C1876a c1876a = new C1876a(null, 0L, null);
-        j = c1876a;
-        c1876a.e();
-        f67852g = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
+        C1911a c1911a = new C1911a(null, 0L, null);
+        j = c1911a;
+        c1911a.e();
+        f68862g = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
     }
 
     public a(ThreadFactory threadFactory) {
-        this.f67854e = threadFactory;
+        this.f68864e = threadFactory;
         start();
     }
 
     @Override // h.g
     public g.a createWorker() {
-        return new b(this.f67855f.get());
+        return new b(this.f68865f.get());
     }
 
     @Override // h.o.c.h
     public void shutdown() {
-        C1876a c1876a;
-        C1876a c1876a2;
+        C1911a c1911a;
+        C1911a c1911a2;
         do {
-            c1876a = this.f67855f.get();
-            c1876a2 = j;
-            if (c1876a == c1876a2) {
+            c1911a = this.f68865f.get();
+            c1911a2 = j;
+            if (c1911a == c1911a2) {
                 return;
             }
-        } while (!this.f67855f.compareAndSet(c1876a, c1876a2));
-        c1876a.e();
+        } while (!this.f68865f.compareAndSet(c1911a, c1911a2));
+        c1911a.e();
     }
 
     @Override // h.o.c.h
     public void start() {
-        C1876a c1876a = new C1876a(this.f67854e, f67852g, f67853h);
-        if (this.f67855f.compareAndSet(j, c1876a)) {
+        C1911a c1911a = new C1911a(this.f68864e, f68862g, f68863h);
+        if (this.f68865f.compareAndSet(j, c1911a)) {
             return;
         }
-        c1876a.e();
+        c1911a.e();
     }
 }

@@ -172,10 +172,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
                     } else {
                         Class<?> cls2 = obj3.getClass();
                         if (cls2 == cls) {
-                            objectSerializer.write(jSONSerializer, obj3, null, null, 0);
+                            objectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i4), null, 0);
                         } else {
                             objectSerializer = jSONSerializer.getObjectWriter(cls2);
-                            objectSerializer.write(jSONSerializer, obj3, null, null, 0);
+                            objectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i4), null, 0);
                             cls = cls2;
                         }
                     }

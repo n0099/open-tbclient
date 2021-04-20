@@ -80,15 +80,15 @@ public class k {
     public static void c() {
         if (d.b.g0.a.a2.g.h.a().getBoolean("swan_game_data_migration", true)) {
             d.b.g0.a.a2.g.h.a().putBoolean("swan_game_data_migration", false);
-            if (d.b.g0.a.v0.a.f46655a) {
+            if (d.b.g0.a.v0.a.f47047a) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
             a();
-            if (d.b.g0.a.v0.a.f46655a) {
+            if (d.b.g0.a.v0.a.f47047a) {
                 Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
             }
             b();
-            if (d.b.g0.a.v0.a.f46655a) {
+            if (d.b.g0.a.v0.a.f47047a) {
                 Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
             }
         }

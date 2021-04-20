@@ -1,5 +1,5 @@
 package com.ta.utdid2.device;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public String c(byte[] bArr) {
         return com.ta.utdid2.a.a.a.a(com.ta.utdid2.a.a.b.encodeToString(bArr, 2));

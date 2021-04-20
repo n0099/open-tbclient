@@ -7,31 +7,31 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f48172c;
+    public static volatile d f48564c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f48173a = new ReentrantLock();
+    public final Lock f48565a = new ReentrantLock();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<j> f48174b = new ArrayList<>();
+    public ArrayList<j> f48566b = new ArrayList<>();
 
     public static d i() {
-        if (f48172c == null) {
+        if (f48564c == null) {
             synchronized (d.class) {
-                if (f48172c == null) {
-                    f48172c = new d();
+                if (f48564c == null) {
+                    f48564c = new d();
                 }
             }
         }
-        return f48172c;
+        return f48564c;
     }
 
     public final Object[] a() {
         try {
-            this.f48173a.lock();
-            return this.f48174b.size() > 0 ? this.f48174b.toArray() : null;
+            this.f48565a.lock();
+            return this.f48566b.size() > 0 ? this.f48566b.toArray() : null;
         } finally {
-            this.f48173a.unlock();
+            this.f48565a.unlock();
         }
     }
 

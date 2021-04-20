@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import d.b.b.e.p.j;
-import d.b.b.j.e.n;
+import d.b.c.e.p.j;
+import d.b.c.j.e.n;
 import d.b.h0.r.f0.f;
-import d.b.i0.p0.r0;
+import d.b.i0.q0.r0;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsGameRecommendFragment extends BaseFragment implements r0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.p0.u1.e.a f16372e;
+    public d.b.i0.q0.u1.e.a f16033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaGameRecommendModel f16373f;
+    public AlaGameRecommendModel f16034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16374g;
+    public String f16035g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16375h;
+    public String f16036h;
     public CustomMessageListener i = new a(0);
     public AlaGameRecommendModel.b j = new b();
     public f.g k = new c();
@@ -50,7 +50,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
                 return;
             }
             String[] split = ((String) customResponsedMessage.getData()).split("_");
-            if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == d.b.b.e.m.b.d(split[1], 0)) {
+            if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == d.b.c.e.m.b.d(split[1], 0)) {
                 FrsGameRecommendFragment.this.E();
             }
         }
@@ -63,24 +63,24 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
 
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.b
         public void a(boolean z, List<n> list) {
-            FrsGameRecommendFragment.this.f16372e.b();
+            FrsGameRecommendFragment.this.f16033e.b();
             FrsGameRecommendFragment frsGameRecommendFragment = FrsGameRecommendFragment.this;
-            frsGameRecommendFragment.hideNetRefreshView(frsGameRecommendFragment.f16372e.d());
+            frsGameRecommendFragment.hideNetRefreshView(frsGameRecommendFragment.f16033e.d());
             FrsGameRecommendFragment frsGameRecommendFragment2 = FrsGameRecommendFragment.this;
-            frsGameRecommendFragment2.hideLoadingView(frsGameRecommendFragment2.f16372e.d());
-            FrsGameRecommendFragment.this.f16372e.k(list, z);
+            frsGameRecommendFragment2.hideLoadingView(frsGameRecommendFragment2.f16033e.d());
+            FrsGameRecommendFragment.this.f16033e.k(list, z);
         }
 
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.b
         public void b(int i, String str, boolean z) {
-            FrsGameRecommendFragment.this.f16372e.b();
+            FrsGameRecommendFragment.this.f16033e.b();
             if (z) {
                 FrsGameRecommendFragment.this.showToast(R.string.card_vr_video_load_failed);
             } else {
                 FrsGameRecommendFragment frsGameRecommendFragment = FrsGameRecommendFragment.this;
-                frsGameRecommendFragment.showNetRefreshView(frsGameRecommendFragment.f16372e.d(), str, false);
+                frsGameRecommendFragment.showNetRefreshView(frsGameRecommendFragment.f16033e.d(), str, false);
             }
-            FrsGameRecommendFragment.this.f16372e.m();
+            FrsGameRecommendFragment.this.f16033e.m();
         }
     }
 
@@ -92,14 +92,14 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         @Override // d.b.h0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (j.z()) {
-                if (FrsGameRecommendFragment.this.f16373f != null) {
-                    FrsGameRecommendFragment.this.f16373f.C();
+                if (FrsGameRecommendFragment.this.f16034f != null) {
+                    FrsGameRecommendFragment.this.f16034f.C();
                     return;
                 }
                 return;
             }
             FrsGameRecommendFragment.this.showToast(R.string.neterror);
-            FrsGameRecommendFragment.this.f16372e.b();
+            FrsGameRecommendFragment.this.f16033e.b();
         }
     }
 
@@ -110,8 +110,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (FrsGameRecommendFragment.this.f16373f != null) {
-                FrsGameRecommendFragment.this.f16373f.D();
+            if (FrsGameRecommendFragment.this.f16034f != null) {
+                FrsGameRecommendFragment.this.f16034f.D();
             }
         }
     }
@@ -126,17 +126,17 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
     }
 
     public final void E() {
-        this.f16372e.c();
+        this.f16033e.c();
     }
 
-    @Override // d.b.i0.p0.r0
+    @Override // d.b.i0.q0.r0
     public NavigationBar Q() {
-        return this.f16372e.e();
+        return this.f16033e.e();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        d.b.i0.p0.u1.e.a aVar = this.f16372e;
+        d.b.i0.q0.u1.e.a aVar = this.f16033e;
         if (aVar != null) {
             aVar.i(i);
         }
@@ -149,29 +149,29 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         if (arguments == null) {
             return;
         }
-        this.f16374g = arguments.getString("forum_id");
-        this.f16375h = arguments.getString("forum_name");
-        d.b.i0.p0.u1.e.a aVar = new d.b.i0.p0.u1.e.a(getPageContext(), this.f16374g, this.f16375h);
-        this.f16372e = aVar;
+        this.f16035g = arguments.getString("forum_id");
+        this.f16036h = arguments.getString("forum_name");
+        d.b.i0.q0.u1.e.a aVar = new d.b.i0.q0.u1.e.a(getPageContext(), this.f16035g, this.f16036h);
+        this.f16033e = aVar;
         aVar.l(this.k);
-        this.f16372e.n(this.l);
+        this.f16033e.n(this.l);
         MessageManager.getInstance().registerListener(2001446, this.i);
-        this.f16373f = new AlaGameRecommendModel(this.f16374g, this.j);
+        this.f16034f = new AlaGameRecommendModel(this.f16035g, this.j);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return this.f16372e.f();
+        return this.f16033e.f();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.p0.u1.e.a aVar = this.f16372e;
+        d.b.i0.q0.u1.e.a aVar = this.f16033e;
         if (aVar != null) {
             aVar.j();
         }
-        AlaGameRecommendModel alaGameRecommendModel = this.f16373f;
+        AlaGameRecommendModel alaGameRecommendModel = this.f16034f;
         if (alaGameRecommendModel != null) {
             alaGameRecommendModel.onDestroy();
         }
@@ -182,7 +182,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        AlaGameRecommendModel alaGameRecommendModel = this.f16373f;
+        AlaGameRecommendModel alaGameRecommendModel = this.f16034f;
         if (alaGameRecommendModel != null) {
             alaGameRecommendModel.C();
         }
@@ -192,13 +192,13 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
     public void onPrimary() {
         AlaGameRecommendModel alaGameRecommendModel;
         super.onPrimary();
-        if (isAdded() && isPrimary() && (alaGameRecommendModel = this.f16373f) != null) {
+        if (isAdded() && isPrimary() && (alaGameRecommendModel = this.f16034f) != null) {
             if (alaGameRecommendModel.B()) {
                 E();
                 return;
             }
-            this.f16373f.C();
-            showLoadingView(this.f16372e.d());
+            this.f16034f.C();
+            showLoadingView(this.f16033e.d());
         }
     }
 }

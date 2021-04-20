@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 /* loaded from: classes.dex */
 public class FullLifecycleObserverAdapter implements LifecycleEventObserver {
@@ -51,7 +52,7 @@ public class FullLifecycleObserverAdapter implements LifecycleEventObserver {
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
         switch (AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$Event[event.ordinal()]) {
             case 1:
                 this.mFullLifecycleObserver.onCreate(lifecycleOwner);

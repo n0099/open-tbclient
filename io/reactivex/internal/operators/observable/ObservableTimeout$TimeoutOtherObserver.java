@@ -1,13 +1,13 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.a0.a;
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.a.e;
-import f.a.x.e.c.l;
-import f.a.x.e.c.m;
+import f.b.a0.a;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.a.e;
+import f.b.x.e.c.l;
+import f.b.x.e.c.m;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -30,25 +30,25 @@ public final class ObservableTimeout$TimeoutOtherObserver<T, U, V> extends Atomi
         this.arbiter = new e<>(oVar, this, 8);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (DisposableHelper.dispose(this)) {
             this.s.dispose();
         }
     }
 
-    @Override // f.a.x.e.c.l
+    @Override // f.b.x.e.c.l
     public void innerError(Throwable th) {
         this.s.dispose();
         this.actual.onError(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.s.isDisposed();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.done) {
             return;
@@ -58,7 +58,7 @@ public final class ObservableTimeout$TimeoutOtherObserver<T, U, V> extends Atomi
         this.arbiter.c(this.s);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.done) {
             a.f(th);
@@ -69,7 +69,7 @@ public final class ObservableTimeout$TimeoutOtherObserver<T, U, V> extends Atomi
         this.arbiter.d(th, this.s);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -83,20 +83,20 @@ public final class ObservableTimeout$TimeoutOtherObserver<T, U, V> extends Atomi
             }
             try {
                 n<V> apply = this.itemTimeoutIndicator.apply(t);
-                f.a.x.b.a.b(apply, "The ObservableSource returned is null");
+                f.b.x.b.a.b(apply, "The ObservableSource returned is null");
                 n<V> nVar = apply;
                 m mVar = new m(this, j);
                 if (compareAndSet(bVar, mVar)) {
                     nVar.subscribe(mVar);
                 }
             } catch (Throwable th) {
-                f.a.u.a.a(th);
+                f.b.u.a.a(th);
                 this.actual.onError(th);
             }
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
@@ -116,11 +116,11 @@ public final class ObservableTimeout$TimeoutOtherObserver<T, U, V> extends Atomi
         }
     }
 
-    @Override // f.a.x.e.c.l
+    @Override // f.b.x.e.c.l
     public void timeout(long j) {
         if (j == this.index) {
             dispose();
-            this.other.subscribe(new f.a.x.d.a(this.arbiter));
+            this.other.subscribe(new f.b.x.d.a(this.arbiter));
         }
     }
 }

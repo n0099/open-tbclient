@@ -7,13 +7,13 @@ import org.json.JSONObject;
 public class LaunchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8810a;
+    public String f8384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8811b;
+    public String f8385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8812c;
+    public String f8386c;
 
     public static JSONObject getConvertedJson(int i, String str, String str2) {
         JSONObject jSONObject;
@@ -46,35 +46,35 @@ public class LaunchInfo {
     }
 
     public int getLaunchType(Context context) {
-        if (TextUtils.isEmpty(this.f8810a)) {
+        if (TextUtils.isEmpty(this.f8384a)) {
             String packageName = context != null ? context.getPackageName() : "";
-            if (TextUtils.isEmpty(this.f8812c) || this.f8812c.equals(packageName)) {
+            if (TextUtils.isEmpty(this.f8386c) || this.f8386c.equals(packageName)) {
                 return 0;
             }
             String a2 = bj.a(context);
-            return !TextUtils.isEmpty(a2) ? !this.f8812c.equals(a2) ? 1 : 0 : !bj.a(context, this.f8812c) ? 1 : 0;
+            return !TextUtils.isEmpty(a2) ? !this.f8386c.equals(a2) ? 1 : 0 : !bj.a(context, this.f8386c) ? 1 : 0;
         }
         return 2;
     }
 
     public String getPushContent() {
-        return !TextUtils.isEmpty(this.f8811b) ? this.f8811b : "";
+        return !TextUtils.isEmpty(this.f8385b) ? this.f8385b : "";
     }
 
     public String getPushLandingPage() {
-        return !TextUtils.isEmpty(this.f8810a) ? this.f8810a : "";
+        return !TextUtils.isEmpty(this.f8384a) ? this.f8384a : "";
     }
 
     public String getRefererPkgName() {
-        return !TextUtils.isEmpty(this.f8812c) ? this.f8812c : "";
+        return !TextUtils.isEmpty(this.f8386c) ? this.f8386c : "";
     }
 
     public void setPushInfo(String str, String str2) {
-        this.f8810a = str;
-        this.f8811b = bx.a(str2, 1024);
+        this.f8384a = str;
+        this.f8385b = bx.a(str2, 1024);
     }
 
     public void setRefererPkgName(String str) {
-        this.f8812c = str;
+        this.f8386c = str;
     }
 }

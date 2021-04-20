@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static TextView f51697a;
+    public static TextView f52121a;
 
     public static int a(char c2) {
         return f(c2) ? 1 : 2;
@@ -88,10 +88,10 @@ public class i0 {
 
     public static Pair<Integer, Integer> i(String str, int i, int i2) {
         try {
-            if (f51697a == null) {
-                f51697a = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (f52121a == null) {
+                f52121a = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = f51697a;
+            TextView textView = f52121a;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

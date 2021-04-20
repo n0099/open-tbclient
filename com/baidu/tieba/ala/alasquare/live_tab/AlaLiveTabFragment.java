@@ -13,11 +13,11 @@ import com.baidu.ala.notify.AlaLiveUserNotifyManager;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.d0.h;
 import d.b.h0.z0.b0;
-import d.b.i0.p0.o0;
+import d.b.i0.q0.o0;
 /* loaded from: classes4.dex */
 public class AlaLiveTabFragment extends BaseFragment implements o0 {
     public static int m = 1;
@@ -25,17 +25,17 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
     public static int o = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.t.d.c.h.a f14737e;
+    public d.b.i0.t.d.c.h.a f14400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaLiveUserNotifyController f14738f;
+    public AlaLiveUserNotifyController f14401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlaLiveUserNotifyManager.AlaLiveNotifyListener f14739g;
+    public AlaLiveUserNotifyManager.AlaLiveNotifyListener f14402g;
     public boolean j;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14740h = true;
+    public boolean f14403h = true;
     public int i = -1;
     public CustomMessageListener k = new a(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE);
     public CustomMessageListener l = new b(2921446);
@@ -52,19 +52,19 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.t.d.c.e.b)) {
                 return;
             }
-            AlaLiveTabFragment.this.f14737e.r(true);
+            AlaLiveTabFragment.this.f14400e.r(true);
             d.b.i0.t.d.c.e.b bVar = (d.b.i0.t.d.c.e.b) customResponsedMessage.getData();
-            if (bVar.f60322a) {
-                if (AlaLiveTabFragment.this.f14740h || !bVar.f60323b) {
+            if (bVar.f61886a) {
+                if (AlaLiveTabFragment.this.f14403h || !bVar.f61887b) {
                     AlaLiveTabFragment.this.L0();
                     AlaLiveTabFragment alaLiveTabFragment = AlaLiveTabFragment.this;
-                    alaLiveTabFragment.hideLoadingView(alaLiveTabFragment.f14737e.i());
-                    AlaLiveTabFragment.this.f14737e.t(bVar.f60324c);
-                    AlaLiveTabFragment.this.f14740h = false;
+                    alaLiveTabFragment.hideLoadingView(alaLiveTabFragment.f14400e.i());
+                    AlaLiveTabFragment.this.f14400e.t(bVar.f61888c);
+                    AlaLiveTabFragment.this.f14403h = false;
                 }
-            } else if (AlaLiveTabFragment.this.f14740h || !bVar.f60323b) {
+            } else if (AlaLiveTabFragment.this.f14403h || !bVar.f61887b) {
                 AlaLiveTabFragment alaLiveTabFragment2 = AlaLiveTabFragment.this;
-                alaLiveTabFragment2.hideLoadingView(alaLiveTabFragment2.f14737e.i());
+                alaLiveTabFragment2.hideLoadingView(alaLiveTabFragment2.f14400e.i());
                 AlaLiveTabFragment.this.P0();
             }
         }
@@ -83,8 +83,8 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
                 return;
             }
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if (AlaLiveTabFragment.this.f14737e != null) {
-                AlaLiveTabFragment.this.f14737e.s(intValue);
+            if (AlaLiveTabFragment.this.f14400e != null) {
+                AlaLiveTabFragment.this.f14400e.s(intValue);
             }
         }
     }
@@ -97,7 +97,7 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
         @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
         public void onCallBack() {
             if (AlaLiveTabFragment.this.isPrimary()) {
-                AlaLiveTabFragment.this.f14738f.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
+                AlaLiveTabFragment.this.f14401f.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
             }
         }
     }
@@ -109,53 +109,53 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || AlaLiveTabFragment.this.f14737e == null) {
+            if (!j.A() || AlaLiveTabFragment.this.f14400e == null) {
                 return;
             }
-            AlaLiveTabFragment.this.f14737e.r(false);
+            AlaLiveTabFragment.this.f14400e.r(false);
             AlaLiveTabFragment.this.O0();
-            AlaLiveTabFragment.this.f14737e.m();
+            AlaLiveTabFragment.this.f14400e.m();
             AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
         }
     }
 
-    @Override // d.b.i0.p0.o0
+    @Override // d.b.i0.q0.o0
     public void A() {
     }
 
-    @Override // d.b.i0.p0.o0
+    @Override // d.b.i0.q0.o0
     public void F() {
     }
 
-    @Override // d.b.i0.p0.o0
+    @Override // d.b.i0.q0.o0
     public void K(b0 b0Var) {
     }
 
     public void L0() {
-        this.f14737e.r(true);
+        this.f14400e.r(true);
         h hVar = this.mRefreshView;
         if (hVar != null) {
-            hVar.dettachView(this.f14737e.i());
+            hVar.dettachView(this.f14400e.i());
             this.mRefreshView = null;
         }
     }
 
     public boolean M0() {
-        return this.f14740h;
+        return this.f14403h;
     }
 
     public void N0() {
         if (isAdded()) {
             O0();
-            this.f14737e.m();
+            this.f14400e.m();
         }
     }
 
     public final void O0() {
         if (this.i < 0) {
-            this.i = this.f14737e.i().getHeight();
+            this.i = this.f14400e.i().getHeight();
         }
-        showLoadingView(this.f14737e.i(), false, (((this.i - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
+        showLoadingView(this.f14400e.i(), false, (((this.i - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
     }
 
     public void P0() {
@@ -166,16 +166,16 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
         this.mRefreshView.l(null);
         this.mRefreshView.m(getResources().getString(R.string.refresh_view_title_text));
         this.mRefreshView.i(R.drawable.new_pic_emotion_08);
-        this.f14737e.r(false);
+        this.f14400e.r(false);
         this.mRefreshView.k(0);
-        this.mRefreshView.attachView(this.f14737e.i(), false);
+        this.mRefreshView.attachView(this.f14400e.i(), false);
     }
 
-    @Override // d.b.i0.p0.o0
+    @Override // d.b.i0.q0.o0
     public void W() {
     }
 
-    @Override // d.b.i0.p0.o0
+    @Override // d.b.i0.q0.o0
     public void b0() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -188,7 +188,7 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.t.d.c.h.a aVar = this.f14737e;
+        d.b.i0.t.d.c.h.a aVar = this.f14400e;
         if (aVar != null) {
             aVar.o();
         }
@@ -201,15 +201,15 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(null);
-        this.f14737e = new d.b.i0.t.d.c.h.a(getPageContext(), getChildFragmentManager(), this.j);
-        if (this.f14738f == null) {
-            this.f14738f = new AlaLiveUserNotifyController(getPageContext());
+        this.f14400e = new d.b.i0.t.d.c.h.a(getPageContext(), getChildFragmentManager(), this.j);
+        if (this.f14401f == null) {
+            this.f14401f = new AlaLiveUserNotifyController(getPageContext());
         }
-        this.f14739g = new c();
-        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.f14739g);
+        this.f14402g = new c();
+        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.f14402g);
         MessageManager.getInstance().registerListener(this.k);
         MessageManager.getInstance().registerListener(this.l);
-        this.f14737e.j();
+        this.f14400e.j();
         if (this.i > 0) {
             O0();
         }
@@ -217,7 +217,7 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup i = this.f14737e.i();
+        ViewGroup i = this.f14400e.i();
         if (i.getParent() instanceof ViewGroup) {
             ((ViewGroup) i.getParent()).removeView(i);
         }
@@ -227,16 +227,16 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.f14740h = true;
-        d.b.i0.t.d.c.h.a aVar = this.f14737e;
+        this.f14403h = true;
+        d.b.i0.t.d.c.h.a aVar = this.f14400e;
         if (aVar != null) {
             aVar.g();
         }
-        AlaLiveUserNotifyController alaLiveUserNotifyController = this.f14738f;
+        AlaLiveUserNotifyController alaLiveUserNotifyController = this.f14401f;
         if (alaLiveUserNotifyController != null) {
             alaLiveUserNotifyController.onDestroy();
         }
-        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.f14739g);
+        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.f14402g);
         MessageManager.getInstance().unRegisterListener(this.k);
         MessageManager.getInstance().unRegisterListener(this.l);
     }
@@ -245,7 +245,7 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
     public void onLazyLoad() {
         super.onLazyLoad();
         this.j = true;
-        this.f14737e.m();
+        this.f14400e.m();
         O0();
     }
 
@@ -255,24 +255,24 @@ public class AlaLiveTabFragment extends BaseFragment implements o0 {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
-            d.b.i0.t.d.c.h.a aVar = this.f14737e;
+            d.b.i0.t.d.c.h.a aVar = this.f14400e;
             if (aVar != null) {
                 aVar.n(true);
             }
         } else {
-            d.b.i0.t.d.c.h.a aVar2 = this.f14737e;
+            d.b.i0.t.d.c.h.a aVar2 = this.f14400e;
             if (aVar2 != null) {
                 aVar2.n(false);
             }
         }
-        d.b.i0.t.d.c.h.a aVar3 = this.f14737e;
+        d.b.i0.t.d.c.h.a aVar3 = this.f14400e;
         if (aVar3 != null) {
             aVar3.p(isPrimary());
         }
     }
 
-    @Override // d.b.i0.p0.o0
+    @Override // d.b.i0.q0.o0
     public void w() {
-        this.f14737e.q();
+        this.f14400e.q();
     }
 }

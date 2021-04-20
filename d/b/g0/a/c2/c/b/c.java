@@ -10,7 +10,7 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends b {
     public c(j jVar) {
         super(jVar, "/swanAPI/getBatteryInfoSync");
@@ -19,18 +19,18 @@ public class c extends b {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (j(context, eVar, unitedSchemeEntity)) {
-            a.C0635a a2 = d.b.g0.a.c2.c.a.a(context);
+            a.C0647a a2 = d.b.g0.a.c2.c.a.a(context);
             if (a2 == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
-            if (a0.f46288b) {
-                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a2.f43776a + " ; plugged: " + a2.f43777b);
+            if (a0.f46680b) {
+                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a2.f44168a + " ; plugged: " + a2.f44169b);
             }
             JSONObject k = k(a2);
             if (k == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
                 }
                 return false;

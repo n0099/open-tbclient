@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
@@ -317,7 +318,7 @@ public class AdElementInfo implements Parcelable {
         this.mAdJsonObject = jSONObject;
         try {
             this.createTime = System.currentTimeMillis();
-            this.mQueryKey = jSONObject.optString("qk", "");
+            this.mQueryKey = jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.QK, "");
             this.mAdId = jSONObject.optString("id", "-1");
             String optString = jSONObject.optString("winurl", "");
             if (!TextUtils.isEmpty(optString)) {
@@ -429,7 +430,7 @@ public class AdElementInfo implements Parcelable {
         this.mAdJsonObject = jSONObject;
         try {
             this.mGdtAd = true;
-            this.mAdId = jSONObject.optString("adid", "-1");
+            this.mAdId = jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.ADID, "-1");
             this.mIconUrl = jSONObject.optString("icon_url", "");
             this.mTitle = jSONObject.optString("title", "");
             this.mDescription = jSONObject.optString("description", "");

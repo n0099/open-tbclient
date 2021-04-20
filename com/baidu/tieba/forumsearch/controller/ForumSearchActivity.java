@@ -6,7 +6,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import d.b.i0.o0.b.b;
+import d.b.i0.p0.b.b;
 /* loaded from: classes4.dex */
 public class ForumSearchActivity extends BaseActivity {
     public b mController;
@@ -16,7 +16,7 @@ public class ForumSearchActivity extends BaseActivity {
         super.onCreate(bundle);
         b bVar = new b(getPageContext());
         this.mController = bVar;
-        setContentView(bVar.o().f57227b);
+        setContentView(bVar.o().f58873b);
         Intent intent = getIntent();
         if (intent != null) {
             this.mController.x(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));

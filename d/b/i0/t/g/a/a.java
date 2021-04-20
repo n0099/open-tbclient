@@ -12,28 +12,28 @@ import d.b.h0.e0.c;
 public class a extends d.b.h0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaGameFrsLiveTabVideoFragment f60748a = new AlaGameFrsLiveTabVideoFragment();
+    public AlaGameFrsLiveTabVideoFragment f62312a = new AlaGameFrsLiveTabVideoFragment();
 
     public a() {
-        getFragmentTabStructure().f50155a = this.f60748a;
+        getFragmentTabStructure().f50548a = this.f62312a;
     }
 
     public void a(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f60748a;
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f62312a;
         if (alaGameFrsLiveTabVideoFragment != null) {
             alaGameFrsLiveTabVideoFragment.H0(str);
         }
     }
 
     public void b(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f60748a;
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f62312a;
         if (alaGameFrsLiveTabVideoFragment != null) {
             alaGameFrsLiveTabVideoFragment.I0(str);
         }
     }
 
     public void c(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f60748a;
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f62312a;
         if (alaGameFrsLiveTabVideoFragment != null) {
             alaGameFrsLiveTabVideoFragment.J0(z);
         }
@@ -42,9 +42,9 @@ public class a extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50159e = 3;
-        cVar.f50156b = R.string.ala_live;
-        cVar.f50162h = c.j;
+        cVar.f50552e = 3;
+        cVar.f50549b = R.string.ala_live;
+        cVar.i = c.k;
         return cVar;
     }
 

@@ -29,11 +29,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.q.x0;
-import d.b.i0.d1.o.a;
-import d.b.i0.d1.w.b;
-import d.b.i0.d1.w.c;
+import d.b.i0.e1.o.a;
+import d.b.i0.e1.w.b;
+import d.b.i0.e1.w.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -45,7 +45,7 @@ import protobuf.NewpushGroupRepair;
 import protobuf.NewpushRepair;
 import protobuf.TshowInfo;
 import protobuf.UserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MessageUtils {
     public static void assignChatMessage(List<GroupMsgData> list, LinkedList<ChatMessage> linkedList, HashMap<String, GroupMsgData> hashMap, HashMap<String, GroupMsgData> hashMap2, ChatMessage chatMessage, MsgInfo msgInfo, GroupMsgData groupMsgData, Long l) {
         long longValue;
@@ -130,7 +130,7 @@ public class MessageUtils {
             }
         }
         if (chatMessage instanceof OfficialChatMessage) {
-            long f2 = d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            long f2 = d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (f2 != msgInfo.userId.longValue()) {
                 longValue2 = msgInfo.userId.longValue();
             } else {
@@ -148,23 +148,23 @@ public class MessageUtils {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                     groupMsgData.getGroupInfo().setGroupId(l.longValue());
                 }
-                if (d.b.i0.d1.o.c.e().c(chatMessage.getMsgId())) {
+                if (d.b.i0.e1.o.c.e().c(chatMessage.getMsgId())) {
                     return;
                 }
-                long d2 = d.b.i0.d1.o.c.e().d();
+                long d2 = d.b.i0.e1.o.c.e().d();
                 Long l2 = msgInfo.groupId;
                 if (l2 == null) {
                     return;
                 }
-                if (d2 != 0 && l2.longValue() != d.b.i0.d1.o.c.e().d()) {
+                if (d2 != 0 && l2.longValue() != d.b.i0.e1.o.c.e().d()) {
                     return;
                 }
-                Long f3 = d.b.i0.d1.o.c.e().f();
+                Long f3 = d.b.i0.e1.o.c.e().f();
                 if (f3 != null && msgInfo.msgId != null && f3.longValue() >= msgInfo.msgId.longValue()) {
                     return;
                 }
                 chatMessage.setIsPushForOperateAccount(true);
-                d.b.i0.d1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                d.b.i0.e1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
             }
             if (j != 0) {
                 if (linkedList.size() == 0) {
@@ -197,7 +197,7 @@ public class MessageUtils {
                 }
             }
         } else if (chatMessage instanceof PersonalChatMessage) {
-            if (d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+            if (d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                 longValue = msgInfo.userId.longValue();
             } else {
                 longValue = msgInfo.toUid.longValue();
@@ -227,11 +227,11 @@ public class MessageUtils {
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(d.b.i0.d1.k.b.o().t(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(d.b.i0.e1.k.b.o().t(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(d.b.i0.d1.k.b.o().t(String.valueOf(j), 2), i, str, j, str2, str3, str4);
+        createPersonalChatMessage(d.b.i0.e1.k.b.o().t(String.valueOf(j), 2), i, str, j, str2, str3, str4);
     }
 
     public static void generatePushData(List<GroupMsgData> list, int i, List<MsgInfo> list2, Long l) {
@@ -338,7 +338,7 @@ public class MessageUtils {
             try {
                 JSONArray jSONArray = new JSONArray(msgInfo.content);
                 if (jSONArray.length() > 0) {
-                    long f2 = d.b.b.e.m.b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                    long f2 = d.b.c.e.m.b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     if (f2 > 0) {
                         return f2;
                     }
@@ -532,7 +532,7 @@ public class MessageUtils {
 
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo i2;
-        if (StringUtils.isNull(str) || i != 2 || (i2 = d.b.i0.d1.k.b.o().i(str, 2)) == null) {
+        if (StringUtils.isNull(str) || i != 2 || (i2 = d.b.i0.e1.k.b.o().i(str, 2)) == null) {
             return;
         }
         long pulled_msgId = i2.getPulled_msgId();
@@ -579,7 +579,7 @@ public class MessageUtils {
         userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
         groupChatMessage.setUserInfo(userData);
         try {
-            j3 = d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            j3 = d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
         } catch (Exception unused) {
             j3 = 0;
         }
@@ -590,7 +590,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         groupChatMessage.setLocalData(msgLocalData);
-        d.b.i0.d1.s.a.j().t(groupChatMessage);
+        d.b.i0.e1.s.a.j().t(groupChatMessage);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3, String str4) {
@@ -620,7 +620,7 @@ public class MessageUtils {
         userData2.setPortrait(TbadkCoreApplication.getCurrentPortrait());
         personalChatMessage.setUserInfo(userData2);
         try {
-            j3 = d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            j3 = d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
         } catch (Exception unused) {
             j3 = 0;
         }
@@ -631,7 +631,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         personalChatMessage.setLocalData(msgLocalData);
-        d.b.i0.d1.s.a.j().t(personalChatMessage);
+        d.b.i0.e1.s.a.j().t(personalChatMessage);
     }
 
     public static NewpushGroupRepair makeNewpushGroupRepair(long j, int i, long j2, long j3, long j4) {

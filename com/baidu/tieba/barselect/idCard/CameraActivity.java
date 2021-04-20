@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -98,16 +99,16 @@ public class CameraActivity extends BaseActivity {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f15141e;
+        public final /* synthetic */ Activity f14804e;
 
         public d(Activity activity) {
-            this.f15141e = activity;
+            this.f14804e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            this.f15141e.finish();
+            this.f14804e.finish();
         }
     }
 
@@ -115,21 +116,21 @@ public class CameraActivity extends BaseActivity {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f15143e;
+        public final /* synthetic */ Activity f14806e;
 
         public e(Activity activity) {
-            this.f15143e = activity;
+            this.f14806e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
             Intent intent = new Intent();
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", this.f15143e.getPackageName(), null));
-            this.f15143e.startActivity(intent);
-            this.f15143e.finish();
+            intent.setData(Uri.fromParts("package", this.f14806e.getPackageName(), null));
+            this.f14806e.startActivity(intent);
+            this.f14806e.finish();
         }
     }
 
@@ -196,18 +197,18 @@ public class CameraActivity extends BaseActivity {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f15150e;
+            public final /* synthetic */ Bitmap f14813e;
 
             public a(Bitmap bitmap) {
-                this.f15150e = bitmap;
+                this.f14813e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(CameraActivity.this.outputFile);
-                    this.f15150e.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                    this.f15150e.recycle();
+                    this.f14813e.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                    this.f14813e.recycle();
                     fileOutputStream.close();
                 } catch (IOException e2) {
                     e2.printStackTrace();
@@ -235,10 +236,10 @@ public class CameraActivity extends BaseActivity {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f15153e;
+            public final /* synthetic */ Bitmap f14816e;
 
             public a(Bitmap bitmap) {
-                this.f15153e = bitmap;
+                this.f14816e = bitmap;
             }
 
             @Override // java.lang.Runnable
@@ -249,7 +250,7 @@ public class CameraActivity extends BaseActivity {
                     CameraActivity.this.showCrop();
                     return;
                 }
-                CameraActivity.this.displayImageView.setImageBitmap(this.f15153e);
+                CameraActivity.this.displayImageView.setImageBitmap(this.f14816e);
                 CameraActivity.this.showResultConfirm();
             }
         }
@@ -510,7 +511,7 @@ public class CameraActivity extends BaseActivity {
         super.onRequestPermissionsResult(i2, strArr, iArr);
         if (i2 != 800) {
             if (i2 == 801 && (iArr.length <= 0 || iArr[0] != 0)) {
-                d.b.b.e.p.l.K(TbadkCoreApplication.getInst(), R.string.storage_permission_required);
+                d.b.c.e.p.l.K(TbadkCoreApplication.getInst(), R.string.storage_permission_required);
             }
         } else if (iArr.length > 0 && iArr[0] == 0) {
             this.cameraView.getCameraControl().a();

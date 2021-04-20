@@ -12,13 +12,15 @@ public interface d<T extends c> extends TypedCallbackHandler {
     @UiThread
     void C();
 
-    void F(d.b.g0.a.e0.n.c cVar);
+    T F();
 
-    void H(d.b.g0.a.e0.n.c cVar);
+    void G(d.b.g0.a.e0.n.c cVar);
 
-    String S();
+    void J(d.b.g0.a.e0.n.c cVar);
 
-    void W();
+    String T();
+
+    void X();
 
     String b();
 
@@ -29,8 +31,6 @@ public interface d<T extends c> extends TypedCallbackHandler {
     void destroy();
 
     void e(d.b.g0.a.e0.g gVar);
-
-    T getWebView();
 
     void loadUrl(String str);
 

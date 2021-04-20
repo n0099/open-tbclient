@@ -9,23 +9,23 @@ import android.text.TextUtils;
 import android.util.Base64;
 import d.d.a.a.b.h;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f65916a;
+    public HandlerThread f66761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f65917b;
+    public Handler f66762b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f65918a = new d(null);
+        public static d f66763a = new d(null);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -52,7 +52,7 @@ public class d {
     }
 
     public static d h() {
-        return a.f65918a;
+        return a.f66763a;
     }
 
     public void a() {
@@ -79,13 +79,13 @@ public class d {
             return false;
         }
         h.b f2 = h.a().f(str);
-        if (f2.f65927a == 0 || TextUtils.isEmpty(f2.f65928b) || !e(f2.f65928b, null)) {
+        if (f2.f66772a == 0 || TextUtils.isEmpty(f2.f66773b) || !e(f2.f66773b, null)) {
             return false;
         }
         if (str.equals("normal_log")) {
-            f.a().d(c2, e.e(f2.f65928b.getBytes(), false));
+            f.a().d(c2, e.e(f2.f66773b.getBytes(), false));
         }
-        i.a().b(str, f2.f65927a);
+        i.a().b(str, f2.f66772a);
         return true;
     }
 
@@ -120,12 +120,12 @@ public class d {
         if (c2 == null) {
             return;
         }
-        this.f65917b.removeMessages(10001);
+        this.f66762b.removeMessages(10001);
         int i = d.d.a.a.a.e().f().get3GSendingInterval();
         if (e.k(c2)) {
             i = d.d.a.a.a.e().f().getWifiSendingInterval();
         }
-        this.f65917b.sendEmptyMessageDelayed(10001, i * 60000);
+        this.f66762b.sendEmptyMessageDelayed(10001, i * 60000);
     }
 
     public final boolean g(Context context, String str) {
@@ -137,13 +137,13 @@ public class d {
     }
 
     public void i(String str) {
-        this.f65917b.obtainMessage(10000, str).sendToTarget();
+        this.f66762b.obtainMessage(10000, str).sendToTarget();
     }
 
     public d() {
         HandlerThread handlerThread = new HandlerThread("SensorLogSenderThread");
-        this.f65916a = handlerThread;
+        this.f66761a = handlerThread;
         handlerThread.start();
-        this.f65917b = new b(this.f65916a.getLooper());
+        this.f66762b = new b(this.f66761a.getLooper());
     }
 }

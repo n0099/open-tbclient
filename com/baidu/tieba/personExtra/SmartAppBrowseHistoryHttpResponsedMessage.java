@@ -3,10 +3,10 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.g2.a;
+import d.b.i0.h2.a;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     public a mData;
 

@@ -3,17 +3,17 @@ package com.baidu.platform.comapi.bikenavi.widget;
 public /* synthetic */ class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f9875a;
+    public static final /* synthetic */ int[] f9433a;
 
     static {
         int[] iArr = new int[com.baidu.platform.comapi.wnplatform.n.b.values().length];
-        f9875a = iArr;
+        f9433a = iArr;
         try {
             iArr[com.baidu.platform.comapi.wnplatform.n.b.TOP.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f9875a[com.baidu.platform.comapi.wnplatform.n.b.BOTTOM.ordinal()] = 2;
+            f9433a[com.baidu.platform.comapi.wnplatform.n.b.BOTTOM.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
     }

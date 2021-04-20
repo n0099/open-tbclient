@@ -16,71 +16,86 @@ import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.data.WhiteListData;
 import d.b.h0.s.c.a0;
-import d.b.h0.s.c.h0;
-import d.b.h0.s.c.q;
-import d.b.h0.s.c.r;
+import d.b.h0.s.c.c0;
+import d.b.h0.s.c.h;
+import d.b.h0.s.c.i;
+import d.b.h0.s.c.j0;
 import d.b.h0.s.c.s;
+import d.b.h0.s.c.t;
 import d.b.h0.s.c.u;
-import d.b.h0.s.c.y;
+import d.b.h0.s.c.w;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51319d;
-    public int l;
-    public int n;
+    public String f51736d;
+    public int m;
     public int o;
-    public JSONArray s;
+    public int p;
     public JSONArray t;
     public JSONArray u;
-    public int m = 0;
+    public JSONArray v;
+    public JSONObject w;
+    public int n = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public VersionData f51316a = new VersionData();
+    public VersionData f51733a = new VersionData();
 
     /* renamed from: b  reason: collision with root package name */
-    public q f51317b = new q();
+    public s f51734b = new s();
 
     /* renamed from: c  reason: collision with root package name */
-    public r f51318c = new r();
+    public t f51735c = new t();
 
     /* renamed from: e  reason: collision with root package name */
-    public CombineDownload f51320e = new CombineDownload();
+    public CombineDownload f51737e = new CombineDownload();
 
     /* renamed from: f  reason: collision with root package name */
-    public y f51321f = new y();
+    public a0 f51738f = new a0();
 
     /* renamed from: g  reason: collision with root package name */
-    public h0 f51322g = new h0();
-    public s p = new s();
+    public j0 f51739g = new j0();
+    public u q = new u();
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.s.c.f f51323h = new d.b.h0.s.c.f();
+    public h f51740h = new h();
     public d.b.h0.s.c.d i = new d.b.h0.s.c.d();
-    public final d.b.h0.s.c.c j = new d.b.h0.s.c.c();
-    public d.b.h0.s.c.a q = new d.b.h0.s.c.a();
-    public a0 k = new a0();
-    public ABTestExtraData r = new ABTestExtraData();
-    public NewGodData v = new NewGodData();
-    public u w = new u();
-    public d.b.h0.s.c.e x = new d.b.h0.s.c.e();
+    public final d.b.h0.s.c.c k = new d.b.h0.s.c.c();
+    public d.b.h0.s.c.a r = new d.b.h0.s.c.a();
+    public c0 l = new c0();
+    public ABTestExtraData s = new ABTestExtraData();
+    public NewGodData x = new NewGodData();
+    public w y = new w();
+    public d.b.h0.s.c.f j = new d.b.h0.s.c.f();
+    public d.b.h0.s.c.g z = new d.b.h0.s.c.g();
 
-    public d.b.h0.s.c.a a() {
-        return this.q;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a(e eVar) {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.h0.e0.e.c.d().g();
+        }
     }
 
-    public ABTestExtraData b() {
+    public d.b.h0.s.c.a a() {
         return this.r;
     }
 
-    public JSONArray c() {
+    public ABTestExtraData b() {
         return this.s;
     }
 
+    public JSONArray c() {
+        return this.t;
+    }
+
     public d.b.h0.s.c.c d() {
-        return this.j;
+        return this.k;
     }
 
     public d.b.h0.s.c.d e() {
@@ -88,58 +103,70 @@ public class e {
     }
 
     public d.b.h0.s.c.f f() {
-        return this.f51323h;
+        return this.j;
     }
 
-    public q g() {
-        return this.f51317b;
+    public d.b.h0.s.c.g g() {
+        return this.z;
     }
 
-    public CombineDownload h() {
-        return this.f51320e;
+    public h h() {
+        return this.f51740h;
     }
 
-    public r i() {
-        return this.f51318c;
+    public s i() {
+        return this.f51734b;
     }
 
-    public boolean j() {
-        return this.n == 1;
+    public CombineDownload j() {
+        return this.f51737e;
     }
 
-    public int k() {
-        return this.o;
+    public t k() {
+        return this.f51735c;
     }
 
-    public int l() {
-        return this.m;
+    public JSONObject l() {
+        return this.w;
     }
 
-    public NewGodData m() {
-        return this.v;
+    public boolean m() {
+        return this.o == 1;
     }
 
-    public a0 n() {
-        return this.k;
+    public int n() {
+        return this.p;
     }
 
-    public JSONArray o() {
-        return this.t;
+    public int o() {
+        return this.n;
     }
 
-    public VersionData p() {
-        return this.f51316a;
+    public NewGodData p() {
+        return this.x;
     }
 
-    public h0 q() {
-        return this.f51322g;
+    public c0 q() {
+        return this.l;
     }
 
-    public String r() {
-        return this.f51319d;
+    public JSONArray r() {
+        return this.u;
     }
 
-    public final JSONArray s(JSONObject jSONObject, String str) {
+    public VersionData s() {
+        return this.f51733a;
+    }
+
+    public j0 t() {
+        return this.f51739g;
+    }
+
+    public String u() {
+        return this.f51736d;
+    }
+
+    public final JSONArray v(JSONObject jSONObject, String str) {
         try {
             return jSONObject.optJSONArray(str);
         } catch (Exception e2) {
@@ -148,7 +175,7 @@ public class e {
         }
     }
 
-    public final JSONObject t(JSONObject jSONObject, String str) {
+    public final JSONObject w(JSONObject jSONObject, String str) {
         try {
             return jSONObject.optJSONObject(str);
         } catch (Exception e2) {
@@ -157,45 +184,47 @@ public class e {
         }
     }
 
-    public void u(String str) {
+    public void x(String str) {
         try {
-            v(new JSONObject(str));
+            y(new JSONObject(str));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void v(JSONObject jSONObject) {
+    public void y(JSONObject jSONObject) {
         JSONObject jSONObject2;
         if (jSONObject == null) {
             return;
         }
         try {
-            this.w.a(s(jSONObject, "index_tab_info"));
-            this.f51316a.parserJson(jSONObject.optJSONObject("version"));
-            this.f51317b.b(jSONObject.optJSONObject("client"));
+            this.y.a(v(jSONObject, "index_tab_info"));
+            this.f51733a.parserJson(jSONObject.optJSONObject("version"));
+            this.f51734b.b(jSONObject.optJSONObject("client"));
             CommonHelper.setIp(jSONObject.optString("client_ip", null));
-            d.b.b.e.n.f.g(jSONObject.optString("client_ip", null));
-            this.f51318c.f(jSONObject.optJSONObject("config"));
-            this.f51322g.X(jSONObject.optJSONObject("wl_config"));
+            d.b.c.e.n.f.g(jSONObject.optString("client_ip", null));
+            this.f51735c.f(jSONObject.optJSONObject("config"));
+            this.f51739g.X(jSONObject.optJSONObject("wl_config"));
             jSONObject.optJSONObject("channel_icon_config");
+            this.j.e(jSONObject.optJSONObject("floating_icon"));
+            TbSingleton.getInstance().setAdFloatViewData(this.j);
             String optString = jSONObject.optString("new_god_data", "");
             if (!StringUtils.isNull(optString)) {
-                this.v.parserJson(optString);
+                this.x.parserJson(optString);
             }
-            this.p.c(jSONObject.optJSONObject("consume_path"));
-            TbadkCoreApplication.getInst().setConsumePathData(this.p);
-            this.f51319d = jSONObject.optString("config_version");
-            this.m = jSONObject.optInt("is_uninterest");
-            this.n = jSONObject.optInt("first_time_motivate");
-            this.o = jSONObject.optInt("needNewUserLead");
-            this.f51320e.parserJson(jSONObject.optJSONObject("combine_download"));
-            this.f51321f.a(jSONObject.optJSONObject("mainbar"));
+            this.q.c(jSONObject.optJSONObject("consume_path"));
+            TbadkCoreApplication.getInst().setConsumePathData(this.q);
+            this.f51736d = jSONObject.optString("config_version");
+            this.n = jSONObject.optInt("is_uninterest");
+            this.o = jSONObject.optInt("first_time_motivate");
+            this.p = jSONObject.optInt("needNewUserLead");
+            this.f51737e.parserJson(jSONObject.optJSONObject("combine_download"));
+            this.f51738f.a(jSONObject.optJSONObject("mainbar"));
             jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
-            this.l = jSONObject.optInt("faceshop_version");
-            if (this.l > TbadkCoreApplication.getInst().getFaceShopVersion()) {
-                TbadkCoreApplication.getInst().setTempFaceShopVersion(this.l);
+            this.m = jSONObject.optInt("faceshop_version");
+            if (this.m > TbadkCoreApplication.getInst().getFaceShopVersion()) {
+                TbadkCoreApplication.getInst().setTempFaceShopVersion(this.m);
                 TbadkCoreApplication.getInst().setFaceShopNew(true);
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
@@ -206,26 +235,30 @@ public class e {
             WhiteListData whiteListData = new WhiteListData();
             whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
             TbSingleton.getInstance().setHostWhiteList(whiteListData);
-            d.b.h0.s.c.g.c(jSONObject.optJSONArray("scheme_whitelist"));
-            this.f51323h.a(jSONObject.optJSONObject("app_entrance"));
+            i.c(jSONObject.optJSONArray("scheme_whitelist"));
+            this.f51740h.a(jSONObject.optJSONObject("app_entrance"));
             this.i.k(jSONObject.optJSONObject("ad_adsense"));
             TbadkCoreApplication.getInst().saveKeepLiveSwitch(jSONObject.optInt("android_keepalive") == 0);
             g.d(jSONObject.optJSONObject("video_report_config"));
-            this.j.b(jSONObject.optJSONObject("activity_switch"));
-            this.q.b(t(jSONObject, "abtest_config"));
-            this.r.parseJson(t(jSONObject, "new_abtest_entra"));
-            this.s = s(jSONObject, "new_abtest_config");
-            this.t = s(jSONObject, "ubs_abtest_config");
-            this.u = jSONObject.optJSONArray("windowStrategyList");
-            this.x.d(t(jSONObject, "ad_density"));
-            d.b.h0.r.o.b.b().f(this.u);
-            this.k.d(jSONObject.optJSONObject("profile_icon"));
+            this.k.b(jSONObject.optJSONObject("activity_switch"));
+            this.r.b(w(jSONObject, "abtest_config"));
+            this.s.parseJson(w(jSONObject, "new_abtest_entra"));
+            this.t = v(jSONObject, "new_abtest_config");
+            this.u = v(jSONObject, "ubs_abtest_config");
+            v(jSONObject, "outside_callback_icon");
+            this.v = jSONObject.optJSONArray("windowStrategyList");
+            this.w = w(jSONObject, "bear_sdk_config");
+            if (w(jSONObject, "advertisement_config") != null) {
+                this.z.d(w(jSONObject, "advertisement_config"));
+            }
+            d.b.h0.r.o.b.b().f(this.v);
+            this.l.d(jSONObject.optJSONObject("profile_icon"));
             TbSingleton.getInstance().setNewUser(jSONObject.optInt("recommend_userstatus", 0) == 1);
-            d.b.h0.r.d0.b.i().s("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
+            d.b.h0.r.d0.b.j().t("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
-            JSONArray s = s(jSONObject, "offpack");
-            if (s != null && s.length() > 0 && (jSONObject2 = s.getJSONObject(0)) != null) {
-                d.b.i0.p2.d.b bVar = new d.b.i0.p2.d.b();
+            JSONArray v = v(jSONObject, "offpack");
+            if (v != null && v.length() > 0 && (jSONObject2 = v.getJSONObject(0)) != null) {
+                d.b.i0.q2.d.b bVar = new d.b.i0.q2.d.b();
                 bVar.e(jSONObject2.optString("mod_name"));
                 bVar.f(jSONObject2.optInt("upload_offline_web_cache") == 1);
                 bVar.d(jSONObject2.optInt("clear_offline_web_cache") == 1);
@@ -245,11 +278,15 @@ public class e {
             if (optJSONObject2 != null) {
                 String optString4 = optJSONObject2.optString(LowFlowsActivityConfig.LF_USER);
                 TbSingleton.getInstance().setLFUser(optString4);
-                if (StringUtils.isNull(optString4) || !"2".equals(optString4)) {
-                    return;
+                if (!StringUtils.isNull(optString4) && "2".equals(optString4)) {
+                    TbSingleton.getInstance().setLFUserTaskId(optJSONObject2.optString(LowFlowsActivityConfig.LF_USER_TASKID));
+                    TbSingleton.getInstance().setBannerText(optJSONObject2.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
                 }
-                TbSingleton.getInstance().setLFUserTaskId(optJSONObject2.optString(LowFlowsActivityConfig.LF_USER_TASKID));
-                TbSingleton.getInstance().setBannerText(optJSONObject2.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("bottom_bubble_config");
+            if (optJSONObject3 != null) {
+                d.b.h0.e0.e.c.d().h(optJSONObject3);
+                d.b.c.e.m.e.a().post(new a(this));
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());

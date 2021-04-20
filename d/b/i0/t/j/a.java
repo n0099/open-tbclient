@@ -9,15 +9,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
 import d.b.h0.e0.b;
 import d.b.h0.e0.c;
-import d.b.i0.p0.j0;
+import d.b.i0.q0.j0;
 /* loaded from: classes4.dex */
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaPersonCenterFragment f60816a = new AlaPersonCenterFragment();
+    public AlaPersonCenterFragment f62380a = new AlaPersonCenterFragment();
 
     public a() {
-        getFragmentTabStructure().f50155a = this.f60816a;
+        getFragmentTabStructure().f50548a = this.f62380a;
     }
 
     public void a(j0 j0Var) {
@@ -27,14 +27,14 @@ public class a extends b {
     }
 
     public void b(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f62380a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.E0(str);
         }
     }
 
     public void c(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f62380a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.F0(str);
         }
@@ -43,21 +43,21 @@ public class a extends b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50159e = 5;
-        cVar.f50156b = R.string.ala_live;
-        cVar.f50162h = c.j;
+        cVar.f50552e = 5;
+        cVar.f50549b = R.string.ala_live;
+        cVar.i = c.k;
         return cVar;
     }
 
     public void d(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f62380a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.G0(str);
         }
     }
 
     public void e(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f62380a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.H0(str);
         }

@@ -8,14 +8,14 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 public class d implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44877e = d.b.g0.a.k.f45051a;
+    public static final boolean f45269e = d.b.g0.a.k.f45443a;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.g0.a.i2.u0.b
     /* renamed from: a */
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
         PMSAppInfo r;
-        if (f44877e) {
+        if (f45269e) {
             Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
         }
         if (hybridUbcFlow == null || (r = d.b.g0.l.i.a.h().r(d.b.g0.a.r1.d.e().getAppId())) == null) {

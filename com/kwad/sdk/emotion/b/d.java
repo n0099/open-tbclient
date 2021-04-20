@@ -16,10 +16,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Queue<com.kwai.filedownloader.a> f34676a = new ConcurrentLinkedQueue();
+    public volatile Queue<com.kwai.filedownloader.a> f34965a = new ConcurrentLinkedQueue();
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Queue<com.kwai.filedownloader.a> f34677b = new ConcurrentLinkedQueue();
+    public volatile Queue<com.kwai.filedownloader.a> f34966b = new ConcurrentLinkedQueue();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -50,15 +50,15 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         synchronized (d.class) {
-            if (this.f34676a.isEmpty() && this.f34677b.isEmpty()) {
+            if (this.f34965a.isEmpty() && this.f34966b.isEmpty()) {
                 return;
             }
-            int size = 10 - this.f34677b.size();
-            int size2 = this.f34676a.size();
+            int size = 10 - this.f34966b.size();
+            int size2 = this.f34965a.size();
             for (int i = 0; i < size && i < size2; i++) {
-                com.kwai.filedownloader.a poll = this.f34676a.poll();
+                com.kwai.filedownloader.a poll = this.f34965a.poll();
                 if (poll != null && !poll.c()) {
-                    this.f34677b.offer(poll);
+                    this.f34966b.offer(poll);
                     poll.e();
                 }
             }
@@ -78,17 +78,17 @@ public final class d {
         sb.append(z ? a2.c() : a2.b());
         sb.append(File.separator);
         sb.append(a3);
-        this.f34676a.offer(a4.a(sb.toString()).b(false).a((i) new c() { // from class: com.kwad.sdk.emotion.b.d.1
+        this.f34965a.offer(a4.a(sb.toString()).b(false).a((i) new c() { // from class: com.kwad.sdk.emotion.b.d.1
             @Override // com.kwad.sdk.emotion.b.c, com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar2, Throwable th) {
-                d.this.f34677b.remove(aVar2);
+                d.this.f34966b.remove(aVar2);
                 d.this.a(i + 1, strArr, str, z, aVar);
                 d.this.a();
             }
 
             @Override // com.kwai.filedownloader.i
             public void c(com.kwai.filedownloader.a aVar2) {
-                d.this.f34677b.remove(aVar2);
+                d.this.f34966b.remove(aVar2);
                 a aVar3 = aVar;
                 if (aVar3 != null) {
                     aVar3.a(aVar2.o());

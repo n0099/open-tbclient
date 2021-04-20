@@ -9,32 +9,32 @@ public interface b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f9347a;
+        public byte[] f8905a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9348b;
+        public String f8906b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f9349c;
+        public long f8907c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f9350d;
+        public long f8908d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f9351e;
+        public long f8909e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f9352f;
+        public long f8910f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, String> f9353g = Collections.emptyMap();
+        public Map<String, String> f8911g = Collections.emptyMap();
 
         public boolean a() {
-            return this.f9351e < System.currentTimeMillis();
+            return this.f8909e < System.currentTimeMillis();
         }
 
         public boolean b() {
-            return this.f9352f < System.currentTimeMillis();
+            return this.f8910f < System.currentTimeMillis();
         }
     }
 

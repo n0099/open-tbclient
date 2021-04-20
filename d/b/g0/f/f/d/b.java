@@ -6,32 +6,32 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f47785b = "wifi_resume_download_flag";
+    public static String f48177b = "wifi_resume_download_flag";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f47786c;
+    public static volatile b f48178c;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f47787a = AppRuntime.getAppContext().getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
+    public SharedPreferences f48179a = AppRuntime.getAppContext().getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
 
     public static b a() {
-        if (f47786c == null) {
+        if (f48178c == null) {
             synchronized (d.b.g0.f.f.a.class) {
-                if (f47786c == null) {
-                    f47786c = new b();
+                if (f48178c == null) {
+                    f48178c = new b();
                 }
             }
         }
-        return f47786c;
+        return f48178c;
     }
 
     public boolean b() {
-        return this.f47787a.getBoolean(f47785b, true);
+        return this.f48179a.getBoolean(f48177b, true);
     }
 
     public void c(boolean z) {
-        SharedPreferences.Editor edit = this.f47787a.edit();
-        edit.putBoolean(f47785b, z);
+        SharedPreferences.Editor edit = this.f48179a.edit();
+        edit.putBoolean(f48177b, z);
         edit.commit();
     }
 }

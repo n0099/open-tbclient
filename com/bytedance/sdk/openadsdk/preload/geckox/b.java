@@ -10,32 +10,32 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f30212a;
+    public final Context f29897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f30213b;
+    public final Executor f29898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f30214c;
+    public final Executor f29899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.k.a f30215d;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.k.a f29900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f30216e;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f29901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.i.b f30217f;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.i.b f29902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f30218g;
+    public final List<String> f29903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<String> f30219h;
+    public final List<String> f29904h;
     public final com.bytedance.sdk.openadsdk.preload.geckox.a.a.a i;
     public final Long j;
     public final String k;
@@ -46,32 +46,32 @@ public class b {
     public final File p;
     public final boolean q;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.i.b f30222a;
+        public com.bytedance.sdk.openadsdk.preload.geckox.i.b f29907a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f30223b;
+        public List<String> f29908b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f30224c;
+        public List<String> f29909c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Context f30225d;
+        public Context f29910d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Executor f30226e;
+        public Executor f29911e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Executor f30227f;
+        public Executor f29912f;
 
         /* renamed from: g  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.k.a f30228g;
+        public com.bytedance.sdk.openadsdk.preload.geckox.k.a f29913g;
 
         /* renamed from: h  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f30229h;
+        public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f29914h;
         public boolean i = true;
         public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a j;
         public Long k;
@@ -83,19 +83,19 @@ public class b {
         public String q;
 
         public a(Context context) {
-            this.f30225d = context.getApplicationContext();
+            this.f29910d = context.getApplicationContext();
         }
 
         public a a(String... strArr) {
             if (strArr != null && strArr.length >= 1) {
-                this.f30224c = Arrays.asList(strArr);
+                this.f29909c = Arrays.asList(strArr);
             }
             return this;
         }
 
         public a b(String... strArr) {
             if (strArr != null && strArr.length >= 1) {
-                this.f30223b = Arrays.asList(strArr);
+                this.f29908b = Arrays.asList(strArr);
             }
             return this;
         }
@@ -106,12 +106,12 @@ public class b {
         }
 
         public a a(com.bytedance.sdk.openadsdk.preload.geckox.statistic.a aVar) {
-            this.f30229h = aVar;
+            this.f29914h = aVar;
             return this;
         }
 
         public a b(Executor executor) {
-            this.f30227f = executor;
+            this.f29912f = executor;
             return this;
         }
 
@@ -126,7 +126,7 @@ public class b {
         }
 
         public a a(Executor executor) {
-            this.f30226e = executor;
+            this.f29911e = executor;
             return this;
         }
 
@@ -156,7 +156,7 @@ public class b {
     }
 
     public Context a() {
-        return this.f30212a;
+        return this.f29897a;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a b() {
@@ -168,23 +168,23 @@ public class b {
     }
 
     public List<String> d() {
-        return this.f30219h;
+        return this.f29904h;
     }
 
     public List<String> e() {
-        return this.f30218g;
+        return this.f29903g;
     }
 
     public Executor f() {
-        return this.f30213b;
+        return this.f29898b;
     }
 
     public Executor g() {
-        return this.f30214c;
+        return this.f29899c;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.i.b h() {
-        return this.f30217f;
+        return this.f29902f;
     }
 
     public String i() {
@@ -212,11 +212,11 @@ public class b {
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.k.a o() {
-        return this.f30215d;
+        return this.f29900d;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a p() {
-        return this.f30216e;
+        return this.f29901e;
     }
 
     public String q() {
@@ -224,18 +224,18 @@ public class b {
     }
 
     public b(a aVar) {
-        Context context = aVar.f30225d;
-        this.f30212a = context;
+        Context context = aVar.f29910d;
+        this.f29897a = context;
         if (context != null) {
-            this.f30218g = aVar.f30223b;
-            this.f30219h = aVar.f30224c;
-            this.f30215d = aVar.f30228g;
+            this.f29903g = aVar.f29908b;
+            this.f29904h = aVar.f29909c;
+            this.f29900d = aVar.f29913g;
             this.i = aVar.j;
             this.j = aVar.k;
             if (!TextUtils.isEmpty(aVar.l)) {
                 this.k = aVar.l;
             } else {
-                this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f30212a);
+                this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f29897a);
             }
             this.l = aVar.m;
             this.n = aVar.p;
@@ -243,17 +243,17 @@ public class b {
             if (aVar.o != null) {
                 this.p = aVar.o;
             } else {
-                this.p = new File(this.f30212a.getFilesDir(), "gecko_offline_res_x");
+                this.p = new File(this.f29897a.getFilesDir(), "gecko_offline_res_x");
             }
             String str = aVar.n;
             this.m = str;
             if (!TextUtils.isEmpty(str)) {
-                List<String> list = this.f30218g;
+                List<String> list = this.f29903g;
                 if (list != null && !list.isEmpty()) {
                     if (this.j != null) {
                         if (!TextUtils.isEmpty(this.l)) {
-                            if (aVar.f30226e != null) {
-                                this.f30213b = aVar.f30226e;
+                            if (aVar.f29911e != null) {
+                                this.f29898b = aVar.f29911e;
                             } else {
                                 ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.1
                                     @Override // java.util.concurrent.ThreadFactory
@@ -265,10 +265,10 @@ public class b {
                                     }
                                 });
                                 threadPoolExecutor.allowCoreThreadTimeOut(true);
-                                this.f30213b = threadPoolExecutor;
+                                this.f29898b = threadPoolExecutor;
                             }
-                            if (aVar.f30227f != null) {
-                                this.f30214c = aVar.f30227f;
+                            if (aVar.f29912f != null) {
+                                this.f29899c = aVar.f29912f;
                             } else {
                                 ThreadPoolExecutor threadPoolExecutor2 = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.2
                                     @Override // java.util.concurrent.ThreadFactory
@@ -280,14 +280,14 @@ public class b {
                                     }
                                 });
                                 threadPoolExecutor2.allowCoreThreadTimeOut(true);
-                                this.f30214c = threadPoolExecutor2;
+                                this.f29899c = threadPoolExecutor2;
                             }
-                            if (aVar.f30222a != null) {
-                                this.f30217f = aVar.f30222a;
+                            if (aVar.f29907a != null) {
+                                this.f29902f = aVar.f29907a;
                             } else {
-                                this.f30217f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
+                                this.f29902f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
                             }
-                            this.f30216e = aVar.f30229h;
+                            this.f29901e = aVar.f29914h;
                             this.q = aVar.i;
                             return;
                         }

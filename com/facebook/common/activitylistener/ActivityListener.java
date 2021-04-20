@@ -1,7 +1,7 @@
 package com.facebook.common.activitylistener;
 
 import android.app.Activity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ActivityListener {
     public static final int MAX_PRIORITY = 10;
     public static final int MIN_PRIORITY = 1;

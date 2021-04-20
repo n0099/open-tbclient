@@ -21,23 +21,23 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class MultiImageView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13765e;
+    public int f13426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f13766f;
+    public Button f13427f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f13767g;
+    public Button f13428g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f13768h;
+    public LinearLayout f13429h;
     public GalleryViewPager i;
     public ImagePagerAdapter j;
     public View.OnClickListener k;
@@ -65,12 +65,12 @@ public class MultiImageView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             DragImageView currentImageView;
-            if (view == MultiImageView.this.f13766f) {
+            if (view == MultiImageView.this.f13427f) {
                 DragImageView currentImageView2 = MultiImageView.this.getCurrentImageView();
                 if (currentImageView2 != null) {
                     currentImageView2.t0();
                 }
-            } else if (view != MultiImageView.this.f13767g || (currentImageView = MultiImageView.this.getCurrentImageView()) == null) {
+            } else if (view != MultiImageView.this.f13428g || (currentImageView = MultiImageView.this.getCurrentImageView()) == null) {
             } else {
                 currentImageView.u0();
             }
@@ -191,10 +191,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.f13765e = 3;
-        this.f13766f = null;
-        this.f13767g = null;
-        this.f13768h = null;
+        this.f13426e = 3;
+        this.f13427f = null;
+        this.f13428g = null;
+        this.f13429h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -251,7 +251,7 @@ public class MultiImageView extends RelativeLayout {
         if (this.s) {
             return;
         }
-        this.f13768h.setVisibility(0);
+        this.f13429h.setVisibility(0);
     }
 
     public int getBottomHeight() {
@@ -407,7 +407,7 @@ public class MultiImageView extends RelativeLayout {
         if (this.s) {
             return;
         }
-        this.f13768h.setVisibility(8);
+        this.f13429h.setVisibility(8);
     }
 
     public void q() {
@@ -429,31 +429,31 @@ public class MultiImageView extends RelativeLayout {
         this.i.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.i.setOnPageChangeListener(this.m);
         addView(this.i);
-        this.f13768h = new LinearLayout(getContext());
+        this.f13429h = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.bottomMargin = l.e(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        this.f13768h.setOrientation(0);
-        this.f13768h.setLayoutParams(layoutParams);
-        addView(this.f13768h);
+        this.f13429h.setOrientation(0);
+        this.f13429h.setLayoutParams(layoutParams);
+        addView(this.f13429h);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         Button button = new Button(getContext());
-        this.f13767g = button;
+        this.f13428g = button;
         SkinManager.setBackgroundResource(button, R.drawable.image_zoomout, 0);
-        this.f13767g.setLayoutParams(layoutParams2);
-        this.f13767g.setOnClickListener(this.k);
-        this.f13767g.setEnabled(false);
-        this.f13768h.addView(this.f13767g);
+        this.f13428g.setLayoutParams(layoutParams2);
+        this.f13428g.setOnClickListener(this.k);
+        this.f13428g.setEnabled(false);
+        this.f13429h.addView(this.f13428g);
         Button button2 = new Button(getContext());
-        this.f13766f = button2;
+        this.f13427f = button2;
         SkinManager.setBackgroundResource(button2, R.drawable.image_zoomin, 0);
-        this.f13766f.setLayoutParams(layoutParams2);
-        this.f13766f.setOnClickListener(this.k);
-        this.f13766f.setEnabled(false);
-        this.f13768h.addView(this.f13766f);
+        this.f13427f.setLayoutParams(layoutParams2);
+        this.f13427f.setOnClickListener(this.k);
+        this.f13427f.setEnabled(false);
+        this.f13429h.addView(this.f13427f);
         if (this.s) {
-            this.f13768h.setVisibility(8);
+            this.f13429h.setVisibility(8);
         }
         ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(getContext(), this.l);
         this.j = imagePagerAdapter;
@@ -683,20 +683,20 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(DragImageView dragImageView) {
         if (dragImageView != null) {
             if (dragImageView.Q()) {
-                this.f13766f.setEnabled(true);
+                this.f13427f.setEnabled(true);
             } else {
-                this.f13766f.setEnabled(false);
+                this.f13427f.setEnabled(false);
             }
             if (dragImageView.R()) {
-                this.f13767g.setEnabled(true);
+                this.f13428g.setEnabled(true);
                 return;
             } else {
-                this.f13767g.setEnabled(false);
+                this.f13428g.setEnabled(false);
                 return;
             }
         }
-        this.f13767g.setEnabled(false);
-        this.f13766f.setEnabled(false);
+        this.f13428g.setEnabled(false);
+        this.f13427f.setEnabled(false);
     }
 
     public boolean t() {
@@ -772,7 +772,7 @@ public class MultiImageView extends RelativeLayout {
 
     public void y(int i) {
         GalleryViewPager galleryViewPager;
-        if (this.f13765e == i || (galleryViewPager = this.i) == null) {
+        if (this.f13426e == i || (galleryViewPager = this.i) == null) {
             return;
         }
         int childCount = galleryViewPager.getChildCount();
@@ -782,7 +782,7 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).W(i);
             }
         }
-        this.f13765e = i;
+        this.f13426e = i;
     }
 
     public void z(ImageUrlData imageUrlData) {
@@ -805,10 +805,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13765e = 3;
-        this.f13766f = null;
-        this.f13767g = null;
-        this.f13768h = null;
+        this.f13426e = 3;
+        this.f13427f = null;
+        this.f13428g = null;
+        this.f13429h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -830,10 +830,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13765e = 3;
-        this.f13766f = null;
-        this.f13767g = null;
-        this.f13768h = null;
+        this.f13426e = 3;
+        this.f13427f = null;
+        this.f13428g = null;
+        this.f13429h = null;
         this.i = null;
         this.j = null;
         this.k = null;

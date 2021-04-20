@@ -27,6 +27,6 @@ public class f extends c {
     @Override // d.b.g0.a.a0.b.b, d.b.g0.a.e1.a
     public boolean isValid() {
         d.b.g0.a.a1.c.h.c cVar;
-        return (TextUtils.isEmpty(this.f43114g) || TextUtils.isEmpty(this.f43113f) || TextUtils.isEmpty(this.D) || (cVar = this.E) == null || !cVar.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.f43506g) || TextUtils.isEmpty(this.f43505f) || TextUtils.isEmpty(this.D) || (cVar = this.E) == null || !cVar.isValid()) ? false : true;
     }
 }

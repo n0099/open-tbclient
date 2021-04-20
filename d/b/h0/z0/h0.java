@@ -9,25 +9,25 @@ import com.baidu.tbadk.TiebaIMConfig;
 public class h0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f51693a = BdUniqueId.gen();
+    public static final BdUniqueId f52117a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdAsyncTaskParallel f51694b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f51693a);
+    public static final BdAsyncTaskParallel f52118b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f52117a);
 
     /* loaded from: classes3.dex */
     public static class a<T> extends BdAsyncTask<String, Object, T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public f0<T> f51695a;
+        public f0<T> f52119a;
 
         /* renamed from: b  reason: collision with root package name */
-        public n<T> f51696b;
+        public n<T> f52120b;
 
         public a(f0<T> f0Var, n<T> nVar) {
-            this.f51695a = null;
-            this.f51696b = null;
-            this.f51695a = f0Var;
-            this.f51696b = nVar;
+            this.f52119a = null;
+            this.f52120b = null;
+            this.f52119a = f0Var;
+            this.f52120b = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,8 +35,8 @@ public class h0 {
         /* renamed from: b */
         public T doInBackground(String... strArr) {
             try {
-                if (this.f51695a != null) {
-                    return this.f51695a.doInBackground();
+                if (this.f52119a != null) {
+                    return this.f52119a.doInBackground();
                 }
                 return null;
             } catch (Throwable th) {
@@ -47,7 +47,7 @@ public class h0 {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
-            n<T> nVar = this.f51696b;
+            n<T> nVar = this.f52120b;
             if (nVar != null) {
                 nVar.onReturnDataInUI(t);
             }
@@ -55,14 +55,14 @@ public class h0 {
     }
 
     public static void a() {
-        BdAsyncTask.removeAllTask(f51693a);
+        BdAsyncTask.removeAllTask(f52117a);
     }
 
     public static <T> void b(f0<T> f0Var, n<T> nVar) {
         if (f0Var != null) {
             a aVar = new a(f0Var, nVar);
-            aVar.setParallel(f51694b);
-            aVar.setTag(f51693a);
+            aVar.setParallel(f52118b);
+            aVar.setTag(f52117a);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }
@@ -72,7 +72,7 @@ public class h0 {
         if (f0Var != null) {
             a aVar = new a(f0Var, nVar);
             aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(f51693a);
+            aVar.setTag(f52117a);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }

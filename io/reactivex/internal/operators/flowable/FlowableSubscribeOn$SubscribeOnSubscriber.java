@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.p;
+import f.b.g;
+import f.b.p;
 import g.d.b;
 import g.d.c;
 import g.d.d;
@@ -22,19 +22,19 @@ public final class FlowableSubscribeOn$SubscribeOnSubscriber<T> extends AtomicRe
     public static final class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d f68036e;
+        public final d f69042e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f68037f;
+        public final long f69043f;
 
         public a(d dVar, long j) {
-            this.f68036e = dVar;
-            this.f68037f = j;
+            this.f69042e = dVar;
+            this.f69043f = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f68036e.request(this.f68037f);
+            this.f69042e.request(this.f69043f);
         }
     }
 
@@ -68,7 +68,7 @@ public final class FlowableSubscribeOn$SubscribeOnSubscriber<T> extends AtomicRe
         this.actual.onNext(t);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this.s, dVar)) {
             long andSet = this.requested.getAndSet(0L);
@@ -86,7 +86,7 @@ public final class FlowableSubscribeOn$SubscribeOnSubscriber<T> extends AtomicRe
                 requestUpstream(j, dVar);
                 return;
             }
-            f.a.x.i.b.a(this.requested, j);
+            f.b.x.i.b.a(this.requested, j);
             d dVar2 = this.s.get();
             if (dVar2 != null) {
                 long andSet = this.requested.getAndSet(0L);

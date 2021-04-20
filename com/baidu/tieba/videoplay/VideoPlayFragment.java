@@ -82,8 +82,8 @@ import d.b.h0.b1.p.a;
 import d.b.h0.h.a;
 import d.b.h0.r.s.a;
 import d.b.h0.r.s.l;
-import d.b.i0.i2.f;
-import d.b.i0.r3.b.a;
+import d.b.i0.j2.f;
+import d.b.i0.s3.b.a;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -122,11 +122,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     public d.b.h0.r.s.l b0;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21937g;
+    public View f21622g;
     public String g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbCyberVideoView f21938h;
+    public TbCyberVideoView f21623h;
     public TbImageView i;
     public RelativeLayout.LayoutParams i0;
     public View j;
@@ -138,7 +138,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     public HeadImageView m;
     public LinearLayout n;
     public LinearLayout o;
-    public d.b.i0.r3.b.a o0;
+    public d.b.i0.s3.b.a o0;
     public LinearLayout p;
     public f.c p0;
     public LinearLayout q;
@@ -155,10 +155,10 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     public EMTextView z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21935e = 0;
+    public int f21620e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21936f = 1;
+    public int f21621f = 1;
     public ForumManageModel c0 = null;
     public d.b.h0.h.a d0 = null;
     public d.b.h0.s.e.a e0 = null;
@@ -229,11 +229,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
-            TbCyberVideoView tbCyberVideoView = VideoPlayFragment.this.f21938h;
+            TbCyberVideoView tbCyberVideoView = VideoPlayFragment.this.f21623h;
             if (tbCyberVideoView != null) {
                 tbCyberVideoView.P();
-                VideoPlayFragment.this.f21938h.seekTo(0);
-                VideoPlayFragment.this.f21938h.start();
+                VideoPlayFragment.this.f21623h.seekTo(0);
+                VideoPlayFragment.this.f21623h.start();
                 VideoPlayFragment.this.N1();
                 VideoPlayFragment.l1(VideoPlayFragment.this);
                 if (VideoPlayFragment.this.n0 == 3) {
@@ -261,10 +261,10 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
-            TbCyberVideoView tbCyberVideoView = VideoPlayFragment.this.f21938h;
+            TbCyberVideoView tbCyberVideoView = VideoPlayFragment.this.f21623h;
             if (tbCyberVideoView != null) {
                 tbCyberVideoView.setVolume(1.0f, 1.0f);
-                if (VideoPlayFragment.this.f21938h.getDuration() < 15000 || VideoPlayFragment.this.J == null) {
+                if (VideoPlayFragment.this.f21623h.getDuration() < 15000 || VideoPlayFragment.this.J == null) {
                     VideoPlayFragment.this.J.setVisibility(8);
                     return;
                 }
@@ -303,10 +303,10 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.d3.h0.e)) {
                 return;
             }
-            AgreeData agreeData = ((d.b.i0.c3.h0.e) customResponsedMessage.getData()).f53377b;
+            AgreeData agreeData = ((d.b.i0.d3.h0.e) customResponsedMessage.getData()).f54819b;
             if (VideoPlayFragment.this.H == null || agreeData == null) {
                 return;
             }
@@ -340,7 +340,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             VideoPlayFragment videoPlayFragment = VideoPlayFragment.this;
-            videoPlayFragment.B1(videoPlayFragment.f21935e);
+            videoPlayFragment.B1(videoPlayFragment.f21620e);
         }
     }
 
@@ -349,7 +349,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         public e0() {
         }
 
-        @Override // d.b.i0.i2.f.c
+        @Override // d.b.i0.j2.f.c
         public void a(int i, int i2) {
             if (VideoPlayFragment.this.p0 != null) {
                 VideoPlayFragment.this.p0.a(i, i2);
@@ -375,7 +375,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             statisticItem2.param("obj_locate", 19);
             statisticItem2.param("nid", VideoPlayFragment.this.H.nid);
             BaijiahaoData baijiahaoData = VideoPlayFragment.this.H.baijiahaoData;
-            if (baijiahaoData != null && !d.b.b.e.p.k.isEmpty(baijiahaoData.oriUgcVid)) {
+            if (baijiahaoData != null && !d.b.c.e.p.k.isEmpty(baijiahaoData.oriUgcVid)) {
                 statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, VideoPlayFragment.this.H.baijiahaoData.oriUgcVid);
             }
             if (VideoPlayFragment.this.H.getVideoType() == 1) {
@@ -468,7 +468,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 }
                 EMTextView eMTextView2 = VideoPlayFragment.this.B;
                 if (eMTextView2 != null) {
-                    eMTextView2.setText("/" + StringHelper.stringForVideoTime(VideoPlayFragment.this.f21938h.getDuration()));
+                    eMTextView2.setText("/" + StringHelper.stringForVideoTime(VideoPlayFragment.this.f21623h.getDuration()));
                 }
             }
         }
@@ -490,11 +490,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
                 VideoPlayFragment.this.C1(false);
-                if (!VideoPlayFragment.this.f21938h.isPlaying()) {
-                    VideoPlayFragment.this.f21938h.start();
+                if (!VideoPlayFragment.this.f21623h.isPlaying()) {
+                    VideoPlayFragment.this.f21623h.start();
                     VideoPlayFragment.this.v.setVisibility(8);
                 }
-                d.b.b.e.m.e.a().postDelayed(VideoPlayFragment.this.y0, 3000L);
+                d.b.c.e.m.e.a().postDelayed(VideoPlayFragment.this.y0, 3000L);
             }
         }
     }
@@ -524,18 +524,18 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     public class h0 implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f21954e;
+        public final /* synthetic */ String f21639e;
 
         public h0(String str) {
-            this.f21954e = str;
+            this.f21639e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f21954e)) {
+            if (TextUtils.isEmpty(this.f21639e)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(VideoPlayFragment.this.getPageContext().getPageActivity()), new String[]{this.f21954e}, true);
+            UrlManager.getInstance().dealOneLink((TbPageContext) d.b.c.a.j.a(VideoPlayFragment.this.getPageContext().getPageActivity()), new String[]{this.f21639e}, true);
         }
     }
 
@@ -571,11 +571,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             int width = VideoPlayFragment.this.i.getWidth();
             int height = VideoPlayFragment.this.i.getHeight();
             if (height > 0 && width > 0) {
-                if (d.b.b.e.m.b.d(VideoPlayFragment.this.H.video_height, 0) > 0 && d.b.b.e.m.b.d(VideoPlayFragment.this.H.video_width, 0) > 0) {
+                if (d.b.c.e.m.b.d(VideoPlayFragment.this.H.video_height, 0) > 0 && d.b.c.e.m.b.d(VideoPlayFragment.this.H.video_width, 0) > 0) {
                     float f3 = width;
                     float f4 = height;
                     float f5 = f3 / f4;
-                    float c2 = d.b.b.e.m.b.c(VideoPlayFragment.this.H.video_width, 0.0f) / d.b.b.e.m.b.c(VideoPlayFragment.this.H.video_height, 0.0f);
+                    float c2 = d.b.c.e.m.b.c(VideoPlayFragment.this.H.video_width, 0.0f) / d.b.c.e.m.b.c(VideoPlayFragment.this.H.video_height, 0.0f);
                     if (c2 > 0.0f && Math.abs(c2 - f5) > 0.05d) {
                         if (c2 > f5) {
                             i2 = (int) (f3 / c2);
@@ -638,8 +638,8 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             if (videoItemData2 == null || (userItemData = videoItemData2.author_info) == null || StringUtils.isNull(userItemData.user_id) || (videoItemData = VideoPlayFragment.this.H) == null || (userItemData2 = videoItemData.author_info) == null) {
                 return;
             }
-            long f2 = d.b.b.e.m.b.f(userItemData2.user_id, 0L);
-            long f3 = d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            long f2 = d.b.c.e.m.b.f(userItemData2.user_id, 0L);
+            long f3 = d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
             boolean z = f2 == f3;
             if (f2 == 0 && f3 == 0) {
                 z = false;
@@ -664,13 +664,13 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             if (height <= 0 || width <= 0) {
                 return;
             }
-            if (d.b.b.e.m.b.d(VideoPlayFragment.this.H.video_height, 0) <= 0 || d.b.b.e.m.b.d(VideoPlayFragment.this.H.video_width, 0) <= 0) {
+            if (d.b.c.e.m.b.d(VideoPlayFragment.this.H.video_height, 0) <= 0 || d.b.c.e.m.b.d(VideoPlayFragment.this.H.video_width, 0) <= 0) {
                 return;
             }
             float f2 = width;
             float f3 = height;
             float f4 = f2 / f3;
-            float c2 = d.b.b.e.m.b.c(VideoPlayFragment.this.H.video_width, 0.0f) / d.b.b.e.m.b.c(VideoPlayFragment.this.H.video_height, 0.0f);
+            float c2 = d.b.c.e.m.b.c(VideoPlayFragment.this.H.video_width, 0.0f) / d.b.c.e.m.b.c(VideoPlayFragment.this.H.video_height, 0.0f);
             if (c2 > 0.0f && Math.abs(c2 - f4) > 0.05d) {
                 if (c2 > f4) {
                     height = (int) (f2 / c2);
@@ -719,7 +719,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
                 VideoItemData videoItemData = VideoPlayFragment.this.H;
-                if (videoItemData == null || (userItemData = videoItemData.author_info) == null || StringUtils.isNull(userItemData.user_id) || data == null || !VideoPlayFragment.this.H.author_info.user_id.equals(data.f13695c)) {
+                if (videoItemData == null || (userItemData = videoItemData.author_info) == null || StringUtils.isNull(userItemData.user_id) || data == null || !VideoPlayFragment.this.H.author_info.user_id.equals(data.f13356c)) {
                     return;
                 }
                 boolean z = true;
@@ -728,11 +728,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 if (data.k != null) {
                     return;
                 }
-                if (!data.f13693a) {
+                if (!data.f13354a) {
                     if (!z || "0".equals(VideoPlayFragment.this.H.author_info.is_follow)) {
                         return;
                     }
-                    d.b.b.e.p.l.K(VideoPlayFragment.this.getActivity(), R.string.attention_fail);
+                    d.b.c.e.p.l.K(VideoPlayFragment.this.getActivity(), R.string.attention_fail);
                     VideoPlayFragment videoPlayFragment = VideoPlayFragment.this;
                     videoPlayFragment.H.author_info.is_follow = "0";
                     videoPlayFragment.v1();
@@ -741,7 +741,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 if (updateAttentionMessage.isAttention()) {
                     if (VideoPlayFragment.this.K) {
                         if (z) {
-                            d.b.b.e.p.l.K(VideoPlayFragment.this.getActivity(), R.string.attention_success);
+                            d.b.c.e.p.l.K(VideoPlayFragment.this.getActivity(), R.string.attention_success);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921325, VideoPlayFragment.this.H));
                         } else {
                             VideoPlayFragment videoPlayFragment2 = VideoPlayFragment.this;
@@ -775,30 +775,30 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         public l() {
         }
 
-        @Override // d.b.i0.r3.b.a.d
+        @Override // d.b.i0.s3.b.a.d
         public void a(boolean z) {
             VideoPlayFragment.this.S.setVisibility(0);
             if (z) {
                 VideoPlayFragment.this.T.setText(R.string.reply_something);
             } else {
-                VideoPlayFragment.this.T.setText(StringUtils.isNull(((d.b.i0.r3.b.c) VideoPlayFragment.this.o0.a().n(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
+                VideoPlayFragment.this.T.setText(StringUtils.isNull(((d.b.i0.s3.b.c) VideoPlayFragment.this.o0.a().n(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
             }
             VideoItemData videoItemData = VideoPlayFragment.this.H;
             if (videoItemData == null || !z) {
                 return;
             }
-            long f2 = d.b.b.e.m.b.f(videoItemData.comment_num, 0L) + 1;
+            long f2 = d.b.c.e.m.b.f(videoItemData.comment_num, 0L) + 1;
             VideoPlayFragment.this.H.comment_num = String.valueOf(f2);
             VideoPlayFragment.this.x.setText(StringHelper.numFormatOverWan(f2));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class m extends d.b.b.a.e {
+    public class m extends d.b.c.a.e {
         public m() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             if (obj == null || VideoPlayFragment.this.c0.getLoadDataMode() != 0) {
                 return;
@@ -808,11 +808,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     /* loaded from: classes5.dex */
-    public class n implements a.InterfaceC1065a {
+    public class n implements a.InterfaceC1078a {
         public n() {
         }
 
-        @Override // d.b.h0.h.a.InterfaceC1065a
+        @Override // d.b.h0.h.a.InterfaceC1078a
         public void a(boolean z, boolean z2, String str) {
             if (z) {
                 if (VideoPlayFragment.this.d0 != null) {
@@ -875,10 +875,15 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         @Override // d.b.h0.r.s.l.d
         public void onClick() {
             if (!ViewHelper.checkUpIsLogin(VideoPlayFragment.this.getContext())) {
-                VideoPlayFragment.this.a0.dismiss();
+                if (VideoPlayFragment.this.a0 != null) {
+                    VideoPlayFragment.this.a0.dismiss();
+                    return;
+                }
                 return;
             }
-            VideoPlayFragment.this.a0.dismiss();
+            if (VideoPlayFragment.this.a0 != null) {
+                VideoPlayFragment.this.a0.dismiss();
+            }
             VideoItemData videoItemData = VideoPlayFragment.this.H;
             if (videoItemData == null) {
                 return;
@@ -941,15 +946,15 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         public class a implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.h0.r.s.a f21970e;
+            public final /* synthetic */ d.b.h0.r.s.a f21655e;
 
             public a(d.b.h0.r.s.a aVar) {
-                this.f21970e = aVar;
+                this.f21655e = aVar;
             }
 
             @Override // d.b.h0.r.s.a.e
             public void onClick(d.b.h0.r.s.a aVar) {
-                this.f21970e.dismiss();
+                this.f21655e.dismiss();
                 VideoPlayFragment videoPlayFragment = VideoPlayFragment.this;
                 if (videoPlayFragment.H != null) {
                     ForumManageModel forumManageModel = videoPlayFragment.c0;
@@ -965,15 +970,15 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         public class b implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.h0.r.s.a f21972e;
+            public final /* synthetic */ d.b.h0.r.s.a f21657e;
 
             public b(s sVar, d.b.h0.r.s.a aVar) {
-                this.f21972e = aVar;
+                this.f21657e = aVar;
             }
 
             @Override // d.b.h0.r.s.a.e
             public void onClick(d.b.h0.r.s.a aVar) {
-                this.f21972e.dismiss();
+                this.f21657e.dismiss();
             }
         }
 
@@ -1086,7 +1091,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             VideoPlayFragment videoPlayFragment = VideoPlayFragment.this;
-            View view = videoPlayFragment.f21937g;
+            View view = videoPlayFragment.f21622g;
             if (view instanceof RelativeLayout) {
                 ((RelativeLayout) view).removeView(videoPlayFragment.l0);
             }
@@ -1109,18 +1114,18 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     public final void A1() {
-        if (this.f21937g == null || this.h0) {
+        if (this.f21622g == null || this.h0) {
             return;
         }
         this.h0 = true;
-        this.l0 = new TBLottieAnimationView(this.f21937g.getContext());
+        this.l0 = new TBLottieAnimationView(this.f21622g.getContext());
         if (this.i0 == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds396), TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds396));
             this.i0 = layoutParams;
             layoutParams.addRule(13);
         }
         SkinManager.setLottieAnimation(this.l0, R.raw.lottie_agree_big_photo);
-        View view = this.f21937g;
+        View view = this.f21622g;
         if (view instanceof RelativeLayout) {
             ((RelativeLayout) view).addView(this.l0, this.i0);
         }
@@ -1150,15 +1155,15 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             return;
         }
         int i3 = 1;
-        if (i2 == this.f21935e) {
+        if (i2 == this.f21620e) {
             if ("1".equals(videoItemData.is_agreed)) {
                 VideoItemData videoItemData2 = this.H;
-                videoItemData2.agree_num = String.valueOf(d.b.b.e.m.b.d(videoItemData2.agree_num, 0) - 1);
+                videoItemData2.agree_num = String.valueOf(d.b.c.e.m.b.d(videoItemData2.agree_num, 0) - 1);
                 this.H.is_agreed = "0";
                 StatisticItem statisticItem = new StatisticItem("c12795");
                 statisticItem.param("tid", this.H.thread_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                if (i2 != this.f21935e) {
+                if (i2 != this.f21620e) {
                     statisticItem.param("obj_type", i3);
                 } else {
                     statisticItem.param("obj_type", 2);
@@ -1167,7 +1172,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 StatisticItem statisticItem2 = new StatisticItem("c12003");
                 statisticItem2.param("tid", this.H.thread_id);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                if (i2 != this.f21935e) {
+                if (i2 != this.f21620e) {
                     statisticItem2.param("obj_type", i3);
                 } else {
                     statisticItem2.param("obj_type", 2);
@@ -1202,7 +1207,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                     httpMessage.addParam("obj_source", k2.a());
                 }
                 sendMessage(httpMessage);
-                d.b.i0.c3.h0.e eVar = new d.b.i0.c3.h0.e();
+                d.b.i0.d3.h0.e eVar = new d.b.i0.d3.h0.e();
                 AgreeData agreeData = new AgreeData();
                 str = this.H.thread_id;
                 if (str != null) {
@@ -1211,29 +1216,29 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 agreeData.agreeNum = Long.valueOf(this.H.agree_num).longValue();
                 agreeData.agreeType = 2;
                 agreeData.hasAgree = "1".equals(this.H.is_agreed);
-                eVar.f53377b = agreeData;
+                eVar.f54819b = agreeData;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, eVar));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921325, this.H));
             }
             VideoItemData videoItemData3 = this.H;
-            videoItemData3.agree_num = String.valueOf(d.b.b.e.m.b.d(videoItemData3.agree_num, 0) + 1);
+            videoItemData3.agree_num = String.valueOf(d.b.c.e.m.b.d(videoItemData3.agree_num, 0) + 1);
             this.H.is_agreed = "1";
             A1();
         } else {
-            videoItemData.agree_num = String.valueOf(d.b.b.e.m.b.d(videoItemData.agree_num, 0) + 1);
+            videoItemData.agree_num = String.valueOf(d.b.c.e.m.b.d(videoItemData.agree_num, 0) + 1);
             this.H.is_agreed = "1";
         }
         i3 = 0;
         StatisticItem statisticItem3 = new StatisticItem("c12795");
         statisticItem3.param("tid", this.H.thread_id);
         statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        if (i2 != this.f21935e) {
+        if (i2 != this.f21620e) {
         }
         TiebaStatic.log(statisticItem3);
         StatisticItem statisticItem22 = new StatisticItem("c12003");
         statisticItem22.param("tid", this.H.thread_id);
         statisticItem22.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        if (i2 != this.f21935e) {
+        if (i2 != this.f21620e) {
         }
         if ("index".equals(this.Z)) {
         }
@@ -1256,7 +1261,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         if (k2 != null) {
         }
         sendMessage(httpMessage2);
-        d.b.i0.c3.h0.e eVar2 = new d.b.i0.c3.h0.e();
+        d.b.i0.d3.h0.e eVar2 = new d.b.i0.d3.h0.e();
         AgreeData agreeData2 = new AgreeData();
         str = this.H.thread_id;
         if (str != null) {
@@ -1264,7 +1269,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         agreeData2.agreeNum = Long.valueOf(this.H.agree_num).longValue();
         agreeData2.agreeType = 2;
         agreeData2.hasAgree = "1".equals(this.H.is_agreed);
-        eVar2.f53377b = agreeData2;
+        eVar2.f54819b = agreeData2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, eVar2));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921325, this.H));
     }
@@ -1298,11 +1303,11 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", this.X);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
-        statisticItem.param("obj_param1", d.b.b.e.p.k.isEmpty(this.H.mRecomWeight) ? "0" : this.H.mRecomWeight);
-        statisticItem.param("extra", d.b.b.e.p.k.isEmpty(this.H.mRecomExtra) ? "0" : this.H.mRecomExtra);
+        statisticItem.param("obj_param1", d.b.c.e.p.k.isEmpty(this.H.mRecomWeight) ? "0" : this.H.mRecomWeight);
+        statisticItem.param("extra", d.b.c.e.p.k.isEmpty(this.H.mRecomExtra) ? "0" : this.H.mRecomExtra);
         statisticItem.param("obj_id", this.j0);
-        statisticItem.param("ab_tag", d.b.b.e.p.k.isEmpty(this.H.mRecomAbTag) ? "0" : this.H.mRecomAbTag);
-        statisticItem.param("obj_source", d.b.b.e.p.k.isEmpty(this.H.mRecomSource) ? "0" : this.H.mRecomSource);
+        statisticItem.param("ab_tag", d.b.c.e.p.k.isEmpty(this.H.mRecomAbTag) ? "0" : this.H.mRecomAbTag);
+        statisticItem.param("obj_source", d.b.c.e.p.k.isEmpty(this.H.mRecomSource) ? "0" : this.H.mRecomSource);
         statisticItem.param("obj_type", this.Z);
         statisticItem.param(TiebaStatic.Params.IS_VERTICAL, 1);
         BaijiahaoData baijiahaoData = this.H.baijiahaoData;
@@ -1342,23 +1347,23 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     public void H1(int i2, int i3, Intent intent) {
-        d.b.i0.r3.b.a aVar = this.o0;
+        d.b.i0.s3.b.a aVar = this.o0;
         if (aVar != null) {
             aVar.n(i2, i3, intent);
         }
     }
 
     public boolean I1() {
-        d.b.i0.r3.b.a aVar = this.o0;
+        d.b.i0.s3.b.a aVar = this.o0;
         if (aVar == null || aVar.a() == null || !this.o0.a().v()) {
             return false;
         }
         this.o0.a().o();
         this.S.setVisibility(0);
-        if (!(this.o0.a().n(28) instanceof d.b.i0.r3.b.c) || ((d.b.i0.r3.b.c) this.o0.a().n(28)).g() == null || ((d.b.i0.r3.b.c) this.o0.a().n(28)).g().getText() == null) {
+        if (!(this.o0.a().n(28) instanceof d.b.i0.s3.b.c) || ((d.b.i0.s3.b.c) this.o0.a().n(28)).g() == null || ((d.b.i0.s3.b.c) this.o0.a().n(28)).g().getText() == null) {
             return true;
         }
-        this.T.setText(StringUtils.isNull(((d.b.i0.r3.b.c) this.o0.a().n(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
+        this.T.setText(StringUtils.isNull(((d.b.i0.s3.b.c) this.o0.a().n(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
         return true;
     }
 
@@ -1371,23 +1376,23 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     public final void K1() {
-        d.b.i0.r3.b.a aVar = (d.b.i0.r3.b.a) new d.b.i0.r3.b.b().a(getActivity());
+        d.b.i0.s3.b.a aVar = (d.b.i0.s3.b.a) new d.b.i0.s3.b.b().a(getActivity());
         this.o0 = aVar;
         if (aVar == null || this.H == null) {
             return;
         }
         aVar.s(getPageContext());
-        d.b.i0.r3.b.a aVar2 = this.o0;
+        d.b.i0.s3.b.a aVar2 = this.o0;
         VideoItemData videoItemData = this.H;
         aVar2.t(videoItemData.thread_id, videoItemData.forum_id, videoItemData.forum_name);
         this.o0.u(new l());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        ((RelativeLayout) this.f21937g).addView(this.o0.a(), layoutParams);
+        ((RelativeLayout) this.f21622g).addView(this.o0.a(), layoutParams);
     }
 
     public final void L1() {
-        TbCyberVideoView tbCyberVideoView = this.f21938h;
+        TbCyberVideoView tbCyberVideoView = this.f21623h;
         if (tbCyberVideoView != null) {
             tbCyberVideoView.pause();
         }
@@ -1414,17 +1419,17 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
 
     public final void N1() {
         if (this.H != null) {
-            d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-            oVar.f56164a = VideoPlayActivity.FROM_VIDEO_PLAY;
+            d.b.i0.j2.o oVar = new d.b.i0.j2.o();
+            oVar.f57611a = VideoPlayActivity.FROM_VIDEO_PLAY;
             VideoItemData videoItemData = this.H;
-            oVar.f56166c = videoItemData.thread_id;
+            oVar.f57613c = videoItemData.thread_id;
             oVar.t = videoItemData.nid;
-            oVar.f56167d = this.H.forum_id + "";
-            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f57614d = this.H.forum_id + "";
+            oVar.f57615e = TbadkCoreApplication.getCurrentAccount();
             VideoItemData videoItemData2 = this.H;
-            oVar.f56169f = videoItemData2.mRecomSource;
-            oVar.f56170g = videoItemData2.mRecomAbTag;
-            oVar.f56171h = videoItemData2.mRecomWeight;
+            oVar.f57616f = videoItemData2.mRecomSource;
+            oVar.f57617g = videoItemData2.mRecomAbTag;
+            oVar.f57618h = videoItemData2.mRecomWeight;
             oVar.i = "";
             oVar.k = "";
             oVar.m = videoItemData2.mMd5;
@@ -1435,10 +1440,10 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             }
             if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(this.Y)) {
                 oVar.p = "1";
-                oVar.f56164a = "auto_midpage";
+                oVar.f57611a = "auto_midpage";
                 oVar.i = "index";
             }
-            d.b.i0.i2.h.e(this.H.mMd5, "", "1", oVar, this.f21938h.getPcdnState());
+            d.b.i0.j2.h.e(this.H.mMd5, "", "1", oVar, this.f21623h.getPcdnState());
         }
     }
 
@@ -1455,17 +1460,21 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
 
     public final void P1() {
         TbCyberVideoView tbCyberVideoView;
-        if (Z1() || (tbCyberVideoView = this.f21938h) == null || this.v == null || this.H == null) {
+        if (Z1() || (tbCyberVideoView = this.f21623h) == null || this.v == null || this.H == null) {
             return;
         }
         if (tbCyberVideoView.getParent() == null) {
             R1();
             S1();
         }
-        if (TbVideoViewSet.d().e(this.g0) == null || TbVideoViewSet.d().e(this.g0) != this.f21938h) {
-            this.f21938h.setVideoPath(this.g0, this.H.thread_id);
+        if (TbVideoViewSet.d().e(this.g0) == null || TbVideoViewSet.d().e(this.g0) != this.f21623h) {
+            this.f21623h.setVideoPath(this.g0, this.H.thread_id);
         }
-        this.f21938h.T(null);
+        TbImageView tbImageView = this.i;
+        if (tbImageView != null && tbImageView.getVisibility() == 0) {
+            this.i.setVisibility(8);
+        }
+        this.f21623h.T(null);
         this.J.s();
         this.v.setVisibility(8);
         W1();
@@ -1480,24 +1489,24 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     public void R1() {
-        TbCyberVideoView tbCyberVideoView = this.f21938h;
+        TbCyberVideoView tbCyberVideoView = this.f21623h;
         if (tbCyberVideoView == null || tbCyberVideoView.getParent() != null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(13);
-        ((ViewGroup) this.f21937g).addView(this.f21938h.getView(), 0);
-        this.f21938h.getView().setLayoutParams(layoutParams);
+        ((ViewGroup) this.f21622g).addView(this.f21623h.getView(), 0);
+        this.f21623h.getView().setLayoutParams(layoutParams);
         if (this.H != null) {
-            d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
+            d.b.i0.j2.o oVar = new d.b.i0.j2.o();
+            oVar.f57615e = TbadkCoreApplication.getCurrentAccount();
             VideoItemData videoItemData = this.H;
-            oVar.f56166c = videoItemData.thread_id;
+            oVar.f57613c = videoItemData.thread_id;
             oVar.t = videoItemData.nid;
-            oVar.f56167d = videoItemData.forum_id;
+            oVar.f57614d = videoItemData.forum_id;
             oVar.m = videoItemData.mMd5;
             oVar.k = "";
-            oVar.f56169f = videoItemData.mRecomSource;
+            oVar.f57616f = videoItemData.mRecomSource;
             oVar.l = videoItemData.mRecomAbTag;
             oVar.j = 1;
             BaijiahaoData baijiahaoData = videoItemData.baijiahaoData;
@@ -1509,7 +1518,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                     oVar.j = 2;
                 }
             }
-            oVar.f56171h = this.H.mRecomWeight;
+            oVar.f57618h = this.H.mRecomWeight;
             if (this.N != null) {
                 oVar.n = "1";
             } else {
@@ -1517,32 +1526,32 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             }
             if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(this.Y)) {
                 oVar.p = "1";
-                oVar.f56164a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
+                oVar.f57611a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
                 oVar.i = this.Z;
                 oVar.k = this.j0;
-                oVar.f56170g = this.H.mRecomWeight;
+                oVar.f57617g = this.H.mRecomWeight;
             } else {
-                oVar.f56164a = Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
+                oVar.f57611a = Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
             }
-            this.f21938h.setVideoStatData(oVar);
-            this.f21938h.setLocateSource("v_mid_page");
+            this.f21623h.setVideoStatData(oVar);
+            this.f21623h.setLocateSource("v_mid_page");
         }
-        this.f21938h.setContinuePlayEnable(true);
+        this.f21623h.setContinuePlayEnable(true);
     }
 
     public final void S1() {
         if (Build.VERSION.SDK_INT >= 17) {
-            this.f21938h.setOnPreparedListener(this.B0);
+            this.f21623h.setOnPreparedListener(this.B0);
         }
-        this.f21938h.setOnCompletionListener(this.A0);
-        this.f21938h.setOnInfoListener(this.z0);
+        this.f21623h.setOnCompletionListener(this.A0);
+        this.f21623h.setOnInfoListener(this.z0);
     }
 
     public final void T1(String str) {
-        if (this.f21938h == null || str == null || str.equals(this.g0)) {
+        if (this.f21623h == null || str == null || str.equals(this.g0)) {
             return;
         }
-        this.f21938h.setVideoPath(str, this.H.thread_id);
+        this.f21623h.setVideoPath(str, this.H.thread_id);
         this.g0 = str;
     }
 
@@ -1558,8 +1567,8 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     public final void W1() {
-        if (d.b.b.e.p.j.x()) {
-            d.b.i0.p3.f.d().g(getContext());
+        if (d.b.c.e.p.j.x()) {
+            d.b.i0.q3.f.d().g(getContext());
         }
     }
 
@@ -1623,7 +1632,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     }
 
     public final boolean Z1() {
-        if (TbSingleton.getInstance().hasAgreeToPlay() || d.b.i0.p3.f.d().e() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !d.b.b.e.p.j.x() || !this.K) {
+        if (TbSingleton.getInstance().hasAgreeToPlay() || d.b.i0.q3.f.d().e() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !d.b.c.e.p.j.x() || !this.K) {
             return false;
         }
         ImageView imageView = this.v;
@@ -1685,7 +1694,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         shareItem.I = str3;
         shareItem.p = str4;
         shareItem.J = str;
-        shareItem.f13717f = true;
+        shareItem.f13378f = true;
         shareItem.D = 12;
         if (this.H.getVideoType() == 1) {
             shareItem.L = 2;
@@ -1702,10 +1711,10 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
         VideoItemData videoItemData4 = this.H;
-        originalThreadInfo.f13213c = videoItemData4.thumbnail_url;
-        originalThreadInfo.f13211a = 3;
-        originalThreadInfo.f13212b = videoItemData4.title;
-        originalThreadInfo.f13216f = videoItemData4.thread_id;
+        originalThreadInfo.f12874c = videoItemData4.thumbnail_url;
+        originalThreadInfo.f12872a = 3;
+        originalThreadInfo.f12873b = videoItemData4.title;
+        originalThreadInfo.f12877f = videoItemData4.thread_id;
         originalThreadInfo.p = videoItemData4.baijiahaoData;
         shareItem.S = OriginalThreadInfo.ShareInfo.generateShareInfo(originalThreadInfo);
         TbadkCoreApplication.getInst().setShareItem(shareItem);
@@ -1724,14 +1733,14 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
 
     @Override // d.b.h0.b1.p.a.b
     public void k() {
-        if (this.f21938h.isPlaying()) {
-            this.f21938h.pause();
+        if (this.f21623h.isPlaying()) {
+            this.f21623h.pause();
             this.v.setVisibility(0);
             w1(false);
-            d.b.b.e.m.e.a().removeCallbacks(this.y0);
+            d.b.c.e.m.e.a().removeCallbacks(this.y0);
         } else if (Z1()) {
         } else {
-            this.f21938h.start();
+            this.f21623h.start();
             this.v.setVisibility(8);
             w1(true);
             this.J.s();
@@ -1745,8 +1754,8 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         if (videoItemData == null || (userItemData = videoItemData.author_info) == null) {
             return;
         }
-        long f2 = d.b.b.e.m.b.f(userItemData.user_id, 0L);
-        long f3 = d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+        long f2 = d.b.c.e.m.b.f(userItemData.user_id, 0L);
+        long f3 = d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
         boolean z2 = f2 == f3;
         if (f2 == 0 && f3 == 0) {
             z2 = false;
@@ -1785,7 +1794,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.b.i0.r3.b.a aVar = this.o0;
+        d.b.i0.s3.b.a aVar = this.o0;
         if (aVar != null && aVar.a() != null) {
             this.o0.a().w(i2);
         }
@@ -1793,39 +1802,39 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         if (lVar != null) {
             lVar.j();
         }
-        if (this.f21937g != null) {
+        if (this.f21622g != null) {
             this.P.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_video_reply120, WebPManager.ResourceStateType.NORMAL_PRESS));
             this.Q.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_video_share120, WebPManager.ResourceStateType.NORMAL_PRESS));
             this.u.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_share_wechat120, WebPManager.ResourceStateType.NORMAL_PRESS));
             this.s.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_video_follow24, WebPManager.ResourceStateType.NORMAL_PRESS));
             this.v.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL));
-            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.S);
-            a2.h(R.string.J_X01);
-            a2.c(R.color.CAM_X0614);
-            d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.A);
-            a3.s(R.string.F_X02);
-            a3.n(R.color.CAM_X0101);
-            d.b.h0.r.u.c.a(this.B).s(R.string.F_X02);
-            d.b.h0.r.u.c a4 = d.b.h0.r.u.c.a(this.z);
-            a4.r(R.dimen.T_X09);
-            a4.s(R.string.F_X02);
-            a4.q(R.array.S_O_X001);
-            d.b.h0.r.u.c a5 = d.b.h0.r.u.c.a(this.y);
-            a5.r(R.dimen.T_X09);
-            a5.s(R.string.F_X02);
-            a5.q(R.array.S_O_X001);
-            d.b.h0.r.u.c a6 = d.b.h0.r.u.c.a(this.x);
-            a6.r(R.dimen.T_X09);
-            a6.s(R.string.F_X02);
-            a6.q(R.array.S_O_X001);
-            d.b.h0.r.u.c a7 = d.b.h0.r.u.c.a(this.R);
-            a7.r(R.dimen.T_X06);
-            a7.s(R.string.F_X02);
-            a7.q(R.array.S_O_X001);
-            this.B.setTextColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X08)));
-            this.y.setTextColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X03)));
-            this.z.setTextColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X03)));
-            this.x.setTextColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X03)));
+            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.S);
+            d2.k(R.string.J_X01);
+            d2.f(R.color.CAM_X0614);
+            d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.A);
+            d3.v(R.string.F_X02);
+            d3.q(R.color.CAM_X0101);
+            d.b.h0.r.u.c.d(this.B).v(R.string.F_X02);
+            d.b.h0.r.u.c d4 = d.b.h0.r.u.c.d(this.z);
+            d4.u(R.dimen.T_X09);
+            d4.v(R.string.F_X02);
+            d4.t(R.array.S_O_X001);
+            d.b.h0.r.u.c d5 = d.b.h0.r.u.c.d(this.y);
+            d5.u(R.dimen.T_X09);
+            d5.v(R.string.F_X02);
+            d5.t(R.array.S_O_X001);
+            d.b.h0.r.u.c d6 = d.b.h0.r.u.c.d(this.x);
+            d6.u(R.dimen.T_X09);
+            d6.v(R.string.F_X02);
+            d6.t(R.array.S_O_X001);
+            d.b.h0.r.u.c d7 = d.b.h0.r.u.c.d(this.R);
+            d7.u(R.dimen.T_X06);
+            d7.v(R.string.F_X02);
+            d7.t(R.array.S_O_X001);
+            this.B.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X08)));
+            this.y.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X03)));
+            this.z.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X03)));
+            this.x.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0101), d.b.h0.r.u.a.a(R.string.A_X03)));
         }
         WebPManager.setPureDrawable(this.k, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         WebPManager.setPureDrawable(this.l, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
@@ -1850,56 +1859,56 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         if (videoItemData != null && videoItemData.author_info != null && String.valueOf(TbadkCoreApplication.getCurrentAccountId()).equals(this.H.author_info.user_id)) {
             this.W = true;
         }
-        this.f21937g = layoutInflater.inflate(R.layout.video_play_view, (ViewGroup) null);
+        this.f21622g = layoutInflater.inflate(R.layout.video_play_view, (ViewGroup) null);
         TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(getContext());
-        this.f21938h = tbCyberVideoView;
+        this.f21623h = tbCyberVideoView;
         tbCyberVideoView.setStageType("2005");
-        this.f21938h.getMediaProgressObserver().j(new e0());
+        this.f21623h.getMediaProgressObserver().j(new e0());
         R1();
-        TbImageView tbImageView = (TbImageView) this.f21937g.findViewById(R.id.video_cover);
+        TbImageView tbImageView = (TbImageView) this.f21622g.findViewById(R.id.video_cover);
         this.i = tbImageView;
         tbImageView.setPlaceHolder(4);
         if (DeviceInfoUtil.isHWnova() || (!TbSingleton.getInstance().isNotchScreen(getActivity()) && !TbSingleton.getInstance().isCutoutScreen(getActivity()))) {
-            this.j = this.f21937g.findViewById(R.id.top_container);
+            this.j = this.f21622g.findViewById(R.id.top_container);
             int statusBarHeight = UtilHelper.getStatusBarHeight();
             if (this.j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).topMargin = statusBarHeight;
             }
         }
-        this.k = (ImageView) this.f21937g.findViewById(R.id.back_btn);
-        this.l = (ImageView) this.f21937g.findViewById(R.id.more_btn);
-        HeadImageView headImageView = (HeadImageView) this.f21937g.findViewById(R.id.author_portrait);
+        this.k = (ImageView) this.f21622g.findViewById(R.id.back_btn);
+        this.l = (ImageView) this.f21622g.findViewById(R.id.more_btn);
+        HeadImageView headImageView = (HeadImageView) this.f21622g.findViewById(R.id.author_portrait);
         this.m = headImageView;
         headImageView.setDefaultResource(17170445);
         this.m.setPlaceHolder(2);
         this.m.setIsRound(true);
-        this.D = (FrameLayout) this.f21937g.findViewById(R.id.author_info_container);
-        this.n = (LinearLayout) this.f21937g.findViewById(R.id.bottom_container);
-        this.s = (ImageView) this.f21937g.findViewById(R.id.love_btn);
-        this.O = (ImageView) this.f21937g.findViewById(R.id.agree_img);
-        this.w = (ExpandableTextView) this.f21937g.findViewById(R.id.video_title);
-        this.J = (VideoMiddleNiaiControllerView) this.f21937g.findViewById(R.id.media_controller);
-        this.C = (TextView) this.f21937g.findViewById(R.id.video_activity);
-        this.p = (LinearLayout) this.f21937g.findViewById(R.id.comment_container);
-        this.x = (EMTextView) this.f21937g.findViewById(R.id.comment_num);
-        this.P = (ImageView) this.f21937g.findViewById(R.id.comment_img);
-        this.o = (LinearLayout) this.f21937g.findViewById(R.id.agree_container);
-        this.r = (LinearLayout) this.f21937g.findViewById(R.id.ll_drag_container);
-        this.y = (EMTextView) this.f21937g.findViewById(R.id.agree_num);
-        this.Q = (ImageView) this.f21937g.findViewById(R.id.share_img);
-        this.z = (EMTextView) this.f21937g.findViewById(R.id.share_num);
-        this.A = (EMTextView) this.f21937g.findViewById(R.id.drag_cur_time);
-        this.B = (EMTextView) this.f21937g.findViewById(R.id.drag_total_time);
-        this.t = (ImageView) this.f21937g.findViewById(R.id.share_img);
-        this.u = (ImageView) this.f21937g.findViewById(R.id.share_img_changed);
+        this.D = (FrameLayout) this.f21622g.findViewById(R.id.author_info_container);
+        this.n = (LinearLayout) this.f21622g.findViewById(R.id.bottom_container);
+        this.s = (ImageView) this.f21622g.findViewById(R.id.love_btn);
+        this.O = (ImageView) this.f21622g.findViewById(R.id.agree_img);
+        this.w = (ExpandableTextView) this.f21622g.findViewById(R.id.video_title);
+        this.J = (VideoMiddleNiaiControllerView) this.f21622g.findViewById(R.id.media_controller);
+        this.C = (TextView) this.f21622g.findViewById(R.id.video_activity);
+        this.p = (LinearLayout) this.f21622g.findViewById(R.id.comment_container);
+        this.x = (EMTextView) this.f21622g.findViewById(R.id.comment_num);
+        this.P = (ImageView) this.f21622g.findViewById(R.id.comment_img);
+        this.o = (LinearLayout) this.f21622g.findViewById(R.id.agree_container);
+        this.r = (LinearLayout) this.f21622g.findViewById(R.id.ll_drag_container);
+        this.y = (EMTextView) this.f21622g.findViewById(R.id.agree_num);
+        this.Q = (ImageView) this.f21622g.findViewById(R.id.share_img);
+        this.z = (EMTextView) this.f21622g.findViewById(R.id.share_num);
+        this.A = (EMTextView) this.f21622g.findViewById(R.id.drag_cur_time);
+        this.B = (EMTextView) this.f21622g.findViewById(R.id.drag_total_time);
+        this.t = (ImageView) this.f21622g.findViewById(R.id.share_img);
+        this.u = (ImageView) this.f21622g.findViewById(R.id.share_img_changed);
         O1();
-        this.v = (ImageView) this.f21937g.findViewById(R.id.play_btn);
-        this.E = (LinearLayout) this.f21937g.findViewById(R.id.video_act_private_container);
-        this.F = (LinearLayout) this.f21937g.findViewById(R.id.video_activity_container);
-        this.G = (LinearLayout) this.f21937g.findViewById(R.id.video_private);
-        this.q = (LinearLayout) this.f21937g.findViewById(R.id.share_container);
-        this.R = (TextView) this.f21937g.findViewById(R.id.video_author_name);
-        View findViewById = this.f21937g.findViewById(R.id.quick_reply_comment_layout);
+        this.v = (ImageView) this.f21622g.findViewById(R.id.play_btn);
+        this.E = (LinearLayout) this.f21622g.findViewById(R.id.video_act_private_container);
+        this.F = (LinearLayout) this.f21622g.findViewById(R.id.video_activity_container);
+        this.G = (LinearLayout) this.f21622g.findViewById(R.id.video_private);
+        this.q = (LinearLayout) this.f21622g.findViewById(R.id.share_container);
+        this.R = (TextView) this.f21622g.findViewById(R.id.video_author_name);
+        View findViewById = this.f21622g.findViewById(R.id.quick_reply_comment_layout);
         this.S = findViewById;
         findViewById.setOnClickListener(new f0());
         VideoItemData videoItemData2 = this.H;
@@ -1910,17 +1919,17 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
                 this.J.setVisibility(8);
             }
         }
-        this.J.setPlayer(this.f21938h);
+        this.J.setPlayer(this.f21623h);
         this.J.setOnSeekBarChangeListener(new g0());
-        this.T = (TextView) this.f21937g.findViewById(R.id.quick_reply_comment_text);
-        TextView textView = (TextView) this.f21937g.findViewById(R.id.download_nani_guide_txt);
+        this.T = (TextView) this.f21622g.findViewById(R.id.quick_reply_comment_text);
+        TextView textView = (TextView) this.f21622g.findViewById(R.id.download_nani_guide_txt);
         this.I = textView;
         textView.setVisibility(8);
-        String o2 = d.b.h0.r.d0.b.i().o("nani_key_download_txt", null);
-        if (!TextUtils.isEmpty(o2)) {
-            this.I.setText(o2);
+        String p2 = d.b.h0.r.d0.b.j().p("nani_key_download_txt", null);
+        if (!TextUtils.isEmpty(p2)) {
+            this.I.setText(p2);
         }
-        this.I.setOnClickListener(new h0(d.b.h0.r.d0.b.i().o("nani_key_download_link_url", null)));
+        this.I.setOnClickListener(new h0(d.b.h0.r.d0.b.j().p("nani_key_download_link_url", null)));
         y1();
         this.m.setOnClickListener(new i0());
         this.F.setOnClickListener(new j0());
@@ -1952,7 +1961,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         if (videoItemData3 != null && !StringUtils.isNull(videoItemData3.video_url)) {
             T1(this.H.video_url);
         }
-        return this.f21937g;
+        return this.f21622g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1960,12 +1969,12 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
         stopPlay();
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.t0);
-        d.b.i0.r3.b.a aVar = this.o0;
+        d.b.i0.s3.b.a aVar = this.o0;
         if (aVar != null) {
             aVar.o();
         }
         if (this.y0 != null) {
-            d.b.b.e.m.e.a().removeCallbacks(this.y0);
+            d.b.c.e.m.e.a().removeCallbacks(this.y0);
             this.y0 = null;
         }
     }
@@ -1974,13 +1983,13 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
     public void onPause() {
         super.onPause();
         L1();
-        d.b.i0.r3.b.a aVar = this.o0;
+        d.b.i0.s3.b.a aVar = this.o0;
         if (aVar == null || aVar.a() == null) {
             return;
         }
         this.o0.a().o();
         this.S.setVisibility(0);
-        this.T.setText(StringUtils.isNull(((d.b.i0.r3.b.c) this.o0.a().n(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
+        this.T.setText(StringUtils.isNull(((d.b.i0.s3.b.c) this.o0.a().n(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -2023,7 +2032,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             if (videoItemData == null || !"0".equals(videoItemData.is_agreed)) {
                 return;
             }
-            B1(this.f21936f);
+            B1(this.f21621f);
         }
     }
 
@@ -2062,18 +2071,18 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             this.i.clearAnimation();
             this.i.startAnimation(this.M);
         }
-        if (this.f21938h != null) {
-            if (TbVideoViewSet.d().e(this.g0) == null || TbVideoViewSet.d().e(this.g0) != this.f21938h) {
-                this.f21938h.setVideoPath(this.g0, this.H.thread_id);
+        if (this.f21623h != null) {
+            if (TbVideoViewSet.d().e(this.g0) == null || TbVideoViewSet.d().e(this.g0) != this.f21623h) {
+                this.f21623h.setVideoPath(this.g0, this.H.thread_id);
             }
-            this.f21938h.start();
+            this.f21623h.start();
             this.J.s();
             N1();
         }
     }
 
     public final void stopPlay() {
-        TbCyberVideoView tbCyberVideoView = this.f21938h;
+        TbCyberVideoView tbCyberVideoView = this.f21623h;
         if (tbCyberVideoView != null) {
             tbCyberVideoView.stopPlayback();
         }
@@ -2087,7 +2096,7 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             } else {
                 this.O.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_video_good36, WebPManager.ResourceStateType.NORMAL));
             }
-            this.y.setText(StringHelper.numFormatOverWan(d.b.b.e.m.b.f(this.H.agree_num, 0L)));
+            this.y.setText(StringHelper.numFormatOverWan(d.b.c.e.m.b.f(this.H.agree_num, 0L)));
         }
     }
 
@@ -2132,9 +2141,9 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             Matcher matcher = Pattern.compile("^我发表了?一(篇|个)视频贴(，|,).+$").matcher(this.H.title);
             if (!StringUtils.isNull(this.H.title) && !matcher.matches()) {
                 this.w.setVisibility(0);
-                this.w.setTextSize(d.b.b.e.p.l.g(getContext(), R.dimen.T_X07));
+                this.w.setTextSize(d.b.c.e.p.l.g(getContext(), R.dimen.T_X07));
                 this.w.setTextColor(R.color.CAM_X0101);
-                this.w.setLineSpacingExtra(d.b.b.e.p.l.g(getContext(), R.dimen.tbds2));
+                this.w.setLineSpacingExtra(d.b.c.e.p.l.g(getContext(), R.dimen.tbds2));
                 this.w.setExpandable(true);
                 this.w.setOnStatusChangedListener(new t());
                 ExpandableTextView expandableTextView = this.w;
@@ -2143,9 +2152,9 @@ public class VideoPlayFragment extends BaseFragment implements a.b {
             } else {
                 this.w.setVisibility(8);
             }
-            this.x.setText(StringHelper.numFormatOverWan(d.b.b.e.m.b.f(this.H.comment_num, 0L)));
-            this.y.setText(StringHelper.numFormatOverWan(d.b.b.e.m.b.f(this.H.agree_num, 0L)));
-            this.z.setText(StringHelper.numFormatOverWan(d.b.b.e.m.b.f(this.H.share_num, 0L)));
+            this.x.setText(StringHelper.numFormatOverWan(d.b.c.e.m.b.f(this.H.comment_num, 0L)));
+            this.y.setText(StringHelper.numFormatOverWan(d.b.c.e.m.b.f(this.H.agree_num, 0L)));
+            this.z.setText(StringHelper.numFormatOverWan(d.b.c.e.m.b.f(this.H.share_num, 0L)));
             UserItemData userItemData = this.H.author_info;
             if (userItemData != null) {
                 if (!TextUtils.isEmpty(userItemData.bjhAvatar)) {

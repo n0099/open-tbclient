@@ -11,7 +11,7 @@ import javax.crypto.Cipher;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f27149a = "#PART#".getBytes();
+    public static final byte[] f26834a = "#PART#".getBytes();
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -37,7 +37,7 @@ public class d {
             if (i3 == 117 || i2 == length - 1) {
                 i4++;
                 if (i4 != 1) {
-                    for (byte b2 : f27149a) {
+                    for (byte b2 : f26834a) {
                         arrayList.add(Byte.valueOf(b2));
                     }
                 }

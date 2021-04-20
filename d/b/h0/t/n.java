@@ -1,47 +1,36 @@
 package d.b.h0.t;
 
-import com.baidu.adp.BdUniqueId;
+import tbclient.Pendant;
 /* loaded from: classes3.dex */
-public class n implements d.b.b.j.e.n {
+public class n {
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f51487h = BdUniqueId.gen();
+    /* renamed from: a  reason: collision with root package name */
+    public long f51903a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f51488e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f51489f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f51490g = false;
+    /* renamed from: b  reason: collision with root package name */
+    public String f51904b;
 
     public String a() {
-        return this.f51488e;
+        return this.f51904b;
     }
 
-    public String e() {
-        return this.f51489f;
+    public long b() {
+        return this.f51903a;
     }
 
-    public boolean f() {
-        return this.f51490g;
+    public void c(Pendant pendant) {
+        if (pendant == null) {
+            return;
+        }
+        this.f51903a = pendant.props_id.longValue();
+        this.f51904b = pendant.img_url;
     }
 
-    public void g(String str) {
-        this.f51488e = str;
+    public void d(String str) {
+        this.f51904b = str;
     }
 
-    @Override // d.b.b.j.e.n
-    public BdUniqueId getType() {
-        return f51487h;
-    }
-
-    public void j(boolean z) {
-        this.f51490g = z;
-    }
-
-    public void k(String str) {
-        this.f51489f = str;
+    public void e(long j) {
+        this.f51903a = j;
     }
 }

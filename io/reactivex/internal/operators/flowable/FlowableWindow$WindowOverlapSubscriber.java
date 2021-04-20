@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.e;
-import f.a.g;
-import f.a.x.f.a;
-import f.a.x.i.b;
+import f.b.e;
+import f.b.g;
+import f.b.x.f.a;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -147,7 +147,7 @@ public final class FlowableWindow$WindowOverlapSubscriber<T> extends AtomicInteg
     @Override // g.d.c
     public void onError(Throwable th) {
         if (this.done) {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
             return;
         }
         Iterator<UnicastProcessor<T>> it = this.windows.iterator();
@@ -195,7 +195,7 @@ public final class FlowableWindow$WindowOverlapSubscriber<T> extends AtomicInteg
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

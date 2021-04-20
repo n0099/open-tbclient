@@ -10,25 +10,26 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.util.Locale;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39227a;
+    public static String f39516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39228b;
+    public static String f39517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39229c;
+    public static String f39518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39230d;
+    public static String f39519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39231e;
+    public static String f39520e;
 
     public static String a() {
         WifiManager wifiManager;
@@ -47,42 +48,42 @@ public class c {
     }
 
     public static String c(Context context) {
-        String str = f39228b;
+        String str = f39517b;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String simSerialNumber = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-                f39228b = simSerialNumber;
+                f39517b = simSerialNumber;
                 return simSerialNumber;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39228b;
+        return f39517b;
     }
 
     public static String d(Context context) {
-        String str = f39229c;
+        String str = f39518c;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
-                String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
-                f39229c = string;
+                String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                f39518c = string;
                 return string;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39229c;
+        return f39518c;
     }
 
     public static String e(Context context) {
         try {
-            if (f39231e == null) {
+            if (f39520e == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 StringBuilder sb = new StringBuilder();
@@ -118,45 +119,45 @@ public class c {
                 sb.append("&");
                 sb.append("wifi=");
                 sb.append(a.e(context));
-                f39231e = sb.toString();
+                f39520e = sb.toString();
             }
-            return f39231e;
+            return f39520e;
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static String b(Context context) {
-        String str = f39227a;
+        String str = f39516a;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                f39227a = deviceId;
+                f39516a = deviceId;
                 return deviceId;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39227a;
+        return f39516a;
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f39230d)) {
+        if (TextUtils.isEmpty(f39519d)) {
             if (context == null) {
                 return "";
             }
-            f39230d = "";
+            f39519d = "";
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager != null) {
                 int width = windowManager.getDefaultDisplay().getWidth();
                 int height = windowManager.getDefaultDisplay().getHeight();
-                f39230d = width + "x" + height;
+                f39519d = width + "x" + height;
             }
-            return f39230d;
+            return f39519d;
         }
-        return f39230d;
+        return f39519d;
     }
 }

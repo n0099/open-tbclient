@@ -14,21 +14,21 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ItemLocationBox extends AbstractFullBox {
     public static final String TYPE = "iloc";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_9 = null;
     public int baseOffsetSize;
     public int indexSize;
     public List<Item> items;
@@ -173,7 +173,7 @@ public class ItemLocationBox extends AbstractFullBox {
         return new Item(byteBuffer);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class Extent {
         public long extentIndex;
         public long extentLength;
@@ -235,7 +235,7 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class Item {
         public long baseOffset;
         public int constructionMethod;

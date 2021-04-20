@@ -11,22 +11,22 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.u.c;
 /* loaded from: classes5.dex */
 public class WritePrefixItemLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22232e;
+    public Context f21917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22233f;
+    public TextView f21918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22234g;
+    public TextView f21919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22235h;
+    public ImageView f21920h;
     public View i;
 
     public WritePrefixItemLayout(Context context) {
@@ -34,50 +34,50 @@ public class WritePrefixItemLayout extends LinearLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(this.f22232e).inflate(R.layout.prefix_item, this);
+        LayoutInflater.from(this.f21917e).inflate(R.layout.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.f22233f = (TextView) findViewById(R.id.prefix_text);
-        this.f22234g = (TextView) findViewById(R.id.prefix_no_tip);
-        this.f22235h = (ImageView) findViewById(R.id.prefix_checked);
+        this.f21918f = (TextView) findViewById(R.id.prefix_text);
+        this.f21919g = (TextView) findViewById(R.id.prefix_no_tip);
+        this.f21920h = (ImageView) findViewById(R.id.prefix_checked);
         this.i = findViewById(R.id.prefix_item_divider);
-        this.f22233f.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        c.a(this.f22234g).n(R.color.CAM_X0109);
-        this.f22235h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_set_list_ok16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+        this.f21918f.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        c.d(this.f21919g).q(R.color.CAM_X0109);
+        this.f21920h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_set_list_ok16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
         SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
     }
 
     public void b(boolean z) {
         if (z) {
-            this.f22235h.setVisibility(0);
+            this.f21920h.setVisibility(0);
         } else {
-            this.f22235h.setVisibility(8);
+            this.f21920h.setVisibility(8);
         }
     }
 
     public void c(boolean z) {
-        this.f22234g.setVisibility(z ? 0 : 8);
+        this.f21919g.setVisibility(z ? 0 : 8);
     }
 
     public void setDividerStyle(boolean z) {
         if (z) {
             return;
         }
-        ((LinearLayout.LayoutParams) this.i.getLayoutParams()).setMargins(l.g(this.f22232e, R.dimen.ds30), 0, l.g(this.f22232e, R.dimen.ds30), 0);
+        ((LinearLayout.LayoutParams) this.i.getLayoutParams()).setMargins(l.g(this.f21917e, R.dimen.ds30), 0, l.g(this.f21917e, R.dimen.ds30), 0);
     }
 
     public void setPrefixText(String str) {
-        this.f22233f.setText(str);
+        this.f21918f.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.f22233f.setTextColor(i);
+        this.f21918f.setTextColor(i);
     }
 
     public WritePrefixItemLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22232e = context;
+        this.f21917e = context;
         a();
     }
 }

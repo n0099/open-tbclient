@@ -16,28 +16,28 @@ import java.util.Properties;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3065a = 5287;
+    public static int f3100a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3066b = 5288;
+    public static int f3101b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3067c = "https://info.tuisong.baidu.com";
+    public static String f3102c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3068d = "/setter";
+    public static String f3103d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3069e = "/v2/setter";
+    public static String f3104e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3070f = "/getter";
+    public static String f3105f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3071g = "/v2/getter";
+    public static String f3106g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f3072h = "/bccs/upload";
+    public static String f3107h = "/bccs/upload";
     public static String i = "https://ack.tuisong.baidu.com";
     public static String j = "/click";
     public static String k = "api.tuisong.baidu.com";
@@ -47,7 +47,7 @@ public final class h {
     public static String[] n = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
 
     public static int a(Context context) {
-        return m.o(context) ? f3066b : f3065a;
+        return m.o(context) ? f3101b : f3100a;
     }
 
     public static String a() {
@@ -118,7 +118,7 @@ public final class h {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f3067c = property3;
+                f3102c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
@@ -127,18 +127,18 @@ public final class h {
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f3066b = Integer.parseInt(property5);
+                    f3101b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property6)) {
-                    f3065a = Integer.parseInt(property6);
+                    f3100a = Integer.parseInt(property6);
                 }
             }
-            if (f.f3009a == 0) {
+            if (f.f3044a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    f.f3010b = property7;
+                    f.f3045b = property7;
                 }
             }
             o = true;

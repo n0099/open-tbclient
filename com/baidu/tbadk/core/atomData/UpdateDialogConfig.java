@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -20,7 +21,7 @@ public class UpdateDialogConfig extends IntentConfig {
     public UpdateDialogConfig(Context context, VersionData versionData, CombineDownload combineDownload) {
         super(context);
         Intent intent = getIntent();
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra(KEY_TIEBA_APK_DATA, versionData);
         intent.putExtra(KEY_OTHER_APK_DATA, combineDownload);
         TbadkCoreApplication.getInst().setHasNewVersion(true);

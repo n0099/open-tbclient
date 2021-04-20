@@ -13,11 +13,11 @@ public class WriteThreadDelegateStatic extends b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50155a = new WriteThreadFragment();
-        cVar.f50159e = 9;
-        cVar.f50156b = R.string.send;
-        cVar.f50158d = R.drawable.icon_tabbar_add_n;
-        cVar.f50162h = c.i;
+        cVar.f50548a = new WriteThreadFragment();
+        cVar.f50552e = 9;
+        cVar.f50549b = R.string.send;
+        cVar.f50551d = R.drawable.icon_tabbar_add_n;
+        cVar.i = c.j;
         return cVar;
     }
 

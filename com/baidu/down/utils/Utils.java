@@ -15,7 +15,6 @@ import android.webkit.MimeTypeMap;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.apollon.statistics.g;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.nps.utils.Constant;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
@@ -94,7 +93,7 @@ public class Utils {
         extMimeMap.put(".tif", "image/tiff");
         extMimeMap.put(".tiff", "image/tiff");
         extMimeMap.put(".wav", "audio/x-wav");
-        extMimeMap.put(Constant.FILE.SUFFIX.BUNDLE_SUFFIX, "application/apk");
+        extMimeMap.put(".apk", "application/apk");
         extMimeMap.put(".rtf", "text/rtf");
         extMimeMap.put(".rtx", "text/richtext");
         extMimeMap.put(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "text/plain");
@@ -353,7 +352,7 @@ public class Utils {
                         case 12:
                         case 14:
                         case 15:
-                            return g.f3874b;
+                            return g.f3909b;
                         case 4:
                         case 11:
                         default:

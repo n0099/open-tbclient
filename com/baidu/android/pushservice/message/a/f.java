@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
@@ -33,9 +34,9 @@ public class f {
             public void a() {
                 Bitmap q;
                 try {
-                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f3421a, 0);
-                    parseUri.setPackage(crossPushMessage.f3421a);
-                    parseUri.addFlags(268435456);
+                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f3456a, 0);
+                    parseUri.setPackage(crossPushMessage.f3456a);
+                    parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     parseUri.putExtra("msgid", crossPushMessage.mMsgId);
                     parseUri.putExtra("notification_title", crossPushMessage.mTitle);
                     parseUri.putExtra("notification_content", crossPushMessage.mDescription);
@@ -55,7 +56,7 @@ public class f {
                     RemoteViews remoteViews = new RemoteViews(packageName, context.getResources().getIdentifier("push_custom_notification", "layout", packageName));
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_title", "id", packageName), crossPushMessage.mTitle);
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_content", "id", packageName), crossPushMessage.mDescription);
-                    if (!TextUtils.isEmpty(crossPushMessage.f3422b) && (q = m.q(context, crossPushMessage.f3422b)) != null) {
+                    if (!TextUtils.isEmpty(crossPushMessage.f3457b) && (q = m.q(context, crossPushMessage.f3457b)) != null) {
                         remoteViews.setImageViewBitmap(context.getResources().getIdentifier("push_custom_msg_icon", "id", packageName), q);
                     }
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_time", "id", packageName), DateUtils.formatDateTime(context, System.currentTimeMillis(), 1));

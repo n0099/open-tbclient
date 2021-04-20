@@ -37,18 +37,18 @@ import d.b.h0.r.s.a;
 import d.b.h0.r.s.j;
 import d.b.h0.r.s.l;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
     public OfficialBarTipModel mModel;
     public d.b.h0.r.s.c mProgressDialog;
     public ImMessageCenterShowItemData mUnsubscribeItem;
-    public d.b.i0.d1.f.j.e mView;
+    public d.b.i0.e1.f.j.e mView;
     public final CustomMessageListener mMemoryListener = new c(0);
-    public final d.b.b.c.g.c mSubscribeListener = new d(104102);
-    public d.b.i0.d1.f.i.a mCompleteProcess = new e();
-    public final d.b.i0.d1.f.i.b IProcessImpl = new g();
+    public final d.b.c.c.g.c mSubscribeListener = new d(104102);
+    public d.b.i0.e1.f.i.a mCompleteProcess = new e();
+    public final d.b.i0.e1.f.i.b IProcessImpl = new g();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public a() {
         }
@@ -88,37 +88,37 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements AdapterView.OnItemLongClickListener {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements l.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f17865e;
+            public final /* synthetic */ j f17542e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ImMessageCenterShowItemData f17866f;
+            public final /* synthetic */ ImMessageCenterShowItemData f17543f;
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0196a implements a.e {
-                public C0196a() {
+            /* loaded from: classes4.dex */
+            public class C0198a implements a.e {
+                public C0198a() {
                 }
 
                 @Override // d.b.h0.r.s.a.e
                 public void onClick(d.b.h0.r.s.a aVar) {
                     aVar.dismiss();
-                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17866f.getFriendId());
+                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17543f.getFriendId());
                     a aVar2 = a.this;
-                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17866f;
+                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17543f;
                 }
             }
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$b  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0197b implements a.e {
-                public C0197b(a aVar) {
+            /* loaded from: classes4.dex */
+            public class C0199b implements a.e {
+                public C0199b(a aVar) {
                 }
 
                 @Override // d.b.h0.r.s.a.e
@@ -128,21 +128,21 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
 
             public a(j jVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-                this.f17865e = jVar;
-                this.f17866f = imMessageCenterShowItemData;
+                this.f17542e = jVar;
+                this.f17543f = imMessageCenterShowItemData;
             }
 
             @Override // d.b.h0.r.s.l.e
             public void onItemClick(l lVar, int i, View view) {
-                j jVar = this.f17865e;
+                j jVar = this.f17542e;
                 if (jVar != null && jVar.isShowing()) {
-                    this.f17865e.dismiss();
+                    this.f17542e.dismiss();
                 }
                 if (i == 0) {
-                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17866f, OfficialBarTipActivity.this.IProcessImpl);
+                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17543f, OfficialBarTipActivity.this.IProcessImpl);
                     return;
                 }
-                d.b.h0.r.s.a a2 = d.b.h0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0196a(), new C0197b(this));
+                d.b.h0.r.s.a a2 = d.b.h0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0198a(), new C0199b(this));
                 a2.setMessageShowCenter(true);
                 a2.show();
             }
@@ -181,7 +181,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -208,8 +208,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class d extends d.b.c.c.g.c {
         public d(int i) {
             super(i);
         }
@@ -234,62 +234,62 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements d.b.i0.d1.f.i.a {
+    /* loaded from: classes4.dex */
+    public class e implements d.b.i0.e1.f.i.a {
         public e() {
         }
 
-        @Override // d.b.i0.d1.f.i.a
+        @Override // d.b.i0.e1.f.i.a
         public void onComplete() {
             OfficialBarTipActivity.this.onCompleteProcess();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17872a;
+        public final /* synthetic */ String f17549a;
 
         public f(String str) {
-            this.f17872a = str;
+            this.f17549a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f17872a)) {
+            if (TextUtils.isEmpty(this.f17549a)) {
                 return null;
             }
-            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17872a), false);
+            d.b.i0.e1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17549a), false);
             return null;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class g implements d.b.i0.d1.f.i.b {
+    /* loaded from: classes4.dex */
+    public class g implements d.b.i0.e1.f.i.b {
         public g() {
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onCanceled() {
             OfficialBarTipActivity.this.dismissDialog();
             OfficialBarTipActivity.this.onCompleteProcess();
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onPostExecute() {
             OfficialBarTipActivity.this.dismissDialog();
             OfficialBarTipActivity.this.showToast(R.string.delete_success, false);
             OfficialBarTipActivity.this.onCompleteProcess();
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onPreExecute() {
             OfficialBarTipActivity.this.showProgressDialog();
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onProgressUpdate(int i, String str, int i2) {
             if (OfficialBarTipActivity.this.mProgressDialog != null) {
                 OfficialBarTipActivity.this.mProgressDialog.b(i);
@@ -314,7 +314,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initUI() {
-        d.b.i0.d1.f.j.e eVar = new d.b.i0.d1.f.j.e(this);
+        d.b.i0.e1.f.j.e eVar = new d.b.i0.e1.f.j.e(this);
         this.mView = eVar;
         eVar.k().setOnItemClickListener(new a());
         this.mView.k().setOnItemLongClickListener(new b());
@@ -322,7 +322,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        d.b.i0.d1.f.j.e eVar = this.mView;
+        d.b.i0.e1.f.j.e eVar = this.mView;
         if (eVar == null || eVar.i() == null) {
             return;
         }
@@ -332,7 +332,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
         OfficialBarTipModel officialBarTipModel;
-        d.b.i0.d1.f.j.e eVar = this.mView;
+        d.b.i0.e1.f.j.e eVar = this.mView;
         if (eVar == null || eVar.i() == null || (officialBarTipModel = this.mModel) == null) {
             return;
         }
@@ -401,7 +401,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public void showProgressDialog() {
         dismissDialog();
         if (this.mProgressDialog == null) {
-            this.mProgressDialog = d.b.i0.d1.h.e.m().p(getPageContext().getPageActivity());
+            this.mProgressDialog = d.b.i0.e1.h.e.m().p(getPageContext().getPageActivity());
         }
         this.mProgressDialog.show();
         this.mProgressDialog.b(0);

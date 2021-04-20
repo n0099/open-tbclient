@@ -19,7 +19,7 @@ import com.cmic.sso.sdk.d.t;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AuthnHelper {
     public static final int ConcurrentBundle_DEFAULT_SIZE = 64;
     public static final String SDK_VERSION = "quick_login_android_9.2.2";
@@ -33,25 +33,25 @@ public class AuthnHelper {
     public long overTime;
     public String use2048PublicKey;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public com.cmic.sso.sdk.a f30569b;
+        public com.cmic.sso.sdk.a f30254b;
 
         public a(com.cmic.sso.sdk.a aVar) {
-            this.f30569b = aVar;
+            this.f30254b = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.a(AuthnHelper.this.mContext).a() && this.f30569b.b("doNetworkSwitch", false)) {
+            if (!t.a(AuthnHelper.this.mContext).a() && this.f30254b.b("doNetworkSwitch", false)) {
                 a2 = c.a("102508", "数据网络切换失败");
             } else {
                 a2 = c.a("200023", "登录超时");
             }
-            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30569b, a2);
+            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30254b, a2);
         }
     }
 

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
-import d.b.b.h.j.g.d;
+import d.b.c.h.j.g.d;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class Static {
@@ -56,7 +56,7 @@ public class Static {
                 if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                     PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                     PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
-                    d.b.b.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    d.b.c.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
                     if (R == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                         return;

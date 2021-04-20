@@ -32,86 +32,86 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46417e;
+        public final /* synthetic */ CallbackHandler f46809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46418f;
+        public final /* synthetic */ UnitedSchemeEntity f46810f;
 
         public a(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f46417e = callbackHandler;
-            this.f46418f = unitedSchemeEntity;
+            this.f46809e = callbackHandler;
+            this.f46810f = unitedSchemeEntity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            UnitedSchemeUtility.callCallback(this.f46417e, this.f46418f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+            UnitedSchemeUtility.callCallback(this.f46809e, this.f46810f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46419e;
+        public final /* synthetic */ CallbackHandler f46811e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46420f;
+        public final /* synthetic */ UnitedSchemeEntity f46812f;
 
         public b(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f46419e = callbackHandler;
-            this.f46420f = unitedSchemeEntity;
+            this.f46811e = callbackHandler;
+            this.f46812f = unitedSchemeEntity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            UnitedSchemeUtility.callCallback(this.f46419e, this.f46420f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+            UnitedSchemeUtility.callCallback(this.f46811e, this.f46812f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
         }
     }
 
     /* renamed from: d.b.g0.a.t1.k.j0.c$c  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0839c extends BaseAdapter {
+    /* loaded from: classes3.dex */
+    public class C0851c extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f46421e;
+        public final /* synthetic */ List f46813e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46422f;
+        public final /* synthetic */ Context f46814f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46423g;
+        public final /* synthetic */ int f46815g;
 
-        public C0839c(c cVar, List list, Context context, int i) {
-            this.f46421e = list;
-            this.f46422f = context;
-            this.f46423g = i;
+        public C0851c(c cVar, List list, Context context, int i) {
+            this.f46813e = list;
+            this.f46814f = context;
+            this.f46815g = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
         public String getItem(int i) {
-            return (String) this.f46421e.get(i);
+            return (String) this.f46813e.get(i);
         }
 
         public final void b(@NonNull View view, int i) {
             if (i == 0) {
-                view.setBackground(this.f46422f.getResources().getDrawable(d.b.g0.a.e.swan_image_menu_item_rounded_bg));
+                view.setBackground(this.f46814f.getResources().getDrawable(d.b.g0.a.e.swan_image_menu_item_rounded_bg));
             } else {
-                view.setBackground(this.f46422f.getResources().getDrawable(d.b.g0.a.e.swan_image_menu_item_bg));
+                view.setBackground(this.f46814f.getResources().getDrawable(d.b.g0.a.e.swan_image_menu_item_bg));
             }
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.f46421e.size();
+            return this.f46813e.size();
         }
 
         @Override // android.widget.Adapter
@@ -122,32 +122,32 @@ public class c extends a0 {
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
-                view = View.inflate(this.f46422f, g.aiapps_scheme_utils_show_action_sheet_item, null);
+                view = View.inflate(this.f46814f, g.aiapps_scheme_utils_show_action_sheet_item, null);
             }
             TextView textView = (TextView) view.findViewById(f.text);
-            textView.setTextColor(this.f46423g);
+            textView.setTextColor(this.f46815g);
             textView.setText(getItem(i));
             b(view, i);
             return view;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements AdapterView.OnItemClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46424e;
+        public final /* synthetic */ CallbackHandler f46816e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46425f;
+        public final /* synthetic */ UnitedSchemeEntity f46817f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.q1.b.b.g f46426g;
+        public final /* synthetic */ d.b.g0.a.q1.b.b.g f46818g;
 
         public d(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.b.g0.a.q1.b.b.g gVar) {
-            this.f46424e = callbackHandler;
-            this.f46425f = unitedSchemeEntity;
-            this.f46426g = gVar;
+            this.f46816e = callbackHandler;
+            this.f46817f = unitedSchemeEntity;
+            this.f46818g = gVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -155,13 +155,13 @@ public class c extends a0 {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("tapIndex", i);
-                UnitedSchemeUtility.callCallback(this.f46424e, this.f46425f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                this.f46426g.dismiss();
+                UnitedSchemeUtility.callCallback(this.f46816e, this.f46817f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                this.f46818g.dismiss();
             } catch (JSONException e2) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     e2.printStackTrace();
                 }
-                UnitedSchemeUtility.callCallback(this.f46424e, this.f46425f, UnitedSchemeUtility.wrapCallbackParams(201));
+                UnitedSchemeUtility.callCallback(this.f46816e, this.f46817f, UnitedSchemeUtility.wrapCallbackParams(201));
             }
         }
     }
@@ -173,7 +173,7 @@ public class c extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         if (eVar != null && eVar.Z()) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
@@ -220,7 +220,7 @@ public class c extends a0 {
             }
             optString = optParamsAsJo.optString("itemColor");
         } catch (IllegalArgumentException | JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
         }
@@ -251,7 +251,7 @@ public class c extends a0 {
             View inflate = View.inflate(context, g.aiapps_scheme_utils_show_action_sheet, null);
             ListView listView = (ListView) inflate.findViewById(f.list);
             listView.setSelector(new ColorDrawable(0));
-            listView.setAdapter((ListAdapter) new C0839c(this, arrayList, context, i));
+            listView.setAdapter((ListAdapter) new C0851c(this, arrayList, context, i));
             fVar.W(inflate);
             fVar.j();
             fVar.q(k(context, arrayList.size()));

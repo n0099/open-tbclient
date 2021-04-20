@@ -45,7 +45,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 PrivilegeDeskView.this.s.c(" ");
             } else {
-                PrivilegeDeskView.this.s.e();
+                PrivilegeDeskView.this.s.f();
             }
             PrivilegeDeskView.this.y();
         }
@@ -66,7 +66,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 PrivilegeDeskView.this.t.c(" ");
             } else {
-                PrivilegeDeskView.this.t.e();
+                PrivilegeDeskView.this.t.f();
             }
             PrivilegeDeskView.this.y();
         }
@@ -104,8 +104,8 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.x = new c();
         this.y = new d();
         u(context);
-        d.b.i0.q1.h.e.a aVar = new d.b.i0.q1.h.e.a(context, 1);
-        s(new d.b.i0.q1.b.b(context));
+        d.b.i0.r1.h.e.a aVar = new d.b.i0.r1.h.e.a(context, 1);
+        s(new d.b.i0.r1.b.b(context));
         t(aVar);
         this.u = context;
     }
@@ -113,7 +113,7 @@ public class PrivilegeDeskView extends CommonTabHost {
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.b.h0.w.n
     public void init() {
         setShowDelete(false);
-        d.b.i0.q1.h.d.a aVar = new d.b.i0.q1.h.d.a();
+        d.b.i0.r1.h.d.a aVar = new d.b.i0.r1.h.d.a();
         aVar.C(this.q);
         k(aVar);
         w();
@@ -126,8 +126,8 @@ public class PrivilegeDeskView extends CommonTabHost {
         if (aVar == null) {
             return;
         }
-        if (aVar.f51524a == 2) {
-            Object obj = aVar.f51526c;
+        if (aVar.f51942a == 2) {
+            Object obj = aVar.f51944c;
             if (obj == null) {
                 this.r--;
             } else if (obj instanceof String) {
@@ -137,7 +137,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                 } else if (TextUtils.isEmpty(str.trim())) {
                     this.r++;
                 } else {
-                    this.r += d.b.b.e.m.b.d(str, 1);
+                    this.r += d.b.c.e.m.b.d(str, 1);
                 }
             }
             if (this.r > 0) {
@@ -146,7 +146,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                 d(new d.b.h0.w.a(2, 18, null));
             }
         }
-        if (aVar.f51524a == 1) {
+        if (aVar.f51942a == 1) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
         }
     }
@@ -173,14 +173,14 @@ public class PrivilegeDeskView extends CommonTabHost {
         MessageManager.getInstance().unRegisterListener(this.w);
     }
 
-    public final void s(d.b.i0.q1.b.b bVar) {
+    public final void s(d.b.i0.r1.b.b bVar) {
         DLauncher dLauncher = (DLauncher) g.a(getContext(), bVar, 6);
         this.t = dLauncher;
         dLauncher.setOnClickListener(this.y);
         this.q.add(this.t);
     }
 
-    public final void t(d.b.i0.q1.h.e.a aVar) {
+    public final void t(d.b.i0.r1.h.e.a aVar) {
         DLauncher dLauncher = (DLauncher) g.a(getContext(), aVar, 6);
         this.s = dLauncher;
         dLauncher.setOnClickListener(this.x);
@@ -197,7 +197,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble())) {
             this.t.c(" ");
         } else {
-            this.t.e();
+            this.t.f();
         }
         y();
     }
@@ -210,7 +210,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         if (currentAccountObj.getIsSelectTail()) {
             this.s.c(" ");
         } else {
-            this.s.e();
+            this.s.f();
         }
         y();
     }

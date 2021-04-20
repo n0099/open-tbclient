@@ -3,6 +3,7 @@ package com.kwai.video.player.misc;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.kwai.video.player.KsMediaMeta;
 /* loaded from: classes6.dex */
 public class KsTrackInfo implements ITrackInfo {
@@ -24,7 +25,7 @@ public class KsTrackInfo implements ITrackInfo {
         StringBuilder sb = new StringBuilder(128);
         int i = this.mTrackType;
         if (i == 1) {
-            sb.append("VIDEO");
+            sb.append(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_VIDEO);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append(this.mStreamMeta.getCodecShortNameInline());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);

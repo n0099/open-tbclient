@@ -11,17 +11,17 @@ import java.lang.ref.WeakReference;
 public final class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1944a = "msp.db";
+    public static final String f1969a = "msp.db";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1945b = 1;
+    public static final int f1970b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Context> f1946c;
+    public WeakReference<Context> f1971c;
 
     public a(Context context) {
-        super(context, f1944a, (SQLiteDatabase.CursorFactory) null, 1);
-        this.f1946c = new WeakReference<>(context);
+        super(context, f1969a, (SQLiteDatabase.CursorFactory) null, 1);
+        this.f1971c = new WeakReference<>(context);
     }
 
     private String c(String str, String str2) {
@@ -191,6 +191,6 @@ public final class a extends SQLiteOpenHelper {
             th = th3;
             sQLiteDatabase = null;
         }
-        return TextUtils.isEmpty(str3) ? com.alipay.sdk.encrypt.b.b(str3, com.alipay.sdk.util.a.c(this.f1946c.get())) : str3;
+        return TextUtils.isEmpty(str3) ? com.alipay.sdk.encrypt.b.b(str3, com.alipay.sdk.util.a.c(this.f1971c.get())) : str3;
     }
 }

@@ -6,9 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import androidx.core.app.NotificationCompat;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-import d.b.r.a;
+import d.b.q.a;
 /* loaded from: classes.dex */
 public class Heartbeat {
     public static int ALARM_TIMEOUT = 60000;
@@ -77,7 +78,7 @@ public class Heartbeat {
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
             intent.setClass(Heartbeat.this.mContext, a.class);
             intent.setAction(Constants.ACTION_SERVICE);
-            ((AlarmManager) Heartbeat.this.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(Heartbeat.this.mContext, 0, intent, 268435456));
+            ((AlarmManager) Heartbeat.this.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(Heartbeat.this.mContext, 0, intent, Label.FORWARD_REFERENCE_TYPE_SHORT));
         }
 
         @Override // com.baidu.android.imsdk.internal.HeartbeatOpearation
@@ -87,7 +88,7 @@ public class Heartbeat {
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
             intent.setClass(Heartbeat.this.mContext, a.class);
             intent.setAction(Constants.ACTION_SERVICE);
-            PendingIntent service = PendingIntent.getService(Heartbeat.this.mContext.getApplicationContext(), 0, intent, 268435456);
+            PendingIntent service = PendingIntent.getService(Heartbeat.this.mContext.getApplicationContext(), 0, intent, Label.FORWARD_REFERENCE_TYPE_SHORT);
             ((AlarmManager) Heartbeat.this.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);
         }
     }

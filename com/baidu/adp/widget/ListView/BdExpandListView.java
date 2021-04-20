@@ -51,18 +51,18 @@ public class BdExpandListView extends BdListView {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2295a;
+        public int f2330a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2296b;
+        public int f2331b;
 
         public c(int i, int i2, int i3, int i4) {
-            this.f2295a = i2;
-            this.f2296b = i4;
+            this.f2330a = i2;
+            this.f2331b = i4;
         }
 
         public int a(float f2) {
-            return (int) (this.f2295a + (f2 / 2.5f));
+            return (int) (this.f2330a + (f2 / 2.5f));
         }
     }
 
@@ -92,12 +92,12 @@ public class BdExpandListView extends BdListView {
         if (this.Q == null) {
             return;
         }
-        if (this.M.getHeight() >= this.Q.f2296b - (this.V / 2)) {
+        if (this.M.getHeight() >= this.Q.f2331b - (this.V / 2)) {
             J();
         } else {
             this.W.a();
         }
-        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2295a - this.M.getHeight(), 200);
+        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2330a - this.M.getHeight(), 200);
         invalidate();
         this.R = false;
     }
@@ -133,15 +133,15 @@ public class BdExpandListView extends BdListView {
                         if (this.M.getParent() == this && this.Q != null && this.M.isShown() && this.M.getTop() >= 0 && Math.abs(f4) >= this.U && Math.abs(f3) < this.U) {
                             int a2 = this.Q.a(this.P - this.O);
                             c cVar = this.Q;
-                            if (a2 > cVar.f2295a && a2 <= cVar.f2296b) {
+                            if (a2 > cVar.f2330a && a2 <= cVar.f2331b) {
                                 this.R = true;
                                 this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), a2));
-                                I(a2 - this.Q.f2295a);
+                                I(a2 - this.Q.f2330a);
                             } else {
                                 c cVar2 = this.Q;
-                                if (a2 <= cVar2.f2295a) {
+                                if (a2 <= cVar2.f2330a) {
                                     this.R = false;
-                                } else if (a2 > cVar2.f2296b) {
+                                } else if (a2 > cVar2.f2331b) {
                                     this.R = true;
                                 } else {
                                     this.R = false;

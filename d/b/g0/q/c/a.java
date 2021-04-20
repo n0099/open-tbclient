@@ -9,11 +9,11 @@ import java.io.File;
 public class a implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49343a;
+    public Context f49735a;
 
     public a(Context context) {
         if (context != null) {
-            this.f49343a = context.getApplicationContext();
+            this.f49735a = context.getApplicationContext();
             return;
         }
         throw new RuntimeException("context can no be null");
@@ -21,7 +21,7 @@ public class a implements b<String> {
 
     @Override // d.b.g0.q.c.b
     public boolean a() {
-        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && d.b.g0.q.d.c.a(this.f49343a, "android.permission.READ_EXTERNAL_STORAGE")) {
+        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && d.b.g0.q.d.c.a(this.f49735a, "android.permission.READ_EXTERNAL_STORAGE")) {
             return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
         }
         return true;
@@ -35,7 +35,7 @@ public class a implements b<String> {
     }
 
     public final String c() {
-        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && d.b.g0.q.d.c.a(this.f49343a, "android.permission.READ_EXTERNAL_STORAGE")) {
+        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && d.b.g0.q.d.c.a(this.f49735a, "android.permission.READ_EXTERNAL_STORAGE")) {
             File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
             if (file.exists()) {
                 return d.b.g0.q.d.a.c(file);
@@ -53,7 +53,7 @@ public class a implements b<String> {
     }
 
     public final void e(String str) {
-        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && d.b.g0.q.d.c.a(this.f49343a, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && d.b.g0.q.d.c.a(this.f49735a, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
             d.b.g0.q.d.a.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
         }
     }

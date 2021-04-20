@@ -8,84 +8,84 @@ import com.bytedance.sdk.openadsdk.core.d.o;
 import com.bytedance.sdk.openadsdk.core.dynamic.d.a;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.g;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicRootView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public o f28308a;
+    public o f27993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f28309b;
+    public j f27994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f28310c;
+    public g f27995c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DynamicBaseWidget f28311d;
+    public DynamicBaseWidget f27996d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f28312e;
+    public a f27997e;
 
     public DynamicRootView(@NonNull Context context) {
         super(context);
         o oVar = new o();
-        this.f28308a = oVar;
+        this.f27993a = oVar;
         oVar.a(2);
         a aVar = new a();
-        this.f28312e = aVar;
+        this.f27997e = aVar;
         aVar.a(this);
     }
 
     private boolean c() {
-        DynamicBaseWidget dynamicBaseWidget = this.f28311d;
-        return dynamicBaseWidget.f28302c > 0.0f && dynamicBaseWidget.f28303d > 0.0f;
+        DynamicBaseWidget dynamicBaseWidget = this.f27996d;
+        return dynamicBaseWidget.f27987c > 0.0f && dynamicBaseWidget.f27988d > 0.0f;
     }
 
     public void a() {
-        this.f28308a.a(this.f28311d.a() && c());
-        this.f28308a.a(this.f28311d.f28302c);
-        this.f28308a.b(this.f28311d.f28303d);
-        this.f28309b.a(this.f28308a);
+        this.f27993a.a(this.f27996d.a() && c());
+        this.f27993a.a(this.f27996d.f27987c);
+        this.f27993a.b(this.f27996d.f27988d);
+        this.f27994b.a(this.f27993a);
     }
 
     public void b() {
-        this.f28308a.a(false);
-        this.f28309b.a(this.f28308a);
+        this.f27993a.a(false);
+        this.f27994b.a(this.f27993a);
     }
 
     public a getDynamicClickListener() {
-        return this.f28312e;
+        return this.f27997e;
     }
 
     public g getExpressVideoListener() {
-        return this.f28310c;
+        return this.f27995c;
     }
 
     public j getRenderListener() {
-        return this.f28309b;
+        return this.f27994b;
     }
 
     public void setDislikeView(View view) {
-        this.f28312e.b(view);
+        this.f27997e.b(view);
     }
 
     public void setDynamicBaseWidget(DynamicBaseWidget dynamicBaseWidget) {
-        this.f28311d = dynamicBaseWidget;
+        this.f27996d = dynamicBaseWidget;
     }
 
     public void setExpressVideoListener(g gVar) {
-        this.f28310c = gVar;
+        this.f27995c = gVar;
     }
 
     public void setRenderListener(j jVar) {
-        this.f28309b = jVar;
-        this.f28312e.a(jVar);
+        this.f27994b = jVar;
+        this.f27997e.a(jVar);
     }
 
     public void a(double d2, double d3, double d4, double d5) {
-        this.f28308a.c(d2);
-        this.f28308a.d(d3);
-        this.f28308a.e(d4);
-        this.f28308a.f(d5);
+        this.f27993a.c(d2);
+        this.f27993a.d(d3);
+        this.f27993a.e(d4);
+        this.f27993a.f(d5);
     }
 }

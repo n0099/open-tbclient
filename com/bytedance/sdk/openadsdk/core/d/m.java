@@ -3,44 +3,44 @@ package com.bytedance.sdk.openadsdk.core.d;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m {
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28199g;
+    public long f27884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f28200h;
+    public long f27885h;
     public long i;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28193a = ak.c();
+    public final String f27878a = ak.c();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28194b = -1;
+    public int f27879b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28195c = -1;
+    public int f27880c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f28196d = null;
+    public JSONArray f27881d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28197e = 1;
+    public int f27882e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28198f = System.currentTimeMillis();
+    public long f27883f = System.currentTimeMillis();
     public JSONObject j = null;
 
     public m a() {
         m mVar = new m();
-        mVar.f28194b = this.f28194b;
-        mVar.f28195c = this.f28195c;
-        mVar.f28196d = this.f28196d;
-        mVar.f28197e = this.f28197e;
-        mVar.f28198f = this.f28198f;
-        mVar.f28199g = this.f28199g;
-        mVar.f28200h = this.f28200h;
+        mVar.f27879b = this.f27879b;
+        mVar.f27880c = this.f27880c;
+        mVar.f27881d = this.f27881d;
+        mVar.f27882e = this.f27882e;
+        mVar.f27883f = this.f27883f;
+        mVar.f27884g = this.f27884g;
+        mVar.f27885h = this.f27885h;
         mVar.i = this.i;
         return mVar;
     }

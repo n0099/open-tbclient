@@ -22,7 +22,7 @@ public class f extends e {
     }
 
     @Override // d.b.h0.r.s.e
-    public void b(d.b.b.a.f<?> fVar) {
+    public void b(d.b.c.a.f<?> fVar) {
         super.b(fVar);
         o();
     }
@@ -37,8 +37,8 @@ public class f extends e {
     }
 
     public final void o() {
-        d.b.h0.r.u.c.a(this.l).p(this.o);
-        d.b.h0.r.u.c.a(this.m).p(this.p);
+        d.b.h0.r.u.c.d(this.l).s(this.o);
+        d.b.h0.r.u.c.d(this.m).s(this.p);
     }
 
     public f p(int i, View.OnClickListener onClickListener) {

@@ -47,7 +47,7 @@ public class InstallAntiBlockingActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             this.mType = intent.getStringExtra("type");
-            this.mPackageName = intent.getStringExtra(PARAM_PACKAGE_NAME);
+            this.mPackageName = intent.getStringExtra("packageName");
             this.mUbcParams = v.b(intent.getStringExtra(KEY_UBC_PARAMS));
         }
         ImageView imageView = (ImageView) findViewById(d.install_guide_image);

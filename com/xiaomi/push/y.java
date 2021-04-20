@@ -23,7 +23,7 @@ import java.util.zip.ZipOutputStream;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f41076a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] f41365a = {"jpg", "png", "bmp", "gif", "webp"};
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0062: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:22:0x0062 */
     public static String a(File file) {
@@ -81,10 +81,10 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m623a(File file) {
+    public static void m627a(File file) {
         if (file.isDirectory()) {
             for (File file2 : file.listFiles()) {
-                m623a(file2);
+                m627a(file2);
             }
         } else if (!file.exists()) {
             return;
@@ -110,7 +110,7 @@ public class y {
             } catch (IOException e2) {
                 e = e2;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m51a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m55a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -222,7 +222,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m624a(File file) {
+    public static boolean m628a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

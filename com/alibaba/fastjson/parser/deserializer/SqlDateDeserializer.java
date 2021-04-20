@@ -1,9 +1,12 @@
 package com.alibaba.fastjson.parser.deserializer;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONScanner;
+import com.alibaba.fastjson.util.TypeUtils;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
@@ -28,6 +31,9 @@ public class SqlDateDeserializer extends AbstractDateDeserializer implements Obj
         }
         if (obj2 instanceof Date) {
             return (T) new java.sql.Date(((Date) obj2).getTime());
+        }
+        if (obj2 instanceof BigDecimal) {
+            return (T) new java.sql.Date(TypeUtils.longValue((BigDecimal) obj2));
         }
         if (obj2 instanceof Number) {
             return (T) new java.sql.Date(((Number) obj2).longValue());
@@ -65,6 +71,9 @@ public class SqlDateDeserializer extends AbstractDateDeserializer implements Obj
         if (obj2 instanceof Date) {
             return (T) new Timestamp(((Date) obj2).getTime());
         }
+        if (obj2 instanceof BigDecimal) {
+            return (T) new Timestamp(TypeUtils.longValue((BigDecimal) obj2));
+        }
         if (obj2 instanceof Number) {
             return (T) new Timestamp(((Number) obj2).longValue());
         }
@@ -75,7 +84,13 @@ public class SqlDateDeserializer extends AbstractDateDeserializer implements Obj
             }
             JSONScanner jSONScanner = new JSONScanner(str);
             try {
-                if (jSONScanner.scanISO8601DateIfMatch()) {
+                if (str.length() > 19 && str.charAt(4) == '-' && str.charAt(7) == '-' && str.charAt(10) == ' ' && str.charAt(13) == ':' && str.charAt(16) == ':' && str.charAt(19) == '.') {
+                    String dateFomartPattern = defaultJSONParser.getDateFomartPattern();
+                    if (dateFomartPattern.length() != str.length() && dateFomartPattern == JSON.DEFFAULT_DATE_FORMAT) {
+                        return (T) Timestamp.valueOf(str);
+                    }
+                }
+                if (jSONScanner.scanISO8601DateIfMatch(false)) {
                     parseLong = jSONScanner.getCalendar().getTimeInMillis();
                 } else {
                     try {

@@ -10,48 +10,48 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.u;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f66985d;
+    public static volatile e f67978d;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f66986a = new SparseArray<>();
+    public volatile SparseArray<Boolean> f67979a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f66987b = new Handler(Looper.getMainLooper());
+    public Handler f67980b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile List<d.o.a.e.b.f.g> f66988c = new ArrayList();
+    public volatile List<d.o.a.e.b.f.g> f67981c = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f66989e;
+        public final /* synthetic */ m f67982e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.n.a f66990f;
+        public final /* synthetic */ d.o.a.e.b.n.a f67983f;
 
         public a(e eVar, m mVar, d.o.a.e.b.n.a aVar) {
-            this.f66989e = mVar;
-            this.f66990f = aVar;
+            this.f67982e = mVar;
+            this.f67983f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f66989e.e(this.f66990f);
+            this.f67982e.e(this.f67983f);
         }
     }
 
     public static e c() {
-        if (f66985d == null) {
+        if (f67978d == null) {
             synchronized (e.class) {
-                f66985d = new e();
+                f67978d = new e();
             }
         }
-        return f66985d;
+        return f67978d;
     }
 
     public List<DownloadInfo> A(String str) {
@@ -246,7 +246,7 @@ public class e {
                 d.o.a.e.b.e.a.e(aVar.O(), aVar.H(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), aVar.H() != null ? aVar.H().H0() : 0);
             }
         } else if (aVar.W()) {
-            this.f66987b.postDelayed(new a(this, n, aVar), 500L);
+            this.f67980b.postDelayed(new a(this, n, aVar), 500L);
         } else {
             n.e(aVar);
         }
@@ -272,10 +272,10 @@ public class e {
     }
 
     public synchronized int m(int i) {
-        if (this.f66986a.get(i) == null) {
+        if (this.f67979a.get(i) == null) {
             return -1;
         }
-        return this.f66986a.get(i).booleanValue() ? 1 : 0;
+        return this.f67979a.get(i).booleanValue() ? 1 : 0;
     }
 
     public final m n(d.o.a.e.b.n.a aVar) {
@@ -327,8 +327,8 @@ public class e {
     }
 
     public void p() {
-        synchronized (this.f66988c) {
-            for (d.o.a.e.b.f.g gVar : this.f66988c) {
+        synchronized (this.f67981c) {
+            for (d.o.a.e.b.f.g gVar : this.f67981c) {
                 if (gVar != null) {
                     gVar.a();
                 }
@@ -345,7 +345,7 @@ public class e {
     }
 
     public synchronized void r(int i, boolean z) {
-        this.f66986a.put(i, z ? Boolean.TRUE : Boolean.FALSE);
+        this.f67979a.put(i, z ? Boolean.TRUE : Boolean.FALSE);
     }
 
     public void s(List<String> list) {

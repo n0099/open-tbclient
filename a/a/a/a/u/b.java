@@ -2,39 +2,76 @@ package a.a.a.a.u;
 
 import a.a.a.a.s.e;
 import android.util.Pair;
-import com.baidu.mobstat.Config;
-import com.qq.e.comm.constants.Constants;
-import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Random;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends c {
+public abstract class b implements a {
+
+    /* renamed from: c  reason: collision with root package name */
+    public static a f1339c = new d();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Random f1340d = new Random();
+
+    /* renamed from: a  reason: collision with root package name */
+    public final e.a f1341a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final HashMap<Object, o> f1342b = new HashMap<>();
+
     public b(e.a aVar) {
-        super(aVar);
+        this.f1341a = aVar;
     }
 
-    @Override // a.a.a.a.u.c
-    public Pair<p, JSONObject> c(Object obj) {
-        if (obj == null) {
-            return null;
+    @Override // a.a.a.a.u.a
+    public final void a(Object obj) {
+        synchronized (this.f1342b) {
+            this.f1342b.remove(obj);
         }
-        try {
-            Field declaredField = obj.getClass().getDeclaredField("a");
-            declaredField.setAccessible(true);
-            Object obj2 = declaredField.get(obj);
-            if (obj2 == null) {
-                return null;
+    }
+
+    @Override // a.a.a.a.u.a
+    public void a(Object obj, String str) {
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.util.HashMap<java.lang.Object, a.a.a.a.u.o> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // a.a.a.a.u.a
+    public final o b(Object obj) {
+        synchronized (this.f1342b) {
+            o oVar = this.f1342b.get(obj);
+            if (oVar != null) {
+                return oVar;
             }
-            Field declaredField2 = obj2.getClass().getDeclaredField(Config.APP_KEY);
-            declaredField2.setAccessible(true);
-            Object obj3 = declaredField2.get(obj2);
-            if (obj3 != null && (obj3 instanceof JSONObject)) {
-                JSONObject jSONObject = (JSONObject) obj3;
-                return new Pair<>(new p(jSONObject.optString("brandName"), jSONObject.optString("title"), jSONObject.optString("description"), null, jSONObject.optString("appname"), null, null, jSONObject.optString("imageSrc"), null, null, jSONObject.optString(Constants.KEYS.EXPOSED_CLICK_URL_KEY), jSONObject.optString("deepLinkUrl"), null), jSONObject);
+            Pair<o, JSONObject> c2 = c(obj);
+            if (c2 != null && c2.first != null) {
+                this.f1342b.put(obj, c2.first);
+                return (o) c2.first;
             }
-            return null;
-        } catch (Exception e2) {
-            a.a.a.a.v.d.a(e2);
             return null;
         }
     }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.HashMap<java.lang.Object, a.a.a.a.u.o> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // a.a.a.a.u.a
+    public final void b(Object obj, String str) {
+        Pair<o, JSONObject> c2;
+        if (f1340d.nextFloat() < this.f1341a.f1323f && (c2 = c(obj)) != null) {
+            Object obj2 = c2.second;
+            if (obj2 != null) {
+                JSONObject jSONObject = (JSONObject) obj2;
+            }
+            Object obj3 = c2.first;
+            if (obj3 != null) {
+                o oVar = (o) obj3;
+                synchronized (this.f1342b) {
+                    this.f1342b.put(obj, c2.first);
+                }
+            }
+        }
+    }
+
+    public abstract Pair<o, JSONObject> c(Object obj);
 }

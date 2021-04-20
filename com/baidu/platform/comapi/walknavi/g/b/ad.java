@@ -9,21 +9,21 @@ import com.baidu.tieba.R;
 public class ad extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f10080a;
+    public RelativeLayout f9638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f10081b;
+    public TextView f9639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f10082c;
+    public TextView f9640c;
 
     public ad(Context context, View view) {
-        this.f10081b = null;
-        this.f10082c = null;
+        this.f9639b = null;
+        this.f9640c = null;
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.dimen.M_W_X011);
-        this.f10080a = relativeLayout;
-        this.f10081b = (TextView) relativeLayout.findViewById(R.dimen.M_W_X012);
-        this.f10082c = (TextView) this.f10080a.findViewById(R.dimen.M_W_X013);
+        this.f9638a = relativeLayout;
+        this.f9639b = (TextView) relativeLayout.findViewById(R.dimen.M_W_X012);
+        this.f9640c = (TextView) this.f9638a.findViewById(R.dimen.M_W_X013);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.b

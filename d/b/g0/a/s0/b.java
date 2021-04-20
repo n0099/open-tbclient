@@ -12,26 +12,26 @@ import java.util.List;
 public abstract class b<W extends d> implements ZeusPlugin {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f45784g = k.f45051a;
+    public static final boolean f46176g = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusPlugin.Callback f45786b;
+    public ZeusPlugin.Callback f46178b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public W f45787c;
+    public W f46179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45788d = false;
+    public boolean f46180d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<ZeusPlugin.Command> f45789e = new ArrayList();
+    public final List<ZeusPlugin.Command> f46181e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a f45790f = new a();
+    public d.a f46182f = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public c<W> f45785a = new c<>();
+    public c<W> f46177a = new c<>();
 
     /* loaded from: classes2.dex */
     public class a implements d.a {
@@ -41,12 +41,12 @@ public abstract class b<W extends d> implements ZeusPlugin {
         @Override // d.b.g0.a.s0.d.a
         public void a(boolean z) {
             synchronized (b.this) {
-                if (b.f45784g) {
+                if (b.f46176g) {
                     Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
                 }
                 b.this.d();
-                b.this.f45788d = true;
-                if (b.f45784g) {
+                b.this.f46180d = true;
+                if (b.f46176g) {
                     Log.i("BaseInlineController", "指令flush完成=========================");
                 }
             }
@@ -54,24 +54,24 @@ public abstract class b<W extends d> implements ZeusPlugin {
     }
 
     public b(@NonNull W w) {
-        this.f45787c = w;
-        if (f45784g) {
+        this.f46179c = w;
+        if (f46176g) {
             Log.i("BaseInlineController", "开始初始化组件");
         }
-        this.f45787c.T(this.f45790f);
+        this.f46179c.T(this.f46182f);
     }
 
     public final void d() {
-        if (this.f45789e.size() == 0) {
+        if (this.f46181e.size() == 0) {
             return;
         }
-        Iterator<ZeusPlugin.Command> it = this.f45789e.iterator();
+        Iterator<ZeusPlugin.Command> it = this.f46181e.iterator();
         while (it.hasNext()) {
             ZeusPlugin.Command next = it.next();
-            if (f45784g) {
+            if (f46176g) {
                 Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
             }
-            this.f45785a.b(next, this.f45787c);
+            this.f46177a.b(next, this.f46179c);
             it.remove();
         }
     }
@@ -82,11 +82,11 @@ public abstract class b<W extends d> implements ZeusPlugin {
             if (command == null) {
                 return;
             }
-            if (this.f45788d) {
-                if (f45784g) {
+            if (this.f46180d) {
+                if (f46176g) {
                     Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
                 }
-                this.f45785a.b(command, this.f45787c);
+                this.f46177a.b(command, this.f46179c);
             } else {
                 ZeusPlugin.Command command2 = new ZeusPlugin.Command();
                 command2.what = command.what;
@@ -96,17 +96,17 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 command2.arg4 = command.arg4;
                 command2.arg5 = command.arg5;
                 command2.obj = command.obj;
-                this.f45789e.add(command2);
-                if (f45784g) {
+                this.f46181e.add(command2);
+                if (f46176g) {
                     Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
                 }
-                this.f45785a.c(command);
+                this.f46177a.c(command);
             }
         }
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void setCallback(ZeusPlugin.Callback callback) {
-        this.f45786b = callback;
+        this.f46178b = callback;
     }
 }

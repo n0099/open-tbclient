@@ -28,91 +28,91 @@ public class d extends d.b.g0.a.t.b.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f46138e;
+        public final /* synthetic */ f f46530e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46139f;
+        public final /* synthetic */ String f46531f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46140g;
+        public final /* synthetic */ d.b.g0.a.e1.b f46532g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46141h;
+        public final /* synthetic */ String f46533h;
         public final /* synthetic */ d.b.g0.a.e0.l.f i;
 
         /* renamed from: d.b.g0.a.t.c.i.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0822a implements g.d {
+        public class C0834a implements g.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f46142a;
+            public final /* synthetic */ e f46534a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f46143b;
+            public final /* synthetic */ String f46535b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b.c f46144c;
+            public final /* synthetic */ b.c f46536c;
 
-            public C0822a(e eVar, String str, b.c cVar) {
-                this.f46142a = eVar;
-                this.f46143b = str;
-                this.f46144c = cVar;
+            public C0834a(e eVar, String str, b.c cVar) {
+                this.f46534a = eVar;
+                this.f46535b = str;
+                this.f46536c = cVar;
             }
 
             @Override // d.b.g0.a.t1.k.p0.g.d
             public void a(String str) {
-                j.d(a.this.f46141h);
+                j.d(a.this.f46533h);
                 d.b.g0.a.c0.c.g("Api-ReLaunch", "check pages success");
-                a.this.f46138e.C();
+                a.this.f46530e.C();
                 a aVar = a.this;
-                d.b.g0.a.t1.k.p0.a.l(d.this, this.f46142a, this.f46143b, aVar.f46140g.f44362a, null, aVar.f46139f);
-                d.b.g0.a.z1.e.q(this.f46143b);
+                d.b.g0.a.t1.k.p0.a.l(d.this, this.f46534a, this.f46535b, aVar.f46532g.f44754a, null, aVar.f46531f);
+                d.b.g0.a.z1.e.q(this.f46535b);
                 a aVar2 = a.this;
-                d.this.t(this.f46144c, aVar2.f46140g, aVar2.i, aVar2.f46141h);
+                d.this.t(this.f46536c, aVar2.f46532g, aVar2.i, aVar2.f46533h);
             }
 
             @Override // d.b.g0.a.t1.k.p0.g.d
             public void b(int i) {
                 d.b.g0.a.c0.c.b("Api-ReLaunch", "check pages failed");
-                a.this.f46138e.C();
-                if (d.b.g0.a.t.b.d.f45929c) {
+                a.this.f46530e.C();
+                if (d.b.g0.a.t.b.d.f46321c) {
                     Context h2 = d.this.h();
                     d.b.g0.a.q1.b.f.d.f(h2, h2.getString(h.aiapps_open_pages_failed) + i).C();
                 }
                 a aVar = a.this;
-                d.b.g0.a.t1.k.p0.a.j(d.this, aVar.f46139f);
+                d.b.g0.a.t1.k.p0.a.j(d.this, aVar.f46531f);
             }
         }
 
         public a(f fVar, String str, d.b.g0.a.e1.b bVar, String str2, d.b.g0.a.e0.l.f fVar2) {
-            this.f46138e = fVar;
-            this.f46139f = str;
-            this.f46140g = bVar;
-            this.f46141h = str2;
+            this.f46530e = fVar;
+            this.f46531f = str;
+            this.f46532g = bVar;
+            this.f46533h = str2;
             this.i = fVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SwanAppActivity activity = this.f46138e.getActivity();
+            SwanAppActivity activity = this.f46530e.getActivity();
             if (activity != null && !activity.isFinishing()) {
                 b.c e2 = d.b.g0.a.e0.v.b.e(activity, d.b.g0.a.e0.v.a.a());
-                String c2 = e2.f44304a.c();
-                if (d.b.g0.a.t.b.d.f45929c) {
+                String c2 = e2.f44696a.c();
+                if (d.b.g0.a.t.b.d.f46321c) {
                     Log.d("Api-ReLaunch", "webview idx: " + c2);
                 }
                 e y = e.y();
                 if (y == null) {
-                    if (!d.b.g0.a.t.b.d.f45929c) {
-                        d.this.c(this.f46139f, new d.b.g0.a.t.e.b(1001, "swan app is null"));
+                    if (!d.b.g0.a.t.b.d.f46321c) {
+                        d.this.c(this.f46531f, new d.b.g0.a.t.e.b(1001, "swan app is null"));
                         return;
                     }
                     throw new RuntimeException("swan app is null");
                 }
-                this.f46138e.M();
-                g.a(y, this.f46140g, c2, new C0822a(y, c2, e2), this.f46141h);
-            } else if (!d.b.g0.a.t.b.d.f45929c) {
-                d.this.c(this.f46139f, new d.b.g0.a.t.e.b(1001, "swan activity is null"));
+                this.f46530e.M();
+                g.a(y, this.f46532g, c2, new C0834a(y, c2, e2), this.f46533h);
+            } else if (!d.b.g0.a.t.b.d.f46321c) {
+                d.this.c(this.f46531f, new d.b.g0.a.t.e.b(1001, "swan activity is null"));
             } else {
                 throw new RuntimeException("swan activity is null");
             }
@@ -123,33 +123,33 @@ public class d extends d.b.g0.a.t.b.d {
     public class b implements b.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.c f46146a;
+        public final /* synthetic */ b.c f46538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46147b;
+        public final /* synthetic */ String f46539b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46148c;
+        public final /* synthetic */ d.b.g0.a.e1.b f46540c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.f f46149d;
+        public final /* synthetic */ d.b.g0.a.e0.l.f f46541d;
 
         public b(d dVar, b.c cVar, String str, d.b.g0.a.e1.b bVar, d.b.g0.a.e0.l.f fVar) {
-            this.f46146a = cVar;
-            this.f46147b = str;
-            this.f46148c = bVar;
-            this.f46149d = fVar;
+            this.f46538a = cVar;
+            this.f46539b = str;
+            this.f46540c = bVar;
+            this.f46541d = fVar;
         }
 
         @Override // d.b.g0.a.e0.v.b.d
         public void onReady() {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-ReLaunch", "tryToExecutePageRoute onReady start.");
             }
-            j.e(this.f46146a, this.f46147b);
-            d.b.g0.a.t1.k.p0.a.d(this.f46146a.f44304a, this.f46148c, this.f46147b);
-            d.s(this.f46149d, this.f46148c, this.f46147b);
-            if (d.b.g0.a.t.b.d.f45929c) {
+            j.e(this.f46538a, this.f46539b);
+            d.b.g0.a.t1.k.p0.a.d(this.f46538a.f44696a, this.f46540c, this.f46539b);
+            d.s(this.f46541d, this.f46540c, this.f46539b);
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-ReLaunch", "tryToExecutePageRoute onReady end.");
             }
         }
@@ -175,7 +175,7 @@ public class d extends d.b.g0.a.t.b.d {
 
     public static void s(d.b.g0.a.e0.l.f fVar, d.b.g0.a.e1.b bVar, String str) {
         if (bVar != null) {
-            d.b.g0.a.c0.c.g("Api-ReLaunch", "doReLaunch page=" + bVar.f44362a + " routePage=" + bVar.f44365d);
+            d.b.g0.a.c0.c.g("Api-ReLaunch", "doReLaunch page=" + bVar.f44754a + " routePage=" + bVar.f44757d);
         }
         c cVar = new c();
         fVar.g(cVar);
@@ -190,21 +190,21 @@ public class d extends d.b.g0.a.t.b.d {
     }
 
     public final void t(b.c cVar, d.b.g0.a.e1.b bVar, d.b.g0.a.e0.l.f fVar, String str) {
-        boolean z = cVar != null && cVar.f44305b;
+        boolean z = cVar != null && cVar.f44697b;
         HybridUbcFlow p = i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
         p.A(new UbcFlowEvent("na_pre_load_slave_check"));
         p.y("preload", z ? "1" : "0");
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-ReLaunch", "tryToExecutePageRoute start. isReady : " + z);
         }
         d.b.g0.a.e0.v.b.j(cVar, new b(this, cVar, str, bVar, fVar));
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-ReLaunch", "tryToExecutePageRoute end.");
         }
     }
 
     public d.b.g0.a.t.e.b u(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-ReLaunch", "handle: " + str);
         }
         String uuid = UUID.randomUUID().toString();
@@ -212,7 +212,7 @@ public class d extends d.b.g0.a.t.b.d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-ReLaunch", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-ReLaunch", "parse fail");
             }
             return bVar;
@@ -231,13 +231,13 @@ public class d extends d.b.g0.a.t.b.d {
         }
         d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(o, V.h());
         if (!k0.d(V.I(), c2, true)) {
-            String str2 = "page params error : path=" + c2.f44362a + " ; routePath=" + c2.f44365d;
+            String str2 = "page params error : path=" + c2.f44754a + " ; routePath=" + c2.f44757d;
             d.b.g0.a.c0.c.b("Api-ReLaunch", str2);
             return new d.b.g0.a.t.e.b(202, str2);
         }
         String optString = jSONObject.optString("initData");
-        if (!TextUtils.isEmpty(optString) && c2 != null && !TextUtils.isEmpty(c2.f44365d) && e.y() != null) {
-            e.y().r0(optString, c2.f44365d);
+        if (!TextUtils.isEmpty(optString) && c2 != null && !TextUtils.isEmpty(c2.f44757d) && e.y() != null) {
+            e.y().r0(optString, c2.f44757d);
         }
         String optString2 = jSONObject.optString("startTime");
         if (!TextUtils.isEmpty(optString2)) {

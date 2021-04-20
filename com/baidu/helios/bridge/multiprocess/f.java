@@ -12,27 +12,27 @@ public interface f extends IInterface {
     public static abstract class a extends Binder implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f6204a = 1;
+        public static final int f6239a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f6205b = 2;
+        public static final int f6240b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f6206c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
+        public static final String f6241c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0087a implements f {
+        public static class C0086a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f6207a;
+            public IBinder f6242a;
 
-            public C0087a(IBinder iBinder) {
-                this.f6207a = iBinder;
+            public C0086a(IBinder iBinder) {
+                this.f6242a = iBinder;
             }
 
             public String a() {
-                return a.f6206c;
+                return a.f6241c;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.f
@@ -40,7 +40,7 @@ public interface f extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f6206c);
+                    obtain.writeInterfaceToken(a.f6241c);
                     obtain.writeInt(i);
                     if (bundle != null) {
                         obtain.writeInt(1);
@@ -48,7 +48,7 @@ public interface f extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f6207a.transact(2, obtain, obtain2, 0);
+                    this.f6242a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -61,7 +61,7 @@ public interface f extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f6206c);
+                    obtain.writeInterfaceToken(a.f6241c);
                     obtain.writeString(str);
                     if (bundle != null) {
                         obtain.writeInt(1);
@@ -69,7 +69,7 @@ public interface f extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f6207a.transact(1, obtain, obtain2, 0);
+                    this.f6242a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -79,20 +79,20 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6207a;
+                return this.f6242a;
             }
         }
 
         public a() {
-            attachInterface(this, f6206c);
+            attachInterface(this, f6241c);
         }
 
         public static f a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(f6206c);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0087a(iBinder) : (f) queryLocalInterface;
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(f6241c);
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0086a(iBinder) : (f) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -103,16 +103,16 @@ public interface f extends IInterface {
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
             if (i == 1) {
-                parcel.enforceInterface(f6206c);
+                parcel.enforceInterface(f6241c);
                 a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
             } else if (i != 2) {
                 if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
                 }
-                parcel2.writeString(f6206c);
+                parcel2.writeString(f6241c);
                 return true;
             } else {
-                parcel.enforceInterface(f6206c);
+                parcel.enforceInterface(f6241c);
                 a(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
             }
             parcel2.writeNoException();

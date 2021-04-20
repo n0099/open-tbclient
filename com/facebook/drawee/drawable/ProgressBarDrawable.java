@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     public final Paint mPaint = new Paint(1);
     public final Path mPath = new Path();

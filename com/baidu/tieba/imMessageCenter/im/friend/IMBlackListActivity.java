@@ -13,18 +13,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.r.s.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     public d.b.h0.r.s.a mDialog;
-    public d.b.b.c.g.c mListener = new a(0);
+    public d.b.c.c.g.c mListener = new a(0);
     public BlackListModel mModel;
     public BlackListItemData mNeedRemovedData;
-    public d.b.i0.e1.a.c.b mView;
+    public d.b.i0.f1.a.c.b mView;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class a extends d.b.c.c.g.c {
         public a(int i) {
             super(i);
         }
@@ -71,7 +71,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements DialogInterface.OnCancelListener {
         public b() {
         }
@@ -85,7 +85,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public c() {
         }
@@ -100,7 +100,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements a.e {
         public d() {
         }
@@ -127,7 +127,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void initView() {
-        this.mView = new d.b.i0.e1.a.c.b(this);
+        this.mView = new d.b.i0.f1.a.c.b(this);
     }
 
     private void loadData() {

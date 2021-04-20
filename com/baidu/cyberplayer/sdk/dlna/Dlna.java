@@ -25,36 +25,36 @@ public class Dlna {
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = -1018;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4917a = "com.baidu.media.dlna.DlnaProviderImpl";
+    public static String f4952a = "com.baidu.media.dlna.DlnaProviderImpl";
 
     /* renamed from: b  reason: collision with root package name */
-    public static DlnaProvider f4918b;
+    public static DlnaProvider f4953b;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Dlna f4919a = new Dlna();
+        public static final Dlna f4954a = new Dlna();
     }
 
     public Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.f4919a;
+        return a.f4954a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            f4918b = (DlnaProvider) Class.forName(f4917a, true, classLoader).newInstance();
+            f4953b = (DlnaProvider) Class.forName(f4952a, true, classLoader).newInstance();
         } catch (Exception e2) {
             e2.printStackTrace();
-            f4918b = null;
+            f4953b = null;
         }
     }
 
     public PnPController getCtrlPoint(String str) {
-        DlnaProvider dlnaProvider = f4918b;
+        DlnaProvider dlnaProvider = f4953b;
         if (dlnaProvider == null || str == null) {
             return null;
         }
@@ -62,15 +62,15 @@ public class Dlna {
     }
 
     public void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        DlnaProvider dlnaProvider = f4918b;
+        DlnaProvider dlnaProvider = f4953b;
         if (dlnaProvider != null) {
             dlnaProvider.stop();
-            f4918b.search(dlnaSearchListener);
+            f4953b.search(dlnaSearchListener);
         }
     }
 
     public void stop() {
-        DlnaProvider dlnaProvider = f4918b;
+        DlnaProvider dlnaProvider = f4953b;
         if (dlnaProvider != null) {
             dlnaProvider.stop();
         }

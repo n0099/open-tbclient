@@ -53,29 +53,29 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public PrefetchEvent f12183a = new PrefetchEvent();
+        public PrefetchEvent f11844a = new PrefetchEvent();
 
         public b a(@NonNull String str) {
-            this.f12183a.appId = str;
+            this.f11844a.appId = str;
             return this;
         }
 
         public PrefetchEvent b() {
-            return this.f12183a;
+            return this.f11844a;
         }
 
         public b c(@NonNull String str) {
-            this.f12183a.scene = str;
+            this.f11844a.scene = str;
             return this;
         }
 
         public b d(@NonNull String str) {
-            this.f12183a.schema = str;
+            this.f11844a.schema = str;
             return this;
         }
 
         public b e(String str) {
-            this.f12183a.state = str;
+            this.f11844a.state = str;
             return this;
         }
     }
@@ -109,7 +109,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
             hashMap.put("pageUrl", prefetchEvent.pageUrl);
             j.a(prefetchEvent.pageUrl, hashMap);
-        } else if (k.f45051a) {
+        } else if (k.f45443a) {
             Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
         }
         String str = "preload";

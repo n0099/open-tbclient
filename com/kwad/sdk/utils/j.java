@@ -2,6 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.EncryptUtils;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.InputStream;
@@ -9,38 +10,38 @@ import java.io.InputStream;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36779a = "";
+    public static String f37068a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36780b = "";
+    public static String f37069b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36781c = "";
+    public static String f37070c = "";
 
     public static String a(int i) {
         String str;
         String str2;
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
-            com.kwad.sdk.core.d.a.d("EncryptUtils", "EncryptUtils getKey context is null");
+            com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey context is null");
             return "";
         }
         if (i == 0) {
-            str = f36779a;
+            str = f37068a;
             str2 = "aes_key";
         } else if (i == 1) {
-            str = f36780b;
+            str = f37069b;
             str2 = "rsa_public_key";
         } else if (i != 2) {
             str = "";
             str2 = str;
         } else {
-            str = f36781c;
+            str = f37070c;
             str2 = "rsa_private_key";
         }
         if (TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
-                com.kwad.sdk.core.d.a.d("EncryptUtils", "EncryptUtils getKey get id is error ");
+                com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey get id is error ");
             }
             try {
                 InputStream open = Loader.get().getExternalResource().getAssets().open("ksad_common_encrypt_image.png");
@@ -49,14 +50,14 @@ public class j {
                 }
                 String a2 = a(str2, open);
                 if (TextUtils.isEmpty(a2)) {
-                    com.kwad.sdk.core.d.a.d("EncryptUtils", "EncryptUtils getKey get encryptedKey is invalid ");
+                    com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
                 }
                 if (i == 0) {
-                    f36779a = a2;
+                    f37068a = a2;
                 } else if (i == 1) {
-                    f36780b = a2;
+                    f37069b = a2;
                 } else if (i == 2) {
-                    f36781c = a2;
+                    f37070c = a2;
                 }
                 return a2;
             }

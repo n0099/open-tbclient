@@ -34,21 +34,21 @@ public class n extends h {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f51808e;
+        public final /* synthetic */ View.OnClickListener f52232e;
 
         public b(View.OnClickListener onClickListener) {
-            this.f51808e = onClickListener;
+            this.f52232e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f51763f);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f52187f);
             String w1 = n.this.m.n().w1();
-            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(w1, n.this.m.n().z1().D() + "", 1, "other");
-            createNormalCfg.setStartFrom(n.this.f51762e.i());
+            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(w1, n.this.m.n().z1().E() + "", 1, "other");
+            createNormalCfg.setStartFrom(n.this.f52186e.i());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            n.this.f51762e.o(new a.C1118a(1));
-            this.f51808e.onClick(view);
+            n.this.f52186e.o(new a.C1131a(1));
+            this.f52232e.onClick(view);
         }
     }
 
@@ -58,7 +58,7 @@ public class n extends h {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             d.b.i0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return false;
         }
@@ -66,7 +66,7 @@ public class n extends h {
 
     public n(Context context) {
         super(context);
-        r(d.b.b.e.p.l.g(context, R.dimen.M_H_X003));
+        r(d.b.c.e.p.l.g(context, R.dimen.M_H_X003));
         this.l = new ThreadGodReplyLayout(context);
         a aVar = new a();
         this.l.setAfterClickListener(aVar);
@@ -99,8 +99,8 @@ public class n extends h {
     public void a(d.b.h0.r.q.a aVar) {
         this.m = aVar;
         PostData z1 = aVar.n().z1();
-        if (this.n != null && z1 != null && z1.s() != null && z1.s().getUserId() != null) {
-            this.n.param("tid", aVar.n().A).param("post_id", z1.D()).param("uid", z1.s().getUserId());
+        if (this.n != null && z1 != null && z1.t() != null && z1.t().getUserId() != null) {
+            this.n.param("tid", aVar.n().A).param("post_id", z1.E()).param("uid", z1.t().getUserId());
             d.b.i0.x.t.b().a(this.n);
         }
         this.l.setData(aVar.n());

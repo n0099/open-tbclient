@@ -2,7 +2,7 @@ package com.baidu.adp.framework.listener;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import d.b.b.c.d;
+import d.b.c.c.d;
 /* loaded from: classes.dex */
 public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
     public int mCmd;

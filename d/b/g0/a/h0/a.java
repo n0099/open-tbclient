@@ -14,22 +14,22 @@ public class a {
 
     /* renamed from: d.b.g0.a.h0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0698a extends ResponseCallback {
+    public class C0710a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.c f44604a;
+        public final /* synthetic */ d.c f44996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f44605b;
+        public final /* synthetic */ File f44997b;
 
-        public C0698a(d.c cVar, File file) {
-            this.f44604a = cVar;
-            this.f44605b = file;
+        public C0710a(d.c cVar, File file) {
+            this.f44996a = cVar;
+            this.f44997b = file;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.this.c(this.f44604a, 1, 0);
+            a.this.c(this.f44996a, 1, 0);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -38,7 +38,7 @@ public class a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            a.this.d(response, this.f44604a, this.f44605b);
+            a.this.d(response, this.f44996a, this.f44997b);
             return response;
         }
     }
@@ -47,15 +47,15 @@ public class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.c f44607e;
+        public final /* synthetic */ d.c f44999e;
 
         public b(a aVar, d.c cVar) {
-            this.f44607e = cVar;
+            this.f44999e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44607e.onSuccess();
+            this.f44999e.onSuccess();
         }
     }
 
@@ -63,15 +63,15 @@ public class a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.c f44608e;
+        public final /* synthetic */ d.c f45000e;
 
         public c(a aVar, d.c cVar) {
-            this.f44608e = cVar;
+            this.f45000e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44608e.onFailed();
+            this.f45000e.onFailed();
         }
     }
 
@@ -79,19 +79,19 @@ public class a {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.c f44609e;
+        public final /* synthetic */ d.c f45001e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44610f;
+        public final /* synthetic */ int f45002f;
 
         public d(a aVar, d.c cVar, int i) {
-            this.f44609e = cVar;
-            this.f44610f = i;
+            this.f45001e = cVar;
+            this.f45002f = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44609e.a(this.f44610f);
+            this.f45001e.a(this.f45002f);
         }
     }
 
@@ -179,11 +179,11 @@ public class a {
         d.b.g0.p.d.a(fileOutputStream);
     }
 
-    public void e(d.C0849d c0849d, String str, d.c cVar) {
-        d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(c0849d.f46599a, new C0698a(cVar, new File(str)));
-        aVar.f48884f = false;
-        aVar.f48885g = false;
-        aVar.f48886h = false;
+    public void e(d.C0861d c0861d, String str, d.c cVar) {
+        d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(c0861d.f46991a, new C0710a(cVar, new File(str)));
+        aVar.f49276f = false;
+        aVar.f49277g = false;
+        aVar.f49278h = false;
         d.b.g0.k.e.a.f().d(aVar);
     }
 }

@@ -7,39 +7,39 @@ import java.io.InputStream;
 public class a implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f36097a = !a.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f36386a = !a.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f36098b;
+    public InputStream f36387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f36099c;
+    public byte[] f36388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36100d;
+    public int f36389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36101e;
+    public int f36390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36102f;
+    public boolean f36391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36103g;
+    public boolean f36392g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f36104h;
+    public long f36393h;
 
     public a(InputStream inputStream) {
         this(inputStream, 16384);
     }
 
     public a(InputStream inputStream, int i) {
-        this.f36102f = false;
-        this.f36103g = true;
-        this.f36104h = 0L;
-        this.f36098b = inputStream;
-        this.f36099c = new byte[i < 1 ? 16384 : i];
+        this.f36391f = false;
+        this.f36392g = true;
+        this.f36393h = 0L;
+        this.f36387b = inputStream;
+        this.f36388c = new byte[i < 1 ? 16384 : i];
     }
 
     public int a(f fVar) {
@@ -48,21 +48,21 @@ public class a implements Closeable {
 
     public int a(f fVar, int i) {
         a();
-        if (i <= 0 || i >= this.f36100d) {
-            i = this.f36100d;
+        if (i <= 0 || i >= this.f36389d) {
+            i = this.f36389d;
         }
         if (i <= 0) {
-            if (!this.f36102f) {
+            if (!this.f36391f) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen"));
             }
             return fVar.b() ? -1 : 0;
         }
-        int a2 = fVar.a(this.f36099c, this.f36101e, i);
+        int a2 = fVar.a(this.f36388c, this.f36390e, i);
         if (a2 > 0) {
-            this.f36101e += a2;
-            int i2 = this.f36100d - a2;
-            this.f36100d = i2;
-            if (!f36097a && i2 < 0) {
+            this.f36390e += a2;
+            int i2 = this.f36389d - a2;
+            this.f36389d = i2;
+            if (!f36386a && i2 < 0) {
                 throw new AssertionError();
             }
         }
@@ -76,19 +76,19 @@ public class a implements Closeable {
     }
 
     public void a() {
-        if (this.f36100d > 0 || this.f36102f) {
+        if (this.f36389d > 0 || this.f36391f) {
             return;
         }
         try {
-            this.f36101e = 0;
-            int read = this.f36098b.read(this.f36099c);
-            this.f36100d = read;
+            this.f36390e = 0;
+            int read = this.f36387b.read(this.f36388c);
+            this.f36389d = read;
             if (read == 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
             } else if (read < 0) {
                 close();
             } else {
-                this.f36104h += read;
+                this.f36393h += read;
             }
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(new PngjException(e2));
@@ -96,7 +96,7 @@ public class a implements Closeable {
     }
 
     public void a(boolean z) {
-        this.f36103g = z;
+        this.f36392g = z;
     }
 
     public int b(f fVar, int i) {
@@ -108,7 +108,7 @@ public class a implements Closeable {
             }
             i2 -= a2;
         }
-        if (f36097a || i2 == 0) {
+        if (f36386a || i2 == 0) {
             return i;
         }
         throw new AssertionError();
@@ -116,17 +116,17 @@ public class a implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f36102f = true;
-        this.f36099c = null;
-        this.f36100d = 0;
-        this.f36101e = 0;
-        InputStream inputStream = this.f36098b;
-        if (inputStream != null && this.f36103g) {
+        this.f36391f = true;
+        this.f36388c = null;
+        this.f36389d = 0;
+        this.f36390e = 0;
+        InputStream inputStream = this.f36387b;
+        if (inputStream != null && this.f36392g) {
             try {
                 inputStream.close();
             } catch (Exception unused) {
             }
         }
-        this.f36098b = null;
+        this.f36387b = null;
     }
 }

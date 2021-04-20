@@ -21,16 +21,16 @@ import java.util.List;
 public class RecommendForumHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15505e;
+    public int f15168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f15506f;
+    public TbPageContext<?> f15169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ForumTestView f15507g;
+    public ForumTestView f15170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f15508h;
+    public e f15171h;
     public boolean i;
     public CustomMessageListener j;
     public CustomMessageListener k;
@@ -63,7 +63,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921385) {
                 return;
             }
-            if (RecommendForumHeaderView.this.f15507g == null || RecommendForumHeaderView.this.f15507g.getVisibility() == 8) {
+            if (RecommendForumHeaderView.this.f15170g == null || RecommendForumHeaderView.this.f15170g.getVisibility() == 8) {
                 RecommendForumHeaderView.this.i = false;
             } else {
                 RecommendForumHeaderView.this.h();
@@ -73,16 +73,16 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
 
     public RecommendForumHeaderView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f15505e = 3;
+        this.f15168e = 3;
         this.i = true;
         this.j = new a(2921386);
         this.k = new b(2921385);
-        this.f15506f = tbPageContext;
+        this.f15169f = tbPageContext;
         e();
     }
 
     public void d() {
-        e eVar = this.f15508h;
+        e eVar = this.f15171h;
         if (eVar != null) {
             eVar.H();
         }
@@ -97,34 +97,34 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.recom_forum_header_layout, (ViewGroup) this, true);
         ForumTestView forumTestView = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
-        this.f15507g = forumTestView;
+        this.f15170g = forumTestView;
         forumTestView.setOnClickListener(this);
         f();
     }
 
     public void f() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f15505e) {
+        if (skinType == this.f15168e) {
             return;
         }
-        this.f15505e = skinType;
-        ForumTestView forumTestView = this.f15507g;
+        this.f15168e = skinType;
+        ForumTestView forumTestView = this.f15170g;
         if (forumTestView != null) {
             forumTestView.N();
         }
     }
 
     public final void h() {
-        if (this.f15508h == null) {
-            e eVar = new e(this.f15506f, this.f15507g);
-            this.f15508h = eVar;
+        if (this.f15171h == null) {
+            e eVar = new e(this.f15169f, this.f15170g);
+            this.f15171h = eVar;
             eVar.c0(R.drawable.bg_tip_blue_up);
-            this.f15508h.N(32);
-            this.f15508h.d0(true);
-            this.f15508h.M(3000);
-            this.f15508h.g0(0);
-            this.f15508h.L(this);
-            this.f15508h.i0(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
+            this.f15171h.N(32);
+            this.f15171h.d0(true);
+            this.f15171h.M(3000);
+            this.f15171h.g0(0);
+            this.f15171h.L(this);
+            this.f15171h.i0(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
         }
     }
 
@@ -134,7 +134,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f15507g || this.f15508h == null) {
+        if (view == this.f15170g || this.f15171h == null) {
             return;
         }
         d();
@@ -148,11 +148,11 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
 
     public void setData(List<f> list) {
         if (ListUtils.isEmpty(list)) {
-            this.f15507g.setVisibility(8);
+            this.f15170g.setVisibility(8);
             return;
         }
-        this.f15507g.setVisibility(0);
-        this.f15507g.setData(list);
+        this.f15170g.setVisibility(0);
+        this.f15170g.setData(list);
         if (this.i) {
             return;
         }
@@ -161,14 +161,14 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     public void setOnSecectedListener(ForumTestView.c cVar) {
-        ForumTestView forumTestView = this.f15507g;
+        ForumTestView forumTestView = this.f15170g;
         if (forumTestView != null) {
             forumTestView.setOnSecectedListener(cVar);
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        ForumTestView forumTestView = this.f15507g;
+        ForumTestView forumTestView = this.f15170g;
         if (forumTestView != null) {
             forumTestView.setPageId(bdUniqueId);
         }

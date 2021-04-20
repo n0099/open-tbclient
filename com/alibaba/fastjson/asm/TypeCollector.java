@@ -1,11 +1,14 @@
 package com.alibaba.fastjson.asm;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.alibaba.fastjson.annotation.JSONType;
+import com.alibaba.fastjson.util.ASMUtils;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TypeCollector {
+    public static String JSONType = ASMUtils.desc(JSONType.class);
     public static final Map<String, String> primitives = new HashMap<String, String>() { // from class: com.alibaba.fastjson.asm.TypeCollector.1
         {
             put("int", "I");
@@ -19,6 +22,7 @@ public class TypeCollector {
         }
     };
     public MethodCollector collector = null;
+    public boolean jsonType;
     public final String methodName;
     public final Class<?>[] parameterTypes;
 
@@ -29,16 +33,20 @@ public class TypeCollector {
 
     private boolean correctTypeName(Type type, String str) {
         String className = type.getClassName();
-        String str2 = "";
+        StringBuilder sb = new StringBuilder();
         while (className.endsWith("[]")) {
-            str2 = str2 + "[";
+            sb.append('[');
             className = className.substring(0, className.length() - 2);
         }
-        if (!str2.equals("")) {
+        if (sb.length() != 0) {
             if (primitives.containsKey(className)) {
-                className = str2 + primitives.get(className);
+                sb.append(primitives.get(className));
+                className = sb.toString();
             } else {
-                className = str2 + "L" + className + ";";
+                sb.append('L');
+                sb.append(className);
+                sb.append(';');
+                className = sb.toString();
             }
         }
         return className.equals(str);
@@ -47,6 +55,20 @@ public class TypeCollector {
     public String[] getParameterNamesForMethod() {
         MethodCollector methodCollector = this.collector;
         return (methodCollector == null || !methodCollector.debugInfoPresent) ? new String[0] : methodCollector.getResult().split(",");
+    }
+
+    public boolean hasJsonType() {
+        return this.jsonType;
+    }
+
+    public boolean matched() {
+        return this.collector != null;
+    }
+
+    public void visitAnnotation(String str) {
+        if (JSONType.equals(str)) {
+            this.jsonType = true;
+        }
     }
 
     public MethodCollector visitMethod(int i, String str, String str2) {

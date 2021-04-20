@@ -9,44 +9,44 @@ import com.baidu.ufosdk.f.c;
 public final class a extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f22889a;
+    public Context f22574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22890b;
+    public String f22575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22891c;
+    public String f22576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f22892d = false;
+    public boolean f22577d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22893e = false;
+    public boolean f22578e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22894f = false;
+    public boolean f22579f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f22895g = 300;
+    public final long f22580g = 300;
 
     public a(Context context, String str, String str2) {
-        this.f22890b = "";
-        this.f22891c = "";
-        this.f22889a = context;
-        this.f22890b = str;
-        this.f22891c = str2;
+        this.f22575b = "";
+        this.f22576c = "";
+        this.f22574a = context;
+        this.f22575b = str;
+        this.f22576c = str2;
     }
 
     public final void a() {
-        this.f22892d = true;
+        this.f22577d = true;
     }
 
     public final void a(String str) {
-        this.f22890b = str;
+        this.f22575b = str;
     }
 
     public final void b() {
-        this.f22892d = false;
+        this.f22577d = false;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -55,25 +55,25 @@ public final class a extends Thread {
         if (UfoSDK.clientid.length() == 0) {
             return;
         }
-        while (!this.f22892d) {
+        while (!this.f22577d) {
             c.b("###################");
             try {
                 Thread.sleep(300L);
             } catch (InterruptedException e2) {
                 c.a("Interrupted!", e2);
             }
-            if (!this.f22893e && (str = this.f22890b) != null && !str.equals("newMessage")) {
-                if (d.c(this.f22889a)) {
-                    Context context = this.f22889a;
+            if (!this.f22578e && (str = this.f22575b) != null && !str.equals("newMessage")) {
+                if (d.c(this.f22574a)) {
+                    Context context = this.f22574a;
                     String str2 = UfoSDK.clientid;
-                    com.baidu.ufosdk.e.a.a(context, this.f22890b, this.f22891c);
+                    com.baidu.ufosdk.e.a.a(context, this.f22575b, this.f22576c);
                 } else {
-                    this.f22889a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                    this.f22889a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    this.f22574a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    this.f22574a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
                 }
             }
             try {
-                if (!this.f22894f) {
+                if (!this.f22579f) {
                     Thread.sleep(com.baidu.ufosdk.b.ah * 1000);
                 }
             } catch (InterruptedException unused) {

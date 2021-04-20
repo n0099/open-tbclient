@@ -6,16 +6,16 @@ import android.os.Message;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f65930b;
+    public static Handler f66775b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f65931a;
+    public boolean f66776a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public a(i iVar, Looper looper) {
             super(looper);
@@ -26,7 +26,7 @@ public class i {
             int i = message.what;
             if (10001 == i) {
                 j jVar = (j) message.obj;
-                f.a().c(d.d.a.a.a.c(), jVar.f65938f);
+                f.a().c(d.d.a.a.a.c(), jVar.f66783f);
                 h.a().c(jVar);
             } else if (10002 != i) {
                 if (10003 == i) {
@@ -40,11 +40,11 @@ public class i {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f65932a = new i(null);
+        public static i f66777a = new i(null);
     }
 
     public /* synthetic */ i(a aVar) {
@@ -52,11 +52,11 @@ public class i {
     }
 
     public static i a() {
-        return b.f65932a;
+        return b.f66777a;
     }
 
     public void b(String str, int i) {
-        f65930b.obtainMessage(10002, i, -1, str).sendToTarget();
+        f66775b.obtainMessage(10002, i, -1, str).sendToTarget();
     }
 
     public void c(String str, String str2, String str3, String str4, long j) {
@@ -75,22 +75,22 @@ public class i {
             return;
         }
         e();
-        f65930b.obtainMessage(10001, j.a(str, j, str2, k.a(), e.a(), collection, map, str3)).sendToTarget();
+        f66775b.obtainMessage(10001, j.a(str, j, str2, k.a(), e.a(), collection, map, str3)).sendToTarget();
     }
 
     public boolean e() {
-        if (this.f65931a) {
+        if (this.f66776a) {
             return false;
         }
-        this.f65931a = true;
-        f65930b.sendEmptyMessage(10003);
+        this.f66776a = true;
+        f66775b.sendEmptyMessage(10003);
         d.h().a();
         d.d.a.a.a.e().f().loadStrategy();
         return true;
     }
 
     public i() {
-        this.f65931a = false;
-        f65930b = new a(this, g.a().b().getLooper());
+        this.f66776a = false;
+        f66775b = new a(this, g.a().b().getLooper());
     }
 }

@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import d.b.i0.l1.d;
-import d.b.i0.l1.e;
-import d.b.i0.p1.a;
+import d.b.i0.m1.d;
+import d.b.i0.m1.e;
+import d.b.i0.q1.a;
 /* loaded from: classes5.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public TextView mCancel;

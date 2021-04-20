@@ -12,45 +12,45 @@ import java.lang.ref.WeakReference;
 public class c extends ImageSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34256a;
+    public boolean f34545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f34257b;
+    public Rect f34546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint.FontMetricsInt f34258c;
+    public Paint.FontMetricsInt f34547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<Drawable> f34259d;
+    public WeakReference<Drawable> f34548d;
 
     public c(Drawable drawable, String str) {
         super(drawable, str, 1);
-        this.f34256a = true;
-        this.f34258c = new Paint.FontMetricsInt();
+        this.f34545a = true;
+        this.f34547c = new Paint.FontMetricsInt();
     }
 
     private Drawable a(Paint paint) {
-        WeakReference<Drawable> weakReference = this.f34259d;
+        WeakReference<Drawable> weakReference = this.f34548d;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             drawable = getDrawable();
-            if (this.f34256a) {
+            if (this.f34545a) {
                 int fontMetricsInt = paint.getFontMetricsInt(null);
                 drawable.setBounds(0, 0, fontMetricsInt, fontMetricsInt);
             } else {
-                Rect rect = this.f34257b;
+                Rect rect = this.f34546b;
                 if (rect != null) {
                     drawable.setBounds(rect);
                 }
             }
-            this.f34259d = new WeakReference<>(drawable);
+            this.f34548d = new WeakReference<>(drawable);
         }
         return drawable;
     }
 
     public c a(int i, int i2) {
-        this.f34256a = false;
-        this.f34257b = new Rect(0, 0, i, i2);
+        this.f34545a = false;
+        this.f34546b = new Rect(0, 0, i, i2);
         return this;
     }
 
@@ -60,9 +60,9 @@ public class c extends ImageSpan {
         if (paint instanceof TextPaint) {
             a2.setState(((TextPaint) paint).drawableState);
         }
-        int fontMetricsInt = paint.getFontMetricsInt(this.f34258c);
+        int fontMetricsInt = paint.getFontMetricsInt(this.f34547c);
         canvas.save();
-        canvas.translate(f2, i4 + this.f34258c.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
+        canvas.translate(f2, i4 + this.f34547c.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
         a2.draw(canvas);
         canvas.restore();
     }

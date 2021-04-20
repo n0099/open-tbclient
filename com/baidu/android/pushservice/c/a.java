@@ -17,17 +17,17 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f2737a = null;
+    public static e f2772a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f2738b = new Object();
+    public static final Object f2773b = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2739c = 200;
+    public static int f2774c = 200;
 
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public enum EnumC0032a {
+    public enum EnumC0031a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -120,25 +120,25 @@ public class a {
     public static class e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f2796a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
+        public static final String f2831a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f2797b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
+        public static final String f2832b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f2798c;
+        public static final String f2833c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f2799d;
+        public static final String f2834d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f2800e;
+        public static final String f2835e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f2801f;
+        public static final String f2836f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f2802g;
+        public static final String f2837g;
 
         static {
             StringBuilder sb = new StringBuilder();
@@ -149,26 +149,26 @@ public class a {
             sb.append(" TEXT NOT NULL, ");
             sb.append(g.timeStamp.name());
             sb.append(" LONG NOT NULL);");
-            f2798c = sb.toString();
+            f2833c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC0032a.alarmMsgInfoId.name());
+            sb2.append(EnumC0031a.alarmMsgInfoId.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC0032a.msgId.name());
+            sb2.append(EnumC0031a.msgId.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC0032a.sendtime.name());
+            sb2.append(EnumC0031a.sendtime.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0032a.showtime.name());
+            sb2.append(EnumC0031a.showtime.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0032a.expiretime.name());
+            sb2.append(EnumC0031a.expiretime.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0032a.msgEnable.name());
+            sb2.append(EnumC0031a.msgEnable.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC0032a.isAlarm.name());
+            sb2.append(EnumC0031a.isAlarm.name());
             sb2.append(" INTEGER);");
-            f2799d = sb2.toString();
-            f2800e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
-            f2801f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
+            f2834d = sb2.toString();
+            f2835e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
+            f2836f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
             StringBuilder sb3 = new StringBuilder();
             sb3.append("CREATE TABLE NoDisturb (");
             sb3.append(h.pkgName.name());
@@ -181,7 +181,7 @@ public class a {
             sb3.append(" INTEGER, ");
             sb3.append(h.endMinute.name());
             sb3.append(" INTEGER);");
-            f2802g = sb3.toString();
+            f2837g = sb3.toString();
         }
 
         public e(Context context, String str, int i) {
@@ -208,13 +208,13 @@ public class a {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f2796a);
-                sQLiteDatabase.execSQL(f2797b);
-                sQLiteDatabase.execSQL(f2798c);
-                sQLiteDatabase.execSQL(f2799d);
-                sQLiteDatabase.execSQL(f2800e);
-                sQLiteDatabase.execSQL(f2801f);
-                sQLiteDatabase.execSQL(f2802g);
+                sQLiteDatabase.execSQL(f2831a);
+                sQLiteDatabase.execSQL(f2832b);
+                sQLiteDatabase.execSQL(f2833c);
+                sQLiteDatabase.execSQL(f2834d);
+                sQLiteDatabase.execSQL(f2835e);
+                sQLiteDatabase.execSQL(f2836f);
+                sQLiteDatabase.execSQL(f2837g);
             } catch (Exception unused) {
             }
         }
@@ -270,7 +270,7 @@ public class a {
 
     public static long a(Context context, String str, int i2, int i3, int i4, int i5) {
         int update;
-        synchronized (f2738b) {
+        synchronized (f2773b) {
             long j = -1;
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
@@ -340,14 +340,14 @@ public class a {
     }
 
     public static void a() {
-        synchronized (f2738b) {
+        synchronized (f2773b) {
             try {
-                if (f2737a != null) {
-                    f2737a.close();
-                    f2737a = null;
+                if (f2772a != null) {
+                    f2772a.close();
+                    f2772a = null;
                 }
             } catch (Exception unused) {
-                f2737a = null;
+                f2772a = null;
             }
         }
     }
@@ -376,7 +376,7 @@ public class a {
 
     public static boolean a(Context context, String str) {
         Cursor cursor;
-        synchronized (f2738b) {
+        synchronized (f2773b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return true;
@@ -427,7 +427,7 @@ public class a {
                 cursor = a2.rawQuery("SELECT COUNT(*) FROM MsgArriveApp;", null);
                 try {
                     cursor.moveToFirst();
-                    if (cursor.getInt(0) > f2739c) {
+                    if (cursor.getInt(0) > f2774c) {
                         a2.delete("MsgArriveApp", null, null);
                     }
                     a2.insert("MsgArriveApp", null, contentValues);
@@ -471,23 +471,23 @@ public class a {
     }
 
     public static e b(Context context) {
-        synchronized (f2738b) {
-            if (f2737a == null) {
+        synchronized (f2773b) {
+            if (f2772a == null) {
                 String path = context.getDatabasePath("pushstat_8.0.0.db").getPath();
                 a("pushstat_8.0.0.db", context);
                 if (Build.VERSION.SDK_INT >= 11) {
-                    f2737a = new e(context, path, 2, new d());
+                    f2772a = new e(context, path, 2, new d());
                 } else {
-                    f2737a = new e(context, path, 2);
+                    f2772a = new e(context, path, 2);
                 }
             }
         }
-        return f2737a;
+        return f2772a;
     }
 
     public static int[] b(Context context, String str) {
         Cursor cursor;
-        synchronized (f2738b) {
+        synchronized (f2773b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor2 = null;
             if (a2 == null) {

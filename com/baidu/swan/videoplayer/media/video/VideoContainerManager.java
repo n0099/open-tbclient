@@ -29,13 +29,13 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     public class VideoHolderWrapper extends FrameLayout {
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f13069e;
+        public FrameLayout f12730e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f13070f;
+        public ImageView f12731f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SimpleDraweeView f13071g;
+        public SimpleDraweeView f12732g;
 
         public VideoHolderWrapper(@NonNull Context context) {
             super(context);
@@ -74,35 +74,35 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
 
         public final void c() {
             ImageView imageView = new ImageView(VideoContainerManager.this.i);
-            this.f13070f = imageView;
+            this.f12731f = imageView;
             imageView.setImageResource(d.b.g0.s.c.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.f13070f, layoutParams);
+            addView(this.f12731f, layoutParams);
         }
 
         public final void d() {
-            this.f13071g = new SimpleDraweeView(getContext());
+            this.f12732g = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.f13071g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-            addView(this.f13071g, layoutParams);
+            this.f12732g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            addView(this.f12732g, layoutParams);
         }
 
         public final void e() {
-            this.f13069e = new FrameLayout(getContext());
-            addView(this.f13069e, new FrameLayout.LayoutParams(-1, -1));
+            this.f12730e = new FrameLayout(getContext());
+            addView(this.f12730e, new FrameLayout.LayoutParams(-1, -1));
         }
 
         public View getPlayerIcon() {
-            return this.f13070f;
+            return this.f12731f;
         }
 
         public FrameLayout getVideoHolder() {
-            return this.f13069e;
+            return this.f12730e;
         }
 
         public SimpleDraweeView getVideoPoster() {
-            return this.f13071g;
+            return this.f12732g;
         }
 
         public void setPoster(String str) {
@@ -137,8 +137,8 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             } else if (c2 == 2) {
                 ScalingUtils.ScaleType scaleType4 = ScalingUtils.ScaleType.FIT_XY;
             }
-            this.f13071g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-            a(str, this.f13071g);
+            this.f12732g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            a(str, this.f12732g);
         }
     }
 
@@ -214,7 +214,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             return;
         }
         c n = n();
-        if (!TextUtils.equals(cVar.f43113f, n.f43113f) || !TextUtils.equals(cVar.f43114g, n.f43114g) || !TextUtils.equals(cVar.f43115h, n.f43115h)) {
+        if (!TextUtils.equals(cVar.f43505f, n.f43505f) || !TextUtils.equals(cVar.f43506g, n.f43506g) || !TextUtils.equals(cVar.f43507h, n.f43507h)) {
             d.b.g0.a.a0.g.a.a("video", "updateCoverContainerPosition with different id");
         }
         d.b.g0.a.a0.b.c G = G(cVar);

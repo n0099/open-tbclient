@@ -35,7 +35,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("url", breakpointInfo.getUrl());
         contentValues.put("etag", breakpointInfo.getEtag());
         contentValues.put(BreakpointSQLiteKey.PARENT_PATH, breakpointInfo.getParentFile().getAbsolutePath());
-        contentValues.put(BreakpointSQLiteKey.FILENAME, breakpointInfo.getFilename());
+        contentValues.put("filename", breakpointInfo.getFilename());
         contentValues.put(BreakpointSQLiteKey.TASK_ONLY_PARENT_PATH, Integer.valueOf(breakpointInfo.isTaskOnlyProvidedParentPath() ? 1 : 0));
         contentValues.put("chunked", Integer.valueOf(breakpointInfo.isChunked() ? 1 : 0));
         return contentValues;
@@ -79,7 +79,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         try {
             cursor = writableDatabase.rawQuery("SELECT * FROM bddownloadResponseFilename", null);
             while (cursor.moveToNext()) {
-                hashMap.put(cursor.getString(cursor.getColumnIndex("url")), cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.FILENAME)));
+                hashMap.put(cursor.getString(cursor.getColumnIndex("url")), cursor.getString(cursor.getColumnIndex("filename")));
             }
             return hashMap;
         } finally {
@@ -205,13 +205,13 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase writableDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues(2);
         contentValues.put("url", str);
-        contentValues.put(BreakpointSQLiteKey.FILENAME, str2);
+        contentValues.put("filename", str2);
         Cursor cursor = null;
         try {
             Cursor rawQuery = writableDatabase.rawQuery("SELECT filename FROM bddownloadResponseFilename WHERE url = ?", new String[]{str});
             try {
                 if (rawQuery.moveToFirst()) {
-                    if (!str2.equals(rawQuery.getString(rawQuery.getColumnIndex(BreakpointSQLiteKey.FILENAME)))) {
+                    if (!str2.equals(rawQuery.getString(rawQuery.getColumnIndex("filename")))) {
                         writableDatabase.replace(RESPONSE_FILENAME_TABLE_NAME, null, contentValues);
                     }
                 } else {

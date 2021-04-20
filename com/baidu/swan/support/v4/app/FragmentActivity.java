@@ -143,13 +143,13 @@ public class FragmentActivity extends g implements a.b, c.a {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f13038a;
+        public Object f12699a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<Fragment> f13039b;
+        public List<Fragment> f12700b;
 
         /* renamed from: c  reason: collision with root package name */
-        public f<String, o> f13040c;
+        public f<String, o> f12701c;
     }
 
     private void dumpViewHierarchy(String str, PrintWriter printWriter, View view) {
@@ -293,7 +293,7 @@ public class FragmentActivity extends g implements a.b, c.a {
     public Object getLastCustomNonConfigurationInstance() {
         c cVar = (c) getLastNonConfigurationInstance();
         if (cVar != null) {
-            return cVar.f13038a;
+            return cVar.f12699a;
         }
         return null;
     }
@@ -351,10 +351,10 @@ public class FragmentActivity extends g implements a.b, c.a {
         super.onCreate(bundle);
         c cVar = (c) getLastNonConfigurationInstance();
         if (cVar != null) {
-            this.mFragments.E(cVar.f13040c);
+            this.mFragments.E(cVar.f12701c);
         }
         if (bundle != null) {
-            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f13039b : null);
+            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f12700b : null);
         }
         this.mFragments.f();
     }
@@ -515,9 +515,9 @@ public class FragmentActivity extends g implements a.b, c.a {
             return null;
         }
         c cVar = new c();
-        cVar.f13038a = onRetainCustomNonConfigurationInstance;
-        cVar.f13039b = G;
-        cVar.f13040c = F;
+        cVar.f12699a = onRetainCustomNonConfigurationInstance;
+        cVar.f12700b = G;
+        cVar.f12701c = F;
         return cVar;
     }
 

@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class g extends d.b.b.j.e.a<d.b.i0.t.j.d.j, CardViewHolder<d.b.i0.t.j.h.a>> {
+public class g extends d.b.c.j.e.a<d.b.i0.t.j.d.j, CardViewHolder<d.b.i0.t.j.h.a>> {
     public TbPageContext m;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.j.d.j f60831e;
+        public final /* synthetic */ d.b.i0.t.j.d.j f62395e;
 
         public a(d.b.i0.t.j.d.j jVar) {
-            this.f60831e = jVar;
+            this.f62395e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            g.this.j0(this.f60831e);
+            g.this.j0(this.f62395e);
         }
     }
 
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.j.f60869f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.j.f62433f);
         this.m = tbPageContext;
     }
 
@@ -40,7 +40,7 @@ public class g extends d.b.b.j.e.a<d.b.i0.t.j.d.j, CardViewHolder<d.b.i0.t.j.h.a
             return;
         }
         aVar.z(8);
-        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_my_fans_family));
+        aVar.A(this.f42855e.getResources().getString(R.string.ala_person_live_my_fans_family));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -49,18 +49,18 @@ public class g extends d.b.b.j.e.a<d.b.i0.t.j.d.j, CardViewHolder<d.b.i0.t.j.h.a
             return;
         }
         TiebaStatic.log("c13134");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.f42358e, jVar.g().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.f42855e, jVar.g().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public CardViewHolder<d.b.i0.t.j.h.a> R(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.b.i0.t.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.j.d.j jVar, CardViewHolder<d.b.i0.t.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {

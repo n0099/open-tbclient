@@ -7,13 +7,13 @@ import javax.crypto.spec.SecretKeySpec;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1899a = "DESede/CBC/PKCS5Padding";
+    public static String f1924a = "DESede/CBC/PKCS5Padding";
 
     public static byte[] a(String str, byte[] bArr) {
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
             IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-            Cipher cipher = Cipher.getInstance(f1899a);
+            Cipher cipher = Cipher.getInstance(f1924a);
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr);
         } catch (Exception unused) {
@@ -25,7 +25,7 @@ public class e {
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
             IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-            Cipher cipher = Cipher.getInstance(f1899a);
+            Cipher cipher = Cipher.getInstance(f1924a);
             cipher.init(2, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr);
         } catch (Exception unused) {

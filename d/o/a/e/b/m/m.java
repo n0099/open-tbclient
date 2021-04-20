@@ -10,7 +10,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService;
 import com.ss.android.socialbase.downloader.downloader.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class m extends d.o.a.e.b.g.c implements ServiceConnection {
     public static final String p = m.class.getSimpleName();
     public com.ss.android.socialbase.downloader.downloader.h m;
@@ -90,11 +90,11 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
         sb.append("onServiceConnected aidlService!=null");
         sb.append(this.m != null);
         sb.append(" pendingTasks.size:");
-        sb.append(this.f66973f.size());
+        sb.append(this.f67966f.size());
         d.o.a.e.b.c.a.g(str, sb.toString());
         if (this.m != null) {
             d.o.a.e.b.g.e.c().p();
-            this.f66974g = true;
+            this.f67967g = true;
             this.i = false;
             int i = this.o;
             if (i != -1) {
@@ -104,10 +104,10 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
                     e2.printStackTrace();
                 }
             }
-            synchronized (this.f66973f) {
+            synchronized (this.f67966f) {
                 if (this.m != null) {
-                    SparseArray<d.o.a.e.b.n.a> clone = this.f66973f.clone();
-                    this.f66973f.clear();
+                    SparseArray<d.o.a.e.b.n.a> clone = this.f67966f.clone();
+                    this.f67966f.clear();
                     for (int i2 = 0; i2 < clone.size(); i2++) {
                         d.o.a.e.b.n.a aVar = clone.get(clone.keyAt(i2));
                         if (aVar != null) {
@@ -127,7 +127,7 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         d.o.a.e.b.c.a.g(p, "onServiceDisconnected ");
         this.m = null;
-        this.f66974g = false;
+        this.f67967g = false;
         d.o.a.e.b.g.n nVar = this.n;
         if (nVar != null) {
             nVar.h();
@@ -149,10 +149,10 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
             e(d.o.a.e.b.g.d.l(), this);
             return;
         }
-        if (this.f66973f.get(aVar.G()) != null) {
-            synchronized (this.f66973f) {
-                if (this.f66973f.get(aVar.G()) != null) {
-                    this.f66973f.remove(aVar.G());
+        if (this.f67966f.get(aVar.G()) != null) {
+            synchronized (this.f67966f) {
+                if (this.f67966f.get(aVar.G()) != null) {
+                    this.f67966f.remove(aVar.G());
                 }
             }
         }
@@ -161,9 +161,9 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
-        synchronized (this.f66973f) {
-            SparseArray<d.o.a.e.b.n.a> clone = this.f66973f.clone();
-            this.f66973f.clear();
+        synchronized (this.f67966f) {
+            SparseArray<d.o.a.e.b.n.a> clone = this.f67966f.clone();
+            this.f67966f.clear();
             if (d.o.a.e.b.g.d.c() != null) {
                 for (int i = 0; i < clone.size(); i++) {
                     if (clone.get(clone.keyAt(i)) != null) {

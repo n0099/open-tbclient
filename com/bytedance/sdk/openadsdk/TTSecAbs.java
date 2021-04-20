@@ -6,7 +6,7 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TTSecAbs {
     public String NM_getAppKey() {
         return "df979cdb-05a7-448c-bece-92d5005a1247";

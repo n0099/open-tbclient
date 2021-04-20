@@ -14,7 +14,7 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import d.b.h0.r.q.d;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public TbImageView A;
     public TextView B;
@@ -22,21 +22,21 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public ImageView D;
     public XfremodeRoundLayout z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20768e;
+        public final /* synthetic */ AdCard f20452e;
 
         public a(AdCard adCard) {
-            this.f20768e = adCard;
+            this.f20452e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.c0(this.f20768e);
+                adCardSmallPicVideoView.c0(this.f20452e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -65,7 +65,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                 this.A.W(str, 17, false);
             }
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            if (advertAppInfo != null && advertAppInfo.A4()) {
+            if (advertAppInfo != null && advertAppInfo.B4()) {
                 this.r.setOnClickListener(new a(adCard));
             }
             this.D.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
@@ -104,8 +104,8 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             String pageTypeByBusiness = getPageTypeByBusiness();
             d dVar = advertAppInfo.Y3;
             if (dVar != null) {
-                i = dVar.f50750b;
-                pageTypeByBusiness = dVar.f50749a;
+                i = dVar.f51157b;
+                pageTypeByBusiness = dVar.f51156a;
             }
             this.C.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
         }

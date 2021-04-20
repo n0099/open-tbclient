@@ -2,9 +2,9 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.b1.c.e;
+import d.b.i0.c1.c.e;
 import tbclient.Hottopic.HottopicResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     public e topicData;
 

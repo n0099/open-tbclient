@@ -8,20 +8,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class v0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f65086a = new AtomicBoolean(false);
+    public static final AtomicBoolean f65931a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f65087b = "";
+    public static String f65932b = "";
 
     public static String a(SharedPreferences sharedPreferences) {
-        if (f65086a.compareAndSet(false, true)) {
+        if (f65931a.compareAndSet(false, true)) {
             String string = sharedPreferences.getString("cdid", "");
-            f65087b = string;
+            f65932b = string;
             if (TextUtils.isEmpty(string)) {
-                f65087b = UUID.randomUUID().toString();
-                sharedPreferences.edit().putString("cdid", f65087b).apply();
+                f65932b = UUID.randomUUID().toString();
+                sharedPreferences.edit().putString("cdid", f65932b).apply();
             }
         }
-        return f65087b;
+        return f65932b;
     }
 }

@@ -9,24 +9,24 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.b.j.d.a;
+import d.b.c.e.p.l;
+import d.b.c.j.d.a;
 import d.b.h0.a0.b;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumsTopicsRecommendView extends ViewGroup implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21255e;
+    public Context f20940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f21256f;
+    public final int f20941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f21257g;
+    public final int f20942g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f21258h;
+    public final int f20943h;
     public final int i;
     public ArrayList<TbImageView> j;
     public int k;
@@ -66,9 +66,9 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                     paddingLeft = getPaddingLeft();
                 }
                 childAt.layout(paddingLeft, paddingTop, childAt.getMeasuredWidth() + paddingLeft, childAt.getMeasuredHeight() + paddingTop);
-                paddingLeft += childAt.getMeasuredWidth() + this.f21257g;
+                paddingLeft += childAt.getMeasuredWidth() + this.f20942g;
                 if (i6 != 0) {
-                    paddingTop += childAt.getMeasuredHeight() + this.f21257g;
+                    paddingTop += childAt.getMeasuredHeight() + this.f20942g;
                 }
             }
         }
@@ -78,13 +78,13 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
     public void onMeasure(int i, int i2) {
         int i3 = i & 1073741823;
         int childCount = getChildCount();
-        int i4 = i3 - (this.f21256f * 2);
-        int i5 = (int) ((((i4 - this.f21257g) / 2.0f) * this.l) + 0.5f);
+        int i4 = i3 - (this.f20941f * 2);
+        int i5 = (int) ((((i4 - this.f20942g) / 2.0f) * this.l) + 0.5f);
         for (int i6 = 0; i6 < childCount; i6++) {
-            getChildAt(i6).measure(((i4 - this.f21257g) / 2) + 1073741824, 1073741824 + i5);
+            getChildAt(i6).measure(((i4 - this.f20942g) / 2) + 1073741824, 1073741824 + i5);
         }
         int i7 = this.m / 2;
-        setMeasuredDimension(i3, (i5 * i7) + ((i7 - 1) * this.f21257g) + this.i);
+        setMeasuredDimension(i3, (i5 * i7) + ((i7 - 1) * this.f20942g) + this.i);
     }
 
     public ForumsTopicsRecommendView(Context context, AttributeSet attributeSet) {
@@ -94,19 +94,19 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         this.l = 0.62222224f;
         this.m = 0;
         this.n = null;
-        this.f21255e = context;
-        this.f21258h = l.k(context);
-        this.f21256f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
-        this.f21257g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.f20940e = context;
+        this.f20943h = l.k(context);
+        this.f20941f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
+        this.f20942g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.forums_topics_recommend, (ViewGroup) this, true);
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
-        int i = this.f21258h;
-        int i2 = this.f21256f;
-        this.k = ((i - (i2 * 2)) - this.f21257g) / 2;
+        int i = this.f20943h;
+        int i2 = this.f20941f;
+        this.k = ((i - (i2 * 2)) - this.f20942g) / 2;
         setPadding(i2, 0, i2, 0);
     }
 }

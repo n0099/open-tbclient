@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f50373a = false;
+    public static boolean f50780a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f50374b = "";
+    public static String f50781b = "";
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00db */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0043 */
@@ -38,8 +38,8 @@ public class a {
     /* JADX WARN: Type inference failed for: r8v4, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r8v9 */
     public static String a(File file) {
-        if (f50373a) {
-            return "hasSend_" + f50374b;
+        if (f50780a) {
+            return "hasSend_" + f50781b;
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
         if (file.length() > 3145728 || !TbadkCoreApplication.isLogin()) {
@@ -61,8 +61,8 @@ public class a {
                         String postMultiNetData = netWork.postMultiNetData();
                         if (postMultiNetData != null && !postMultiNetData.isEmpty()) {
                             String string = new JSONObject(postMultiNetData).getString("url");
-                            f50374b = string;
-                            f50373a = true;
+                            f50781b = string;
+                            f50780a = true;
                             try {
                                 fileInputStream2.close();
                             } catch (IOException e2) {

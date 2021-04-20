@@ -12,31 +12,31 @@ import d.b.g0.h.a.j.c;
 public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12964e;
+    public TextView f12625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12965f;
+    public TextView f12626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12966g;
+    public View f12627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationDetailAdapter f12967h;
+    public LocationDetailAdapter f12628h;
     public c i;
     public b j;
 
     public LocationDetailViewHolder(View view, LocationDetailAdapter locationDetailAdapter, b bVar) {
         super(view);
         a(view);
-        this.f12967h = locationDetailAdapter;
+        this.f12628h = locationDetailAdapter;
         this.j = bVar;
     }
 
     public final void a(View view) {
-        this.f12964e = (TextView) view.findViewById(R.id.main_title);
-        this.f12965f = (TextView) view.findViewById(R.id.sub_title);
+        this.f12625e = (TextView) view.findViewById(R.id.main_title);
+        this.f12626f = (TextView) view.findViewById(R.id.sub_title);
         View findViewById = view.findViewById(R.id.select);
-        this.f12966g = findViewById;
+        this.f12627g = findViewById;
         findViewById.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
@@ -54,21 +54,21 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public void c(c cVar, String str, boolean z) {
         if (cVar != null) {
             this.i = cVar;
-            this.f12964e.setText(z ? b(cVar.f48771a.name, str) : cVar.f48771a.name);
-            this.f12965f.setVisibility(0);
-            this.f12965f.setText(cVar.f48771a.address);
-            if (cVar.f48773c || TextUtils.isEmpty(cVar.f48771a.address)) {
-                this.f12965f.setVisibility(8);
+            this.f12625e.setText(z ? b(cVar.f49163a.name, str) : cVar.f49163a.name);
+            this.f12626f.setVisibility(0);
+            this.f12626f.setText(cVar.f49163a.address);
+            if (cVar.f49165c || TextUtils.isEmpty(cVar.f49163a.address)) {
+                this.f12626f.setVisibility(8);
             }
-            this.f12966g.setVisibility(cVar.f48772b ? 0 : 8);
+            this.f12627g.setVisibility(cVar.f49164b ? 0 : 8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f12967h.o();
-        this.i.f48772b = true;
-        this.f12967h.notifyDataSetChanged();
+        this.f12628h.o();
+        this.i.f49164b = true;
+        this.f12628h.notifyDataSetChanged();
         b bVar = this.j;
         if (bVar != null) {
             bVar.c(this.i);

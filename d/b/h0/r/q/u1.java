@@ -7,27 +7,27 @@ import tbclient.GeneralResource;
 public class u1 extends BaseCardInfo {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f50893h = BdUniqueId.gen();
+    public static final BdUniqueId f51300h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50894e;
+    public String f51301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50895f;
+    public String f51302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50896g;
+    public int f51303g;
 
     public void g(GeneralResource generalResource) {
         if (generalResource != null) {
-            this.f50894e = generalResource.res_image;
-            this.f50895f = generalResource.res_link;
-            this.f50896g = generalResource.res_floor.intValue();
+            this.f51301e = generalResource.res_image;
+            this.f51302f = generalResource.res_link;
+            this.f51303g = generalResource.res_floor.intValue();
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f50893h;
+        return f51300h;
     }
 }

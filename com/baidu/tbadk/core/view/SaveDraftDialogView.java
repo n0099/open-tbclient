@@ -9,22 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class SaveDraftDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f13475e;
+    public LinearLayout f13136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13476f;
+    public TextView f13137f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f13477g;
+    public TextView f13138g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f13478h;
+    public TextView f13139h;
     public TextView i;
     public TextView j;
     public GradientDrawable k;
@@ -35,9 +35,9 @@ public class SaveDraftDialogView extends LinearLayout {
     }
 
     public final void a() {
-        SkinManager.setViewTextColor(this.f13476f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f13477g, R.color.CAM_X0108);
-        SkinManager.setViewTextColor(this.f13478h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f13137f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f13138g, R.color.CAM_X0108);
+        SkinManager.setViewTextColor(this.f13139h, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0302);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0107);
         if (this.k == null) {
@@ -53,30 +53,30 @@ public class SaveDraftDialogView extends LinearLayout {
         setOrientation(1);
         setPadding(0, 0, 0, l.g(context, R.dimen.tbds21));
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f13475e = linearLayout;
+        this.f13136e = linearLayout;
         linearLayout.setOrientation(1);
-        this.f13475e.setGravity(17);
-        addView(this.f13475e, -1, l.g(context, R.dimen.tbds182));
+        this.f13136e.setGravity(17);
+        addView(this.f13136e, -1, l.g(context, R.dimen.tbds182));
         int g2 = l.g(context, R.dimen.tbds44);
         TextView textView = new TextView(context);
-        this.f13476f = textView;
+        this.f13137f = textView;
         float f2 = g2;
         textView.setTextSize(0, f2);
-        this.f13476f.setGravity(17);
-        this.f13475e.addView(this.f13476f, -1, -2);
+        this.f13137f.setGravity(17);
+        this.f13136e.addView(this.f13137f, -1, -2);
         TextView textView2 = new TextView(context);
-        this.f13477g = textView2;
+        this.f13138g = textView2;
         textView2.setTextSize(0, l.g(context, R.dimen.tbds34));
-        this.f13477g.setGravity(17);
-        this.f13477g.setPadding(0, l.g(context, R.dimen.tbds10), 0, 0);
-        this.f13475e.addView(this.f13477g, -1, -2);
+        this.f13138g.setGravity(17);
+        this.f13138g.setPadding(0, l.g(context, R.dimen.tbds10), 0, 0);
+        this.f13136e.addView(this.f13138g, -1, -2);
         TextView textView3 = new TextView(context);
-        this.f13478h = textView3;
+        this.f13139h = textView3;
         textView3.setId(R.id.save_draft_dialog_not_save);
-        this.f13478h.setTextSize(0, f2);
-        this.f13478h.setGravity(17);
-        this.f13478h.setText(R.string.not_save);
-        addView(this.f13478h, -1, l.g(context, R.dimen.tbds136));
+        this.f13139h.setTextSize(0, f2);
+        this.f13139h.setGravity(17);
+        this.f13139h.setText(R.string.not_save);
+        addView(this.f13139h, -1, l.g(context, R.dimen.tbds136));
         TextView textView4 = new TextView(context);
         this.i = textView4;
         textView4.setId(R.id.save_draft_dialog_save);
@@ -95,20 +95,20 @@ public class SaveDraftDialogView extends LinearLayout {
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.f13478h.setOnClickListener(onClickListener);
+        this.f13139h.setOnClickListener(onClickListener);
         this.i.setOnClickListener(onClickListener);
         this.j.setOnClickListener(onClickListener);
     }
 
     public void setText(String str, @Nullable String str2, String str3) {
-        this.f13476f.setText(str);
+        this.f13137f.setText(str);
         this.i.setText(str3);
         if (!k.isEmpty(str2)) {
-            this.f13477g.setText(str2);
-            this.f13477g.setVisibility(0);
+            this.f13138g.setText(str2);
+            this.f13138g.setVisibility(0);
             return;
         }
-        this.f13477g.setVisibility(8);
+        this.f13138g.setVisibility(8);
     }
 
     public SaveDraftDialogView(Context context, @Nullable AttributeSet attributeSet) {

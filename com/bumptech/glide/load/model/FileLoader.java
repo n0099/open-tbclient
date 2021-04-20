@@ -3,6 +3,7 @@ package com.bumptech.glide.load.model;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.alibaba.fastjson.asm.Label;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Options;
@@ -57,7 +58,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public ParcelFileDescriptor open(File file) throws FileNotFoundException {
-                    return ParcelFileDescriptor.open(file, 268435456);
+                    return ParcelFileDescriptor.open(file, Label.FORWARD_REFERENCE_TYPE_SHORT);
                 }
             });
         }

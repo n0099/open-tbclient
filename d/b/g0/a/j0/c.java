@@ -25,19 +25,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
-    public static final boolean l = k.f45051a;
+    public static final boolean l = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public final InterfaceC0705c f44795e;
+    public final InterfaceC0717c f45187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f44796f = ProcessUtils.getCurProcessName();
+    public final String f45188f = ProcessUtils.getCurProcessName();
 
     /* renamed from: g  reason: collision with root package name */
-    public f f44797g;
+    public f f45189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f44798h;
+    public g f45190h;
     public AtomicInteger i;
     public CopyOnWriteArrayList<String> j;
     public d.b.g0.a.j0.h.f k;
@@ -57,40 +57,40 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
     public class b implements h.n.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f44800e;
+        public final /* synthetic */ List f45192e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44801f;
+        public final /* synthetic */ boolean f45193f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b.C0708b f44802g;
+        public final /* synthetic */ b.C0720b f45194g;
 
-        public b(List list, boolean z, b.C0708b c0708b) {
-            this.f44800e = list;
-            this.f44801f = z;
-            this.f44802g = c0708b;
+        public b(List list, boolean z, b.C0720b c0720b) {
+            this.f45192e = list;
+            this.f45193f = z;
+            this.f45194g = c0720b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(String str) {
-            c.this.h(this.f44800e, this.f44801f, this.f44802g);
+            c.this.h(this.f45192e, this.f45193f, this.f45194g);
         }
     }
 
     /* renamed from: d.b.g0.a.j0.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0705c extends d.b.g0.a.j0.b {
+    public interface InterfaceC0717c extends d.b.g0.a.j0.b {
     }
 
-    public c(InterfaceC0705c interfaceC0705c) {
-        this.f44795e = interfaceC0705c;
+    public c(InterfaceC0717c interfaceC0717c) {
+        this.f45187e = interfaceC0717c;
         ExecutorUtilsExt.postOnElastic(new a(), "addLoginStatusChangedListener", 2);
         this.i = new AtomicInteger(0);
         this.j = new CopyOnWriteArrayList<>();
-        this.f44797g = new f();
-        this.f44798h = new g();
+        this.f45189g = new f();
+        this.f45190h = new g();
         this.k = new d.b.g0.a.j0.h.f();
         if (l) {
             Log.i("SwanAppPurger", "create : " + toString());
@@ -99,7 +99,7 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
 
     @Override // d.b.g0.a.m.c
     public void a(boolean z) {
-        String a2 = d.b.g0.a.w0.a.O().a(this.f44795e.a());
+        String a2 = d.b.g0.a.w0.a.O().a(this.f45187e.a());
         if (l) {
             Log.i("SwanAppPurger", "onLoginStatusChanged : " + toString());
             Log.i("SwanAppPurger", "onLoginStatusChanged : uid(" + a2 + ")  -> " + z);
@@ -134,37 +134,37 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
                 }
                 d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
                 d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(i);
-                cVar.b(next.f45391f);
+                cVar.b(next.f45783f);
                 e2.h(cVar);
             }
         }
         return hashSet;
     }
 
-    public final void d(String str, b.C0708b c0708b) {
-        d.b.g0.a.j0.j.c.l(c0708b).b(str);
-        this.f44797g.g(str);
-        this.f44798h.g(str);
+    public final void d(String str, b.C0720b c0720b) {
+        d.b.g0.a.j0.j.c.l(c0720b).b(str);
+        this.f45189g.g(str);
+        this.f45190h.g(str);
         d.b.g0.a.e0.p.p.a.n(str);
     }
 
-    public void e(@Nullable String str, boolean z, b.C0708b c0708b) {
+    public void e(@Nullable String str, boolean z, b.C0720b c0720b) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(str);
-        f(arrayList, z, c0708b);
+        f(arrayList, z, c0720b);
     }
 
-    public void f(@Nullable List<String> list, boolean z, b.C0708b c0708b) {
+    public void f(@Nullable List<String> list, boolean z, b.C0720b c0720b) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        g(list, true, z, c0708b);
+        g(list, true, z, c0720b);
     }
 
-    public void g(@Nullable List<String> list, boolean z, boolean z2, b.C0708b c0708b) {
+    public void g(@Nullable List<String> list, boolean z, boolean z2, b.C0720b c0720b) {
         if (!ProcessUtils.isMainProcess()) {
             if (l) {
                 Log.w("SwanAppPurger", "非主进程调用，不执行操作");
@@ -181,11 +181,11 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
         if (list == null || list.isEmpty()) {
             return;
         }
-        h.d.j("").p(Schedulers.io()).D(new b(list, z, c0708b));
+        h.d.j("").p(Schedulers.io()).D(new b(list, z, c0720b));
     }
 
     @WorkerThread
-    public void h(@Nullable List<String> list, boolean z, b.C0708b c0708b) {
+    public void h(@Nullable List<String> list, boolean z, b.C0720b c0720b) {
         if (list == null) {
             if (l) {
                 Log.d("SwanAppPurger", "deleteSwanAppAndResetAccreditSync empty");
@@ -198,7 +198,7 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
             if (l) {
                 Log.d("SwanAppPurger", "删除小程序==>开始重置小程序授权");
             }
-            this.f44797g.f(list);
+            this.f45189g.f(list);
             int size = list.size();
             String[] strArr = new String[size];
             for (int i = 0; i < size; i++) {
@@ -209,7 +209,7 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
         if (l) {
             Log.d("SwanAppPurger", "删除小程序==>清除小程序数据、杀进程");
         }
-        this.f44797g.d(list);
+        this.f45189g.d(list);
         for (String str : list) {
             if (this.j.contains(str)) {
                 if (l) {
@@ -222,22 +222,22 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
                 if (l) {
                     Log.d("SwanAppPurger", "删除小程序==>删除小程序文件: " + str);
                 }
-                d(str, c0708b);
+                d(str, c0720b);
                 if (l) {
                     Log.d("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str);
                 }
-                this.f44797g.e(str);
+                this.f45189g.e(str);
                 if (l) {
                     Log.d("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str);
                 }
-                this.f44797g.c(str);
+                this.f45189g.c(str);
             }
         }
         if (this.i.decrementAndGet() <= 0) {
             this.i.set(0);
             this.j.clear();
         }
-        d.b.g0.a.j0.j.c.l(c0708b).i();
+        d.b.g0.a.j0.j.c.l(c0720b).i();
     }
 
     public final void i(@Nullable List<String> list) {
@@ -256,11 +256,11 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
             boolean contains = i.contains(next);
             boolean containsKey = hashMap.containsKey(next);
             if (!contains && !containsKey) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     Log.d("SwanAppPurger", "清理过滤-不过滤： " + next);
                 }
             } else {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     Log.d("SwanAppPurger", "清理过滤-过滤此App：" + next + "； 历史：" + contains + "； 我的小程序：" + containsKey);
                 }
                 it.remove();
@@ -306,14 +306,14 @@ public class c implements d.b.g0.a.m.c, d.b.g0.a.j0.j.b {
         d.b.g0.a.w0.a.Z().b("aiapp_setting_", set, true);
     }
 
-    public void q(@Nullable Set<String> set, b.C0708b c0708b) {
+    public void q(@Nullable Set<String> set, b.C0720b c0720b) {
         d.b.g0.a.j0.h.f fVar = this.k;
         if (fVar != null) {
-            fVar.d(set, c0708b);
+            fVar.d(set, c0720b);
         }
     }
 
     public String toString() {
-        return "Process<" + this.f44796f + "> " + super.toString();
+        return "Process<" + this.f45188f + "> " + super.toString();
     }
 }

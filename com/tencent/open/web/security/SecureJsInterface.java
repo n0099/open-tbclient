@@ -2,12 +2,12 @@ package com.tencent.open.web.security;
 
 import com.tencent.open.a;
 import com.tencent.open.a.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SecureJsInterface extends a.b {
     public static boolean isPWDEdit = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39340a;
+    public String f39629a;
 
     public void clearAllEdit() {
         f.c("openSDK_LOG.SecureJsInterface", "-->clear all edit.");
@@ -29,19 +29,19 @@ public class SecureJsInterface extends a.b {
             i = -1;
         }
         if (i >= 0) {
-            boolean z = a.f39343c;
-            boolean z2 = a.f39342b;
+            boolean z = a.f39632c;
+            boolean z2 = a.f39631b;
             if (z2) {
                 if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i)).booleanValue()) {
-                    a.f39342b = false;
+                    a.f39631b = false;
                     return;
                 }
                 return;
             }
-            String str2 = a.f39341a;
-            this.f39340a = str2;
+            String str2 = a.f39630a;
+            this.f39629a = str2;
             JniInterface.insetTextToArray(i, str2, str2.length());
-            f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39340a);
+            f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39629a);
             return;
         }
         throw new RuntimeException("position is illegal.");

@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCategoryActivity> {
     public PersonalCardCategoryModel mModel;
     public SetPersonalCardModel mSetCardModel;
-    public d.b.i0.i3.g.a.c mView;
+    public d.b.i0.j3.g.a.c mView;
     public PersonalCardItemView.b mCardViewController = new a();
     public PersonalCardCategoryModel.b mDataCallback = new b();
     public SetPersonalCardModel.b mSetCardCallback = new c();
@@ -27,11 +27,11 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
 
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.b
-        public void a(d.b.i0.i3.a aVar) {
+        public void a(d.b.i0.j3.a aVar) {
             if (aVar == null) {
                 return;
             }
-            if (aVar.a() == d.b.i0.i3.a.k) {
+            if (aVar.a() == d.b.i0.j3.a.k) {
                 if (aVar.g() == 1 || PersonalCardCategoryActivity.this.mSetCardModel == null) {
                     return;
                 }
@@ -48,7 +48,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
 
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel.b
-        public void a(int i, String str, e eVar, List<d.b.i0.i3.g.a.a> list, boolean z) {
+        public void a(int i, String str, e eVar, List<d.b.i0.j3.g.a.a> list, boolean z) {
             PersonalCardCategoryActivity personalCardCategoryActivity = PersonalCardCategoryActivity.this;
             personalCardCategoryActivity.hideLoadingView(personalCardCategoryActivity.mView.c());
             if (i != 0) {
@@ -93,7 +93,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     public d.b.h0.k0.d getPageStayDurationItem() {
         d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
         }
         return pageStayDurationItem;
     }
@@ -101,7 +101,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.i3.g.a.c cVar = this.mView;
+        d.b.i0.j3.g.a.c cVar = this.mView;
         if (cVar != null) {
             cVar.d();
         }
@@ -110,7 +110,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.b.i0.i3.g.a.c cVar = new d.b.i0.i3.g.a.c(this);
+        d.b.i0.j3.g.a.c cVar = new d.b.i0.j3.g.a.c(this);
         this.mView = cVar;
         cVar.h(this.mScrollToBottomListener);
         this.mView.g(this.mCardViewController);
@@ -139,7 +139,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.b.i0.i3.g.a.c cVar;
+        d.b.i0.j3.g.a.c cVar;
         if (this.mModel == null || (cVar = this.mView) == null) {
             return;
         }

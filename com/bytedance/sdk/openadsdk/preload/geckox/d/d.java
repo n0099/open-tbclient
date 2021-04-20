@@ -5,20 +5,20 @@ import com.bytedance.sdk.openadsdk.preload.geckox.utils.k;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, List<Pair<String, Long>>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public File f30268d;
+    public File f29953d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30269e;
+    public String f29954e;
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.f30268d = (File) objArr[0];
-        this.f30269e = (String) objArr[1];
+        this.f29953d = (File) objArr[0];
+        this.f29954e = (String) objArr[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, Lis
     /* renamed from: a */
     public Object a_(com.bytedance.sdk.openadsdk.preload.b.b<List<Pair<String, Long>>> bVar, List<String> list) throws Exception {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", list);
-        File file = new File(this.f30268d, this.f30269e);
+        File file = new File(this.f29953d, this.f29954e);
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
             Long a2 = k.a(new File(file, str));

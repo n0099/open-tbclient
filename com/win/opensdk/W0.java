@@ -6,35 +6,35 @@ import java.lang.ref.WeakReference;
 public class W0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static W0 f39825d;
+    public static W0 f40114d;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference f39826a;
+    public WeakReference f40115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PBInterstitial f39827b;
+    public PBInterstitial f40116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39828c = "Poseidon";
+    public String f40117c = "Poseidon";
 
     public W0(Context context) {
-        this.f39826a = new WeakReference(context);
+        this.f40115a = new WeakReference(context);
     }
 
     public static W0 a(Context context) {
-        if (f39825d == null) {
+        if (f40114d == null) {
             synchronized (W0.class) {
-                if (f39825d == null) {
-                    f39825d = new W0(context);
+                if (f40114d == null) {
+                    f40114d = new W0(context);
                 }
             }
         }
-        return f39825d;
+        return f40114d;
     }
 
     public final Context a() {
         Object obj;
-        WeakReference weakReference = this.f39826a;
+        WeakReference weakReference = this.f40115a;
         if (weakReference == null || (obj = weakReference.get()) == null || !(obj instanceof Context)) {
             return null;
         }

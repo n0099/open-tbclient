@@ -48,16 +48,16 @@ import org.json.JSONObject;
 public class b extends d.b.g0.a.t.b.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f46085d = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    public static final Set<String> f46477d = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Set<String> f46086e = Sets.newHashSet("json", "string");
+    public static final Set<String> f46478e = Sets.newHashSet("json", "string");
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f46087f = Sets.newHashSet("text", "arraybuffer");
+    public static final Set<String> f46479f = Sets.newHashSet("text", "arraybuffer");
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Set<String> f46088g = Sets.newHashSet("REFERER", "USER-AGENT");
+    public static final Set<String> f46480g = Sets.newHashSet("REFERER", "USER-AGENT");
 
     /* loaded from: classes2.dex */
     public class a implements d.b {
@@ -77,36 +77,36 @@ public class b extends d.b.g0.a.t.b.d {
 
     /* renamed from: d.b.g0.a.t.c.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0817b implements Runnable {
+    public class RunnableC0829b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46089e;
+        public final /* synthetic */ JSONObject f46481e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46090f;
+        public final /* synthetic */ String f46482f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46091g;
+        public final /* synthetic */ String f46483g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46092h;
+        public final /* synthetic */ d.b.g0.a.r1.e f46484h;
 
-        public RunnableC0817b(JSONObject jSONObject, String str, String str2, d.b.g0.a.r1.e eVar) {
-            this.f46089e = jSONObject;
-            this.f46090f = str;
-            this.f46091g = str2;
-            this.f46092h = eVar;
+        public RunnableC0829b(JSONObject jSONObject, String str, String str2, d.b.g0.a.r1.e eVar) {
+            this.f46481e = jSONObject;
+            this.f46482f = str;
+            this.f46483g = str2;
+            this.f46484h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Pair<HttpRequest, Integer> t = b.t(this.f46089e, this.f46090f);
+            Pair<HttpRequest, Integer> t = b.t(this.f46481e, this.f46482f);
             HttpRequest httpRequest = (HttpRequest) t.first;
             if (httpRequest == null) {
-                b.this.c(this.f46091g, b.this.N(((Integer) t.second).intValue()));
+                b.this.c(this.f46483g, b.this.N(((Integer) t.second).intValue()));
                 return;
             }
-            b.this.D(this.f46092h, this.f46089e, httpRequest, this.f46090f, null, this.f46091g);
+            b.this.D(this.f46484h, this.f46481e, httpRequest, this.f46482f, null, this.f46483g);
         }
     }
 
@@ -114,37 +114,37 @@ public class b extends d.b.g0.a.t.b.d {
     public class c implements StatResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46093a;
+        public final /* synthetic */ String f46485a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HttpUrl f46094b;
+        public final /* synthetic */ HttpUrl f46486b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f46095c;
+        public final /* synthetic */ String f46487c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f46096d;
+        public final /* synthetic */ int f46488d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f46097e;
+        public final /* synthetic */ d f46489e;
 
         public c(b bVar, String str, HttpUrl httpUrl, String str2, int i, d dVar) {
-            this.f46093a = str;
-            this.f46094b = httpUrl;
-            this.f46095c = str2;
-            this.f46096d = i;
-            this.f46097e = dVar;
+            this.f46485a = str;
+            this.f46486b = httpUrl;
+            this.f46487c = str2;
+            this.f46488d = i;
+            this.f46489e = dVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onFail(Exception exc) {
             if (d.b.g0.a.w0.a.N().d()) {
-                h.x(this.f46095c, this.f46096d, null);
+                h.x(this.f46487c, this.f46488d, null);
             }
             if (exc instanceof IOException) {
-                this.f46097e.onFailure(null, (IOException) exc);
+                this.f46489e.onFailure(null, (IOException) exc);
             } else {
-                this.f46097e.onFailure(null, new IOException("request fail"));
+                this.f46489e.onFailure(null, new IOException("request fail"));
             }
         }
 
@@ -154,11 +154,11 @@ public class b extends d.b.g0.a.t.b.d {
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-            d.b.g0.a.e0.s.a.e().n(this.f46093a, this.f46094b, networkStatRecord);
+            d.b.g0.a.e0.s.a.e().n(this.f46485a, this.f46486b, networkStatRecord);
             if (d.b.g0.a.w0.a.N().d()) {
-                h.x(this.f46095c, this.f46096d, networkStatRecord);
+                h.x(this.f46487c, this.f46488d, networkStatRecord);
             }
-            this.f46097e.onResponse(null, response);
+            this.f46489e.onResponse(null, response);
             return response;
         }
     }
@@ -167,53 +167,53 @@ public class b extends d.b.g0.a.t.b.d {
     public class d implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.g0.a.r1.e f46098a;
+        public d.b.g0.a.r1.e f46490a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f46099b;
+        public JSONObject f46491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46100c;
+        public String f46492c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f46101d;
+        public String f46493d;
 
         /* renamed from: e  reason: collision with root package name */
-        public e f46102e;
+        public e f46494e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46103f;
+        public String f46495f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f46104g = System.currentTimeMillis();
+        public long f46496g = System.currentTimeMillis();
 
         public d(@NonNull d.b.g0.a.r1.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, e eVar2, @NonNull String str3) {
-            this.f46098a = eVar;
-            this.f46099b = jSONObject;
-            this.f46100c = str;
-            this.f46101d = str2;
-            this.f46102e = eVar2;
-            this.f46103f = str3;
+            this.f46490a = eVar;
+            this.f46491b = jSONObject;
+            this.f46492c = str;
+            this.f46493d = str2;
+            this.f46494e = eVar2;
+            this.f46495f = str3;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "onFailure: " + iOException.getMessage());
             }
-            int F = this.f46098a.L().F();
+            int F = this.f46490a.L().F();
             String m = h.m();
             String d2 = k0.n().d();
-            SwanAppNetworkUtils.a(d.b.g0.k.e.a.f().getOkHttpClient(), this.f46101d);
-            b.this.c(this.f46103f, new d.b.g0.a.t.e.b(1001, iOException.getMessage()));
-            h.G(0, this.f46100c, F, iOException.getMessage(), m, d2, this.f46104g, System.currentTimeMillis());
+            SwanAppNetworkUtils.a(d.b.g0.k.e.a.f().getOkHttpClient(), this.f46493d);
+            b.this.c(this.f46495f, new d.b.g0.a.t.e.b(1001, iOException.getMessage()));
+            h.G(0, this.f46492c, F, iOException.getMessage(), m, d2, this.f46496g, System.currentTimeMillis());
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
-            String A = b.A(this.f46099b);
-            String C = b.C(this.f46099b);
-            int F = this.f46098a.L().F();
+            String A = b.A(this.f46491b);
+            String C = b.C(this.f46491b);
+            int F = this.f46490a.L().F();
             long currentTimeMillis = System.currentTimeMillis();
             String m = h.m();
             String d2 = k0.n().d();
@@ -224,29 +224,29 @@ public class b extends d.b.g0.a.t.b.d {
                     jSONObject.put("statusCode", response.code());
                     jSONObject.put("header", d.b.g0.a.t.c.h.c.f(response.headers()));
                     b.H(jSONObject, response.body(), A, C);
-                    if (this.f46102e != null) {
-                        this.f46102e.a(jSONObject);
+                    if (this.f46494e != null) {
+                        this.f46494e.a(jSONObject);
                     }
-                    b.this.c(this.f46103f, new d.b.g0.a.t.e.b(0, jSONObject, true));
+                    b.this.c(this.f46495f, new d.b.g0.a.t.e.b(0, jSONObject, true));
                 } else {
-                    b.I(this.f46098a, this.f46100c, B, currentTimeMillis);
-                    b.this.c(this.f46103f, new d.b.g0.a.t.e.b(201, "response json length over limits"));
+                    b.I(this.f46490a, this.f46492c, B, currentTimeMillis);
+                    b.this.c(this.f46495f, new d.b.g0.a.t.e.b(201, "response json length over limits"));
                 }
             } catch (IOException | JSONException e2) {
-                if (d.b.g0.a.t.b.d.f45929c) {
+                if (d.b.g0.a.t.b.d.f46321c) {
                     Log.d("Api-Request", Log.getStackTraceString(e2));
                 }
-                b.this.c(this.f46103f, new d.b.g0.a.t.e.b(201, e2.getMessage()));
+                b.this.c(this.f46495f, new d.b.g0.a.t.e.b(201, e2.getMessage()));
             }
             int code = response.code();
             String message = response.message();
-            if (d.b.g0.a.t.b.d.f45929c) {
-                Log.d("Api-Request", "onResponse: respCode: " + code + ", url=" + this.f46100c + ", msg=" + message);
+            if (d.b.g0.a.t.b.d.f46321c) {
+                Log.d("Api-Request", "onResponse: respCode: " + code + ", url=" + this.f46492c + ", msg=" + message);
             }
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("TAG", response.headers().toString());
             }
-            h.G(code, this.f46100c, F, message, m, d2, this.f46104g, System.currentTimeMillis());
+            h.G(code, this.f46492c, F, message, m, d2, this.f46496g, System.currentTimeMillis());
         }
     }
 
@@ -262,7 +262,7 @@ public class b extends d.b.g0.a.t.b.d {
     @NonNull
     public static String A(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("dataType");
-        return TextUtils.isEmpty(optString) ? "json" : !f46086e.contains(optString) ? "string" : optString;
+        return TextUtils.isEmpty(optString) ? "json" : !f46478e.contains(optString) ? "string" : optString;
     }
 
     public static long B(Response response) {
@@ -275,7 +275,7 @@ public class b extends d.b.g0.a.t.b.d {
     @NonNull
     public static String C(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("responseType");
-        return !f46087f.contains(optString) ? "text" : optString;
+        return !f46479f.contains(optString) ? "text" : optString;
     }
 
     public static boolean E(String str) {
@@ -295,27 +295,27 @@ public class b extends d.b.g0.a.t.b.d {
     public static Object G(@NonNull JSONObject jSONObject, @Nullable String str) {
         Object opt = jSONObject.opt("data");
         if (TextUtils.equals(str, "base64")) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "buildRequest: request with base64Data");
             }
             if (opt instanceof String) {
                 opt = Base64.decode((String) opt, 2);
-            } else if (d.b.g0.a.t.b.d.f45929c) {
+            } else if (d.b.g0.a.t.b.d.f46321c) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("buildRequest: base64Data is illegal ");
                 sb.append(opt == null);
                 throw new RuntimeException(sb.toString());
             }
         } else if (opt instanceof JsArrayBuffer) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "buildRequest: request with arrayBuffer");
             }
             opt = ((JsArrayBuffer) opt).buffer();
-            if (d.b.g0.a.t.b.d.f45929c && opt == null) {
+            if (d.b.g0.a.t.b.d.f46321c && opt == null) {
                 throw new RuntimeException("buildRequest: request with a null buffer");
             }
         }
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("parseRequestData: data: ");
             sb2.append(opt == null ? StringUtil.NULL_STRING : opt.getClass().getSimpleName());
@@ -385,7 +385,7 @@ public class b extends d.b.g0.a.t.b.d {
             jSONObject.put("exceptionResponseTime", System.currentTimeMillis());
             dVar.e(jSONObject);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 e2.printStackTrace();
             }
         }
@@ -399,7 +399,7 @@ public class b extends d.b.g0.a.t.b.d {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !f46088g.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !f46480g.contains(next.toUpperCase())) {
                 String g2 = k0.g(jSONObject.optString(next));
                 if (TextUtils.isEmpty(g2)) {
                     g2 = "";
@@ -416,24 +416,24 @@ public class b extends d.b.g0.a.t.b.d {
     public static HttpUrl s(@NonNull HttpUrl httpUrl, @NonNull Object obj, @Nullable String str) {
         HttpUrl.Builder newBuilder = httpUrl.newBuilder();
         if (TextUtils.equals("JSONToString", str) && (obj instanceof String)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "appendQueryTo: hint jsonToString");
             }
             try {
                 obj = new JSONObject((String) obj);
             } catch (JSONException unused) {
-                if (d.b.g0.a.t.b.d.f45929c) {
+                if (d.b.g0.a.t.b.d.f46321c) {
                     throw new RuntimeException("appendQueryTo: illegal json str");
                 }
             }
         }
         if (!(obj instanceof JSONObject)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.w("Api-Request", "appendQueryTo: data cannot be " + obj.getClass().getSimpleName());
             }
             return httpUrl;
         }
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Request", "appendQueryTo with JSONObject");
         }
         boolean z = false;
@@ -483,12 +483,12 @@ public class b extends d.b.g0.a.t.b.d {
                 optString2 = "GET";
             }
             String upperCase = optString2.toUpperCase();
-            if (!f46085d.contains(upperCase)) {
+            if (!f46477d.contains(upperCase)) {
                 return new Pair<>(null, 4);
             }
             HashMap hashMap = new HashMap();
             d.b.g0.k.d.a aVar = new d.b.g0.k.d.a();
-            aVar.f48880b = upperCase;
+            aVar.f49272b = upperCase;
             HttpRequestBuilder a2 = d.b.g0.k.e.b.a(aVar);
             M(a2, jSONObject.optJSONObject("header"), hashMap);
             a2.setHeader("Referer", d.b.g0.a.t.c.h.c.d());
@@ -501,7 +501,7 @@ public class b extends d.b.g0.a.t.b.d {
                 int length = ((byte[]) G).length;
                 i2 = i;
                 if (length > Config.FULL_TRACE_LOG_LIMIT) {
-                    if (d.b.g0.a.t.b.d.f45929c) {
+                    if (d.b.g0.a.t.b.d.f46321c) {
                         Log.d("Api-Request", "buildRequest: ArrayBuffer大小超过上限 " + length);
                     }
                     return new Pair<>(null, 3);
@@ -520,10 +520,10 @@ public class b extends d.b.g0.a.t.b.d {
                 if (a2 instanceof HttpCommonRequestBuilder) {
                     ((HttpCommonRequestBuilder) a2).requestBody(x);
                 }
-                aVar.f48879a = e2.toString();
-                aVar.f48884f = true;
-                aVar.f48885g = false;
-                aVar.f48886h = true;
+                aVar.f49271a = e2.toString();
+                aVar.f49276f = true;
+                aVar.f49277g = false;
+                aVar.f49278h = true;
                 aVar.i = str;
                 d.b.g0.k.e.a.f().s(a2, aVar);
                 HttpRequest build = a2.enableStat(true).build();
@@ -538,10 +538,10 @@ public class b extends d.b.g0.a.t.b.d {
             }
             if (a2 instanceof HttpCommonRequestBuilder) {
             }
-            aVar.f48879a = e2.toString();
-            aVar.f48884f = true;
-            aVar.f48885g = false;
-            aVar.f48886h = true;
+            aVar.f49271a = e2.toString();
+            aVar.f49276f = true;
+            aVar.f49277g = false;
+            aVar.f49278h = true;
             aVar.i = str;
             d.b.g0.k.e.a.f().s(a2, aVar);
             HttpRequest build2 = a2.enableStat(true).build();
@@ -554,7 +554,7 @@ public class b extends d.b.g0.a.t.b.d {
     }
 
     public static RequestBody w(MediaType mediaType, @NonNull byte[] bArr) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Request", "createArrayBufferBody: " + bArr.length);
         }
         return RequestBody.create(mediaType, bArr);
@@ -566,10 +566,10 @@ public class b extends d.b.g0.a.t.b.d {
         boolean isEmpty = TextUtils.isEmpty(str2);
         String str3 = StringUtil.NULL_STRING;
         if (isEmpty) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("createBody: content-type: ");
-                sb.append(f.f44518a);
+                sb.append(f.f44910a);
                 sb.append(" data: ");
                 if (obj != null) {
                     str3 = obj.getClass().getSimpleName();
@@ -578,16 +578,16 @@ public class b extends d.b.g0.a.t.b.d {
                 Log.d("Api-Request", sb.toString());
             }
             if (obj instanceof byte[]) {
-                return w(f.f44518a, (byte[]) obj);
+                return w(f.f44910a, (byte[]) obj);
             }
-            return RequestBody.create(f.f44518a, obj != null ? obj.toString() : "");
+            return RequestBody.create(f.f44910a, obj != null ? obj.toString() : "");
         }
         MediaType parse = MediaType.parse(str2);
-        if (f.f44518a.equals(parse)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+        if (f.f44910a.equals(parse)) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("createBody: content-type: ");
-                sb2.append(f.f44518a);
+                sb2.append(f.f44910a);
                 sb2.append(" data: ");
                 if (obj != null) {
                     str3 = obj.getClass().getSimpleName();
@@ -596,9 +596,9 @@ public class b extends d.b.g0.a.t.b.d {
                 Log.d("Api-Request", sb2.toString());
             }
             if (obj instanceof byte[]) {
-                return w(f.f44518a, (byte[]) obj);
+                return w(f.f44910a, (byte[]) obj);
             }
-            return RequestBody.create(f.f44518a, obj != null ? obj.toString() : "");
+            return RequestBody.create(f.f44910a, obj != null ? obj.toString() : "");
         }
         return y(obj, parse, str);
     }
@@ -609,25 +609,25 @@ public class b extends d.b.g0.a.t.b.d {
             return w(mediaType, (byte[]) obj);
         }
         if (TextUtils.equals("JSONToString", str) && (obj instanceof String)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "createFormBody: hint jsonToString");
             }
             try {
                 obj = new JSONObject((String) obj);
             } catch (JSONException unused) {
-                if (d.b.g0.a.t.b.d.f45929c) {
+                if (d.b.g0.a.t.b.d.f46321c) {
                     throw new RuntimeException("createFormBody: illegal json str");
                 }
             }
         }
         if (obj != null && obj.toString().length() != 0) {
             if (obj instanceof String) {
-                if (d.b.g0.a.t.b.d.f45929c) {
+                if (d.b.g0.a.t.b.d.f46321c) {
                     Log.d("Api-Request", "createFormBody: content-type: " + mediaType + " data: String");
                 }
                 return RequestBody.create(mediaType, (String) obj);
             }
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "createFormBody: content-type: " + mediaType + " data: " + obj.getClass().getSimpleName());
             }
             if (obj instanceof JSONObject) {
@@ -642,7 +642,7 @@ public class b extends d.b.g0.a.t.b.d {
             }
             return d.b.g0.a.g1.d.a(builder.build(), mediaType);
         }
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Request", "createFormBody: with empty data");
         }
         return builder.build();
@@ -668,9 +668,9 @@ public class b extends d.b.g0.a.t.b.d {
         }
         JSONObject jSONObject = (JSONObject) m.second;
         if (jSONObject == null) {
-            return (d.b.g0.a.t.e.b) d.b.g0.a.t.e.a.f46214a;
+            return (d.b.g0.a.t.e.b) d.b.g0.a.t.e.a.f46606a;
         }
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Request", "request with JsObject => JSONObject : " + jSONObject.toString());
         }
         d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
@@ -690,14 +690,14 @@ public class b extends d.b.g0.a.t.b.d {
             d.b.g0.a.c0.c.b("Api-Request", "illegal url");
             return new d.b.g0.a.t.e.b(1001, "illegal url");
         }
-        String a2 = d.b.g0.a.t.c.h.c.a(eVar.f45740f);
+        String a2 = d.b.g0.a.t.c.h.c.a(eVar.f46132f);
         JSONObject c2 = d.b.g0.a.t.c.h.c.c(a2);
         z(eVar, jSONObject, a2, str);
         return new d.b.g0.a.t.e.b(0, c2);
     }
 
     public d.b.g0.a.t.e.b L(@NonNull JSONObject jSONObject) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Request", "request with JSONObject: " + jSONObject);
         }
         d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
@@ -734,7 +734,7 @@ public class b extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b u(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Request", "start cancelRequest");
         }
         return i(str, false, new a(this));
@@ -747,7 +747,7 @@ public class b extends d.b.g0.a.t.b.d {
         }
         String optString = optJSONObject.optString(LightappConstants.ACCESS_WALLET_SERVICE_PARAM_SERVICE);
         if (TextUtils.isEmpty(optString)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 Log.d("Api-Request", "onFailure: serviceId is invalid");
             }
             c(str3, new d.b.g0.a.t.e.b(1001, "serviceId is invalid"));
@@ -759,6 +759,6 @@ public class b extends d.b.g0.a.t.b.d {
     }
 
     public final void z(d.b.g0.a.r1.e eVar, JSONObject jSONObject, String str, String str2) {
-        ExecutorUtilsExt.postOnElastic(new RunnableC0817b(jSONObject, str, str2, eVar), "doRequest", 2);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0829b(jSONObject, str, str2, eVar), "doRequest", 2);
     }
 }

@@ -1,185 +1,97 @@
 package h.o.a;
 
-import h.d;
 import h.g;
-import java.util.concurrent.TimeoutException;
+import h.o.a.w;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class v<T> implements d.b<T, T> {
-
-    /* renamed from: e  reason: collision with root package name */
-    public final a<T> f67821e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final b<T> f67822f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final h.d<? extends T> f67823g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final h.g f67824h;
+public final class v<T> extends w<T> {
 
     /* loaded from: classes7.dex */
-    public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
+    public class a implements w.a<T> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ long f68824a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ TimeUnit f68825b;
+
+        /* renamed from: h.o.a.v$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C1909a implements h.n.a {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ w.c f68826e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ Long f68827f;
+
+            public C1909a(a aVar, w.c cVar, Long l) {
+                this.f68826e = cVar;
+                this.f68827f = l;
+            }
+
+            @Override // h.n.a
+            public void call() {
+                this.f68826e.b(this.f68827f.longValue());
+            }
+        }
+
+        public a(long j, TimeUnit timeUnit) {
+            this.f68824a = j;
+            this.f68825b = timeUnit;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.h
+        /* renamed from: b */
+        public h.k a(w.c<T> cVar, Long l, g.a aVar) {
+            return aVar.c(new C1909a(this, cVar, l), this.f68824a, this.f68825b);
+        }
     }
 
     /* loaded from: classes7.dex */
-    public interface b<T> extends h.n.i<c<T>, Long, T, g.a, h.k> {
-    }
+    public class b implements w.b<T> {
 
-    /* loaded from: classes7.dex */
-    public static final class c<T> extends h.j<T> {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ long f68828a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final h.u.d f67825e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final h.q.e<T> f67826f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final b<T> f67827g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final h.d<? extends T> f67828h;
-        public final g.a i;
-        public final h.o.b.a j = new h.o.b.a();
-        public boolean k;
-        public long l;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ TimeUnit f68829b;
 
         /* loaded from: classes7.dex */
-        public class a extends h.j<T> {
-            public a() {
+        public class a implements h.n.a {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ w.c f68830e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ Long f68831f;
+
+            public a(b bVar, w.c cVar, Long l) {
+                this.f68830e = cVar;
+                this.f68831f = l;
             }
 
-            @Override // h.e
-            public void onCompleted() {
-                c.this.f67826f.onCompleted();
-            }
-
-            @Override // h.e
-            public void onError(Throwable th) {
-                c.this.f67826f.onError(th);
-            }
-
-            @Override // h.e
-            public void onNext(T t) {
-                c.this.f67826f.onNext(t);
-            }
-
-            @Override // h.j
-            public void setProducer(h.f fVar) {
-                c.this.j.c(fVar);
+            @Override // h.n.a
+            public void call() {
+                this.f68830e.b(this.f68831f.longValue());
             }
         }
 
-        public c(h.q.e<T> eVar, b<T> bVar, h.u.d dVar, h.d<? extends T> dVar2, g.a aVar) {
-            this.f67826f = eVar;
-            this.f67827g = bVar;
-            this.f67825e = dVar;
-            this.f67828h = dVar2;
-            this.i = aVar;
+        public b(long j, TimeUnit timeUnit) {
+            this.f68828a = j;
+            this.f68829b = timeUnit;
         }
 
-        public void b(long j) {
-            boolean z;
-            synchronized (this) {
-                z = true;
-                if (j != this.l || this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
-                }
-            }
-            if (z) {
-                if (this.f67828h == null) {
-                    this.f67826f.onError(new TimeoutException());
-                    return;
-                }
-                a aVar = new a();
-                this.f67828h.J(aVar);
-                this.f67825e.a(aVar);
-            }
-        }
-
-        @Override // h.e
-        public void onCompleted() {
-            boolean z;
-            synchronized (this) {
-                z = true;
-                if (this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
-                }
-            }
-            if (z) {
-                this.f67825e.unsubscribe();
-                this.f67826f.onCompleted();
-            }
-        }
-
-        @Override // h.e
-        public void onError(Throwable th) {
-            boolean z;
-            synchronized (this) {
-                z = true;
-                if (this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
-                }
-            }
-            if (z) {
-                this.f67825e.unsubscribe();
-                this.f67826f.onError(th);
-            }
-        }
-
-        @Override // h.e
-        public void onNext(T t) {
-            long j;
-            boolean z;
-            synchronized (this) {
-                if (!this.k) {
-                    j = this.l + 1;
-                    this.l = j;
-                    z = true;
-                } else {
-                    j = this.l;
-                    z = false;
-                }
-            }
-            if (z) {
-                this.f67826f.onNext(t);
-                this.f67825e.a(this.f67827g.a(this, Long.valueOf(j), t, this.i));
-            }
-        }
-
-        @Override // h.j
-        public void setProducer(h.f fVar) {
-            this.j.c(fVar);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.i
+        /* renamed from: b */
+        public h.k a(w.c<T> cVar, Long l, T t, g.a aVar) {
+            return aVar.c(new a(this, cVar, l), this.f68828a, this.f68829b);
         }
     }
 
-    public v(a<T> aVar, b<T> bVar, h.d<? extends T> dVar, h.g gVar) {
-        this.f67821e = aVar;
-        this.f67822f = bVar;
-        this.f67823g = dVar;
-        this.f67824h = gVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // h.n.f
-    /* renamed from: a */
-    public h.j<? super T> call(h.j<? super T> jVar) {
-        g.a createWorker = this.f67824h.createWorker();
-        jVar.add(createWorker);
-        h.q.e eVar = new h.q.e(jVar);
-        h.u.d dVar = new h.u.d();
-        eVar.add(dVar);
-        c cVar = new c(eVar, this.f67822f, dVar, this.f67823g, createWorker);
-        eVar.add(cVar);
-        eVar.setProducer(cVar.j);
-        dVar.a(this.f67821e.a(cVar, 0L, createWorker));
-        return cVar;
+    public v(long j, TimeUnit timeUnit, h.d<? extends T> dVar, h.g gVar) {
+        super(new a(j, timeUnit), new b(j, timeUnit), dVar, gVar);
     }
 }

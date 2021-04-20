@@ -35,7 +35,7 @@ public class e extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 Toast.makeText(context, d.b.g0.a.h.aiapps_debug_swan_core_params_empty, 1).show();

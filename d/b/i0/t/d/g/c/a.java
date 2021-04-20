@@ -26,48 +26,48 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60614a;
+    public boolean f62178a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f60615b;
+    public TbPageContext f62179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.t.d.g.d.c f60616c;
+    public d.b.i0.t.d.g.d.c f62180c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaNewSquareSubListModel f60617d;
+    public AlaNewSquareSubListModel f62181d;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60619f;
+    public String f62183f;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60618e = false;
+    public boolean f62182e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdListView.p f60620g = new C1555a();
+    public BdListView.p f62184g = new C1608a();
 
     /* renamed from: h  reason: collision with root package name */
-    public AlaNewSquareSubListModel.b f60621h = new b();
+    public AlaNewSquareSubListModel.b f62185h = new b();
     public View.OnClickListener i = new c();
     public g j = new d();
     public f.g k = new e();
 
     /* renamed from: d.b.i0.t.d.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1555a implements BdListView.p {
-        public C1555a() {
+    public class C1608a implements BdListView.p {
+        public C1608a() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            boolean J = a.this.f60617d != null ? a.this.f60617d.J() : false;
-            if (a.this.f60616c != null) {
+            boolean J = a.this.f62181d != null ? a.this.f62181d.J() : false;
+            if (a.this.f62180c != null) {
                 if (!J) {
-                    a.this.f60616c.v();
+                    a.this.f62180c.v();
                     return;
                 }
-                a.this.f60617d.L();
-                a.this.f60616c.i();
+                a.this.f62181d.L();
+                a.this.f62180c.i();
             }
         }
     }
@@ -79,39 +79,39 @@ public class a {
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.b
         public void a(int i, String str) {
-            if (a.this.f60615b == null || a.this.f60616c == null) {
+            if (a.this.f62179b == null || a.this.f62180c == null) {
                 return;
             }
-            a.this.f60616c.d();
-            a.this.f60616c.g();
-            d.b.i0.t.d.g.d.c cVar = a.this.f60616c;
+            a.this.f62180c.d();
+            a.this.f62180c.g();
+            d.b.i0.t.d.g.d.c cVar = a.this.f62180c;
             if (TextUtils.isEmpty(str)) {
-                str = a.this.f60615b.getString(R.string.no_data_text);
+                str = a.this.f62179b.getString(R.string.no_data_text);
             }
             cVar.u(str, a.this.i, true);
-            a.this.f60616c.o(8);
+            a.this.f62180c.o(8);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.b
         public void b(boolean z) {
-            if (a.this.f60615b == null || a.this.f60616c == null) {
+            if (a.this.f62179b == null || a.this.f62180c == null) {
                 return;
             }
-            a.this.f60616c.d();
-            a.this.f60616c.g();
-            a.this.f60616c.p(a.this.f60617d.F());
-            a.this.f60616c.l(a.this.f60617d.G());
-            a.this.f60616c.m(a.this.f60617d.I());
-            if (a.this.f60617d != null && a.this.f60617d.getPn() == 0 && a.this.f60616c.e() != null) {
-                a.this.f60616c.e().smoothScrollToPosition(0);
+            a.this.f62180c.d();
+            a.this.f62180c.g();
+            a.this.f62180c.p(a.this.f62181d.F());
+            a.this.f62180c.l(a.this.f62181d.G());
+            a.this.f62180c.m(a.this.f62181d.I());
+            if (a.this.f62181d != null && a.this.f62181d.getPn() == 0 && a.this.f62180c.e() != null) {
+                a.this.f62180c.e().smoothScrollToPosition(0);
             }
-            if (ListUtils.getCount(a.this.f60617d.F()) == 0) {
-                a.this.f60616c.u(a.this.f60615b.getString(R.string.no_data_text), a.this.i, true);
-                a.this.f60616c.o(8);
+            if (ListUtils.getCount(a.this.f62181d.F()) == 0) {
+                a.this.f62180c.u(a.this.f62179b.getString(R.string.no_data_text), a.this.i, true);
+                a.this.f62180c.o(8);
                 return;
             }
-            a.this.f60616c.h();
-            a.this.f60616c.o(0);
+            a.this.f62180c.h();
+            a.this.f62180c.o(0);
         }
     }
 
@@ -134,19 +134,19 @@ public class a {
         @Override // d.b.i0.t.d.g.d.g
         public void a(int i, String str, a2 a2Var) {
             a aVar = a.this;
-            aVar.g(aVar.f60615b, a2Var, str);
+            aVar.g(aVar.f62179b, a2Var, str);
         }
 
         @Override // d.b.i0.t.d.g.d.g
         public void b(d.b.i0.t.d.g.b.c cVar) {
-            if (a.this.f60617d == null || cVar == null || StringUtils.isNull(cVar.f60610a)) {
+            if (a.this.f62181d == null || cVar == null || StringUtils.isNull(cVar.f62174a)) {
                 return;
             }
-            a.this.f60617d.setSortType(cVar.f60610a);
-            a.this.f60617d.setLat(cVar.f60611b);
-            a.this.f60617d.setLng(cVar.f60612c);
-            a.this.f60617d.P(cVar.f60613d);
-            a.this.f60617d.M();
+            a.this.f62181d.setSortType(cVar.f62174a);
+            a.this.f62181d.setLat(cVar.f62175b);
+            a.this.f62181d.setLng(cVar.f62176c);
+            a.this.f62181d.P(cVar.f62177d);
+            a.this.f62181d.M();
         }
     }
 
@@ -157,28 +157,28 @@ public class a {
 
         @Override // d.b.h0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            if (a.this.f60617d != null) {
-                a.this.f60617d.M();
+            if (a.this.f62181d != null) {
+                a.this.f62181d.M();
             }
         }
     }
 
     public a(TbPageContext tbPageContext, boolean z) {
-        this.f60615b = tbPageContext;
-        this.f60614a = z;
+        this.f62179b = tbPageContext;
+        this.f62178a = z;
         AlaNewSquareSubListModel alaNewSquareSubListModel = new AlaNewSquareSubListModel(tbPageContext);
-        this.f60617d = alaNewSquareSubListModel;
-        alaNewSquareSubListModel.N(this.f60621h);
-        d.b.i0.t.d.g.d.c cVar = new d.b.i0.t.d.g.d.c(this.f60615b);
-        this.f60616c = cVar;
+        this.f62181d = alaNewSquareSubListModel;
+        alaNewSquareSubListModel.N(this.f62185h);
+        d.b.i0.t.d.g.d.c cVar = new d.b.i0.t.d.g.d.c(this.f62179b);
+        this.f62180c = cVar;
         cVar.n(this.j);
-        this.f60616c.q(this.k);
-        this.f60616c.r(this.f60620g);
-        this.f60616c.t();
+        this.f62180c.q(this.k);
+        this.f62180c.r(this.f62184g);
+        this.f62180c.t();
     }
 
     public View f() {
-        return this.f60616c.f();
+        return this.f62180c.f();
     }
 
     public final void g(TbPageContext<?> tbPageContext, a2 a2Var, String str) {
@@ -188,8 +188,8 @@ public class a {
             return;
         }
         StatisticItem param = new StatisticItem("c12116").param("obj_id", a2Var.q1().live_id);
-        if (!StringUtils.isNull(this.f60619f)) {
-            param.param("locate_type", this.f60619f);
+        if (!StringUtils.isNull(this.f62183f)) {
+            param.param("locate_type", this.f62183f);
         }
         TiebaStatic.log(param);
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -205,7 +205,7 @@ public class a {
         alaLiveInfoCoreData.fillWithInfoData(a2Var.q1());
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        for (a2 a2Var2 : this.f60617d.H()) {
+        for (a2 a2Var2 : this.f62181d.H()) {
             alaLiveInfoListCoreData.mLiveInfoList.add(j(a2Var2));
         }
         Activity pageActivity = tbPageContext.getPageActivity();
@@ -216,22 +216,22 @@ public class a {
     }
 
     public void h(TbPageContext tbPageContext, int i) {
-        d.b.i0.t.d.g.d.c cVar = this.f60616c;
+        d.b.i0.t.d.g.d.c cVar = this.f62180c;
         if (cVar != null) {
             cVar.j(tbPageContext, i);
         }
     }
 
     public void i() {
-        AlaNewSquareSubListModel alaNewSquareSubListModel = this.f60617d;
+        AlaNewSquareSubListModel alaNewSquareSubListModel = this.f62181d;
         if (alaNewSquareSubListModel != null) {
             alaNewSquareSubListModel.onDestroy();
-            this.f60617d = null;
+            this.f62181d = null;
         }
-        d.b.i0.t.d.g.d.c cVar = this.f60616c;
+        d.b.i0.t.d.g.d.c cVar = this.f62180c;
         if (cVar != null) {
             cVar.k();
-            this.f60616c = null;
+            this.f62180c = null;
         }
     }
 
@@ -243,7 +243,7 @@ public class a {
     }
 
     public void k() {
-        this.f60617d.M();
+        this.f62181d.M();
     }
 
     public void l(String str, String str2, String str3, List<String> list) {
@@ -251,13 +251,13 @@ public class a {
             return;
         }
         if (!StringUtils.isNull(str)) {
-            this.f60618e = str.equals("16:9");
+            this.f62182e = str.equals("16:9");
         }
-        this.f60616c.s(this.f60614a, list, str2, str3, this.f60618e, false);
-        this.f60617d.setEntryName(str2);
-        this.f60617d.setLabelName(str3);
-        this.f60617d.setSortType(ListUtils.isEmpty(list) ? "" : list.get(0));
-        this.f60617d.O(this.f60618e);
-        this.f60619f = str2;
+        this.f62180c.s(this.f62178a, list, str2, str3, this.f62182e, false);
+        this.f62181d.setEntryName(str2);
+        this.f62181d.setLabelName(str3);
+        this.f62181d.setSortType(ListUtils.isEmpty(list) ? "" : list.get(0));
+        this.f62181d.O(this.f62182e);
+        this.f62183f = str2;
     }
 }

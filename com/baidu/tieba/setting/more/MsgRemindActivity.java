@@ -19,15 +19,15 @@ import com.baidu.tieba.setting.MsgReceiveActivityConfig;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import d.b.h0.r.s.a;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public MsgRemindModel mModel;
-    public d.b.i0.u2.c.g mView;
+    public d.b.i0.v2.c.g mView;
     public MsgRemindModel.e mMsgRemindModelCallback = new a();
     public final d.b.h0.b1.o.a.d.e onTimeSelectListener = new e();
     public MsgRemindModel.e callback = new g();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements MsgRemindModel.e {
         public a() {
         }
@@ -76,7 +76,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public b() {
         }
@@ -87,7 +87,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public c() {
         }
@@ -99,7 +99,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements DialogInterface.OnDismissListener {
         public d() {
         }
@@ -112,7 +112,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements d.b.h0.b1.o.a.d.e {
         public e() {
         }
@@ -127,14 +127,14 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements TimePickerDialog.OnTimeSetListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f21028a;
+        public final /* synthetic */ int f20713a;
 
         public f(int i) {
-            this.f21028a = i;
+            this.f20713a = i;
         }
 
         @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -143,7 +143,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 return;
             }
             timePicker.clearFocus();
-            boolean z = this.f21028a == R.id.no_disturb_start_time;
+            boolean z = this.f20713a == R.id.no_disturb_start_time;
             StringBuilder sb = new StringBuilder();
             sb.append(timePicker.getCurrentHour().intValue() < 10 ? "0" : "");
             sb.append(timePicker.getCurrentHour());
@@ -161,53 +161,53 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g implements MsgRemindModel.e {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f21031e;
+            public final /* synthetic */ boolean f20716e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f21032f;
+            public final /* synthetic */ BdSwitchView f20717f;
 
             public a(g gVar, boolean z, BdSwitchView bdSwitchView) {
-                this.f21031e = z;
-                this.f21032f = bdSwitchView;
+                this.f20716e = z;
+                this.f20717f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f21031e) {
-                    this.f21032f.k();
+                if (this.f20716e) {
+                    this.f20717f.k();
                 } else {
-                    this.f21032f.h();
+                    this.f20717f.h();
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f21033e;
+            public final /* synthetic */ boolean f20718e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f21034f;
+            public final /* synthetic */ BdSwitchView f20719f;
 
             public b(g gVar, boolean z, BdSwitchView bdSwitchView) {
-                this.f21033e = z;
-                this.f21034f = bdSwitchView;
+                this.f20718e = z;
+                this.f20719f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f21033e) {
-                    this.f21034f.h();
+                if (this.f20718e) {
+                    this.f20719f.h();
                 } else {
-                    this.f21034f.k();
+                    this.f20719f.k();
                 }
             }
         }
@@ -221,7 +221,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 BdSwitchView s = MsgRemindActivity.this.mView.s();
                 if (!z) {
                     if (s != null) {
-                        d.b.b.e.m.e.a().postDelayed(new b(this, z2, s), 500L);
+                        d.b.c.e.m.e.a().postDelayed(new b(this, z2, s), 500L);
                         return;
                     }
                     return;
@@ -234,7 +234,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     MsgRemindActivity.this.mView.i0(false);
                 }
                 if (s != null) {
-                    d.b.b.e.m.e.a().postDelayed(new a(this, z2, s), 500L);
+                    d.b.c.e.m.e.a().postDelayed(new a(this, z2, s), 500L);
                 }
             } else if (i == 2) {
                 if (z) {
@@ -422,7 +422,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mView.m()) {
-            d.b.i0.u2.c.g gVar = this.mView;
+            d.b.i0.v2.c.g gVar = this.mView;
             if (gVar.B) {
                 finish();
             } else {
@@ -449,7 +449,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.b.i0.u2.c.g gVar = new d.b.i0.u2.c.g(this);
+        d.b.i0.v2.c.g gVar = new d.b.i0.v2.c.g(this);
         this.mView = gVar;
         gVar.P(this);
         this.mModel = new MsgRemindModel(this);
@@ -464,7 +464,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     }
 
     public Dialog onCreateDisturbTimeDialog(int i) {
-        d.b.i0.t3.b bVar = new d.b.i0.t3.b(getActivity(), new f(i), 0, 0, true);
+        d.b.i0.u3.b bVar = new d.b.i0.u3.b(getActivity(), new f(i), 0, 0, true);
         if (i == R.id.no_disturb_end_time) {
             bVar.setTitle(R.string.no_disturb_end_time);
         } else if (i == R.id.no_disturb_start_time) {
@@ -479,7 +479,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.u2.c.g gVar = this.mView;
+        d.b.i0.v2.c.g gVar = this.mView;
         if (gVar != null) {
             gVar.c0();
         }
@@ -490,7 +490,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         if (i != 4) {
             return super.onKeyDown(i, keyEvent);
         }
-        d.b.i0.u2.c.g gVar = this.mView;
+        d.b.i0.v2.c.g gVar = this.mView;
         if (gVar.B) {
             finish();
         } else {
@@ -520,7 +520,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.u2.c.g gVar = this.mView;
+        d.b.i0.v2.c.g gVar = this.mView;
         if (gVar != null) {
             gVar.d0();
         }

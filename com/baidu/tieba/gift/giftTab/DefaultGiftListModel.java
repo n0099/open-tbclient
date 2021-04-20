@@ -4,38 +4,38 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.b.a.f;
+import d.b.c.a.f;
 import d.b.h0.r.q.i0;
 import d.b.h0.r.q.j0;
-import d.b.i0.t0.b.e;
+import d.b.i0.u0.b.e;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.b.i0.t0.b.a> f16871e;
+    public ArrayList<d.b.i0.u0.b.a> f16544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<i0> f16872f;
+    public ArrayList<i0> f16545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f16873g;
+    public ArrayList<e> f16546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16874h;
+    public String f16547h;
     public int i;
     public b j;
-    public d.b.b.c.g.a k;
+    public d.b.c.c.g.a k;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x008a  */
         /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -53,10 +53,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             if (z) {
                 DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                DefaultGiftListModel.this.f16871e = defaultGiftListHttpResponseMessage.getCategoryList();
-                DefaultGiftListModel.this.f16872f = defaultGiftListHttpResponseMessage.getGiftList();
-                DefaultGiftListModel.this.f16873g = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                DefaultGiftListModel.this.f16874h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.f16544e = defaultGiftListHttpResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16545f = defaultGiftListHttpResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16546g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16547h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 DefaultGiftListModel.this.i = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
                 j0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
@@ -64,16 +64,16 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 j0Var = null;
                 i = 0;
                 if (DefaultGiftListModel.this.j == null) {
-                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.i, DefaultGiftListModel.this.f16874h, i, j0Var, DefaultGiftListModel.this.f16871e, DefaultGiftListModel.this.f16872f, DefaultGiftListModel.this.f16873g);
+                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.i, DefaultGiftListModel.this.f16547h, i, j0Var, DefaultGiftListModel.this.f16544e, DefaultGiftListModel.this.f16545f, DefaultGiftListModel.this.f16546g);
                     return;
                 }
                 return;
             } else {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                DefaultGiftListModel.this.f16871e = defaultGiftListSocketResponseMessage.getCategoryList();
-                DefaultGiftListModel.this.f16872f = defaultGiftListSocketResponseMessage.getGiftList();
-                DefaultGiftListModel.this.f16873g = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                DefaultGiftListModel.this.f16874h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.f16544e = defaultGiftListSocketResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16545f = defaultGiftListSocketResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16546g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16547h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 DefaultGiftListModel.this.i = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
                 j0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
@@ -87,7 +87,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, j0 j0Var, ArrayList<d.b.i0.t0.b.a> arrayList, ArrayList<i0> arrayList2, ArrayList<e> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, j0 j0Var, ArrayList<d.b.i0.u0.b.a> arrayList, ArrayList<i0> arrayList2, ArrayList<e> arrayList3);
     }
 
     public DefaultGiftListModel(f<GiftTabActivity> fVar) {
@@ -123,7 +123,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public final void registerTask() {
-        d.b.i0.c3.d0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
     }
 }

@@ -43,7 +43,7 @@ public class SwanEntryActivity extends Activity {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        d.b.b.a.a.b(this);
+        d.b.c.a.a.b(this);
         super.onCreate(bundle);
         if (u.a(this)) {
             return;
@@ -65,7 +65,7 @@ public class SwanEntryActivity extends Activity {
 
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        if (d.b.b.a.a.d(this) && d.b.b.a.a.a(i)) {
+        if (d.b.c.a.a.d(this) && d.b.c.a.a.a(i)) {
             return;
         }
         super.setRequestedOrientation(i);

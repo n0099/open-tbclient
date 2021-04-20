@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UserPk.DataRes;
 import tbclient.UserPk.UserPkResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BlessHttpResponseMessage extends HttpResponsedMessage {
     public long pkID;
     public long userPkId;

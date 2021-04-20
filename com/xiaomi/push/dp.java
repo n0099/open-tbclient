@@ -10,18 +10,18 @@ import com.baidu.swan.games.utils.so.SoUtils;
 public class dp extends dq {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40370a;
+    public String f40659a;
 
     public dp(Context context, int i, String str) {
         super(context, i);
-        this.f40370a = str;
+        this.f40659a = str;
     }
 
     private String[] a() {
-        if (TextUtils.isEmpty(this.f40370a)) {
+        if (TextUtils.isEmpty(this.f40659a)) {
             return null;
         }
-        String b2 = bj.b(this.f40370a);
+        String b2 = bj.b(this.f40659a);
         if (TextUtils.isEmpty(b2)) {
             return null;
         }
@@ -30,13 +30,13 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo165a() {
+    public hh mo169a() {
         return hh.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo165a() {
+    public String mo169a() {
         return SoUtils.SO_EVENT_ID_DEFAULT;
     }
 

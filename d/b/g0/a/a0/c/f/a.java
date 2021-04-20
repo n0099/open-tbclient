@@ -31,20 +31,20 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
 
     /* renamed from: d.b.g0.a.a0.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0593a extends d.b.g0.a.o0.a {
+    public class C0605a extends d.b.g0.a.o0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43128a;
+        public final /* synthetic */ SwanEditText f43520a;
 
-        public C0593a(SwanEditText swanEditText) {
-            this.f43128a = swanEditText;
+        public C0605a(SwanEditText swanEditText) {
+            this.f43520a = swanEditText;
         }
 
         @Override // d.b.g0.a.o0.a, d.b.g0.a.o0.b
         public void c() {
             if (a.this.k != null) {
                 a.this.k.dismiss();
-                a.this.s0(this.f43128a);
+                a.this.s0(this.f43520a);
             }
         }
 
@@ -54,7 +54,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
                 return false;
             }
             a.this.k.dismiss();
-            a.this.s0(this.f43128a);
+            a.this.s0(this.f43520a);
             return true;
         }
     }
@@ -63,37 +63,37 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     public class b implements b.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43130a;
+        public final /* synthetic */ SwanEditText f43522a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43131b;
+        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43523b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.o0.a f43132c;
+        public final /* synthetic */ d.b.g0.a.o0.a f43524c;
 
         public b(SwanEditText swanEditText, d.b.g0.a.a0.c.f.b bVar, d.b.g0.a.o0.a aVar) {
-            this.f43130a = swanEditText;
-            this.f43131b = bVar;
-            this.f43132c = aVar;
+            this.f43522a = swanEditText;
+            this.f43523b = bVar;
+            this.f43524c = aVar;
         }
 
         @Override // d.b.g0.a.t0.f.b.d
         public void a() {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 Log.d("Component-Input", "numeric keyboard onKeyboardHide");
             }
-            a.this.B0(this.f43130a);
-            a.this.i.unregisterCallback(this.f43132c);
+            a.this.B0(this.f43522a);
+            a.this.i.unregisterCallback(this.f43524c);
         }
 
         @Override // d.b.g0.a.t0.f.b.d
         public void b(int i) {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 Log.d("Component-Input", "numeric keyboard onKeyboardShow");
             }
             a aVar = a.this;
-            aVar.C0(aVar.i, this.f43130a, this.f43131b, i);
-            a.this.i.registerCallback(this.f43132c);
+            aVar.C0(aVar.i, this.f43522a, this.f43523b, i);
+            a.this.i.registerCallback(this.f43524c);
         }
     }
 
@@ -101,23 +101,23 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     public class c implements TextView.OnEditorActionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43134a;
+        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43526a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43135b;
+        public final /* synthetic */ SwanEditText f43527b;
 
         public c(d.b.g0.a.a0.c.f.b bVar, SwanEditText swanEditText) {
-            this.f43134a = bVar;
-            this.f43135b = swanEditText;
+            this.f43526a = bVar;
+            this.f43527b = swanEditText;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             d.b.g0.a.t0.c.d(d.b.g0.a.t0.b.d().c(), a.this.l);
-            if (this.f43134a.P) {
+            if (this.f43526a.P) {
                 return true;
             }
-            this.f43135b.clearFocus();
+            this.f43527b.clearFocus();
             return false;
         }
     }
@@ -126,10 +126,10 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     public class d implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43137e;
+        public final /* synthetic */ SwanEditText f43529e;
 
         public d(a aVar, SwanEditText swanEditText) {
-            this.f43137e = swanEditText;
+            this.f43529e = swanEditText;
         }
 
         @Override // android.text.TextWatcher
@@ -143,7 +143,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             if (i2 != i3) {
-                d.b.g0.a.t0.c.c(this.f43137e, i2 > i3 ? '\b' : charSequence.charAt((i + i3) - 1));
+                d.b.g0.a.t0.c.c(this.f43529e, i2 > i3 ? '\b' : charSequence.charAt((i + i3) - 1));
             }
         }
     }
@@ -152,30 +152,30 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     public class e implements View.OnFocusChangeListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43138e;
+        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43530e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43139f;
+        public final /* synthetic */ SwanEditText f43531f;
 
         public e(d.b.g0.a.a0.c.f.b bVar, SwanEditText swanEditText) {
-            this.f43138e = bVar;
-            this.f43139f = swanEditText;
+            this.f43530e = bVar;
+            this.f43531f = swanEditText;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 Log.d("Component-Input", "onFocusChange:" + z);
             }
             if (z) {
                 return;
             }
             d.b.g0.a.c0.c.g("Component-Input", "send blur callback");
-            if (!TextUtils.equals("text", this.f43138e.O) && a.this.k != null) {
+            if (!TextUtils.equals("text", this.f43530e.O) && a.this.k != null) {
                 a.this.k.dismiss();
             }
-            d.b.g0.a.t0.c.b(this.f43139f, a.this.l);
-            a.this.s0(this.f43139f);
+            d.b.g0.a.t0.c.b(this.f43531f, a.this.l);
+            a.this.s0(this.f43531f);
         }
     }
 
@@ -183,22 +183,22 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     public class f implements d.b.g0.a.e2.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43141a;
+        public final /* synthetic */ SwanEditText f43533a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f43142b;
+        public final /* synthetic */ SwanAppActivity f43534b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43143c;
+        public final /* synthetic */ d.b.g0.a.a0.c.f.b f43535c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ View f43144d;
+        public final /* synthetic */ View f43536d;
 
         public f(SwanEditText swanEditText, SwanAppActivity swanAppActivity, d.b.g0.a.a0.c.f.b bVar, View view) {
-            this.f43141a = swanEditText;
-            this.f43142b = swanAppActivity;
-            this.f43143c = bVar;
-            this.f43144d = view;
+            this.f43533a = swanEditText;
+            this.f43534b = swanAppActivity;
+            this.f43535c = bVar;
+            this.f43536d = view;
         }
 
         @Override // d.b.g0.a.e2.a
@@ -207,14 +207,14 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
 
         @Override // d.b.g0.a.e2.a
         public void b(String str, int i) {
-            a.this.B0(this.f43141a);
-            d.b.g0.a.e2.c.i().k(this.f43144d);
+            a.this.B0(this.f43533a);
+            d.b.g0.a.e2.c.i().k(this.f43536d);
         }
 
         @Override // d.b.g0.a.e2.a
         public void c(String str, int i) {
-            if (this.f43141a.hasFocus()) {
-                a.this.C0(this.f43142b, this.f43141a, this.f43143c, i);
+            if (this.f43533a.hasFocus()) {
+                a.this.C0(this.f43534b, this.f43533a, this.f43535c, i);
             }
         }
     }
@@ -244,7 +244,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     }
 
     public final void B0(@NonNull SwanEditText swanEditText) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-Input", "scrollBackWhenKeyboardHide, mKeyboardHeight：" + this.l);
         }
         if (this.l != 0) {
@@ -259,7 +259,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     public final void C0(@NonNull SwanAppActivity swanAppActivity, @NonNull SwanEditText swanEditText, d.b.g0.a.a0.c.f.b bVar, int i) {
         int i2;
         d.b.g0.a.p.d.c o = d.b.g0.a.z0.f.V().o();
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-Input", "scrollUpWhenKeyboardShow, mKeyboardHeight：" + this.l + "，keyboardHeight : " + i);
         }
         if (this.l == i || o == null) {
@@ -301,7 +301,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
         swanEditText.setOnFocusChangeListener(new e(bVar, swanEditText));
         if (TextUtils.equals("text", bVar.O)) {
             View decorView = swanAppActivity.getWindow().getDecorView();
-            d.b.g0.a.e2.c.i().l(decorView, bVar.f43113f, new f(swanEditText, swanAppActivity, bVar, decorView));
+            d.b.g0.a.e2.c.i().l(decorView, bVar.f43505f, new f(swanEditText, swanAppActivity, bVar, decorView));
         }
         d.b.g0.a.t0.b.d().f(dVar);
         swanEditText.addTextChangedListener(dVar);
@@ -313,7 +313,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
             method.setAccessible(true);
             method.invoke(swanEditText, Boolean.FALSE);
         } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 e2.printStackTrace();
             }
         }
@@ -379,7 +379,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
                 i = 0;
             }
             this.k = new d.b.g0.a.t0.f.b(this.i, swanEditText, i, bVar.G);
-            this.k.e(new b(swanEditText, bVar, new C0593a(swanEditText)));
+            this.k.e(new b(swanEditText, bVar, new C0605a(swanEditText)));
             this.k.f();
         }
         if (bVar.M) {
@@ -407,7 +407,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: x0 */
     public void T(@NonNull SwanEditText swanEditText, @NonNull d.b.g0.a.a0.c.f.b bVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-Input", "renderPadding");
         }
         swanEditText.setPadding(0, -6, 0, 0);
@@ -443,7 +443,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     @Override // d.b.g0.a.a0.a.c.a
     /* renamed from: y0 */
     public void W(@NonNull SwanEditText swanEditText, @NonNull d.b.g0.a.a0.c.f.b bVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-Input", "renderText");
         }
         if (t()) {
@@ -451,7 +451,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
             try {
                 swanEditText.setSelection(bVar.x.length());
             } catch (IndexOutOfBoundsException e2) {
-                if (d.b.g0.a.a0.b.a.f43100h) {
+                if (d.b.g0.a.a0.b.a.f43492h) {
                     e2.printStackTrace();
                 }
                 d.b.g0.a.a0.g.a.a("Component-Input", "value is invalid, out of max length");
@@ -467,7 +467,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.f.b> 
     @Override // d.b.g0.a.a0.a.c.a
     /* renamed from: z0 */
     public void Y(@NonNull SwanEditText swanEditText, @NonNull d.b.g0.a.a0.c.f.b bVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-Input", "renderTextStyleFontWeight");
         }
         String str = bVar.D;

@@ -7,7 +7,7 @@ import d.o.a.b.a.a.a;
 import d.o.a.b.a.a.b;
 import d.o.a.b.a.a.c;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static c.b a(String str, String str2, l lVar, JSONObject jSONObject) {
         if (lVar == null) {
@@ -108,17 +108,17 @@ public class b {
         return bVar;
     }
 
-    public static b.C1820b a(l lVar, String str) {
-        b.C1820b c1820b = new b.C1820b();
-        c1820b.b(str);
-        c1820b.f(str);
-        c1820b.i("click_start");
-        c1820b.n("click_continue");
-        c1820b.l("click_pause");
-        c1820b.t("download_failed");
-        c1820b.p("click_install");
-        c1820b.c(true);
-        c1820b.j(false);
-        return c1820b;
+    public static b.C1855b a(l lVar, String str) {
+        b.C1855b c1855b = new b.C1855b();
+        c1855b.b(str);
+        c1855b.f(str);
+        c1855b.i("click_start");
+        c1855b.n("click_continue");
+        c1855b.l("click_pause");
+        c1855b.t("download_failed");
+        c1855b.p("click_install");
+        c1855b.c(true);
+        c1855b.j(false);
+        return c1855b;
     }
 }

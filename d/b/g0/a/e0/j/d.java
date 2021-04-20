@@ -20,7 +20,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView> {
-    public static final boolean C = k.f45051a;
+    public static final boolean C = k.f45443a;
     public Context A;
     public boolean B;
 
@@ -58,16 +58,16 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
         super(context);
         this.B = false;
         this.A = context;
-        Z0();
+        a1();
     }
 
     @Override // d.b.g0.a.p.d.a
     public void D(boolean z) {
-        getWebView().setVisibility(z ? 0 : 8);
+        F().setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void E0() {
+    public void F0() {
     }
 
     public final void I() {
@@ -79,17 +79,17 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
     }
 
     @Override // d.b.g0.a.p.d.a
-    public void J() {
-        D(getWebView().getVisibility() != 0);
+    public void K() {
+        D(F().getVisibility() != 0);
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
-    public void W() {
-        super.W();
+    public void X() {
+        super.X();
     }
 
     @Override // d.b.g0.a.p.d.a
-    public void X(String str, String str2) {
+    public void Y(String str, String str2) {
         JSONArray jSONArray = new JSONArray();
         if (!TextUtils.isEmpty(str2)) {
             jSONArray.put(str2);
@@ -100,7 +100,7 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
         d.b.g0.a.z0.f.V().z("console", new d.b.g0.a.k0.b.b("searchboxSConsole", hashMap));
     }
 
-    public final void X0(boolean z) {
+    public final void Y0(boolean z) {
         if (C) {
             Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
         }
@@ -110,7 +110,7 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
         }
     }
 
-    public final boolean Y0(ViewGroup viewGroup, View view) {
+    public final boolean Z0(ViewGroup viewGroup, View view) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             if (viewGroup.getChildAt(i) == view) {
@@ -120,18 +120,18 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
         return false;
     }
 
-    public void Z0() {
-        getWebView().setVisibility(8);
-        getWebView().setBackgroundColor(0);
+    public void a1() {
+        F().setVisibility(8);
+        F().setBackgroundColor(0);
         File file = new File(d.b.g0.g.f.d.m().d(), "index.html");
         if (file.exists() && file.isFile()) {
             loadUrl(Uri.fromFile(file).toString());
-            X0(false);
+            Y0(false);
             return;
         }
         loadUrl("file:///android_asset/aiapps/sConsole.html");
         f.b();
-        X0(true);
+        Y0(true);
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
@@ -148,15 +148,15 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
     @Override // d.b.g0.a.p.d.a
     public void l() {
         d.b.g0.a.c0.c.k(false);
-        ViewParent parent = getWebView().getParent();
+        ViewParent parent = F().getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(getWebView());
+            ((ViewGroup) parent).removeView(F());
         }
         destroy();
     }
 
     public final void m(ViewGroup viewGroup, View view) {
-        if (viewGroup == null || view == null || Y0(viewGroup, view)) {
+        if (viewGroup == null || view == null || Z0(viewGroup, view)) {
             return;
         }
         viewGroup.addView(view, new FrameLayout.LayoutParams(-1, -1));
@@ -167,7 +167,7 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
         if (viewGroup == null) {
             return;
         }
-        m(viewGroup, getWebView());
+        m(viewGroup, F());
     }
 
     @Override // d.b.g0.a.p.d.a

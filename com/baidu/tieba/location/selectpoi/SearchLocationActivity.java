@@ -30,32 +30,32 @@ import com.baidu.tieba.location.data.LocationSearchResponseMessage;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
-import d.b.i0.m1.c.a;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
+import d.b.i0.n1.c.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SearchLocationActivity extends NavigationBarActivity {
-    public d.b.i0.m1.e.a mAdapter;
+    public d.b.i0.n1.e.a mAdapter;
     public LinearLayout mEditLayout;
     public EditText mEditSearch;
     public InputMethodManager mInputManager;
     public BdListView mListView;
     public TextView mSearchButton;
-    public d.b.i0.m1.c.a mSearchDatas;
+    public d.b.i0.n1.c.a mSearchDatas;
     public ImageView search_bar_icon;
-    public d.b.b.c.g.a mSearchDataNetListener = new a(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
+    public d.b.c.c.g.a mSearchDataNetListener = new a(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
     public final AbsListView.OnScrollListener mOnScrollListener = new f();
     public AdapterView.OnItemClickListener itemListener = new g();
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -182,40 +182,40 @@ public class SearchLocationActivity extends NavigationBarActivity {
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
             MessageManager messageManager = MessageManager.getInstance();
-            a.C1344a c1344a = (a.C1344a) SearchLocationActivity.this.mAdapter.getItem(i);
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c1344a.a(), c1344a.a(), c1344a.b()));
+            a.C1402a c1402a = (a.C1402a) SearchLocationActivity.this.mAdapter.getItem(i);
+            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c1402a.a(), c1402a.a(), c1402a.b()));
             SearchLocationActivity.this.finish();
         }
     }
 
-    private ArrayList<a.C1344a> processInvalidData(List<LocationData.NearByAddressData> list, String str, String str2) {
+    private ArrayList<a.C1402a> processInvalidData(List<LocationData.NearByAddressData> list, String str, String str2) {
         LocationData.NearByAddressData nearByAddressData = null;
         if (list == null || list.size() <= 0) {
             return null;
         }
-        ArrayList<a.C1344a> arrayList = new ArrayList<>();
+        ArrayList<a.C1402a> arrayList = new ArrayList<>();
         for (LocationData.NearByAddressData nearByAddressData2 : list) {
             if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                 if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                     nearByAddressData = nearByAddressData2;
                 } else {
-                    a.C1344a c1344a = new a.C1344a();
-                    c1344a.d(nearByAddressData2.getName());
-                    c1344a.e(nearByAddressData2.getSn());
-                    arrayList.add(c1344a);
+                    a.C1402a c1402a = new a.C1402a();
+                    c1402a.d(nearByAddressData2.getName());
+                    c1402a.e(nearByAddressData2.getSn());
+                    arrayList.add(c1402a);
                 }
             }
         }
         if (nearByAddressData != null) {
-            a.C1344a c1344a2 = new a.C1344a();
-            c1344a2.d(nearByAddressData.getName());
-            c1344a2.e(nearByAddressData.getSn());
-            arrayList.add(0, c1344a2);
+            a.C1402a c1402a2 = new a.C1402a();
+            c1402a2.d(nearByAddressData.getName());
+            c1402a2.e(nearByAddressData.getSn());
+            arrayList.add(0, c1402a2);
         } else {
-            a.C1344a c1344a3 = new a.C1344a();
-            c1344a3.d(str);
-            c1344a3.e(str2);
-            arrayList.add(0, c1344a3);
+            a.C1402a c1402a3 = new a.C1402a();
+            c1402a3.d(str);
+            c1402a3.e(str2);
+            arrayList.add(0, c1402a3);
         }
         return arrayList;
     }
@@ -235,8 +235,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     }
 
     public void initData() {
-        this.mSearchDatas = new d.b.i0.m1.c.a();
-        LocationData b2 = d.b.i0.c3.m0.b.a().b();
+        this.mSearchDatas = new d.b.i0.n1.c.a();
+        LocationData b2 = d.b.i0.d3.m0.b.a().b();
         if (b2 != null) {
             this.mSearchDatas.c(processInvalidData(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
         }
@@ -259,7 +259,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         textView.setEnabled(false);
         this.mSearchButton.setOnClickListener(new e());
         this.mListView = (BdListView) findViewById(R.id.search_position_list);
-        d.b.i0.m1.e.a aVar = new d.b.i0.m1.e.a(this);
+        d.b.i0.n1.e.a aVar = new d.b.i0.n1.e.a(this);
         this.mAdapter = aVar;
         this.mListView.setAdapter((ListAdapter) aVar);
         this.mListView.setOnItemClickListener(this.itemListener);
@@ -269,10 +269,10 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.mSearchButton);
-        a2.n(R.color.CAM_X0101);
-        a2.h(R.string.J_X01);
-        a2.c(R.color.CAM_X0302);
+        d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.mSearchButton);
+        d2.q(R.color.CAM_X0101);
+        d2.k(R.string.J_X01);
+        d2.f(R.color.CAM_X0302);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.search_bar_icon, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
         SkinManager.setViewTextColor(this.mSearchButton, R.color.search_location_button_color, 3);
         this.mEditSearch.setTextColor(SkinManager.getColor(R.color.CAM_X0105));

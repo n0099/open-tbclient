@@ -1,134 +1,89 @@
 package a.a.a.a.r.b.c;
 
-import a.a.a.a.r.a.d.g;
-import a.a.a.a.r.a.d.k;
+import a.a.a.a.r.a.d.b;
 import a.a.a.a.v.f.g.d;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.fun.ad.sdk.ChannelNativeAds_5;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunNativeAd;
-import com.qq.e.ads.cfg.VideoOption;
-import com.qq.e.ads.nativ.MediaView;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import com.win.opensdk.PBNative;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements FunNativeAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NativeUnifiedADData f1284a;
+    public final PBNative f1279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ChannelNativeAds_5 f1285b;
+    public final String f1280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final MediaView f1286c;
+    public final b f1281c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f1287d;
+    public final d f1282d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final g f1288e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final d f1289f;
-
-    public a(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, g gVar) {
-        this.f1284a = nativeUnifiedADData;
-        this.f1286c = mediaView;
-        this.f1285b = ChannelNativeAds_5.create(nativeUnifiedADData);
-        this.f1287d = str;
-        this.f1288e = gVar;
-        this.f1289f = new d.b(str);
+    public a(PBNative pBNative, String str, b bVar) {
+        this.f1279a = pBNative;
+        this.f1280b = str;
+        this.f1281c = bVar;
+        this.f1282d = new d.b(str);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public ChannelNativeAds_5 getChannelNativeAds_5() {
-        return this.f1285b;
+        return ChannelNativeAds_5.create(this.f1279a);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public String getDescription() {
-        return this.f1284a.getDesc();
+        return this.f1279a.getBody();
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public String getIconUrl() {
-        return this.f1284a.getIconUrl();
+        return this.f1279a.getIcon();
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public List<String> getImageUrls() {
-        String imgUrl;
-        List<String> imgList = this.f1284a.getImgList();
-        if (imgList == null) {
-            imgList = new ArrayList<>();
-        }
-        if (imgList.isEmpty() && (imgUrl = this.f1284a.getImgUrl()) != null) {
-            imgList.add(imgUrl);
-        }
-        return imgList;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(this.f1279a.getIM());
+        return arrayList;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public FunNativeAd.InteractionType getInteractionType() {
-        if (this.f1284a.isAppAd()) {
-            int appStatus = this.f1284a.getAppStatus();
-            if (appStatus != 0) {
-                if (appStatus != 1) {
-                    if (appStatus != 2 && appStatus != 4) {
-                        if (appStatus != 8) {
-                            if (appStatus != 16) {
-                                return FunNativeAd.InteractionType.TYPE_UNKNOW;
-                            }
-                        }
-                    }
-                }
-                return FunNativeAd.InteractionType.TYPE_BROWSE;
-            }
-            return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
-        }
-        return FunNativeAd.InteractionType.TYPE_BROWSE;
+        return this.f1279a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public String getTitle() {
-        return this.f1284a.getTitle();
+        return this.f1279a.getHeadline();
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public View getVideoView() {
-        return this.f1286c;
+        return null;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public void show(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        if (context == null || viewGroup == null || list == null) {
-            throw new IllegalArgumentException();
-        }
-        if (!(viewGroup instanceof NativeAdContainer)) {
-            a.a.a.a.v.d.b("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
-            if (FunAdSdk.isLogEnabled()) {
-                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
+        if (context != null && viewGroup != null && list != null) {
+            this.f1282d.a("ldr_sh_start");
+            b bVar = this.f1281c;
+            PBNative pBNative = this.f1279a;
+            String str = this.f1280b;
+            bVar.f1010g.g();
+            pBNative.registerViewForInteraction(viewGroup, null, list);
+            synchronized (bVar.m) {
+                bVar.m.put(pBNative, new b.C0002b(str, funAdInteractionListener));
             }
             return;
         }
-        this.f1289f.a("ldr_sh_start");
-        g gVar = this.f1288e;
-        NativeUnifiedADData nativeUnifiedADData = this.f1284a;
-        String str = this.f1287d;
-        NativeAdContainer nativeAdContainer = (NativeAdContainer) viewGroup;
-        MediaView mediaView = this.f1286c;
-        ChannelNativeAds_5.GdtADStatusChangeListener gdtADStatusChangeListener = this.f1285b.getGdtADStatusChangeListener();
-        gVar.f1010g.g();
-        nativeUnifiedADData.setNativeAdEventListener(gVar.a(nativeUnifiedADData, str, funAdInteractionListener, new k(gVar, gdtADStatusChangeListener, nativeUnifiedADData)));
-        nativeUnifiedADData.bindAdToView(nativeAdContainer.getContext(), nativeAdContainer, null, list);
-        if (mediaView != null) {
-            nativeUnifiedADData.bindMediaView(mediaView, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new g.b());
-        }
+        throw new IllegalArgumentException();
     }
 }

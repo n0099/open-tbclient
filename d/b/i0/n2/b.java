@@ -1,29 +1,117 @@
 package d.b.i0.n2;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes5.dex */
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
+import d.b.h0.r.q.z0;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
 public class b {
-    public static boolean a() {
-        String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-        return !StringUtils.isNull(systemProperty) && d.b.b.e.m.b.d(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) >= 9;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List<a> f58527a = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public z0 f58528b = new z0();
+
+    /* loaded from: classes3.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public long f58529a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f58530b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f58531c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f58532d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f58533e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public long f58534f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f58535g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f58536h;
+        public String i;
     }
 
-    public static boolean b() {
-        PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
-        try {
-            try {
-            } catch (PackageManager.NameNotFoundException unused) {
-                if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
-                    return true;
-                }
-            }
-        } catch (PackageManager.NameNotFoundException unused2) {
+    public boolean a() {
+        List<a> list = this.f58527a;
+        return (list == null || list.size() == 0) ? false : true;
+    }
+
+    public boolean b() {
+        z0 z0Var = this.f58528b;
+        return z0Var != null && z0Var.b() == 1;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        String str;
+        int i;
+        String str2 = "";
+        if (jSONObject == null) {
+            return;
         }
-        return packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null;
+        try {
+            this.f58528b.i(jSONObject.getJSONObject("page"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray == null || optJSONArray.length() == 0) {
+                return;
+            }
+            this.f58527a.clear();
+            int i2 = 0;
+            while (i2 < optJSONArray.length()) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                if (jSONObject2 == null) {
+                    jSONArray = optJSONArray;
+                    str = str2;
+                    i = i2;
+                } else {
+                    JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
+                    String optString = jSONObject3.optString("name_show", str2);
+                    jSONObject3.optString("name", str2);
+                    long optLong = jSONObject2.optLong("pid", 0L);
+                    String optString2 = jSONObject2.optString("title", str2);
+                    long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
+                    String optString3 = jSONObject2.optString("content", str2);
+                    String optString4 = jSONObject2.optString("fname", str2);
+                    long optLong3 = jSONObject2.optLong("tid", 0L);
+                    jSONArray = optJSONArray;
+                    int optInt = jSONObject2.optInt("is_floor", 0);
+                    str = str2;
+                    int optInt2 = jSONObject2.optInt("is_replay", 0);
+                    i = i2;
+                    if (jSONObject2.optInt("thread_type", 0) != 33) {
+                        a aVar = new a();
+                        aVar.f58529a = optLong;
+                        aVar.f58530b = optString2;
+                        aVar.f58531c = optLong2;
+                        aVar.f58532d = optString3;
+                        aVar.f58533e = optString4;
+                        aVar.f58534f = optLong3;
+                        aVar.f58535g = optInt;
+                        aVar.f58536h = optInt2;
+                        aVar.i = optString;
+                        this.f58527a.add(aVar);
+                    }
+                }
+                i2 = i + 1;
+                optJSONArray = jSONArray;
+                str2 = str;
+            }
+        } catch (Exception e2) {
+            BdLog.d(e2.getMessage());
+        }
     }
 }

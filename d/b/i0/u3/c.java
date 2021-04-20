@@ -1,158 +1,120 @@
 package d.b.i0.u3;
 
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes5.dex */
-public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f61481a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f61482b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f61483c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f61484d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f61485e;
+public class c extends LinkMovementMethod {
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61486f;
+    public static c f62838f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f61487g = -1;
+    /* renamed from: a  reason: collision with root package name */
+    public d.b.h0.b1.m.f f62839a;
 
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f61488h = false;
-    public boolean i = false;
+    /* renamed from: b  reason: collision with root package name */
+    public int f62840b;
 
-    public ArrayList<String> a() {
-        return this.f61481a;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public int f62841c;
 
-    public int b() {
-        return this.f61487g;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public long f62842d;
 
-    public String c() {
-        return this.f61482b;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f62843e = -1;
 
-    public boolean d() {
-        return this.f61488h;
-    }
-
-    public boolean e() {
-        return this.i;
-    }
-
-    public SpannableStringBuilder f(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.f61481a)) {
-            return null;
+    public static c a() {
+        if (f62838f == null) {
+            f62838f = new c();
         }
-        String obj = editable.toString();
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.f61487g >= 0;
-        this.f61487g = -1;
-        Iterator<String> it = this.f61481a.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            if (!StringUtils.isNull(next)) {
-                m(spannableStringBuilder, obj, next);
-            }
-        }
-        if (this.f61487g >= 0 || z) {
-            ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
-            if (imageSpanArr != null) {
-                for (ImageSpan imageSpan : imageSpanArr) {
-                    if (imageSpan != null) {
-                        spannableStringBuilder.setSpan(imageSpan, editable.getSpanStart(imageSpan), editable.getSpanEnd(imageSpan), editable.getSpanFlags(imageSpan));
-                    }
+        return f62838f;
+    }
+
+    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
+        return Math.abs(f4 - f2) <= 100.0f && Math.abs(f5 - f3) <= 100.0f && j2 - j >= j3;
+    }
+
+    public final d.b.h0.b1.m.f b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        if (motionEvent != null && motionEvent.getAction() != 3) {
+            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+            int scrollX = x + textView.getScrollX();
+            int scrollY = y + textView.getScrollY();
+            try {
+                Layout layout = textView.getLayout();
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                d.b.h0.b1.m.f[] fVarArr = (d.b.h0.b1.m.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, d.b.h0.b1.m.f.class);
+                if (fVarArr == null || fVarArr.length <= 0 || fVarArr[0] == null) {
+                    return null;
                 }
-            }
-            return spannableStringBuilder;
-        }
-        return null;
-    }
-
-    public void g() {
-        int i = this.f61483c;
-        if (i != 0) {
-            this.f61485e = SkinManager.getColor(i);
-        }
-        int i2 = this.f61484d;
-        if (i2 != 0) {
-            this.f61486f = SkinManager.getColor(i2);
-        }
-    }
-
-    public void h(int i) {
-        this.f61484d = i;
-        this.f61486f = SkinManager.getColor(i);
-    }
-
-    public void i(ArrayList<String> arrayList) {
-        this.f61481a = arrayList;
-    }
-
-    public void j(int i) {
-        this.f61483c = i;
-        this.f61485e = SkinManager.getColor(i);
-    }
-
-    public void k(boolean z) {
-        this.f61488h = z;
-    }
-
-    public void l(boolean z) {
-        this.i = z;
-    }
-
-    public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
-        if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        if (this.f61485e == 0 && this.f61486f == 0) {
-            return;
-        }
-        int indexOf = str.indexOf(str2);
-        int length = str2.length();
-        if (indexOf >= 0) {
-            int i = this.f61487g;
-            if (i == -1) {
-                this.f61487g = indexOf + length;
-            } else {
-                int i2 = indexOf + length;
-                if (i2 < i) {
-                    this.f61487g = i2;
-                }
+                return fVarArr[0];
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return this.f62839a;
             }
         }
-        while (indexOf >= 0) {
-            if (this.f61485e != 0) {
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f61485e), indexOf, indexOf + length, 33);
-            }
-            if (this.f61486f != 0) {
-                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f61486f), indexOf, indexOf + length, 33);
-            }
-            indexOf = str.indexOf(str2, indexOf + 1);
-        }
+        return this.f62839a;
     }
 
-    public void n(String str) {
-        this.f61482b = str;
+    public void d(int i) {
+        this.f62843e = i;
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        d.b.h0.b1.m.f b2 = b(textView, spannable, motionEvent);
+        if (b2 == null && motionEvent.getAction() == 0) {
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return true;
+            }
+        }
+        if (b2 != null) {
+            this.f62839a = b2;
+        }
+        int i = this.f62843e;
+        if (i > -1) {
+            this.f62839a.g(i);
+        }
+        if (motionEvent.getAction() == 0) {
+            this.f62840b = (int) motionEvent.getX();
+            this.f62841c = (int) motionEvent.getY();
+            this.f62842d = System.currentTimeMillis();
+            d.b.h0.b1.m.f fVar = this.f62839a;
+            if (fVar != null) {
+                fVar.h(1);
+                Selection.setSelection(spannable, spannable.getSpanStart(this.f62839a), spannable.getSpanEnd(this.f62839a));
+            }
+            textView.invalidate();
+        } else if (motionEvent.getAction() == 2) {
+            if (this.f62839a != null && (Math.abs(this.f62840b - motionEvent.getX()) > 20.0f || Math.abs(this.f62841c - motionEvent.getY()) > 20.0f)) {
+                this.f62839a.h(2);
+                textView.invalidate();
+                Selection.removeSelection(spannable);
+            }
+        } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+            d.b.h0.b1.m.f fVar2 = this.f62839a;
+            if (fVar2 != null) {
+                fVar2.h(2);
+                textView.invalidate();
+                Selection.removeSelection(spannable);
+            }
+            if (c(this.f62840b, this.f62841c, motionEvent.getX(), motionEvent.getY(), this.f62842d, System.currentTimeMillis(), 500L)) {
+                return true;
+            }
+        }
+        try {
+            return super.onTouchEvent(textView, spannable, motionEvent);
+        } catch (Exception e3) {
+            BdLog.e(e3);
+            return true;
+        }
     }
 }

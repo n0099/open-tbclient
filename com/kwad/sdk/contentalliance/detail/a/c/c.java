@@ -6,69 +6,69 @@ import androidx.annotation.NonNull;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f32012a;
+    public volatile boolean f32301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32013b;
+    public long f32302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f32014c = new a();
+    public a f32303c = new a();
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f32015a = 0;
+        public long f32304a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32016b = 0;
+        public int f32305b = 0;
 
         public int a() {
-            return this.f32016b;
+            return this.f32305b;
         }
 
         public void a(long j) {
-            this.f32015a += j;
-            this.f32016b++;
+            this.f32304a += j;
+            this.f32305b++;
         }
 
         public long b() {
-            return this.f32015a;
+            return this.f32304a;
         }
 
         public void c() {
-            this.f32015a = 0L;
-            this.f32016b = 0;
+            this.f32304a = 0L;
+            this.f32305b = 0;
         }
     }
 
     public void a() {
-        if (this.f32012a) {
+        if (this.f32301a) {
             return;
         }
-        this.f32012a = true;
-        this.f32013b = SystemClock.elapsedRealtime();
+        this.f32301a = true;
+        this.f32302b = SystemClock.elapsedRealtime();
     }
 
     public void b() {
-        if (this.f32012a) {
-            this.f32014c.a(SystemClock.elapsedRealtime() - this.f32013b);
-            this.f32012a = false;
+        if (this.f32301a) {
+            this.f32303c.a(SystemClock.elapsedRealtime() - this.f32302b);
+            this.f32301a = false;
         }
     }
 
     @NonNull
     public a c() {
-        if (this.f32012a) {
-            this.f32014c.a(SystemClock.elapsedRealtime() - this.f32013b);
-            this.f32012a = false;
+        if (this.f32301a) {
+            this.f32303c.a(SystemClock.elapsedRealtime() - this.f32302b);
+            this.f32301a = false;
         }
-        return this.f32014c;
+        return this.f32303c;
     }
 
     public void d() {
-        this.f32012a = false;
-        this.f32013b = 0L;
-        this.f32014c.c();
+        this.f32301a = false;
+        this.f32302b = 0L;
+        this.f32303c.c();
     }
 }

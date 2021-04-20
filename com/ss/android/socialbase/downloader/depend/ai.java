@@ -5,25 +5,25 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ai extends IInterface {
     long a(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements ai {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ai$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0485a implements ai {
+        /* loaded from: classes6.dex */
+        public static class C0499a implements ai {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ai f38811a;
+            public static ai f39100a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38812b;
+            public IBinder f39101b;
 
-            public C0485a(IBinder iBinder) {
-                this.f38812b = iBinder;
+            public C0499a(IBinder iBinder) {
+                this.f39101b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ai
@@ -34,7 +34,7 @@ public interface ai extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.f38812b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f39101b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(i, i2);
                     }
                     obtain2.readException();
@@ -47,7 +47,7 @@ public interface ai extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38812b;
+                return this.f39101b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface ai extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ai)) {
                 return (ai) queryLocalInterface;
             }
-            return new C0485a(iBinder);
+            return new C0499a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -88,7 +88,7 @@ public interface ai extends IInterface {
         }
 
         public static ai a() {
-            return C0485a.f38811a;
+            return C0499a.f39100a;
         }
     }
 }

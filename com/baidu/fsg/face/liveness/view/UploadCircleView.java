@@ -13,28 +13,28 @@ import com.baidu.fsg.face.base.d.h;
 public class UploadCircleView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f6170a;
+    public Paint f6205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6171b;
+    public Paint f6206b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f6172c;
+    public Paint f6207c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f6173d;
+    public RectF f6208d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6174e;
+    public int f6209e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6175f;
+    public int f6210f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6176g;
+    public int f6211g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f6177h;
+    public float f6212h;
     public float i;
     public String j;
 
@@ -45,13 +45,13 @@ public class UploadCircleView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         float width = getWidth() / 2;
-        float f2 = width - (this.f6176g / 2);
-        canvas.drawCircle(width, width, f2, this.f6170a);
+        float f2 = width - (this.f6211g / 2);
+        canvas.drawCircle(width, width, f2, this.f6205a);
         float f3 = width - f2;
         float f4 = f2 + width;
-        this.f6173d.set(f3, f3, f4, f4);
-        canvas.drawArc(this.f6173d, -90.0f, this.i, false, this.f6171b);
-        canvas.drawText(this.j, width - (this.f6172c.measureText(this.j) / 2.0f), width, this.f6172c);
+        this.f6208d.set(f3, f3, f4, f4);
+        canvas.drawArc(this.f6208d, -90.0f, this.i, false, this.f6206b);
+        canvas.drawText(this.j, width - (this.f6207c.measureText(this.j) / 2.0f), width, this.f6207c);
     }
 
     public void setProgress(int i) {
@@ -67,27 +67,27 @@ public class UploadCircleView extends View {
     public UploadCircleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.j = "";
-        this.f6176g = h.a(context, 3.0f);
-        this.f6177h = h.a(context, 24.0f);
-        this.f6174e = Color.parseColor("#E1DDDD");
-        this.f6175f = Color.parseColor("#3C76FF");
-        this.f6170a = new Paint();
-        this.f6171b = new Paint();
-        this.f6172c = new Paint();
-        this.f6173d = new RectF();
-        this.f6170a.setColor(this.f6174e);
-        this.f6170a.setStyle(Paint.Style.STROKE);
-        this.f6170a.setStrokeWidth(this.f6176g);
-        this.f6170a.setAntiAlias(true);
-        this.f6170a.setStrokeCap(Paint.Cap.ROUND);
-        this.f6171b.setColor(this.f6175f);
-        this.f6171b.setStyle(Paint.Style.STROKE);
-        this.f6171b.setStrokeWidth(this.f6176g);
-        this.f6171b.setAntiAlias(true);
-        this.f6171b.setStrokeCap(Paint.Cap.ROUND);
-        this.f6172c.setStrokeWidth(0.0f);
-        this.f6172c.setColor(this.f6175f);
-        this.f6172c.setTextSize(this.f6177h);
-        this.f6172c.setTypeface(Typeface.DEFAULT_BOLD);
+        this.f6211g = h.a(context, 3.0f);
+        this.f6212h = h.a(context, 24.0f);
+        this.f6209e = Color.parseColor("#E1DDDD");
+        this.f6210f = Color.parseColor("#3C76FF");
+        this.f6205a = new Paint();
+        this.f6206b = new Paint();
+        this.f6207c = new Paint();
+        this.f6208d = new RectF();
+        this.f6205a.setColor(this.f6209e);
+        this.f6205a.setStyle(Paint.Style.STROKE);
+        this.f6205a.setStrokeWidth(this.f6211g);
+        this.f6205a.setAntiAlias(true);
+        this.f6205a.setStrokeCap(Paint.Cap.ROUND);
+        this.f6206b.setColor(this.f6210f);
+        this.f6206b.setStyle(Paint.Style.STROKE);
+        this.f6206b.setStrokeWidth(this.f6211g);
+        this.f6206b.setAntiAlias(true);
+        this.f6206b.setStrokeCap(Paint.Cap.ROUND);
+        this.f6207c.setStrokeWidth(0.0f);
+        this.f6207c.setColor(this.f6210f);
+        this.f6207c.setTextSize(this.f6212h);
+        this.f6207c.setTypeface(Typeface.DEFAULT_BOLD);
     }
 }

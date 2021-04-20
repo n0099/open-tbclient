@@ -13,43 +13,43 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f49037a;
+    public final String f49429a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f49038b;
+    public final int f49430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f49039c;
+    public final int f49431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f49040d;
+    public final String f49432d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f49041e;
+    public final String f49433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f49042f;
+    public final String f49434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Set<String> f49043g;
+    public final Set<String> f49435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f49044h;
+    public final String f49436h;
 
     public a(String str, int i, int i2, String str2, String str3, String str4, Set<String> set, String str5) {
-        this.f49037a = str;
-        this.f49039c = i2;
-        this.f49038b = i;
-        this.f49040d = str2;
-        this.f49041e = str3;
-        this.f49042f = str4;
-        this.f49043g = set;
-        this.f49044h = str5;
+        this.f49429a = str;
+        this.f49431c = i2;
+        this.f49430b = i;
+        this.f49432d = str2;
+        this.f49433e = str3;
+        this.f49434f = str4;
+        this.f49435g = set;
+        this.f49436h = str5;
     }
 
     public static a a(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (f.f48889a) {
+        if (f.f49281a) {
             Log.d(Node.TAG, "host info " + jSONObject.toString());
         }
         try {

@@ -16,18 +16,18 @@ public class e extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45123e;
+        public final /* synthetic */ CallbackHandler f45515e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f45124f;
+        public final /* synthetic */ UnitedSchemeEntity f45516f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45125g;
+        public final /* synthetic */ JSONObject f45517g;
 
         public a(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
-            this.f45123e = callbackHandler;
-            this.f45124f = unitedSchemeEntity;
-            this.f45125g = jSONObject;
+            this.f45515e = callbackHandler;
+            this.f45516f = unitedSchemeEntity;
+            this.f45517g = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,35 +35,35 @@ public class e extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.n(hVar, this.f45123e, this.f45124f);
+                d.b.g0.a.v1.c.c.n(hVar, this.f45515e, this.f45516f);
                 return;
             }
-            if (this.f45125g.has("emitLive")) {
-                d.b.g0.a.m1.a.a.L(d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitLive")));
+            if (this.f45517g.has("emitLive")) {
+                d.b.g0.a.m1.a.a.L(d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitLive")));
             }
-            if (this.f45125g.has("emitHttps")) {
-                d.b.g0.a.m1.a.a.I(d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitHttps")));
+            if (this.f45517g.has("emitHttps")) {
+                d.b.g0.a.m1.a.a.I(d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitHttps")));
             }
-            if (this.f45125g.has("emitDomain")) {
-                d.b.g0.a.m1.a.a.N(!d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitDomain")));
-                d.b.g0.a.m1.a.a.Q(!d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitDomain")));
+            if (this.f45517g.has("emitDomain")) {
+                d.b.g0.a.m1.a.a.N(!d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitDomain")));
+                d.b.g0.a.m1.a.a.Q(!d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitDomain")));
             }
-            if (this.f45125g.has("emitWss")) {
-                d.b.g0.a.m1.a.a.K(d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitWss")));
+            if (this.f45517g.has("emitWss")) {
+                d.b.g0.a.m1.a.a.K(d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitWss")));
             }
-            if (this.f45125g.has("emitLaunchMode")) {
-                d.b.g0.a.m1.a.a.O(d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitLaunchMode")));
+            if (this.f45517g.has("emitLaunchMode")) {
+                d.b.g0.a.m1.a.a.O(d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitLaunchMode")));
             }
-            if (this.f45125g.has("debugEnvData")) {
-                d.b.g0.a.m1.a.a.F(this.f45125g.optString("debugEnvData"));
+            if (this.f45517g.has("debugEnvData")) {
+                d.b.g0.a.m1.a.a.F(this.f45517g.optString("debugEnvData"));
             }
-            if (this.f45125g.has("emitReplaceJsNative")) {
-                d.b.g0.a.m1.a.a.J(d.b.g0.a.l0.g.a.b(this.f45125g.optInt("emitReplaceJsNative")));
+            if (this.f45517g.has("emitReplaceJsNative")) {
+                d.b.g0.a.m1.a.a.J(d.b.g0.a.l0.g.a.b(this.f45517g.optInt("emitReplaceJsNative")));
             }
-            if (this.f45125g.has("emitReplaceV8Core")) {
-                d.p.e(d.p.b(this.f45125g.optInt("emitReplaceV8Core")));
+            if (this.f45517g.has("emitReplaceV8Core")) {
+                d.p.e(d.p.b(this.f45517g.optInt("emitReplaceV8Core")));
             }
-            UnitedSchemeUtility.callCallback(this.f45123e, this.f45124f, UnitedSchemeUtility.wrapCallbackParams(0));
+            UnitedSchemeUtility.callCallback(this.f45515e, this.f45516f, UnitedSchemeUtility.wrapCallbackParams(0));
             d.b.g0.a.m1.a.a.T();
         }
     }
@@ -89,7 +89,7 @@ public class e extends a0 {
         if (d.b.g0.a.r1.d.e().h() == 0) {
             eVar.R().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, optJSONObject));
         } else if (d.b.g0.a.r1.d.e().h() == 1) {
-            if (!a0.f46288b) {
+            if (!a0.f46680b) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             } else if (!a2.optString("category").equals("swanGame")) {

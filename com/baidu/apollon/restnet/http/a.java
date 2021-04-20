@@ -24,28 +24,28 @@ import kotlin.text.Typography;
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3749a = "Host";
+    public static final String f3784a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3750b = "Accept";
+    public static final String f3785b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3751c = "Accept-Charset";
+    public static final String f3786c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3752d = "Accept-Encoding";
+    public static final String f3787d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3753e = "Accept-Language";
+    public static final String f3788e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3754f = "Allow";
+    public static final String f3789f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3755g = "Cache-Control";
+    public static final String f3790g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3756h = "Content-Disposition";
+    public static final String f3791h = "Content-Disposition";
     public static final String i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";

@@ -7,21 +7,21 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f13506e;
+    public final int f13167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterButton f13507f;
+    public ThreadForumEnterButton f13168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThreadForumEnterButton f13508g;
+    public ThreadForumEnterButton f13169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ThreadForumEnterButton f13509h;
+    public ThreadForumEnterButton f13170h;
     public View i;
 
     public ThreadForumEnterButtonContainer(Context context) {
@@ -29,30 +29,30 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     }
 
     public void a() {
-        ThreadForumEnterButton threadForumEnterButton = this.f13507f;
+        ThreadForumEnterButton threadForumEnterButton = this.f13168f;
         if (threadForumEnterButton != null) {
             threadForumEnterButton.d();
         }
-        ThreadForumEnterButton threadForumEnterButton2 = this.f13508g;
+        ThreadForumEnterButton threadForumEnterButton2 = this.f13169g;
         if (threadForumEnterButton2 != null) {
             threadForumEnterButton2.d();
         }
-        ThreadForumEnterButton threadForumEnterButton3 = this.f13509h;
+        ThreadForumEnterButton threadForumEnterButton3 = this.f13170h;
         if (threadForumEnterButton3 != null) {
             threadForumEnterButton3.d();
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        ThreadForumEnterButton threadForumEnterButton = this.f13507f;
+        ThreadForumEnterButton threadForumEnterButton = this.f13168f;
         if (threadForumEnterButton != null) {
             threadForumEnterButton.setAfterClickListener(onClickListener);
         }
-        ThreadForumEnterButton threadForumEnterButton2 = this.f13508g;
+        ThreadForumEnterButton threadForumEnterButton2 = this.f13169g;
         if (threadForumEnterButton2 != null) {
             threadForumEnterButton2.setAfterClickListener(onClickListener);
         }
-        ThreadForumEnterButton threadForumEnterButton3 = this.f13509h;
+        ThreadForumEnterButton threadForumEnterButton3 = this.f13170h;
         if (threadForumEnterButton3 != null) {
             threadForumEnterButton3.setAfterClickListener(onClickListener);
         }
@@ -63,15 +63,15 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     }
 
     public void setFrom(int i) {
-        ThreadForumEnterButton threadForumEnterButton = this.f13507f;
+        ThreadForumEnterButton threadForumEnterButton = this.f13168f;
         if (threadForumEnterButton != null) {
             threadForumEnterButton.setFrom(i);
         }
-        ThreadForumEnterButton threadForumEnterButton2 = this.f13508g;
+        ThreadForumEnterButton threadForumEnterButton2 = this.f13169g;
         if (threadForumEnterButton2 != null) {
             threadForumEnterButton2.setFrom(i);
         }
-        ThreadForumEnterButton threadForumEnterButton3 = this.f13509h;
+        ThreadForumEnterButton threadForumEnterButton3 = this.f13170h;
         if (threadForumEnterButton3 != null) {
             threadForumEnterButton3.setFrom(i);
         }
@@ -83,13 +83,13 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     public ThreadForumEnterButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13506e = l.g(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.f13167e = l.g(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.f13507f = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.f13508g = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.f13509h = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.f13168f = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.f13169g = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.f13170h = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
         this.i = findViewById(R.id.bottom_placeholder);
-        int k = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.f13506e) / 2;
-        int k2 = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.f13506e * 2)) / 3;
+        int k = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.f13167e) / 2;
+        int k2 = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.f13167e * 2)) / 3;
     }
 }

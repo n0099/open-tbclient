@@ -13,7 +13,7 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class r0 extends h {
     public static final int v = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
-    public static int w = d.b.b.e.p.l.k(TbadkCoreApplication.getInst());
+    public static int w = d.b.c.e.p.l.k(TbadkCoreApplication.getInst());
     public int l;
     public int m;
     public int n;
@@ -33,9 +33,9 @@ public class r0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             r0 r0Var = r0.this;
-            a.InterfaceC1116a interfaceC1116a = r0Var.i;
-            if (interfaceC1116a != null) {
-                interfaceC1116a.a(r0Var.p);
+            a.InterfaceC1129a interfaceC1129a = r0Var.i;
+            if (interfaceC1129a != null) {
+                interfaceC1129a.a(r0Var.p);
             }
         }
     }
@@ -104,9 +104,9 @@ public class r0 extends h {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(d.b.h0.r.q.a aVar) {
-        int k = d.b.b.e.p.l.k(TbadkCoreApplication.getInst());
+        int k = d.b.c.e.p.l.k(TbadkCoreApplication.getInst());
         if (k != this.r) {
-            w = d.b.b.e.p.l.k(TbadkCoreApplication.getInst());
+            w = d.b.c.e.p.l.k(TbadkCoreApplication.getInst());
             if (!"pb".equals(this.s)) {
                 this.l = w - v;
             } else {
@@ -155,8 +155,8 @@ public class r0 extends h {
                 int i7 = this.l;
                 layoutParams.width = i7;
                 layoutParams2.width = i7;
-                layoutParams.height = ((i7 / 16) * 9) - d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                layoutParams2.height = ((this.l / 16) * 9) - d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                layoutParams.height = ((i7 / 16) * 9) - d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                layoutParams2.height = ((this.l / 16) * 9) - d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
                 if (i3 != layoutParams.height || i2 != layoutParams.width) {
                     r1 = true;
                 }
@@ -177,8 +177,8 @@ public class r0 extends h {
         this.s = str;
     }
 
-    public void w(a.InterfaceC1116a interfaceC1116a) {
-        this.i = interfaceC1116a;
+    public void w(a.InterfaceC1129a interfaceC1129a) {
+        this.i = interfaceC1129a;
     }
 
     public void x(d.b.i.v0.a aVar) {

@@ -1,75 +1,90 @@
 package h.o.a;
 
 import h.d;
-import rx.exceptions.OnErrorThrowable;
+import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes7.dex */
-public class l<T, R> implements d.b<R, T> {
+public final class l<T> implements d.b<Boolean, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Class<R> f67775e;
+    public final h.n.f<? super T, Boolean> f68780e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final boolean f68781f;
 
     /* loaded from: classes7.dex */
-    public static final class a<T, R> extends h.j<T> {
+    public class a extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super R> f67776e;
+        public boolean f68782e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Class<R> f67777f;
+        public boolean f68783f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f67778g;
+        public final /* synthetic */ SingleDelayedProducer f68784g;
 
-        public a(h.j<? super R> jVar, Class<R> cls) {
-            this.f67776e = jVar;
-            this.f67777f = cls;
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ h.j f68785h;
+
+        public a(SingleDelayedProducer singleDelayedProducer, h.j jVar) {
+            this.f68784g = singleDelayedProducer;
+            this.f68785h = jVar;
         }
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f67778g) {
+            if (this.f68783f) {
                 return;
             }
-            this.f67776e.onCompleted();
+            this.f68783f = true;
+            if (this.f68782e) {
+                this.f68784g.setValue(Boolean.FALSE);
+            } else {
+                this.f68784g.setValue(Boolean.valueOf(l.this.f68781f));
+            }
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (this.f67778g) {
-                h.r.c.j(th);
+            if (!this.f68783f) {
+                this.f68783f = true;
+                this.f68785h.onError(th);
                 return;
             }
-            this.f67778g = true;
-            this.f67776e.onError(th);
+            h.r.c.j(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            try {
-                this.f67776e.onNext(this.f67777f.cast(t));
-            } catch (Throwable th) {
-                h.m.a.e(th);
-                unsubscribe();
-                onError(OnErrorThrowable.addValueAsLastCause(th, t));
+            if (this.f68783f) {
+                return;
             }
-        }
-
-        @Override // h.j
-        public void setProducer(h.f fVar) {
-            this.f67776e.setProducer(fVar);
+            this.f68782e = true;
+            try {
+                if (l.this.f68780e.call(t).booleanValue()) {
+                    this.f68783f = true;
+                    this.f68784g.setValue(Boolean.valueOf(true ^ l.this.f68781f));
+                    unsubscribe();
+                }
+            } catch (Throwable th) {
+                h.m.a.g(th, this, t);
+            }
         }
     }
 
-    public l(Class<R> cls) {
-        this.f67775e = cls;
+    public l(h.n.f<? super T, Boolean> fVar, boolean z) {
+        this.f68780e = fVar;
+        this.f68781f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
-    public h.j<? super T> call(h.j<? super R> jVar) {
-        a aVar = new a(jVar, this.f67775e);
+    public h.j<? super T> call(h.j<? super Boolean> jVar) {
+        SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
+        a aVar = new a(singleDelayedProducer, jVar);
         jVar.add(aVar);
+        jVar.setProducer(singleDelayedProducer);
         return aVar;
     }
 }

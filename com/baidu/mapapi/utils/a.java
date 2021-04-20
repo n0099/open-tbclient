@@ -5,25 +5,25 @@ import com.baidu.mapapi.utils.CoordinateConverter;
 public /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7391a;
+    public static final /* synthetic */ int[] f7426a;
 
     static {
         int[] iArr = new int[CoordinateConverter.CoordType.values().length];
-        f7391a = iArr;
+        f7426a = iArr;
         try {
             iArr[CoordinateConverter.CoordType.COMMON.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7391a[CoordinateConverter.CoordType.GPS.ordinal()] = 2;
+            f7426a[CoordinateConverter.CoordType.GPS.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f7391a[CoordinateConverter.CoordType.BD09LL.ordinal()] = 3;
+            f7426a[CoordinateConverter.CoordType.BD09LL.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f7391a[CoordinateConverter.CoordType.BD09MC.ordinal()] = 4;
+            f7426a[CoordinateConverter.CoordType.BD09MC.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
     }

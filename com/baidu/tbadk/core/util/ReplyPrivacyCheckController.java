@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.t1;
 import d.b.h0.r.s.a;
 import d.b.h0.s.e.a;
@@ -32,7 +32,7 @@ public class ReplyPrivacyCheckController {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (ReplyPrivacyCheckController.this.mLikeData == null || StringUtils.isNull(ReplyPrivacyCheckController.this.mLikeData.uid) || data == null || !ReplyPrivacyCheckController.this.mLikeData.uid.equals(data.f13695c)) {
+                if (ReplyPrivacyCheckController.this.mLikeData == null || StringUtils.isNull(ReplyPrivacyCheckController.this.mLikeData.uid) || data == null || !ReplyPrivacyCheckController.this.mLikeData.uid.equals(data.f13356c)) {
                     return;
                 }
                 boolean z = false;
@@ -44,14 +44,14 @@ public class ReplyPrivacyCheckController {
                     }
                     z = true;
                 }
-                if (data.f13693a) {
+                if (data.f13354a) {
                     ReplyPrivacyCheckController.this.mLikeData.likeStatus = data.l;
-                    ReplyPrivacyCheckController.this.mLikeData.isAttention = data.f13696d;
+                    ReplyPrivacyCheckController.this.mLikeData.isAttention = data.f13357d;
                 }
                 if (!z || ReplyPrivacyCheckController.this.mAttentionCallback == null) {
                     return;
                 }
-                ReplyPrivacyCheckController.this.mAttentionCallback.sendAfterAttention(data.f13693a, ReplyPrivacyCheckController.this.replyType);
+                ReplyPrivacyCheckController.this.mAttentionCallback.sendAfterAttention(data.f13354a, ReplyPrivacyCheckController.this.replyType);
             }
         }
     };
@@ -175,17 +175,17 @@ public class ReplyPrivacyCheckController {
     }
 
     public void showAttentionDialog(t1 t1Var) {
-        if (t1Var != null && !StringUtils.isNull(t1Var.f50888a) && !StringUtils.isNull(t1Var.f50889b) && !StringUtils.isNull(t1Var.f50890c)) {
+        if (t1Var != null && !StringUtils.isNull(t1Var.f51295a) && !StringUtils.isNull(t1Var.f51296b) && !StringUtils.isNull(t1Var.f51297c)) {
             d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.mContext.getPageActivity());
-            aVar.setMessage(t1Var.f50888a);
-            aVar.setPositiveButton(t1Var.f50890c, new a.e() { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.3
+            aVar.setMessage(t1Var.f51295a);
+            aVar.setPositiveButton(t1Var.f51297c, new a.e() { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.3
                 @Override // d.b.h0.r.s.a.e
                 public void onClick(d.b.h0.r.s.a aVar2) {
                     ReplyPrivacyCheckController.this.followHost();
                     aVar2.dismiss();
                 }
             });
-            aVar.setNegativeButton(t1Var.f50889b, new a.e() { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.4
+            aVar.setNegativeButton(t1Var.f51296b, new a.e() { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.4
                 @Override // d.b.h0.r.s.a.e
                 public void onClick(d.b.h0.r.s.a aVar2) {
                     aVar2.dismiss();

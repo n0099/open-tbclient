@@ -3,6 +3,8 @@ package com.alibaba.fastjson.serializer;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
+import com.alibaba.fastjson.util.RyuDouble;
+import com.alibaba.fastjson.util.RyuFloat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.io.IOException;
@@ -14,9 +16,8 @@ import java.util.List;
 import kotlin.text.Typography;
 /* loaded from: classes.dex */
 public final class SerializeWriter extends Writer {
-    public static final ThreadLocal<char[]> bufLocal = new ThreadLocal<>();
-    public static final ThreadLocal<byte[]> bytesBufLocal = new ThreadLocal<>();
-    public static final int nonDirectFeatures = ((((((((SerializerFeature.UseSingleQuotes.mask | 0) | SerializerFeature.BrowserCompatible.mask) | SerializerFeature.PrettyFormat.mask) | SerializerFeature.WriteEnumUsingToString.mask) | SerializerFeature.WriteNonStringValueAsString.mask) | SerializerFeature.WriteSlashAsSpecial.mask) | SerializerFeature.IgnoreErrorGetter.mask) | SerializerFeature.WriteClassName.mask) | SerializerFeature.NotWriteDefaultValue.mask;
+    public static int BUFFER_THRESHOLD;
+    public static final int nonDirectFeatures;
     public boolean beanToArray;
     public boolean browserSecure;
     public char[] buf;
@@ -35,6 +36,23 @@ public final class SerializeWriter extends Writer {
     public boolean writeEnumUsingToString;
     public boolean writeNonStringValueAsString;
     public final Writer writer;
+    public static final ThreadLocal<char[]> bufLocal = new ThreadLocal<>();
+    public static final ThreadLocal<byte[]> bytesBufLocal = new ThreadLocal<>();
+    public static final char[] VALUE_TRUE = ":true".toCharArray();
+    public static final char[] VALUE_FALSE = ":false".toCharArray();
+
+    static {
+        int parseInt;
+        BUFFER_THRESHOLD = 131072;
+        try {
+            String stringProperty = IOUtils.getStringProperty("fastjson.serializer_buffer_threshold");
+            if (stringProperty != null && stringProperty.length() > 0 && (parseInt = Integer.parseInt(stringProperty)) >= 64 && parseInt <= 65536) {
+                BUFFER_THRESHOLD = parseInt * 1024;
+            }
+        } catch (Throwable unused) {
+        }
+        nonDirectFeatures = SerializerFeature.UseSingleQuotes.mask | 0 | SerializerFeature.BrowserCompatible.mask | SerializerFeature.PrettyFormat.mask | SerializerFeature.WriteEnumUsingToString.mask | SerializerFeature.WriteNonStringValueAsString.mask | SerializerFeature.WriteSlashAsSpecial.mask | SerializerFeature.IgnoreErrorGetter.mask | SerializerFeature.WriteClassName.mask | SerializerFeature.NotWriteDefaultValue.mask;
+    }
 
     public SerializeWriter() {
         this((Writer) null);
@@ -47,11 +65,12 @@ public final class SerializeWriter extends Writer {
             bArr = new byte[8192];
             bytesBufLocal.set(bArr);
         }
-        if (bArr.length < i) {
-            bArr = new byte[i];
+        byte[] bArr2 = bArr.length < i ? new byte[i] : bArr;
+        int encodeUTF8 = IOUtils.encodeUTF8(this.buf, 0, this.count, bArr2);
+        outputStream.write(bArr2, 0, encodeUTF8);
+        if (bArr2 != bArr && bArr2.length <= BUFFER_THRESHOLD) {
+            bytesBufLocal.set(bArr2);
         }
-        int encodeUTF8 = IOUtils.encodeUTF8(this.buf, 0, this.count, bArr);
-        outputStream.write(bArr, 0, encodeUTF8);
         return encodeUTF8;
     }
 
@@ -62,13 +81,14 @@ public final class SerializeWriter extends Writer {
             bArr = new byte[8192];
             bytesBufLocal.set(bArr);
         }
-        if (bArr.length < i) {
-            bArr = new byte[i];
+        byte[] bArr2 = bArr.length < i ? new byte[i] : bArr;
+        int encodeUTF8 = IOUtils.encodeUTF8(this.buf, 0, this.count, bArr2);
+        byte[] bArr3 = new byte[encodeUTF8];
+        System.arraycopy(bArr2, 0, bArr3, 0, encodeUTF8);
+        if (bArr2 != bArr && bArr2.length <= BUFFER_THRESHOLD) {
+            bytesBufLocal.set(bArr2);
         }
-        int encodeUTF8 = IOUtils.encodeUTF8(this.buf, 0, this.count, bArr);
-        byte[] bArr2 = new byte[encodeUTF8];
-        System.arraycopy(bArr, 0, bArr2, 0, encodeUTF8);
-        return bArr2;
+        return bArr3;
     }
 
     private void writeEnumFieldValue(char c2, String str, String str2) {
@@ -202,7 +222,7 @@ public final class SerializeWriter extends Writer {
             flush();
         }
         char[] cArr = this.buf;
-        if (cArr.length <= 131072) {
+        if (cArr.length <= BUFFER_THRESHOLD) {
             bufLocal.set(cArr);
         }
         this.buf = null;
@@ -247,18 +267,22 @@ public final class SerializeWriter extends Writer {
     }
 
     public void expandCapacity(int i) {
+        char[] cArr;
         int i2 = this.maxBufSize;
         if (i2 != -1 && i >= i2) {
             throw new JSONException("serialize exceeded MAX_OUTPUT_LENGTH=" + this.maxBufSize + ", minimumCapacity=" + i);
         }
-        char[] cArr = this.buf;
-        int length = cArr.length + (cArr.length >> 1) + 1;
+        char[] cArr2 = this.buf;
+        int length = cArr2.length + (cArr2.length >> 1) + 1;
         if (length >= i) {
             i = length;
         }
-        char[] cArr2 = new char[i];
-        System.arraycopy(this.buf, 0, cArr2, 0, this.count);
-        this.buf = cArr2;
+        char[] cArr3 = new char[i];
+        System.arraycopy(this.buf, 0, cArr3, 0, this.count);
+        if (this.buf.length < BUFFER_THRESHOLD && ((cArr = bufLocal.get()) == null || cArr.length < this.buf.length)) {
+            bufLocal.set(this.buf);
+        }
+        this.buf = cArr3;
     }
 
     @Override // java.io.Writer, java.io.Flushable
@@ -294,6 +318,10 @@ public final class SerializeWriter extends Writer {
 
     public boolean isSortField() {
         return this.sortField;
+    }
+
+    public void reset() {
+        this.count = 0;
     }
 
     public void setMaxBufSize(int i) {
@@ -395,7 +423,7 @@ public final class SerializeWriter extends Writer {
                     int i10 = ((bArr[i] & 255) << 10) | (i9 == 2 ? (bArr[i2] & 255) << 2 : 0);
                     write(cArr[i10 >> 12]);
                     write(cArr[(i10 >>> 6) & 63]);
-                    write(i9 == 2 ? cArr[i10 & 63] : a.f1897h);
+                    write(i9 == 2 ? cArr[i10 & 63] : a.f1922h);
                     write(61);
                 }
                 write(c2);
@@ -430,19 +458,29 @@ public final class SerializeWriter extends Writer {
             char[] cArr3 = this.buf;
             cArr3[i4 - 5] = cArr[i22 >> 12];
             cArr3[i4 - 4] = cArr[(i22 >>> 6) & 63];
-            cArr3[i4 - 3] = i21 == 2 ? cArr[i22 & 63] : a.f1897h;
-            this.buf[i4 - 2] = a.f1897h;
+            cArr3[i4 - 3] = i21 == 2 ? cArr[i22 & 63] : a.f1922h;
+            this.buf[i4 - 2] = a.f1922h;
         }
         this.buf[i4 - 1] = c2;
     }
 
     public void writeDouble(double d2, boolean z) {
         if (!Double.isNaN(d2) && !Double.isInfinite(d2)) {
-            String d3 = Double.toString(d2);
-            if (isEnabled(SerializerFeature.WriteNullNumberAsZero) && d3.endsWith(".0")) {
-                d3 = d3.substring(0, d3.length() - 2);
+            int i = this.count + 24;
+            if (i > this.buf.length) {
+                if (this.writer == null) {
+                    expandCapacity(i);
+                } else {
+                    String ryuDouble = RyuDouble.toString(d2);
+                    write(ryuDouble, 0, ryuDouble.length());
+                    if (z && isEnabled(SerializerFeature.WriteClassName)) {
+                        write(68);
+                        return;
+                    }
+                    return;
+                }
             }
-            write(d3);
+            this.count += RyuDouble.toString(d2, this.buf, this.count);
             if (z && isEnabled(SerializerFeature.WriteClassName)) {
                 write(68);
                 return;
@@ -777,12 +815,22 @@ public final class SerializeWriter extends Writer {
     }
 
     public void writeFloat(float f2, boolean z) {
-        if (!Float.isNaN(f2) && !Float.isInfinite(f2)) {
-            String f3 = Float.toString(f2);
-            if (isEnabled(SerializerFeature.WriteNullNumberAsZero) && f3.endsWith(".0")) {
-                f3 = f3.substring(0, f3.length() - 2);
+        if (f2 == f2 && f2 != Float.POSITIVE_INFINITY && f2 != Float.NEGATIVE_INFINITY) {
+            int i = this.count + 15;
+            if (i > this.buf.length) {
+                if (this.writer == null) {
+                    expandCapacity(i);
+                } else {
+                    String ryuFloat = RyuFloat.toString(f2);
+                    write(ryuFloat, 0, ryuFloat.length());
+                    if (z && isEnabled(SerializerFeature.WriteClassName)) {
+                        write(70);
+                        return;
+                    }
+                    return;
+                }
             }
-            write(f3);
+            this.count += RyuFloat.toString(f2, this.buf, this.count);
             if (z && isEnabled(SerializerFeature.WriteClassName)) {
                 write(70);
                 return;
@@ -793,59 +841,38 @@ public final class SerializeWriter extends Writer {
     }
 
     public void writeHex(byte[] bArr) {
-        int i = 2;
         int length = this.count + (bArr.length * 2) + 3;
-        int i2 = 0;
         if (length > this.buf.length) {
-            if (this.writer != null) {
-                char[] cArr = new char[bArr.length + 3];
-                cArr[0] = 'x';
-                cArr[1] = '\'';
-                while (i2 < bArr.length) {
-                    int i3 = bArr[i2] & 255;
-                    int i4 = i3 >> 4;
-                    int i5 = i3 & 15;
-                    int i6 = i + 1;
-                    cArr[i] = (char) (i4 + (i4 < 10 ? 48 : 55));
-                    i = i6 + 1;
-                    cArr[i6] = (char) (i5 + (i5 < 10 ? 48 : 55));
-                    i2++;
-                }
-                cArr[i] = '\'';
-                try {
-                    this.writer.write(cArr);
-                    return;
-                } catch (IOException e2) {
-                    throw new JSONException("writeBytes error.", e2);
-                }
-            }
             expandCapacity(length);
         }
-        char[] cArr2 = this.buf;
-        int i7 = this.count;
-        int i8 = i7 + 1;
-        this.count = i8;
-        cArr2[i7] = 'x';
-        this.count = i8 + 1;
-        cArr2[i8] = '\'';
-        while (i2 < bArr.length) {
-            int i9 = bArr[i2] & 255;
-            int i10 = i9 >> 4;
-            int i11 = i9 & 15;
+        char[] cArr = this.buf;
+        int i = this.count;
+        int i2 = i + 1;
+        this.count = i2;
+        cArr[i] = 'x';
+        this.count = i2 + 1;
+        cArr[i2] = '\'';
+        for (byte b2 : bArr) {
+            int i3 = b2 & 255;
+            int i4 = i3 >> 4;
+            int i5 = i3 & 15;
+            char[] cArr2 = this.buf;
+            int i6 = this.count;
+            this.count = i6 + 1;
+            int i7 = 48;
+            cArr2[i6] = (char) (i4 + (i4 < 10 ? 48 : 55));
             char[] cArr3 = this.buf;
-            int i12 = this.count;
-            this.count = i12 + 1;
-            cArr3[i12] = (char) (i10 + (i10 < 10 ? 48 : 55));
-            char[] cArr4 = this.buf;
-            int i13 = this.count;
-            this.count = i13 + 1;
-            cArr4[i13] = (char) (i11 + (i11 < 10 ? 48 : 55));
-            i2++;
+            int i8 = this.count;
+            this.count = i8 + 1;
+            if (i5 >= 10) {
+                i7 = 55;
+            }
+            cArr3[i8] = (char) (i5 + i7);
         }
-        char[] cArr5 = this.buf;
-        int i14 = this.count;
-        this.count = i14 + 1;
-        cArr5[i14] = '\'';
+        char[] cArr4 = this.buf;
+        int i9 = this.count;
+        this.count = i9 + 1;
+        cArr4[i9] = '\'';
     }
 
     public void writeInt(int i) {
@@ -911,6 +938,11 @@ public final class SerializeWriter extends Writer {
             IOUtils.getChars(j, i, this.buf);
         }
         this.count = i;
+    }
+
+    public void writeLongAndChar(long j, char c2) throws IOException {
+        writeLong(j);
+        write(c2);
     }
 
     public void writeNull() {
@@ -1446,6 +1478,11 @@ public final class SerializeWriter extends Writer {
     public void writeNull(int i, int i2) {
         if ((i & i2) == 0 && (this.features & i2) == 0) {
             writeNull();
+            return;
+        }
+        int i3 = SerializerFeature.WriteMapNullValue.mask;
+        if ((i & i3) != 0 && (i & (~i3) & SerializerFeature.WRITE_MAP_NULL_FEATURES) == 0) {
+            writeNull();
         } else if (i2 == SerializerFeature.WriteNullListAsEmpty.mask) {
             write("[]");
         } else if (i2 == SerializerFeature.WriteNullStringAsEmpty.mask) {
@@ -1521,11 +1558,12 @@ public final class SerializeWriter extends Writer {
         int i4 = i3 + length + 1;
         cArr[i3 + 1] = this.keySeperator;
         str.getChars(0, length, cArr, i3 + 2);
-        this.buf[i4 + 1] = this.keySeperator;
+        char[] cArr2 = this.buf;
+        cArr2[i4 + 1] = this.keySeperator;
         if (z) {
-            System.arraycopy(":true".toCharArray(), 0, this.buf, i4 + 2, 5);
+            System.arraycopy(VALUE_TRUE, 0, cArr2, i4 + 2, 5);
         } else {
-            System.arraycopy(":false".toCharArray(), 0, this.buf, i4 + 2, 6);
+            System.arraycopy(VALUE_FALSE, 0, cArr2, i4 + 2, 6);
         }
     }
 
@@ -1849,7 +1887,7 @@ public final class SerializeWriter extends Writer {
     }
 
     public void writeFieldValue(char c2, String str, long j) {
-        if (j != Long.MIN_VALUE && this.quoteFieldNames) {
+        if (j != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
             int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
             int length = str.length();
             int i = this.count + length + 4 + stringSize;
@@ -1946,13 +1984,20 @@ public final class SerializeWriter extends Writer {
     }
 
     public void writeFieldValue(char c2, String str, BigDecimal bigDecimal) {
+        String bigDecimal2;
         write(c2);
         writeFieldName(str);
         if (bigDecimal == null) {
             writeNull();
-        } else {
-            write(bigDecimal.toString());
+            return;
         }
+        int scale = bigDecimal.scale();
+        if (isEnabled(SerializerFeature.WriteBigDecimalAsPlain) && scale >= -100 && scale < 100) {
+            bigDecimal2 = bigDecimal.toPlainString();
+        } else {
+            bigDecimal2 = bigDecimal.toString();
+        }
+        write(bigDecimal2);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:165:0x0301, code lost:

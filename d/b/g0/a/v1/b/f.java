@@ -9,55 +9,55 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f46693e;
+        public final /* synthetic */ boolean f47085e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46694f;
+        public final /* synthetic */ CallbackHandler f47086f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46695g;
+        public final /* synthetic */ String f47087g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Activity f46696h;
+        public final /* synthetic */ Activity f47088h;
         public final /* synthetic */ String i;
 
         public a(boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2) {
-            this.f46693e = z;
-            this.f46694f = callbackHandler;
-            this.f46695g = str;
-            this.f46696h = activity;
+            this.f47085e = z;
+            this.f47086f = callbackHandler;
+            this.f47087g = str;
+            this.f47088h = activity;
             this.i = str2;
         }
 
         @Override // d.b.g0.a.m.a
         public void onResult(int i) {
             if (i == 0) {
-                f.this.k(this.f46693e, this.f46694f, this.f46695g, this.f46696h, this.i, "snsapi_userinfo");
+                f.this.k(this.f47085e, this.f47086f, this.f47087g, this.f47088h, this.i, "snsapi_userinfo");
             } else {
-                this.f46694f.handleSchemeDispatchCallback(this.f46695g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                this.f47086f.handleSchemeDispatchCallback(this.f47087g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46697e;
+        public final /* synthetic */ CallbackHandler f47089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46698f;
+        public final /* synthetic */ String f47090f;
 
         public b(f fVar, CallbackHandler callbackHandler, String str) {
-            this.f46697e = callbackHandler;
-            this.f46698f = str;
+            this.f47089e = callbackHandler;
+            this.f47090f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,9 +66,9 @@ public class f extends a0 {
         public void onCallback(d.b.g0.a.v1.d.a aVar) {
             d.b.g0.a.c0.c.a("OpenData", "onOpenDataCallback:: ", aVar);
             if (!aVar.y()) {
-                d.b.g0.a.v1.c.c.l(aVar, this.f46697e, this.f46698f);
+                d.b.g0.a.v1.c.c.l(aVar, this.f47089e, this.f47090f);
             } else {
-                this.f46697e.handleSchemeDispatchCallback(this.f46698f, UnitedSchemeUtility.wrapCallbackParams(aVar.f46839g, 0).toString());
+                this.f47089e.handleSchemeDispatchCallback(this.f47090f, UnitedSchemeUtility.wrapCallbackParams(aVar.f47231g, 0).toString());
             }
         }
     }

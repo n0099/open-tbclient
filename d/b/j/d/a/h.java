@@ -5,15 +5,15 @@ import javax.crypto.ShortBufferException;
 public final class h implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63716a;
+    public int f64416a;
 
     public h(int i) {
-        this.f63716a = i;
+        this.f64416a = i;
     }
 
     @Override // d.b.j.d.a.i
     public int a(int i) {
-        int i2 = this.f63716a;
+        int i2 = this.f64416a;
         return i2 - (i % i2);
     }
 
@@ -40,7 +40,7 @@ public final class h implements i {
         int i4 = i2 + i;
         int i5 = bArr[i4 - 1];
         int i6 = i5 & 255;
-        if (i6 < 1 || i6 > this.f63716a || (i3 = i4 - i6) < i) {
+        if (i6 < 1 || i6 > this.f64416a || (i3 = i4 - i6) < i) {
             return -1;
         }
         for (int i7 = 0; i7 < i6; i7++) {

@@ -2,29 +2,100 @@ package io.flutter.plugins.pathprovider;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.annotation.NonNull;
+import d.g.c.i.a.f;
+import d.g.c.i.a.g;
+import d.g.c.i.a.q;
+import d.g.c.i.a.r;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
+import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.util.PathUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public MethodChannel channel;
     public Context context;
+    public final Executor executor;
+    public final Executor uiThreadExecutor = new UiThreadExecutor();
 
-    private String getApplicationSupportDirectory() {
+    /* loaded from: classes7.dex */
+    public static class UiThreadExecutor implements Executor {
+        public final Handler handler;
+
+        public UiThreadExecutor() {
+            this.handler = new Handler(Looper.getMainLooper());
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
+            this.handler.post(runnable);
+        }
+    }
+
+    public PathProviderPlugin() {
+        r rVar = new r();
+        rVar.e("path-provider-background-%d");
+        rVar.f(5);
+        this.executor = Executors.newSingleThreadExecutor(rVar.b());
+    }
+
+    public static /* synthetic */ void a(q qVar, Callable callable) {
+        try {
+            qVar.A(callable.call());
+        } catch (Throwable th) {
+            qVar.B(th);
+        }
+    }
+
+    private <T> void executeInBackground(final Callable<T> callable, final MethodChannel.Result result) {
+        final q F = q.F();
+        g.a(F, new f<T>() { // from class: io.flutter.plugins.pathprovider.PathProviderPlugin.1
+            @Override // d.g.c.i.a.f
+            public void onFailure(Throwable th) {
+                result.error(th.getClass().getName(), th.getMessage(), null);
+            }
+
+            @Override // d.g.c.i.a.f
+            public void onSuccess(T t) {
+                result.success(t);
+            }
+        }, this.uiThreadExecutor);
+        this.executor.execute(new Runnable() { // from class: f.a.c.a.f
+            @Override // java.lang.Runnable
+            public final void run() {
+                PathProviderPlugin.a(q.this, callable);
+            }
+        });
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: getApplicationSupportDirectory */
+    public String g() {
         return PathUtils.getFilesDir(this.context);
     }
 
-    private String getPathProviderApplicationDocumentsDirectory() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: getPathProviderApplicationDocumentsDirectory */
+    public String c() {
         return PathUtils.getDataDirectory(this.context);
     }
 
-    private List<String> getPathProviderExternalCacheDirectories() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: getPathProviderExternalCacheDirectories */
+    public List<String> e() {
         File[] externalCacheDirs;
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT >= 19) {
@@ -42,7 +113,10 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
         return arrayList;
     }
 
-    private List<String> getPathProviderExternalStorageDirectories(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: getPathProviderExternalStorageDirectories */
+    public List<String> f(String str) {
         File[] externalFilesDirs;
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT >= 19) {
@@ -60,7 +134,10 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
         return arrayList;
     }
 
-    private String getPathProviderStorageDirectory() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: getPathProviderStorageDirectory */
+    public String d() {
         File externalFilesDir = this.context.getExternalFilesDir(null);
         if (externalFilesDir == null) {
             return null;
@@ -68,7 +145,10 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
         return externalFilesDir.getAbsolutePath();
     }
 
-    private String getPathProviderTemporaryDirectory() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: getPathProviderTemporaryDirectory */
+    public String b() {
         return this.context.getCacheDir().getPath();
     }
 
@@ -145,19 +225,50 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                 break;
         }
         if (c2 == 0) {
-            result.success(getPathProviderTemporaryDirectory());
+            executeInBackground(new Callable() { // from class: f.a.c.a.b
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    return PathProviderPlugin.this.b();
+                }
+            }, result);
         } else if (c2 == 1) {
-            result.success(getPathProviderApplicationDocumentsDirectory());
+            executeInBackground(new Callable() { // from class: f.a.c.a.e
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    return PathProviderPlugin.this.c();
+                }
+            }, result);
         } else if (c2 == 2) {
-            result.success(getPathProviderStorageDirectory());
+            executeInBackground(new Callable() { // from class: f.a.c.a.d
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    return PathProviderPlugin.this.d();
+                }
+            }, result);
         } else if (c2 == 3) {
-            result.success(getPathProviderExternalCacheDirectories());
+            executeInBackground(new Callable() { // from class: f.a.c.a.a
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    return PathProviderPlugin.this.e();
+                }
+            }, result);
         } else if (c2 == 4) {
-            result.success(getPathProviderExternalStorageDirectories(StorageDirectoryMapper.androidType((Integer) methodCall.argument("type"))));
+            final String androidType = StorageDirectoryMapper.androidType((Integer) methodCall.argument("type"));
+            executeInBackground(new Callable() { // from class: f.a.c.a.c
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    return PathProviderPlugin.this.f(androidType);
+                }
+            }, result);
         } else if (c2 != 5) {
             result.notImplemented();
         } else {
-            result.success(getApplicationSupportDirectory());
+            executeInBackground(new Callable() { // from class: f.a.c.a.g
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    return PathProviderPlugin.this.g();
+                }
+            }, result);
         }
     }
 }

@@ -25,20 +25,20 @@ import java.util.Set;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44816a = k.f45051a;
+    public static final boolean f45208a = k.f45443a;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f44817e;
+        public final /* synthetic */ Set f45209e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.C0708b f44818f;
+        public final /* synthetic */ b.C0720b f45210f;
 
-        public a(Set set, b.C0708b c0708b) {
-            this.f44817e = set;
-            this.f44818f = c0708b;
+        public a(Set set, b.C0720b c0720b) {
+            this.f45209e = set;
+            this.f45210f = c0720b;
         }
 
         @Override // java.lang.Runnable
@@ -47,32 +47,32 @@ public class f {
             h.a().putLong("clean_disk_check_time", System.currentTimeMillis());
             Map e2 = f.this.e(0L);
             if (e2.isEmpty()) {
-                if (f.f44816a) {
+                if (f.f45208a) {
                     Log.d("SwanAppDiskCleaner", "cleanDiskSpace empty");
                     return;
                 }
                 return;
             }
             List<String> arrayList = new ArrayList<>(e2.keySet());
-            for (d.b.g0.a.j0.h.a aVar : Arrays.asList(new e(this.f44817e), new d(), new c())) {
+            for (d.b.g0.a.j0.h.a aVar : Arrays.asList(new e(this.f45209e), new d(), new c())) {
                 arrayList = aVar.a(arrayList);
             }
             if (arrayList == null || arrayList.isEmpty()) {
-                if (f.f44816a) {
+                if (f.f45208a) {
                     Log.i("SwanAppDiskCleaner", "cleanDiskSpace empty after strategy");
                     return;
                 }
                 return;
             }
-            if (f.f44816a) {
+            if (f.f45208a) {
                 Log.i("SwanAppDiskCleaner", "after strategy swanApp size=" + arrayList.size());
             }
             d.b.g0.l.m.i.a a3 = d.b.g0.l.m.i.b.b().a();
-            long j = a3.f49024b;
-            long j2 = a3.f49026d;
-            long j3 = a3.f49025c;
-            long j4 = a3.f49023a;
-            if (f.f44816a) {
+            long j = a3.f49416b;
+            long j2 = a3.f49418d;
+            long j3 = a3.f49417c;
+            long j4 = a3.f49415a;
+            if (f.f45208a) {
                 Log.i("SwanAppDiskCleaner", "forceCleanHour=" + j + ", ignoreCleanHour=" + j2 + ", holdMaxCount=" + j3 + ", maxCount=" + j4);
             }
             ArrayList arrayList2 = new ArrayList();
@@ -89,7 +89,7 @@ public class f {
                     arrayList2.add(next);
                 }
             }
-            if (f.f44816a) {
+            if (f.f45208a) {
                 Log.i("SwanAppDiskCleaner", "timeoutSize=" + arrayList2.size() + ", ignoreCleanSize=" + arrayList3.size() + " normalSize=" + arrayList.size() + " allSize=" + e2.size());
             }
             List<String> a4 = new d.b.g0.a.j0.h.b((int) j3).a(arrayList);
@@ -100,10 +100,10 @@ public class f {
             if (arrayList3.size() > j4 && (a2 = new d.b.g0.a.j0.h.b((int) j4).a(arrayList3)) != null) {
                 arrayList2.addAll(a2);
             }
-            if (f.f44816a) {
+            if (f.f45208a) {
                 Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + arrayList2);
             }
-            d.b.g0.a.j0.e.c().d().g(arrayList2, false, false, this.f44818f);
+            d.b.g0.a.j0.e.c().d().g(arrayList2, false, false, this.f45210f);
         }
     }
 
@@ -127,20 +127,20 @@ public class f {
     public final boolean c() {
         long j = h.a().getLong("clean_disk_check_time", 0L);
         boolean z = System.currentTimeMillis() - j >= 86400000;
-        if (f44816a && !z) {
+        if (f45208a && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率不清理, lastTime=" + j + ", now=" + System.currentTimeMillis());
         }
         return z;
     }
 
     @AnyThread
-    public synchronized void d(@Nullable Set<String> set, b.C0708b c0708b) {
+    public synchronized void d(@Nullable Set<String> set, b.C0720b c0720b) {
         if (!ProcessUtils.isMainProcess()) {
-            if (f44816a) {
+            if (f45208a) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
         } else if (c()) {
-            p.g().execute(new a(set, c0708b), "cleanDiskSpace");
+            p.g().execute(new a(set, c0720b), "cleanDiskSpace");
         }
     }
 

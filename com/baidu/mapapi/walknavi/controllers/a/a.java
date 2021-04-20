@@ -28,44 +28,44 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static IWTTSPlayer f7424b;
+    public static IWTTSPlayer f7459b;
 
     /* renamed from: h  reason: collision with root package name */
-    public static com.baidu.platform.comapi.wnplatform.m.c f7425h = new d();
+    public static com.baidu.platform.comapi.wnplatform.m.c f7460h = new d();
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f7428d;
+    public FrameLayout f7463d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f7429e;
+    public RelativeLayout f7464e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArCameraView f7430f;
+    public ArCameraView f7465f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WalkNaviModeSwitchListener f7431g;
+    public WalkNaviModeSwitchListener f7466g;
 
     /* renamed from: c  reason: collision with root package name */
-    public MapView f7427c = null;
+    public MapView f7462c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f7426a = null;
+    public View f7461a = null;
 
     @TargetApi(11)
     private void c(Activity activity) {
-        RelativeLayout relativeLayout = this.f7429e;
+        RelativeLayout relativeLayout = this.f7464e;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(0);
         }
         com.baidu.platform.comapi.walknavi.b.a().G().d();
         com.baidu.platform.comapi.walknavi.b.a().G().a(false);
         com.baidu.platform.comapi.walknavi.b.a().G().f();
-        this.f7427c.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(1096.0f));
-        this.f7427c.getMap().setPixelFormatTransparent(true);
-        this.f7427c.getMap().hideSDKLayer();
-        this.f7427c.setBackgroundColor(0);
-        this.f7427c.setAlpha(1.0f);
-        this.f7431g.onSuccess();
+        this.f7462c.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(1096.0f));
+        this.f7462c.getMap().setPixelFormatTransparent(true);
+        this.f7462c.getMap().hideSDKLayer();
+        this.f7462c.setBackgroundColor(0);
+        this.f7462c.setAlpha(1.0f);
+        this.f7466g.onSuccess();
     }
 
     public static void f() {
@@ -75,45 +75,45 @@ public class a {
     }
 
     private void h() {
-        RelativeLayout relativeLayout = this.f7429e;
+        RelativeLayout relativeLayout = this.f7464e;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(8);
         }
-        ArCameraView arCameraView = this.f7430f;
+        ArCameraView arCameraView = this.f7465f;
         if (arCameraView != null) {
             arCameraView.pauseCamera();
         }
-        MapView mapView = this.f7427c;
+        MapView mapView = this.f7462c;
         if (mapView != null) {
             mapView.getMap().showSDKLayer();
-            this.f7427c.getMap().setPixelFormatTransparent(false);
+            this.f7462c.getMap().setPixelFormatTransparent(false);
             com.baidu.platform.comapi.walknavi.b.a().G().e();
             com.baidu.platform.comapi.walknavi.b.a().G().a(true);
             com.baidu.platform.comapi.walknavi.b.a().G().g();
-            this.f7427c.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(19.0f));
-            this.f7427c.getMap().setBaiduHeatMapEnabled(false);
-            this.f7427c.getMap().setTrafficEnabled(false);
+            this.f7462c.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(19.0f));
+            this.f7462c.getMap().setBaiduHeatMapEnabled(false);
+            this.f7462c.getMap().setTrafficEnabled(false);
         }
     }
 
     private void i() {
         ArCameraView arCameraView;
-        RelativeLayout relativeLayout = this.f7429e;
-        if (relativeLayout == null || (arCameraView = this.f7430f) == null) {
+        RelativeLayout relativeLayout = this.f7464e;
+        if (relativeLayout == null || (arCameraView = this.f7465f) == null) {
             return;
         }
         relativeLayout.removeView(arCameraView);
-        this.f7430f.releaseCamera();
-        this.f7430f = null;
-        this.f7429e = null;
+        this.f7465f.releaseCamera();
+        this.f7465f = null;
+        this.f7464e = null;
     }
 
     public void a(Activity activity, IWEngineInitListener iWEngineInitListener) {
         if (iWEngineInitListener != null) {
-            if (this.f7427c == null) {
-                this.f7427c = new MapView(activity);
+            if (this.f7462c == null) {
+                this.f7462c = new MapView(activity);
             }
-            com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f7427c);
+            com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f7462c);
             com.baidu.platform.comapi.walknavi.b.a().a(activity, WNaviBaiduMap.getId(), new b(this, iWEngineInitListener));
             return;
         }
@@ -125,42 +125,42 @@ public class a {
     }
 
     public void d() {
-        MapView mapView = this.f7427c;
+        MapView mapView = this.f7462c;
         if (mapView != null) {
             mapView.onResume();
         }
     }
 
     public void e() {
-        if (f7424b != null) {
-            f7424b = null;
+        if (f7459b != null) {
+            f7459b = null;
         }
-        MapView mapView = this.f7427c;
+        MapView mapView = this.f7462c;
         if (mapView != null) {
             mapView.getMap().clear();
-            this.f7427c.onDestroy();
-            this.f7427c = null;
+            this.f7462c.onDestroy();
+            this.f7462c = null;
         }
         h();
         i();
-        FrameLayout frameLayout = this.f7428d;
+        FrameLayout frameLayout = this.f7463d;
         if (frameLayout != null && frameLayout.getParent() != null) {
-            ((ViewGroup) this.f7428d.getParent()).removeAllViews();
+            ((ViewGroup) this.f7463d.getParent()).removeAllViews();
         }
-        this.f7428d = null;
+        this.f7463d = null;
     }
 
     public void b(Activity activity) {
-        ArCameraView arCameraView = this.f7430f;
+        ArCameraView arCameraView = this.f7465f;
         if (arCameraView == null) {
             ArCameraView arCameraView2 = new ArCameraView(activity);
-            this.f7430f = arCameraView2;
-            this.f7429e.addView(arCameraView2);
+            this.f7465f = arCameraView2;
+            this.f7464e.addView(arCameraView2);
         } else {
             arCameraView.resumeCamera();
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            this.f7427c.setZOrderMediaOverlay(true);
+            this.f7462c.setZOrderMediaOverlay(true);
         }
         c(activity);
     }
@@ -212,7 +212,7 @@ public class a {
             iArr4[i8] = i8;
         }
         if (WNavigatorWrapper.getWNavigator().C().a(iArr, iArr2, iArr3, iArr4)) {
-            WNavigatorWrapper.getWNavigator().a(f7425h);
+            WNavigatorWrapper.getWNavigator().a(f7460h);
             WNavigatorWrapper.getWNavigator().a(new c(this, iWRoutePlanListener));
             f();
             WNavigatorWrapper.getWNavigator().C().a(13, cVar.a("route_data_mode", 0), cVar.a("vehicle", 0), cVar.a("route_buff"));
@@ -224,7 +224,7 @@ public class a {
     }
 
     public void a(IWTTSPlayer iWTTSPlayer) {
-        f7424b = iWTTSPlayer;
+        f7459b = iWTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -240,7 +240,7 @@ public class a {
     }
 
     public void c() {
-        MapView mapView = this.f7427c;
+        MapView mapView = this.f7462c;
         if (mapView != null) {
             mapView.onPause();
         }
@@ -263,30 +263,30 @@ public class a {
             return null;
         }
         activity.getWindow().setFlags(128, 128);
-        FrameLayout frameLayout = this.f7428d;
+        FrameLayout frameLayout = this.f7463d;
         if (frameLayout != null) {
             return frameLayout;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         FrameLayout frameLayout2 = new FrameLayout(activity);
-        this.f7428d = frameLayout2;
+        this.f7463d = frameLayout2;
         frameLayout2.setLayoutParams(layoutParams);
-        this.f7426a = com.baidu.platform.comapi.walknavi.b.a().b(activity);
+        this.f7461a = com.baidu.platform.comapi.walknavi.b.a().b(activity);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
         RelativeLayout relativeLayout = new RelativeLayout(activity);
-        this.f7429e = relativeLayout;
+        this.f7464e = relativeLayout;
         relativeLayout.setLayoutParams(layoutParams2);
-        this.f7428d.addView(this.f7427c);
-        this.f7428d.addView(this.f7429e);
-        this.f7428d.addView(this.f7426a);
-        return this.f7428d;
+        this.f7463d.addView(this.f7462c);
+        this.f7463d.addView(this.f7464e);
+        this.f7463d.addView(this.f7461a);
+        return this.f7463d;
     }
 
     public void a(Activity activity, int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener) {
-        this.f7431g = walkNaviModeSwitchListener;
+        this.f7466g = walkNaviModeSwitchListener;
         if (i == 1) {
             h();
-            this.f7431g.onSuccess();
+            this.f7466g.onSuccess();
         } else if (i == 2) {
             if (Build.VERSION.SDK_INT >= 23) {
                 if (activity.checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {

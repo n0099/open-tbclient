@@ -7,10 +7,10 @@ import com.baidu.ar.npc.ArBridge;
 public class a implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4155a;
+    public final /* synthetic */ ArBridge f4190a;
 
     public a(ArBridge arBridge) {
-        this.f4155a = arBridge;
+        this.f4190a = arBridge;
     }
 
     @Override // android.os.Handler.Callback
@@ -18,7 +18,7 @@ public class a implements Handler.Callback {
         if (message.what != 1) {
             return false;
         }
-        this.f4155a.processIncomingMessage((ArBridge.b) message.obj);
+        this.f4190a.processIncomingMessage((ArBridge.b) message.obj);
         return false;
     }
 }

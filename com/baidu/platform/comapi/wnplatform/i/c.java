@@ -7,10 +7,10 @@ import android.os.Message;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f10292a;
+    public final /* synthetic */ b f9850a;
 
     public c(b bVar) {
-        this.f10292a = bVar;
+        this.f9850a = bVar;
     }
 
     @Override // android.os.Handler
@@ -30,23 +30,23 @@ public class c extends Handler {
         int i4 = message.arg2;
         if (i4 == 1 || i4 == 0) {
             if (i3 != 0) {
-                aVar = this.f10292a.f10289a;
+                aVar = this.f9850a.f9847a;
                 if (aVar != null) {
-                    aVar2 = this.f10292a.f10289a;
+                    aVar2 = this.f9850a.f9847a;
                     aVar2.a(i3);
                     return;
                 }
                 return;
             }
             com.baidu.platform.comapi.wnplatform.model.b R = com.baidu.platform.comapi.walknavi.b.a().R();
-            b bVar = this.f10292a;
-            i = bVar.f10290b;
+            b bVar = this.f9850a;
+            i = bVar.f9848b;
             a2 = bVar.a(i);
-            i2 = this.f10292a.f10290b;
+            i2 = this.f9850a.f9848b;
             R.a(a2, i2);
-            aVar3 = this.f10292a.f10289a;
+            aVar3 = this.f9850a.f9847a;
             if (aVar3 != null) {
-                aVar4 = this.f10292a.f10289a;
+                aVar4 = this.f9850a.f9847a;
                 aVar4.b();
             }
         }

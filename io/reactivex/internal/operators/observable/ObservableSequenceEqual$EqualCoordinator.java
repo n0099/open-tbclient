@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.d;
-import f.a.x.e.c.j;
-import f.a.x.f.a;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.d;
+import f.b.x.e.c.j;
+import f.b.x.f.a;
 import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -37,7 +37,7 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
         aVar2.clear();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -46,8 +46,8 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
         this.resources.dispose();
         if (getAndIncrement() == 0) {
             j<T>[] jVarArr = this.observers;
-            jVarArr[0].f67505f.clear();
-            jVarArr[1].f67505f.clear();
+            jVarArr[0].f68511f.clear();
+            jVarArr[1].f68511f.clear();
         }
     }
 
@@ -61,18 +61,18 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
         }
         j<T>[] jVarArr = this.observers;
         j<T> jVar = jVarArr[0];
-        a<T> aVar = jVar.f67505f;
+        a<T> aVar = jVar.f68511f;
         j<T> jVar2 = jVarArr[1];
-        a<T> aVar2 = jVar2.f67505f;
+        a<T> aVar2 = jVar2.f68511f;
         int i = 1;
         while (!this.cancelled) {
-            boolean z = jVar.f67507h;
+            boolean z = jVar.f68513h;
             if (z && (th2 = jVar.i) != null) {
                 cancel(aVar, aVar2);
                 this.actual.onError(th2);
                 return;
             }
-            boolean z2 = jVar2.f67507h;
+            boolean z2 = jVar2.f68513h;
             if (z2 && (th = jVar2.i) != null) {
                 cancel(aVar, aVar2);
                 this.actual.onError(th);
@@ -107,7 +107,7 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
                         this.v1 = null;
                         this.v2 = null;
                     } catch (Throwable th3) {
-                        f.a.u.a.a(th3);
+                        f.b.u.a.a(th3);
                         cancel(aVar, aVar2);
                         this.actual.onError(th3);
                         return;
@@ -125,7 +125,7 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
         aVar2.clear();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }

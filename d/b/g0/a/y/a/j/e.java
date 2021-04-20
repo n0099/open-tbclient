@@ -6,43 +6,43 @@ import org.json.JSONArray;
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f46980a;
+    public float f47372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f46981b;
+    public float f47373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f46982c;
+    public float f47374c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f46983d;
+    public float f47375d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f46984e;
+    public float f47376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f46985f;
+    public float f47377f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f46986g = false;
+    public boolean f47378g = false;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
-        if (this.f46986g) {
-            bVar.j.cubicTo(this.f46980a, this.f46981b, this.f46982c, this.f46983d, this.f46984e, this.f46985f);
+        if (this.f47378g) {
+            bVar.j.cubicTo(this.f47372a, this.f47373b, this.f47374c, this.f47375d, this.f47376e, this.f47377f);
         }
     }
 
     @Override // d.b.g0.a.y.a.j.a
     public void b(JSONArray jSONArray) {
         if (jSONArray.length() > 5) {
-            this.f46980a = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(0));
-            this.f46981b = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(1));
-            this.f46982c = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(2));
-            this.f46983d = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(3));
-            this.f46984e = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(4));
-            this.f46985f = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(5));
-            this.f46986g = true;
+            this.f47372a = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(0));
+            this.f47373b = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(1));
+            this.f47374c = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(2));
+            this.f47375d = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(3));
+            this.f47376e = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(4));
+            this.f47377f = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(5));
+            this.f47378g = true;
         }
     }
 }

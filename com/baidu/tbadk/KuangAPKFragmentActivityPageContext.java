@@ -12,7 +12,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.b.c.g.a;
+import d.b.c.c.g.a;
 import d.b.h0.r.c;
 /* loaded from: classes3.dex */
 public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
@@ -22,7 +22,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
         this.orginal = baseFragmentActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Context getContext() {
         return this.orginal.getActivity();
     }
@@ -32,22 +32,22 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
         return this.orginal.getLayoutMode();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Activity getPageActivity() {
         return this.orginal.getActivity();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Resources getResources() {
         return TbadkCoreApplication.getInst().getResources();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public String getString(int i) {
         return getResources().getString(i);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public BdUniqueId getUniqueId() {
         return this.orginal.getUniqueId();
     }
@@ -57,7 +57,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
         this.orginal.registerListener(aVar);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public void sendMessage(Message<?> message) {
         this.orginal.sendMessage(message);
     }
@@ -78,7 +78,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public BaseFragmentActivity getOrignalPage() {
         return this.orginal;
     }
@@ -98,7 +98,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
         this.orginal.showToast(str, z);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public void registerListener(MessageListener<?> messageListener) {
         this.orginal.registerListener(messageListener);
     }

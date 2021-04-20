@@ -24,7 +24,7 @@ public class h extends d.b.i0.x.b<d.b.i0.t.d.c.f.b.c> {
         this.p.addView(this.m.e());
         this.p.addView(this.n.e());
         this.p.addView(this.o.e());
-        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f63756f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.b.i0.x.b
@@ -49,9 +49,9 @@ public class h extends d.b.i0.x.b<d.b.i0.t.d.c.f.b.c> {
     /* renamed from: u */
     public void n(d.b.i0.t.d.c.f.b.c cVar) {
         if (cVar != null) {
-            this.m.f(cVar.f60363e);
-            this.n.f(cVar.f60364f);
-            this.o.f(cVar.f60365g);
+            this.m.f(cVar.f61927e);
+            this.n.f(cVar.f61928f);
+            this.o.f(cVar.f61929g);
         }
     }
 

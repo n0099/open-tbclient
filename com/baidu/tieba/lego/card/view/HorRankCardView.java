@@ -16,12 +16,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.view.HorizontalScrollListView;
 import com.baidu.tieba.lego.view.MoreButton;
-import d.b.i0.c3.v;
-import d.b.i0.i1.i;
-import d.b.i0.i1.o.j.c;
+import d.b.i0.d3.v;
+import d.b.i0.j1.i;
+import d.b.i0.j1.o.j.c;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HorRankCardView extends BaseCardView<HorRankCard> {
     public LinearLayout r;
     public HorizontalScrollListView s;
@@ -32,23 +32,23 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public ImageView x;
     public ImageView y;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f18650e;
+        public final /* synthetic */ HorRankCard f18327e;
 
         public a(HorRankCard horRankCard) {
-            this.f18650e = horRankCard;
+            this.f18327e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18650e.getScheme())) {
+            if (TextUtils.isEmpty(this.f18327e.getScheme())) {
                 return;
             }
-            i.e(this.f18650e).a(TiebaStatic.Params.OBJ_URL, this.f18650e.getScheme()).c("obj_locate", HorRankCardView.this.getStatPosition()).b(this.f18650e);
-            v.c(HorRankCardView.this.m, this.f18650e.getScheme());
+            i.e(this.f18327e).a(TiebaStatic.Params.OBJ_URL, this.f18327e.getScheme()).c("obj_locate", HorRankCardView.this.getStatPosition()).b(this.f18327e);
+            v.c(HorRankCardView.this.m, this.f18327e.getScheme());
         }
     }
 

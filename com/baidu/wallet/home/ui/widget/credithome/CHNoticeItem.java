@@ -14,13 +14,13 @@ import com.baidu.wallet.home.ui.widget.b;
 public class CHNoticeItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24686a;
+    public MaskTextView f24371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24687b;
+    public MaskTextView f24372b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f24688c;
+    public NetImageView f24373c;
 
     public CHNoticeItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -28,22 +28,22 @@ public class CHNoticeItem extends BaseItemView {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_notice_item"), this);
-        this.f24686a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
-        this.f24687b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
-        this.f24688c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
+        this.f24371a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
+        this.f24372b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
+        this.f24373c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
     }
 
     private void b() {
         if (!TextUtils.isEmpty(getData().label)) {
-            this.f24687b.setMaskText(getData().label);
+            this.f24372b.setMaskText(getData().label);
         } else {
-            this.f24687b.setVisibility(8);
+            this.f24372b.setVisibility(8);
         }
-        this.f24686a.setMaskText(getData().name);
+        this.f24371a.setMaskText(getData().name);
         if (!TextUtils.isEmpty(getData().type) && !TextUtils.isEmpty(getData().link_addr)) {
-            this.f24688c.setVisibility(0);
+            this.f24373c.setVisibility(0);
         } else {
-            this.f24688c.setVisibility(8);
+            this.f24373c.setVisibility(8);
         }
     }
 

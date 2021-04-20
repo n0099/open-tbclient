@@ -48,7 +48,7 @@ public class NetworkMonitor {
                 case 14:
                 case 15:
                     i = 2;
-                    str = g.f3874b;
+                    str = g.f3909b;
                     break;
                 case 13:
                     i = 3;

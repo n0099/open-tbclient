@@ -17,33 +17,33 @@ import d.o.a.e.b.a.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class q implements Handler.Callback, a.b {
     public static volatile q l;
     public static e m;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f67175h;
+    public final boolean f68168h;
     public long i;
     public ConnectivityManager k;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f67173f = new Handler(Looper.getMainLooper(), this);
+    public final Handler f68166f = new Handler(Looper.getMainLooper(), this);
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<d> f67174g = new SparseArray<>();
+    public final SparseArray<d> f68167g = new SparseArray<>();
     public int j = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f67172e = d.o.a.e.b.g.d.l();
+    public final Context f68165e = d.o.a.e.b.g.d.l();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: d.o.a.e.b.m.q$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1850a extends ConnectivityManager.NetworkCallback {
-            public C1850a() {
+        /* loaded from: classes6.dex */
+        public class C1885a extends ConnectivityManager.NetworkCallback {
+            public C1885a() {
             }
 
             @Override // android.net.ConnectivityManager.NetworkCallback
@@ -59,29 +59,29 @@ public class q implements Handler.Callback, a.b {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                if (q.this.f67172e == null || Build.VERSION.SDK_INT < 21) {
+                if (q.this.f68165e == null || Build.VERSION.SDK_INT < 21) {
                     return;
                 }
-                q.this.k = (ConnectivityManager) q.this.f67172e.getApplicationContext().getSystemService("connectivity");
-                q.this.k.registerNetworkCallback(new NetworkRequest.Builder().build(), new C1850a());
+                q.this.k = (ConnectivityManager) q.this.f68165e.getApplicationContext().getSystemService("connectivity");
+                q.this.k.registerNetworkCallback(new NetworkRequest.Builder().build(), new C1885a());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67178e;
+        public final /* synthetic */ int f68171e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f67179f;
+        public final /* synthetic */ boolean f68172f;
 
         public b(int i, boolean z) {
-            this.f67178e = i;
-            this.f67179f = z;
+            this.f68171e = i;
+            this.f68172f = z;
         }
 
         @Override // java.lang.Runnable
@@ -92,11 +92,11 @@ public class q implements Handler.Callback, a.b {
                     d.o.a.e.b.c.a.h("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + q.this.j);
                     long currentTimeMillis = System.currentTimeMillis();
                     ArrayList<d> arrayList = new ArrayList();
-                    synchronized (q.this.f67174g) {
-                        for (int i = 0; i < q.this.f67174g.size(); i++) {
-                            d dVar = (d) q.this.f67174g.valueAt(i);
-                            if (dVar != null && dVar.d(currentTimeMillis, this.f67178e, A, this.f67179f)) {
-                                if (this.f67179f) {
+                    synchronized (q.this.f68167g) {
+                        for (int i = 0; i < q.this.f68167g.size(); i++) {
+                            d dVar = (d) q.this.f68167g.valueAt(i);
+                            if (dVar != null && dVar.d(currentTimeMillis, this.f68171e, A, this.f68172f)) {
+                                if (this.f68172f) {
                                     dVar.i();
                                 }
                                 arrayList.add(dVar);
@@ -105,7 +105,7 @@ public class q implements Handler.Callback, a.b {
                     }
                     if (arrayList.size() > 0) {
                         for (d dVar2 : arrayList) {
-                            q.this.f(dVar2.f67183a, A, false);
+                            q.this.f(dVar2.f68176a, A, false);
                         }
                     }
                 }
@@ -114,52 +114,52 @@ public class q implements Handler.Callback, a.b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67181e;
+        public final /* synthetic */ int f68174e;
 
         public c(int i) {
-            this.f67181e = i;
+            this.f68174e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                q.this.f(this.f67181e, q.this.A(), true);
+                q.this.f(this.f68174e, q.this.A(), true);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f67183a;
+        public final int f68176a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f67184b;
+        public final int f68177b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f67185c;
+        public final int f68178c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f67186d;
+        public final int f68179d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f67187e;
+        public final int f68180e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f67188f;
+        public final boolean f68181f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int[] f67189g;
+        public final int[] f68182g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f67190h;
+        public int f68183h;
         public int i;
         public boolean j;
         public long k;
@@ -168,18 +168,18 @@ public class q implements Handler.Callback, a.b {
         public d(int i, int i2, int i3, int i4, int i5, boolean z, int[] iArr) {
             i4 = i4 < 3000 ? 3000 : i4;
             i5 = i5 < 5000 ? 5000 : i5;
-            this.f67183a = i;
-            this.f67184b = i2;
-            this.f67185c = i3;
-            this.f67186d = i4;
-            this.f67187e = i5;
-            this.f67188f = z;
-            this.f67189g = iArr;
-            this.f67190h = i4;
+            this.f68176a = i;
+            this.f68177b = i2;
+            this.f68178c = i3;
+            this.f68179d = i4;
+            this.f68180e = i5;
+            this.f68181f = z;
+            this.f68182g = iArr;
+            this.f68183h = i4;
         }
 
         public synchronized void b() {
-            this.f67190h += this.f67187e;
+            this.f68183h += this.f68180e;
         }
 
         public synchronized void c(long j) {
@@ -190,9 +190,9 @@ public class q implements Handler.Callback, a.b {
             if (!this.l) {
                 d.o.a.e.b.c.a.h("RetryScheduler", "canRetry: mIsWaitingRetry is false, return false!!!");
                 return false;
-            } else if (this.f67184b >= i && this.i < this.f67185c) {
+            } else if (this.f68177b >= i && this.i < this.f68178c) {
                 if (!this.j || i2 == 2) {
-                    return z || j - this.k >= ((long) this.f67186d);
+                    return z || j - this.k >= ((long) this.f68179d);
                 }
                 return false;
             } else {
@@ -205,22 +205,22 @@ public class q implements Handler.Callback, a.b {
         }
 
         public void i() {
-            this.f67190h = this.f67186d;
+            this.f68183h = this.f68179d;
         }
 
         public int j() {
-            return this.f67190h;
+            return this.f68183h;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         void a(DownloadInfo downloadInfo, long j, boolean z, int i);
     }
 
     public q() {
         z();
-        this.f67175h = d.o.a.e.b.l.e.n0();
+        this.f68168h = d.o.a.e.b.l.e.n0();
         d.o.a.e.b.a.a.c().f(this);
     }
 
@@ -242,7 +242,7 @@ public class q implements Handler.Callback, a.b {
     public final int A() {
         try {
             if (this.k == null) {
-                this.k = (ConnectivityManager) this.f67172e.getApplicationContext().getSystemService("connectivity");
+                this.k = (ConnectivityManager) this.f68165e.getApplicationContext().getSystemService("connectivity");
             }
             NetworkInfo activeNetworkInfo = this.k.getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
@@ -265,12 +265,12 @@ public class q implements Handler.Callback, a.b {
     public final void f(int i, int i2, boolean z) {
         d.o.a.e.b.g.q m2;
         boolean z2;
-        Context context = this.f67172e;
+        Context context = this.f68165e;
         if (context == null) {
             return;
         }
-        synchronized (this.f67174g) {
-            d dVar = this.f67174g.get(i);
+        synchronized (this.f68167g) {
+            d dVar = this.f68167g.get(i);
             if (dVar == null) {
                 return;
             }
@@ -307,7 +307,7 @@ public class q implements Handler.Callback, a.b {
                 } else {
                     if (i2 != 0) {
                         z2 = true;
-                    } else if (!dVar.f67188f) {
+                    } else if (!dVar.f68181f) {
                         return;
                     } else {
                         z2 = false;
@@ -318,7 +318,7 @@ public class q implements Handler.Callback, a.b {
                     }
                     dVar.f();
                     if (z2) {
-                        d.o.a.e.b.c.a.h("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + dVar.f67183a);
+                        d.o.a.e.b.c.a.h("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + dVar.f68176a);
                         dVar.c(System.currentTimeMillis());
                         if (z) {
                             dVar.b();
@@ -358,13 +358,13 @@ public class q implements Handler.Callback, a.b {
             this.i = currentTimeMillis;
             d.o.a.e.b.c.a.h("RetryScheduler", "scheduleAllTaskRetry, level = [" + i + "], force = [" + z + "]");
             if (z) {
-                this.f67173f.removeMessages(0);
+                this.f68166f.removeMessages(0);
             }
             Message obtain = Message.obtain();
             obtain.what = 0;
             obtain.arg1 = i;
             obtain.arg2 = z ? 1 : 0;
-            this.f67173f.sendMessageDelayed(obtain, 2000L);
+            this.f68166f.sendMessageDelayed(obtain, 2000L);
         }
     }
 
@@ -380,7 +380,7 @@ public class q implements Handler.Callback, a.b {
     }
 
     public void k(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || TextUtils.isEmpty(d.o.a.e.b.d.c.f66953a) || !d.o.a.e.b.d.c.f66953a.equals(downloadInfo.m0())) {
+        if (downloadInfo == null || TextUtils.isEmpty(d.o.a.e.b.d.c.f67946a) || !d.o.a.e.b.d.c.f67946a.equals(downloadInfo.m0())) {
             return;
         }
         l(downloadInfo, downloadInfo.K1() || downloadInfo.L1(), A());
@@ -392,8 +392,8 @@ public class q implements Handler.Callback, a.b {
             return;
         }
         d q = q(downloadInfo.c0());
-        if (q.i > q.f67185c) {
-            d.o.a.e.b.c.a.i("RetryScheduler", "tryStartScheduleRetry, id = " + q.f67183a + ", mRetryCount = " + q.i + ", maxCount = " + q.f67185c);
+        if (q.i > q.f68178c) {
+            d.o.a.e.b.c.a.i("RetryScheduler", "tryStartScheduleRetry, id = " + q.f68176a + ", mRetryCount = " + q.i + ", maxCount = " + q.f68178c);
             return;
         }
         int errorCode = U.getErrorCode();
@@ -401,23 +401,23 @@ public class q implements Handler.Callback, a.b {
             if (!m(q, errorCode)) {
                 return;
             }
-            d.o.a.e.b.c.a.h("RetryScheduler", "allow error code, id = " + q.f67183a + ", error code = " + errorCode);
+            d.o.a.e.b.c.a.h("RetryScheduler", "allow error code, id = " + q.f68176a + ", error code = " + errorCode);
         }
         q.j = z;
-        synchronized (this.f67174g) {
+        synchronized (this.f68167g) {
             if (!q.l) {
                 q.l = true;
                 this.j++;
             }
         }
         int j = q.j();
-        d.o.a.e.b.c.a.h("RetryScheduler", "tryStartScheduleRetry: id = " + q.f67183a + ", delayTimeMills = " + j + ", mWaitingRetryTasks = " + this.j);
-        if (!q.f67188f) {
+        d.o.a.e.b.c.a.h("RetryScheduler", "tryStartScheduleRetry: id = " + q.f68176a + ", delayTimeMills = " + j + ", mWaitingRetryTasks = " + this.j);
+        if (!q.f68181f) {
             if (z) {
                 return;
             }
-            this.f67173f.removeMessages(downloadInfo.c0());
-            this.f67173f.sendEmptyMessageDelayed(downloadInfo.c0(), j);
+            this.f68166f.removeMessages(downloadInfo.c0());
+            this.f68166f.sendEmptyMessageDelayed(downloadInfo.c0(), j);
             return;
         }
         if (i == 0) {
@@ -427,7 +427,7 @@ public class q implements Handler.Callback, a.b {
         if (eVar != null) {
             eVar.a(downloadInfo, j, z, i);
         }
-        if (this.f67175h) {
+        if (this.f68168h) {
             q.c(System.currentTimeMillis());
             q.f();
             q.b();
@@ -435,7 +435,7 @@ public class q implements Handler.Callback, a.b {
     }
 
     public final boolean m(d dVar, int i) {
-        int[] iArr = dVar.f67189g;
+        int[] iArr = dVar.f68182g;
         if (iArr != null && iArr.length != 0) {
             for (int i2 : iArr) {
                 if (i2 == i) {
@@ -501,14 +501,14 @@ public class q implements Handler.Callback, a.b {
     }
 
     public final d q(int i) {
-        d dVar = this.f67174g.get(i);
+        d dVar = this.f68167g.get(i);
         if (dVar == null) {
-            synchronized (this.f67174g) {
-                dVar = this.f67174g.get(i);
+            synchronized (this.f68167g) {
+                dVar = this.f68167g.get(i);
                 if (dVar == null) {
                     dVar = v(i);
                 }
-                this.f67174g.put(i, dVar);
+                this.f68167g.put(i, dVar);
             }
         }
         return dVar;
@@ -519,8 +519,8 @@ public class q implements Handler.Callback, a.b {
     }
 
     public final void t(int i) {
-        synchronized (this.f67174g) {
-            this.f67174g.remove(i);
+        synchronized (this.f68167g) {
+            this.f68167g.remove(i);
         }
     }
 

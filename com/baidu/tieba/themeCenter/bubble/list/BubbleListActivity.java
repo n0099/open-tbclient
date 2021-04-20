@@ -7,13 +7,13 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
 import d.b.h0.k0.d;
 import d.b.h0.r.f0.f;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
-    public d.b.i0.i3.f.a.a mItemController;
+    public d.b.i0.j3.f.a.a mItemController;
     public BubbleListModel mModel;
-    public d.b.i0.i3.f.c.b mView;
+    public d.b.i0.j3.f.c.b mView;
     public BubbleListModel.c mCallback = new a();
     public BdListView.p mScrollToBottomListener = new b();
     public final f.g mOnPullRefreshListener = new c();
@@ -72,7 +72,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
         }
         return pageStayDurationItem;
     }
@@ -80,7 +80,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.i3.f.c.b bVar = this.mView;
+        d.b.i0.j3.f.c.b bVar = this.mView;
         if (bVar != null) {
             bVar.d();
         }
@@ -92,9 +92,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         BubbleListModel bubbleListModel = new BubbleListModel(this);
         this.mModel = bubbleListModel;
         bubbleListModel.J(this.mCallback);
-        d.b.i0.i3.f.a.a aVar = new d.b.i0.i3.f.a.a(getPageContext());
+        d.b.i0.j3.f.a.a aVar = new d.b.i0.j3.f.a.a(getPageContext());
         this.mItemController = aVar;
-        d.b.i0.i3.f.c.b bVar = new d.b.i0.i3.f.c.b(this, aVar);
+        d.b.i0.j3.f.c.b bVar = new d.b.i0.j3.f.c.b(this, aVar);
         this.mView = bVar;
         bVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
         showLoadingView(this.mView.c());
@@ -108,7 +108,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.b.i0.i3.f.c.b bVar;
+        d.b.i0.j3.f.c.b bVar;
         if (this.mModel == null || (bVar = this.mView) == null) {
             return;
         }

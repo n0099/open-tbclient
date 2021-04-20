@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import d.b.i0.r2.z.b.a;
-/* loaded from: classes5.dex */
+import d.b.i0.s2.c0.c.a;
+/* loaded from: classes4.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public XfremodeRoundLayout m0;
     public TbImageView n0;
@@ -27,7 +27,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
         AdvertAppInfo.a aVar;
         AdCard.d[] dVarArr = adCard.threadPicList;
         if (dVarArr != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20707a;
+            String str = dVarArr[0].f20399a;
             boolean d1 = d1(this.n0, adCard);
             if (!TextUtils.isEmpty(str) && d1) {
                 this.t.setVisibility(0);
@@ -42,7 +42,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 } else {
                     this.o0.setVisibility(8);
                 }
-                Y0(this.n0, adCard.threadPicList[0].f20709c);
+                Y0(this.n0, adCard.threadPicList[0].f20401c);
                 return;
             }
             this.t.setVisibility(8);

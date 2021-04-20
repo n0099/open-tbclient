@@ -2,7 +2,7 @@ package d.o.a.e.b.i;
 
 import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.f.p;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface c {
     void a(@NonNull a aVar);
 

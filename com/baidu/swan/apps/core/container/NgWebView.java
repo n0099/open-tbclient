@@ -35,7 +35,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
     public static final String APP_GEO_PATH = "geolocation";
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String TAG = "NgWebView";
     public static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
     public static final boolean sIsSetWebViewSize;
@@ -176,7 +176,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
         d.b.g0.a.e0.k.c cVar = this.mWebViewHookHandler;
-        return cVar != null ? cVar.M(canGoBack) : canGoBack;
+        return cVar != null ? cVar.N(canGoBack) : canGoBack;
     }
 
     @Override // android.view.View

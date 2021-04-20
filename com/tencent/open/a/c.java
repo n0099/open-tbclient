@@ -1,32 +1,32 @@
 package com.tencent.open.a;
 
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39200a = 62;
+    public static int f39489a = 62;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f39201b = 60;
+    public static int f39490b = 60;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39202c = "OpenSDK.Client.File.Tracer";
+    public static String f39491c = "OpenSDK.Client.File.Tracer";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39203d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+    public static String f39492d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39204e = ".log";
+    public static String f39493e = ".log";
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f39205f = 8388608;
+    public static long f39494f = 8388608;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f39206g = 262144;
+    public static int f39495g = 262144;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f39207h = 1024;
+    public static int f39496h = 1024;
     public static int i = 10000;
     public static String j = "debug.file.blockcount";
     public static String k = "debug.file.keepperiod";

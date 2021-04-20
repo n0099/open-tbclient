@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WXOpenBusinessWebview {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public int businessType;
         public HashMap<String, String> queryInfo;
@@ -37,7 +37,7 @@ public class WXOpenBusinessWebview {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public int businessType;
         public String resultInfo;

@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.im.model.SearchGroupModel;
-import d.b.b.c.g.c;
-import d.b.b.e.m.b;
+import d.b.c.c.g.c;
+import d.b.c.e.m.b;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    public d.b.i0.d1.r.a addGroupView = null;
+    public d.b.i0.e1.r.a addGroupView = null;
     public SearchGroupModel searchGroupModel = null;
     public c searchGroupCallback = new a(103007);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends c {
         public a(int i) {
             super(i);
@@ -119,7 +119,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.addGroupView = new d.b.i0.d1.r.a(this);
+        this.addGroupView = new d.b.i0.e1.r.a(this);
         this.searchGroupModel = new SearchGroupModel(this);
         registerListener(this.searchGroupCallback);
     }

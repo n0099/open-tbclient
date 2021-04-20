@@ -6,6 +6,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.DeviceUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
@@ -18,47 +20,47 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47457a;
+    public String f47849a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0917a f47458b;
+    public C0929a f47850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f47459c;
+    public c f47851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f47460d;
+    public b f47852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f47461e;
+    public JSONObject f47853e;
 
     /* renamed from: d.b.g0.b.m.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0917a {
+    public static class C0929a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47462a;
+        public String f47854a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47463b;
+        public String f47855b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f47464c;
+        public int f47856c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f47465d;
+        public int f47857d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f47466e;
+        public String f47858e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f47467f;
+        public String f47859f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f47468g;
+        public int f47860g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f47469h;
+        public int f47861h;
         public String i;
     }
 
@@ -66,59 +68,59 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f47470a;
+        public int f47862a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f47471b;
+        public int f47863b;
     }
 
     /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f47472a;
+        public int f47864a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f47473b;
+        public double f47865b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f47474c;
+        public double f47866c;
     }
 
     public a(@NonNull Context context, @NonNull JSONObject jSONObject) {
-        C0917a c0917a = new C0917a();
+        C0929a c0929a = new C0929a();
         c cVar = new c();
         b bVar = new b();
         String T = e.T();
         String str = "";
-        this.f47457a = TextUtils.isEmpty(T) ? "" : T;
-        this.f47458b = c0917a;
-        this.f47459c = cVar;
-        this.f47460d = bVar;
-        this.f47461e = jSONObject;
+        this.f47849a = TextUtils.isEmpty(T) ? "" : T;
+        this.f47850b = c0929a;
+        this.f47851c = cVar;
+        this.f47852d = bVar;
+        this.f47853e = jSONObject;
         String r = k0.r();
-        c0917a.f47462a = "0".equals(r) ? "" : r;
+        c0929a.f47854a = "0".equals(r) ? "" : r;
         String a2 = a();
-        c0917a.f47463b = "0".equals(a2) ? "" : a2;
-        c0917a.f47464c = 2;
-        c0917a.f47465d = d.b.g0.b.m.i.c.a.e(context) ? 3 : 2;
+        c0929a.f47855b = "0".equals(a2) ? "" : a2;
+        c0929a.f47856c = 2;
+        c0929a.f47857d = d.b.g0.b.m.i.c.a.e(context) ? 3 : 2;
         String h2 = d.b.g0.a.b0.c.h();
-        c0917a.f47466e = "NUL".equals(h2) ? "" : h2;
+        c0929a.f47858e = "NUL".equals(h2) ? "" : h2;
         String f2 = d.b.g0.a.b0.c.f();
-        c0917a.f47467f = "NUL".equals(f2) ? "" : f2;
-        c0917a.f47468g = h0.l(context);
-        c0917a.f47469h = h0.m(context);
+        c0929a.f47859f = "NUL".equals(f2) ? "" : f2;
+        c0929a.f47860g = h0.l(context);
+        c0929a.f47861h = h0.m(context);
         String b2 = b();
         if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
             str = b2;
         }
-        c0917a.i = str;
-        bVar.f47470a = d.b.g0.b.m.i.c.a.c();
-        bVar.f47471b = d.b.g0.b.m.i.c.a.d(context);
+        c0929a.i = str;
+        bVar.f47862a = d.b.g0.b.m.i.c.a.c();
+        bVar.f47863b = d.b.g0.b.m.i.c.a.d(context);
     }
 
     public String a() {
-        String string = Settings.Secure.getString(AppRuntime.getAppContext().getContentResolver(), "android_id");
+        String string = Settings.Secure.getString(AppRuntime.getAppContext().getContentResolver(), IAdRequestParam.ANDROID_ID);
         return TextUtils.isEmpty(string) ? "0" : string;
     }
 
@@ -139,25 +141,25 @@ public class a {
         JSONObject jSONObject3 = new JSONObject();
         JSONObject jSONObject4 = new JSONObject();
         try {
-            jSONObject.put(Constants.APP_ID, this.f47457a);
-            jSONObject2.put("deviceid", this.f47458b.f47462a);
-            jSONObject2.put("androidid", this.f47458b.f47463b);
-            jSONObject2.put("os_type", this.f47458b.f47464c);
-            jSONObject2.put("device_type", this.f47458b.f47465d);
-            jSONObject2.put("device_vendor", this.f47458b.f47466e);
-            jSONObject2.put("device_model", this.f47458b.f47467f);
-            jSONObject2.put("screen_height", this.f47458b.f47468g);
-            jSONObject2.put("screen_width", this.f47458b.f47469h);
-            jSONObject2.put("mac", this.f47458b.i);
+            jSONObject.put(Constants.APP_ID, this.f47849a);
+            jSONObject2.put(DeviceUtils.KEY_OLD_NAME_STRING, this.f47850b.f47854a);
+            jSONObject2.put("androidid", this.f47850b.f47855b);
+            jSONObject2.put("os_type", this.f47850b.f47856c);
+            jSONObject2.put("device_type", this.f47850b.f47857d);
+            jSONObject2.put("device_vendor", this.f47850b.f47858e);
+            jSONObject2.put("device_model", this.f47850b.f47859f);
+            jSONObject2.put("screen_height", this.f47850b.f47860g);
+            jSONObject2.put("screen_width", this.f47850b.f47861h);
+            jSONObject2.put(IAdRequestParam.MAC, this.f47850b.i);
             jSONObject.put("device", jSONObject2);
-            jSONObject3.put("coord_type", this.f47459c.f47472a);
-            jSONObject3.put("latitude", this.f47459c.f47473b);
-            jSONObject3.put("longitude", this.f47459c.f47474c);
+            jSONObject3.put("coord_type", this.f47851c.f47864a);
+            jSONObject3.put("latitude", this.f47851c.f47865b);
+            jSONObject3.put("longitude", this.f47851c.f47866c);
             jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-            jSONObject4.put("network", this.f47460d.f47470a);
-            jSONObject4.put("operator", this.f47460d.f47471b);
+            jSONObject4.put("network", this.f47852d.f47862a);
+            jSONObject4.put("operator", this.f47852d.f47863b);
             jSONObject.put("network", jSONObject4);
-            jSONObject.put("data", this.f47461e);
+            jSONObject.put("data", this.f47853e);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

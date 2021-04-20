@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import d.b.i0.p0.j0;
+import d.b.i0.q0.j0;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterActivityStatic {
 

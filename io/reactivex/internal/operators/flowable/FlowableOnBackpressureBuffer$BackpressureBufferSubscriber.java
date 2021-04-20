@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.w.a;
-import f.a.x.c.e;
-import f.a.x.i.b;
+import f.b.g;
+import f.b.w.a;
+import f.b.x.c.e;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -31,7 +31,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
         this.onOverflow = aVar;
         this.delayError = z2;
         if (z) {
-            spscArrayQueue = new f.a.x.f.a<>(i);
+            spscArrayQueue = new f.b.x.f.a<>(i);
         } else {
             spscArrayQueue = new SpscArrayQueue<>(i);
         }
@@ -83,7 +83,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public void clear() {
         this.queue.clear();
     }
@@ -128,7 +128,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public boolean isEmpty() {
         return this.queue.isEmpty();
     }
@@ -162,7 +162,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
             try {
                 this.onOverflow.run();
             } catch (Throwable th) {
-                f.a.u.a.a(th);
+                f.b.u.a.a(th);
                 missingBackpressureException.initCause(th);
             }
             onError(missingBackpressureException);
@@ -173,7 +173,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
@@ -182,7 +182,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public T poll() throws Exception {
         return this.queue.poll();
     }
@@ -196,7 +196,7 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
         drain();
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.c
     public int requestFusion(int i) {
         if ((i & 2) != 0) {
             this.outputFused = true;

@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.k0.e;
-import d.b.i0.p0.k0;
+import d.b.i0.q0.k0;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
@@ -109,8 +109,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             ArrayList arrayList = new ArrayList();
             if (k0Var.e() != null) {
                 for (d.b.h0.e0.b bVar : k0Var.e()) {
-                    if (bVar.getFragmentTabStructure().f50155a != null) {
-                        arrayList.add(bVar.getFragmentTabStructure().f50155a);
+                    if (bVar.getFragmentTabStructure().f50548a != null) {
+                        arrayList.add(bVar.getFragmentTabStructure().f50548a);
                     }
                 }
             }
@@ -132,13 +132,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f13313c = fragment;
-        bVar.f13311a = i;
+        bVar.f12974c = fragment;
+        bVar.f12972a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f13312b = fragmentTabIndicator;
+        bVar.f12973b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 

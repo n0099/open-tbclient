@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.feedManager.PersonalizedReqIdl;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.z0.w;
 import tbclient.Personalized.DataReq;
 /* loaded from: classes3.dex */

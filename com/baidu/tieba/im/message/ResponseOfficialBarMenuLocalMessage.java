@@ -2,14 +2,14 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.d1.g.b;
-import d.b.i0.d1.g.c;
+import d.b.i0.e1.g.b;
+import d.b.i0.e1.g.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
     public c officialBarMenuDatas;
 

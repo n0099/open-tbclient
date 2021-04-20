@@ -1,21 +1,22 @@
 package d.b.i0.i0.d;
 
 import android.text.TextUtils;
+import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55474a;
+    public String f56597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55475b;
+    public int f56598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55476c;
+    public String f56599c;
 
     public boolean a() {
-        return !TextUtils.isEmpty(this.f55476c);
+        return !TextUtils.isEmpty(this.f56599c);
     }
 
     public void b(JSONObject jSONObject) {
@@ -23,10 +24,10 @@ public class b {
             return;
         }
         jSONObject.optString("pic");
-        this.f55474a = jSONObject.optString("url");
+        this.f56597a = jSONObject.optString("url");
         jSONObject.optInt("server_time");
-        this.f55475b = jSONObject.optInt("adid");
-        this.f55476c = jSONObject.optString("big_pic");
+        this.f56598b = jSONObject.optInt(XAdRemoteAPKDownloadExtraInfo.ADID);
+        this.f56599c = jSONObject.optString("big_pic");
         jSONObject.optString("small_pic");
     }
 }

@@ -10,22 +10,22 @@ import d.b.g0.a.f;
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public SimpleDraweeView f12916a;
+    public SimpleDraweeView f12577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f12917b;
+    public TextView f12578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f12918c;
+    public TextView f12579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f12919d;
+    public Button f12580d;
 
     public ListRecommendViewHolder(View view) {
         super(view);
-        this.f12916a = (SimpleDraweeView) view.findViewById(f.swangame_recommend_item_icon);
-        this.f12917b = (TextView) view.findViewById(f.swangame_recommend_item_name);
-        this.f12918c = (TextView) view.findViewById(f.swangame_recommend_item_detail);
-        this.f12919d = (Button) view.findViewById(f.swangame_recommend_item_play);
+        this.f12577a = (SimpleDraweeView) view.findViewById(f.swangame_recommend_item_icon);
+        this.f12578b = (TextView) view.findViewById(f.swangame_recommend_item_name);
+        this.f12579c = (TextView) view.findViewById(f.swangame_recommend_item_detail);
+        this.f12580d = (Button) view.findViewById(f.swangame_recommend_item_play);
     }
 }

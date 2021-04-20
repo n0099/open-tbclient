@@ -11,23 +11,23 @@ public enum w {
     
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f27213e;
+    public final String f26898e;
 
     w(String str) {
-        this.f27213e = str;
+        this.f26898e = str;
     }
 
     public static w a(String str) throws IOException {
-        if (str.equals(HTTP_1_0.f27213e)) {
+        if (str.equals(HTTP_1_0.f26898e)) {
             return HTTP_1_0;
         }
-        if (str.equals(HTTP_1_1.f27213e)) {
+        if (str.equals(HTTP_1_1.f26898e)) {
             return HTTP_1_1;
         }
-        if (str.equals(HTTP_2.f27213e)) {
+        if (str.equals(HTTP_2.f26898e)) {
             return HTTP_2;
         }
-        if (str.equals(SPDY_3.f27213e)) {
+        if (str.equals(SPDY_3.f26898e)) {
             return SPDY_3;
         }
         throw new IOException("Unexpected protocol: " + str);
@@ -35,6 +35,6 @@ public enum w {
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f27213e;
+        return this.f26898e;
     }
 }

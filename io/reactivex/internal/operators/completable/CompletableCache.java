@@ -1,13 +1,13 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.a;
-import f.a.b;
+import f.b.a;
+import f.b.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class CompletableCache extends a implements b {
 
     /* loaded from: classes7.dex */
-    public final class InnerCompletableCache extends AtomicBoolean implements f.a.t.b {
+    public final class InnerCompletableCache extends AtomicBoolean implements f.b.t.b {
         public static final long serialVersionUID = 8943152917179642732L;
         public final b actual;
 
@@ -15,14 +15,14 @@ public final class CompletableCache extends a implements b {
             this.actual = bVar;
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             if (compareAndSet(false, true)) {
                 CompletableCache.this.d(this);
             }
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get();
         }

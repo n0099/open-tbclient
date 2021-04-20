@@ -15,7 +15,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f12469a;
+        public Object f12130a;
 
         public a(int i) {
         }
@@ -28,7 +28,7 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public static void c(View view) {
         a aVar = new a(1);
-        aVar.f12469a = view;
+        aVar.f12130a = view;
         EventBusWrapper.post(aVar);
     }
 
@@ -55,11 +55,11 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyViewVisiblity(int i) {
-        this.f12442e.setVisibility(i);
+        this.f12103e.setVisibility(i);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        TextView textView = this.f12445h;
+        TextView textView = this.f12106h;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 4);
         }

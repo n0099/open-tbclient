@@ -9,72 +9,72 @@ import com.kwad.sdk.crash.model.message.ExceptionMessage;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.crash.b.b f34453a;
+    public com.kwad.sdk.crash.b.b f34742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f34454b;
+    public b f34743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34455c;
+    public long f34744c;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f34456a = new d();
+        public static final d f34745a = new d();
     }
 
     public d() {
-        this.f34453a = new com.kwad.sdk.crash.b.b();
-        this.f34454b = new b.a().a();
+        this.f34742a = new com.kwad.sdk.crash.b.b();
+        this.f34743b = new b.a().a();
     }
 
     public static d a() {
-        return a.f34456a;
+        return a.f34745a;
     }
 
     public void a(int i, ExceptionMessage exceptionMessage) {
-        e a2 = this.f34454b.a();
+        e a2 = this.f34743b.a();
         if (a2 != null) {
             a2.a(i, exceptionMessage);
         }
     }
 
     public void a(@NonNull b bVar) {
-        this.f34454b = bVar;
-        this.f34455c = SystemClock.elapsedRealtime();
-        this.f34453a.a(bVar.f34418d, bVar.f34419e);
+        this.f34743b = bVar;
+        this.f34744c = SystemClock.elapsedRealtime();
+        this.f34742a.a(bVar.f34707d, bVar.f34708e);
     }
 
     public String[] b() {
-        return this.f34453a.a();
+        return this.f34742a.a();
     }
 
     public String[] c() {
-        return this.f34453a.b();
+        return this.f34742a.b();
     }
 
     public String d() {
-        return this.f34454b.f34415a.f34461a;
+        return this.f34743b.f34704a.f34750a;
     }
 
     public String e() {
-        return this.f34454b.f34415a.f34462b;
+        return this.f34743b.f34704a.f34751b;
     }
 
     public Context f() {
-        return this.f34454b.f34421g;
+        return this.f34743b.f34710g;
     }
 
     public f g() {
-        return this.f34454b.f34417c;
+        return this.f34743b.f34706c;
     }
 
     public long h() {
-        return SystemClock.elapsedRealtime() - this.f34455c;
+        return SystemClock.elapsedRealtime() - this.f34744c;
     }
 
     public boolean i() {
-        return this.f34454b.b();
+        return this.f34743b.b();
     }
 }

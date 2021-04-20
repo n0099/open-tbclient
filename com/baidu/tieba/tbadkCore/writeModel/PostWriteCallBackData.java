@@ -9,6 +9,7 @@ import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
 import d.b.h0.r.q.t1;
+import d.b.h0.t.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
@@ -30,6 +31,7 @@ public class PostWriteCallBackData implements Serializable {
     public IconStampData iconStampData;
     public int isCopyTWZhibo;
     public CustomDialogData mActDialogData;
+    public a mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
     public t1 mReplyPrivacyTip;
@@ -131,6 +133,10 @@ public class PostWriteCallBackData implements Serializable {
         return this.video_id;
     }
 
+    public a getmAdverSegmentData() {
+        return this.mAdverSegmentData;
+    }
+
     public boolean isDyamicCallback() {
         return this.isDyamicCallback;
     }
@@ -217,6 +223,10 @@ public class PostWriteCallBackData implements Serializable {
 
     public void setVideoid(String str) {
         this.video_id = str;
+    }
+
+    public void setmAdverSegmentData(a aVar) {
+        this.mAdverSegmentData = aVar;
     }
 
     public PostWriteCallBackData(int i, String str, String str2, String str3) {

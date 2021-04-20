@@ -7,21 +7,21 @@ import com.baidu.android.pushservice.j.m;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f2688a;
+    public e f2723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f2689b;
+    public c f2724b;
 
     public d(c cVar) {
-        this.f2689b = cVar;
+        this.f2724b = cVar;
     }
 
     public static d a(Context context, String str) {
         b.a(context).b(context);
         e b2 = b.a(context).b(str);
-        if (b2 != null && !TextUtils.isEmpty(b2.f2679b)) {
+        if (b2 != null && !TextUtils.isEmpty(b2.f2714b)) {
             d dVar = new d(c.PUSH_CLIENT);
-            dVar.f2688a = b2;
+            dVar.f2723a = b2;
             return dVar;
         }
         m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
@@ -29,6 +29,6 @@ public class d {
     }
 
     public c a() {
-        return this.f2689b;
+        return this.f2724b;
     }
 }

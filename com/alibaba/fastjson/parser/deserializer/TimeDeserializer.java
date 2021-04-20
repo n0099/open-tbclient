@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONScanner;
+import com.alibaba.fastjson.util.TypeUtils;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.sql.Time;
 /* loaded from: classes.dex */
 public class TimeDeserializer implements ObjectDeserializer {
@@ -37,6 +39,9 @@ public class TimeDeserializer implements ObjectDeserializer {
         }
         if (t instanceof Time) {
             return t;
+        }
+        if (t instanceof BigDecimal) {
+            return (T) new Time(TypeUtils.longValue((BigDecimal) t));
         }
         if (t instanceof Number) {
             return (T) new Time(((Number) t).longValue());

@@ -8,40 +8,40 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f37355a;
+    public a f37644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f37356b;
+    public a f37645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f37357c;
+    public volatile boolean f37646c;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37358a;
+        public int f37647a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f37359b;
+        public boolean f37648b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37360c;
+        public int f37649c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f37361d;
+        public int f37650d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f37362e;
+        public int f37651e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f37363f;
+        public int f37652f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f37364g;
+        public int f37653g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f37365h;
+        public boolean f37654h;
         public boolean i;
         public boolean j;
         public boolean k;
@@ -55,14 +55,14 @@ public class i {
         public com.kwai.video.ksvodplayerkit.d.d s;
 
         public a() {
-            this.f37358a = 157286400;
-            this.f37359b = false;
-            this.f37360c = 300;
-            this.f37361d = 500;
-            this.f37362e = 5;
-            this.f37363f = 256;
-            this.f37364g = 3000;
-            this.f37365h = false;
+            this.f37647a = 157286400;
+            this.f37648b = false;
+            this.f37649c = 300;
+            this.f37650d = 500;
+            this.f37651e = 5;
+            this.f37652f = 256;
+            this.f37653g = 3000;
+            this.f37654h = false;
             this.i = false;
             this.j = false;
             this.k = false;
@@ -81,25 +81,25 @@ public class i {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final i f37366a = new i();
+        public static final i f37655a = new i();
     }
 
     public i() {
-        this.f37355a = new a();
-        this.f37357c = false;
+        this.f37644a = new a();
+        this.f37646c = false;
     }
 
     public static i a() {
-        return b.f37366a;
+        return b.f37655a;
     }
 
     private a u() {
         a aVar;
-        if (!this.f37357c || (aVar = this.f37356b) == null) {
-            if (this.f37355a == null) {
-                this.f37355a = new a();
+        if (!this.f37646c || (aVar = this.f37645b) == null) {
+            if (this.f37644a == null) {
+                this.f37644a = new a();
             }
-            return this.f37355a;
+            return this.f37644a;
         }
         return aVar;
     }
@@ -125,88 +125,88 @@ public class i {
             com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayerConfig", "ERROR!  Config is null");
             return;
         }
-        this.f37357c = false;
-        this.f37356b = new a();
+        this.f37646c = false;
+        this.f37645b = new a();
         try {
             if (jSONObject.has("maxCacheBytes")) {
-                this.f37356b.f37358a = jSONObject.getInt("maxCacheBytes");
+                this.f37645b.f37647a = jSONObject.getInt("maxCacheBytes");
             }
             if (jSONObject.has("playHistory")) {
-                this.f37356b.f37359b = jSONObject.getBoolean("playHistory");
+                this.f37645b.f37648b = jSONObject.getBoolean("playHistory");
             }
             if (jSONObject.has("maxBufferCostMs")) {
-                this.f37356b.f37361d = jSONObject.getInt("maxBufferCostMs");
+                this.f37645b.f37650d = jSONObject.getInt("maxBufferCostMs");
             }
             if (jSONObject.has("startPlayBlockBufferMs")) {
-                this.f37356b.f37360c = jSONObject.getInt("startPlayBlockBufferMs");
+                this.f37645b.f37649c = jSONObject.getInt("startPlayBlockBufferMs");
             }
             if (jSONObject.has("socketBufferSizeKB")) {
-                this.f37356b.f37363f = jSONObject.getInt("socketBufferSizeKB");
+                this.f37645b.f37652f = jSONObject.getInt("socketBufferSizeKB");
             }
             if (jSONObject.has("maxRetryCount")) {
-                this.f37356b.f37362e = jSONObject.getInt("maxRetryCount");
+                this.f37645b.f37651e = jSONObject.getInt("maxRetryCount");
             }
             if (jSONObject.has("enableAsync")) {
-                this.f37356b.f37365h = jSONObject.getBoolean("enableAsync");
+                this.f37645b.f37654h = jSONObject.getBoolean("enableAsync");
             }
             if (jSONObject.has("preloadDurationMs")) {
-                this.f37356b.f37364g = jSONObject.getInt("preloadDurationMs");
+                this.f37645b.f37653g = jSONObject.getInt("preloadDurationMs");
             }
             if (jSONObject.has("enableHostSort")) {
-                this.f37356b.k = jSONObject.getBoolean("enableHostSort");
+                this.f37645b.k = jSONObject.getBoolean("enableHostSort");
             }
             if (jSONObject.has("enableH264HW")) {
-                this.f37356b.i = jSONObject.getBoolean("enableH264HW");
+                this.f37645b.i = jSONObject.getBoolean("enableH264HW");
             }
             if (jSONObject.has("enableH265HW")) {
-                this.f37356b.j = jSONObject.getBoolean("enableH265HW");
+                this.f37645b.j = jSONObject.getBoolean("enableH265HW");
             }
             String str3 = str2;
             if (jSONObject.has(str3)) {
-                this.f37356b.l = jSONObject.getInt(str3);
+                this.f37645b.l = jSONObject.getInt(str3);
             }
             if (jSONObject.has("vodAdaptive")) {
-                this.f37356b.m = o.a(jSONObject.getString("vodAdaptive"));
+                this.f37645b.m = o.a(jSONObject.getString("vodAdaptive"));
             }
             if (jSONObject.has("enableDebugInfo")) {
-                this.f37356b.n = jSONObject.getBoolean("enableDebugInfo");
+                this.f37645b.n = jSONObject.getBoolean("enableDebugInfo");
             }
             if (jSONObject.has("cacheDownloadConnectTimeoutMs")) {
-                this.f37356b.o = jSONObject.getInt("cacheDownloadConnectTimeoutMs");
+                this.f37645b.o = jSONObject.getInt("cacheDownloadConnectTimeoutMs");
             }
             if (jSONObject.has("cacheDownloadReadTimeoutMs")) {
-                this.f37356b.p = jSONObject.getInt("cacheDownloadReadTimeoutMs");
+                this.f37645b.p = jSONObject.getInt("cacheDownloadReadTimeoutMs");
             }
             if (jSONObject.has("prefetcherConfig")) {
-                this.f37356b.s = com.kwai.video.ksvodplayerkit.d.e.a(jSONObject.getString("prefetcherConfig"));
+                this.f37645b.s = com.kwai.video.ksvodplayerkit.d.e.a(jSONObject.getString("prefetcherConfig"));
             }
-            this.f37357c = true;
-            this.f37355a = this.f37356b;
+            this.f37646c = true;
+            this.f37644a = this.f37645b;
         } catch (JSONException e3) {
-            this.f37356b = null;
-            this.f37357c = false;
+            this.f37645b = null;
+            this.f37646c = false;
             com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayerConfig", "setConfigJsonStr exception:" + e3.getMessage());
         }
     }
 
     public boolean b() {
-        return u().f37359b;
+        return u().f37648b;
     }
 
     public int c() {
-        return u().f37360c;
+        return u().f37649c;
     }
 
     public int d() {
-        return u().f37361d;
+        return u().f37650d;
     }
 
     public int e() {
-        return u().f37362e;
+        return u().f37651e;
     }
 
     public int f() {
-        return u().f37364g;
+        return u().f37653g;
     }
 
     public boolean g() {
@@ -218,7 +218,7 @@ public class i {
     }
 
     public boolean i() {
-        return u().f37365h;
+        return u().f37654h;
     }
 
     public boolean j() {
@@ -242,7 +242,7 @@ public class i {
     }
 
     public int n() {
-        return u().f37363f;
+        return u().f37652f;
     }
 
     public int o() {
@@ -262,7 +262,7 @@ public class i {
     }
 
     public long s() {
-        return u().s.f37305b;
+        return u().s.f37594b;
     }
 
     public com.kwai.video.ksvodplayerkit.d.d t() {

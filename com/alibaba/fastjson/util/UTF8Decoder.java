@@ -11,25 +11,6 @@ import java.nio.charset.CoderResult;
 public class UTF8Decoder extends CharsetDecoder {
     public static final Charset charset = Charset.forName("UTF-8");
 
-    /* loaded from: classes.dex */
-    public static class Surrogate {
-        public static final /* synthetic */ boolean $assertionsDisabled = false;
-        public static final int UCS4_MAX = 1114111;
-        public static final int UCS4_MIN = 65536;
-
-        public static char high(int i) {
-            return (char) ((((i - 65536) >> 10) & 1023) | 55296);
-        }
-
-        public static char low(int i) {
-            return (char) (((i - 65536) & 1023) | 56320);
-        }
-
-        public static boolean neededFor(int i) {
-            return i >= 65536 && i <= 1114111;
-        }
-    }
-
     public UTF8Decoder() {
         super(charset, 1.0f, 1.0f);
     }
@@ -40,7 +21,7 @@ public class UTF8Decoder extends CharsetDecoder {
     /* JADX WARN: Code restructure failed: missing block: B:42:0x00ca, code lost:
         return xflow(r13, r5, r6, r14, r8, 3);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x0123, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x012f, code lost:
         return xflow(r13, r5, r6, r14, r8, 4);
      */
     /*
@@ -94,19 +75,20 @@ public class UTF8Decoder extends CharsetDecoder {
                         return malformed(byteBuffer, i3, charBuffer, i, 1);
                     } else {
                         if (arrayOffset2 - i3 < 4 || arrayOffset4 - i < 2) {
-                            break loop1;
+                            break;
                         }
                         byte b6 = array[i3 + 1];
                         byte b7 = array[i3 + 2];
                         byte b8 = array[i3 + 3];
                         int i4 = ((b2 & 7) << 18) | ((b6 & 63) << 12) | ((b7 & 63) << 6) | (b8 & 63);
-                        if (isMalformed4(b6, b7, b8) || !Surrogate.neededFor(i4)) {
-                            break loop1;
+                        if (isMalformed4(b6, b7, b8) || i4 < 65536 || i4 > 1114111) {
+                            break;
                         }
                         int i5 = i + 1;
-                        array2[i] = Surrogate.high(i4);
-                        i2 = i5 + 1;
-                        array2[i5] = Surrogate.low(i4);
+                        int i6 = i4 - 65536;
+                        array2[i] = (char) (((i6 >> 10) & 1023) | 55296);
+                        arrayOffset3 = i5 + 1;
+                        array2[i5] = (char) ((i6 & 1023) | 56320);
                         i3 += 4;
                     }
                     i = i2;
@@ -151,7 +133,8 @@ public class UTF8Decoder extends CharsetDecoder {
     public static CoderResult malformed(ByteBuffer byteBuffer, int i, CharBuffer charBuffer, int i2, int i3) {
         byteBuffer.position(i - byteBuffer.arrayOffset());
         CoderResult malformedN = malformedN(byteBuffer, i3);
-        updatePositions(byteBuffer, i, charBuffer, i2);
+        byteBuffer.position(i);
+        charBuffer.position(i2);
         return malformedN;
     }
 
@@ -192,13 +175,9 @@ public class UTF8Decoder extends CharsetDecoder {
         }
     }
 
-    public static void updatePositions(Buffer buffer, int i, Buffer buffer2, int i2) {
-        buffer.position(i);
-        buffer2.position(i2);
-    }
-
     public static CoderResult xflow(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4) {
-        updatePositions(buffer, i, buffer2, i3);
+        buffer.position(i);
+        buffer2.position(i3);
         return (i4 == 0 || i2 - i < i4) ? CoderResult.UNDERFLOW : CoderResult.OVERFLOW;
     }
 

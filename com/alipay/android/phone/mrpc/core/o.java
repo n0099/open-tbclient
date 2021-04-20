@@ -8,56 +8,56 @@ import org.apache.http.Header;
 public final class o extends t {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1678b;
+    public String f1703b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f1679c;
+    public byte[] f1704c;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1683g;
+    public boolean f1708g;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Header> f1681e = new ArrayList<>();
+    public ArrayList<Header> f1706e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f1682f = new HashMap();
+    public Map<String, String> f1707f = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1680d = "application/x-www-form-urlencoded";
+    public String f1705d = "application/x-www-form-urlencoded";
 
     public o(String str) {
-        this.f1678b = str;
+        this.f1703b = str;
     }
 
     public final String a() {
-        return this.f1678b;
+        return this.f1703b;
     }
 
     public final void a(String str) {
-        this.f1680d = str;
+        this.f1705d = str;
     }
 
     public final void a(String str, String str2) {
-        if (this.f1682f == null) {
-            this.f1682f = new HashMap();
+        if (this.f1707f == null) {
+            this.f1707f = new HashMap();
         }
-        this.f1682f.put(str, str2);
+        this.f1707f.put(str, str2);
     }
 
     public final void a(Header header) {
-        this.f1681e.add(header);
+        this.f1706e.add(header);
     }
 
     public final void a(boolean z) {
-        this.f1683g = z;
+        this.f1708g = z;
     }
 
     public final void a(byte[] bArr) {
-        this.f1679c = bArr;
+        this.f1704c = bArr;
     }
 
     public final String b(String str) {
-        Map<String, String> map = this.f1682f;
+        Map<String, String> map = this.f1707f;
         if (map == null) {
             return null;
         }
@@ -65,19 +65,19 @@ public final class o extends t {
     }
 
     public final byte[] b() {
-        return this.f1679c;
+        return this.f1704c;
     }
 
     public final String c() {
-        return this.f1680d;
+        return this.f1705d;
     }
 
     public final ArrayList<Header> d() {
-        return this.f1681e;
+        return this.f1706e;
     }
 
     public final boolean e() {
-        return this.f1683g;
+        return this.f1708g;
     }
 
     public final boolean equals(Object obj) {
@@ -86,16 +86,16 @@ public final class o extends t {
         }
         if (obj != null && o.class == obj.getClass()) {
             o oVar = (o) obj;
-            byte[] bArr = this.f1679c;
+            byte[] bArr = this.f1704c;
             if (bArr == null) {
-                if (oVar.f1679c != null) {
+                if (oVar.f1704c != null) {
                     return false;
                 }
-            } else if (!bArr.equals(oVar.f1679c)) {
+            } else if (!bArr.equals(oVar.f1704c)) {
                 return false;
             }
-            String str = this.f1678b;
-            String str2 = oVar.f1678b;
+            String str = this.f1703b;
+            String str2 = oVar.f1703b;
             if (str == null) {
                 if (str2 != null) {
                     return false;
@@ -109,13 +109,13 @@ public final class o extends t {
     }
 
     public final int hashCode() {
-        Map<String, String> map = this.f1682f;
-        int hashCode = ((map == null || !map.containsKey("id")) ? 1 : this.f1682f.get("id").hashCode() + 31) * 31;
-        String str = this.f1678b;
+        Map<String, String> map = this.f1707f;
+        int hashCode = ((map == null || !map.containsKey("id")) ? 1 : this.f1707f.get("id").hashCode() + 31) * 31;
+        String str = this.f1703b;
         return hashCode + (str == null ? 0 : str.hashCode());
     }
 
     public final String toString() {
-        return String.format("Url : %s,HttpHeader: %s", this.f1678b, this.f1681e);
+        return String.format("Url : %s,HttpHeader: %s", this.f1703b, this.f1706e);
     }
 }

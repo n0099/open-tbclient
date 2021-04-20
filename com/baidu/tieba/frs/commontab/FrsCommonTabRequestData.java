@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.commontab;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.g0.b.g;
 import d.b.h0.z0.w;
 import java.util.HashMap;

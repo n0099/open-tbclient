@@ -20,35 +20,35 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f65020h = {"channel", "package", "app_version"};
+    public static final String[] f65865h = {"channel", "package", "app_version"};
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f65021a;
+    public boolean f65866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f65022b;
+    public final Context f65867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final i f65023c;
+    public final i f65868c;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SharedPreferences f65026f;
+    public final SharedPreferences f65871f;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<h2> f65025e = new ArrayList<>(32);
+    public final ArrayList<h2> f65870e = new ArrayList<>(32);
 
     /* renamed from: g  reason: collision with root package name */
-    public int f65027g = 0;
+    public int f65872g = 0;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f65024d = new JSONObject();
+    public JSONObject f65869d = new JSONObject();
 
     public j(Context context, i iVar) {
-        this.f65022b = context;
-        this.f65023c = iVar;
-        this.f65026f = iVar.A();
-        x0.d(this.f65022b);
+        this.f65867b = context;
+        this.f65868c = iVar;
+        this.f65871f = iVar.A();
+        x0.d(this.f65867b);
     }
 
     public static void f(JSONObject jSONObject, String str, String str2) {
@@ -112,7 +112,7 @@ public class j {
 
     @Nullable
     public JSONObject c() {
-        if (this.f65021a) {
+        if (this.f65866a) {
             return y();
         }
         return null;
@@ -136,18 +136,18 @@ public class j {
             }
         }
         if (k("custom", jSONObject)) {
-            this.f65023c.x(jSONObject);
+            this.f65868c.x(jSONObject);
         }
     }
 
     public void e(JSONObject jSONObject) {
-        this.f65023c.z(jSONObject);
+        this.f65868c.z(jSONObject);
         j(jSONObject);
     }
 
     public final boolean g(h2 h2Var) {
-        boolean z = !this.f65023c.N() && h2Var.f65005d;
-        if (r0.f65064b) {
+        boolean z = !this.f65868c.N() && h2Var.f65850d;
+        if (r0.f65909b) {
             r0.a("needSyncFromSub " + h2Var + " " + z, null);
         }
         return z;
@@ -156,17 +156,17 @@ public class j {
     public boolean h(JSONObject jSONObject, String str, String str2, String str3) {
         boolean z;
         boolean z2;
-        if (r0.f65064b) {
+        if (r0.f65909b) {
             r0.a("saveRegisterInfo, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jSONObject, null);
         }
         boolean p = p(str);
         boolean p2 = p(str2);
         try {
             boolean p3 = p(str3);
-            int i = this.f65026f.getInt("version_code", 0);
+            int i = this.f65871f.getInt("version_code", 0);
             try {
                 int optInt = y().optInt("version_code", 0);
-                SharedPreferences.Editor edit = this.f65026f.edit();
+                SharedPreferences.Editor edit = this.f65871f.edit();
                 if (i != optInt) {
                     edit.putInt("version_code", optInt);
                 }
@@ -273,11 +273,11 @@ public class j {
         } else {
             synchronized (this) {
                 try {
-                    JSONObject jSONObject = this.f65024d;
+                    JSONObject jSONObject = this.f65869d;
                     JSONObject jSONObject2 = new JSONObject();
                     s0.g(jSONObject2, jSONObject);
                     jSONObject2.put(str, obj);
-                    this.f65024d = jSONObject2;
+                    this.f65869d = jSONObject2;
                 } catch (JSONException e2) {
                     r0.b(e2);
                 }
@@ -289,77 +289,77 @@ public class j {
     }
 
     public int l() {
-        int optInt = this.f65021a ? y().optInt("version_code", -1) : -1;
+        int optInt = this.f65866a ? y().optInt("version_code", -1) : -1;
         for (int i = 0; i < 3 && optInt == -1; i++) {
             o();
-            optInt = this.f65021a ? y().optInt("version_code", -1) : -1;
+            optInt = this.f65866a ? y().optInt("version_code", -1) : -1;
         }
         return optInt;
     }
 
     public String m() {
-        String optString = this.f65021a ? y().optString("app_version", null) : null;
+        String optString = this.f65866a ? y().optString("app_version", null) : null;
         for (int i = 0; i < 3 && optString == null; i++) {
             o();
-            optString = this.f65021a ? y().optString("app_version", null) : null;
+            optString = this.f65866a ? y().optString("app_version", null) : null;
         }
         return optString;
     }
 
     public boolean o() {
         String[] strArr;
-        synchronized (this.f65025e) {
-            if (this.f65025e.size() == 0) {
-                this.f65025e.add(new e());
-                this.f65025e.add(new g(this.f65022b));
-                this.f65025e.add(new h(this.f65022b, this.f65023c));
-                this.f65025e.add(new k(this.f65022b));
-                this.f65025e.add(new m(this.f65022b));
-                this.f65025e.add(new n(this.f65022b, this.f65023c));
-                this.f65025e.add(new o(this.f65022b));
-                this.f65025e.add(new q(this.f65022b));
-                this.f65025e.add(new r(this.f65022b, this.f65023c));
-                this.f65025e.add(new s());
-                this.f65025e.add(new t(this.f65023c));
-                this.f65025e.add(new u(this.f65022b));
-                this.f65025e.add(new v(this.f65022b));
-                this.f65025e.add(new w(this.f65022b, this.f65023c));
-                this.f65025e.add(new f2(this.f65022b, this.f65023c));
-                this.f65025e.add(new p(this.f65022b, this.f65023c));
-                this.f65025e.add(new f(this.f65022b, this.f65023c));
+        synchronized (this.f65870e) {
+            if (this.f65870e.size() == 0) {
+                this.f65870e.add(new e());
+                this.f65870e.add(new g(this.f65867b));
+                this.f65870e.add(new h(this.f65867b, this.f65868c));
+                this.f65870e.add(new k(this.f65867b));
+                this.f65870e.add(new m(this.f65867b));
+                this.f65870e.add(new n(this.f65867b, this.f65868c));
+                this.f65870e.add(new o(this.f65867b));
+                this.f65870e.add(new q(this.f65867b));
+                this.f65870e.add(new r(this.f65867b, this.f65868c));
+                this.f65870e.add(new s());
+                this.f65870e.add(new t(this.f65868c));
+                this.f65870e.add(new u(this.f65867b));
+                this.f65870e.add(new v(this.f65867b));
+                this.f65870e.add(new w(this.f65867b, this.f65868c));
+                this.f65870e.add(new f2(this.f65867b, this.f65868c));
+                this.f65870e.add(new p(this.f65867b, this.f65868c));
+                this.f65870e.add(new f(this.f65867b, this.f65868c));
             }
         }
         JSONObject y = y();
         JSONObject jSONObject = new JSONObject();
         s0.g(jSONObject, y);
-        Iterator<h2> it = this.f65025e.iterator();
+        Iterator<h2> it = this.f65870e.iterator();
         boolean z = true;
         int i = 0;
         int i2 = 0;
         while (it.hasNext()) {
             h2 next = it.next();
-            if (!next.f65002a || next.f65004c || g(next)) {
+            if (!next.f65847a || next.f65849c || g(next)) {
                 try {
-                    next.f65002a = next.b(jSONObject);
+                    next.f65847a = next.b(jSONObject);
                 } catch (SecurityException e2) {
-                    if (!next.f65003b) {
+                    if (!next.f65848b) {
                         i++;
-                        r0.c("loadHeader, " + this.f65027g, e2);
-                        if (!next.f65002a && this.f65027g > 10) {
-                            next.f65002a = true;
+                        r0.c("loadHeader, " + this.f65872g, e2);
+                        if (!next.f65847a && this.f65872g > 10) {
+                            next.f65847a = true;
                         }
                     }
                 } catch (JSONException e3) {
                     r0.b(e3);
                 }
-                if (!next.f65002a && !next.f65003b) {
+                if (!next.f65847a && !next.f65848b) {
                     i2++;
                 }
             }
-            z &= next.f65002a || next.f65003b;
+            z &= next.f65847a || next.f65848b;
         }
         if (z) {
-            int length = f65020h.length;
+            int length = f65865h.length;
             for (int i3 = 0; i3 < length; i3++) {
                 z &= !TextUtils.isEmpty(jSONObject.optString(strArr[i3]));
             }
@@ -371,23 +371,23 @@ public class j {
                 }
             }
         }
-        this.f65024d = jSONObject;
-        this.f65021a = z;
-        if (r0.f65064b) {
-            r0.a("loadHeader, " + this.f65021a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f65027g + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f65024d.toString(), null);
+        this.f65869d = jSONObject;
+        this.f65866a = z;
+        if (r0.f65909b) {
+            r0.a("loadHeader, " + this.f65866a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f65872g + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f65869d.toString(), null);
         } else {
-            r0.e("loadHeader, " + this.f65021a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f65027g, null);
+            r0.e("loadHeader, " + this.f65866a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f65872g, null);
         }
         if (i > 0 && i == i2) {
-            this.f65027g++;
+            this.f65872g++;
             if (v() != 0) {
-                this.f65027g += 10;
+                this.f65872g += 10;
             }
         }
-        if (this.f65021a) {
+        if (this.f65866a) {
             a.f().a(r(), s(), t());
         }
-        return this.f65021a;
+        return this.f65866a;
     }
 
     public String q() {
@@ -414,7 +414,7 @@ public class j {
         String optString = y().optString(Constants.KEY_DEVICE_ID, "");
         y().optString("install_id", "");
         if (p(optString)) {
-            return this.f65026f.getInt("version_code", 0) == y().optInt("version_code", -1) ? 1 : 2;
+            return this.f65871f.getInt("version_code", 0) == y().optInt("version_code", -1) ? 1 : 2;
         }
         return 0;
     }
@@ -429,6 +429,6 @@ public class j {
 
     @NonNull
     public final JSONObject y() {
-        return this.f65024d;
+        return this.f65869d;
     }
 }

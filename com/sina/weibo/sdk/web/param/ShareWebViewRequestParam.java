@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.sina.weibo.sdk.api.BaseMediaObject;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
@@ -26,7 +25,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     public static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
     public static final String UPLOAD_PIC_URL = "https://service.weibo.com/share/mobilesdk_uppic.php";
@@ -118,7 +117,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
             weiboMultiMessage.toBundle(bundle);
         }
         bundle.putString("token", this.token);
-        bundle.putString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.packageName);
+        bundle.putString("packageName", this.packageName);
         bundle.putString("hashKey", this.hashKey);
     }
 
@@ -228,7 +227,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         this.multiMessage = weiboMultiMessage;
         weiboMultiMessage.toObject(bundle);
         this.token = bundle.getString("token");
-        this.packageName = bundle.getString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        this.packageName = bundle.getString("packageName");
         this.hashKey = bundle.getString("hashKey");
         getBaseUrl();
     }

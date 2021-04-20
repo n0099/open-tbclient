@@ -24,22 +24,22 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class c extends d.b.g0.a.z0.b {
-    public static final boolean l = k.f45051a;
+    public static final boolean l = k.f45443a;
     public Runnable k;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f47148e;
+        public final /* synthetic */ long f47540e;
 
         public a(c cVar, long j) {
-            this.f47148e = j;
+            this.f47540e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            j0.g(this.f47148e);
+            j0.g(this.f47540e);
         }
     }
 
@@ -47,84 +47,84 @@ public class c extends d.b.g0.a.z0.b {
     public class b implements d.b.g0.a.u0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f47149a;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47541a;
 
         /* loaded from: classes2.dex */
         public class a implements g.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f47151a;
+            public final /* synthetic */ int f47543a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.g f47152b;
+            public final /* synthetic */ d.g f47544b;
 
             public a(int i, d.g gVar) {
-                this.f47151a = i;
-                this.f47152b = gVar;
+                this.f47543a = i;
+                this.f47544b = gVar;
             }
 
             @Override // d.b.g0.a.t1.k.p0.g.d
             public void a(String str) {
                 d.b.g0.a.c0.c.g("SwanApp", "download subpackage success");
                 b bVar = b.this;
-                c.this.Y(this.f47151a, bVar.f47149a, this.f47152b);
+                c.this.Y(this.f47543a, bVar.f47541a, this.f47544b);
             }
 
             @Override // d.b.g0.a.t1.k.p0.g.d
             public void b(int i) {
                 d.b.g0.a.c0.c.l("SwanApp", "download subpackage fail: " + i);
-                b.this.f47149a.J0(null);
+                b.this.f47541a.J0(null);
                 b bVar = b.this;
-                c.this.Y(this.f47151a, bVar.f47149a, this.f47152b);
+                c.this.Y(this.f47543a, bVar.f47541a, this.f47544b);
                 d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
                 aVar.j(5L);
                 aVar.h(38L);
                 aVar.e("download subpackage fail, errcode=" + i);
                 d.b.g0.a.z1.k.d dVar = new d.b.g0.a.z1.k.d();
-                dVar.q(d.b.g0.a.z1.h.n(b.this.f47149a.F()));
+                dVar.q(d.b.g0.a.z1.h.n(b.this.f47541a.F()));
                 dVar.p(aVar);
-                dVar.r(b.this.f47149a);
+                dVar.r(b.this.f47541a);
                 d.b.g0.a.z1.h.H(dVar);
             }
         }
 
         public b(d.b.g0.a.y0.e.b bVar) {
-            this.f47149a = bVar;
+            this.f47541a = bVar;
         }
 
         @Override // d.b.g0.a.u0.b
         public void a(int i, d.b.g0.a.u0.a aVar) {
             d.g gVar = (d.g) aVar;
-            if (d.b.g0.a.t1.k.p0.g.d(this.f47149a, gVar)) {
-                if (d.b.g0.a.r1.e.y() != null && !TextUtils.isEmpty(gVar.f46600a)) {
-                    String d2 = i0.d(this.f47149a.b0());
+            if (d.b.g0.a.t1.k.p0.g.d(this.f47541a, gVar)) {
+                if (d.b.g0.a.r1.e.y() != null && !TextUtils.isEmpty(gVar.f46992a)) {
+                    String d2 = i0.d(this.f47541a.b0());
                     if (!TextUtils.isEmpty(d2) && d2.startsWith(File.separator)) {
                         d2 = d2.substring(1);
                     }
-                    String str = gVar.f46601b.f12614b.f12635c.get(d2);
-                    d.b.g0.a.t1.k.p0.g.c(this.f47149a.G(), this.f47149a.n1(), str, gVar.f46601b.f12615c.f12637a.get(str), c.this.p(), new a(i, gVar));
+                    String str = gVar.f46993b.f12275b.f12296c.get(d2);
+                    d.b.g0.a.t1.k.p0.g.c(this.f47541a.G(), this.f47541a.n1(), str, gVar.f46993b.f12276c.f12298a.get(str), c.this.p(), new a(i, gVar));
                     return;
                 }
                 d.b.g0.a.c0.c.l("SwanApp", "subpackage is invalid");
             }
-            c.this.Y(i, this.f47149a, gVar);
+            c.this.Y(i, this.f47541a, gVar);
         }
     }
 
     /* renamed from: d.b.g0.a.z0.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0891c implements Runnable {
+    public class RunnableC0903c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f47154e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47546e;
 
-        public RunnableC0891c(c cVar, d.b.g0.a.y0.e.b bVar) {
-            this.f47154e = bVar;
+        public RunnableC0903c(c cVar, d.b.g0.a.y0.e.b bVar) {
+            this.f47546e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.e.c(this.f47154e.G(), this.f47154e.n1());
+            d.e.c(this.f47546e.G(), this.f47546e.n1());
         }
     }
 
@@ -132,19 +132,19 @@ public class c extends d.b.g0.a.z0.b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f47155e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47547e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.g f47156f;
+        public final /* synthetic */ d.g f47548f;
 
         public d(d.b.g0.a.y0.e.b bVar, d.g gVar) {
-            this.f47155e = bVar;
-            this.f47156f = gVar;
+            this.f47547e = bVar;
+            this.f47548f = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.Z(this.f47155e, this.f47156f);
+            c.this.Z(this.f47547e, this.f47548f);
         }
     }
 
@@ -152,23 +152,23 @@ public class c extends d.b.g0.a.z0.b {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f47158e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47550e;
 
         public e(c cVar, d.b.g0.a.y0.e.b bVar) {
-            this.f47158e = bVar;
+            this.f47550e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String m = this.f47158e.m("fromHost");
-            String m2 = this.f47158e.m("spuId");
-            String m3 = this.f47158e.m("contentId");
+            String m = this.f47550e.m("fromHost");
+            String m2 = this.f47550e.m("spuId");
+            String m3 = this.f47550e.m("contentId");
             if (TextUtils.isEmpty(m) || TextUtils.isEmpty(m2) || TextUtils.isEmpty(m3) || !d.b.g0.a.w0.a.W().b(m, m2, m3)) {
                 return;
             }
-            this.f47158e.w("fromHost", null);
-            this.f47158e.w("spuId", null);
-            this.f47158e.w("contentId", null);
+            this.f47550e.w("fromHost", null);
+            this.f47550e.w("spuId", null);
+            this.f47550e.w("contentId", null);
         }
     }
 
@@ -182,8 +182,8 @@ public class c extends d.b.g0.a.z0.b {
         super.P();
         d.b.g0.a.e0.v.b.b();
         d.b.g0.a.e0.w.d.t0(false);
-        if (this.f47137a != null) {
-            this.f47137a = null;
+        if (this.f47529a != null) {
+            this.f47529a = null;
         }
         d.b.g0.a.i2.i.k();
         d.b.g0.a.b1.b.b();
@@ -224,15 +224,15 @@ public class c extends d.b.g0.a.z0.b {
         }
         if (this.i) {
             if (l) {
-                Log.e("AppsControllerImpl", Log.getStackTraceString(new Exception("object is released. bundlePath:" + gVar.f46600a + ", baseUrl:" + f.V().h())));
+                Log.e("AppsControllerImpl", Log.getStackTraceString(new Exception("object is released. bundlePath:" + gVar.f46992a + ", baseUrl:" + f.V().h())));
                 return;
             }
             return;
         }
-        this.f47139c = gVar.f46600a;
-        b0(gVar.f46601b);
+        this.f47531c = gVar.f46992a;
+        b0(gVar.f46993b);
         if (bVar.i0()) {
-            B(this.f47140d).setVisibility(0);
+            B(this.f47532d).setVisibility(0);
             d.b.g0.a.c0.a.b(true);
             d.b.g0.a.c0.c.g("AppsControllerImpl", "init sConsole for devHook");
         }
@@ -250,11 +250,11 @@ public class c extends d.b.g0.a.z0.b {
         HashMap hashMap = new HashMap();
         hashMap.put("lcType", "onAppShow");
         hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, T);
-        SwanAppActivity swanAppActivity = this.f47140d;
+        SwanAppActivity swanAppActivity = this.f47532d;
         if (swanAppActivity != null && swanAppActivity.getLaunchInfo() != null) {
-            hashMap.put("clkid", this.f47140d.getLaunchInfo().K());
-            hashMap.put("scene", this.f47140d.getLaunchInfo().S());
-            b.a launchInfo = this.f47140d.getLaunchInfo();
+            hashMap.put("clkid", this.f47532d.getLaunchInfo().K());
+            hashMap.put("scene", this.f47532d.getLaunchInfo().S());
+            b.a launchInfo = this.f47532d.getLaunchInfo();
             d.b.g0.a.z1.e.s(launchInfo);
             a0(launchInfo);
         }
@@ -330,9 +330,9 @@ public class c extends d.b.g0.a.z0.b {
         SwanAppConfigData D = d.b.g0.a.r1.d.e().s().D();
         if (D != null) {
             d.g gVar = new d.g();
-            ExecutorUtilsExt.postOnElastic(new RunnableC0891c(this, bVar), "deleteLowerVersionFolder", 3);
-            gVar.f46601b = D;
-            gVar.f46600a = d.e.h(bVar.G(), bVar.n1()).getPath() + File.separator;
+            ExecutorUtilsExt.postOnElastic(new RunnableC0903c(this, bVar), "deleteLowerVersionFolder", 3);
+            gVar.f46993b = D;
+            gVar.f46992a = d.e.h(bVar.G(), bVar.n1()).getPath() + File.separator;
             d.b.g0.a.j1.i.n().A(new UbcFlowEvent("na_post_to_main_start"));
             d.b.g0.a.y1.a.d().i("na_post_to_main_start");
             Z(bVar, gVar);
@@ -345,7 +345,7 @@ public class c extends d.b.g0.a.z0.b {
         if (l) {
             Log.i("AppsControllerImpl", "onAppBackground: background alive thread count:" + T);
         }
-        return this.f47144h && T <= 0;
+        return this.f47536h && T <= 0;
     }
 
     @Override // d.b.g0.a.z0.b, d.b.g0.a.z0.d

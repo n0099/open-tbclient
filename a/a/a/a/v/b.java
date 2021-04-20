@@ -10,10 +10,10 @@ import java.io.ObjectOutputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SharedPreferences f1359a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+    public static final SharedPreferences f1345a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
 
     public static int a(String str) {
-        return f1359a.getInt("key_sid_c_pre_" + str, 0);
+        return f1345a.getInt("key_sid_c_pre_" + str, 0);
     }
 
     public static void a(long j, int i, int i2, a.a.a.a.s.a aVar) {
@@ -21,7 +21,7 @@ public class b {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeInt(aVar.f1340a);
+            objectOutputStream.writeInt(aVar.f1326a);
             aVar.a(objectOutputStream);
             objectOutputStream.flush();
             bArr = byteArrayOutputStream.toByteArray();
@@ -32,6 +32,6 @@ public class b {
         Object[] objArr = new Object[1];
         objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
         d.c("sspsUTF len:%d", objArr);
-        f1359a.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
+        f1345a.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
     }
 }

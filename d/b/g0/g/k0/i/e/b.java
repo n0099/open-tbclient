@@ -15,7 +15,7 @@ public class b {
     public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
         RecommendItemModel recommendItemModel = new RecommendItemModel();
         recommendItemModel.appName = jSONObject.optString(DpStatConstants.KEY_APP_NAME);
-        recommendItemModel.appKey = jSONObject.optString(com.alipay.sdk.cons.b.f1858h);
+        recommendItemModel.appKey = jSONObject.optString(com.alipay.sdk.cons.b.f1883h);
         recommendItemModel.iconUrl = jSONObject.optString("icon_url");
         recommendItemModel.scheme = jSONObject.optString("scheme");
         recommendItemModel.desc = jSONObject.optString("desc");
@@ -34,13 +34,13 @@ public class b {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.f48302a = a(optJSONObject);
+            aVar.f48694a = a(optJSONObject);
         }
-        aVar.f48303b = new ArrayList();
+        aVar.f48695b = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.f48303b.add(a(optJSONArray.optJSONObject(i)));
+                aVar.f48695b.add(a(optJSONArray.optJSONObject(i)));
             }
         }
         return aVar;
@@ -51,14 +51,14 @@ public class b {
         c cVar = new c();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            cVar.f48304a = jSONObject.getInt("errno");
-            cVar.f48305b = jSONObject.optString("errmsg");
-            cVar.f48306c = jSONObject.optJSONObject("data");
+            cVar.f48696a = jSONObject.getInt("errno");
+            cVar.f48697b = jSONObject.optString("errmsg");
+            cVar.f48698c = jSONObject.optJSONObject("data");
             return cVar;
         } catch (JSONException e2) {
-            cVar.f48304a = -1;
-            cVar.f48305b = "network error: response parse failed.";
-            if (k.f45051a) {
+            cVar.f48696a = -1;
+            cVar.f48697b = "network error: response parse failed.";
+            if (k.f45443a) {
                 Log.e("RecommendModelParser", "parseResponseModel error:" + e2);
             }
             return cVar;

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.extend.XGridLayout;
 import com.baidu.tieba.R;
-import d.b.b.a.j;
+import d.b.c.a.j;
 import d.b.h0.m.c;
 import d.b.h0.m.e;
 import d.b.h0.m.f;
@@ -28,16 +28,16 @@ import java.util.List;
 public class GridIconLayout extends FrameLayout implements q, p<k0> {
 
     /* renamed from: e  reason: collision with root package name */
-    public XGridLayout f4413e;
+    public XGridLayout f4448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f<l> f4414f;
+    public f<l> f4449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f4415g;
+    public c f4450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e<l> f4416h;
+    public e<l> f4451h;
     public d.b.h0.b1.f.a.a i;
 
     /* loaded from: classes.dex */
@@ -52,8 +52,8 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
             if (lVar != null) {
                 GridIconLayout.this.c(lVar.c());
             }
-            if (GridIconLayout.this.f4414f != null) {
-                GridIconLayout.this.f4414f.a(view, lVar, i, j);
+            if (GridIconLayout.this.f4449f != null) {
+                GridIconLayout.this.f4449f.a(view, lVar, i, j);
             }
         }
     }
@@ -76,8 +76,8 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
             TextView textView = (TextView) cVar.b(R.id.tv_title);
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
             textView.setText(lVar.e());
-            if (GridIconLayout.this.f4414f != null) {
-                GridIconLayout.this.f4414f.c(cVar.a(), lVar, i, i);
+            if (GridIconLayout.this.f4449f != null) {
+                GridIconLayout.this.f4449f.c(cVar.a(), lVar, i, i);
             }
         }
     }
@@ -100,7 +100,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     public final void d() {
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         XGridLayout xGridLayout = new XGridLayout(getContext());
-        this.f4413e = xGridLayout;
+        this.f4448e = xGridLayout;
         addView(xGridLayout);
     }
 
@@ -108,12 +108,12 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     @Override // d.b.i.p
     /* renamed from: e */
     public void a(k0 k0Var) {
-        if (k0Var != null && !ListUtils.isEmpty(k0Var.f50827e)) {
+        if (k0Var != null && !ListUtils.isEmpty(k0Var.f51234e)) {
             setVisibility(0);
-            List<l> list = k0Var.f50827e;
-            this.f4413e.setAutoGridSpan(list, 5);
-            this.f4413e.setAdapter(this.i);
-            this.i.h(this.f4416h);
+            List<l> list = k0Var.f51234e;
+            this.f4448e.setAutoGridSpan(list, 5);
+            this.f4448e.setAdapter(this.i);
+            this.i.h(this.f4451h);
             this.i.g(list);
             return;
         }
@@ -123,7 +123,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     @Override // d.b.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        XGridLayout xGridLayout = this.f4413e;
+        XGridLayout xGridLayout = this.f4448e;
         if (xGridLayout != null) {
             xGridLayout.d();
         }
@@ -132,17 +132,17 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.f4415g != null) {
-            this.f4415g.a(this, i == 0, null);
+        if (this.f4450g != null) {
+            this.f4450g.a(this, i == 0, null);
         }
     }
 
     public void setHorizontalSpace(int i) {
-        this.f4413e.setHorizontalSpace(i);
+        this.f4448e.setHorizontalSpace(i);
     }
 
     public void setIWindowChangedListener(c cVar) {
-        this.f4415g = cVar;
+        this.f4450g = cVar;
     }
 
     public void setMarginsTop(View view, int i) {
@@ -156,20 +156,20 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     }
 
     public void setMaxItem(int i) {
-        this.f4413e.setMaxItem(i);
+        this.f4448e.setMaxItem(i);
     }
 
     public void setOnItemCoverListener(f<l> fVar) {
-        this.f4414f = fVar;
+        this.f4449f = fVar;
     }
 
     public void setVerticalSpace(int i) {
-        this.f4413e.setVerticalSpace(i);
+        this.f4448e.setVerticalSpace(i);
     }
 
     public GridIconLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4416h = new a();
+        this.f4451h = new a();
         this.i = new b(getContext(), R.layout.grid_icon_item);
         d();
     }

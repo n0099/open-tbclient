@@ -17,12 +17,12 @@ import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.AdCloseView;
 import com.bumptech.glide.load.engine.GlideException;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
-import d.b.i0.r2.t;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
+import d.b.i0.s2.w;
 import tbclient.AdCloseInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public View r;
     public ViewStub s;
@@ -33,7 +33,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public LinearLayout x;
     public AdCloseView y;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -44,22 +44,22 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20776e;
+        public AdCard f20460e;
 
         public b(AdCard adCard) {
-            this.f20776e = adCard;
+            this.f20460e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
-            String scheme = this.f20776e.getScheme();
+            String scheme = this.f20460e.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
                 scheme = advertAppInfo.H3;
             }
-            int d2 = t.d(AdSimpleCardBaseView.this.m.getPageActivity(), scheme, AdSimpleCardBaseView.this.p(advertAppInfo), advertAppInfo.T3);
+            int d2 = w.d(AdSimpleCardBaseView.this.m.getPageActivity(), scheme, AdSimpleCardBaseView.this.p(advertAppInfo), advertAppInfo.T3);
             if (AdSimpleCardBaseView.this.o != null) {
                 AdSimpleCardBaseView.this.o.a(d2, null);
             }
@@ -71,7 +71,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 AdSimpleCardBaseView.this.m.showToast(R.string.neterror);
                 return;
             }
-            AdCard adCard = this.f20776e;
+            AdCard adCard = this.f20460e;
             if (adCard == null) {
                 return;
             }

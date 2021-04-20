@@ -7,19 +7,19 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36901a;
+    public int f37190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36902b;
+    public int f37191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36903c;
+    public long f37192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36904d;
+    public long f37193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36905e;
+    public long f37194e;
 
     public static long a(List<a> list) {
         long j = 0;
@@ -30,56 +30,56 @@ public class a {
     }
 
     public int a() {
-        return this.f36901a;
+        return this.f37190a;
     }
 
     public void a(int i) {
-        this.f36901a = i;
+        this.f37190a = i;
     }
 
     public void a(long j) {
-        this.f36903c = j;
+        this.f37192c = j;
     }
 
     public int b() {
-        return this.f36902b;
+        return this.f37191b;
     }
 
     public void b(int i) {
-        this.f36902b = i;
+        this.f37191b = i;
     }
 
     public void b(long j) {
-        this.f36904d = j;
+        this.f37193d = j;
     }
 
     public long c() {
-        return this.f36903c;
+        return this.f37192c;
     }
 
     public void c(long j) {
-        this.f36905e = j;
+        this.f37194e = j;
     }
 
     public long d() {
-        return this.f36904d;
+        return this.f37193d;
     }
 
     public long e() {
-        return this.f36905e;
+        return this.f37194e;
     }
 
     public ContentValues f() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", Integer.valueOf(this.f36901a));
-        contentValues.put("connectionIndex", Integer.valueOf(this.f36902b));
-        contentValues.put("startOffset", Long.valueOf(this.f36903c));
-        contentValues.put("currentOffset", Long.valueOf(this.f36904d));
-        contentValues.put("endOffset", Long.valueOf(this.f36905e));
+        contentValues.put("id", Integer.valueOf(this.f37190a));
+        contentValues.put("connectionIndex", Integer.valueOf(this.f37191b));
+        contentValues.put("startOffset", Long.valueOf(this.f37192c));
+        contentValues.put("currentOffset", Long.valueOf(this.f37193d));
+        contentValues.put("endOffset", Long.valueOf(this.f37194e));
         return contentValues;
     }
 
     public String toString() {
-        return f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f36901a), Integer.valueOf(this.f36902b), Long.valueOf(this.f36903c), Long.valueOf(this.f36905e), Long.valueOf(this.f36904d));
+        return f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f37190a), Integer.valueOf(this.f37191b), Long.valueOf(this.f37192c), Long.valueOf(this.f37194e), Long.valueOf(this.f37193d));
     }
 }

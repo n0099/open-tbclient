@@ -21,29 +21,29 @@ import com.baidu.tieba.advert.sdk.data.AdType;
 import com.baidu.tieba.advert.sdk.data.RedirectType;
 import com.baidu.tieba.advert.sdk.view.SplashAdView;
 import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
-import d.b.b.e.p.l;
-import d.b.h0.s.c.k;
+import d.b.c.e.p.l;
+import d.b.h0.s.c.m;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f59621a = null;
+    public e f60874a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59622b = null;
+    public String f60875b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<SplashAdView> f59623c;
+    public WeakReference<SplashAdView> f60876c;
 
     /* renamed from: d.b.i0.r.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1493a implements CustomMessageTask.CustomRunnable<k> {
-        public C1493a() {
+    public class C1536a implements CustomMessageTask.CustomRunnable<m> {
+        public C1536a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<k> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<m> customMessage) {
             if (customMessage != null && customMessage.getCmd() == 2016310) {
                 try {
                     return new CustomResponsedMessage<>(2016310, a.this.f(customMessage.getData()));
@@ -55,20 +55,20 @@ public class a {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.b.i0.r.a.f.a {
+    public class b implements d.b.i0.r.a.g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f59625a;
+        public final /* synthetic */ SplashAdView f60878a;
 
         public b(SplashAdView splashAdView) {
-            this.f59625a = splashAdView;
+            this.f60878a = splashAdView;
         }
 
-        @Override // d.b.i0.r.a.f.a
+        @Override // d.b.i0.r.a.g.a
         public void a() {
         }
 
-        @Override // d.b.i0.r.a.f.a
+        @Override // d.b.i0.r.a.g.a
         public void b(String str) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
@@ -76,31 +76,31 @@ public class a {
             TiebaStatic.log(statisticItem);
         }
 
-        @Override // d.b.i0.r.a.f.a
-        public void c(d.b.i0.r.a.e.a aVar) {
+        @Override // d.b.i0.r.a.g.a
+        public void c(d.b.i0.r.a.f.a aVar) {
         }
 
-        @Override // d.b.i0.r.a.f.a
+        @Override // d.b.i0.r.a.g.a
         public void d() {
-            d.b.i0.r.a.e.b entryInfoData;
-            SplashAdView splashAdView = (SplashAdView) a.this.f59623c.get();
+            d.b.i0.r.a.f.b entryInfoData;
+            SplashAdView splashAdView = (SplashAdView) a.this.f60876c.get();
             if (splashAdView != null) {
-                a.this.f59622b = this.f59625a.g();
+                a.this.f60875b = this.f60878a.g();
                 a aVar = a.this;
-                aVar.h(aVar.f59622b);
+                aVar.h(aVar.f60875b);
             }
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
             if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
                 if (entryInfoData.d()) {
-                    statisticItem.param("obj_source", entryInfoData.f59668e);
+                    statisticItem.param("obj_source", entryInfoData.f60918e);
                 } else {
-                    statisticItem.param("obj_source", entryInfoData.f59665b);
+                    statisticItem.param("obj_source", entryInfoData.f60915b);
                 }
             }
             TiebaStatic.log(statisticItem);
         }
 
-        @Override // d.b.i0.r.a.f.a
+        @Override // d.b.i0.r.a.g.a
         public void e() {
         }
     }
@@ -131,35 +131,35 @@ public class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f59627a;
+        public final WeakReference<CountDownTextView> f60880a;
 
-        public /* synthetic */ e(CountDownTextView countDownTextView, C1493a c1493a) {
+        public /* synthetic */ e(CountDownTextView countDownTextView, C1536a c1536a) {
             this(countDownTextView);
         }
 
         public void a(String str) {
-            CountDownTextView countDownTextView = this.f59627a.get();
+            CountDownTextView countDownTextView = this.f60880a.get();
             if (countDownTextView != null) {
                 countDownTextView.d(str, 0);
             }
         }
 
         public e(CountDownTextView countDownTextView) {
-            this.f59627a = new WeakReference<>(countDownTextView);
+            this.f60880a = new WeakReference<>(countDownTextView);
         }
     }
 
-    public final View f(k kVar) {
+    public final View f(m mVar) {
         boolean z;
-        if (kVar == null || !kVar.d()) {
+        if (mVar == null || !mVar.d()) {
             return null;
         }
-        Activity pageActivity = kVar.c().getPageActivity();
-        int a2 = kVar.a();
-        int b2 = kVar.b();
-        SplashAdView splashAdView = new SplashAdView(kVar.c(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
+        Activity pageActivity = mVar.c().getPageActivity();
+        int a2 = mVar.a();
+        int b2 = mVar.b();
+        SplashAdView splashAdView = new SplashAdView(mVar.c(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
         splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
-        this.f59623c = new WeakReference<>(splashAdView);
+        this.f60876c = new WeakReference<>(splashAdView);
         splashAdView.setBCAdCallBack(new b(splashAdView));
         try {
             z = splashAdView.f();
@@ -170,7 +170,7 @@ public class a {
             try {
                 int dimension = (int) pageActivity.getResources().getDimension(R.dimen.ds22);
                 int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.ds36);
-                Activity pageActivity2 = kVar.c().getPageActivity();
+                Activity pageActivity2 = mVar.c().getPageActivity();
                 if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
                     dimension2 += l.r(pageActivity2);
                 }
@@ -178,8 +178,8 @@ public class a {
                 int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.ds106);
                 int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
                 CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                this.f59621a = new e(countDownTextView, null);
-                String str = this.f59622b;
+                this.f60874a = new e(countDownTextView, null);
+                String str = this.f60875b;
                 if (TextUtils.isEmpty(str)) {
                     str = pageActivity.getResources().getString(R.string.skip);
                 }
@@ -232,15 +232,15 @@ public class a {
     }
 
     public void g() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1493a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1536a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public final void h(String str) {
-        if (this.f59621a == null || TextUtils.isEmpty(str)) {
+        if (this.f60874a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f59621a.a(str);
+        this.f60874a.a(str);
     }
 }

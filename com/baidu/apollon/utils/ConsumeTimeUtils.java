@@ -5,43 +5,43 @@ import android.os.SystemClock;
 public class ConsumeTimeUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public TimeResult f3931a;
+    public TimeResult f3966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3932b = "ConsumeTime";
+    public String f3967b = "ConsumeTime";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3933c;
+    public String f3968c;
 
     /* loaded from: classes.dex */
     public final class TimeResult {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3934a = 0;
+        public long f3969a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f3935b = 0;
+        public long f3970b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3936c = 0;
+        public long f3971c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f3937d = 0;
+        public int f3972d = 0;
 
         public TimeResult() {
         }
 
         public String buildLog() {
             StringBuilder sb = new StringBuilder();
-            if (ConsumeTimeUtils.this.f3933c != null) {
-                sb.append(ConsumeTimeUtils.this.f3933c + ":");
+            if (ConsumeTimeUtils.this.f3968c != null) {
+                sb.append(ConsumeTimeUtils.this.f3968c + ":");
             }
             sb.append(" task last " + getDurationMesc() + " millisecond about " + getDurationSecond() + " second");
             return sb.toString();
         }
 
         public long getDurationMesc() {
-            return this.f3935b - this.f3934a;
+            return this.f3970b - this.f3969a;
         }
 
         public int getDurationSecond() {
@@ -49,57 +49,57 @@ public class ConsumeTimeUtils {
         }
 
         public long getEndTime() {
-            return this.f3935b;
+            return this.f3970b;
         }
 
         public long getStartTime() {
-            return this.f3934a;
+            return this.f3969a;
         }
 
         public void logd() {
-            LogUtil.d(ConsumeTimeUtils.this.f3932b, buildLog());
+            LogUtil.d(ConsumeTimeUtils.this.f3967b, buildLog());
         }
 
         public void loge() {
-            LogUtil.e(ConsumeTimeUtils.this.f3932b, buildLog(), new Throwable());
+            LogUtil.e(ConsumeTimeUtils.this.f3967b, buildLog(), new Throwable());
         }
 
         public void logi() {
-            LogUtil.i(ConsumeTimeUtils.this.f3932b, buildLog());
+            LogUtil.i(ConsumeTimeUtils.this.f3967b, buildLog());
         }
 
         public void logv() {
-            LogUtil.v(ConsumeTimeUtils.this.f3932b, buildLog());
+            LogUtil.v(ConsumeTimeUtils.this.f3967b, buildLog());
         }
 
         public void logw() {
-            LogUtil.w(ConsumeTimeUtils.this.f3932b, buildLog());
+            LogUtil.w(ConsumeTimeUtils.this.f3967b, buildLog());
         }
 
         public String toString() {
             String buildLog = buildLog();
-            LogUtil.v(ConsumeTimeUtils.this.f3932b, buildLog);
+            LogUtil.v(ConsumeTimeUtils.this.f3967b, buildLog);
             return buildLog;
         }
     }
 
     public TimeResult finish() {
-        this.f3931a.f3935b = SystemClock.uptimeMillis();
-        return this.f3931a;
+        this.f3966a.f3970b = SystemClock.uptimeMillis();
+        return this.f3966a;
     }
 
     public void setPrefix(String str) {
-        this.f3933c = str;
+        this.f3968c = str;
     }
 
     public void setTAGString(String str) {
-        this.f3932b = str;
+        this.f3967b = str;
     }
 
     public ConsumeTimeUtils start() {
         TimeResult timeResult = new TimeResult();
-        this.f3931a = timeResult;
-        timeResult.f3934a = SystemClock.uptimeMillis();
+        this.f3966a = timeResult;
+        timeResult.f3969a = SystemClock.uptimeMillis();
         return this;
     }
 }

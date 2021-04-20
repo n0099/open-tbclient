@@ -10,10 +10,10 @@ import com.baidu.mapapi.model.inner.Point;
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f10073a;
+    public final /* synthetic */ a f9631a;
 
     public b(a aVar) {
-        this.f10073a = aVar;
+        this.f9631a = aVar;
     }
 
     @Override // android.os.Handler
@@ -50,61 +50,61 @@ public class b extends Handler {
         if (i10 != 1) {
             if (i10 != 2) {
                 if (i10 == 3) {
-                    this.f10073a.s();
+                    this.f9631a.s();
                     return;
                 }
                 return;
             }
-            activity = this.f10073a.i;
+            activity = this.f9631a.i;
             float a2 = com.baidu.platform.comapi.wnplatform.o.g.a(activity);
-            A = this.f10073a.A();
+            A = this.f9631a.A();
             int[] iArr = {A.getmPtx(), A.getmPty()};
             int[] iArr2 = {0, 0};
             float[] fArr = {0.0f, 0.0f};
             com.baidu.platform.comapi.walknavi.b.a().G().a(iArr, iArr2);
             if (iArr2[0] != 0 || iArr2[1] != 0) {
-                str = this.f10073a.ab;
+                str = this.f9631a.ab;
                 if (!TextUtils.isEmpty(str)) {
-                    activity2 = this.f10073a.i;
+                    activity2 = this.f9631a.i;
                     fArr[0] = com.baidu.platform.comapi.wnplatform.o.g.a(iArr2[0] / a2, activity2);
                     float f2 = iArr2[1] / a2;
-                    activity3 = this.f10073a.i;
+                    activity3 = this.f9631a.i;
                     fArr[1] = com.baidu.platform.comapi.wnplatform.o.g.b(f2, activity3);
-                    this.f10073a.a(fArr[0], fArr[1]);
+                    this.f9631a.a(fArr[0], fArr[1]);
                     return;
                 }
             }
-            relativeLayout = this.f10073a.U;
+            relativeLayout = this.f9631a.U;
             if (relativeLayout != null) {
-                relativeLayout2 = this.f10073a.U;
+                relativeLayout2 = this.f9631a.U;
                 relativeLayout2.setVisibility(8);
                 return;
             }
             return;
         }
-        com.baidu.platform.comapi.wnplatform.d.a.a("aaa", ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.f10167a * com.baidu.platform.comapi.walknavi.segmentbrowse.c.q())) + "");
-        i = this.f10073a.v;
-        if (i <= ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.f10167a * com.baidu.platform.comapi.walknavi.segmentbrowse.c.q()))) {
+        com.baidu.platform.comapi.wnplatform.d.a.a("aaa", ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.f9725a * com.baidu.platform.comapi.walknavi.segmentbrowse.c.q())) + "");
+        i = this.f9631a.v;
+        if (i <= ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.f9725a * com.baidu.platform.comapi.walknavi.segmentbrowse.c.q()))) {
             StringBuilder sb = new StringBuilder();
             sb.append("handlemessage == ");
-            i8 = this.f10073a.v;
+            i8 = this.f9631a.v;
             sb.append(i8);
             com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", sb.toString());
             com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "curid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
-            a aVar = this.f10073a;
+            a aVar = this.f9631a;
             i9 = aVar.v;
             aVar.v = i9 + (-20);
-            this.f10073a.w = true;
+            this.f9631a.w = true;
         }
-        i2 = this.f10073a.v;
+        i2 = this.f9631a.v;
         if (i2 < 0) {
             int a3 = com.baidu.platform.comapi.walknavi.segmentbrowse.c.a();
-            runnable3 = this.f10073a.R;
+            runnable3 = this.f9631a.R;
             if (runnable3 != null) {
-                handler3 = this.f10073a.Q;
+                handler3 = this.f9631a.Q;
                 if (handler3 != null) {
-                    handler4 = this.f10073a.Q;
-                    runnable4 = this.f10073a.R;
+                    handler4 = this.f9631a.Q;
+                    runnable4 = this.f9631a.R;
                     handler4.removeCallbacks(runnable4);
                 }
             }
@@ -116,39 +116,39 @@ public class b extends Handler {
             sb2.append("handle uid");
             sb2.append(i11);
             sb2.append("width");
-            i6 = this.f10073a.v;
+            i6 = this.f9631a.v;
             sb2.append(i6);
             com.baidu.platform.comapi.wnplatform.d.a.c("yang13", sb2.toString());
             com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(i11);
-            this.f10073a.v = com.baidu.platform.comapi.walknavi.segmentbrowse.c.o();
+            this.f9631a.v = com.baidu.platform.comapi.walknavi.segmentbrowse.c.o();
             StringBuilder sb3 = new StringBuilder();
             sb3.append("handlemessage width<0== ");
-            i7 = this.f10073a.v;
+            i7 = this.f9631a.v;
             sb3.append(i7);
             com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", sb3.toString());
             com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "finalid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.h());
             com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "curid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
         }
-        hVar = this.f10073a.t;
+        hVar = this.f9631a.t;
         if (hVar != null) {
-            hVar2 = this.f10073a.t;
-            i5 = this.f10073a.v;
+            hVar2 = this.f9631a.t;
+            i5 = this.f9631a.v;
             hVar2.a(i5);
         }
-        iVar = this.f10073a.u;
+        iVar = this.f9631a.u;
         if (iVar != null) {
-            iVar2 = this.f10073a.u;
-            i4 = this.f10073a.v;
+            iVar2 = this.f9631a.u;
+            i4 = this.f9631a.v;
             iVar2.a(i4);
         }
-        i3 = this.f10073a.v;
+        i3 = this.f9631a.v;
         if (i3 != com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
-            handler = this.f10073a.Q;
+            handler = this.f9631a.Q;
             if (handler != null) {
-                runnable = this.f10073a.R;
+                runnable = this.f9631a.R;
                 if (runnable != null) {
-                    handler2 = this.f10073a.Q;
-                    runnable2 = this.f10073a.R;
+                    handler2 = this.f9631a.Q;
+                    runnable2 = this.f9631a.R;
                     handler2.postDelayed(runnable2, 20L);
                 }
             }

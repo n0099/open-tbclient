@@ -1,29 +1,18 @@
 package d.b.i0.y2;
-
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62623a;
+    public static volatile e f64204a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f62624b;
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
-            return;
+    public static synchronized e a() {
+        e eVar;
+        synchronized (f.class) {
+            if (f64204a == null) {
+                f64204a = new e();
+            }
+            eVar = f64204a;
         }
-        try {
-            this.f62623a = jSONObject.optString("banner_pic");
-            this.f62624b = jSONObject.optString("banner_url");
-        } catch (Exception e2) {
-            BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e2.toString());
-            BdLog.e(e2.getMessage());
-        }
+        return eVar;
     }
 }

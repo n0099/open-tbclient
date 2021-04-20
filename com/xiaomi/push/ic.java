@@ -16,7 +16,7 @@ public class ic implements iq<ic, Object>, Serializable, Cloneable {
     public static final jg f637a = new jg("XmPushActionCustomConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40765a = new iy("", (byte) 15, 1);
+    public static final iy f41054a = new iy("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -24,11 +24,11 @@ public class ic implements iq<ic, Object>, Serializable, Cloneable {
     public int compareTo(ic icVar) {
         int a2;
         if (ic.class.equals(icVar.getClass())) {
-            int compareTo = Boolean.valueOf(m441a()).compareTo(Boolean.valueOf(icVar.m441a()));
+            int compareTo = Boolean.valueOf(m445a()).compareTo(Boolean.valueOf(icVar.m445a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m441a() || (a2 = ir.a(this.f638a, icVar.f638a)) == 0) {
+            if (!m445a() || (a2 = ir.a(this.f638a, icVar.f638a)) == 0) {
                 return 0;
             }
             return a2;
@@ -41,7 +41,7 @@ public class ic implements iq<ic, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m440a() {
+    public void m444a() {
         if (this.f638a != null) {
             return;
         }
@@ -50,19 +50,19 @@ public class ic implements iq<ic, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m505a();
+        jbVar.m509a();
         while (true) {
-            iy m501a = jbVar.m501a();
-            byte b2 = m501a.f40867a;
+            iy m505a = jbVar.m505a();
+            byte b2 = m505a.f41156a;
             if (b2 == 0) {
                 jbVar.f();
-                m440a();
+                m444a();
                 return;
             }
-            if (m501a.f807a == 1 && b2 == 15) {
-                iz m502a = jbVar.m502a();
-                this.f638a = new ArrayList(m502a.f808a);
-                for (int i = 0; i < m502a.f808a; i++) {
+            if (m505a.f807a == 1 && b2 == 15) {
+                iz m506a = jbVar.m506a();
+                this.f638a = new ArrayList(m506a.f808a);
+                for (int i = 0; i < m506a.f808a; i++) {
                     hq hqVar = new hq();
                     hqVar.a(jbVar);
                     this.f638a.add(hqVar);
@@ -76,29 +76,29 @@ public class ic implements iq<ic, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m441a() {
+    public boolean m445a() {
         return this.f638a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m442a(ic icVar) {
+    public boolean m446a(ic icVar) {
         if (icVar == null) {
             return false;
         }
-        boolean m441a = m441a();
-        boolean m441a2 = icVar.m441a();
-        if (m441a || m441a2) {
-            return m441a && m441a2 && this.f638a.equals(icVar.f638a);
+        boolean m445a = m445a();
+        boolean m445a2 = icVar.m445a();
+        if (m445a || m445a2) {
+            return m445a && m445a2 && this.f638a.equals(icVar.f638a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m440a();
+        m444a();
         jbVar.a(f637a);
         if (this.f638a != null) {
-            jbVar.a(f40765a);
+            jbVar.a(f41054a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f638a.size()));
             for (hq hqVar : this.f638a) {
                 hqVar.b(jbVar);
@@ -107,12 +107,12 @@ public class ic implements iq<ic, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m509a();
+        jbVar.m513a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ic)) {
-            return m442a((ic) obj);
+            return m446a((ic) obj);
         }
         return false;
     }

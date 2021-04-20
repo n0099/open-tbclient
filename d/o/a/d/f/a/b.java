@@ -7,7 +7,7 @@ import d.o.a.d.f.n;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     @NonNull
     public CopyOnWriteArrayList<c.b> a(String str, String str2) {
@@ -40,7 +40,7 @@ public class b {
             while (it.hasNext()) {
                 c.b next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f66514b), next.b());
+                    jSONObject.put(String.valueOf(next.f67507b), next.b());
                 }
             }
         } catch (Exception e2) {

@@ -6,7 +6,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a(String str) {
         byte[] bArr;
@@ -23,7 +23,7 @@ public class a {
 
     public static String b(String str) {
         try {
-            return new String(b(a(), m38a(str)));
+            return new String(b(a(), m42a(str)));
         } catch (Exception unused) {
             return null;
         }
@@ -48,7 +48,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m38a(String str) {
+    public static byte[] m42a(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {

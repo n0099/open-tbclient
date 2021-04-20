@@ -6,19 +6,19 @@ import com.xiaomi.push.hj;
 public class z implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C0521a f40213a;
+    public final /* synthetic */ MiTinyDataClient.a.C0535a f40502a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f97a;
 
-    public z(MiTinyDataClient.a.C0521a c0521a, hj hjVar) {
-        this.f40213a = c0521a;
+    public z(MiTinyDataClient.a.C0535a c0535a, hj hjVar) {
+        this.f40502a = c0535a;
         this.f97a = hjVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f40213a.f51a.add(this.f97a);
-        this.f40213a.a();
+        this.f40502a.f51a.add(this.f97a);
+        this.f40502a.a();
     }
 }

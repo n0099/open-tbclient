@@ -9,19 +9,19 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import d.b.b.e.m.f;
+import d.b.c.e.m.f;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f51045a = false;
+    public static boolean f51452a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f51046b = new HandlerC1090a();
+    public static Handler f51453b = new HandlerC1103a();
 
     /* renamed from: d.b.h0.r.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC1090a extends Handler {
+    public static class HandlerC1103a extends Handler {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
@@ -41,13 +41,13 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    if (a.f51045a) {
+                    if (a.f51452a) {
                         return;
                     }
-                    a.f51046b.sendEmptyMessageDelayed(1, 10000L);
+                    a.f51453b.sendEmptyMessageDelayed(1, 10000L);
                     return;
                 }
-                a.f51046b.removeMessages(1);
+                a.f51453b.removeMessages(1);
                 a.g();
             }
         }
@@ -58,7 +58,7 @@ public class a {
     }
 
     public static void e(boolean z) {
-        f51045a = z;
+        f51452a = z;
     }
 
     public static void f() {

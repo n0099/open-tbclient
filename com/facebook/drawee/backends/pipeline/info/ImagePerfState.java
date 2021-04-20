@@ -3,7 +3,7 @@ package com.facebook.drawee.backends.pipeline.info;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImagePerfState {
     @Nullable
     public Object mCallerContext;

@@ -11,28 +11,28 @@ public class ReverseGeoCodeResult extends SearchResult {
     public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7202a;
+    public String f7237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7203b;
+    public String f7238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AddressComponent f7204c;
+    public AddressComponent f7239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f7205d;
+    public LatLng f7240d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7206e;
+    public int f7241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PoiInfo> f7207f;
+    public List<PoiInfo> f7242f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7208g;
+    public String f7243g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<PoiRegionsInfo> f7209h;
+    public List<PoiRegionsInfo> f7244h;
 
     /* loaded from: classes2.dex */
     public static class AddressComponent implements Parcelable {
@@ -169,13 +169,13 @@ public class ReverseGeoCodeResult extends SearchResult {
 
     public ReverseGeoCodeResult(Parcel parcel) {
         super(parcel);
-        this.f7202a = parcel.readString();
-        this.f7203b = parcel.readString();
-        this.f7204c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
-        this.f7205d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7207f = parcel.createTypedArrayList(PoiInfo.CREATOR);
-        this.f7208g = parcel.readString();
-        this.f7209h = parcel.createTypedArrayList(PoiRegionsInfo.CREATOR);
+        this.f7237a = parcel.readString();
+        this.f7238b = parcel.readString();
+        this.f7239c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
+        this.f7240d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7242f = parcel.createTypedArrayList(PoiInfo.CREATOR);
+        this.f7243g = parcel.readString();
+        this.f7244h = parcel.createTypedArrayList(PoiRegionsInfo.CREATOR);
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -184,118 +184,118 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public int getAdcode() {
-        return this.f7204c.adcode;
+        return this.f7239c.adcode;
     }
 
     public String getAddress() {
-        return this.f7203b;
+        return this.f7238b;
     }
 
     public AddressComponent getAddressDetail() {
-        return this.f7204c;
+        return this.f7239c;
     }
 
     public String getBusinessCircle() {
-        return this.f7202a;
+        return this.f7237a;
     }
 
     public int getCityCode() {
-        return this.f7206e;
+        return this.f7241e;
     }
 
     public LatLng getLocation() {
-        return this.f7205d;
+        return this.f7240d;
     }
 
     public List<PoiInfo> getPoiList() {
-        return this.f7207f;
+        return this.f7242f;
     }
 
     public List<PoiRegionsInfo> getPoiRegionsInfoList() {
-        return this.f7209h;
+        return this.f7244h;
     }
 
     public String getSematicDescription() {
-        return this.f7208g;
+        return this.f7243g;
     }
 
     public void setAdcode(int i) {
-        this.f7204c.adcode = i;
+        this.f7239c.adcode = i;
     }
 
     public void setAddress(String str) {
-        this.f7203b = str;
+        this.f7238b = str;
     }
 
     public void setAddressDetail(AddressComponent addressComponent) {
-        this.f7204c = addressComponent;
+        this.f7239c = addressComponent;
     }
 
     public void setBusinessCircle(String str) {
-        this.f7202a = str;
+        this.f7237a = str;
     }
 
     public void setCityCode(int i) {
-        this.f7206e = i;
+        this.f7241e = i;
     }
 
     public void setLocation(LatLng latLng) {
-        this.f7205d = latLng;
+        this.f7240d = latLng;
     }
 
     public void setPoiList(List<PoiInfo> list) {
-        this.f7207f = list;
+        this.f7242f = list;
     }
 
     public void setPoiRegionsInfoList(List<PoiRegionsInfo> list) {
-        this.f7209h = list;
+        this.f7244h = list;
     }
 
     public void setSematicDescription(String str) {
-        this.f7208g = str;
+        this.f7243g = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("ReverseGeoCodeResult: \n");
         stringBuffer.append("businessCircle = ");
-        stringBuffer.append(this.f7202a);
+        stringBuffer.append(this.f7237a);
         stringBuffer.append("; address = ");
-        stringBuffer.append(this.f7203b);
+        stringBuffer.append(this.f7238b);
         stringBuffer.append("; location = ");
-        stringBuffer.append(this.f7205d);
+        stringBuffer.append(this.f7240d);
         stringBuffer.append("; sematicDescription = ");
-        stringBuffer.append(this.f7208g);
-        if (this.f7204c != null) {
+        stringBuffer.append(this.f7243g);
+        if (this.f7239c != null) {
             stringBuffer.append("\n#AddressComponent Info BEGIN# \n");
             stringBuffer.append("streetNumber = ");
-            stringBuffer.append(this.f7204c.streetNumber);
+            stringBuffer.append(this.f7239c.streetNumber);
             stringBuffer.append("; street = ");
-            stringBuffer.append(this.f7204c.street);
+            stringBuffer.append(this.f7239c.street);
             stringBuffer.append("; town = ");
-            stringBuffer.append(this.f7204c.town);
+            stringBuffer.append(this.f7239c.town);
             stringBuffer.append("; district = ");
-            stringBuffer.append(this.f7204c.district);
+            stringBuffer.append(this.f7239c.district);
             stringBuffer.append("; city = ");
-            stringBuffer.append(this.f7204c.city);
+            stringBuffer.append(this.f7239c.city);
             stringBuffer.append("; province = ");
-            stringBuffer.append(this.f7204c.province);
+            stringBuffer.append(this.f7239c.province);
             stringBuffer.append("; countryName = ");
-            stringBuffer.append(this.f7204c.countryName);
+            stringBuffer.append(this.f7239c.countryName);
             stringBuffer.append("; countryCode = ");
-            stringBuffer.append(this.f7204c.countryCode);
+            stringBuffer.append(this.f7239c.countryCode);
             stringBuffer.append("; adcode = ");
-            stringBuffer.append(this.f7204c.adcode);
+            stringBuffer.append(this.f7239c.adcode);
             stringBuffer.append("; direction = ");
-            stringBuffer.append(this.f7204c.direction);
+            stringBuffer.append(this.f7239c.direction);
             stringBuffer.append("; distance = ");
-            stringBuffer.append(this.f7204c.distance);
+            stringBuffer.append(this.f7239c.distance);
             stringBuffer.append("\n#AddressComponent Info END# \n");
         }
-        List<PoiRegionsInfo> list = this.f7209h;
+        List<PoiRegionsInfo> list = this.f7244h;
         if (list != null && !list.isEmpty()) {
             stringBuffer.append("\n#PoiRegions Info  BEGIN#");
-            for (int i = 0; i < this.f7209h.size(); i++) {
-                PoiRegionsInfo poiRegionsInfo = this.f7209h.get(i);
+            for (int i = 0; i < this.f7244h.size(); i++) {
+                PoiRegionsInfo poiRegionsInfo = this.f7244h.get(i);
                 if (poiRegionsInfo != null) {
                     stringBuffer.append("\ndirectionDesc = ");
                     stringBuffer.append(poiRegionsInfo.getDirectionDesc());
@@ -307,11 +307,11 @@ public class ReverseGeoCodeResult extends SearchResult {
             }
             stringBuffer.append("\n#PoiRegions Info  END# \n");
         }
-        List<PoiInfo> list2 = this.f7207f;
+        List<PoiInfo> list2 = this.f7242f;
         if (list2 != null && !list2.isEmpty()) {
             stringBuffer.append("\n #PoiList Info  BEGIN#");
-            for (int i2 = 0; i2 < this.f7207f.size(); i2++) {
-                PoiInfo poiInfo = this.f7207f.get(i2);
+            for (int i2 = 0; i2 < this.f7242f.size(); i2++) {
+                PoiInfo poiInfo = this.f7242f.get(i2);
                 if (poiInfo != null) {
                     stringBuffer.append("\n address = ");
                     stringBuffer.append(poiInfo.getAddress());
@@ -357,12 +357,12 @@ public class ReverseGeoCodeResult extends SearchResult {
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeString(this.f7202a);
-        parcel.writeString(this.f7203b);
-        parcel.writeParcelable(this.f7204c, 0);
-        parcel.writeValue(this.f7205d);
-        parcel.writeTypedList(this.f7207f);
-        parcel.writeString(this.f7208g);
-        parcel.writeTypedList(this.f7209h);
+        parcel.writeString(this.f7237a);
+        parcel.writeString(this.f7238b);
+        parcel.writeParcelable(this.f7239c, 0);
+        parcel.writeValue(this.f7240d);
+        parcel.writeTypedList(this.f7242f);
+        parcel.writeString(this.f7243g);
+        parcel.writeTypedList(this.f7244h);
     }
 }

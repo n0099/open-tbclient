@@ -9,16 +9,16 @@ public class c extends BaseCardInfo {
     public static final BdUniqueId n = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60239e;
+    public int f61803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60240f;
+    public String f61804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60241g;
+    public String f61805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a2 f60242h;
+    public a2 f61806h;
     public boolean i;
     public boolean j;
     public boolean k = false;
@@ -26,19 +26,19 @@ public class c extends BaseCardInfo {
     public boolean m = false;
 
     public a2 g() {
-        return this.f60242h;
+        return this.f61806h;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return n;
     }
 
     @Deprecated
     public void j(ThreadInfo threadInfo) {
-        if (this.f60242h == null) {
-            this.f60242h = new a2();
+        if (this.f61806h == null) {
+            this.f61806h = new a2();
         }
-        this.f60242h.Q2(threadInfo);
+        this.f61806h.R2(threadInfo);
     }
 }

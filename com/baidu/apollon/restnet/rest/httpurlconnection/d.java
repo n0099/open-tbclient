@@ -13,28 +13,28 @@ import java.util.zip.GZIPInputStream;
 public class d implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f3805a;
+    public InputStream f3840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3806b;
+    public int f3841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3807c;
+    public String f3842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f3808d;
+    public Map<String, List<String>> f3843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.apollon.restnet.http.a f3809e;
+    public com.baidu.apollon.restnet.http.a f3844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f3810f;
+    public InputStream f3845f;
 
     public d(InputStream inputStream, int i, String str, Map<String, List<String>> map) {
-        this.f3805a = inputStream;
-        this.f3806b = i;
-        this.f3807c = str;
-        this.f3808d = map;
+        this.f3840a = inputStream;
+        this.f3841b = i;
+        this.f3842c = str;
+        this.f3843d = map;
     }
 
     private boolean g() {
@@ -44,28 +44,28 @@ public class d implements e {
 
     @Override // com.baidu.apollon.restnet.rest.e
     public int a() throws IOException {
-        return this.f3806b;
+        return this.f3841b;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public String b() throws IOException {
-        return this.f3807c;
+        return this.f3842c;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public InputStream c() throws IOException {
         if (g()) {
-            return a(this.f3805a);
+            return a(this.f3840a);
         }
-        return this.f3805a;
+        return this.f3840a;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public com.baidu.apollon.restnet.http.a d() {
-        if (this.f3809e == null) {
-            this.f3809e = new com.baidu.apollon.restnet.http.a(this.f3808d, false);
+        if (this.f3844e == null) {
+            this.f3844e = new com.baidu.apollon.restnet.http.a(this.f3843d, false);
         }
-        return this.f3809e;
+        return this.f3844e;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
@@ -75,7 +75,7 @@ public class d implements e {
 
     @Override // com.baidu.apollon.restnet.rest.e
     public void f() {
-        InputStream inputStream = this.f3810f;
+        InputStream inputStream = this.f3845f;
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -83,7 +83,7 @@ public class d implements e {
                 e2.printStackTrace();
             }
         }
-        InputStream inputStream2 = this.f3805a;
+        InputStream inputStream2 = this.f3840a;
         if (inputStream2 != null) {
             try {
                 inputStream2.close();
@@ -94,9 +94,9 @@ public class d implements e {
     }
 
     private InputStream a(InputStream inputStream) throws IOException {
-        if (this.f3810f == null) {
-            this.f3810f = new GZIPInputStream(inputStream);
+        if (this.f3845f == null) {
+            this.f3845f = new GZIPInputStream(inputStream);
         }
-        return this.f3810f;
+        return this.f3845f;
     }
 }

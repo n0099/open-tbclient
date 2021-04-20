@@ -3,7 +3,6 @@ package okio;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 import java.util.zip.Deflater;
-import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 /* loaded from: classes7.dex */
 public final class DeflaterSink implements Sink {
     public boolean closed;
@@ -14,7 +13,6 @@ public final class DeflaterSink implements Sink {
         this(Okio.buffer(sink), deflater);
     }
 
-    @IgnoreJRERequirement
     private void deflate(boolean z) throws IOException {
         Segment writableSegment;
         int deflate;

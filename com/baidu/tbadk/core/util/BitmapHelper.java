@@ -21,8 +21,8 @@ import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.m;
-import d.b.b.j.d.a;
+import d.b.c.e.p.m;
+import d.b.c.j.d.a;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -1100,7 +1100,7 @@ public class BitmapHelper {
         ParcelFileDescriptor parcelFileDescriptor;
         Bitmap decodeFileDescriptor;
         try {
-            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7664a);
+            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a);
         } catch (Throwable unused) {
             parcelFileDescriptor = null;
         }

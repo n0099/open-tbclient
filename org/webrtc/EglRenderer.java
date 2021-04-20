@@ -9,6 +9,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.view.Surface;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -143,7 +144,7 @@ public class EglRenderer implements VideoSink {
 
     private String averageTimeAsString(long j, int i) {
         if (i <= 0) {
-            return "NA";
+            return AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
         }
         return TimeUnit.NANOSECONDS.toMicros(j / i) + " us";
     }

@@ -9,40 +9,40 @@ import com.baidu.platform.base.SearchType;
 public class h extends com.baidu.platform.base.a implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetShareUrlResultListener f10424b = null;
+    public OnGetShareUrlResultListener f9982b = null;
 
     @Override // com.baidu.platform.core.e.a
     public void a() {
-        this.f9808a.lock();
-        this.f10424b = null;
-        this.f9808a.unlock();
+        this.f9366a.lock();
+        this.f9982b = null;
+        this.f9366a.unlock();
     }
 
     @Override // com.baidu.platform.core.e.a
     public void a(OnGetShareUrlResultListener onGetShareUrlResultListener) {
-        this.f9808a.lock();
-        this.f10424b = onGetShareUrlResultListener;
-        this.f9808a.unlock();
+        this.f9366a.lock();
+        this.f9982b = onGetShareUrlResultListener;
+        this.f9366a.unlock();
     }
 
     @Override // com.baidu.platform.core.e.a
     public boolean a(LocationShareURLOption locationShareURLOption) {
         f fVar = new f();
         fVar.a(SearchType.LOCATION_SEARCH_SHARE);
-        return a(new b(locationShareURLOption), this.f10424b, fVar);
+        return a(new b(locationShareURLOption), this.f9982b, fVar);
     }
 
     @Override // com.baidu.platform.core.e.a
     public boolean a(PoiDetailShareURLOption poiDetailShareURLOption) {
         f fVar = new f();
         fVar.a(SearchType.POI_DETAIL_SHARE);
-        return a(new c(poiDetailShareURLOption), this.f10424b, fVar);
+        return a(new c(poiDetailShareURLOption), this.f9982b, fVar);
     }
 
     @Override // com.baidu.platform.core.e.a
     public boolean a(RouteShareURLOption routeShareURLOption) {
         d dVar = new d();
         dVar.a(SearchType.ROUTE_PLAN_SHARE);
-        return a(new e(routeShareURLOption), this.f10424b, dVar);
+        return a(new e(routeShareURLOption), this.f9982b, dVar);
     }
 }

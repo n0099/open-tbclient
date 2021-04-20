@@ -9,37 +9,37 @@ import d.b.g0.a.i2.k0;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.i.b f48548a;
+    public d.b.g0.g.i.b f48940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.g.k0.h.a f48549b;
+    public d.b.g0.g.k0.h.a f48941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f48550c;
+    public Context f48942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.g.e.d.c f48551d;
+    public d.b.g0.g.e.d.c f48943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.e.d.c f48552e;
+    public d.b.g0.g.e.d.c f48944e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.g.e.d.c f48553f;
+    public d.b.g0.g.e.d.c f48945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.g0.g.s.c f48554g;
+    public d.b.g0.g.s.c f48946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.g.s.e.b f48555h;
+    public d.b.g0.g.s.e.b f48947h;
     public d.b.g0.g.s.e.a i;
     public d.b.g0.g.s.e.a j;
     public d.b.g0.g.s.b k;
-    public f l = new C0990a();
+    public f l = new C1002a();
 
     /* renamed from: d.b.g0.g.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0990a implements f {
-        public C0990a() {
+    public class C1002a implements f {
+        public C1002a() {
         }
 
         @Override // d.b.g0.g.s.a.f
@@ -73,7 +73,7 @@ public class a {
             d.b.g0.g.s.e.b bVar = new d.b.g0.g.s.e.b();
             bVar.errMsg = "showKeyboard:ok";
             bVar.height = i;
-            d.b.g0.g.i0.b.a(a.this.f48551d, true, bVar);
+            d.b.g0.g.i0.b.a(a.this.f48943d, true, bVar);
         }
     }
 
@@ -84,12 +84,12 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.b.g0.g.k0.h.b.p().n(a.this.f48549b)) {
-                a.this.f48555h.errMsg = "showKeyboard:fail";
-                d.b.g0.g.i0.b.a(a.this.f48551d, false, a.this.f48555h);
+            if (!d.b.g0.g.k0.h.b.p().n(a.this.f48941b)) {
+                a.this.f48947h.errMsg = "showKeyboard:fail";
+                d.b.g0.g.i0.b.a(a.this.f48943d, false, a.this.f48947h);
                 return;
             }
-            a.this.f48549b.j(a.this.f48554g);
+            a.this.f48941b.j(a.this.f48946g);
         }
     }
 
@@ -100,13 +100,13 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.b.g0.g.k0.h.b.p().s(a.this.f48549b)) {
+            if (d.b.g0.g.k0.h.b.p().s(a.this.f48941b)) {
                 a.this.i.errMsg = "hideKeyboard:ok";
-                d.b.g0.g.i0.b.a(a.this.f48552e, true, a.this.i);
+                d.b.g0.g.i0.b.a(a.this.f48944e, true, a.this.i);
                 return;
             }
             a.this.i.errMsg = "hideKeyboard:fail";
-            d.b.g0.g.i0.b.a(a.this.f48552e, false, a.this.i);
+            d.b.g0.g.i0.b.a(a.this.f48944e, false, a.this.i);
         }
     }
 
@@ -117,7 +117,7 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.k0.h.b.p().s(a.this.f48549b);
+            d.b.g0.g.k0.h.b.p().s(a.this.f48941b);
         }
     }
 
@@ -125,21 +125,21 @@ public class a {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48560e;
+        public final /* synthetic */ String f48952e;
 
         public e(String str) {
-            this.f48560e = str;
+            this.f48952e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48549b.m(this.f48560e)) {
+            if (a.this.f48941b.m(this.f48952e)) {
                 a.this.j.errMsg = "updateKeyboard:ok";
-                d.b.g0.g.i0.b.a(a.this.f48553f, true, a.this.j);
+                d.b.g0.g.i0.b.a(a.this.f48945f, true, a.this.j);
                 return;
             }
             a.this.j.errMsg = "updateKeyboard:fail";
-            d.b.g0.g.i0.b.a(a.this.f48553f, false, a.this.j);
+            d.b.g0.g.i0.b.a(a.this.f48945f, false, a.this.j);
         }
     }
 
@@ -158,11 +158,11 @@ public class a {
 
     public a(d.b.g0.g.i.b bVar, d.b.g0.g.s.b bVar2) {
         this.k = null;
-        this.f48548a = bVar;
+        this.f48940a = bVar;
         Context appContext = AppRuntime.getAppContext();
-        this.f48550c = appContext;
+        this.f48942c = appContext;
         d.b.g0.g.k0.h.a aVar = new d.b.g0.g.k0.h.a(appContext);
-        this.f48549b = aVar;
+        this.f48941b = aVar;
         aVar.i(this.l);
         this.k = bVar2;
     }
@@ -175,63 +175,63 @@ public class a {
         d.b.g0.g.k0.h.a aVar;
         this.i = new d.b.g0.g.s.e.a();
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        this.f48552e = F;
+        this.f48944e = F;
         if (F == null) {
-            this.f48552e = new d.b.g0.g.e.d.c();
+            this.f48944e = new d.b.g0.g.e.d.c();
         }
-        if (this.f48548a != null && (aVar = this.f48549b) != null && aVar.g()) {
+        if (this.f48940a != null && (aVar = this.f48941b) != null && aVar.g()) {
             k0.X(new c());
             return;
         }
         d.b.g0.g.s.e.a aVar2 = this.i;
         aVar2.errMsg = "hideKeyboard:fail";
-        d.b.g0.g.i0.b.a(this.f48552e, false, aVar2);
+        d.b.g0.g.i0.b.a(this.f48944e, false, aVar2);
     }
 
     public void l(JsObject jsObject) {
         d.b.g0.g.k0.h.a aVar;
-        this.f48555h = new d.b.g0.g.s.e.b();
+        this.f48947h = new d.b.g0.g.s.e.b();
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        this.f48551d = F;
+        this.f48943d = F;
         if (F == null) {
-            this.f48551d = new d.b.g0.g.e.d.c();
+            this.f48943d = new d.b.g0.g.e.d.c();
         }
-        if (this.f48548a != null && (aVar = this.f48549b) != null && !aVar.g()) {
+        if (this.f48940a != null && (aVar = this.f48941b) != null && !aVar.g()) {
             d.b.g0.g.s.c cVar = new d.b.g0.g.s.c();
-            this.f48554g = cVar;
+            this.f48946g = cVar;
             try {
-                if (cVar.a(this.f48551d)) {
+                if (cVar.a(this.f48943d)) {
                     k0.Y(new b(), 500L);
                 } else {
-                    this.f48555h.errMsg = "showKeyboard:fail";
-                    d.b.g0.g.i0.b.a(this.f48551d, false, this.f48555h);
+                    this.f48947h.errMsg = "showKeyboard:fail";
+                    d.b.g0.g.i0.b.a(this.f48943d, false, this.f48947h);
                 }
                 return;
             } catch (JSTypeMismatchException unused) {
-                d.b.g0.g.s.e.b bVar = this.f48555h;
+                d.b.g0.g.s.e.b bVar = this.f48947h;
                 bVar.errMsg = "showKeyboard:fail";
-                d.b.g0.g.i0.b.a(this.f48551d, false, bVar);
+                d.b.g0.g.i0.b.a(this.f48943d, false, bVar);
                 return;
             }
         }
-        d.b.g0.g.s.e.b bVar2 = this.f48555h;
+        d.b.g0.g.s.e.b bVar2 = this.f48947h;
         bVar2.errMsg = "showKeyboard:fail";
-        d.b.g0.g.i0.b.a(this.f48551d, false, bVar2);
+        d.b.g0.g.i0.b.a(this.f48943d, false, bVar2);
     }
 
     public void m(JsObject jsObject) {
         this.j = new d.b.g0.g.s.e.a();
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        this.f48553f = F;
+        this.f48945f = F;
         if (F == null) {
-            this.f48553f = new d.b.g0.g.e.d.c();
+            this.f48945f = new d.b.g0.g.e.d.c();
         }
-        if (this.f48548a != null && this.f48549b != null) {
-            k0.X(new e(this.f48553f.B("value")));
+        if (this.f48940a != null && this.f48941b != null) {
+            k0.X(new e(this.f48945f.B("value")));
             return;
         }
         d.b.g0.g.s.e.a aVar = this.j;
         aVar.errMsg = "updateKeyboard:fail";
-        d.b.g0.g.i0.b.a(this.f48553f, false, aVar);
+        d.b.g0.g.i0.b.a(this.f48945f, false, aVar);
     }
 }

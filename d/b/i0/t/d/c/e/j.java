@@ -8,27 +8,27 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60340a = false;
+    public boolean f61904a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<SdkLiveInfoData> f60341b;
+    public ArrayList<SdkLiveInfoData> f61905b;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f60340a = jSONObject.optInt("has_more") == 1;
+        this.f61904a = jSONObject.optInt("has_more") == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f60341b = new ArrayList<>(optJSONArray.length());
+        this.f61905b = new ArrayList<>(optJSONArray.length());
         for (int i = 0; i < optJSONArray.length(); i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             if (optJSONObject != null) {
                 SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                 sdkLiveInfoData.fromJson(optJSONObject);
-                this.f60341b.add(sdkLiveInfoData);
+                this.f61905b.add(sdkLiveInfoData);
             }
         }
     }

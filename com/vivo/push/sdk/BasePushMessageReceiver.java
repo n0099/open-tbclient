@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.util.p;
@@ -65,7 +66,7 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
         com.vivo.push.p.a().a(applicationContext);
         try {
             int intExtra = intent.getIntExtra("method", -1);
-            String stringExtra = intent.getStringExtra("req_id");
+            String stringExtra = intent.getStringExtra(IAdRequestParam.REQ_ID);
             p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; type = " + intExtra + " ; requestId = " + stringExtra);
             try {
                 com.vivo.push.p.a().a(intent, this);

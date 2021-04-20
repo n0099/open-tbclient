@@ -8,13 +8,13 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Map<String, HybridUbcFlow>> f44872a = new HashMap();
+    public final Map<String, Map<String, HybridUbcFlow>> f45264a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d.b.g0.a.i2.u0.b<HybridUbcFlow>> f44873b = new HashMap();
+    public final Map<String, d.b.g0.a.i2.u0.b<HybridUbcFlow>> f45265b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.g0.a.i2.u0.b<HybridUbcFlow> f44874c = new a();
+    public final d.b.g0.a.i2.u0.b<HybridUbcFlow> f45266c = new a();
 
     /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
@@ -31,8 +31,8 @@ public class b {
 
     public final HybridUbcFlow a(String str) {
         HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-        hybridUbcFlow.C("callback_on_submit", this.f44874c);
-        d.b.g0.a.i2.u0.b<HybridUbcFlow> bVar = this.f44873b.get(str);
+        hybridUbcFlow.C("callback_on_submit", this.f45266c);
+        d.b.g0.a.i2.u0.b<HybridUbcFlow> bVar = this.f45265b.get(str);
         if (bVar != null) {
             bVar.onCallback(hybridUbcFlow);
         }
@@ -44,8 +44,8 @@ public class b {
     }
 
     public HybridUbcFlow c(String str, String str2) {
-        synchronized (this.f44872a) {
-            Map<String, HybridUbcFlow> map = this.f44872a.get(str);
+        synchronized (this.f45264a) {
+            Map<String, HybridUbcFlow> map = this.f45264a.get(str);
             if (map == null) {
                 return null;
             }
@@ -54,8 +54,8 @@ public class b {
     }
 
     public b d(String str, d.b.g0.a.i2.u0.b<HybridUbcFlow> bVar) {
-        synchronized (this.f44873b) {
-            this.f44873b.put(str, bVar);
+        synchronized (this.f45265b) {
+            this.f45265b.put(str, bVar);
         }
         return this;
     }
@@ -65,13 +65,13 @@ public class b {
     }
 
     public synchronized HybridUbcFlow f(String str, String str2) {
-        synchronized (this.f44872a) {
-            Map<String, HybridUbcFlow> map = this.f44872a.get(str);
+        synchronized (this.f45264a) {
+            Map<String, HybridUbcFlow> map = this.f45264a.get(str);
             if (map == null) {
                 HashMap hashMap = new HashMap();
                 HybridUbcFlow a2 = a(str);
                 hashMap.put(str2, a2);
-                this.f44872a.put(str, hashMap);
+                this.f45264a.put(str, hashMap);
                 return a2;
             }
             HybridUbcFlow hybridUbcFlow = map.get(str2);
@@ -87,15 +87,15 @@ public class b {
         if (TextUtils.equals(str, "startup")) {
             e.b();
         }
-        synchronized (this.f44872a) {
-            this.f44872a.remove(str);
+        synchronized (this.f45264a) {
+            this.f45264a.remove(str);
         }
         return this;
     }
 
     public b h(String str, String str2) {
-        synchronized (this.f44872a) {
-            Map<String, HybridUbcFlow> map = this.f44872a.get(str);
+        synchronized (this.f45264a) {
+            Map<String, HybridUbcFlow> map = this.f45264a.get(str);
             if (map != null) {
                 map.remove(str2);
             }

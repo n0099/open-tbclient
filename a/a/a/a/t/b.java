@@ -3,6 +3,6 @@ package a.a.a.a.t;
 public class b extends d {
     public b(String str, e eVar) {
         super(str, eVar);
-        this.f1345b = "GET";
+        this.f1331b = "GET";
     }
 }

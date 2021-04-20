@@ -9,8 +9,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import d.b.b.e.p.a;
-import d.b.b.e.p.l;
+import d.b.c.e.p.a;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
 public class ShareUtils {
     public static void share(final Activity activity, String str, String str2, String str3, String str4, String str5) {

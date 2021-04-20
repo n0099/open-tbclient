@@ -2,9 +2,9 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.c2.h.e;
+import d.b.i0.d2.h.e;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public Context context;
     public boolean markCache;
@@ -26,10 +26,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         if (getError() == 0 && pbPageResIdl.data != null) {
             e eVar = new e();
             this.pbData = eVar;
-            eVar.j0(1);
+            eVar.k0(1);
             try {
-                this.pbData.i0(pbPageResIdl.data, this.context);
-                if (!this.pbData.d0()) {
+                this.pbData.j0(pbPageResIdl.data, this.context);
+                if (!this.pbData.e0()) {
                     this.pbData = null;
                 } else if (!isMarkCache() || this.pbData.t() == null || this.pbData.t().equals(this.postId)) {
                 } else {

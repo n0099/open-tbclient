@@ -3,41 +3,41 @@ package com.kwad.sdk.glide.webp;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f35811a;
+    public final int f36100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f35812b;
+    public final int f36101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f35813c;
+    public final int f36102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f35814d;
+    public final int f36103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f35815e;
+    public final int f36104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f35816f;
+    public final int f36105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f35817g;
+    public final boolean f36106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f35818h;
+    public final boolean f36107h;
 
     public c(int i, WebpFrame webpFrame) {
-        this.f35811a = i;
-        this.f35812b = webpFrame.getXOffest();
-        this.f35813c = webpFrame.getYOffest();
-        this.f35814d = webpFrame.getWidth();
-        this.f35815e = webpFrame.getHeight();
-        this.f35816f = webpFrame.getDurationMs();
-        this.f35817g = webpFrame.isBlendWithPreviousFrame();
-        this.f35818h = webpFrame.shouldDisposeToBackgroundColor();
+        this.f36100a = i;
+        this.f36101b = webpFrame.getXOffest();
+        this.f36102c = webpFrame.getYOffest();
+        this.f36103d = webpFrame.getWidth();
+        this.f36104e = webpFrame.getHeight();
+        this.f36105f = webpFrame.getDurationMs();
+        this.f36106g = webpFrame.isBlendWithPreviousFrame();
+        this.f36107h = webpFrame.shouldDisposeToBackgroundColor();
     }
 
     public String toString() {
-        return "frameNumber=" + this.f35811a + ", xOffset=" + this.f35812b + ", yOffset=" + this.f35813c + ", width=" + this.f35814d + ", height=" + this.f35815e + ", duration=" + this.f35816f + ", blendPreviousFrame=" + this.f35817g + ", disposeBackgroundColor=" + this.f35818h;
+        return "frameNumber=" + this.f36100a + ", xOffset=" + this.f36101b + ", yOffset=" + this.f36102c + ", width=" + this.f36103d + ", height=" + this.f36104e + ", duration=" + this.f36105f + ", blendPreviousFrame=" + this.f36106g + ", disposeBackgroundColor=" + this.f36107h;
     }
 }

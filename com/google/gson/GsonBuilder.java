@@ -3,7 +3,7 @@ package com.google.gson;
 import com.google.gson.internal.Excluder;
 import com.google.gson.internal.bind.TreeTypeAdapter;
 import com.google.gson.internal.bind.TypeAdapters;
-import d.g.c.b.a;
+import d.g.d.b.a;
 import java.lang.reflect.Type;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -130,10 +130,10 @@ public final class GsonBuilder {
             this.instanceCreators.put(type, (InstanceCreator) obj);
         }
         if (z || (obj instanceof JsonDeserializer)) {
-            this.factories.add(TreeTypeAdapter.b(d.g.c.c.a.b(type), obj));
+            this.factories.add(TreeTypeAdapter.b(d.g.d.c.a.b(type), obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(TypeAdapters.a(d.g.c.c.a.b(type), (TypeAdapter) obj));
+            this.factories.add(TypeAdapters.a(d.g.d.c.a.b(type), (TypeAdapter) obj));
         }
         return this;
     }

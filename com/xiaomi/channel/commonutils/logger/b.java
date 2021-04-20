@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40121a = 2;
+    public static int f40410a = 2;
 
     /* renamed from: a  reason: collision with other field name */
     public static Context f20a = null;
@@ -28,7 +28,7 @@ public abstract class b {
     public static final HashMap<Integer, Long> f24a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<Integer, String> f40122b = new HashMap<>();
+    public static final HashMap<Integer, String> f40411b = new HashMap<>();
 
     /* renamed from: a  reason: collision with other field name */
     public static final Integer f22a = -1;
@@ -40,33 +40,33 @@ public abstract class b {
     public static class a implements LoggerInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40123a = b.f23a;
+        public String f40412a = b.f23a;
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void log(String str) {
-            Log.v(this.f40123a, str);
+            Log.v(this.f40412a, str);
         }
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void log(String str, Throwable th) {
-            Log.v(this.f40123a, str, th);
+            Log.v(this.f40412a, str, th);
         }
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void setTag(String str) {
-            this.f40123a = str;
+            this.f40412a = str;
         }
     }
 
     public static int a() {
-        return f40121a;
+        return f40410a;
     }
 
     public static Integer a(String str) {
-        if (f40121a <= 1) {
+        if (f40410a <= 1) {
             Integer valueOf = Integer.valueOf(f25a.incrementAndGet());
             f24a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-            f40122b.put(valueOf, str);
+            f40411b.put(valueOf, str);
             LoggerInterface loggerInterface = f21a;
             loggerInterface.log(str + " starts");
             return valueOf;
@@ -75,7 +75,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m50a(String str) {
+    public static String m54a(String str) {
         return b() + str;
     }
 
@@ -87,30 +87,30 @@ public abstract class b {
         if (i < 0 || i > 5) {
             a(2, "set log level as " + i);
         }
-        f40121a = i;
+        f40410a = i;
     }
 
     public static void a(int i, String str) {
-        if (i >= f40121a) {
+        if (i >= f40410a) {
             f21a.log(str);
         }
     }
 
     public static void a(int i, String str, Throwable th) {
-        if (i >= f40121a) {
+        if (i >= f40410a) {
             f21a.log(str, th);
         }
     }
 
     public static void a(int i, Throwable th) {
-        if (i >= f40121a) {
+        if (i >= f40410a) {
             f21a.log("", th);
         }
     }
 
     public static void a(Context context) {
         f20a = context;
-        if (l.m517a(context)) {
+        if (l.m521a(context)) {
             f26a = true;
         }
     }
@@ -120,26 +120,26 @@ public abstract class b {
     }
 
     public static void a(Integer num) {
-        if (f40121a > 1 || !f24a.containsKey(num)) {
+        if (f40410a > 1 || !f24a.containsKey(num)) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() - f24a.remove(num).longValue();
         LoggerInterface loggerInterface = f21a;
-        loggerInterface.log(f40122b.remove(num) + " ends in " + currentTimeMillis + " ms");
+        loggerInterface.log(f40411b.remove(num) + " ends in " + currentTimeMillis + " ms");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m51a(String str) {
-        a(2, m50a(str));
+    public static void m55a(String str) {
+        a(2, m54a(str));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m52a(String str, String str2) {
+    public static void m56a(String str, String str2) {
         a(2, b(str, str2));
     }
 
     public static void a(String str, Throwable th) {
-        a(4, m50a(str), th);
+        a(4, m54a(str), th);
     }
 
     public static void a(Throwable th) {
@@ -155,22 +155,22 @@ public abstract class b {
     }
 
     public static void b(String str) {
-        a(0, m50a(str));
+        a(0, m54a(str));
     }
 
     public static void c(String str) {
-        a(1, m50a(str));
+        a(1, m54a(str));
     }
 
     public static void d(String str) {
-        a(4, m50a(str));
+        a(4, m54a(str));
     }
 
     public static void e(String str) {
         if (f26a) {
-            m51a(str);
+            m55a(str);
         } else {
-            Log.i(f23a, m50a(str));
+            Log.i(f23a, m54a(str));
         }
     }
 }

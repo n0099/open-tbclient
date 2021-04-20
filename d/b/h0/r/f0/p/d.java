@@ -6,28 +6,28 @@ import tbclient.UrlParser.UrlParserResIdl;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50549a;
+    public int f50956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50550b;
+    public int f50957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50551c;
+    public String f50958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50552d;
+    public String f50959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50553e;
+    public String f50960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50554f;
+    public String f50961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50555g;
+    public String f50962g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50556h;
+    public boolean f50963h;
     public String i;
 
     public void a(UrlParserResIdl urlParserResIdl) {
@@ -35,14 +35,14 @@ public class d {
         if (urlParserResIdl == null || (dataRes = urlParserResIdl.data) == null) {
             return;
         }
-        this.f50549a = dataRes.status.intValue();
-        this.f50550b = urlParserResIdl.data.url_type.intValue();
+        this.f50956a = dataRes.status.intValue();
+        this.f50957b = urlParserResIdl.data.url_type.intValue();
         DataRes dataRes2 = urlParserResIdl.data;
-        this.f50552d = dataRes2.image;
-        this.f50553e = dataRes2.title;
-        this.f50554f = dataRes2.link_from;
-        this.f50555g = dataRes2.price_txt;
-        this.f50556h = dataRes2.is_recognize.intValue() == 1;
+        this.f50959d = dataRes2.image;
+        this.f50960e = dataRes2.title;
+        this.f50961f = dataRes2.link_from;
+        this.f50962g = dataRes2.price_txt;
+        this.f50963h = dataRes2.is_recognize.intValue() == 1;
         this.i = urlParserResIdl.data.description;
     }
 }

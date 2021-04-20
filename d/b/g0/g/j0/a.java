@@ -14,31 +14,31 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48236a = k.f45051a;
+    public static final boolean f48628a = k.f45443a;
 
     /* renamed from: d.b.g0.g.j0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0969a implements d.b.g0.a.i2.u0.b<e> {
+    public static class C0981a implements d.b.g0.a.i2.u0.b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f48237e;
+        public final /* synthetic */ c f48629e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48238f;
+        public final /* synthetic */ String f48630f;
 
-        public C0969a(c cVar, String str) {
-            this.f48237e = cVar;
-            this.f48238f = str;
+        public C0981a(c cVar, String str) {
+            this.f48629e = cVar;
+            this.f48630f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            if (eVar == null || eVar.f46771d || eVar.j != 1) {
-                a.c(this.f48237e, "system deny");
+            if (eVar == null || eVar.f47163d || eVar.j != 1) {
+                a.c(this.f48629e, "system deny");
             } else {
-                a.e(this.f48237e, this.f48238f);
+                a.e(this.f48629e, this.f48630f);
             }
         }
     }
@@ -60,10 +60,10 @@ public class a {
             return;
         }
         String C = F.C("domain", "baidu.com");
-        if (f48236a) {
+        if (f48628a) {
             Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + C);
         }
-        O.R().e("mapp_uuap_info", new C0969a(F, C));
+        O.R().e("mapp_uuap_info", new C0981a(F, C));
     }
 
     public static void e(c cVar, String str) {

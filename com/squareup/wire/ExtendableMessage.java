@@ -5,11 +5,11 @@ import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends Message {
     public transient ExtensionMap<T> extensionMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ExtendableBuilder<T extends ExtendableMessage<?>> extends Message.Builder<T> {
         public ExtensionMap<T> extensionMap;
 

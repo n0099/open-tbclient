@@ -23,7 +23,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45169a = k.f45051a;
+    public static final boolean f45561a = k.f45443a;
 
     public static void a(Bundle bundle) {
         if (bundle == null) {
@@ -62,12 +62,12 @@ public class a {
                 }
             }
             arrayList.addAll(d());
-            if (f45169a) {
+            if (f45561a) {
                 Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
             }
             for (File file2 : file.listFiles()) {
                 if (!h(file2, arrayList)) {
-                    if (f45169a) {
+                    if (f45561a) {
                         Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
                     }
                     d.f(file2);
@@ -90,7 +90,7 @@ public class a {
                 arrayList.add(Long.valueOf(a2.extensionCoreVersionCode));
             }
         }
-        if (f45169a) {
+        if (f45561a) {
             Log.d("ExtCore-Utils", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
         }
         return arrayList;
@@ -108,13 +108,13 @@ public class a {
                 j = (j << 16) | (i < k.length ? Integer.valueOf(k[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e2) {
-                if (f45169a) {
+                if (f45561a) {
                     throw e2;
                 }
                 return 0L;
             }
         }
-        if (f45169a) {
+        if (f45561a) {
             Log.d("ExtCore-Utils", "getVersionCode versionName: " + str + " ,versionCode: " + j);
         }
         return j;

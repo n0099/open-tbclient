@@ -8,21 +8,21 @@ public class b {
 
     /* renamed from: d.b.g0.a.c0.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0619b extends g {
+    public static class C0631b extends g {
 
         /* renamed from: d.b.g0.a.c0.b$b$a */
         /* loaded from: classes2.dex */
         public static final class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final C0619b f43594a = new C0619b();
+            public static final C0631b f43986a = new C0631b();
         }
 
-        public static C0619b e() {
-            return a.f43594a;
+        public static C0631b e() {
+            return a.f43986a;
         }
 
-        public C0619b() {
+        public C0631b() {
             super("searchbox_sconsole_sp");
         }
     }
@@ -32,13 +32,13 @@ public class b {
     }
 
     public static boolean b(String str) {
-        return !TextUtils.isEmpty(str) && C0619b.e().getBoolean(a(str), false);
+        return !TextUtils.isEmpty(str) && C0631b.e().getBoolean(a(str), false);
     }
 
     public static void c(boolean z) {
         e y = e.y();
         if (y != null) {
-            C0619b.e().putBoolean(a(y.B()), z);
+            C0631b.e().putBoolean(a(y.B()), z);
         }
     }
 }

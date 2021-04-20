@@ -13,10 +13,10 @@ import java.io.IOException;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4688a;
+    public static Context f4723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4689b;
+    public static ActivityManager f4724b;
 
     /* JADX WARN: Not initialized variable reg: 4, insn: 0x0091: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:60:0x0091 */
     public static String a() {
@@ -135,12 +135,12 @@ public final class m {
     public static String b() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (f4689b == null) {
+        if (f4724b == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            f4689b.getMemoryInfo(memoryInfo2);
+            f4724b.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ");
             sb.append(memoryInfo2.lowMemory ? "yes" : "no");
             sb.append("\navailMem: ");
@@ -148,7 +148,7 @@ public final class m {
             sb.append("\nthreshold: ");
             sb.append(com.baidu.crabsdk.c.c.f(memoryInfo2.threshold));
             sb.append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = f4689b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = f4724b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ");
                 sb.append(com.baidu.crabsdk.c.c.f(memoryInfo.getTotalPrivateDirty() * 1024));
                 sb.append("\ntotalPss: ");
@@ -164,9 +164,9 @@ public final class m {
     }
 
     public static void c(Context context) {
-        if (f4688a == null) {
-            f4688a = context;
-            f4689b = (ActivityManager) context.getSystemService("activity");
+        if (f4723a == null) {
+            f4723a = context;
+            f4724b = (ActivityManager) context.getSystemService("activity");
         }
     }
 }

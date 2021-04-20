@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class i extends d.b.b.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a>> {
+public class i extends d.b.c.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a>> {
     public TbPageContext m;
     public TextView n;
     public String o;
@@ -31,7 +31,7 @@ public class i extends d.b.b.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a
     }
 
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.l.f60871f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.l.f62435f);
         this.m = tbPageContext;
     }
 
@@ -44,7 +44,7 @@ public class i extends d.b.b.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a
         this.o = g2.b().user_id;
         n0(g2, aVar);
         aVar.z(8);
-        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_privilege));
+        aVar.A(this.f42855e.getResources().getString(R.string.ala_person_live_privilege));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -54,35 +54,35 @@ public class i extends d.b.b.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a
         StatisticItem statisticItem = new StatisticItem("c13333");
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(statisticItem);
-        String o = d.b.h0.r.d0.b.i().o("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
-        if (o == null) {
+        String p = d.b.h0.r.d0.b.j().p("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+        if (p == null) {
             return;
         }
-        if (o.endsWith("/")) {
-            o = o.substring(0, o.length() - 1);
+        if (p.endsWith("/")) {
+            p = p.substring(0, p.length() - 1);
         }
         String str = this.o;
         StringBuilder sb = new StringBuilder();
         sb.append("id=");
         sb.append(str);
-        if (!o.contains("?")) {
+        if (!p.contains("?")) {
             sb.insert(0, "?");
         } else {
             sb.insert(0, "&");
         }
-        sb.insert(0, o);
+        sb.insert(0, p);
         d.b.h0.l.a.l(this.m.getPageActivity(), sb.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public CardViewHolder<d.b.i0.t.j.h.a> R(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.b.i0.t.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.j.d.l lVar, CardViewHolder<d.b.i0.t.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {

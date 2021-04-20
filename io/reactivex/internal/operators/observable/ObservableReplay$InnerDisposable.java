@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class ObservableReplay$InnerDisposable<T> extends AtomicInteger implements b {
@@ -16,7 +16,7 @@ public final class ObservableReplay$InnerDisposable<T> extends AtomicInteger imp
         this.child = oVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -29,7 +29,7 @@ public final class ObservableReplay$InnerDisposable<T> extends AtomicInteger imp
         return (U) this.index;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }

@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.layout.FlowLayout;
 import com.baidu.tieba.R;
-import d.b.b.e.k.b;
-import d.b.b.e.p.l;
-import d.b.i0.h2.e.f;
+import d.b.c.e.k.b;
+import d.b.c.e.p.l;
+import d.b.i0.i2.e.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonCommonForumCardView extends FlowLayout {
     public Context i;
     public List<f> j;

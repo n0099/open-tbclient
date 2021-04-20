@@ -8,13 +8,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class RefCountSubscription implements k {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f68301g = new a(false, 0);
+    public static final a f69307g = new a(false, 0);
 
     /* renamed from: e  reason: collision with root package name */
-    public final k f68302e;
+    public final k f69308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<a> f68303f = new AtomicReference<>(f68301g);
+    public final AtomicReference<a> f69309f = new AtomicReference<>(f69307g);
 
     /* loaded from: classes7.dex */
     public static final class InnerSubscription extends AtomicInteger implements k {
@@ -42,32 +42,32 @@ public final class RefCountSubscription implements k {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f68304a;
+        public final boolean f69310a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f68305b;
+        public final int f69311b;
 
         public a(boolean z, int i) {
-            this.f68304a = z;
-            this.f68305b = i;
+            this.f69310a = z;
+            this.f69311b = i;
         }
 
         public a a() {
-            return new a(this.f68304a, this.f68305b + 1);
+            return new a(this.f69310a, this.f69311b + 1);
         }
 
         public a b() {
-            return new a(this.f68304a, this.f68305b - 1);
+            return new a(this.f69310a, this.f69311b - 1);
         }
 
         public a c() {
-            return new a(true, this.f68305b);
+            return new a(true, this.f69311b);
         }
     }
 
     public RefCountSubscription(k kVar) {
         if (kVar != null) {
-            this.f68302e = kVar;
+            this.f69308e = kVar;
             return;
         }
         throw new IllegalArgumentException("s");
@@ -75,10 +75,10 @@ public final class RefCountSubscription implements k {
 
     public k a() {
         a aVar;
-        AtomicReference<a> atomicReference = this.f68303f;
+        AtomicReference<a> atomicReference = this.f69309f;
         do {
             aVar = atomicReference.get();
-            if (aVar.f68304a) {
+            if (aVar.f69310a) {
                 return e.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
@@ -88,7 +88,7 @@ public final class RefCountSubscription implements k {
     public void b() {
         a aVar;
         a b2;
-        AtomicReference<a> atomicReference = this.f68303f;
+        AtomicReference<a> atomicReference = this.f69309f;
         do {
             aVar = atomicReference.get();
             b2 = aVar.b();
@@ -97,24 +97,24 @@ public final class RefCountSubscription implements k {
     }
 
     public final void c(a aVar) {
-        if (aVar.f68304a && aVar.f68305b == 0) {
-            this.f68302e.unsubscribe();
+        if (aVar.f69310a && aVar.f69311b == 0) {
+            this.f69308e.unsubscribe();
         }
     }
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68303f.get().f68304a;
+        return this.f69309f.get().f69310a;
     }
 
     @Override // h.k
     public void unsubscribe() {
         a aVar;
         a c2;
-        AtomicReference<a> atomicReference = this.f68303f;
+        AtomicReference<a> atomicReference = this.f69309f;
         do {
             aVar = atomicReference.get();
-            if (aVar.f68304a) {
+            if (aVar.f69310a) {
                 return;
             }
             c2 = aVar.c();

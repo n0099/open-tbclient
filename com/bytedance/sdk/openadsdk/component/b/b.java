@@ -13,7 +13,7 @@ import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.x;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends c implements TTDrawFeedAd {
     public boolean n;
     public Bitmap o;
@@ -33,7 +33,7 @@ public class b extends c implements TTDrawFeedAd {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0313c
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0315c
     public /* bridge */ /* synthetic */ void a(int i, int i2) {
         super.a(i, i2);
     }
@@ -53,7 +53,7 @@ public class b extends c implements TTDrawFeedAd {
         super.d_();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0329a
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0331a
     public /* bridge */ /* synthetic */ com.bytedance.sdk.openadsdk.multipro.b.a e() {
         return super.e();
     }
@@ -63,12 +63,12 @@ public class b extends c implements TTDrawFeedAd {
         super.e_();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0313c
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0315c
     public /* bridge */ /* synthetic */ void f() {
         super.f();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0329a
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0331a
     public /* bridge */ /* synthetic */ boolean g() {
         return super.g();
     }
@@ -76,24 +76,24 @@ public class b extends c implements TTDrawFeedAd {
     @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.e.a, com.bytedance.sdk.openadsdk.TTNativeAd
     public View getAdView() {
         NativeDrawVideoTsView nativeDrawVideoTsView;
-        if (this.f28329h != null && this.i != null) {
+        if (this.f28014h != null && this.i != null) {
             if (h()) {
                 try {
-                    nativeDrawVideoTsView = new NativeDrawVideoTsView(this.i, this.f28329h);
+                    nativeDrawVideoTsView = new NativeDrawVideoTsView(this.i, this.f28014h);
                     nativeDrawVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.component.b.b.1
                         @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                         public void a(boolean z, long j, long j2, long j3, boolean z2) {
-                            com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) b.this).f27695a;
-                            aVar.f29879a = z;
-                            aVar.f29883e = j;
-                            aVar.f29884f = j2;
-                            aVar.f29885g = j3;
-                            aVar.f29882d = z2;
+                            com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) b.this).f27380a;
+                            aVar.f29564a = z;
+                            aVar.f29568e = j;
+                            aVar.f29569f = j2;
+                            aVar.f29570g = j3;
+                            aVar.f29567d = z2;
                         }
                     });
                     nativeDrawVideoTsView.setVideoAdLoadListener(this);
                     nativeDrawVideoTsView.setVideoAdInteractionListener(this);
-                    int d2 = ak.d(this.f28329h.ap());
+                    int d2 = ak.d(this.f28014h.ap());
                     nativeDrawVideoTsView.setIsAutoPlay(a(d2));
                     nativeDrawVideoTsView.setIsQuiet(p.h().a(d2));
                     nativeDrawVideoTsView.setCanInterruptVideoPlay(this.n);

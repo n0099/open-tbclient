@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.o0.c.c;
+import d.b.i0.p0.c.c;
 import tbclient.Error;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
 /* loaded from: classes4.dex */

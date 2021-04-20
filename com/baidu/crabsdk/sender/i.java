@@ -51,7 +51,7 @@ public final class i {
             com.baidu.crabsdk.c.a.b("writeFile: " + str);
             h.v(str);
             if (com.baidu.crabsdk.a.G) {
-                String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4638d, str);
+                String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4673d, str);
                 try {
                     str2 = com.baidu.crabsdk.c.d.j(str2, h2);
                 } catch (Exception e2) {

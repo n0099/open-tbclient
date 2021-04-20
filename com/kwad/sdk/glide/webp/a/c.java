@@ -39,7 +39,7 @@ public class c extends g {
     @CheckResult
     /* renamed from: c */
     public <ResourceType> b<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new b<>(this.f35192a, this, cls, this.f35193b);
+        return new b<>(this.f35481a, this, cls, this.f35482b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

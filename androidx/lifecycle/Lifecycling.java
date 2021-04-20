@@ -16,8 +16,8 @@ import java.util.Map;
 public class Lifecycling {
     public static final int GENERATED_CALLBACK = 2;
     public static final int REFLECTIVE_CALLBACK = 1;
-    public static Map<Class, Integer> sCallbackCache = new HashMap();
-    public static Map<Class, List<Constructor<? extends GeneratedAdapter>>> sClassToAdapters = new HashMap();
+    public static Map<Class<?>, Integer> sCallbackCache = new HashMap();
+    public static Map<Class<?>, List<Constructor<? extends GeneratedAdapter>>> sClassToAdapters = new HashMap();
 
     public static GeneratedAdapter createGeneratedAdapter(Constructor<? extends GeneratedAdapter> constructor, Object obj) {
         try {

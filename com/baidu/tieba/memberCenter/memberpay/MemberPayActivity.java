@@ -28,7 +28,7 @@ import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.h0.s.c.s;
+import d.b.h0.s.c.u;
 /* loaded from: classes3.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static String AUTO_PAY_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
@@ -78,7 +78,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         MemberPayActivity.this.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(MemberPayActivity.this.mCurrentShowType)));
                         MemberPayActivity.this.setResult(-1);
-                        d.b.h0.r.d0.b.i().s("show_member_deid_line", true);
+                        d.b.h0.r.d0.b.j().t("show_member_deid_line", true);
                         if (MemberPayActivity.this.mIsClose) {
                             MemberPayActivity.this.closeActivity();
                         } else {
@@ -337,7 +337,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     public d.b.h0.k0.d getPageStayDurationItem() {
         d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
         }
         return pageStayDurationItem;
     }
@@ -392,7 +392,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             return;
         }
         handleIntent();
-        s consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+        u consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
         if (consumePathData != null) {
             this.mIsPayDialog = Boolean.valueOf(consumePathData.b(1, this.mSceneId));
         }

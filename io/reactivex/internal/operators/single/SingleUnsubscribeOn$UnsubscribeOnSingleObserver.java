@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.p;
-import f.a.r;
-import f.a.t.b;
+import f.b.p;
+import f.b.r;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -17,7 +17,7 @@ public final class SingleUnsubscribeOn$UnsubscribeOnSingleObserver<T> extends At
         this.scheduler = pVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         b andSet = getAndSet(DisposableHelper.DISPOSED);
         if (andSet != DisposableHelper.DISPOSED) {
@@ -26,24 +26,24 @@ public final class SingleUnsubscribeOn$UnsubscribeOnSingleObserver<T> extends At
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
         if (DisposableHelper.setOnce(this, bVar)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         this.actual.onSuccess(t);
     }

@@ -3,6 +3,7 @@ package com.kwad.sdk.core.report;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.walletfacesdk.LightInvokerImpl;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -77,25 +78,25 @@ public class ReportAction extends d {
     public LiveLogInfo az;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f33983b;
+    public long f34272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f33984c;
+    public long f34273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f33985d;
+    public long f34274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33986e;
+    public long f34275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33987f;
+    public long f34276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33988g;
+    public long f34277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f33989h;
+    public long f34278h;
     public String i;
     public int j;
     public URLPackage k;
@@ -145,15 +146,15 @@ public class ReportAction extends d {
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f33990a;
+        public int f34279a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33991b;
+        public int f34280b;
 
         public static a a() {
             a aVar = new a();
-            aVar.f33990a = b.f33992a;
-            aVar.f33991b = b.f33993b;
+            aVar.f34279a = b.f34281a;
+            aVar.f34280b = b.f34282b;
             return aVar;
         }
 
@@ -162,8 +163,8 @@ public class ReportAction extends d {
                 return;
             }
             try {
-                this.f33990a = jSONObject.optInt("posIdWidth");
-                this.f33991b = jSONObject.optInt("posIdHeight");
+                this.f34279a = jSONObject.optInt("posIdWidth");
+                this.f34280b = jSONObject.optInt("posIdHeight");
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -172,8 +173,8 @@ public class ReportAction extends d {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "posIdWidth", this.f33990a);
-            com.kwad.sdk.utils.o.a(jSONObject, "posIdHeight", this.f33991b);
+            com.kwad.sdk.utils.o.a(jSONObject, "posIdWidth", this.f34279a);
+            com.kwad.sdk.utils.o.a(jSONObject, "posIdHeight", this.f34280b);
             return jSONObject;
         }
     }
@@ -182,17 +183,17 @@ public class ReportAction extends d {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f33992a;
+        public static int f34281a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f33993b;
+        public static int f34282b;
 
         public static void a(int i) {
-            f33992a = i;
+            f34281a = i;
         }
 
         public static void b(int i) {
-            f33993b = i;
+            f34282b = i;
         }
     }
 
@@ -204,7 +205,7 @@ public class ReportAction extends d {
         this.I = -1;
         this.P = 0;
         this.Q = 0;
-        this.f33988g = -1L;
+        this.f34277g = -1L;
         this.Y = 0;
         this.Z = 0;
         this.ae = 0;
@@ -215,22 +216,22 @@ public class ReportAction extends d {
         this.E = -1;
         this.F = 0L;
         this.ap = 3;
-        this.K = aVar.f33996c;
-        this.f34039a = UUID.randomUUID().toString();
+        this.K = aVar.f34285c;
+        this.f34328a = UUID.randomUUID().toString();
         this.G = System.currentTimeMillis();
         this.H = m.b();
-        this.f33983b = m.c();
+        this.f34272b = m.c();
         this.J = m.f();
         this.S = aVar.a();
-        this.U = aVar.f33997d;
-        this.V = aVar.f33998e;
-        this.W = aVar.f33999f;
-        this.X = aVar.f34000g;
-        this.f33985d = aVar.i;
-        this.f33986e = aVar.l;
-        this.f33987f = aVar.m;
-        this.f33988g = aVar.n;
-        this.f33989h = aVar.j;
+        this.U = aVar.f34286d;
+        this.V = aVar.f34287e;
+        this.W = aVar.f34288f;
+        this.X = aVar.f34289g;
+        this.f34274d = aVar.i;
+        this.f34275e = aVar.l;
+        this.f34276f = aVar.m;
+        this.f34277g = aVar.n;
+        this.f34278h = aVar.j;
         this.Y = aVar.o;
         this.Z = aVar.p;
         this.ac = aVar.q;
@@ -243,7 +244,7 @@ public class ReportAction extends d {
         this.aj = aVar.x;
         this.ak = aVar.y;
         this.al = aVar.z;
-        this.f33984c = aVar.f34001h;
+        this.f34273c = aVar.f34290h;
         this.i = aVar.B;
         this.j = aVar.G;
         this.ay = aVar.J;
@@ -258,13 +259,13 @@ public class ReportAction extends d {
         this.D = aVar.V;
         this.E = aVar.W;
         this.w = aVar.S;
-        SceneImpl sceneImpl = aVar.f33995b;
-        if (sceneImpl != null || ((adTemplate = aVar.f33994a) != null && (sceneImpl = adTemplate.mAdScene) != null)) {
+        SceneImpl sceneImpl = aVar.f34284b;
+        if (sceneImpl != null || ((adTemplate = aVar.f34283a) != null && (sceneImpl = adTemplate.mAdScene) != null)) {
             this.O = sceneImpl.getPosId();
             this.k = sceneImpl.getUrlPackage();
             this.I = sceneImpl.getAdStyle();
         }
-        AdTemplate adTemplate2 = aVar.f33994a;
+        AdTemplate adTemplate2 = aVar.f34283a;
         if (adTemplate2 != null) {
             this.L = com.kwad.sdk.core.response.b.c.g(adTemplate2);
             String h2 = com.kwad.sdk.core.response.b.c.h(adTemplate2);
@@ -342,7 +343,7 @@ public class ReportAction extends d {
         if (!TextUtils.isEmpty(aVar.w)) {
             this.ai = aVar.w;
         }
-        SceneImpl sceneImpl2 = aVar.f33995b;
+        SceneImpl sceneImpl2 = aVar.f34284b;
         if (sceneImpl2 == null && adTemplate2 != null) {
             sceneImpl2 = adTemplate2.mAdScene;
         }
@@ -363,7 +364,7 @@ public class ReportAction extends d {
         this.I = -1;
         this.P = 0;
         this.Q = 0;
-        this.f33988g = -1L;
+        this.f34277g = -1L;
         this.Y = 0;
         this.Z = 0;
         this.ae = 0;
@@ -397,7 +398,7 @@ public class ReportAction extends d {
             if (jSONObject.has("sessionId")) {
                 this.H = jSONObject.optString("sessionId");
             }
-            this.f33983b = jSONObject.optLong("seq");
+            this.f34272b = jSONObject.optLong(IAdRequestParam.SEQ);
             this.J = jSONObject.optLong("listId");
             this.S = jSONObject.optLong("position");
             this.ai = jSONObject.optString("entryId");
@@ -406,17 +407,17 @@ public class ReportAction extends d {
             this.V = jSONObject.optLong("playDuration");
             this.W = jSONObject.optLong("startDuration");
             this.X = jSONObject.optLong("stayDuration");
-            this.f33985d = jSONObject.optLong(AppLiveQosDebugInfo.LiveQosDebugInfo_blockDuration);
-            this.f33986e = jSONObject.optLong("intervalDuration");
-            this.f33987f = jSONObject.optLong("allIntervalDuration");
-            this.f33988g = jSONObject.optLong("flowSdk", -1L);
-            this.f33989h = jSONObject.optInt("blockTimes");
+            this.f34274d = jSONObject.optLong(AppLiveQosDebugInfo.LiveQosDebugInfo_blockDuration);
+            this.f34275e = jSONObject.optLong("intervalDuration");
+            this.f34276f = jSONObject.optLong("allIntervalDuration");
+            this.f34277g = jSONObject.optLong("flowSdk", -1L);
+            this.f34278h = jSONObject.optInt("blockTimes");
             this.Y = jSONObject.optInt("enterType");
             this.Z = jSONObject.optInt("leaveType");
             this.ac = jSONObject.optInt("likeStatus");
             this.ad = jSONObject.optInt("likeType");
             this.ae = jSONObject.optInt("shareResult");
-            this.f33984c = jSONObject.optInt("stayLength");
+            this.f34273c = jSONObject.optInt("stayLength");
             if (jSONObject.has("appInstalled")) {
                 this.af = jSONObject.optJSONArray("appInstalled");
             }
@@ -504,7 +505,7 @@ public class ReportAction extends d {
         com.kwad.sdk.utils.o.a(json, "uiType", this.ap);
         com.kwad.sdk.utils.o.a(json, "timestamp", this.G);
         com.kwad.sdk.utils.o.a(json, "sessionId", this.H);
-        com.kwad.sdk.utils.o.a(json, "seq", this.f33983b);
+        com.kwad.sdk.utils.o.a(json, IAdRequestParam.SEQ, this.f34272b);
         com.kwad.sdk.utils.o.a(json, "listId", this.J);
         com.kwad.sdk.utils.o.a(json, "position", this.S);
         com.kwad.sdk.utils.o.a(json, "entryId", this.ai);
@@ -531,12 +532,12 @@ public class ReportAction extends d {
         com.kwad.sdk.utils.o.a(json, "startDuration", this.W);
         com.kwad.sdk.utils.o.a(json, "playDuration", this.V);
         com.kwad.sdk.utils.o.a(json, "stayDuration", this.X);
-        com.kwad.sdk.utils.o.a(json, "intervalDuration", this.f33986e);
-        com.kwad.sdk.utils.o.a(json, "allIntervalDuration", this.f33987f);
-        com.kwad.sdk.utils.o.a(json, "flowSdk", this.f33988g);
+        com.kwad.sdk.utils.o.a(json, "intervalDuration", this.f34275e);
+        com.kwad.sdk.utils.o.a(json, "allIntervalDuration", this.f34276f);
+        com.kwad.sdk.utils.o.a(json, "flowSdk", this.f34277g);
         com.kwad.sdk.utils.o.a(json, "effectivePlayDuration", this.U);
-        com.kwad.sdk.utils.o.a(json, AppLiveQosDebugInfo.LiveQosDebugInfo_blockDuration, this.f33985d);
-        com.kwad.sdk.utils.o.a(json, "blockTimes", this.f33989h);
+        com.kwad.sdk.utils.o.a(json, AppLiveQosDebugInfo.LiveQosDebugInfo_blockDuration, this.f34274d);
+        com.kwad.sdk.utils.o.a(json, "blockTimes", this.f34278h);
         com.kwad.sdk.utils.o.a(json, "enterType", this.Y);
         com.kwad.sdk.utils.o.a(json, "leaveType", this.Z);
         com.kwad.sdk.utils.o.a(json, "entryPageSource", this.aa);
@@ -548,7 +549,7 @@ public class ReportAction extends d {
         if (uRLPackage2 != null) {
             com.kwad.sdk.utils.o.a(json, "referURLPackage", uRLPackage2.toJson());
         }
-        com.kwad.sdk.utils.o.a(json, "stayLength", this.f33984c);
+        com.kwad.sdk.utils.o.a(json, "stayLength", this.f34273c);
         com.kwad.sdk.utils.o.a(json, URLPackage.KEY_AUTHOR_ID, this.ab);
         com.kwad.sdk.utils.o.a(json, "likeStatus", this.ac);
         com.kwad.sdk.utils.o.a(json, "likeType", this.ad);
@@ -648,15 +649,15 @@ public class ReportAction extends d {
         stringBuffer.append(",entryId:");
         stringBuffer.append(this.ai);
         stringBuffer.append(",blockDuration:");
-        stringBuffer.append(this.f33985d);
+        stringBuffer.append(this.f34274d);
         stringBuffer.append(",blockTimes:");
-        stringBuffer.append(this.f33989h);
+        stringBuffer.append(this.f34278h);
         stringBuffer.append(",intervalDuration:");
-        stringBuffer.append(this.f33986e);
+        stringBuffer.append(this.f34275e);
         stringBuffer.append(",allIntervalDuration:");
-        stringBuffer.append(this.f33987f);
+        stringBuffer.append(this.f34276f);
         stringBuffer.append(",flowSdk:");
-        stringBuffer.append(this.f33988g);
+        stringBuffer.append(this.f34277g);
         stringBuffer.append(",trendId:");
         stringBuffer.append(this.au);
         stringBuffer.append(",trendName:");
@@ -666,13 +667,13 @@ public class ReportAction extends d {
         stringBuffer.append(",episodeName:");
         stringBuffer.append(this.as);
         stringBuffer.append(",seq:");
-        stringBuffer.append(this.f33983b);
+        stringBuffer.append(this.f34272b);
         stringBuffer.append(",extra:");
         stringBuffer.append(this.M);
         stringBuffer.append(",impAdExtra:");
         stringBuffer.append(this.N);
         stringBuffer.append(",actionId:");
-        stringBuffer.append(this.f34039a);
+        stringBuffer.append(this.f34328a);
         stringBuffer.append(",position:");
         stringBuffer.append(this.S);
         stringBuffer.append(",contentType:");
@@ -696,7 +697,7 @@ public class ReportAction extends d {
         stringBuffer.append(",entryPageSource:");
         stringBuffer.append(this.aa);
         stringBuffer.append(",stayLength:");
-        stringBuffer.append(this.f33984c);
+        stringBuffer.append(this.f34273c);
         if (this.n != -1) {
             stringBuffer.append(",hotCompType:");
             stringBuffer.append(this.n);

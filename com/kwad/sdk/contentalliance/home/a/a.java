@@ -11,17 +11,17 @@ import java.util.List;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<AdTemplate> f32562a = new ArrayList();
+    public final List<AdTemplate> f32851a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f32563b = new Handler(Looper.getMainLooper());
+    public Handler f32852b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f32564c = new LinkedList();
+    public List<d> f32853c = new LinkedList();
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public int a(AdTemplate adTemplate) {
-        return this.f32562a.indexOf(adTemplate);
+        return this.f32851a.indexOf(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
@@ -42,27 +42,27 @@ public abstract class a implements b {
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void a(int i, AdTemplate adTemplate) {
-        if (i < 0 || this.f32562a.size() <= i) {
+        if (i < 0 || this.f32851a.size() <= i) {
             return;
         }
-        this.f32562a.set(i, adTemplate);
+        this.f32851a.set(i, adTemplate);
     }
 
     @MainThread
     public void a(int i, String str) {
-        for (d dVar : this.f32564c) {
+        for (d dVar : this.f32853c) {
             dVar.a(i, str);
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void a(d dVar) {
-        this.f32564c.add(dVar);
+        this.f32853c.add(dVar);
     }
 
     @MainThread
     public void a(boolean z, int i) {
-        for (d dVar : this.f32564c) {
+        for (d dVar : this.f32853c) {
             dVar.a(z, i);
         }
     }
@@ -71,28 +71,28 @@ public abstract class a implements b {
 
     @MainThread
     public void a(boolean z, boolean z2, int i, int i2) {
-        for (d dVar : this.f32564c) {
+        for (d dVar : this.f32853c) {
             dVar.a(z, z2, i, i2);
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public List<AdTemplate> b() {
-        return this.f32562a;
+        return this.f32851a;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void b(d dVar) {
-        this.f32564c.remove(dVar);
+        this.f32853c.remove(dVar);
     }
 
     public boolean c() {
-        List<AdTemplate> list = this.f32562a;
+        List<AdTemplate> list = this.f32851a;
         return list == null || list.isEmpty();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void d() {
-        this.f32563b.removeCallbacksAndMessages(null);
+        this.f32852b.removeCallbacksAndMessages(null);
     }
 }

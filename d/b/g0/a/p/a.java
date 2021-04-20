@@ -10,14 +10,14 @@ import d.b.g0.b.i.u;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f45432a;
+    public i f45824a;
 
     @NonNull
     public i a() {
-        if (this.f45432a == null) {
-            this.f45432a = b();
+        if (this.f45824a == null) {
+            this.f45824a = b();
         }
-        return this.f45432a;
+        return this.f45824a;
     }
 
     @Inject(force = false)

@@ -18,28 +18,28 @@ import com.baidu.wallet.core.utils.LogUtil;
 public class LaserScannerForScan extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f23656a;
+    public Bitmap f23341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Drawable f23657b;
+    public Drawable f23342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23658c;
+    public int f23343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23659d;
+    public float f23344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f23660e;
+    public float f23345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Matrix f23661f;
+    public Matrix f23346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23662g;
+    public boolean f23347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f23663h;
+    public a f23348h;
     public int i;
     public int j;
     public IdCardActivity k;
@@ -52,18 +52,18 @@ public class LaserScannerForScan extends ImageView {
         IdCardActivity idCardActivity;
         try {
             a a2 = b.a(context, 1, false);
-            this.f23663h = a2;
+            this.f23348h = a2;
             if (a2 == null && (idCardActivity = this.k) != null) {
                 idCardActivity.dialogPermission();
                 return;
             }
-            if (this.f23657b == null) {
-                this.f23657b = getResources().getDrawable(ResUtils.drawable(context, "wallet_base_id_detect_scan_line"));
+            if (this.f23342b == null) {
+                this.f23342b = getResources().getDrawable(ResUtils.drawable(context, "wallet_base_id_detect_scan_line"));
             }
-            this.f23656a = ((BitmapDrawable) this.f23657b).getBitmap();
-            this.f23661f = new Matrix();
-            this.f23662g = true;
-            this.f23658c = 0;
+            this.f23341a = ((BitmapDrawable) this.f23342b).getBitmap();
+            this.f23346f = new Matrix();
+            this.f23347g = true;
+            this.f23343c = 0;
         } catch (Exception e2) {
             String simpleName = LaserScannerForScan.class.getSimpleName();
             LogUtil.errord(simpleName, "init failed exception = " + e2.getMessage());
@@ -82,15 +82,15 @@ public class LaserScannerForScan extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f23662g) {
-            this.f23661f.reset();
-            Matrix matrix = this.f23661f;
-            float f2 = this.f23660e;
+        if (this.f23347g) {
+            this.f23346f.reset();
+            Matrix matrix = this.f23346f;
+            float f2 = this.f23345e;
             matrix.setScale(f2, f2);
-            this.f23661f.setTranslate(this.f23659d, this.f23658c + this.j);
-            canvas.drawBitmap(this.f23656a, this.f23661f, null);
+            this.f23346f.setTranslate(this.f23344d, this.f23343c + this.j);
+            canvas.drawBitmap(this.f23341a, this.f23346f, null);
             int height = canvas.getHeight() - this.j;
-            this.f23658c = (this.f23658c + (height / 100)) % height;
+            this.f23343c = (this.f23343c + (height / 100)) % height;
             postInvalidateDelayed(10L, 0, 0, canvas.getWidth(), canvas.getHeight());
         }
     }
@@ -98,19 +98,19 @@ public class LaserScannerForScan extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i, int i2) {
         int size = View.MeasureSpec.getSize(i);
-        a aVar = this.f23663h;
-        int i3 = aVar == null ? (int) (size * 1.0f * 0.6306f) : (int) (size * 1.0f * aVar.f23643c);
+        a aVar = this.f23348h;
+        int i3 = aVar == null ? (int) (size * 1.0f * 0.6306f) : (int) (size * 1.0f * aVar.f23328c);
         this.i = i3;
         setMeasuredDimension(size, i3);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
-        this.f23660e = i / this.f23656a.getWidth();
-        Bitmap bitmap = this.f23656a;
+        this.f23345e = i / this.f23341a.getWidth();
+        Bitmap bitmap = this.f23341a;
         Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i, bitmap.getHeight(), true);
-        this.f23656a = createScaledBitmap;
-        this.f23659d = 0.0f;
+        this.f23341a = createScaledBitmap;
+        this.f23344d = 0.0f;
         this.j = -createScaledBitmap.getHeight();
     }
 
@@ -119,12 +119,12 @@ public class LaserScannerForScan extends ImageView {
     }
 
     public void startScan() {
-        this.f23662g = true;
+        this.f23347g = true;
         postInvalidate();
     }
 
     public void stopScan() {
-        this.f23662g = false;
+        this.f23347g = false;
     }
 
     public LaserScannerForScan(Context context, AttributeSet attributeSet) {
@@ -133,7 +133,7 @@ public class LaserScannerForScan extends ImageView {
 
     public LaserScannerForScan(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f23657b = null;
+        this.f23342b = null;
         this.i = -1;
         this.j = -1;
         a(context, attributeSet, i);

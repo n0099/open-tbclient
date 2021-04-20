@@ -3,17 +3,17 @@ package com.baidu.mobstat;
 public class cg extends RuntimeException {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9175a;
+    public int f8749a;
 
     public cg(int i) {
-        this.f9175a = i;
+        this.f8749a = i;
     }
 
     public int a() {
-        return this.f9175a;
+        return this.f8749a;
     }
 
     public cg() {
-        this.f9175a = 0;
+        this.f8749a = 0;
     }
 }

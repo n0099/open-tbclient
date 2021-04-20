@@ -6,13 +6,13 @@ import androidx.annotation.Nullable;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<?> f35226a;
+    public Class<?> f35515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f35227b;
+    public Class<?> f35516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f35228c;
+    public Class<?> f35517c;
 
     public i() {
     }
@@ -22,9 +22,9 @@ public class i {
     }
 
     public void a(@NonNull Class<?> cls, @NonNull Class<?> cls2, @Nullable Class<?> cls3) {
-        this.f35226a = cls;
-        this.f35227b = cls2;
-        this.f35228c = cls3;
+        this.f35515a = cls;
+        this.f35516b = cls2;
+        this.f35517c = cls3;
     }
 
     public boolean equals(Object obj) {
@@ -35,16 +35,16 @@ public class i {
             return false;
         }
         i iVar = (i) obj;
-        return this.f35226a.equals(iVar.f35226a) && this.f35227b.equals(iVar.f35227b) && k.a(this.f35228c, iVar.f35228c);
+        return this.f35515a.equals(iVar.f35515a) && this.f35516b.equals(iVar.f35516b) && k.a(this.f35517c, iVar.f35517c);
     }
 
     public int hashCode() {
-        int hashCode = ((this.f35226a.hashCode() * 31) + this.f35227b.hashCode()) * 31;
-        Class<?> cls = this.f35228c;
+        int hashCode = ((this.f35515a.hashCode() * 31) + this.f35516b.hashCode()) * 31;
+        Class<?> cls = this.f35517c;
         return hashCode + (cls != null ? cls.hashCode() : 0);
     }
 
     public String toString() {
-        return "MultiClassKey{first=" + this.f35226a + ", second=" + this.f35227b + '}';
+        return "MultiClassKey{first=" + this.f35515a + ", second=" + this.f35516b + '}';
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.android.util.devices.RomUtils;
 public final class az implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23074a;
+    public final /* synthetic */ FeedbackHotActivity f22759a;
 
     public az(FeedbackHotActivity feedbackHotActivity) {
-        this.f23074a = feedbackHotActivity;
+        this.f22759a = feedbackHotActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,24 +28,24 @@ public final class az implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        view2 = this.f23074a.l;
+        view2 = this.f22759a.l;
         view2.setVisibility(0);
-        linearLayout = this.f23074a.f23012h;
+        linearLayout = this.f22759a.f22697h;
         linearLayout.setVisibility(8);
-        if (!com.baidu.ufosdk.b.d.b(this.f23074a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f23074a.getApplicationContext()).contains("NONE")) {
-            this.f23074a.a();
-            linearLayout3 = this.f23074a.f23012h;
+        if (!com.baidu.ufosdk.b.d.b(this.f22759a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f22759a.getApplicationContext()).contains("NONE")) {
+            this.f22759a.a();
+            linearLayout3 = this.f22759a.f22697h;
             linearLayout3.setVisibility(8);
-            webView = this.f23074a.j;
+            webView = this.f22759a.j;
             webView.setVisibility(0);
             return;
         }
-        view3 = this.f23074a.l;
+        view3 = this.f22759a.l;
         view3.setVisibility(8);
-        Context applicationContext = this.f23074a.getApplicationContext();
-        textView = this.f23074a.m;
+        Context applicationContext = this.f22759a.getApplicationContext();
+        textView = this.f22759a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout2 = this.f23074a.f23012h;
+        linearLayout2 = this.f22759a.f22697h;
         linearLayout2.setVisibility(0);
     }
 }

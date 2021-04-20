@@ -22,10 +22,10 @@ import java.util.Set;
 public class t extends d.b.h0.w.p.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f56611e = new ArrayList<>();
+    public ArrayList<String> f58017e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f56612f = new HashSet();
+    public Set<String> f58018f = new HashSet();
 
     public t() {
         v();
@@ -33,23 +33,23 @@ public class t extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public String b(int i) {
-        if (i >= this.f56611e.size()) {
+        if (i >= this.f58017e.size()) {
             return null;
         }
-        return this.f56611e.get(i);
+        return this.f58017e.get(i);
     }
 
     @Override // d.b.h0.w.p.c
     public int c() {
-        ArrayList<String> arrayList = this.f56611e;
+        ArrayList<String> arrayList = this.f58017e;
         if (arrayList == null || arrayList.size() == 0) {
             return 1;
         }
-        return this.f56611e.size();
+        return this.f58017e.size();
     }
 
     @Override // d.b.h0.w.p.c
-    public d.b.b.j.d.a e() {
+    public d.b.c.j.d.a e() {
         return super.d();
     }
 
@@ -85,11 +85,11 @@ public class t extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public boolean m(String str) {
-        return this.f56612f.contains(str);
+        return this.f58018f.contains(str);
     }
 
     @Override // d.b.h0.w.p.c
-    public d.b.b.j.d.a n(String str) {
+    public d.b.c.j.d.a n(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
         FileInputStream fileInputStream;
@@ -119,23 +119,23 @@ public class t extends d.b.h0.w.p.c {
                             byteArrayOutputStream.write(bArr, 0, read);
                         } else {
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            d.b.b.j.d.a aVar = new d.b.b.j.d.a(NSGif.f(byteArray, 0, byteArray.length));
-                            d.b.b.e.m.a.c(fileInputStream);
-                            d.b.b.e.m.a.d(byteArrayOutputStream);
+                            d.b.c.j.d.a aVar = new d.b.c.j.d.a(NSGif.f(byteArray, 0, byteArray.length));
+                            d.b.c.e.m.a.c(fileInputStream);
+                            d.b.c.e.m.a.d(byteArrayOutputStream);
                             return aVar;
                         }
                     }
                 } catch (Exception e3) {
                     e = e3;
                     e.printStackTrace();
-                    d.b.b.e.m.a.c(fileInputStream);
-                    d.b.b.e.m.a.d(byteArrayOutputStream);
+                    d.b.c.e.m.a.c(fileInputStream);
+                    d.b.c.e.m.a.d(byteArrayOutputStream);
                     return null;
                 }
             } catch (Throwable th3) {
                 th = th3;
-                d.b.b.e.m.a.c(fileInputStream);
-                d.b.b.e.m.a.d(byteArrayOutputStream);
+                d.b.c.e.m.a.c(fileInputStream);
+                d.b.c.e.m.a.d(byteArrayOutputStream);
                 throw th;
             }
         } catch (Exception e4) {
@@ -144,22 +144,22 @@ public class t extends d.b.h0.w.p.c {
         } catch (Throwable th4) {
             th = th4;
             byteArrayOutputStream = null;
-            d.b.b.e.m.a.c(fileInputStream);
-            d.b.b.e.m.a.d(byteArrayOutputStream);
+            d.b.c.e.m.a.c(fileInputStream);
+            d.b.c.e.m.a.d(byteArrayOutputStream);
             throw th;
         }
     }
 
     @Override // d.b.h0.w.p.c
-    public d.b.b.j.d.a o(String str) {
-        if (d.b.h0.a0.d.f49683d.equals(str)) {
-            return new d.b.b.j.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
+    public d.b.c.j.d.a o(String str) {
+        if (d.b.h0.a0.d.f50076d.equals(str)) {
+            return new d.b.c.j.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
         }
         Bitmap image = FileHelper.getImage(t(str).getAbsolutePath());
         if (image == null) {
             return null;
         }
-        return new d.b.b.j.d.a(image, false, str);
+        return new d.b.c.j.d.a(image, false, str);
     }
 
     public File t(String str) {
@@ -175,8 +175,8 @@ public class t extends d.b.h0.w.p.c {
     }
 
     public boolean u(String str) {
-        if (this.f56611e != null && !TextUtils.isEmpty(str)) {
-            Iterator<String> it = this.f56611e.iterator();
+        if (this.f58017e != null && !TextUtils.isEmpty(str)) {
+            Iterator<String> it = this.f58017e.iterator();
             while (it.hasNext()) {
                 if (it.next().contains(str)) {
                     return true;
@@ -189,7 +189,7 @@ public class t extends d.b.h0.w.p.c {
     public final void v() {
         s(2);
         p(4);
-        d.b.b.j.d.a aVar = new d.b.b.j.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
+        d.b.c.j.d.a aVar = new d.b.c.j.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
         super.r(aVar);
         super.q(aVar);
         w();
@@ -197,11 +197,11 @@ public class t extends d.b.h0.w.p.c {
 
     public void w() {
         List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
-        this.f56611e.clear();
-        this.f56612f.clear();
+        this.f58017e.clear();
+        this.f58018f.clear();
         for (CollectEmotionData collectEmotionData : n) {
-            this.f56611e.add(collectEmotionData.sharpText);
-            this.f56612f.add(collectEmotionData.sharpText);
+            this.f58017e.add(collectEmotionData.sharpText);
+            this.f58018f.add(collectEmotionData.sharpText);
         }
     }
 }

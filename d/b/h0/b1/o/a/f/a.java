@@ -18,16 +18,16 @@ import com.baidu.tieba.R;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50010e;
+    public Context f50403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f50011f;
+    public ViewGroup f50404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f50012g;
+    public ViewGroup f50405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f50013h;
+    public ViewGroup f50406h;
     public d.b.h0.b1.o.a.c.a i;
     public d.b.h0.b1.o.a.d.c j;
     public boolean k;
@@ -43,8 +43,8 @@ public class a {
 
     /* renamed from: d.b.h0.b1.o.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1057a implements View.OnClickListener {
-        public View$OnClickListenerC1057a() {
+    public class View$OnClickListenerC1069a implements View.OnClickListener {
+        public View$OnClickListenerC1069a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -80,7 +80,7 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             a aVar = a.this;
-            aVar.i.y.removeView(aVar.f50012g);
+            aVar.i.y.removeView(aVar.f50405g);
             a.this.n = false;
             a.this.k = false;
             if (a.this.j != null) {
@@ -133,15 +133,15 @@ public class a {
     }
 
     public a(Context context) {
-        this.f50010e = context;
+        this.f50403e = context;
     }
 
     public void e() {
-        if (this.f50013h != null) {
-            Dialog dialog = new Dialog(this.f50010e, R.style.custom_dialog2);
+        if (this.f50406h != null) {
+            Dialog dialog = new Dialog(this.f50403e, R.style.custom_dialog2);
             this.p = dialog;
             dialog.setCancelable(this.i.S);
-            this.p.setContentView(this.f50013h);
+            this.p.setContentView(this.f50406h);
             Window window = this.p.getWindow();
             if (window != null) {
                 window.setWindowAnimations(R.style.picker_view_scale_anim);
@@ -158,7 +158,7 @@ public class a {
         } else {
             if (this.r) {
                 this.l.setAnimationListener(new b());
-                this.f50011f.startAnimation(this.l);
+                this.f50404f.startAnimation(this.l);
             } else {
                 i();
             }
@@ -178,7 +178,7 @@ public class a {
     }
 
     public View j(int i) {
-        return this.f50011f.findViewById(i);
+        return this.f50404f.findViewById(i);
     }
 
     public Dialog k() {
@@ -186,11 +186,11 @@ public class a {
     }
 
     public final Animation l() {
-        return AnimationUtils.loadAnimation(this.f50010e, d.b.h0.b1.o.a.e.c.a(this.o, true));
+        return AnimationUtils.loadAnimation(this.f50403e, d.b.h0.b1.o.a.e.c.a(this.o, true));
     }
 
     public final Animation m() {
-        return AnimationUtils.loadAnimation(this.f50010e, d.b.h0.b1.o.a.e.c.a(this.o, false));
+        return AnimationUtils.loadAnimation(this.f50403e, d.b.h0.b1.o.a.e.c.a(this.o, false));
     }
 
     public void n() {
@@ -200,32 +200,32 @@ public class a {
 
     public void o() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
-        LayoutInflater from = LayoutInflater.from(this.f50010e);
+        LayoutInflater from = LayoutInflater.from(this.f50403e);
         if (p()) {
             ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.layout_basepickerview, (ViewGroup) null, false);
-            this.f50013h = viewGroup;
+            this.f50406h = viewGroup;
             viewGroup.setBackgroundColor(0);
-            ViewGroup viewGroup2 = (ViewGroup) this.f50013h.findViewById(R.id.content_container);
-            this.f50011f = viewGroup2;
+            ViewGroup viewGroup2 = (ViewGroup) this.f50406h.findViewById(R.id.content_container);
+            this.f50404f = viewGroup2;
             layoutParams.leftMargin = 30;
             layoutParams.rightMargin = 30;
             viewGroup2.setLayoutParams(layoutParams);
             e();
-            this.f50013h.setOnClickListener(new View$OnClickListenerC1057a());
+            this.f50406h.setOnClickListener(new View$OnClickListenerC1069a());
         } else {
             d.b.h0.b1.o.a.c.a aVar = this.i;
             if (aVar.y == null) {
-                aVar.y = (ViewGroup) ((Activity) this.f50010e).getWindow().getDecorView();
+                aVar.y = (ViewGroup) ((Activity) this.f50403e).getWindow().getDecorView();
             }
             ViewGroup viewGroup3 = (ViewGroup) from.inflate(R.layout.layout_basepickerview, this.i.y, false);
-            this.f50012g = viewGroup3;
+            this.f50405g = viewGroup3;
             viewGroup3.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             int i = this.i.P;
             if (i != -1) {
-                this.f50012g.setBackgroundColor(i);
+                this.f50405g.setBackgroundColor(i);
             }
-            ViewGroup viewGroup4 = (ViewGroup) this.f50012g.findViewById(R.id.content_container);
-            this.f50011f = viewGroup4;
+            ViewGroup viewGroup4 = (ViewGroup) this.f50405g.findViewById(R.id.content_container);
+            this.f50404f = viewGroup4;
             viewGroup4.setLayoutParams(layoutParams);
         }
         u(true);
@@ -237,13 +237,13 @@ public class a {
         if (p()) {
             return false;
         }
-        return this.f50012g.getParent() != null || this.n;
+        return this.f50405g.getParent() != null || this.n;
     }
 
     public final void r(View view) {
         this.i.y.addView(view);
         if (this.r) {
-            this.f50011f.startAnimation(this.m);
+            this.f50404f.startAnimation(this.m);
         }
     }
 
@@ -257,9 +257,9 @@ public class a {
     public void u(boolean z) {
         ViewGroup viewGroup;
         if (p()) {
-            viewGroup = this.f50013h;
+            viewGroup = this.f50406h;
         } else {
-            viewGroup = this.f50012g;
+            viewGroup = this.f50405g;
         }
         viewGroup.setFocusable(z);
         viewGroup.setFocusableInTouchMode(z);
@@ -271,7 +271,7 @@ public class a {
     }
 
     public a v(boolean z) {
-        ViewGroup viewGroup = this.f50012g;
+        ViewGroup viewGroup = this.f50405g;
         if (viewGroup != null) {
             View findViewById = viewGroup.findViewById(R.id.outmost_container);
             if (z) {
@@ -289,8 +289,8 @@ public class a {
         } else if (q()) {
         } else {
             this.n = true;
-            r(this.f50012g);
-            this.f50012g.requestFocus();
+            r(this.f50405g);
+            this.f50405g.requestFocus();
         }
     }
 

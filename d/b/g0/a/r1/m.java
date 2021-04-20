@@ -4,18 +4,18 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import d.b.g0.a.r1.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m extends a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h f45765e;
+    public final h f46157e;
 
     public m() {
         this(null);
     }
 
     public h c() {
-        return this.f45765e;
+        return this.f46157e;
     }
 
     public String getAppId() {
@@ -100,6 +100,6 @@ public class m extends a {
     }
 
     public m(h hVar) {
-        this.f45765e = hVar == null ? d.e() : hVar;
+        this.f46157e = hVar == null ? d.e() : hVar;
     }
 }

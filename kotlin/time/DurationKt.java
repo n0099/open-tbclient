@@ -151,16 +151,16 @@ public final class DurationKt {
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-kIfJnKk  reason: not valid java name */
-    public static final double m1594timeskIfJnKk(double d2, double d3) {
-        return Duration.m1576timesimpl(d3, d2);
+    public static final double m1598timeskIfJnKk(double d2, double d3) {
+        return Duration.m1580timesimpl(d3, d2);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-mvk6XK0  reason: not valid java name */
-    public static final double m1595timesmvk6XK0(int i, double d2) {
-        return Duration.m1577timesimpl(d2, i);
+    public static final double m1599timesmvk6XK0(int i, double d2) {
+        return Duration.m1581timesimpl(d2, i);
     }
 
     @SinceKotlin(version = "1.3")
@@ -234,6 +234,6 @@ public final class DurationKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
     public static final double toDuration(double d2, TimeUnit timeUnit) {
-        return Duration.m1550constructorimpl(DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d2, timeUnit, TimeUnit.NANOSECONDS));
+        return Duration.m1554constructorimpl(DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d2, timeUnit, TimeUnit.NANOSECONDS));
     }
 }

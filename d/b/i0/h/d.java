@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.v0;
 import d.b.i0.h.f;
@@ -26,22 +26,22 @@ public class d {
     public static class a implements i.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f55071a;
+        public final /* synthetic */ TbPageContext f56384a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f55072b;
+        public final /* synthetic */ g f56385b;
 
         public a(TbPageContext tbPageContext, g gVar) {
-            this.f55071a = tbPageContext;
-            this.f55072b = gVar;
+            this.f56384a = tbPageContext;
+            this.f56385b = gVar;
         }
 
         @Override // d.b.i0.h.i.h
         public void a(JSONArray jSONArray) {
             if (j.A()) {
-                d.e(jSONArray, this.f55072b.b(), this.f55072b.c());
+                d.e(jSONArray, this.f56385b.b(), this.f56385b.c());
             } else {
-                l.K(this.f55071a.getContext(), R.string.neterror);
+                l.K(this.f56384a.getContext(), R.string.neterror);
             }
         }
     }
@@ -50,22 +50,22 @@ public class d {
     public static class b implements f.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f55073a;
+        public final /* synthetic */ TbPageContext f56386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f55074b;
+        public final /* synthetic */ g f56387b;
 
         public b(TbPageContext tbPageContext, g gVar) {
-            this.f55073a = tbPageContext;
-            this.f55074b = gVar;
+            this.f56386a = tbPageContext;
+            this.f56387b = gVar;
         }
 
         @Override // d.b.i0.h.f.g
         public void a(JSONArray jSONArray) {
             if (j.A()) {
-                d.e(jSONArray, this.f55074b.b(), this.f55074b.c());
+                d.e(jSONArray, this.f56387b.b(), this.f56387b.c());
             } else {
-                l.K(this.f55073a.getContext(), R.string.neterror);
+                l.K(this.f56386a.getContext(), R.string.neterror);
             }
         }
     }
@@ -75,7 +75,7 @@ public class d {
             return;
         }
         f fVar = new f(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView());
-        AntiData c2 = d.b.i0.p0.b.e().c();
+        AntiData c2 = d.b.i0.q0.b.e().c();
         SparseArray<String> sparseArray = new SparseArray<>();
         if (c2 != null && c2.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c2.getDelThreadInfoList();
@@ -86,7 +86,7 @@ public class d {
             }
         }
         JSONArray jSONArray = new JSONArray();
-        List<a2> f2 = d.b.i0.p0.b.e().f();
+        List<a2> f2 = d.b.i0.q0.b.e().f();
         for (int i2 = 0; i2 < f2.size(); i2++) {
             jSONArray.put(f2.get(i2).w1());
         }
@@ -94,7 +94,7 @@ public class d {
         v0Var.j(sparseArray);
         v0Var.i(gVar.a());
         v0Var.o(jSONArray);
-        v0Var.l(d.b.i0.p0.b.e().d());
+        v0Var.l(d.b.i0.q0.b.e().d());
         fVar.w(v0Var);
         fVar.x(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_5)});
         fVar.z("1");
@@ -106,7 +106,7 @@ public class d {
             return;
         }
         i iVar = new i(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), hVar, userData);
-        AntiData c2 = d.b.i0.p0.b.e().c();
+        AntiData c2 = d.b.i0.q0.b.e().c();
         SparseArray<String> sparseArray = new SparseArray<>();
         if (c2 != null && c2.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c2.getDelThreadInfoList();
@@ -117,7 +117,7 @@ public class d {
             }
         }
         JSONArray jSONArray = new JSONArray();
-        List<a2> f2 = d.b.i0.p0.b.e().f();
+        List<a2> f2 = d.b.i0.q0.b.e().f();
         for (int i2 = 0; i2 < f2.size(); i2++) {
             jSONArray.put(f2.get(i2).w1());
         }
@@ -125,7 +125,7 @@ public class d {
         v0Var.j(sparseArray);
         v0Var.i(gVar.a());
         v0Var.o(jSONArray);
-        v0Var.l(d.b.i0.p0.b.e().d());
+        v0Var.l(d.b.i0.q0.b.e().d());
         iVar.A(v0Var);
         iVar.B(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_5)});
         iVar.D("1");

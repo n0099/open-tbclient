@@ -29,7 +29,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class n {
     public static final v<String> A;
     public static final v<BigDecimal> B;
@@ -59,28 +59,28 @@ public final class n {
     public static final w Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final v<Class> f29969a;
+    public static final v<Class> f29654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final w f29970b;
+    public static final w f29655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final v<BitSet> f29971c;
+    public static final v<BitSet> f29656c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final w f29972d;
+    public static final w f29657d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final v<Boolean> f29973e;
+    public static final v<Boolean> f29658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final v<Boolean> f29974f;
+    public static final v<Boolean> f29659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final w f29975g;
+    public static final w f29660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final v<Number> f29976h;
+    public static final v<Number> f29661h;
     public static final w i;
     public static final v<Number> j;
     public static final w k;
@@ -101,66 +101,66 @@ public final class n {
     public static final w z;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.a.n$30  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass30 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29993a;
+        public static final /* synthetic */ int[] f29678a;
 
         static {
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f29993a = iArr;
+            f29678a = iArr;
             try {
                 iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 2;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.STRING.ordinal()] = 3;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 4;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_ARRAY.ordinal()] = 5;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_ARRAY.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_OBJECT.ordinal()] = 6;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_OBJECT.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_DOCUMENT.ordinal()] = 7;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_DOCUMENT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.NAME.ordinal()] = 8;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.NAME.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_OBJECT.ordinal()] = 9;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_OBJECT.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f29993a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY.ordinal()] = 10;
+                f29678a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T extends Enum<T>> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, T> f29994a = new HashMap();
+        public final Map<String, T> f29679a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<T, String> f29995b = new HashMap();
+        public final Map<T, String> f29680b = new HashMap();
 
         public a(Class<T> cls) {
             T[] enumConstants;
@@ -171,11 +171,11 @@ public final class n {
                     if (cVar != null) {
                         name = cVar.a();
                         for (String str : cVar.b()) {
-                            this.f29994a.put(str, t);
+                            this.f29679a.put(str, t);
                         }
                     }
-                    this.f29994a.put(name, t);
-                    this.f29995b.put(t, name);
+                    this.f29679a.put(name, t);
+                    this.f29680b.put(t, name);
                 }
             } catch (NoSuchFieldException e2) {
                 throw new AssertionError(e2);
@@ -197,11 +197,11 @@ public final class n {
                 aVar.j();
                 return null;
             }
-            return this.f29994a.get(aVar.h());
+            return this.f29679a.get(aVar.h());
         }
 
         public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
-            cVar.b(t == null ? null : this.f29995b.get(t));
+            cVar.b(t == null ? null : this.f29680b.get(t));
         }
     }
 
@@ -220,8 +220,8 @@ public final class n {
                 throw new UnsupportedOperationException("Attempted to deserialize a java.lang.Class. Forgot to register a type adapter?");
             }
         }.a();
-        f29969a = a2;
-        f29970b = a(Class.class, a2);
+        f29654a = a2;
+        f29655b = a(Class.class, a2);
         v<BitSet> a3 = new v<BitSet>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.12
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
@@ -244,7 +244,7 @@ public final class n {
                 com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
                 int i2 = 0;
                 while (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY) {
-                    int i3 = AnonymousClass30.f29993a[f2.ordinal()];
+                    int i3 = AnonymousClass30.f29678a[f2.ordinal()];
                     boolean z2 = true;
                     if (i3 != 1) {
                         if (i3 == 2) {
@@ -280,9 +280,9 @@ public final class n {
                 cVar.c();
             }
         }.a();
-        f29971c = a3;
-        f29972d = a(BitSet.class, a3);
-        f29973e = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.23
+        f29656c = a3;
+        f29657d = a(BitSet.class, a3);
+        f29658e = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.23
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
@@ -304,7 +304,7 @@ public final class n {
                 cVar.a(bool);
             }
         };
-        f29974f = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.31
+        f29659f = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.31
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
@@ -322,8 +322,8 @@ public final class n {
                 cVar.b(bool == null ? StringUtil.NULL_STRING : bool.toString());
             }
         };
-        f29975g = a(Boolean.TYPE, Boolean.class, f29973e);
-        f29976h = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.32
+        f29660g = a(Boolean.TYPE, Boolean.class, f29658e);
+        f29661h = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.32
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
@@ -345,7 +345,7 @@ public final class n {
                 cVar.a(number);
             }
         };
-        i = a(Byte.TYPE, Byte.class, f29976h);
+        i = a(Byte.TYPE, Byte.class, f29661h);
         j = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.33
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -528,7 +528,7 @@ public final class n {
             /* renamed from: a */
             public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
                 com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-                int i2 = AnonymousClass30.f29993a[f2.ordinal()];
+                int i2 = AnonymousClass30.f29678a[f2.ordinal()];
                 if (i2 == 1 || i2 == 3) {
                     return new com.bytedance.sdk.openadsdk.preload.a.b.g(aVar.h());
                 }
@@ -909,7 +909,7 @@ public final class n {
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public com.bytedance.sdk.openadsdk.preload.a.l b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                switch (AnonymousClass30.f29993a[aVar.f().ordinal()]) {
+                switch (AnonymousClass30.f29678a[aVar.f().ordinal()]) {
                     case 1:
                         return new q(new com.bytedance.sdk.openadsdk.preload.a.b.g(aVar.h()));
                     case 2:
@@ -918,7 +918,7 @@ public final class n {
                         return new q(aVar.h());
                     case 4:
                         aVar.j();
-                        return com.bytedance.sdk.openadsdk.preload.a.n.f30137a;
+                        return com.bytedance.sdk.openadsdk.preload.a.n.f29822a;
                     case 5:
                         com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
                         aVar.a();

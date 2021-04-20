@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 public class PostWebviewActivity extends DxmPayBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public SafeWebView f26142a;
+    public SafeWebView f25827a;
 
     /* loaded from: classes5.dex */
     public class a extends SafeWebView.SafeChromeClient {
@@ -76,21 +76,21 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
             bArr = null;
             str = "";
         }
-        this.f26142a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
+        this.f25827a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
         if (TextUtils.isEmpty(str2)) {
-            this.f26142a.setWebChromeClient(new a());
+            this.f25827a.setWebChromeClient(new a());
         }
-        this.f26142a.getSettings().setJavaScriptEnabled(true);
+        this.f25827a.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT <= 18) {
-            this.f26142a.getSettings().setSavePassword(false);
+            this.f25827a.getSettings().setSavePassword(false);
         }
-        this.f26142a.setScrollBarStyle(0);
-        this.f26142a.clearCache(false);
-        this.f26142a.resumeTimers();
+        this.f25827a.setScrollBarStyle(0);
+        this.f25827a.clearCache(false);
+        this.f25827a.resumeTimers();
         if (Build.VERSION.SDK_INT >= 11) {
-            this.f26142a.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.f26142a.removeJavascriptInterface("accessibility");
-            this.f26142a.removeJavascriptInterface("accessibilityTraversal");
+            this.f25827a.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f25827a.removeJavascriptInterface("accessibility");
+            this.f25827a.removeJavascriptInterface("accessibilityTraversal");
         }
         if (bArr != null) {
             try {
@@ -98,11 +98,11 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                 e2.printStackTrace();
             }
             if (bArr.length != 0) {
-                this.f26142a.postUrl(str.trim(), bArr);
+                this.f25827a.postUrl(str.trim(), bArr);
                 a(str2);
             }
         }
-        this.f26142a.loadUrl(str.trim());
+        this.f25827a.loadUrl(str.trim());
         a(str2);
     }
 

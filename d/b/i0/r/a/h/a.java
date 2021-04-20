@@ -1,89 +1,168 @@
 package d.b.i0.r.a.h;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import d.b.b.e.j.a.e;
-import d.b.b.e.p.q;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
+import d.b.i0.r.a.c;
+import d.b.i0.r.a.d;
+import d.b.i0.r.a.e;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a extends BdAsyncTask<Void, Void, Boolean> {
+public class a {
+
+    /* renamed from: e  reason: collision with root package name */
+    public static a f60923e;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59678b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public String f60925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f59679c = File.separator;
+    public boolean f60926c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ArrayList<b> f60927d = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public AdInfo f59680a;
+    public int f60924a = d.b.h0.r.d0.b.j().k("splash_ad_strategy_key", 0);
 
-    public final void b(boolean z, File file) {
-        if (z && file != null) {
-            File file2 = new File(f59678b + f59679c + (q.c(this.f59680a.adVideoUrl) + ".mp4"));
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (file.renameTo(file2)) {
-                this.f59680a.videoLocalPath = file2.getAbsolutePath();
-            } else {
-                this.f59680a.videoLocalPath = "";
-            }
-        } else {
-            this.f59680a.videoLocalPath = "";
+    /* renamed from: d.b.i0.r.a.h.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public class RunnableC1538a implements Runnable {
+        public RunnableC1538a(a aVar) {
         }
-        d.b.i0.r.a.i.a.j(this.f59680a);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.i0.r0.a.h().j();
+        }
     }
 
-    public void c(AdInfo adInfo) {
-        this.f59680a = adInfo;
+    public static a c() {
+        if (f60923e == null) {
+            f60923e = new a();
+        }
+        return f60923e;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x008f, code lost:
-        if (r12.equalsIgnoreCase(r11.f59680a.videoMd5) == false) goto L24;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(Void... voidArr) {
-        String str = f59678b + f59679c + "advideo.temp";
-        File file = new File(str);
-        if (file.exists()) {
-            file.delete();
-        }
-        boolean z = false;
-        try {
-            new File(f59678b).mkdirs();
-            if (!file.createNewFile()) {
-                b(false, null);
-                return Boolean.FALSE;
-            }
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
+    public void a() {
+        this.f60927d.clear();
+    }
+
+    public int b() {
+        return this.f60924a;
+    }
+
+    public final synchronized void d() {
         e eVar = new e();
-        eVar.b().s(this.f59680a.adVideoUrl);
-        boolean c2 = new d.b.b.e.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true);
-        try {
-            if (TextUtils.isEmpty(this.f59680a.videoMd5)) {
-                b(c2, file);
-                return Boolean.valueOf(c2);
+        d.b.i0.r.a.b bVar = new d.b.i0.r.a.b();
+        d dVar = new d();
+        c cVar = new c();
+        this.f60927d.clear();
+        this.f60927d.add(eVar);
+        this.f60927d.add(bVar);
+        if (this.f60924a == 101) {
+            this.f60927d.add(cVar);
+            this.f60927d.add(dVar);
+        } else if (this.f60924a == 102) {
+            this.f60927d.add(dVar);
+            this.f60927d.add(cVar);
+        } else {
+            if (this.f60924a != 103 && this.f60924a != 104) {
+                if (this.f60924a == 105) {
+                    this.f60927d.add(cVar);
+                } else if (this.f60924a != 106) {
+                    this.f60927d.add(dVar);
+                }
             }
-            String b2 = q.b(new FileInputStream(str));
-            if (TextUtils.isEmpty(b2)) {
-                c2 = false;
+            String p = d.b.h0.r.d0.b.j().p("splash_ad_last_show_key", "");
+            this.f60925b = p;
+            if (k.isEmpty(p)) {
+                if (this.f60924a == 103) {
+                    this.f60927d.add(cVar);
+                    this.f60927d.add(dVar);
+                } else {
+                    this.f60927d.add(dVar);
+                    this.f60927d.add(cVar);
+                }
+            } else if (StringHelper.equals(this.f60925b, cVar.a())) {
+                this.f60927d.add(dVar);
+                this.f60927d.add(cVar);
+            } else {
+                this.f60927d.add(cVar);
+                this.f60927d.add(dVar);
             }
-        } catch (FileNotFoundException e3) {
-            e3.printStackTrace();
         }
-        z = c2;
-        b(z, file);
-        return Boolean.valueOf(z);
+    }
+
+    public boolean e() {
+        return TbadkCoreApplication.getInst().isNeedBearAd(this.f60924a);
+    }
+
+    public synchronized void f(d.b.h0.k.c cVar) {
+        this.f60926c = false;
+        d();
+        Iterator<b> it = this.f60927d.iterator();
+        while (it.hasNext()) {
+            it.next().c(cVar);
+        }
+    }
+
+    public void g(d.b.h0.k.a aVar) {
+        h(aVar, true);
+    }
+
+    public synchronized void h(d.b.h0.k.a aVar, boolean z) {
+        if (this.f60926c) {
+            return;
+        }
+        Iterator<b> it = this.f60927d.iterator();
+        while (it.hasNext()) {
+            b next = it.next();
+            if (next != null) {
+                if (next.b() == AdLoadState.SUCCEED) {
+                    this.f60926c = true;
+                    next.show();
+                    d.b.h0.r.z.a.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", k.isEmpty(next.a()) ? "bes" : next.a());
+                    i(next.a());
+                    return;
+                } else if (next.b() != AdLoadState.FAILED && z) {
+                    return;
+                }
+            }
+        }
+        if (aVar != null) {
+            aVar.a("");
+            a();
+        }
+    }
+
+    public final void i(String str) {
+        if (k.isEmpty(str)) {
+            return;
+        }
+        this.f60925b = str;
+        d.b.h0.r.d0.b.j().x("splash_ad_last_show_key", str);
+    }
+
+    public void j(JSONObject jSONObject) {
+        int d2 = d.b.c.e.m.b.d(jSONObject.optString("ad_sdk_priority"), 0);
+        c.i(d.b.c.e.m.b.d(jSONObject.optString("bear_sid_type"), 0));
+        if ((d2 == 103 || d2 == 104) && d2 != this.f60924a) {
+            this.f60925b = "";
+            d.b.h0.r.d0.b.j().C("splash_ad_last_show_key");
+        }
+        d.b.h0.r.d0.b.j().v("splash_ad_strategy_key", d2);
+        if (!e() && TbadkCoreApplication.getInst().isNeedBearAd(d2)) {
+            if (l.B()) {
+                d.b.i0.r0.a.h().j();
+            } else {
+                d.b.c.e.m.e.a().post(new RunnableC1538a(this));
+            }
+        }
+        this.f60924a = d2;
     }
 }

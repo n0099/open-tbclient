@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import d.b.h0.r.f0.q.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b {
     public String s;
     public String t;
@@ -66,11 +66,11 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     }
 
     public void s(boolean z) {
-        Object obj = this.f13601e;
+        Object obj = this.f13262e;
         if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
             return;
         }
-        this.f13601e = Boolean.valueOf(z);
+        this.f13262e = Boolean.valueOf(z);
         if (z) {
             setVisibility(8);
             setClickable(false);

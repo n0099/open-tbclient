@@ -4,7 +4,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static String a() {
         String str = g.get("ro.aliyun.clouduuid", "");

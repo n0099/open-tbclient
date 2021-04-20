@@ -3,20 +3,20 @@ package d.b.h0.g0.e;
 public abstract class a<T> extends b<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50209f;
+    public String f50616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Class<T> f50210g;
+    public Class<T> f50617g;
 
     public a(int i, String str, Class<T> cls) {
         super(i);
-        this.f50209f = str;
-        this.f50210g = cls;
+        this.f50616f = str;
+        this.f50617g = cls;
     }
 
     public T a() {
         try {
-            return this.f50210g.newInstance();
+            return this.f50617g.newInstance();
         } catch (ExceptionInInitializerError e2) {
             e2.printStackTrace();
             return null;

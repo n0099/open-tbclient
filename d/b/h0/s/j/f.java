@@ -2,23 +2,23 @@ package d.b.h0.s.j;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51432a = false;
+    public boolean f51849a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51433b = 0;
+    public int f51850b = 0;
 
     public void a(String str) {
         int lastIndexOf;
         String str2;
-        this.f51432a = false;
-        this.f51433b = 0;
+        this.f51849a = false;
+        this.f51850b = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -47,11 +47,11 @@ public class f {
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     try {
-                        socket.connect(new InetSocketAddress(str2, d.b.b.e.m.b.d(String.valueOf(str3), 8000)), c());
+                        socket.connect(new InetSocketAddress(str2, d.b.c.e.m.b.d(String.valueOf(str3), 8000)), c());
                         if (socket.isConnected()) {
                             i++;
                             i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
-                            this.f51432a = true;
+                            this.f51849a = true;
                         }
                         socket.close();
                     } catch (Exception e4) {
@@ -71,15 +71,15 @@ public class f {
                     throw th;
                 }
             }
-            if (!this.f51432a || i <= 0) {
+            if (!this.f51849a || i <= 0) {
                 return;
             }
-            this.f51433b = i2 / i;
+            this.f51850b = i2 / i;
         }
     }
 
     public int b() {
-        return this.f51433b;
+        return this.f51850b;
     }
 
     public final int c() {
@@ -91,6 +91,6 @@ public class f {
     }
 
     public boolean d() {
-        return this.f51432a;
+        return this.f51849a;
     }
 }

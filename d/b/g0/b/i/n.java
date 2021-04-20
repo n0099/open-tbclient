@@ -74,9 +74,9 @@ public class n extends d.b.g0.a.v1.c.i.a {
     public boolean k() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", G().f45740f);
+            jSONObject.put("ma_id", G().f46132f);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(com.alipay.sdk.cons.b.f1858h, G().B());
+            jSONObject2.put(com.alipay.sdk.cons.b.f1883h, G().B());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", d.b.g0.a.v1.c.c.g());
             jSONObject2.put("stoken", this.o);

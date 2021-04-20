@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public final FlexByteArrayPool mFlexByteArrayPool;
 

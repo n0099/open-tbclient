@@ -17,16 +17,16 @@ import java.util.Iterator;
 public class d implements d.b.i0.b0.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public EnterForumModel f55559a;
+    public EnterForumModel f56682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a f55560b;
+    public c.a f56683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final EnterForumModel.f f55561c = new a();
+    public final EnterForumModel.f f56684c = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.c.g.a f55562d = new b(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    public d.b.c.c.g.a f56685d = new b(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
 
     /* loaded from: classes4.dex */
     public class a implements EnterForumModel.f {
@@ -36,15 +36,15 @@ public class d implements d.b.i0.b0.c {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
         public void a(EnterForumModel.e eVar) {
             d.b.i0.i0.d.d dVar;
-            if (d.this.f55560b == null) {
+            if (d.this.f56683b == null) {
                 return;
             }
-            if (eVar == null || !eVar.f15482b || (dVar = eVar.f15484d) == null || dVar.e() == null) {
-                d.this.f55560b.a(null, false, 1, 0);
+            if (eVar == null || !eVar.f15145b || (dVar = eVar.f15147d) == null || dVar.e() == null) {
+                d.this.f56683b.a(null, false, 1, 0);
                 return;
             }
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-            ArrayList<f> b2 = eVar.f15484d.e().b();
+            ArrayList<f> b2 = eVar.f15147d.e().b();
             if (ListUtils.getCount(b2) > 0) {
                 Iterator<f> it = b2.iterator();
                 while (it.hasNext()) {
@@ -56,47 +56,47 @@ public class d implements d.b.i0.b0.c {
                     }
                 }
             }
-            d.this.f55560b.a(arrayList, true, 1, 0);
+            d.this.f56683b.a(arrayList, true, 1, 0);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.b.b.c.g.a {
+    public class b extends d.b.c.c.g.a {
         public b(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = responsedMessage instanceof forumRecommendSocketResponseMessage;
-            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.f55559a.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.f56682a.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (z) {
-                    d.this.f55559a.J((forumRecommendSocketResponseMessage) responsedMessage);
+                    d.this.f56682a.J((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    d.this.f55559a.I((forumRecommendHttpResponseMessage) responsedMessage);
+                    d.this.f56682a.I((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     }
 
     public d() {
-        this.f55559a = null;
+        this.f56682a = null;
         EnterForumModel enterForumModel = new EnterForumModel(null);
-        this.f55559a = enterForumModel;
-        enterForumModel.P(this.f55561c);
-        MessageManager.getInstance().registerListener(this.f55562d);
+        this.f56682a = enterForumModel;
+        enterForumModel.P(this.f56684c);
+        MessageManager.getInstance().registerListener(this.f56685d);
     }
 
     @Override // d.b.i0.b0.c
     public void a(c.a aVar) {
-        this.f55560b = aVar;
+        this.f56683b = aVar;
     }
 
     @Override // d.b.i0.b0.c
     public void b() {
         EnterForumModel enterForumModel;
-        if (this.f55560b == null || (enterForumModel = this.f55559a) == null) {
+        if (this.f56683b == null || (enterForumModel = this.f56682a) == null) {
             return;
         }
         enterForumModel.D(true);

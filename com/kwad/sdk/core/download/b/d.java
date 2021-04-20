@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -28,7 +29,7 @@ public class d {
         try {
             Intent parseUri = Intent.parseUri(str, 0);
             parseUri.setAction("android.intent.action.VIEW");
-            parseUri.setFlags(268435456);
+            parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 65536);
             if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
                 return 0;

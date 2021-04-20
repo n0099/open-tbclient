@@ -7,22 +7,22 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.b.e.p.m;
+import d.b.c.e.p.m;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f59256a;
+    public static f f59009a;
 
     public static f f() {
         synchronized (f.class) {
-            if (f59256a == null) {
-                f59256a = new f();
+            if (f59009a == null) {
+                f59009a = new f();
             }
         }
-        return f59256a;
+        return f59009a;
     }
 
     public boolean a(d.b.h0.s.f.a aVar) {
@@ -109,7 +109,7 @@ public class f {
             b2.beginTransaction();
             char c2 = 0;
             try {
-                String[] strArr = d.b.h0.s.f.c.f51355a;
+                String[] strArr = d.b.h0.s.f.c.f51772a;
                 int length = strArr.length;
                 int i = 0;
                 while (i < length) {
@@ -164,7 +164,7 @@ public class f {
             b2.beginTransaction();
             char c2 = 0;
             try {
-                String[] strArr = d.b.h0.s.f.c.f51355a;
+                String[] strArr = d.b.h0.s.f.c.f51772a;
                 int length = strArr.length;
                 int i = 0;
                 while (i < length) {

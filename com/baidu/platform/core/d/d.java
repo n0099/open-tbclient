@@ -2,7 +2,7 @@ package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.List;
@@ -14,29 +14,29 @@ public class d extends com.baidu.platform.base.e {
 
     private void a(DrivingRoutePlanOption drivingRoutePlanOption) {
         PlanNode planNode;
-        this.f9821a.a("qt", "cars");
-        this.f9821a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-        this.f9821a.a("ie", "utf-8");
-        this.f9821a.a("lrn", "20");
-        this.f9821a.a("version", "6");
-        this.f9821a.a("extinfo", "32");
-        this.f9821a.a("mrs", "1");
-        this.f9821a.a("rp_format", "json");
-        this.f9821a.a("rp_filter", "mobile");
-        this.f9821a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-        this.f9821a.a(IXAdRequestInfo.SN, a(drivingRoutePlanOption.mFrom));
-        this.f9821a.a("en", a(drivingRoutePlanOption.mTo));
+        this.f9379a.a("qt", "cars");
+        this.f9379a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
+        this.f9379a.a("ie", "utf-8");
+        this.f9379a.a("lrn", "20");
+        this.f9379a.a("version", "6");
+        this.f9379a.a("extinfo", "32");
+        this.f9379a.a("mrs", "1");
+        this.f9379a.a("rp_format", "json");
+        this.f9379a.a("rp_filter", "mobile");
+        this.f9379a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
+        this.f9379a.a(IAdRequestParam.SN, a(drivingRoutePlanOption.mFrom));
+        this.f9379a.a("en", a(drivingRoutePlanOption.mTo));
         String str = drivingRoutePlanOption.mCityName;
         if (str != null) {
-            this.f9821a.a("c", str);
+            this.f9379a.a("c", str);
         }
         PlanNode planNode2 = drivingRoutePlanOption.mFrom;
         if (planNode2 != null) {
-            this.f9821a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
+            this.f9379a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
         }
         PlanNode planNode3 = drivingRoutePlanOption.mTo;
         if (planNode3 != null) {
-            this.f9821a.a("ec", planNode3.getCity());
+            this.f9379a.a("ec", planNode3.getCity());
         }
         List<PlanNode> list = drivingRoutePlanOption.mWayPoints;
         String str2 = new String();
@@ -52,8 +52,8 @@ public class d extends com.baidu.platform.base.e {
                     }
                 }
             }
-            this.f9821a.a("wp", str2);
-            this.f9821a.a("wpc", str3);
+            this.f9379a.a("wp", str2);
+            this.f9379a.a("wpc", str3);
         }
     }
 

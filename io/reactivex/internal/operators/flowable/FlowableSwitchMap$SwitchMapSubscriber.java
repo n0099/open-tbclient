@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.u.a;
-import f.a.w.h;
-import f.a.x.c.f;
+import f.b.g;
+import f.b.u.a;
+import f.b.w.h;
+import f.b.x.c.f;
 import g.d.b;
 import g.d.c;
 import g.d.d;
@@ -210,7 +210,7 @@ public final class FlowableSwitchMap$SwitchMapSubscriber<T, R> extends AtomicInt
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     @Override // g.d.c
@@ -227,7 +227,7 @@ public final class FlowableSwitchMap$SwitchMapSubscriber<T, R> extends AtomicInt
         }
         try {
             b<? extends R> apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The publisher returned is null");
+            f.b.x.b.a.b(apply, "The publisher returned is null");
             b<? extends R> bVar = apply;
             FlowableSwitchMap$SwitchMapInnerSubscriber<T, R> flowableSwitchMap$SwitchMapInnerSubscriber3 = new FlowableSwitchMap$SwitchMapInnerSubscriber<>(this, j, this.bufferSize);
             do {
@@ -244,7 +244,7 @@ public final class FlowableSwitchMap$SwitchMapSubscriber<T, R> extends AtomicInt
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
@@ -255,7 +255,7 @@ public final class FlowableSwitchMap$SwitchMapSubscriber<T, R> extends AtomicInt
     @Override // g.d.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
-            f.a.x.i.b.a(this.requested, j);
+            f.b.x.i.b.a(this.requested, j);
             if (this.unique == 0) {
                 this.s.request(Long.MAX_VALUE);
             } else {

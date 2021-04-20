@@ -16,16 +16,16 @@ public class c {
                 return;
             }
             if (cVar == null) {
-                gVar.C(new d.b.g0.l.k.a(2100, "request对象为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "request对象为空"));
             } else if (TextUtils.isEmpty(cVar.g())) {
-                gVar.C(new d.b.g0.l.k.a(2100, "bundleId为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "bundleId为空"));
             } else {
                 HashMap<String, String> e2 = d.b.g0.l.l.b.e(cVar);
-                if (gVar.B() != null) {
-                    e2.putAll(gVar.B());
+                if (gVar.A() != null) {
+                    e2.putAll(gVar.A());
                 }
-                gVar.D();
-                f.b().B().b(d.b.g0.l.l.e.d(), e2, gVar.t(), new d.b.g0.l.l.i.b(gVar, cVar));
+                gVar.C();
+                f.b().B().b(d.b.g0.l.l.e.d(), e2, gVar.s(), new d.b.g0.l.l.i.b(gVar, cVar));
             }
         }
     }
@@ -36,33 +36,33 @@ public class c {
                 return;
             }
             if (bVar == null) {
-                gVar.C(new d.b.g0.l.k.a(2100, "request对象为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "request对象为空"));
                 return;
             }
             if (bVar.f() != null && !bVar.f().isEmpty()) {
                 HashMap<String, String> b2 = d.b.g0.l.l.b.b(bVar);
-                if (gVar.B() != null) {
-                    b2.putAll(gVar.B());
+                if (gVar.A() != null) {
+                    b2.putAll(gVar.A());
                 }
                 JSONObject a2 = d.b.g0.l.l.b.a(bVar);
                 if (a2 == null) {
-                    gVar.C(new d.b.g0.l.k.a(2100, "构造请求body失败"));
+                    gVar.B(new d.b.g0.l.k.a(2100, "构造请求body失败"));
                     return;
                 }
-                if (gVar.y() != null) {
+                if (gVar.x() != null) {
                     try {
-                        for (Map.Entry<String, String> entry : gVar.y().entrySet()) {
+                        for (Map.Entry<String, String> entry : gVar.x().entrySet()) {
                             a2.put(entry.getKey(), entry.getValue());
                         }
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
                 }
-                gVar.D();
-                f.b().B().a(d.b.g0.l.l.e.c(), b2, gVar.t(), a2, new d.b.g0.l.l.i.a(gVar, bVar));
+                gVar.C();
+                f.b().B().a(d.b.g0.l.l.e.c(), b2, gVar.s(), a2, new d.b.g0.l.l.i.a(gVar, bVar));
                 return;
             }
-            gVar.C(new d.b.g0.l.k.a(2100, "pkg List为空"));
+            gVar.B(new d.b.g0.l.k.a(2100, "pkg List为空"));
         }
     }
 
@@ -72,15 +72,15 @@ public class c {
                 return;
             }
             if (dVar == null) {
-                gVar.C(new d.b.g0.l.k.a(2100, "request对象为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "request对象为空"));
                 return;
             }
             HashMap<String, String> f2 = d.b.g0.l.l.b.f(dVar);
-            if (gVar.B() != null) {
-                f2.putAll(gVar.B());
+            if (gVar.A() != null) {
+                f2.putAll(gVar.A());
             }
-            gVar.D();
-            f.b().B().b(d.b.g0.l.l.e.e(), f2, gVar.t(), new d.b.g0.l.l.i.c(gVar, dVar));
+            gVar.C();
+            f.b().B().b(d.b.g0.l.l.e.e(), f2, gVar.s(), new d.b.g0.l.l.i.c(gVar, dVar));
         }
     }
 
@@ -90,18 +90,18 @@ public class c {
                 return;
             }
             if (fVar == null) {
-                gVar.C(new d.b.g0.l.k.a(2100, "request对象为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "request对象为空"));
             } else if (TextUtils.isEmpty(fVar.f())) {
-                gVar.C(new d.b.g0.l.k.a(2100, "bundleId为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "bundleId为空"));
             } else if (TextUtils.isEmpty(fVar.k())) {
-                gVar.C(new d.b.g0.l.k.a(2100, "分包名为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "分包名为空"));
             } else {
                 HashMap<String, String> g2 = d.b.g0.l.l.b.g(fVar);
-                if (gVar.B() != null) {
-                    g2.putAll(gVar.B());
+                if (gVar.A() != null) {
+                    g2.putAll(gVar.A());
                 }
-                gVar.D();
-                f.b().B().b(d.b.g0.l.l.e.d(), g2, gVar.t(), new d.b.g0.l.l.i.d(gVar, fVar));
+                gVar.C();
+                f.b().B().b(d.b.g0.l.l.e.d(), g2, gVar.s(), new d.b.g0.l.l.i.d(gVar, fVar));
             }
         }
     }
@@ -144,17 +144,17 @@ public class c {
                 return;
             }
             if (hVar == null) {
-                gVar.C(new d.b.g0.l.k.a(2100, "request对象为空"));
+                gVar.B(new d.b.g0.l.k.a(2100, "request对象为空"));
                 return;
             }
-            d.b.g0.l.m.c<JSONArray> p = aVar == null ? null : aVar.p();
+            d.b.g0.l.m.c<JSONArray> o = aVar == null ? null : aVar.o();
             d.b.g0.l.h.g m = aVar == null ? null : aVar.m();
             HashMap hashMap = new HashMap();
-            if (gVar.B() != null) {
-                hashMap.putAll(gVar.B());
+            if (gVar.A() != null) {
+                hashMap.putAll(gVar.A());
             }
-            gVar.D();
-            f.b().B().a(d.b.g0.l.l.e.f(), hashMap, gVar.t(), e(p, null), new d.b.g0.l.l.i.e(gVar, hVar, gVar2, m));
+            gVar.C();
+            f.b().B().a(d.b.g0.l.l.e.f(), hashMap, gVar.s(), e(o, null), new d.b.g0.l.l.i.e(gVar, hVar, gVar2, m));
         }
     }
 
@@ -169,15 +169,15 @@ public class c {
             }
             d.b.g0.l.l.k.g request = aVar.getRequest();
             if (request == null) {
-                m.C(new d.b.g0.l.k.a(2100, "request对象为空"));
+                m.B(new d.b.g0.l.k.a(2100, "request对象为空"));
                 return;
             }
-            Map<String, String> B = m.B();
-            if (m.B() != null) {
-                B = new HashMap(B);
+            Map<String, String> A = m.A();
+            if (m.A() != null) {
+                A = new HashMap(A);
             }
-            m.D();
-            f.b().B().a(d.b.g0.l.l.e.f(), B, m.t(), e(aVar.p(), null), new d.b.g0.l.l.i.e(m, request, null, m));
+            m.C();
+            f.b().B().a(d.b.g0.l.l.e.f(), A, m.s(), e(aVar.o(), null), new d.b.g0.l.l.i.e(m, request, null, m));
         }
     }
 }

@@ -17,8 +17,8 @@ public class a extends a0 {
 
     /* renamed from: d.b.g0.g.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0965a implements d.c {
-        public C0965a() {
+    public class C0977a implements d.c {
+        public C0977a() {
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -48,7 +48,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 l(h.aiapps_debug_swan_core_params_empty);
@@ -60,9 +60,9 @@ public class a extends a0 {
                 return false;
             }
             b.a();
-            d.C0849d c0849d = new d.C0849d();
-            c0849d.f46599a = k(context, optString);
-            new d.b.g0.a.h0.a().e(c0849d, b.c().getPath(), new C0965a());
+            d.C0861d c0861d = new d.C0861d();
+            c0861d.f46991a = k(context, optString);
+            new d.b.g0.a.h0.a().e(c0861d, b.c().getPath(), new C0977a());
             return false;
         }
         return false;

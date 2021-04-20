@@ -19,13 +19,13 @@ import java.util.Set;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f48083c = k.f45051a;
+    public static final boolean f48475c = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f48084a;
+    public SharedPreferences f48476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f48085b;
+    public File f48477b;
 
     /* loaded from: classes3.dex */
     public class a implements c.a<Long> {
@@ -42,15 +42,15 @@ public class b {
 
     public b() {
         String g2 = g();
-        if (f48083c) {
+        if (f48475c) {
             Log.i("SwanGameStorageManager", "preferencesName:" + g2);
         }
         if (g2 != null) {
-            this.f48084a = d.b.g0.a.w0.a.c().getSharedPreferences(g2, 0);
+            this.f48476a = d.b.g0.a.w0.a.c().getSharedPreferences(g2, 0);
             File i = i();
-            this.f48085b = new File(i, g2 + ActivityChooserModel.HISTORY_FILE_EXTENSION);
+            this.f48477b = new File(i, g2 + ActivityChooserModel.HISTORY_FILE_EXTENSION);
         }
-        d.f44467h.e(new a());
+        d.f44859h.e(new a());
     }
 
     public static void b() {
@@ -80,11 +80,11 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean a() {
-        return j() && this.f48084a.edit().clear().commit();
+        return j() && this.f48476a.edit().clear().commit();
     }
 
     public long e() {
-        File file = this.f48085b;
+        File file = this.f48477b;
         if (file != null) {
             return file.length();
         }
@@ -93,7 +93,7 @@ public class b {
 
     public String[] f() {
         if (j()) {
-            Set<String> keySet = this.f48084a.getAll().keySet();
+            Set<String> keySet = this.f48476a.getAll().keySet();
             String[] strArr = new String[keySet.size()];
             keySet.toArray(strArr);
             return strArr;
@@ -112,13 +112,13 @@ public class b {
 
     public String h(String str, String str2) {
         if (j()) {
-            return this.f48084a.getString(str, str2);
+            return this.f48476a.getString(str, str2);
         }
         return null;
     }
 
     public final boolean j() {
-        return this.f48084a != null;
+        return this.f48476a != null;
     }
 
     public long k() {
@@ -127,11 +127,11 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean l(String str, String str2) {
-        return j() && this.f48084a.edit().putString(str, str2).commit();
+        return j() && this.f48476a.edit().putString(str, str2).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean m(String str) {
-        return j() && this.f48084a.edit().remove(str).commit();
+        return j() && this.f48476a.edit().remove(str).commit();
     }
 }

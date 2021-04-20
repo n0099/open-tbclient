@@ -113,7 +113,7 @@ public class ByteVector {
         int i4 = 0;
         while (i4 < length) {
             char charAt = str.charAt(i4);
-            if (charAt >= 1 && charAt <= 127) {
+            if ((charAt >= 1 && charAt <= 127) || (charAt >= 19968 && charAt <= 40959)) {
                 bArr[i3] = (byte) charAt;
                 i4++;
                 i3++;

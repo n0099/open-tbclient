@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
 @TargetApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DraweeTransition extends Transition {
     public static final String PROPNAME_BOUNDS = "draweeTransition:bounds";
     @Nullable

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
 /* loaded from: classes4.dex */
-public class b extends d.b.b.j.e.a<d.b.i0.l0.z.b.c, ForumEmotionViewHolder> {
+public class b extends d.b.c.j.e.a<d.b.i0.l0.z.b.c, ForumEmotionViewHolder> {
     public TbPageContext m;
     public d.b.i0.l0.z.b.b n;
     public a o;
@@ -20,7 +20,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.l0.z.b.c, ForumEmotionViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: h0 */
     public ForumEmotionViewHolder R(ViewGroup viewGroup) {
         ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.m);
@@ -30,7 +30,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.l0.z.b.c, ForumEmotionViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.l0.z.b.c cVar, ForumEmotionViewHolder forumEmotionViewHolder) {
         forumEmotionViewHolder.m(cVar, this.n, this.o, i);

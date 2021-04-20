@@ -14,7 +14,7 @@ public class SignAllForumAdvertActivityConfig extends IntentConfig {
 
     public SignAllForumAdvertActivityConfig(Context context, String str, String str2, Boolean bool) {
         super(context);
-        getIntent().putExtra(AD_PIC, str);
+        getIntent().putExtra("ad_pic", str);
         getIntent().putExtra(AD_URL, str2);
         getIntent().putExtra(HAS_PRIVILEGE, bool);
     }

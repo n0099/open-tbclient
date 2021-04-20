@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.h0.z0.w;
 import tbclient.GetForumSquare.DataReq;
 import tbclient.GetForumSquare.GetForumSquareReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumSquareRequestMessage extends NetMessage {
     public static final int LOAD_RN = 20;
     public String className;

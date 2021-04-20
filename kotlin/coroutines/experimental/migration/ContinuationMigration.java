@@ -29,12 +29,12 @@ public final class ContinuationMigration<T> implements Continuation<T> {
 
     @Override // kotlin.coroutines.Continuation
     public void resumeWith(Object obj) {
-        if (Result.m635isSuccessimpl(obj)) {
+        if (Result.m639isSuccessimpl(obj)) {
             this.continuation.resume(obj);
         }
-        Throwable m631exceptionOrNullimpl = Result.m631exceptionOrNullimpl(obj);
-        if (m631exceptionOrNullimpl != null) {
-            this.continuation.resumeWithException(m631exceptionOrNullimpl);
+        Throwable m635exceptionOrNullimpl = Result.m635exceptionOrNullimpl(obj);
+        if (m635exceptionOrNullimpl != null) {
+            this.continuation.resumeWithException(m635exceptionOrNullimpl);
         }
     }
 }

@@ -21,8 +21,8 @@ public class d implements CustomMessageTask.CustomRunnable<Object> {
                 d2 = f.f().d(aVar.e());
             }
             if (!d2) {
-                d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-                i.s("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+                j.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             }
         }
         return null;

@@ -4,7 +4,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ag {
     public static AdSlot a(String str) {
         try {

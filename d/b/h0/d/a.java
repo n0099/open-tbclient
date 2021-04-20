@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaUserInfoData f50086a;
+    public AlaUserInfoData f50479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50087b;
+    public int f50480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50088c;
+    public boolean f50481c;
 }

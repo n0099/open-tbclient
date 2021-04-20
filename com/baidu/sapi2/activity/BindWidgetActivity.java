@@ -10,7 +10,7 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
-import d.b.a0.a.f;
+import d.b.x.a.f;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class BindWidgetActivity extends BaseActivity {

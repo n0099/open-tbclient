@@ -21,30 +21,30 @@ import org.apache.http.client.methods.HttpTrace;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66272a;
+    public Context f67265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66273b;
+    public String f67266b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66275d;
+    public int f67268d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66276e;
+    public int f67269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f66277f;
+    public byte[] f67270f;
     public HandlerThread m;
     public Handler n;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66274c = "";
+    public String f67267c = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66278g = -1;
+    public int f67271g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f66279h = null;
+    public byte[] f67272h = null;
     public int i = 10000;
     public int j = 1;
     public int k = 0;
@@ -79,8 +79,8 @@ public abstract class b {
 
     public b(Context context, String str) {
         str = (str == null || str.length() <= 0) ? "" : "";
-        this.f66272a = context;
-        this.f66273b = str;
+        this.f67265a = context;
+        this.f67266b = str;
     }
 
     public static /* synthetic */ int p(b bVar) {
@@ -146,7 +146,7 @@ public abstract class b {
         if (r0 == false) goto L26;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x009c, code lost:
-        f(r4.f66278g, r4.f66279h);
+        f(r4.f67271g, r4.f67272h);
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00a3, code lost:
         return r0;
@@ -159,7 +159,7 @@ public abstract class b {
         InputStream inputStream;
         boolean z = true;
         try {
-            URL url = new URL(this.f66274c);
+            URL url = new URL(this.f67267c);
             if (this.o) {
                 HttpsURLConnection.setDefaultSSLSocketFactory(SSLContext.getInstance("TLS").getSocketFactory());
                 httpURLConnection = (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
@@ -169,21 +169,21 @@ public abstract class b {
             this.p = httpURLConnection;
             this.p.setConnectTimeout(this.i);
             this.p.setReadTimeout(this.i);
-            c(this.f66275d);
-            j(this.f66276e);
-            if (this.f66277f != null && this.f66277f.length > 0) {
+            c(this.f67268d);
+            j(this.f67269e);
+            if (this.f67270f != null && this.f67270f.length > 0) {
                 this.p.setDoOutput(true);
                 OutputStream outputStream = this.p.getOutputStream();
-                outputStream.write(this.f66277f);
+                outputStream.write(this.f67270f);
                 outputStream.flush();
                 outputStream.close();
             }
             this.p.connect();
             try {
-                this.f66278g = this.p.getResponseCode();
+                this.f67271g = this.p.getResponseCode();
                 inputStream = this.p.getInputStream();
                 try {
-                    this.f66279h = h(inputStream);
+                    this.f67272h = h(inputStream);
                 } catch (Throwable unused) {
                 }
             } catch (Throwable unused2) {
@@ -226,7 +226,7 @@ public abstract class b {
             this.p.addRequestProperty("Content-Type", str);
         }
         HttpURLConnection httpURLConnection2 = this.p;
-        httpURLConnection2.addRequestProperty("Cookie", "sessionid=" + this.f66273b);
+        httpURLConnection2.addRequestProperty("Cookie", "sessionid=" + this.f67266b);
         try {
             String language = Locale.getDefault().getLanguage();
             if (language.equalsIgnoreCase("zh")) {
@@ -250,8 +250,8 @@ public abstract class b {
     }
 
     public final void k(int i, int i2, byte[] bArr) {
-        this.f66275d = i;
-        this.f66276e = i2;
-        this.f66277f = bArr;
+        this.f67268d = i;
+        this.f67269e = i2;
+        this.f67270f = bArr;
     }
 }

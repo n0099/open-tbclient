@@ -8,25 +8,25 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class f extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f50312b;
+    public long f50719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f50313c;
+    public long f50720c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f50314d;
+    public long f50721d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50315e;
+    public int f50722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f50316f;
+    public long f50723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50317g;
+    public int f50724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f50318h = null;
+    public b f50725h = null;
     public final Handler i = new a(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
@@ -37,9 +37,9 @@ public class f extends g {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.f50318h = new b();
-            f.this.f50318h.setSelfExecute(true);
-            f.this.f50318h.execute(new String[0]);
+            f.this.f50725h = new b();
+            f.this.f50725h.setSelfExecute(true);
+            f.this.f50725h.execute(new String[0]);
         }
     }
 
@@ -56,14 +56,14 @@ public class f extends g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.f50317g = k.d().a();
+            f.this.f50724g = k.d().a();
             f.this.e();
             return Boolean.TRUE;
         }
     }
 
     public final void e() {
-        i iVar = (i) k.d().e(this.f50321a);
+        i iVar = (i) k.d().e(this.f50728a);
         if (iVar != null) {
             iVar.c(this);
         }

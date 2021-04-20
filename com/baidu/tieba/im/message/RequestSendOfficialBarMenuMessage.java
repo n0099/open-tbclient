@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import protobuf.SendMenuMsg.DataReq;
 import protobuf.SendMenuMsg.SendMenuMsgReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
     public String forum_id;
     public String rid;

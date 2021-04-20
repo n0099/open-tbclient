@@ -23,8 +23,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.CrabSdkSwitch;
 import com.baidu.tbadk.switchs.NativeCrashHandler;
-import d.b.b.e.p.j;
-import d.b.i0.h3.a;
+import d.b.c.e.p.j;
+import d.b.i0.i3.a;
 import io.flutter.embedding.engine.loader.FlutterLoader;
 import java.io.File;
 import java.util.ArrayList;
@@ -32,37 +32,37 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class a implements a.InterfaceC1280a {
+public class a implements a.InterfaceC1355a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52276d;
+    public String f53394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52277e;
+    public String f53395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52278f;
+    public String f53396f;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f52273a = false;
+    public boolean f53391a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52274b = false;
+    public boolean f53392b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f52275c = false;
+    public boolean f53393c = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f52279g = new C1138a(2005016);
+    public CustomMessageListener f53397g = new C1185a(2005016);
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f52280h = new b(this, 2001371);
+    public CustomMessageListener f53398h = new b(this, 2001371);
     public CustomMessageListener i = new c(2000994);
 
     /* renamed from: d.b.i0.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1138a extends CustomMessageListener {
-        public C1138a(int i) {
+    public class C1185a extends CustomMessageListener {
+        public C1185a(int i) {
             super(i);
         }
 
@@ -142,56 +142,56 @@ public class a implements a.InterfaceC1280a {
         }
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void a(Application application) {
-        MessageManager.getInstance().registerListener(this.f52280h);
-        MessageManager.getInstance().registerListener(this.f52279g);
+        MessageManager.getInstance().registerListener(this.f53398h);
+        MessageManager.getInstance().registerListener(this.f53397g);
         MessageManager.getInstance().registerListener(this.i);
-        if (this.f52273a) {
+        if (this.f53391a) {
             return;
         }
         l(application);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void b(String str) {
-        this.f52276d = str;
+        this.f53394d = str;
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void c(Exception exc) {
-        if (!this.f52273a || exc == null) {
+        if (!this.f53391a || exc == null) {
             return;
         }
         CrabSDK.uploadException(exc);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void d(MotionEvent motionEvent, Activity activity) {
-        if (!this.f52273a || activity == null || motionEvent == null) {
+        if (!this.f53391a || activity == null || motionEvent == null) {
             return;
         }
         CrabSDK.behaviorRecordEvent(motionEvent, activity);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void e(String str) {
-        this.f52278f = str;
+        this.f53396f = str;
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void f(String str) {
-        this.f52277e = str;
+        this.f53395e = str;
     }
 
     public final void h() {
-        if (this.f52273a && this.f52275c) {
+        if (this.f53391a && this.f53393c) {
             CrabSDK.closeAnrHandler();
         }
     }
 
     public final void i() {
-        if (this.f52273a && this.f52274b) {
+        if (this.f53391a && this.f53392b) {
             CrabSDK.disableBlockCatch();
         }
     }
@@ -239,7 +239,7 @@ public class a implements a.InterfaceC1280a {
         try {
             if (th.getMessage() != null && (th.getMessage().contains("java.lang.ClassNotFoundException") || th.getMessage().contains("java.lang.NoClassDefFoundError"))) {
                 z = true;
-                PluginSettings l = d.b.b.h.j.g.d.k().l();
+                PluginSettings l = d.b.c.h.j.g.d.k().l();
                 if (l != null) {
                     sb2.append(l.getContainerVersion());
                     sb2.append("-");
@@ -266,11 +266,11 @@ public class a implements a.InterfaceC1280a {
                 } else {
                     sb2.append("pluginSettings_is_null");
                 }
-                str = d.b.b.h.h.b.c().toString();
+                str = d.b.c.h.h.b.c().toString();
             }
         } catch (Exception unused2) {
         }
-        String str2 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + d.b.b.a.b.f().c();
+        String str2 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + d.b.c.a.b.f().c();
         if (z) {
             return str2 + "\n--PluginSettings--" + sb2.toString() + "\n--PluginTrace--" + str;
         }
@@ -295,7 +295,7 @@ public class a implements a.InterfaceC1280a {
             } else {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
-            this.f52273a = true;
+            this.f53391a = true;
             p();
             s(null);
             r();
@@ -339,7 +339,7 @@ public class a implements a.InterfaceC1280a {
             return true;
         } catch (Exception e2) {
             e2.printStackTrace();
-            this.f52273a = false;
+            this.f53391a = false;
             return false;
         }
     }
@@ -356,17 +356,17 @@ public class a implements a.InterfaceC1280a {
         return TbConfig.getVersionType() == 3;
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void onPause(Activity activity) {
-        if (!this.f52273a || activity == null) {
+        if (!this.f53391a || activity == null) {
             return;
         }
         CrabSDK.onPause(activity);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1280a
+    @Override // d.b.i0.i3.a.InterfaceC1355a
     public void onResume(Activity activity) {
-        if (!this.f52273a || activity == null) {
+        if (!this.f53391a || activity == null) {
             return;
         }
         CrabSDK.onResume(activity);
@@ -377,14 +377,14 @@ public class a implements a.InterfaceC1280a {
     }
 
     public void q(String str, String str2) {
-        if (this.f52273a) {
+        if (this.f53391a) {
             CrabSDK.setUid(str);
             CrabSDK.setUserName(str2);
         }
     }
 
     public void r() {
-        if (this.f52273a) {
+        if (this.f53391a) {
             if (j.H()) {
                 CrabSDK.setCollectScreenshot(true);
             } else {
@@ -394,15 +394,15 @@ public class a implements a.InterfaceC1280a {
     }
 
     public final void s(Throwable th) {
-        if (this.f52273a) {
+        if (this.f53391a) {
             HashMap hashMap = new HashMap();
             hashMap.put("version_type", k());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             hashMap.put("plugin_info", j(th));
-            hashMap.put("lastFlutterPage", this.f52276d);
-            hashMap.put("openFlutterPage", this.f52277e);
-            hashMap.put("flutterPath", this.f52278f);
+            hashMap.put("lastFlutterPage", this.f53394d);
+            hashMap.put("openFlutterPage", this.f53395e);
+            hashMap.put("flutterPath", this.f53396f);
             hashMap.put("customTime", String.valueOf(System.currentTimeMillis()));
             hashMap.put("isBackground", String.valueOf(TbadkCoreApplication.getInst().isInBackground()));
             hashMap.put("pid", String.valueOf(Process.myPid()));

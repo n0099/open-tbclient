@@ -9,11 +9,12 @@ import android.os.Build;
 import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
+import com.alibaba.fastjson.asm.Label;
 /* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44682a = d.b.g0.a.k.f45051a;
+    public static final boolean f45074a = d.b.g0.a.k.f45443a;
 
     public static void a(Activity activity) {
         if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
@@ -22,7 +23,7 @@ public final class e {
         Window window = activity.getWindow();
         window.clearFlags(1024);
         int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-        if (d.b.g0.a.q1.b.a.f45539b) {
+        if (d.b.g0.a.q1.b.a.f45931b) {
             systemUiVisibility |= 5120;
         }
         window.getDecorView().setSystemUiVisibility(systemUiVisibility);
@@ -62,7 +63,7 @@ public final class e {
 
     public static boolean h(Context context, Intent intent, boolean z, boolean z2) {
         if (z || !(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         try {
             context.startActivity(intent);
@@ -77,7 +78,7 @@ public final class e {
             if (z2) {
                 Toast.makeText(context, d.b.g0.a.h.activity_not_found, 0).show();
             }
-            if (f44682a) {
+            if (f45074a) {
                 Log.e("ActivityUtils", "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
                 return false;
             }
@@ -86,7 +87,7 @@ public final class e {
     }
 
     public static void i(Activity activity) {
-        if (f44682a) {
+        if (f45074a) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
         if (activity == null || activity.isDestroyed()) {

@@ -4,14 +4,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import d.b.g0.a.k;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e extends d.b.g0.f.i.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47778c = k.f45051a;
+    public static final boolean f48170c = k.f45443a;
 
     public e() {
         super("openApp");
@@ -19,10 +18,10 @@ public class e extends d.b.g0.f.i.a {
 
     @Override // d.b.g0.f.i.a
     public d.b.g0.a.t.e.b a(@NonNull JSONObject jSONObject, @NonNull d.b.g0.a.p0.b bVar) {
-        if (f47778c) {
+        if (f48170c) {
             Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
         }
-        String optString = jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        String optString = jSONObject.optString("packageName");
         if (TextUtils.isEmpty(optString)) {
             bVar.onFail(31010, "package name is empty");
             return null;

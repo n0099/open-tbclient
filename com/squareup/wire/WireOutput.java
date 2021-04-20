@@ -1,8 +1,9 @@
 package com.squareup.wire;
 
+import com.alibaba.fastjson.asm.Label;
 import com.alipay.sdk.encrypt.a;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WireOutput {
     public final byte[] buffer;
     public final int limit;
@@ -49,7 +50,7 @@ public final class WireOutput {
     }
 
     public static int varint32Size(int i) {
-        if ((i & a.f1896g) == 0) {
+        if ((i & a.f1921g) == 0) {
             return 1;
         }
         if ((i & (-16384)) == 0) {
@@ -58,7 +59,7 @@ public final class WireOutput {
         if (((-2097152) & i) == 0) {
             return 3;
         }
-        return (i & (-268435456)) == 0 ? 4 : 5;
+        return (i & Label.FORWARD_REFERENCE_TYPE_MASK) == 0 ? 4 : 5;
     }
 
     public static int varint64Size(long j) {
@@ -163,7 +164,7 @@ public final class WireOutput {
     }
 
     public void writeVarint32(int i) throws IOException {
-        while ((i & a.f1896g) != 0) {
+        while ((i & a.f1921g) != 0) {
             writeRawByte((i & 127) | 128);
             i >>>= 7;
         }

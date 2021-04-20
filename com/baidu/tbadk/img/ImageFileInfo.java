@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.facebook.imagepipeline.producers.ProducerConstants;
-import d.b.b.e.l.d;
-import d.b.b.e.p.k;
+import d.b.c.e.l.d;
+import d.b.c.e.p.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -350,7 +350,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         if (next != null) {
                             sb.append(':');
                             sb.append(next.actionName);
-                            sb.append(a.f1897h);
+                            sb.append(a.f1922h);
                             sb.append(next.actionParam);
                         }
                     }
@@ -362,7 +362,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         if (next2 != null) {
                             sb.append(':');
                             sb.append(next2.actionName);
-                            sb.append(a.f1897h);
+                            sb.append(a.f1922h);
                             sb.append(next2.actionParam);
                         }
                     }
@@ -380,7 +380,7 @@ public class ImageFileInfo extends MediaFileInfo {
                     ImageOperation imageOperation = this.pageActionsList.get(i);
                     sb2.append(':');
                     sb2.append(imageOperation.actionName);
-                    sb2.append(a.f1897h);
+                    sb2.append(a.f1922h);
                     sb2.append(imageOperation.actionParam);
                 }
             }

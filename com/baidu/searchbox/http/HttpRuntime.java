@@ -2,7 +2,7 @@ package com.baidu.searchbox.http;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import d.b.i0.x2.j;
+import d.b.i0.y2.j;
 @Autowired
 /* loaded from: classes2.dex */
 public class HttpRuntime {

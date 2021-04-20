@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessage {
     public ArrayList<OfficialAccountPushInfo> official_list;
 

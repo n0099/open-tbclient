@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.d;
 import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
     public static String a() {
         return new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date(System.currentTimeMillis()));

@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.util.FieldBuilder;
 public final class Log {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9520a = "SAPI_BIOMETRIC";
+    public static final String f9078a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f9521b = false;
+    public static boolean f9079b = false;
 
     public static String a(String str, Object[] objArr) {
         if (objArr != null) {
@@ -44,7 +44,7 @@ public final class Log {
     }
 
     public static void d(String str, Object... objArr) {
-        if (f9521b) {
+        if (f9079b) {
             android.util.Log.d(str, a(str, objArr));
         }
     }
@@ -54,17 +54,17 @@ public final class Log {
     }
 
     public static void enable(boolean z) {
-        f9521b = z;
+        f9079b = z;
     }
 
     public static void i(String str, Object... objArr) {
-        if (f9521b) {
+        if (f9079b) {
             android.util.Log.i(str, a(str, objArr));
         }
     }
 
     public static void w(String str, Object... objArr) {
-        if (f9521b) {
+        if (f9079b) {
             android.util.Log.w(str, a(str, objArr));
         }
     }
@@ -78,7 +78,7 @@ public final class Log {
     }
 
     public static void e(String str, Object... objArr) {
-        if (f9521b) {
+        if (f9079b) {
             android.util.Log.e(str, a(str, objArr));
         }
     }

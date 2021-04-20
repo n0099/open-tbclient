@@ -3,6 +3,7 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -10,10 +11,10 @@ import java.security.NoSuchAlgorithmException;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4685a;
+    public static String f4720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4686b;
+    public static Context f4721b;
 
     public static String a(String str) {
         byte b2;
@@ -54,22 +55,22 @@ public final class h {
     }
 
     public static void b(Context context) {
-        if (f4686b == null) {
-            f4686b = context;
+        if (f4721b == null) {
+            f4721b = context;
         }
     }
 
     public static String c() {
-        String str = f4685a;
+        String str = f4720a;
         if (str != null) {
             return str;
         }
         try {
-            f4685a = a(Settings.Secure.getString(f4686b.getContentResolver(), "android_id"));
+            f4720a = a(Settings.Secure.getString(f4721b.getContentResolver(), IAdRequestParam.ANDROID_ID));
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e2);
-            f4685a = "N/A";
+            f4720a = "N/A";
         }
-        return f4685a;
+        return f4720a;
     }
 }

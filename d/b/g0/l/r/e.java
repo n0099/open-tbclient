@@ -24,7 +24,7 @@ public class e {
             return null;
         }
         PMSAppInfo pMSAppInfo = new PMSAppInfo();
-        pMSAppInfo.appKey = jSONObject.optString(com.alipay.sdk.cons.b.f1858h);
+        pMSAppInfo.appKey = jSONObject.optString(com.alipay.sdk.cons.b.f1883h);
         pMSAppInfo.appName = jSONObject.optString(DpStatConstants.KEY_APP_NAME);
         pMSAppInfo.description = jSONObject.optString("app_desc");
         pMSAppInfo.appStatus = jSONObject.optInt("app_status");
@@ -97,17 +97,17 @@ public class e {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                a.C1020a c1020a = new a.C1020a();
-                c1020a.f48977a = optJSONObject.optInt("errno");
-                c1020a.f48978b = optJSONObject.optString("bundle_id");
-                c1020a.f48979c = optJSONObject.optInt("category");
-                c1020a.f48980d = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
-                c1020a.f48981e = k(optJSONObject.optJSONArray("sub"));
-                c1020a.f48982f = a(optJSONObject.optJSONObject("app_info"));
-                arrayList.add(c1020a);
+                a.C1032a c1032a = new a.C1032a();
+                c1032a.f49369a = optJSONObject.optInt("errno");
+                c1032a.f49370b = optJSONObject.optString("bundle_id");
+                c1032a.f49371c = optJSONObject.optInt("category");
+                c1032a.f49372d = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
+                c1032a.f49373e = k(optJSONObject.optJSONArray("sub"));
+                c1032a.f49374f = a(optJSONObject.optJSONObject("app_info"));
+                arrayList.add(c1032a);
             }
         }
-        aVar.f48976a = arrayList;
+        aVar.f49368a = arrayList;
         return aVar;
     }
 
@@ -118,12 +118,12 @@ public class e {
         d.b.g0.l.l.j.b bVar = new d.b.g0.l.l.j.b();
         JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
         if (optJSONObject != null) {
-            bVar.f48984a = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
-            bVar.f48985b = k(optJSONObject.optJSONArray("sub"));
+            bVar.f49376a = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
+            bVar.f49377b = k(optJSONObject.optJSONArray("sub"));
         }
-        bVar.f48986c = d(jSONObject.optJSONObject("framework"));
-        bVar.f48988e = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-        bVar.f48987d = a(jSONObject.optJSONObject("app_info"));
+        bVar.f49378c = d(jSONObject.optJSONObject("framework"));
+        bVar.f49380e = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        bVar.f49379d = a(jSONObject.optJSONObject("app_info"));
         return bVar;
     }
 
@@ -132,7 +132,7 @@ public class e {
             return null;
         }
         d.b.g0.l.l.j.c cVar = new d.b.g0.l.l.j.c();
-        cVar.f48989a = l(jSONObject);
+        cVar.f49381a = l(jSONObject);
         return cVar;
     }
 
@@ -143,7 +143,7 @@ public class e {
         d.b.g0.l.l.j.d dVar = new d.b.g0.l.l.j.d();
         JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
         if (optJSONObject != null) {
-            dVar.f48990a = k(optJSONObject.optJSONArray("sub"));
+            dVar.f49382a = k(optJSONObject.optJSONArray("sub"));
         }
         return dVar;
     }
@@ -152,8 +152,8 @@ public class e {
         if (jSONObject == null || t == null) {
             return null;
         }
-        t.f48923g = jSONObject.optString("bundle_id");
-        t.f48924h = jSONObject.optInt("category");
+        t.f49315g = jSONObject.optString("bundle_id");
+        t.f49316h = jSONObject.optInt("category");
         t.j = jSONObject.optString("version_name");
         t.i = jSONObject.optLong("version_code");
         t.k = jSONObject.optLong("size");
@@ -219,8 +219,8 @@ public class e {
             return null;
         }
         d.b.g0.l.l.j.e eVar = new d.b.g0.l.l.j.e();
-        eVar.f48991a = jSONObject.optLong("max_age");
-        eVar.f48992b = jSONObject;
+        eVar.f49383a = jSONObject.optLong("max_age");
+        eVar.f49384b = jSONObject;
         return eVar;
     }
 }

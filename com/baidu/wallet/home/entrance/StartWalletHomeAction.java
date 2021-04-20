@@ -3,6 +3,7 @@ package com.baidu.wallet.home.entrance;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.wallet.api.ILoginBackListener;
@@ -25,7 +26,7 @@ public class StartWalletHomeAction implements RouterAction {
         if (context instanceof Activity) {
             LogUtil.d(BEAN_TAG, "context is activity!");
         } else {
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("pageType", z2 ? HomeCfgBean.PAGE_CREDIT : HomeCfgBean.PAGE_HOME);
         intent.putExtra("with_anim", z);

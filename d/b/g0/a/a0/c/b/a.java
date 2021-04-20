@@ -23,7 +23,7 @@ public final class a extends d.b.g0.a.a0.a.c.a<TextView, c> {
     @Override // d.b.g0.a.a0.a.c.a
     /* renamed from: d0 */
     public void Z(@NonNull TextView textView, @NonNull c cVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-Button", "renderTextStyleLineSpace");
         }
         int i = cVar.B;

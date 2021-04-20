@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.download.DownloadData;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.v.c;
 import d.b.h0.v.d;
 import java.io.File;

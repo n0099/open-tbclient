@@ -22,19 +22,19 @@ public class CfgItemParser {
     public static class b {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4901e;
+        public int f4936e;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f4899c = false;
+        public boolean f4934c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4900d = false;
+        public boolean f4935d = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4897a = null;
+        public String[] f4932a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f4898b = true;
+        public boolean f4933b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, String str2, String str3) {
@@ -42,23 +42,23 @@ public class CfgItemParser {
                 return;
             }
             if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
-                this.f4900d = true;
-                this.f4899c = false;
+                this.f4935d = true;
+                this.f4934c = false;
             } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
-                this.f4899c = true;
-                this.f4900d = false;
+                this.f4934c = true;
+                this.f4935d = false;
             } else if (!str.contains(str2)) {
-                this.f4897a = a(str, str3);
+                this.f4932a = a(str, str3);
             } else {
                 if (str2.endsWith(FieldBuilder.SE)) {
                     str2 = "\\|";
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.f4897a = a(split[0], str3);
-                    this.f4898b = c(split[1]);
+                    this.f4932a = a(split[0], str3);
+                    this.f4933b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.f4897a = a(split[0], str3);
+                    this.f4932a = a(split[0], str3);
                 }
             }
         }
@@ -88,20 +88,20 @@ public class CfgItemParser {
         }
 
         public void a(int i) {
-            this.f4901e = i;
+            this.f4936e = i;
         }
 
         public boolean a(String str) {
             String[] strArr;
-            if (this.f4899c) {
+            if (this.f4934c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && (strArr = this.f4897a) != null) {
+            if (!TextUtils.isEmpty(str) && (strArr = this.f4932a) != null) {
                 int length = strArr.length;
                 for (int i = 0; i < length; i++) {
-                    if (!str.equals(this.f4897a[i]) && (this.f4901e != 0 || !a(str, this.f4897a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
-                        if (this.f4901e == 1) {
-                            if (str.contains("." + this.f4897a[i])) {
+                    if (!str.equals(this.f4932a[i]) && (this.f4936e != 0 || !a(str, this.f4932a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                        if (this.f4936e == 1) {
+                            if (str.contains("." + this.f4932a[i])) {
                             }
                         }
                     }
@@ -131,11 +131,11 @@ public class CfgItemParser {
         }
 
         public a b(String str) {
-            if (this.f4900d) {
+            if (this.f4935d) {
                 return a.FAILED;
             }
             boolean a2 = a(str);
-            return this.f4898b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
+            return this.f4933b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
         }
     }
 

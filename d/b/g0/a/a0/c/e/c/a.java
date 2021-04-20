@@ -48,7 +48,7 @@ public final class a extends d.b.g0.a.a0.a.c.a<TextView, b> {
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: e0 */
     public void R(@NonNull View view, @NonNull b bVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-CoverView", "renderAlpha");
         }
         if (bVar.n == null) {
@@ -64,7 +64,7 @@ public final class a extends d.b.g0.a.a0.a.c.a<TextView, b> {
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: f0 */
     public void S(@NonNull TextView textView, @NonNull b bVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-CoverView", "renderBackground");
         }
         if (bVar.n == null) {

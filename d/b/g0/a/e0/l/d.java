@@ -39,10 +39,10 @@ public class d extends d.b.g0.a.e0.l.c {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f43994e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f44386e;
 
         public b(d.b.g0.a.y0.e.b bVar) {
-            this.f43994e = bVar;
+            this.f44386e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -51,7 +51,7 @@ public class d extends d.b.g0.a.e0.l.c {
             if (activity == null || !SwanAppNetworkUtils.h(activity)) {
                 return;
             }
-            SwanLauncher.j().n(this.f43994e, null);
+            SwanLauncher.j().n(this.f44386e, null);
             d.this.f0.finish();
         }
     }
@@ -60,10 +60,10 @@ public class d extends d.b.g0.a.e0.l.c {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43996e;
+        public final /* synthetic */ String f44388e;
 
         public c(String str) {
-            this.f43996e = str;
+            this.f44388e = str;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,7 +71,7 @@ public class d extends d.b.g0.a.e0.l.c {
             if (d.this.z0 == null || TextUtils.isEmpty(d.this.z0.forbiddenDetail)) {
                 return;
             }
-            d.b.g0.a.w0.a.q().b(d.this.f(), this.f43996e, d.this.z0.appTitle, d.this.z0.forbiddenDetail);
+            d.b.g0.a.w0.a.q().b(d.this.f(), this.f44388e, d.this.z0.appTitle, d.this.z0.forbiddenDetail);
         }
     }
 

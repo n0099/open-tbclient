@@ -6,9 +6,9 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import d.b.b.a.e;
-import d.b.b.a.f;
-import d.b.b.c.g.a;
+import d.b.c.a.e;
+import d.b.c.a.f;
+import d.b.c.c.g.a;
 /* loaded from: classes.dex */
 public abstract class BdBaseModel<T> extends OrmObject {
     public static final int MODE_INVALID = 0;

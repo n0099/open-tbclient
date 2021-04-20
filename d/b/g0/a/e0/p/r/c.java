@@ -21,32 +21,32 @@ public class c {
     public static class a extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f44235a;
+        public final /* synthetic */ b f44627a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f44236b;
+        public final /* synthetic */ int f44628b;
 
         public a(b bVar, int i) {
-            this.f44235a = bVar;
-            this.f44236b = i;
+            this.f44627a = bVar;
+            this.f44628b = i;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
         public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
             super.onCancellation(dataSource);
-            c.b(this.f44236b, this.f44235a, "download icon fail: onCancellation");
+            c.b(this.f44628b, this.f44627a, "download icon fail: onCancellation");
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            c.b(this.f44236b, this.f44235a, "download icon fail: onFailureImpl");
+            c.b(this.f44628b, this.f44627a, "download icon fail: onFailureImpl");
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
         public void onNewResultImpl(Bitmap bitmap) {
             Bitmap copy;
             if (bitmap == null || bitmap.isRecycled()) {
-                c.b(this.f44236b, this.f44235a, "download icon fail: bitmap is null or is recycled");
+                c.b(this.f44628b, this.f44627a, "download icon fail: bitmap is null or is recycled");
                 return;
             }
             try {
@@ -55,12 +55,12 @@ public class c {
                 } else {
                     copy = bitmap.copy(bitmap.getConfig(), true);
                 }
-                if (this.f44235a != null) {
-                    this.f44235a.a(copy);
+                if (this.f44627a != null) {
+                    this.f44627a.a(copy);
                 }
             } catch (Exception e2) {
-                int i = this.f44236b;
-                b bVar = this.f44235a;
+                int i = this.f44628b;
+                b bVar = this.f44627a;
                 c.b(i, bVar, "download icon fail: " + e2.getMessage());
             }
         }

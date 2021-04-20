@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.x.e.a.d;
+import f.b.g;
+import f.b.x.e.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 /* loaded from: classes7.dex */
 public final class FlowableConcatMap$ConcatMapInner<R> extends SubscriptionArbiter implements g<R> {
@@ -39,7 +39,7 @@ public final class FlowableConcatMap$ConcatMapInner<R> extends SubscriptionArbit
         this.parent.innerNext(r);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(g.d.d dVar) {
         setSubscription(dVar);
     }

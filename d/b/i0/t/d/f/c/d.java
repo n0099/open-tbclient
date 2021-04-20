@@ -7,13 +7,13 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f60536a = new UserData();
+    public UserData f62100a = new UserData();
 
     /* renamed from: b  reason: collision with root package name */
-    public AlaInfoData f60537b = new AlaInfoData();
+    public AlaInfoData f62101b = new AlaInfoData();
 
     public void a(JSONObject jSONObject, JSONObject jSONObject2) {
-        this.f60536a.parserJson(jSONObject);
-        this.f60537b.parserJson(jSONObject2);
+        this.f62100a.parserJson(jSONObject);
+        this.f62101b.parserJson(jSONObject2);
     }
 }

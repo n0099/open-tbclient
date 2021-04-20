@@ -11,8 +11,8 @@ import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
-import d.b.i0.c3.d0.a;
-/* loaded from: classes3.dex */
+import d.b.i0.d3.d0.a;
+/* loaded from: classes4.dex */
 public class InterestLabelStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LabelSettingActivityConfig.class, LabelSettingActivity.class);

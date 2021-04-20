@@ -14,7 +14,7 @@ public class g extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
         if (k()) {

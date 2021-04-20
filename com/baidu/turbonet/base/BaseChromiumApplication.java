@@ -57,21 +57,21 @@ public class BaseChromiumApplication extends Application {
     public class b implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Window.Callback f22639e;
+        public final Window.Callback f22324e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Activity f22640f;
+        public final Activity f22325f;
 
         public b(Activity activity, Window.Callback callback) {
-            this.f22639e = callback;
-            this.f22640f = activity;
+            this.f22324e = callback;
+            this.f22325f = activity;
         }
 
         public void a(boolean z) {
-            this.f22639e.onWindowFocusChanged(z);
+            this.f22324e.onWindowFocusChanged(z);
             Iterator it = BaseChromiumApplication.this.mWindowFocusListeners.iterator();
             while (it.hasNext()) {
-                ((c) it.next()).a(this.f22640f, z);
+                ((c) it.next()).a(this.f22325f, z);
             }
         }
 
@@ -82,7 +82,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.f22639e, objArr);
+                return method.invoke(this.f22324e, objArr);
             } catch (InvocationTargetException e2) {
                 if (e2.getCause() instanceof AbstractMethodError) {
                     throw e2.getCause();

@@ -11,11 +11,11 @@ import com.kwad.sdk.utils.ao;
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b> {
 
     /* renamed from: c  reason: collision with root package name */
-    public ProfileTabVideoParam f32922c;
+    public ProfileTabVideoParam f33211c;
 
     public b(com.kwad.sdk.lib.a.c<?, AdTemplate> cVar, RecyclerView recyclerView, ProfileTabVideoParam profileTabVideoParam) {
         super(cVar, recyclerView, new com.kwad.sdk.contentalliance.a());
-        this.f32922c = profileTabVideoParam;
+        this.f33211c = profileTabVideoParam;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -44,6 +44,6 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b bVar, int i) {
         super.a((b) bVar, i);
-        bVar.f32915a = this.f32922c;
+        bVar.f33204a = this.f33211c;
     }
 }

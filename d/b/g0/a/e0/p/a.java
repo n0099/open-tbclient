@@ -9,7 +9,7 @@ public abstract class a {
     }
 
     @WorkerThread
-    public void b(@NonNull a.C1020a c1020a) {
+    public void b(@NonNull a.C1032a c1032a) {
     }
 
     public abstract void c();

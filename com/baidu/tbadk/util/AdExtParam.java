@@ -19,51 +19,51 @@ public class AdExtParam {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public HashMap f14030a;
+        public HashMap f13691a;
 
         public static a b() {
             a aVar = new a();
             HashMap hashMap = new HashMap();
-            aVar.f14030a = hashMap;
-            hashMap.put(AdExtParam.KEY_IADEX, d.e());
+            aVar.f13691a = hashMap;
+            hashMap.put("iadex", d.e());
             return aVar;
         }
 
         public String a() {
             try {
-                return new Gson().toJson(this.f14030a);
+                return new Gson().toJson(this.f13691a);
             } catch (Exception unused) {
                 return "";
             }
         }
 
         public a c(String str) {
-            this.f14030a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
+            this.f13691a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
             return this;
         }
 
         public a d(String str) {
-            this.f14030a.put(AdExtParam.KEY_SHOUBAI_CUID, str);
+            this.f13691a.put(AdExtParam.KEY_SHOUBAI_CUID, str);
             return this;
         }
 
         public a e(String str) {
-            this.f14030a.put(AdExtParam.KEY_FLOOR_INFO, str);
+            this.f13691a.put(AdExtParam.KEY_FLOOR_INFO, str);
             return this;
         }
 
         public a f(String str) {
-            this.f14030a.put("forum_name", str);
+            this.f13691a.put("forum_name", str);
             return this;
         }
 
         public a g(int i) {
-            this.f14030a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
+            this.f13691a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
             return this;
         }
 
         public a h(int i) {
-            this.f14030a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
+            this.f13691a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
             return this;
         }
     }

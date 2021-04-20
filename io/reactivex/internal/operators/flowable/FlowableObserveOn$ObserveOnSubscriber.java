@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.p;
-import f.a.u.a;
-import f.a.x.c.f;
+import f.b.g;
+import f.b.p;
+import f.b.u.a;
+import f.b.x.c.f;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.queue.SpscArrayQueue;
@@ -18,12 +18,12 @@ public final class FlowableObserveOn$ObserveOnSubscriber<T> extends FlowableObse
         this.actual = cVar;
     }
 
-    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, f.a.g, g.d.c
+    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(7);
                 if (requestFusion == 1) {
                     this.sourceMode = 1;
@@ -45,7 +45,7 @@ public final class FlowableObserveOn$ObserveOnSubscriber<T> extends FlowableObse
         }
     }
 
-    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public T poll() throws Exception {
         T poll = this.queue.poll();
         if (poll != null && this.sourceMode != 1) {

@@ -19,31 +19,31 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44764a = d.b.g0.a.k.f45051a;
+    public static final boolean f45156a = d.b.g0.a.k.f45443a;
 
     /* loaded from: classes3.dex */
     public static class a extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f44765a;
+        public final /* synthetic */ b f45157a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44766b;
+        public final /* synthetic */ String f45158b;
 
         public a(b bVar, String str) {
-            this.f44765a = bVar;
-            this.f44766b = str;
+            this.f45157a = bVar;
+            this.f45158b = str;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
         public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
             super.onCancellation(dataSource);
-            this.f44765a.a(this.f44766b, null);
+            this.f45157a.a(this.f45158b, null);
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            this.f44765a.a(this.f44766b, null);
+            this.f45157a.a(this.f45158b, null);
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
@@ -56,17 +56,17 @@ public class s {
                     } else {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
-                    this.f44765a.a(this.f44766b, copy);
+                    this.f45157a.a(this.f45158b, copy);
                     return;
                 } catch (Exception e2) {
-                    if (s.f44764a) {
+                    if (s.f45156a) {
                         Log.e("SwanAppFrescoImageUtils", e2.getMessage());
                     }
-                    this.f44765a.a(this.f44766b, null);
+                    this.f45157a.a(this.f45158b, null);
                     return;
                 }
             }
-            this.f44765a.a(this.f44766b, null);
+            this.f45157a.a(this.f45158b, null);
         }
     }
 
@@ -116,12 +116,12 @@ public class s {
     public static Bitmap c(Uri uri, Context context) {
         if (uri != null && context != null) {
             if (d(uri)) {
-                if (f44764a) {
+                if (f45156a) {
                     Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
                 }
                 return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
             }
-            if (f44764a) {
+            if (f45156a) {
                 Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
             }
             DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
@@ -153,7 +153,7 @@ public class s {
         if (uri == null) {
             return;
         }
-        if (f44764a) {
+        if (f45156a) {
             Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
         }
         Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);

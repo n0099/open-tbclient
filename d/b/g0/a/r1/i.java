@@ -3,13 +3,13 @@ package d.b.g0.a.r1;
 import android.os.Bundle;
 import android.text.TextUtils;
 import d.b.g0.a.r1.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class i<SelfT extends i<SelfT>> extends d.b.g0.a.y0.e.f.c<SelfT> {
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f45745g;
+    public final String f46137g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends i<a> {
         public a(String str) {
             super(str);
@@ -36,11 +36,11 @@ public abstract class i<SelfT extends i<SelfT>> extends d.b.g0.a.y0.e.f.c<SelfT>
 
     @Override // d.b.g0.a.y0.e.f.c
     public String toString() {
-        return String.format("Event(%s) Ext => %s", this.f45745g, super.toString());
+        return String.format("Event(%s) Ext => %s", this.f46137g, super.toString());
     }
 
     public i(String str, Bundle bundle) {
         super(bundle);
-        this.f45745g = TextUtils.isEmpty(str) ? "" : str;
+        this.f46137g = TextUtils.isEmpty(str) ? "" : str;
     }
 }

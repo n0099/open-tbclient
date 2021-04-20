@@ -15,13 +15,13 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.wallet.base.iddetect.a f23648a;
+    public static com.baidu.wallet.base.iddetect.a f23333a;
 
     public static com.baidu.wallet.base.iddetect.a a(Context context, int i, boolean z) {
-        if (f23648a == null || z) {
-            f23648a = a(i, context);
+        if (f23333a == null || z) {
+            f23333a = a(i, context);
         }
-        return f23648a;
+        return f23333a;
     }
 
     public static Rect a(Context context) {
@@ -102,11 +102,11 @@ public class b {
                 break;
             }
             aVar = list.get(i2);
-            float a2 = a(aVar.f23642b, aVar.f23641a);
-            list.get(i2).f23644d = Math.abs(a2 - f2);
-            list.get(i2).f23645e = true;
-            if (a2 == f2 && (i = aVar.f23642b) >= 480 && i <= 720) {
-                aVar.f23643c = 0.6306f;
+            float a2 = a(aVar.f23327b, aVar.f23326a);
+            list.get(i2).f23329d = Math.abs(a2 - f2);
+            list.get(i2).f23330e = true;
+            if (a2 == f2 && (i = aVar.f23327b) >= 480 && i <= 720) {
+                aVar.f23328c = 0.6306f;
                 z = true;
                 break;
             }
@@ -117,9 +117,9 @@ public class b {
             int i3 = 0;
             while (true) {
                 if (i3 < list.size()) {
-                    if (list.get(i3).f23642b >= 480 && list.get(i3).f23642b <= 720 && list.get(i3).f23644d <= 0.1f) {
+                    if (list.get(i3).f23327b >= 480 && list.get(i3).f23327b <= 720 && list.get(i3).f23329d <= 0.1f) {
                         aVar = list.get(i3);
-                        aVar.f23643c = a(context, rect, aVar);
+                        aVar.f23328c = a(context, rect, aVar);
                         z2 = true;
                         break;
                     }
@@ -133,17 +133,17 @@ public class b {
             if (aVar == null) {
                 aVar = new com.baidu.wallet.base.iddetect.a(640, 480);
             } else {
-                aVar.f23642b = 480;
-                aVar.f23641a = 640;
+                aVar.f23327b = 480;
+                aVar.f23326a = 640;
             }
-            aVar.f23643c = a(context, rect, aVar);
+            aVar.f23328c = a(context, rect, aVar);
         }
         return aVar;
     }
 
     public static float a(Context context, Rect rect, com.baidu.wallet.base.iddetect.a aVar) {
-        float width = (rect.width() * 1.0f) / aVar.f23642b;
-        float height = (rect.height() * 1.0f) / aVar.f23641a;
+        float width = (rect.width() * 1.0f) / aVar.f23327b;
+        float height = (rect.height() * 1.0f) / aVar.f23326a;
         return width > height ? (width * 0.6306f) / height : (height * 0.6306f) / width;
     }
 

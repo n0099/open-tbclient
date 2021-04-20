@@ -7,21 +7,21 @@ import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 public class g extends BaseCardInfo {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f53636f = BdUniqueId.gen();
+    public static final BdUniqueId f53675f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public ScoreCardInfo f53637e;
+    public ScoreCardInfo f53676e;
 
     public ScoreCardInfo g() {
-        return this.f53637e;
+        return this.f53676e;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f53636f;
+        return f53675f;
     }
 
     public void j(ScoreCardInfo scoreCardInfo) {
-        this.f53637e = scoreCardInfo;
+        this.f53676e = scoreCardInfo;
     }
 }

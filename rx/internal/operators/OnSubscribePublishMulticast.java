@@ -67,30 +67,30 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public static final class a<T> extends j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final OnSubscribePublishMulticast<T> f68186e;
+        public final OnSubscribePublishMulticast<T> f69192e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.f68186e = onSubscribePublishMulticast;
+            this.f69192e = onSubscribePublishMulticast;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f68186e.onCompleted();
+            this.f69192e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f68186e.onError(th);
+            this.f69192e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f68186e.onNext(t);
+            this.f69192e.onNext(t);
         }
 
         @Override // h.j
         public void setProducer(f fVar) {
-            this.f68186e.setProducer(fVar);
+            this.f69192e.setProducer(fVar);
         }
     }
 

@@ -7,23 +7,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1098b f51360a;
+    public InterfaceC1111b f51777a;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f51361a;
+        public final /* synthetic */ ShareItem f51778a;
 
         public a(ShareItem shareItem) {
-            this.f51361a = shareItem;
+            this.f51778a = shareItem;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class b {
             NetWork netWork = new NetWork();
             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
             if (shareItem.y == 4) {
-                netWork.addPostData("forum_id", this.f51361a.I);
+                netWork.addPostData("forum_id", this.f51778a.I);
                 netWork.addPostData("type", "2");
             } else {
                 netWork.addPostData("thread_id", str2);
@@ -66,15 +66,15 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ShareItem shareItem) {
             super.onPostExecute(shareItem);
-            if (b.this.f51360a != null) {
-                b.this.f51360a.a(shareItem);
+            if (b.this.f51777a != null) {
+                b.this.f51777a.a(shareItem);
             }
         }
     }
 
     /* renamed from: d.b.h0.s.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1098b {
+    public interface InterfaceC1111b {
         void a(ShareItem shareItem);
     }
 
@@ -82,7 +82,7 @@ public class b {
         new a(shareItem).execute(shareItem);
     }
 
-    public void c(InterfaceC1098b interfaceC1098b) {
-        this.f51360a = interfaceC1098b;
+    public void c(InterfaceC1111b interfaceC1111b) {
+        this.f51777a = interfaceC1111b;
     }
 }

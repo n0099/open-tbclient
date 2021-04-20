@@ -8,46 +8,46 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C1020a> f48976a;
+    public List<C1032a> f49368a;
 
     /* renamed from: d.b.g0.l.l.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1020a {
+    public static class C1032a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f48977a;
+        public int f49369a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48978b;
+        public String f49370b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48979c;
+        public int f49371c;
 
         /* renamed from: d  reason: collision with root package name */
-        public f f48980d;
+        public f f49372d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<g> f48981e;
+        public List<g> f49373e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PMSAppInfo f48982f;
+        public PMSAppInfo f49374f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f48983g;
+        public boolean f49375g;
 
         public boolean equals(Object obj) {
             f fVar;
             if (super.equals(obj)) {
                 return true;
             }
-            if (obj == null || (fVar = this.f48980d) == null || !(obj instanceof C1020a)) {
+            if (obj == null || (fVar = this.f49372d) == null || !(obj instanceof C1032a)) {
                 return false;
             }
-            return fVar.equals(((C1020a) obj).f48980d);
+            return fVar.equals(((C1032a) obj).f49372d);
         }
 
         public int hashCode() {
-            f fVar = this.f48980d;
+            f fVar = this.f49372d;
             if (fVar == null) {
                 return super.hashCode();
             }
@@ -57,14 +57,14 @@ public class a {
         public String toString() {
             StringBuilder sb = new StringBuilder();
             sb.append("PMS Item: ");
-            sb.append(this.f48978b);
-            if (this.f48980d != null) {
+            sb.append(this.f49370b);
+            if (this.f49372d != null) {
                 sb.append(",pkgMain=");
-                sb.append(this.f48980d);
+                sb.append(this.f49372d);
             }
-            if (this.f48982f != null) {
+            if (this.f49374f != null) {
                 sb.append(",appInfo=");
-                sb.append(this.f48982f);
+                sb.append(this.f49374f);
             }
             return sb.toString();
         }

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.i0.x1.g.i;
+import d.b.c.e.p.l;
+import d.b.i0.y1.g.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */

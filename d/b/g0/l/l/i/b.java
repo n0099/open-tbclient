@@ -24,12 +24,12 @@ public class b extends d.b.g0.l.l.d<d.b.g0.l.l.j.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.f48984a == null && (((list = bVar.f48985b) == null || list.isEmpty()) && bVar.f48986c == null && bVar.f48988e == null && bVar.f48987d == null)) {
+        if (bVar.f49376a == null && (((list = bVar.f49377b) == null || list.isEmpty()) && bVar.f49378c == null && bVar.f49380e == null && bVar.f49379d == null)) {
             return false;
         }
-        f fVar = bVar.f48984a;
+        f fVar = bVar.f49376a;
         if (fVar == null || fVar.a()) {
-            List<d.b.g0.l.k.g> list2 = bVar.f48985b;
+            List<d.b.g0.l.k.g> list2 = bVar.f49377b;
             if (list2 != null) {
                 for (d.b.g0.l.k.g gVar : list2) {
                     if (!gVar.a()) {
@@ -37,11 +37,11 @@ public class b extends d.b.g0.l.l.d<d.b.g0.l.l.j.b> {
                     }
                 }
             }
-            d.b.g0.l.k.d dVar = bVar.f48986c;
+            d.b.g0.l.k.d dVar = bVar.f49378c;
             if (dVar == null || dVar.a()) {
-                d.b.g0.l.k.b bVar2 = bVar.f48988e;
+                d.b.g0.l.k.b bVar2 = bVar.f49380e;
                 if (bVar2 == null || bVar2.a()) {
-                    PMSAppInfo pMSAppInfo = bVar.f48987d;
+                    PMSAppInfo pMSAppInfo = bVar.f49379d;
                     return pMSAppInfo == null || pMSAppInfo.a();
                 }
                 return false;
@@ -55,19 +55,19 @@ public class b extends d.b.g0.l.l.d<d.b.g0.l.l.j.b> {
     @Override // d.b.g0.l.l.d
     /* renamed from: o */
     public d.b.g0.l.k.a l(d.b.g0.l.l.j.b bVar) {
-        this.f48932e.E();
+        this.f49324e.D();
         d.b.g0.l.r.f fVar = new d.b.g0.l.r.f();
-        h(bVar.f48984a, fVar);
-        i(bVar.f48985b, fVar);
-        g(bVar.f48986c, fVar);
-        f(bVar.f48988e, fVar);
-        k(bVar.f48987d);
+        h(bVar.f49376a, fVar);
+        i(bVar.f49377b, fVar);
+        g(bVar.f49378c, fVar);
+        f(bVar.f49380e, fVar);
+        k(bVar.f49379d);
         if (fVar.k() == 0) {
-            this.f48932e.F();
+            this.f49324e.E();
             return null;
         }
-        this.f48932e.G(fVar);
-        d.b.g0.l.l.h.a.b(bVar, this.f48932e);
+        this.f49324e.F(fVar);
+        d.b.g0.l.l.h.a.b(bVar, this.f49324e);
         return null;
     }
 

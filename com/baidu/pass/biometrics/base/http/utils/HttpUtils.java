@@ -55,7 +55,7 @@ public class HttpUtils {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(name);
-                sb.append(a.f1897h);
+                sb.append(a.f1922h);
                 sb.append(value);
                 if (i != arrayList.size() - 1) {
                     sb.append(Typography.amp);

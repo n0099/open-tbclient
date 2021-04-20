@@ -20,16 +20,16 @@ import java.util.List;
 public abstract class a extends com.kwad.sdk.widget.b implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.response.model.a f34781a;
+    public com.kwad.sdk.core.response.model.a f35070a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.widget.c f34782b;
+    public com.kwad.sdk.widget.c f35071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f34783c;
+    public TextView f35072c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsEntryElement.OnFeedClickListener f34784d;
+    public KsEntryElement.OnFeedClickListener f35073d;
 
     public a(Context context) {
         super(context);
@@ -41,34 +41,34 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
 
     private void c() {
         int a2 = ao.a(getContext(), 5.0f);
-        if (this.f34783c == null) {
+        if (this.f35072c == null) {
             TextView textView = new TextView(getContext());
-            this.f34783c = textView;
+            this.f35072c = textView;
             textView.setTextSize(10.0f);
-            this.f34783c.setTextColor(Color.parseColor("#9c9c9c"));
+            this.f35072c.setTextColor(Color.parseColor("#9c9c9c"));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 3;
             layoutParams.topMargin = a2;
             layoutParams.rightMargin = getSourceRightMargin();
-            this.f34783c.setLayoutParams(layoutParams);
-            addView(this.f34783c);
+            this.f35072c.setLayoutParams(layoutParams);
+            addView(this.f35072c);
         }
-        if (this.f34782b == null) {
+        if (this.f35071b == null) {
             com.kwad.sdk.widget.c cVar = new com.kwad.sdk.widget.c(getContext());
-            this.f34782b = cVar;
+            this.f35071b = cVar;
             cVar.setGravity(16);
-            this.f34782b.setTextSize(18.0f);
-            this.f34782b.setTextColor(Color.parseColor("#323232"));
-            this.f34782b.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
+            this.f35071b.setTextSize(18.0f);
+            this.f35071b.setTextColor(Color.parseColor("#323232"));
+            this.f35071b.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.bottomMargin = ao.a(getContext(), 8.0f);
-            this.f34782b.setLayoutParams(layoutParams2);
-            this.f34782b.setMaxEms(15);
-            this.f34782b.setMaxLines(1);
+            this.f35071b.setLayoutParams(layoutParams2);
+            this.f35071b.setMaxEms(15);
+            this.f35071b.setMaxLines(1);
             Drawable drawable = getResources().getDrawable(R.drawable.ksad_entrytitle_arrow);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.f34782b.setCompoundDrawables(null, null, drawable, null);
-            this.f34782b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.a.1
+            this.f35071b.setCompoundDrawables(null, null, drawable, null);
+            this.f35071b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     List<AdTemplate> realShowData = a.this.getRealShowData();
@@ -79,32 +79,32 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
                     a.this.a(realShowData.get(size), size, view, 2);
                 }
             });
-            addView(this.f34782b, 0);
+            addView(this.f35071b, 0);
         }
     }
 
     @Override // com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        e.a(this.f34781a);
+        e.a(this.f35070a);
     }
 
     public void a(AdTemplate adTemplate, int i, View view, int i2) {
-        if (this.f34784d == null) {
+        if (this.f35073d == null) {
             return;
         }
-        com.kwad.sdk.entry.model.a aVar = new com.kwad.sdk.entry.model.a(this.f34781a);
+        com.kwad.sdk.entry.model.a aVar = new com.kwad.sdk.entry.model.a(this.f35070a);
         aVar.a(adTemplate);
         com.kwad.sdk.entry.a.a(aVar);
-        e.a(adTemplate, this.f34781a.f34069e, i2);
-        this.f34784d.handleFeedClick(this.f34781a.f34065a, i, view);
+        e.a(adTemplate, this.f35070a.f34358e, i2);
+        this.f35073d.handleFeedClick(this.f35070a.f34354a, i, view);
     }
 
     @Override // com.kwad.sdk.entry.view.c
     public boolean a(com.kwad.sdk.core.response.model.a aVar) {
         LinearLayout.LayoutParams layoutParams;
         int i;
-        this.f34781a = aVar;
+        this.f35070a = aVar;
         if (aVar == null) {
             removeAllViews();
             return false;
@@ -112,33 +112,33 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
         boolean b2 = b();
         String entrySourceDesc = getEntrySourceDesc();
         if (entrySourceDesc != null) {
-            this.f34783c.setText(entrySourceDesc);
+            this.f35072c.setText(entrySourceDesc);
         } else {
-            if (TextUtils.isEmpty(aVar.f34066b)) {
-                aVar.f34066b = "来自 快手推荐";
+            if (TextUtils.isEmpty(aVar.f34355b)) {
+                aVar.f34355b = "来自 快手推荐";
             }
-            this.f34783c.setText(aVar.f34066b);
+            this.f35072c.setText(aVar.f34355b);
         }
         int entrySourcePos = getEntrySourcePos();
         if (entrySourcePos != 0) {
             if (entrySourcePos != 1) {
-                layoutParams = (LinearLayout.LayoutParams) this.f34783c.getLayoutParams();
+                layoutParams = (LinearLayout.LayoutParams) this.f35072c.getLayoutParams();
                 i = 5;
             } else {
-                layoutParams = (LinearLayout.LayoutParams) this.f34783c.getLayoutParams();
+                layoutParams = (LinearLayout.LayoutParams) this.f35072c.getLayoutParams();
                 i = 3;
             }
             layoutParams.gravity = i;
-            this.f34783c.setLayoutParams(layoutParams);
-            this.f34783c.setVisibility(0);
+            this.f35072c.setLayoutParams(layoutParams);
+            this.f35072c.setVisibility(0);
         } else {
-            this.f34783c.setVisibility(8);
+            this.f35072c.setVisibility(8);
         }
-        if (getEntryTitlePos() != 1 || TextUtils.isEmpty(this.f34781a.f34070f)) {
-            this.f34782b.setVisibility(8);
+        if (getEntryTitlePos() != 1 || TextUtils.isEmpty(this.f35070a.f34359f)) {
+            this.f35071b.setVisibility(8);
         } else {
-            this.f34782b.setText(this.f34781a.f34070f);
-            this.f34782b.setVisibility(0);
+            this.f35071b.setText(this.f35070a.f34359f);
+            this.f35071b.setVisibility(0);
         }
         return b2;
     }
@@ -150,11 +150,11 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
     }
 
     public int getEntrySourcePos() {
-        return this.f34781a.f34067c;
+        return this.f35070a.f34356c;
     }
 
     public int getEntryTitlePos() {
-        return this.f34781a.f34071g;
+        return this.f35070a.f34360g;
     }
 
     @NonNull
@@ -172,6 +172,6 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
 
     @Override // com.kwad.sdk.entry.view.c
     public void setOnfeedClickListener(KsEntryElement.OnFeedClickListener onFeedClickListener) {
-        this.f34784d = onFeedClickListener;
+        this.f35073d = onFeedClickListener;
     }
 }

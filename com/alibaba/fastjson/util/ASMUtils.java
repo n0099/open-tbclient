@@ -1,11 +1,13 @@
 package com.alibaba.fastjson.util;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
 import com.baidu.android.common.others.IStringUtil;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -93,7 +95,9 @@ public class ASMUtils {
     public static String[] lookupParameterNames(AccessibleObject accessibleObject) {
         Class<?>[] parameterTypes;
         Class<?> declaringClass;
+        Annotation[][] parameterAnnotations;
         String str;
+        String name;
         if (IS_ANDROID) {
             return new String[0];
         }
@@ -102,10 +106,12 @@ public class ASMUtils {
             parameterTypes = method.getParameterTypes();
             str = method.getName();
             declaringClass = method.getDeclaringClass();
+            parameterAnnotations = TypeUtils.getParameterAnnotations(method);
         } else {
             Constructor constructor = (Constructor) accessibleObject;
             parameterTypes = constructor.getParameterTypes();
             declaringClass = constructor.getDeclaringClass();
+            parameterAnnotations = TypeUtils.getParameterAnnotations(constructor);
             str = "<init>";
         }
         if (parameterTypes.length == 0) {
@@ -115,16 +121,27 @@ public class ASMUtils {
         if (classLoader == null) {
             classLoader = ClassLoader.getSystemClassLoader();
         }
-        String name = declaringClass.getName();
-        InputStream resourceAsStream = classLoader.getResourceAsStream(name.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + ".class");
+        String name2 = declaringClass.getName();
+        InputStream resourceAsStream = classLoader.getResourceAsStream(name2.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + ".class");
         try {
             if (resourceAsStream == null) {
                 return new String[0];
             }
-            ClassReader classReader = new ClassReader(resourceAsStream);
+            ClassReader classReader = new ClassReader(resourceAsStream, false);
             TypeCollector typeCollector = new TypeCollector(str, parameterTypes);
             classReader.accept(typeCollector);
-            return typeCollector.getParameterNamesForMethod();
+            String[] parameterNamesForMethod = typeCollector.getParameterNamesForMethod();
+            for (int i = 0; i < parameterNamesForMethod.length; i++) {
+                Annotation[] annotationArr = parameterAnnotations[i];
+                if (annotationArr != null) {
+                    for (int i2 = 0; i2 < annotationArr.length; i2++) {
+                        if ((annotationArr[i2] instanceof JSONField) && (name = ((JSONField) annotationArr[i2]).name()) != null && name.length() > 0) {
+                            parameterNamesForMethod[i] = name;
+                        }
+                    }
+                }
+            }
+            return parameterNamesForMethod;
         } catch (IOException unused) {
             return new String[0];
         } finally {

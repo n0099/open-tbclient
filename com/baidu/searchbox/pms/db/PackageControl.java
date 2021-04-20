@@ -13,7 +13,6 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -305,7 +304,7 @@ public class PackageControl {
         if (!TextUtils.isEmpty(str3)) {
             arrayList.add(new Pair<>(PackageTable.UPDATE_VERSION, str3));
         }
-        arrayList.add(new Pair<>("type", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ));
+        arrayList.add(new Pair<>("type", "10"));
         return deleteItemByKeValues(arrayList, true);
     }
 
@@ -484,7 +483,7 @@ public class PackageControl {
         int size = list != null ? list.size() + 2 : 2;
         String[] strArr = new String[size];
         strArr[0] = str;
-        strArr[1] = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
+        strArr[1] = "10";
         String str2 = "channel_id =? AND type =? ";
         if (list != null && list.size() > 0) {
             String str3 = str2 + "AND (";
@@ -526,7 +525,7 @@ public class PackageControl {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new Pair("channel_id", str));
-        arrayList.add(new Pair("type", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ));
+        arrayList.add(new Pair("type", "10"));
         ?? arrayList2 = new ArrayList();
         if (list != null && list.size() > 0) {
             for (String str2 : list) {

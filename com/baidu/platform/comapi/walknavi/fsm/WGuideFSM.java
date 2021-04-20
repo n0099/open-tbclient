@@ -6,43 +6,43 @@ import com.baidu.platform.comapi.walknavi.b;
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10051a;
+    public String f9609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10052b;
+    public String f9610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10053c;
+    public String f9611c;
 
     public WGuideFSM() {
         setInitialState("Entry");
-        this.f10053c = this.f10051a;
+        this.f9611c = this.f9609a;
         FSMTable.initTransition();
     }
 
     private void cacheBackState(String str) {
         if ("North2D".equals(str)) {
-            this.f10053c = "North2D";
+            this.f9611c = "North2D";
         } else if ("Car3D".equals(str) || "Entry".equals(str)) {
-            this.f10053c = "Car3D";
+            this.f9611c = "Car3D";
         }
     }
 
     private String getBackState(String str) {
         if ("BrowseMap".equals(str)) {
-            return this.f10053c;
+            return this.f9611c;
         }
         return null;
     }
 
     public static void restoreZoomLevel() {
-        int i = com.baidu.platform.comapi.walknavi.b.a.f9905c;
+        int i = com.baidu.platform.comapi.walknavi.b.a.f9463c;
         if (i < 15) {
             i = 15;
         } else if (i > 20) {
             i = 19;
         }
-        com.baidu.platform.comapi.walknavi.b.a.f9905c = i;
+        com.baidu.platform.comapi.walknavi.b.a.f9463c = i;
     }
 
     public static void saveZoomLevel() {
@@ -52,7 +52,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         } else if (k > 20) {
             k = 19;
         }
-        com.baidu.platform.comapi.walknavi.b.a.f9905c = k;
+        com.baidu.platform.comapi.walknavi.b.a.f9463c = k;
     }
 
     private void stateReflection(String str, String str2) {
@@ -65,11 +65,11 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public String getCurrentEvent() {
-        return this.f10052b;
+        return this.f9610b;
     }
 
     public String getCurrentState() {
-        return this.f10051a;
+        return this.f9609a;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -83,37 +83,37 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public synchronized void run(String str) {
-        String str2 = this.f10051a;
+        String str2 = this.f9609a;
         String queryDestState = FSMTable.queryDestState(str2, str);
         if (queryDestState != null) {
-            this.f10052b = str;
+            this.f9610b = str;
             if ("BACK".equals(queryDestState)) {
                 queryDestState = getBackState(str2);
             }
             stateReflection(str2, "exit");
             stateReflection(queryDestState, RGState.METHOD_NAME_ENTER);
             stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
-            this.f10051a = queryDestState;
+            this.f9609a = queryDestState;
             cacheBackState(queryDestState);
         }
     }
 
     public synchronized void runCurrentState() {
-        if (!this.f10051a.equalsIgnoreCase("Entry")) {
-            stateReflection(this.f10051a, RGState.METHOD_NAME_EXCUTE);
+        if (!this.f9609a.equalsIgnoreCase("Entry")) {
+            stateReflection(this.f9609a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
         if (b.a().J() == 4) {
-            this.f10051a = "SegEntry";
+            this.f9609a = "SegEntry";
         } else {
-            this.f10051a = "Entry";
+            this.f9609a = "Entry";
         }
-        stateReflection(this.f10051a, RGState.METHOD_NAME_EXCUTE);
+        stateReflection(this.f9609a, RGState.METHOD_NAME_EXCUTE);
     }
 
     public void setInitialState(String str) {
-        this.f10051a = str;
+        this.f9609a = str;
     }
 }

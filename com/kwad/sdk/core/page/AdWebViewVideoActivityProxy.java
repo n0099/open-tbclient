@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Keep;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
@@ -147,7 +148,7 @@ public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
             return;
         }
         Intent intent = new Intent(context, BaseFragmentActivity.FragmentActivity3.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("key_template", adTemplate);
         intent.putExtra(KEY_REPORTED, adTemplate.mPvReported);
         context.startActivity(intent);

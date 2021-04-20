@@ -3,14 +3,14 @@ package d.b.g0.a.f1.g;
 public class b extends c {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f44439e;
+    public boolean f44831e;
 
     public b(boolean z) {
         super(4);
-        this.f44439e = z;
+        this.f44831e = z;
     }
 
     public boolean e() {
-        return this.f44439e;
+        return this.f44831e;
     }
 }

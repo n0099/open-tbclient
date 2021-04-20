@@ -11,33 +11,33 @@ import d.b.g0.a.t1.k.a0;
 import d.b.g0.a.v1.c.i.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
 
     /* renamed from: d.b.g0.a.v1.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0858a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
+    /* loaded from: classes3.dex */
+    public class C0870a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46681e;
+        public final /* synthetic */ CallbackHandler f47073e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46682f;
+        public final /* synthetic */ String f47074f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46683g;
+        public final /* synthetic */ String f47075g;
 
-        public C0858a(CallbackHandler callbackHandler, String str, String str2) {
-            this.f46681e = callbackHandler;
-            this.f46682f = str;
-            this.f46683g = str2;
+        public C0870a(CallbackHandler callbackHandler, String str, String str2) {
+            this.f47073e = callbackHandler;
+            this.f47074f = str;
+            this.f47075g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
-            a.this.k(this.f46681e, this.f46682f, this.f46683g, hVar);
+            a.this.k(this.f47073e, this.f47074f, this.f47075g, hVar);
         }
     }
 
@@ -70,12 +70,12 @@ public class a extends a0 {
             d.b.g0.g.c0.c.a(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
             return false;
         }
-        eVar.R().c(context, optString2, false, new C0858a(callbackHandler, optString2, optString));
+        eVar.R().c(context, optString2, false, new C0870a(callbackHandler, optString2, optString));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0097, code lost:
         r8 = 10001;
      */
     /*
@@ -85,7 +85,7 @@ public class a extends a0 {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("scope", str);
-            if (hVar != null && hVar.f46808a != null) {
+            if (hVar != null && hVar.f47200a != null) {
                 if (!hVar.c()) {
                     OAuthException a2 = hVar.a();
                     jSONObject.put("errMsg", a2 == null ? "" : a2.getMessage());
@@ -93,10 +93,10 @@ public class a extends a0 {
                     d.b.g0.g.c0.c.a(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.b()).toString());
                     return;
                 }
-                jSONObject.put("code", hVar.f46808a.f46822a);
-                jSONObject.put("errMsg", hVar.f46808a.f46823b ? "authorize:ok" : "user deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.f46808a.f46823b ? 0 : 10003).toString());
-                if (hVar.f46808a.f46823b) {
+                jSONObject.put("code", hVar.f47200a.f47214a);
+                jSONObject.put("errMsg", hVar.f47200a.f47215b ? "authorize:ok" : "user deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.f47200a.f47215b ? 0 : 10003).toString());
+                if (hVar.f47200a.f47215b) {
                     return;
                 }
                 d.b.g0.g.c0.c.a(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.b()).toString());

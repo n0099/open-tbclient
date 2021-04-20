@@ -3,30 +3,30 @@ package d.b.g0.a.e0.p;
 public abstract class j extends d.b.g0.l.h.g implements d.b.g0.a.j0.j.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f44186e;
+    public final int f44578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44187f;
+    public int f44579f;
 
     public j() {
-        int K = K();
-        this.f44186e = K;
-        this.f44187f = K;
+        int J = J();
+        this.f44578e = J;
+        this.f44579f = J;
+    }
+
+    public int I() {
+        int i = this.f44579f;
+        return i == 0 ? this.f44578e : i;
     }
 
     public int J() {
-        int i = this.f44187f;
-        return i == 0 ? this.f44186e : i;
-    }
-
-    public int K() {
         return 0;
     }
 
-    public j L(int i) {
-        int i2 = this.f44187f;
-        if ((i2 == 0 || this.f44186e == i2) && i != 0 && i != this.f44187f) {
-            this.f44187f = i;
+    public j K(int i) {
+        int i2 = this.f44579f;
+        if ((i2 == 0 || this.f44578e == i2) && i != 0 && i != this.f44579f) {
+            this.f44579f = i;
         }
         return this;
     }

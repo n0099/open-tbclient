@@ -7,7 +7,7 @@ public interface a extends d.b.i0.e.e.a<c> {
 
     /* renamed from: d.b.i0.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1224a {
+    public interface InterfaceC1249a {
         void a(c cVar, View view);
 
         void b(c cVar, View view);
@@ -17,7 +17,7 @@ public interface a extends d.b.i0.e.e.a<c> {
 
     void c(Object obj);
 
-    void d(InterfaceC1224a interfaceC1224a);
+    void d(InterfaceC1249a interfaceC1249a);
 
     void g();
 

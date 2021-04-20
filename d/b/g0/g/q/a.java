@@ -22,36 +22,36 @@ import java.util.concurrent.Executors;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48541a = k.f45051a;
+    public static final boolean f48933a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f48542b = Executors.newSingleThreadExecutor();
+    public static ExecutorService f48934b = Executors.newSingleThreadExecutor();
 
     /* renamed from: d.b.g0.g.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0988a implements Runnable {
+    public static class RunnableC1000a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f48543e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f48935e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.u0.b f48544f;
+        public final /* synthetic */ d.b.g0.a.u0.b f48936f;
 
-        public RunnableC0988a(d.b.g0.a.y0.e.b bVar, d.b.g0.a.u0.b bVar2) {
-            this.f48543e = bVar;
-            this.f48544f = bVar2;
+        public RunnableC1000a(d.b.g0.a.y0.e.b bVar, d.b.g0.a.u0.b bVar2) {
+            this.f48935e = bVar;
+            this.f48936f = bVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c j;
             d.b.g0.a.i2.r0.b bVar = new d.b.g0.a.i2.r0.b();
-            if (this.f48543e.j0() && (d.b.g0.a.m1.a.a.u() || a.f48541a)) {
-                j = b.a(this.f48543e, bVar);
+            if (this.f48935e.j0() && (d.b.g0.a.m1.a.a.u() || a.f48933a)) {
+                j = b.a(this.f48935e, bVar);
             } else {
-                j = d.j(this.f48543e, bVar);
+                j = d.j(this.f48935e, bVar);
             }
-            this.f48544f.a(0, j);
+            this.f48936f.a(0, j);
         }
     }
 
@@ -73,8 +73,8 @@ public class a {
                     aVar.h(7L);
                     aVar.e("小游戏bundle解压失败! for debug");
                     d.b.g0.a.f2.e.a().f(aVar);
-                    if (bVar2 != null && bVar2.f44761a == null) {
-                        bVar2.f44761a = aVar;
+                    if (bVar2 != null && bVar2.f45153a == null) {
+                        bVar2.f45153a = aVar;
                     }
                     return null;
                 }
@@ -86,8 +86,8 @@ public class a {
                     aVar2.h(7L);
                     aVar2.e("小游戏bundle解压失败! for debug");
                     d.b.g0.a.f2.e.a().f(aVar2);
-                    if (bVar2 != null && bVar2.f44761a == null) {
-                        bVar2.f44761a = aVar2;
+                    if (bVar2 != null && bVar2.f45153a == null) {
+                        bVar2.f45153a = aVar2;
                     }
                     return null;
                 }
@@ -99,21 +99,21 @@ public class a {
             if (a2 == null) {
                 return null;
             }
-            cVar.f48545a = d2.getPath() + File.separator;
-            cVar.f48547c = a2;
-            if (!TextUtils.isEmpty(a2.f48698e)) {
-                cVar.f48546b = cVar.f48545a + a2.f48698e + File.separator;
+            cVar.f48937a = d2.getPath() + File.separator;
+            cVar.f48939c = a2;
+            if (!TextUtils.isEmpty(a2.f49090e)) {
+                cVar.f48938b = cVar.f48937a + a2.f49090e + File.separator;
                 f.a().d(true);
-                f.a().e(cVar.f48546b);
-                f.a().f(a2.f48698e);
+                f.a().e(cVar.f48938b);
+                f.a().f(a2.f49090e);
             } else {
                 f.a().d(false);
             }
-            if (a.f48541a) {
+            if (a.f48933a) {
                 Log.d("SwanAppBundleHelper", "configFile path: " + file.getPath());
                 Log.d("SwanAppBundleHelper", "configFile exist: " + file.exists());
-                Log.d("SwanAppBundleHelper", "info.appBundlePath path: " + cVar.f48545a);
-                Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + cVar.f48546b);
+                Log.d("SwanAppBundleHelper", "info.appBundlePath path: " + cVar.f48937a);
+                Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + cVar.f48938b);
             }
             return cVar;
         }
@@ -132,7 +132,7 @@ public class a {
             aVar.e("没有小游戏包! for debug, bundle files are empty");
             d.b.g0.a.f2.e.a().f(aVar);
             if (bVar != null) {
-                bVar.f44761a = aVar;
+                bVar.f45153a = aVar;
                 return null;
             }
             return null;
@@ -167,13 +167,13 @@ public class a {
     public static class c extends d.b.g0.a.u0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48545a;
+        public String f48937a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48546b;
+        public String f48938b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.g0.g.z.a.a f48547c;
+        public d.b.g0.g.z.a.a f48939c;
     }
 
     /* loaded from: classes3.dex */
@@ -181,7 +181,7 @@ public class a {
 
         /* renamed from: d.b.g0.g.q.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0989a implements FileFilter {
+        public static class C1001a implements FileFilter {
             @Override // java.io.FileFilter
             public boolean accept(File file) {
                 return file.isDirectory() && TextUtils.isDigitsOnly(file.getName());
@@ -209,13 +209,13 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            File[] listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder", str).listFiles(new C0989a());
+            File[] listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder", str).listFiles(new C1001a());
             if (listFiles == null || listFiles.length <= 0) {
                 return;
             }
             for (File file : listFiles) {
                 if (i(str2, file.getName())) {
-                    if (a.f48541a) {
+                    if (a.f48933a) {
                         Log.i("SwanAppBundleHelper", "删除低版本文件夹：" + file.getAbsolutePath());
                     }
                     d.b.g0.l.i.a.h().d(str, file.getName());
@@ -250,7 +250,7 @@ public class a {
             }
             File[] listFiles = g().listFiles();
             if (listFiles == null || listFiles.length == 0) {
-                if (a.f48541a && z) {
+                if (a.f48933a && z) {
                     d.b.g0.a.q1.b.f.d.f(AppRuntime.getAppContext(), g2.getPath() + " 没有小游戏包!").C();
                 }
                 d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
@@ -259,7 +259,7 @@ public class a {
                 aVar.e("没有小游戏包! for release, bundle files are empty");
                 d.b.g0.a.f2.e.a().f(aVar);
                 if (bVar != null) {
-                    bVar.f44761a = aVar;
+                    bVar.f45153a = aVar;
                 }
                 return null;
             }
@@ -268,7 +268,7 @@ public class a {
                     return file;
                 }
             }
-            if (a.f48541a && z) {
+            if (a.f48933a && z) {
                 d.b.g0.a.q1.b.f.d.f(AppRuntime.getAppContext(), g2.getPath() + " 没有小游戏包!").C();
             }
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
@@ -277,7 +277,7 @@ public class a {
             aVar2.e("没有小游戏包! for release, no such bundle file");
             d.b.g0.a.f2.e.a().f(aVar2);
             if (bVar != null) {
-                bVar.f44761a = aVar2;
+                bVar.f45153a = aVar2;
             }
             return null;
         }
@@ -295,13 +295,13 @@ public class a {
         }
 
         public static boolean i(String str, String str2) {
-            if (a.f48541a) {
+            if (a.f48933a) {
                 Log.i("SwanAppBundleHelper", "curVersion:" + str + ",targetVersion:" + str2);
             }
             try {
                 return a(str, str2) > 0;
             } catch (IllegalArgumentException e2) {
-                if (a.f48541a) {
+                if (a.f48933a) {
                     Log.e("SwanAppBundleHelper", "比较版本号Exception：" + e2.getMessage());
                 }
                 return false;
@@ -330,8 +330,8 @@ public class a {
                     aVar.h(7L);
                     aVar.e("小游戏bundle解压失败! for release");
                     d.b.g0.a.f2.e.a().f(aVar);
-                    if (bVar2 != null && bVar2.f44761a == null) {
-                        bVar2.f44761a = aVar;
+                    if (bVar2 != null && bVar2.f45153a == null) {
+                        bVar2.f45153a = aVar;
                     }
                     return null;
                 }
@@ -343,28 +343,28 @@ public class a {
             if (a2 == null) {
                 return null;
             }
-            cVar.f48545a = h2.getPath() + File.separator;
-            cVar.f48547c = a2;
-            if (!TextUtils.isEmpty(a2.f48698e)) {
-                cVar.f48546b = cVar.f48545a + File.separator + a2.f48698e + File.separator;
+            cVar.f48937a = h2.getPath() + File.separator;
+            cVar.f48939c = a2;
+            if (!TextUtils.isEmpty(a2.f49090e)) {
+                cVar.f48938b = cVar.f48937a + File.separator + a2.f49090e + File.separator;
                 f.a().d(true);
-                f.a().e(cVar.f48546b);
-                f.a().f(a2.f48698e);
+                f.a().e(cVar.f48938b);
+                f.a().f(a2.f49090e);
             } else {
                 f.a().d(false);
             }
-            if (a.f48541a) {
+            if (a.f48933a) {
                 Log.d("SwanAppBundleHelper", "configFile path: " + file.getPath());
                 Log.d("SwanAppBundleHelper", "configFile exist: " + file.exists());
-                Log.d("SwanAppBundleHelper", "info.appBundlePath path: " + cVar.f48545a);
-                Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + cVar.f48546b);
+                Log.d("SwanAppBundleHelper", "info.appBundlePath path: " + cVar.f48937a);
+                Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + cVar.f48938b);
             }
             return cVar;
         }
     }
 
     public static void c(d.b.g0.a.y0.e.b bVar, d.b.g0.a.u0.b bVar2) {
-        f48542b.execute(new RunnableC0988a(bVar, bVar2));
+        f48934b.execute(new RunnableC1000a(bVar, bVar2));
     }
 
     public static File d() {
@@ -377,22 +377,22 @@ public class a {
     }
 
     public static void f(String str, d.c cVar) {
-        d.C0849d c0849d = new d.C0849d();
-        c0849d.f46599a = str;
+        d.C0861d c0861d = new d.C0861d();
+        c0861d.f46991a = str;
         d.b.g0.g.k.a.b.a();
-        new d.b.g0.a.h0.a().e(c0849d, d.b.g0.g.k.a.b.c().getPath(), cVar);
+        new d.b.g0.a.h0.a().e(c0861d, d.b.g0.g.k.a.b.c().getPath(), cVar);
     }
 
     public static void g(String str, d.c cVar) {
-        d.C0849d c0849d = new d.C0849d();
-        c0849d.f46599a = str;
+        d.C0861d c0861d = new d.C0861d();
+        c0861d.f46991a = str;
         d.b.g0.g.n.a.b.a();
-        new d.b.g0.a.h0.a().e(c0849d, d.b.g0.g.n.a.b.c().getPath(), cVar);
+        new d.b.g0.a.h0.a().e(c0861d, d.b.g0.g.n.a.b.c().getPath(), cVar);
     }
 
-    public static void h(d.C0849d c0849d, d.c cVar) {
+    public static void h(d.C0861d c0861d, d.c cVar) {
         File c2 = b.c();
-        new d.b.g0.a.h0.a().e(c0849d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
+        new d.b.g0.a.h0.a().e(c0861d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
     }
 
     public static boolean i(File file, File file2, d.b.g0.a.y0.e.b bVar, d.b.g0.a.i2.r0.b bVar2) {
@@ -403,15 +403,15 @@ public class a {
                 i.n().A(new UbcFlowEvent("package_start_unzip"));
                 long currentTimeMillis = System.currentTimeMillis();
                 a.b f2 = d.b.g0.a.u0.g.a.f(file);
-                int i2 = f2.f46619b;
+                int i2 = f2.f47011b;
                 if (i2 != -1) {
-                    F = d.b.g0.a.u0.g.a.a(f2.f46618a, file2, i2).f46616a;
-                    i = f2.f46619b;
+                    F = d.b.g0.a.u0.g.a.a(f2.f47010a, file2, i2).f47008a;
+                    i = f2.f47011b;
                 } else {
                     F = d.b.g0.p.d.F(file.getPath(), file2.getPath());
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (f48541a) {
+                if (f48933a) {
                     d.b.g0.a.u0.g.a.d((int) (currentTimeMillis2 - currentTimeMillis));
                 }
                 if (!F) {
@@ -420,7 +420,7 @@ public class a {
                     aVar.h(7L);
                     aVar.e("小游戏bundle解压失败! PkgType=" + i);
                     if (bVar2 != null) {
-                        bVar2.f44761a = aVar;
+                        bVar2.f45153a = aVar;
                     }
                 }
                 HybridUbcFlow n = i.n();
@@ -433,7 +433,7 @@ public class a {
             aVar2.h(4L);
             aVar2.e("小游戏bundle文件不存在或者空文件! ");
             if (bVar2 != null) {
-                bVar2.f44761a = aVar2;
+                bVar2.f45153a = aVar2;
             }
         }
         return false;

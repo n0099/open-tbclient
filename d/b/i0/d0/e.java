@@ -7,21 +7,21 @@ import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 public class e extends BaseCardInfo {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f53632f = BdUniqueId.gen();
+    public static final BdUniqueId f53671f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardHot f53633e;
+    public FeatureCardHot f53672e;
 
     public FeatureCardHot g() {
-        return this.f53633e;
+        return this.f53672e;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f53632f;
+        return f53671f;
     }
 
     public void j(FeatureCardHot featureCardHot) {
-        this.f53633e = featureCardHot;
+        this.f53672e = featureCardHot;
     }
 }

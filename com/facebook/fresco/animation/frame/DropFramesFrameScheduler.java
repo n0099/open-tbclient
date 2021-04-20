@@ -2,7 +2,7 @@ package com.facebook.fresco.animation.frame;
 
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.fresco.animation.backend.AnimationInformation;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DropFramesFrameScheduler implements FrameScheduler {
     public static final int UNSET = -1;
     public final AnimationInformation mAnimationInformation;

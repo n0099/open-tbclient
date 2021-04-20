@@ -57,20 +57,20 @@ public class u extends c implements q, p<a2> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (u.this.n == null || u.this.p == null || u.this.o == null || u.this.p.w2() || !u.this.r) {
+            if (u.this.n == null || u.this.p == null || u.this.o == null || u.this.p.x2() || !u.this.r) {
                 return;
             }
-            if (u.this.p.i2() || !d.b.i0.p0.b.e().g()) {
-                if (u.this.p.j2() || !d.b.i0.p0.a.h().j()) {
-                    d.b.i0.p0.b.e().j(u.this.p);
-                    u.this.p.S3(false);
-                    d.b.i0.p0.a.h().l(u.this.p);
+            if (u.this.p.j2() || !d.b.i0.q0.b.e().g()) {
+                if (u.this.p.k2() || !d.b.i0.q0.a.h().j()) {
+                    d.b.i0.q0.b.e().j(u.this.p);
                     u.this.p.T3(false);
-                } else if (d.b.i0.p0.a.h().a(u.this.p)) {
-                    u.this.p.T3(true);
+                    d.b.i0.q0.a.h().l(u.this.p);
+                    u.this.p.U3(false);
+                } else if (d.b.i0.q0.a.h().a(u.this.p)) {
+                    u.this.p.U3(true);
                 }
-            } else if (d.b.i0.p0.b.e().a(u.this.p)) {
-                u.this.p.S3(true);
+            } else if (d.b.i0.q0.b.e().a(u.this.p)) {
+                u.this.p.T3(true);
             }
             u.this.r();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, u.this.p));
@@ -110,21 +110,21 @@ public class u extends c implements q, p<a2> {
 
     @Override // d.b.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (!this.p.i2() && !this.p.j2()) {
+        if (!this.p.j2() && !this.p.k2()) {
             WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
         } else {
             WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
         }
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.l);
-        a2.h(R.string.J_X06);
-        a2.g(this.q ? 2 : 1);
-        a2.c(R.color.CAM_X0201);
-        d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.m);
-        a3.h(R.string.J_X06);
-        a3.g(2);
-        a3.c(R.color.CAM_X0201);
-        d.b.h0.r.u.c.a(this.o).s(R.string.F_X01);
-        SkinManager.setViewTextColor(this.o, (this.p.i2() || this.p.j2()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
+        d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.l);
+        d2.k(R.string.J_X06);
+        d2.j(this.q ? 2 : 1);
+        d2.f(R.color.CAM_X0201);
+        d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.m);
+        d3.k(R.string.J_X06);
+        d3.j(2);
+        d3.f(R.color.CAM_X0201);
+        d.b.h0.r.u.c.d(this.o).v(R.string.F_X01);
+        SkinManager.setViewTextColor(this.o, (this.p.j2() || this.p.k2()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -133,13 +133,13 @@ public class u extends c implements q, p<a2> {
     public void a(a2 a2Var) {
         this.p = a2Var;
         this.r = a2Var.getType() != a2.x3 && (a2Var == null || a2Var.T() == null || !a2Var.T().isForumBusinessAccount() || a2Var.s());
-        if (!d.b.i0.p0.b.e().g() && !d.b.i0.p0.a.h().j()) {
-            this.f51771h.o(new a.C1118a(4, Boolean.TRUE));
+        if (!d.b.i0.q0.b.e().g() && !d.b.i0.q0.a.h().j()) {
+            this.f52195h.o(new a.C1131a(4, Boolean.TRUE));
             this.k.setVisibility(8);
             return;
         }
         this.k.setVisibility(0);
-        this.f51771h.o(new a.C1118a(4, Boolean.FALSE));
+        this.f52195h.o(new a.C1131a(4, Boolean.FALSE));
         r();
     }
 
@@ -153,19 +153,19 @@ public class u extends c implements q, p<a2> {
             return;
         }
         int i = 4;
-        this.l.setVisibility((a2Var.i2() || this.p.j2() || !this.r) ? 0 : 4);
-        this.m.setVisibility((this.p.i2() || this.p.j2()) ? 0 : 0);
+        this.l.setVisibility((a2Var.j2() || this.p.k2() || !this.r) ? 0 : 4);
+        this.m.setVisibility((this.p.j2() || this.p.k2()) ? 0 : 0);
         if (this.q) {
             this.i.setVisibility(0);
             if (this.r) {
                 this.n.setVisibility(0);
                 this.o.setVisibility(0);
-                if (!this.p.i2() && !this.p.j2()) {
+                if (!this.p.j2() && !this.p.k2()) {
                     WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
                 } else {
                     WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
                 }
-                SkinManager.setViewTextColor(this.o, (this.p.i2() || this.p.j2()) ? R.color.CAM_X0304 : R.drawable.selector_comment_and_prise_item_text_color);
+                SkinManager.setViewTextColor(this.o, (this.p.j2() || this.p.k2()) ? R.color.CAM_X0304 : R.drawable.selector_comment_and_prise_item_text_color);
                 return;
             }
             this.n.setVisibility(8);
@@ -183,7 +183,7 @@ public class u extends c implements q, p<a2> {
     public void t(int i, l0 l0Var) {
         this.j.setWeightSum(i);
         if (this.j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f51801f, l0Var.f51799d, l0Var.f51802g, l0Var.f51800e);
+            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f52225f, l0Var.f52223d, l0Var.f52226g, l0Var.f52224e);
         }
     }
 }

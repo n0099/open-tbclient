@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 public class fw extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public gf f40535a;
+    public gf f40824a;
 
     /* renamed from: a  reason: collision with other field name */
     public gg f413a;
@@ -15,35 +15,35 @@ public class fw extends Exception {
     public Throwable f414a;
 
     public fw() {
-        this.f40535a = null;
+        this.f40824a = null;
         this.f413a = null;
         this.f414a = null;
     }
 
     public fw(gf gfVar) {
-        this.f40535a = null;
+        this.f40824a = null;
         this.f413a = null;
         this.f414a = null;
-        this.f40535a = gfVar;
+        this.f40824a = gfVar;
     }
 
     public fw(String str) {
         super(str);
-        this.f40535a = null;
+        this.f40824a = null;
         this.f413a = null;
         this.f414a = null;
     }
 
     public fw(String str, Throwable th) {
         super(str);
-        this.f40535a = null;
+        this.f40824a = null;
         this.f413a = null;
         this.f414a = null;
         this.f414a = th;
     }
 
     public fw(Throwable th) {
-        this.f40535a = null;
+        this.f40824a = null;
         this.f413a = null;
         this.f414a = null;
         this.f414a = th;
@@ -58,7 +58,7 @@ public class fw extends Exception {
         gf gfVar;
         gg ggVar;
         String message = super.getMessage();
-        return (message != null || (ggVar = this.f413a) == null) ? (message != null || (gfVar = this.f40535a) == null) ? message : gfVar.toString() : ggVar.toString();
+        return (message != null || (ggVar = this.f413a) == null) ? (message != null || (gfVar = this.f40824a) == null) ? message : gfVar.toString() : ggVar.toString();
     }
 
     @Override // java.lang.Throwable
@@ -96,7 +96,7 @@ public class fw extends Exception {
         if (ggVar != null) {
             sb.append(ggVar);
         }
-        gf gfVar = this.f40535a;
+        gf gfVar = this.f40824a;
         if (gfVar != null) {
             sb.append(gfVar);
         }

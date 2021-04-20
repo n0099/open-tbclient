@@ -8,7 +8,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MaskMessageModel extends BdBaseModel {
     public static final int TYPE_ONLY_ATTENTION_SEND = 8;
 

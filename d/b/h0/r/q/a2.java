@@ -91,12 +91,12 @@ import tbclient.VideoInfo;
 import tbclient.Voice;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes3.dex */
-public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoData {
+public class a2 extends a implements PreLoadImageProvider, d.b.c.j.e.n, IVideoData {
     public boolean B1;
     public int B2;
     public w1 C;
     public OriginalForumInfo C1;
-    public d.b.i0.c3.h0.n C2;
+    public d.b.i0.d3.h0.n C2;
     public String D;
     public boolean D1;
     public int D2;
@@ -239,16 +239,16 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     public static SparseArray<m.a> D3 = new SparseArray<>(3);
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50702e = false;
+    public boolean f51109e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50703f = false;
+    public boolean f51110f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50704g = false;
+    public boolean f51111g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50705h = false;
+    public boolean f51112h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -314,7 +314,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     public List<PbContent> u = new ArrayList();
     public String F = null;
     public y1 C0 = new y1();
-    public ArrayList<d.b.h0.t.b> D0 = new ArrayList<>();
+    public ArrayList<d.b.h0.t.c> D0 = new ArrayList<>();
     public PushStatusData E0 = new PushStatusData();
     public boolean Y0 = false;
     public int Z0 = -1;
@@ -377,11 +377,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean A2() {
-        return this.Z == 11 || this.Y == 1;
+        return z2() && D2();
     }
 
-    public void A3(String str) {
-        this.f1 = str;
+    public void A3(boolean z) {
+        this.S1 = z;
     }
 
     public SpannableString B(ClickableSpan clickableSpan) {
@@ -393,11 +393,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
         d.b.h0.r.f0.j jVar = new d.b.h0.r.f0.j(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
-        String o = d.b.h0.r.d0.b.i().o("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix));
-        if (StringUtils.isNull(o)) {
-            o = TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix);
+        String p = d.b.h0.r.d0.b.j().p("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix));
+        if (StringUtils.isNull(p)) {
+            p = TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix);
         }
-        StringBuilder sb = new StringBuilder(o);
+        StringBuilder sb = new StringBuilder(p);
         if (T() != null) {
             if (T().getGender() == 1) {
                 sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.he));
@@ -425,11 +425,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean B2() {
-        return this.Z == 36;
+        return this.Z == 11 || this.Y == 1;
     }
 
-    public void B3(int i) {
-        this.h1.hasAgree = i == 1;
+    public void B3(String str) {
+        this.f1 = str;
     }
 
     public String C() {
@@ -445,12 +445,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean C2() {
-        WorksInfoData worksInfoData = this.E2;
-        return worksInfoData != null && worksInfoData.isWorks;
+        return this.Z == 36;
     }
 
-    public void C3(VideoInfo videoInfo) {
-        this.z1 = videoInfo;
+    public void C3(int i) {
+        this.h1.hasAgree = i == 1;
     }
 
     public SpannableString D() {
@@ -466,11 +465,12 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean D2() {
-        return this.p0 != 0;
+        WorksInfoData worksInfoData = this.E2;
+        return worksInfoData != null && worksInfoData.isWorks;
     }
 
-    public void D3(String str) {
-        this.z = str;
+    public void D3(VideoInfo videoInfo) {
+        this.z1 = videoInfo;
     }
 
     public ArrayList<b> E() {
@@ -485,14 +485,12 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return this.d0;
     }
 
-    public SpannableString E2() {
-        SpannableStringBuilder H22 = H2();
-        d.b.i0.x.m.b(this, H22, false);
-        return new SpannableString(H22);
+    public boolean E2() {
+        return this.p0 != 0;
     }
 
-    public void E3(int i) {
-        this.Z0 = i + 1;
+    public void E3(String str) {
+        this.z = str;
     }
 
     public int F() {
@@ -525,13 +523,13 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public SpannableString F2() {
-        if (ListUtils.isEmpty(this.v)) {
-            return null;
-        }
-        return new SpannableString(d.b.h0.b1.m.e.w(this, this.v, this.s));
+        SpannableStringBuilder I22 = I2();
+        d.b.i0.x.m.b(this, I22, false);
+        return new SpannableString(I22);
     }
 
     public void F3(int i) {
+        this.Z0 = i + 1;
     }
 
     public int G() {
@@ -549,7 +547,29 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return this.H;
     }
 
-    public void G2(WriteData writeData) {
+    public SpannableString G2() {
+        if (ListUtils.isEmpty(this.v)) {
+            return null;
+        }
+        return new SpannableString(d.b.h0.b1.m.e.w(this, this.v, this.s));
+    }
+
+    public void G3(int i) {
+    }
+
+    public String H() {
+        return (!L1() || this.w0.size() < 1 || this.w0.get(0) == null) ? "" : this.w0.get(0).g();
+    }
+
+    public p0 H0() {
+        return this.k1;
+    }
+
+    public ArrayList<VoiceData$VoiceModel> H1() {
+        return this.U;
+    }
+
+    public void H2(WriteData writeData) {
         String i;
         if (writeData == null) {
             return;
@@ -557,7 +577,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         try {
             this.z = "0";
             this.A = "";
-            this.B = d.b.b.e.m.b.f(writeData.getForumId(), 0L);
+            this.B = d.b.c.e.m.b.f(writeData.getForumId(), 0L);
             this.r = writeData.getTitle();
             this.q0 = System.currentTimeMillis() / 1000;
             String str = (System.currentTimeMillis() / 1000) + "";
@@ -569,10 +589,10 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.Q = writeData.getForumName();
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.is_vertical = Integer.valueOf(writeData.getVideoInfo().getVideoHeight() > writeData.getVideoInfo().getVideoWidth() ? 1 : 0);
-            if (d.b.b.e.p.k.isEmpty(d.b.i0.c3.q0.a.f().i())) {
+            if (d.b.c.e.p.k.isEmpty(d.b.i0.d3.q0.a.f().i())) {
                 i = writeData.getVideoInfo().getThumbPath();
             } else {
-                i = d.b.i0.c3.q0.a.f().i();
+                i = d.b.i0.d3.q0.a.f().i();
             }
             builder.thumbnail_url = i;
             builder.video_url = writeData.getVideoInfo().getVideoUrl();
@@ -583,11 +603,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.s = writeData.getContent();
             w1 w1Var = new w1();
             this.C = w1Var;
-            w1Var.f50916a = writeData.getForumId();
-            this.C.f50917b = writeData.getForumName();
+            w1Var.f51323a = writeData.getForumId();
+            this.C.f51324b = writeData.getForumName();
             this.k2 = writeData.getTabId();
             this.l2 = writeData.getTabName();
-            W2();
+            X2();
             if (StringUtils.isNull(writeData.getItem_id()) || writeData.getItemInfo() == null) {
                 return;
             }
@@ -607,28 +627,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
     }
 
-    public void G3(boolean z) {
+    public void H3(boolean z) {
         this.Y0 = z;
-    }
-
-    public String H() {
-        return (!L1() || this.w0.size() < 1 || this.w0.get(0) == null) ? "" : this.w0.get(0).g();
-    }
-
-    public p0 H0() {
-        return this.k1;
-    }
-
-    public ArrayList<VoiceData$VoiceModel> H1() {
-        return this.U;
-    }
-
-    public SpannableStringBuilder H2() {
-        return d.b.h0.b1.m.e.w(this, this.u, this.s);
-    }
-
-    public void H3(int i) {
-        this.W = i;
     }
 
     public ActivityItemData I() {
@@ -640,7 +640,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         int size = this.t.size();
         for (int i = 0; i < size; i++) {
             PbContent pbContent = this.t.get(i);
-            if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && y2() && (str = pbContent.text) != null && str.length() >= 3) {
+            if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && z2() && (str = pbContent.text) != null && str.length() >= 3) {
                 ActivityItemData activityItemData = new ActivityItemData();
                 activityItemData.link_url = d.b.h0.p0.b.d(pbContent.text);
                 String str2 = pbContent.text;
@@ -660,11 +660,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public SpannableStringBuilder I2() {
-        return d.b.h0.b1.m.e.w(this, this.t, this.r);
+        return d.b.h0.b1.m.e.w(this, this.u, this.s);
     }
 
-    public void I3(boolean z) {
-        this.R1 = z;
+    public void I3(int i) {
+        this.W = i;
     }
 
     public String J() {
@@ -688,30 +688,12 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
     }
 
-    public void J2(ArrayList<u> arrayList) {
-        if (this.q == 1 || arrayList == null || arrayList.size() <= 0) {
-            return;
-        }
-        Iterator<u> it = arrayList.iterator();
-        while (it.hasNext()) {
-            u next = it.next();
-            if (next != null && next.a() != null && !StringUtils.isNull(this.r)) {
-                Iterator<String> it2 = next.a().iterator();
-                while (true) {
-                    if (it2.hasNext()) {
-                        String next2 = it2.next();
-                        if (!StringUtils.isNull(next2) && this.r.contains(next2)) {
-                            next.b();
-                            break;
-                        }
-                    }
-                }
-            }
-        }
+    public SpannableStringBuilder J2() {
+        return d.b.h0.b1.m.e.w(this, this.t, this.r);
     }
 
-    public void J3() {
-        this.v1 = 1;
+    public void J3(boolean z) {
+        this.R1 = z;
     }
 
     public String K() {
@@ -736,17 +718,30 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         this.y = new SpannableString(spannableStringBuilder2);
     }
 
-    public SpannableStringBuilder K2() {
-        if (StringUtils.isNull(this.r) || this.q == 1) {
-            return null;
+    public void K2(ArrayList<u> arrayList) {
+        if (this.q == 1 || arrayList == null || arrayList.size() <= 0) {
+            return;
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(I2());
-        this.w = spannableStringBuilder;
-        return spannableStringBuilder;
+        Iterator<u> it = arrayList.iterator();
+        while (it.hasNext()) {
+            u next = it.next();
+            if (next != null && next.a() != null && !StringUtils.isNull(this.r)) {
+                Iterator<String> it2 = next.a().iterator();
+                while (true) {
+                    if (it2.hasNext()) {
+                        String next2 = it2.next();
+                        if (!StringUtils.isNull(next2) && this.r.contains(next2)) {
+                            next.b();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public void K3(int i) {
-        this.L = i;
+    public void K3() {
+        this.v1 = 1;
     }
 
     public AgreeData L() {
@@ -761,12 +756,17 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return this.h0 == 1;
     }
 
-    public SpannableStringBuilder L2(boolean z, boolean z2) {
-        return M2(z, z2, false);
+    public SpannableStringBuilder L2() {
+        if (StringUtils.isNull(this.r) || this.q == 1) {
+            return null;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(J2());
+        this.w = spannableStringBuilder;
+        return spannableStringBuilder;
     }
 
     public void L3(int i) {
-        this.J = i;
+        this.L = i;
     }
 
     public long M() {
@@ -781,30 +781,12 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return (T() == null || T().getAlaUserData() == null || T().getAlaUserData().live_status != 1) ? false : true;
     }
 
-    public SpannableStringBuilder M2(boolean z, boolean z2, boolean z4) {
-        SpannableStringBuilder I22;
-        String spannableStringBuilder;
-        SpannableStringBuilder spannableStringBuilder2;
-        if (this.q == 1) {
-            I22 = H2();
-            spannableStringBuilder = I22.toString();
-        } else {
-            I22 = I2();
-            spannableStringBuilder = I22.toString();
-        }
-        SpannableStringBuilder spannableStringBuilder3 = I22;
-        String str = spannableStringBuilder;
-        if (z) {
-            spannableStringBuilder2 = z(str, spannableStringBuilder3, z, true, z2, z4);
-        } else {
-            spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder3);
-        }
-        this.w = spannableStringBuilder2;
-        return spannableStringBuilder2;
+    public SpannableStringBuilder M2(boolean z, boolean z2) {
+        return N2(z, z2, false);
     }
 
-    public void M3(Item item) {
-        this.q2 = item;
+    public void M3(int i) {
+        this.J = i;
     }
 
     public int N() {
@@ -821,20 +803,30 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return metaData == null || (userId = metaData.getUserId()) == null || userId.equals("0");
     }
 
-    public SpannableStringBuilder N2(boolean z, boolean z2) {
-        SpannableStringBuilder H22;
-        if (!StringUtils.isNull(this.r) && this.q != 1) {
-            H22 = I2();
+    public SpannableStringBuilder N2(boolean z, boolean z2, boolean z4) {
+        SpannableStringBuilder J22;
+        String spannableStringBuilder;
+        SpannableStringBuilder spannableStringBuilder2;
+        if (this.q == 1) {
+            J22 = I2();
+            spannableStringBuilder = J22.toString();
         } else {
-            H22 = H2();
+            J22 = J2();
+            spannableStringBuilder = J22.toString();
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(H22);
-        this.w = spannableStringBuilder;
-        return spannableStringBuilder;
+        SpannableStringBuilder spannableStringBuilder3 = J22;
+        String str = spannableStringBuilder;
+        if (z) {
+            spannableStringBuilder2 = z(str, spannableStringBuilder3, z, true, z2, z4);
+        } else {
+            spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder3);
+        }
+        this.w = spannableStringBuilder2;
+        return spannableStringBuilder2;
     }
 
-    public void N3(ItemData itemData) {
-        this.r2 = itemData;
+    public void N3(Item item) {
+        this.q2 = item;
     }
 
     public AnchorInfoData O() {
@@ -850,14 +842,43 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return baijiahaoData != null && baijiahaoData.oriUgcType == 1;
     }
 
+    public SpannableStringBuilder O2(boolean z, boolean z2) {
+        SpannableStringBuilder I22;
+        if (!StringUtils.isNull(this.r) && this.q != 1) {
+            I22 = J2();
+        } else {
+            I22 = I2();
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(I22);
+        this.w = spannableStringBuilder;
+        return spannableStringBuilder;
+    }
+
+    public void O3(ItemData itemData) {
+        this.r2 = itemData;
+    }
+
+    public int P() {
+        return this.o0;
+    }
+
+    public PraiseData P0() {
+        return this.a0;
+    }
+
+    public boolean P1() {
+        BaijiahaoData baijiahaoData = this.h2;
+        return baijiahaoData != null && baijiahaoData.oriUgcType == 3;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:65:0x012f  */
     /* JADX WARN: Removed duplicated region for block: B:85:0x01cb  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void O2(boolean z, boolean z2) {
-        d.b.b.j.b bVar;
-        SpannableStringBuilder I22;
+    public final void P2(boolean z, boolean z2) {
+        d.b.c.j.b bVar;
+        SpannableStringBuilder J22;
         SpannableString spannableString;
         ArrayList arrayList = new ArrayList();
         if (!z2) {
@@ -878,13 +899,13 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                     arrayList.add(Integer.valueOf(R.drawable.icon_zhibo));
                 }
             }
-            if (z && c2()) {
+            if (z && d2()) {
                 Integer num = z3.get(Integer.valueOf(p1()));
                 if (num != null) {
                     arrayList.add(num);
                 }
             }
-            if (w0() == 1 && !u2() && e3 != getType() && n3 != getType()) {
+            if (w0() == 1 && !v2() && e3 != getType() && n3 != getType()) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_elite));
             }
             AnchorInfoData anchorInfoData = this.b0;
@@ -904,8 +925,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             if (Q() != null) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_tag_giftsend));
             }
-            if (!d.b.b.e.p.k.isEmpty(this.F)) {
-                bVar = v4(this.F);
+            if (!d.b.c.e.p.k.isEmpty(this.F)) {
+                bVar = w4(this.F);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (arrayList.size() > 0) {
                     StringBuilder sb = new StringBuilder();
@@ -926,7 +947,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         }
                         d.b.h0.r.f0.i iVar = new d.b.h0.r.f0.i(bitmapDrawable);
-                        iVar.b(d.b.b.e.p.l.e(TbadkCoreApplication.getInst().getApplicationContext(), this.p));
+                        iVar.b(d.b.c.e.p.l.e(TbadkCoreApplication.getInst().getApplicationContext(), this.p));
                         spannableString.setSpan(iVar, i2, i2 + 1, 33);
                         i2 += 2;
                     }
@@ -935,9 +956,9 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                     }
                     spannableStringBuilder.append((CharSequence) spannableString);
                 }
-                I22 = I2();
-                if (I22 != null) {
-                    spannableStringBuilder.append((CharSequence) I22);
+                J22 = J2();
+                if (J22 != null) {
+                    spannableStringBuilder.append((CharSequence) J22);
                 }
                 this.w = spannableStringBuilder;
             }
@@ -946,31 +967,35 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
         if (arrayList.size() > 0) {
         }
-        I22 = I2();
-        if (I22 != null) {
+        J22 = J2();
+        if (J22 != null) {
         }
         this.w = spannableStringBuilder2;
     }
 
-    public void O3(List<HeadItem> list) {
+    public void P3(List<HeadItem> list) {
         this.s2 = list;
     }
 
-    public int P() {
-        return this.o0;
+    public h Q() {
+        return this.y0;
     }
 
-    public PraiseData P0() {
-        return this.a0;
+    public ArrayList<d.b.h0.b1.m.b> Q0() {
+        ArrayList<d.b.h0.b1.m.b> arrayList = new ArrayList<>();
+        if (this.i2) {
+            arrayList.add(new d.b.h0.b1.m.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
+        }
+        return arrayList;
     }
 
-    public boolean P1() {
+    public boolean Q1() {
         BaijiahaoData baijiahaoData = this.h2;
-        return baijiahaoData != null && baijiahaoData.oriUgcType == 3;
+        return baijiahaoData != null && baijiahaoData.oriUgcType == 4;
     }
 
     @Deprecated
-    public void P2(JSONObject jSONObject) {
+    public void Q2(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null) {
             return;
@@ -1109,7 +1134,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.a0.setUserMap(this.d0);
             this.a0.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
             this.b0.parserJson(jSONObject.optJSONObject("anchor_info"));
-            if (!d.b.b.e.p.k.isEmpty(this.r)) {
+            if (!d.b.c.e.p.k.isEmpty(this.r)) {
                 this.a0.setTitle(this.r);
             } else {
                 this.a0.setTitle(this.s);
@@ -1121,9 +1146,9 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             JSONArray optJSONArray6 = jSONObject.optJSONArray("ext_tails");
             if (optJSONArray6 != null) {
                 for (int i7 = 0; i7 < optJSONArray6.length(); i7++) {
-                    d.b.h0.t.b bVar2 = new d.b.h0.t.b();
-                    bVar2.a(optJSONArray6.getJSONObject(i7));
-                    this.D0.add(bVar2);
+                    d.b.h0.t.c cVar = new d.b.h0.t.c();
+                    cVar.a(optJSONArray6.getJSONObject(i7));
+                    this.D0.add(cVar);
                 }
             }
             this.P0 = jSONObject.optInt("is_book_chapter", 0);
@@ -1230,7 +1255,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.k2 = jSONObject.optInt("tab_id");
             this.l2 = jSONObject.optString("tab_name");
             jSONObject.optString("wonderful_post_info");
-            W2();
+            X2();
             this.d2 = jSONObject.optInt("if_comment", 0) == 1;
             this.e2 = jSONObject.optString("if_comment_info");
             JSONObject optJSONObject16 = jSONObject.optJSONObject("poll_info");
@@ -1277,28 +1302,106 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
     }
 
-    public void P3(long j) {
+    public void Q3(long j) {
         this.I = j;
     }
 
-    public h Q() {
-        return this.y0;
+    public String R() {
+        return this.f2;
     }
 
-    public ArrayList<d.b.h0.b1.m.b> Q0() {
-        ArrayList<d.b.h0.b1.m.b> arrayList = new ArrayList<>();
-        if (this.i2) {
-            arrayList.add(new d.b.h0.b1.m.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
+    public final ArrayList<m.a> R0(boolean z, boolean z2, boolean z4, boolean z5) {
+        ArrayList<m.a> arrayList = new ArrayList<>();
+        boolean E2 = E2();
+        if (z2) {
+            if (z) {
+                if (E2 && !z2()) {
+                    arrayList.add(new m.a(R.string.god_title));
+                }
+                if (s0() == 1 || s1() == 33 || (A1() != null && A1().a() != 0)) {
+                    if (o1() == null || !d2()) {
+                        if (!E2) {
+                            arrayList.add(new m.a(R.string.photo_live_tips));
+                        }
+                    } else if (p1() == 2) {
+                        arrayList.add(new m.a(R.string.interview_live));
+                    }
+                }
+                if (d2()) {
+                    arrayList.add(D3.get(p1()));
+                }
+                if (L1()) {
+                    Integer num = C3.get(new Point(G(), F()));
+                    if (num != null) {
+                        arrayList.add(new m.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                    } else {
+                        arrayList.add(new m.a(R.string.card_promotion_text));
+                    }
+                }
+                if (I1() != null) {
+                    arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                }
+                if (!d.b.c.e.p.k.isEmpty(X())) {
+                    arrayList.add(new m.a(X()));
+                }
+            } else {
+                if (E2 && x0() != 1 && !z2()) {
+                    arrayList.add(new m.a(R.string.god_title));
+                }
+                if ((s0() == 1 || s1() == 33) && !d2() && !E2) {
+                    arrayList.add(new m.a(R.string.photo_live_tips));
+                }
+                if (w0() == 1) {
+                    arrayList.add(new m.a(R.string.good));
+                }
+                if (x0() == 1) {
+                    arrayList.add(new m.a(R.string.top));
+                }
+                if (d2() && o1() != null && p1() == 2) {
+                    arrayList.add(new m.a(R.string.interview_live));
+                }
+                if (L1()) {
+                    Integer num2 = C3.get(new Point(G(), F()));
+                    if (num2 != null) {
+                        arrayList.add(new m.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                    } else {
+                        arrayList.add(new m.a(R.string.card_promotion_text));
+                    }
+                }
+                if (this.P0 == 1) {
+                    arrayList.add(new m.a(R.string.card_tbread_text));
+                }
+                if (Q() != null) {
+                    arrayList.add(new m.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                }
+                if (I1() != null) {
+                    arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                }
+                if (!d.b.c.e.p.k.isEmpty(X())) {
+                    arrayList.add(new m.a(X()));
+                }
+                if (z4 && i2()) {
+                    arrayList.add(new m.a(R.string.ala_live));
+                }
+                if (z4 && h2()) {
+                    arrayList.add(new m.a(R.string.live_record));
+                } else if (p2()) {
+                    arrayList.add(new m.a(R.string.video_title_str));
+                }
+                if (z5) {
+                    arrayList.add(new m.a(R.string.video_review_state));
+                }
+            }
         }
         return arrayList;
     }
 
-    public boolean Q1() {
+    public boolean R1() {
         BaijiahaoData baijiahaoData = this.h2;
-        return baijiahaoData != null && baijiahaoData.oriUgcType == 4;
+        return baijiahaoData != null && baijiahaoData.oriUgcType == 2;
     }
 
-    public void Q2(ThreadInfo threadInfo) {
+    public void R2(ThreadInfo threadInfo) {
         MetaData metaData;
         if (threadInfo == null) {
             return;
@@ -1436,7 +1539,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.a0.setUserMap(this.d0);
             this.a0.parserProtobuf(threadInfo.zan);
             this.b0.parserProtobuf(threadInfo.anchor_info);
-            if (!d.b.b.e.p.k.isEmpty(this.r)) {
+            if (!d.b.c.e.p.k.isEmpty(this.r)) {
                 this.a0.setTitle(this.r);
             } else {
                 this.a0.setTitle(this.s);
@@ -1489,9 +1592,9 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             }
             if (threadInfo.ext_tails != null) {
                 for (int i7 = 0; i7 != threadInfo.ext_tails.size(); i7++) {
-                    d.b.h0.t.b bVar2 = new d.b.h0.t.b();
-                    bVar2.b(threadInfo.ext_tails.get(i7));
-                    this.D0.add(bVar2);
+                    d.b.h0.t.c cVar2 = new d.b.h0.t.c();
+                    cVar2.b(threadInfo.ext_tails.get(i7));
+                    this.D0.add(cVar2);
                 }
             }
             this.E0.parserProtobuf(threadInfo.push_status);
@@ -1508,7 +1611,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.X0 = threadInfo.cheak_repeat.intValue() == 1;
             List<ReportInfo> list6 = threadInfo.report_info;
             if (threadInfo.top_agree_post != null) {
-                this.i1.a0(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
+                this.i1.b0(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
             }
             List<DislikeInfo> list7 = threadInfo.dislike_info;
             if (ListUtils.getCount(list7) > 0) {
@@ -1591,7 +1694,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.k2 = threadInfo.tab_id.intValue();
             this.l2 = threadInfo.tab_name;
             String str7 = threadInfo.wonderful_post_info;
-            W2();
+            X2();
             this.d2 = threadInfo.if_comment.intValue() == 1;
             this.e2 = threadInfo.if_comment_info;
             this.m2 = threadInfo;
@@ -1651,7 +1754,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
     }
 
-    public void Q3(List<PbLinkData> list) {
+    public void R3(List<PbLinkData> list) {
         this.n2 = list;
         if (ListUtils.isEmpty(list)) {
             return;
@@ -1661,109 +1764,6 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                 this.p2 = true;
             }
         }
-    }
-
-    public String R() {
-        return this.f2;
-    }
-
-    public final ArrayList<m.a> R0(boolean z, boolean z2, boolean z4, boolean z5) {
-        ArrayList<m.a> arrayList = new ArrayList<>();
-        boolean D2 = D2();
-        if (z2) {
-            if (z) {
-                if (D2 && !y2()) {
-                    arrayList.add(new m.a(R.string.god_title));
-                }
-                if (s0() == 1 || s1() == 33 || (A1() != null && A1().a() != 0)) {
-                    if (o1() == null || !c2()) {
-                        if (!D2) {
-                            arrayList.add(new m.a(R.string.photo_live_tips));
-                        }
-                    } else if (p1() == 2) {
-                        arrayList.add(new m.a(R.string.interview_live));
-                    }
-                }
-                if (c2()) {
-                    arrayList.add(D3.get(p1()));
-                }
-                if (L1()) {
-                    Integer num = C3.get(new Point(G(), F()));
-                    if (num != null) {
-                        arrayList.add(new m.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                    } else {
-                        arrayList.add(new m.a(R.string.card_promotion_text));
-                    }
-                }
-                if (I1() != null) {
-                    arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                }
-                if (!d.b.b.e.p.k.isEmpty(X())) {
-                    arrayList.add(new m.a(X()));
-                }
-            } else {
-                if (D2 && x0() != 1 && !y2()) {
-                    arrayList.add(new m.a(R.string.god_title));
-                }
-                if ((s0() == 1 || s1() == 33) && !c2() && !D2) {
-                    arrayList.add(new m.a(R.string.photo_live_tips));
-                }
-                if (w0() == 1) {
-                    arrayList.add(new m.a(R.string.good));
-                }
-                if (x0() == 1) {
-                    arrayList.add(new m.a(R.string.top));
-                }
-                if (c2() && o1() != null && p1() == 2) {
-                    arrayList.add(new m.a(R.string.interview_live));
-                }
-                if (L1()) {
-                    Integer num2 = C3.get(new Point(G(), F()));
-                    if (num2 != null) {
-                        arrayList.add(new m.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                    } else {
-                        arrayList.add(new m.a(R.string.card_promotion_text));
-                    }
-                }
-                if (this.P0 == 1) {
-                    arrayList.add(new m.a(R.string.card_tbread_text));
-                }
-                if (Q() != null) {
-                    arrayList.add(new m.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                }
-                if (I1() != null) {
-                    arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                }
-                if (!d.b.b.e.p.k.isEmpty(X())) {
-                    arrayList.add(new m.a(X()));
-                }
-                if (z4 && h2()) {
-                    arrayList.add(new m.a(R.string.ala_live));
-                }
-                if (z4 && g2()) {
-                    arrayList.add(new m.a(R.string.live_record));
-                } else if (o2()) {
-                    arrayList.add(new m.a(R.string.video_title_str));
-                }
-                if (z5) {
-                    arrayList.add(new m.a(R.string.video_review_state));
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public boolean R1() {
-        BaijiahaoData baijiahaoData = this.h2;
-        return baijiahaoData != null && baijiahaoData.oriUgcType == 2;
-    }
-
-    public void R2(boolean z, boolean z2) {
-        S2(z, z2, true);
-    }
-
-    public void R3(String str) {
-        this.X = str;
     }
 
     public long S() {
@@ -1776,26 +1776,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
 
     @Deprecated
     public boolean S1() {
-        return x2();
+        return y2();
     }
 
-    public void S2(boolean z, boolean z2, boolean z4) {
-        SpannableStringBuilder spannableStringBuilder;
-        if (ListUtils.getCount(R0(z, z2, z4, false)) > 0) {
-            L2(z, z4);
-            return;
-        }
-        SpannableStringBuilder I22 = I2();
-        if (z) {
-            spannableStringBuilder = z(I22.toString(), I22, z, z2, z4, false);
-        } else {
-            spannableStringBuilder = new SpannableStringBuilder(I22);
-        }
-        this.w = spannableStringBuilder;
+    public void S2(boolean z, boolean z2) {
+        T2(z, z2, true);
     }
 
-    public void S3(boolean z) {
-        this.A1 = z;
+    public void S3(String str) {
+        this.X = str;
     }
 
     public MetaData T() {
@@ -1810,12 +1799,23 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return P1() || Q1();
     }
 
-    public void T2() {
-        O2(false, true);
+    public void T2(boolean z, boolean z2, boolean z4) {
+        SpannableStringBuilder spannableStringBuilder;
+        if (ListUtils.getCount(R0(z, z2, z4, false)) > 0) {
+            M2(z, z4);
+            return;
+        }
+        SpannableStringBuilder J22 = J2();
+        if (z) {
+            spannableStringBuilder = z(J22.toString(), J22, z, z2, z4, false);
+        } else {
+            spannableStringBuilder = new SpannableStringBuilder(J22);
+        }
+        this.w = spannableStringBuilder;
     }
 
     public void T3(boolean z) {
-        this.B1 = z;
+        this.A1 = z;
     }
 
     public int U() {
@@ -1823,10 +1823,10 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public int U0() {
-        if (n2()) {
+        if (o2()) {
             return 4;
         }
-        if (h2() || g2()) {
+        if (i2() || h2()) {
             return 3;
         }
         if (O1()) {
@@ -1842,7 +1842,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             return 8;
         }
         if (!this.s1 || this.r1 == null) {
-            return o2() ? 2 : 1;
+            return p2() ? 2 : 1;
         }
         return 9;
     }
@@ -1852,11 +1852,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public void U2() {
-        O2(false, false);
+        P2(false, true);
     }
 
-    public void U3(ArrayList<MediaData> arrayList) {
-        this.T = arrayList;
+    public void U3(boolean z) {
+        this.B1 = z;
     }
 
     public BaijiahaoData V() {
@@ -1868,25 +1868,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean V1() {
-        return C2();
+        return D2();
     }
 
-    public int V2() {
-        if (!d.b.h0.r.k.c().g() || ListUtils.getCount(K0()) == 0) {
-            return 0;
-        }
-        LinkedList linkedList = new LinkedList();
-        for (int i = 0; i < K0().size(); i++) {
-            MediaData mediaData = (MediaData) ListUtils.getItem(K0(), i);
-            if (mediaData != null && mediaData.getType() == 3) {
-                linkedList.add(mediaData);
-            }
-        }
-        return linkedList.size();
+    public void V2() {
+        P2(false, false);
     }
 
-    public void V3(String str) {
-        this.o = str;
+    public void V3(ArrayList<MediaData> arrayList) {
+        this.T = arrayList;
     }
 
     public t W() {
@@ -1902,18 +1892,22 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return metaData != null && metaData.isForumBusinessAccount();
     }
 
-    public void W2() {
-        g3();
-        Z2();
-        e3();
-        f3();
-        X2();
-        c3();
-        d3();
+    public int W2() {
+        if (!d.b.h0.r.k.c().g() || ListUtils.getCount(K0()) == 0) {
+            return 0;
+        }
+        LinkedList linkedList = new LinkedList();
+        for (int i = 0; i < K0().size(); i++) {
+            MediaData mediaData = (MediaData) ListUtils.getItem(K0(), i);
+            if (mediaData != null && mediaData.getType() == 3) {
+                linkedList.add(mediaData);
+            }
+        }
+        return linkedList.size();
     }
 
-    public void W3(PollData pollData) {
-        this.u2 = pollData;
+    public void W3(String str) {
+        this.o = str;
     }
 
     public String X() {
@@ -1928,12 +1922,18 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return this.N0;
     }
 
-    public final void X2() {
-        this.y = E2();
+    public void X2() {
+        h3();
+        a3();
+        f3();
+        g3();
+        Y2();
+        d3();
+        e3();
     }
 
-    public void X3(PraiseData praiseData) {
-        this.a0 = praiseData;
+    public void X3(PollData pollData) {
+        this.u2 = pollData;
     }
 
     public int Y() {
@@ -1949,6 +1949,30 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public final void Y2() {
+        this.y = F2();
+    }
+
+    public void Y3(PraiseData praiseData) {
+        this.a0 = praiseData;
+    }
+
+    public long Z() {
+        return this.q0;
+    }
+
+    public int Z0() {
+        return this.G;
+    }
+
+    public boolean Z1() {
+        d.b.i0.d3.h0.n nVar = this.C2;
+        if (nVar != null) {
+            return nVar.f();
+        }
+        return false;
+    }
+
+    public final void Z2() {
         AlaUserInfoData alaUserInfoData;
         AlaInfoData alaInfoData = this.n0;
         if (alaInfoData == null) {
@@ -1980,31 +2004,31 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
     }
 
-    public void Y3(int i) {
+    public void Z3(int i) {
         this.G = i;
     }
 
-    public long Z() {
-        return this.q0;
+    public long a0() {
+        return this.h1.disAgreeNum;
     }
 
-    public int Z0() {
-        return this.G;
+    public int a1() {
+        return this.n;
     }
 
-    public boolean Z1() {
+    public boolean a2() {
         MetaData metaData = this.P;
         return (metaData == null || metaData.getGodUserData() == null || this.P.getGodUserData().getType() != 2) ? false : true;
     }
 
-    public final void Z2() {
+    public final void a3() {
         MetaData metaData;
         MetaData metaData2;
         if ((this instanceof w0) && "0".equals(o0())) {
             this.I1 = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
             return;
         }
-        if (!x2() && (!Y1() || getType() == f3)) {
+        if (!y2() && (!Y1() || getType() == f3)) {
             if (getType() != f3 && getType() != i3) {
                 long B0 = B0() * 1000;
                 if (B0 != 0) {
@@ -2025,8 +2049,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                     }
                     this.I1 = formatTimeForJustNow2;
                 }
-                if (m2()) {
-                    a3();
+                if (n2()) {
+                    b3();
                 } else if (!this.T1 && (metaData2 = this.P) != null && metaData2.showBazhuGrade()) {
                     String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), this.S1 ? 24 : 16, StringHelper.STRING_MORE);
                     if (!TextUtils.isEmpty(this.I1)) {
@@ -2041,7 +2065,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                 this.I1 += " • " + K();
                 return;
             }
-            Y2();
+            Z2();
             return;
         }
         long j2 = this.q0;
@@ -2054,8 +2078,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
         MetaData metaData3 = this.P;
         String str = (metaData3 == null || metaData3.getBaijiahaoInfo() == null || TextUtils.isEmpty(this.P.getBaijiahaoInfo().auth_desc)) ? "" : this.P.getBaijiahaoInfo().auth_desc;
-        if (m2()) {
-            a3();
+        if (n2()) {
+            b3();
         } else if (!this.T1 && (metaData = this.P) != null && metaData.showBazhuGrade()) {
             String cutChineseAndEnglishWithSuffix2 = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
             if (!TextUtils.isEmpty(this.I1)) {
@@ -2071,35 +2095,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         }
     }
 
-    public void Z3(int i) {
+    public void a4(int i) {
         this.n = i;
-    }
-
-    public long a0() {
-        return this.h1.disAgreeNum;
-    }
-
-    public int a1() {
-        return this.n;
-    }
-
-    public boolean a2() {
-        return this.p2;
-    }
-
-    public final void a3() {
-        if (!m2() || TextUtils.isEmpty(this.P.getNewGodData().getFieldName())) {
-            return;
-        }
-        if (!TextUtils.isEmpty(this.I1)) {
-            this.I1 += "   " + this.P.getNewGodData().getFieldName() + d.b.h0.z0.l0.c(this.P.getNewGodData().isVideoGod());
-            return;
-        }
-        this.I1 = this.P.getNewGodData().getFieldName() + d.b.h0.z0.l0.c(this.P.getNewGodData().isVideoGod());
-    }
-
-    public void a4(List<PbContent> list) {
-        this.u = list;
     }
 
     public SparseArray<String> b0() {
@@ -2111,12 +2108,39 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean b2() {
+        return this.p2;
+    }
+
+    public final void b3() {
+        if (!n2() || TextUtils.isEmpty(this.P.getNewGodData().getFieldName())) {
+            return;
+        }
+        if (!TextUtils.isEmpty(this.I1)) {
+            this.I1 += "   " + this.P.getNewGodData().getFieldName() + d.b.h0.z0.l0.c(this.P.getNewGodData().isVideoGod());
+            return;
+        }
+        this.I1 = this.P.getNewGodData().getFieldName() + d.b.h0.z0.l0.c(this.P.getNewGodData().isVideoGod());
+    }
+
+    public void b4(List<PbContent> list) {
+        this.u = list;
+    }
+
+    public long c0() {
+        return this.B;
+    }
+
+    public String c1() {
+        return this.L0;
+    }
+
+    public boolean c2() {
         return this.Y0;
     }
 
-    public void b3() {
+    public void c3() {
         MetaData metaData;
-        if (x2() || Y1()) {
+        if (y2() || Y1()) {
             return;
         }
         long B0 = B0() * 1000;
@@ -2127,8 +2151,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             }
             this.I1 = formatTimeForJustNow;
         }
-        if (m2()) {
-            a3();
+        if (n2()) {
+            b3();
         } else if (!this.T1 && (metaData = this.P) != null && metaData.showBazhuGrade()) {
             String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
             if (!TextUtils.isEmpty(this.I1)) {
@@ -2143,28 +2167,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         this.I1 += " • " + K();
     }
 
-    public void b4(List<PbContent> list) {
+    public void c4(List<PbContent> list) {
         this.t = list;
-    }
-
-    public long c0() {
-        return this.B;
-    }
-
-    public String c1() {
-        return this.L0;
-    }
-
-    public boolean c2() {
-        return this.Z == 41;
-    }
-
-    public final void c3() {
-        this.K1 = StringHelper.getFormatTimeShort(B0() * 1000);
-    }
-
-    public void c4(String str) {
-        this.E = str;
     }
 
     public String d0() {
@@ -2176,15 +2180,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean d2() {
-        return o1() != null && s1() == 41 && s0() == 1 && p1() == 2;
+        return this.Z == 41;
     }
 
     public final void d3() {
-        this.L1 = StringHelper.getFormatTimeShort(B0());
+        this.K1 = StringHelper.getFormatTimeShort(B0() * 1000);
     }
 
-    public void d4(long j) {
-        this.j1 = j;
+    public void d4(String str) {
+        this.E = str;
     }
 
     public List<PbContent> e0() {
@@ -2196,11 +2200,31 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean e2() {
-        return this.l1;
+        return o1() != null && s1() == 41 && s0() == 1 && p1() == 2;
     }
 
     public final void e3() {
-        if (q1() != null && q1().share_info != null && q1().share_info.share_user_count > 0 && p2() && (this.p1 <= 0 || this.q1 != 0)) {
+        this.L1 = StringHelper.getFormatTimeShort(B0());
+    }
+
+    public void e4(long j) {
+        this.j1 = j;
+    }
+
+    public String f0() {
+        return this.u0;
+    }
+
+    public String f1() {
+        return this.J1;
+    }
+
+    public boolean f2() {
+        return this.l1;
+    }
+
+    public final void f3() {
+        if (q1() != null && q1().share_info != null && q1().share_info.share_user_count > 0 && q2() && (this.p1 <= 0 || this.q1 != 0)) {
             int i = q1().share_info.share_user_count;
             if (i == 1) {
                 this.J1 = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple);
@@ -2213,30 +2237,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         this.J1 = null;
     }
 
-    public void e4(boolean z) {
+    public void f4(boolean z) {
         this.G1 = z;
-    }
-
-    public String f0() {
-        return this.u0;
-    }
-
-    public String f1() {
-        return this.J1;
-    }
-
-    public boolean f2() {
-        return this.Z == 41;
-    }
-
-    public final void f3() {
-        SpannableStringBuilder K22 = K2();
-        this.x = K22;
-        d.b.i0.x.m.b(this, K22, true);
-    }
-
-    public void f4(int i) {
-        this.c1 = i;
     }
 
     @Override // d.b.h0.r.q.a
@@ -2253,7 +2255,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         n();
         v0Var.m(L0());
         v0Var.j(this.d1);
-        v0Var.f50907g = this.e1;
+        v0Var.f51314g = this.e1;
         v0Var.o = this.T0;
         v0Var.j = this.S0;
         v0Var.l = this.U0;
@@ -2272,23 +2274,23 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean g2() {
-        return s1() == 50;
+        return this.Z == 41;
     }
 
     public final void g3() {
-        if (StringUtils.isNull(this.P.getName_show())) {
-            return;
-        }
-        this.H1 = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getName_show(), 14, StringHelper.STRING_MORE);
+        SpannableStringBuilder L22 = L2();
+        this.x = L22;
+        d.b.i0.x.m.b(this, L22, true);
     }
 
     public void g4(int i) {
+        this.c1 = i;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<MediaData> K0 = K0();
-        if (K0 == null || u2()) {
+        if (K0 == null || v2()) {
             return null;
         }
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -2332,12 +2334,12 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         return arrayList;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         OriginalThreadInfo originalThreadInfo;
-        d.b.i0.c3.h0.n nVar = this.C2;
+        d.b.i0.d3.h0.n nVar = this.C2;
         if (nVar != null) {
-            return nVar.d() ? this.C2.e() ? AdvertAppInfo.m4 : AdvertAppInfo.n4 : this.C2.e() ? AdvertAppInfo.m4 : AdvertAppInfo.l4;
+            return nVar.f() ? this.C2.g() ? AdvertAppInfo.m4 : AdvertAppInfo.n4 : this.C2.g() ? AdvertAppInfo.m4 : AdvertAppInfo.l4;
         } else if (r0()) {
             if (u1() != null) {
                 return e3;
@@ -2370,11 +2372,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                     return r3;
                 }
                 if (x0 != 2 && x0 != 1) {
-                    if (this.k0 != null && b2() && !f2()) {
+                    if (this.k0 != null && c2() && !g2()) {
                         return w3;
                     }
-                    if (this.k0 != null && !f2()) {
-                        if (Z1()) {
+                    if (this.k0 != null && !g2()) {
+                        if (a2()) {
                             return n3;
                         }
                         if (this instanceof w0) {
@@ -2395,26 +2397,26 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                     } else if (O1()) {
                         return W2;
                     } else {
-                        if (d2()) {
+                        if (e2()) {
                             return t3.get() ? A3 : H2;
                         } else if (L1() && G() == 1) {
                             return t3.get() ? B3 : H2;
-                        } else if (e2()) {
+                        } else if (f2()) {
                             return c3;
                         } else {
-                            if (Z1()) {
+                            if (a2()) {
                                 return d3;
                             }
-                            if (this.f50702e) {
+                            if (this.f51109e) {
                                 return N2;
                             }
-                            if (this.f50703f) {
+                            if (this.f51110f) {
                                 return O2;
                             }
-                            if (this.f50704g) {
+                            if (this.f51111g) {
                                 return P2;
                             }
-                            if (this.f50705h) {
+                            if (this.f51112h) {
                                 return Q2;
                             }
                             if (this.i) {
@@ -2433,14 +2435,14 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                                 return Y2;
                             }
                             if (this.v0) {
-                                int V22 = V2();
-                                if (V22 == 1) {
+                                int W22 = W2();
+                                if (W22 == 1) {
                                     return J2;
                                 }
-                                if (V22 == 2) {
+                                if (W22 == 2) {
                                     return K2;
                                 }
-                                if (V22 > 2) {
+                                if (W22 > 2) {
                                     return L2;
                                 }
                                 return H2;
@@ -2472,16 +2474,17 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean h2() {
-        return s1() == 49;
+        return s1() == 50;
     }
 
-    public void h3(String str) {
-        this.s = str;
+    public final void h3() {
+        if (StringUtils.isNull(this.P.getName_show())) {
+            return;
+        }
+        this.H1 = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getName_show(), 14, StringHelper.STRING_MORE);
     }
 
-    public void h4(String str, String str2) {
-        this.K0 = str;
-        this.L0 = str2;
+    public void h4(int i) {
     }
 
     public String i0() {
@@ -2493,15 +2496,16 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean i2() {
-        return this.A1;
+        return s1() == 49;
     }
 
-    public void i3(ArrayList<b> arrayList) {
-        this.w0 = arrayList;
+    public void i3(String str) {
+        this.s = str;
     }
 
-    public void i4(AlaInfoData alaInfoData) {
-        this.n0 = alaInfoData;
+    public void i4(String str, String str2) {
+        this.K0 = str;
+        this.L0 = str2;
     }
 
     public String j0() {
@@ -2513,15 +2517,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean j2() {
-        return this.B1;
+        return this.A1;
     }
 
-    public void j3(String str) {
-        this.g0 = str;
+    public void j3(ArrayList<b> arrayList) {
+        this.w0 = arrayList;
     }
 
-    public void j4(String str) {
-        this.I1 = str;
+    public void j4(AlaInfoData alaInfoData) {
+        this.n0 = alaInfoData;
     }
 
     public String k0() {
@@ -2533,15 +2537,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean k2() {
-        return this.g1;
+        return this.B1;
     }
 
-    public void k3(int i) {
-        this.h1.agreeNum = i;
+    public void k3(String str) {
+        this.g0 = str;
     }
 
-    public void k4(int i) {
-        this.Z = i;
+    public void k4(String str) {
+        this.I1 = str;
     }
 
     public List<PbGoodsData> l0() {
@@ -2553,15 +2557,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean l2() {
-        return this.X0;
+        return this.g1;
     }
 
-    public void l3(long j) {
-        this.h1.agreeNum = j;
+    public void l3(int i) {
+        this.h1.agreeNum = i;
     }
 
-    public void l4(String str) {
-        this.A = str;
+    public void l4(int i) {
+        this.Z = i;
     }
 
     public int m0() {
@@ -2573,16 +2577,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean m2() {
-        MetaData metaData = this.P;
-        return metaData != null && metaData.isNewGod();
+        return this.X0;
     }
 
-    public void m3(int i) {
-        this.h1.agreeType = i;
+    public void m3(long j) {
+        this.h1.agreeNum = j;
     }
 
     public void m4(String str) {
-        this.r = str;
+        this.A = str;
     }
 
     @Override // d.b.h0.r.q.a
@@ -2599,15 +2602,16 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean n2() {
-        return this.p0 == 1;
+        MetaData metaData = this.P;
+        return metaData != null && metaData.isNewGod();
     }
 
     public void n3(int i) {
-        this.o0 = i;
+        this.h1.agreeType = i;
     }
 
     public void n4(String str) {
-        this.y1 = str;
+        this.r = str;
     }
 
     @Override // d.b.h0.r.q.a
@@ -2624,15 +2628,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean o2() {
-        return s1() == 40;
+        return this.p0 == 1;
     }
 
-    public void o3(String str) {
-        this.f2 = str;
+    public void o3(int i) {
+        this.o0 = i;
     }
 
     public void o4(String str) {
-        this.x1 = str;
+        this.y1 = str;
     }
 
     public int[] p0() {
@@ -2646,7 +2650,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         int i9;
         int i10;
         int[] iArr = new int[2];
-        int size = View.MeasureSpec.getSize(d.b.b.e.p.l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+        int size = View.MeasureSpec.getSize(d.b.c.e.p.l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
         int i11 = (int) ((size - (dimensionPixelSize * 2)) / 3.0f);
         ArrayList<MediaData> K0 = K0();
@@ -2742,15 +2746,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean p2() {
-        return s1() == 60;
+        return s1() == 40;
     }
 
-    public void p3(MetaData metaData) {
-        this.P = metaData;
+    public void p3(String str) {
+        this.f2 = str;
     }
 
-    public void p4(HashMap<String, MetaData> hashMap) {
-        this.d0 = hashMap;
+    public void p4(String str) {
+        this.x1 = str;
     }
 
     public int q0() {
@@ -2762,15 +2766,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean q2() {
-        return this.G1;
+        return s1() == 60;
     }
 
-    public void q3(BaijiahaoData baijiahaoData) {
-        this.h2 = baijiahaoData;
+    public void q3(MetaData metaData) {
+        this.P = metaData;
     }
 
-    public void q4(VideoInfo videoInfo) {
-        this.k0 = videoInfo;
+    public void q4(HashMap<String, MetaData> hashMap) {
+        this.d0 = hashMap;
     }
 
     public boolean r0() {
@@ -2782,16 +2786,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean r2() {
-        int i = this.Z;
-        return i == 63 || i == 64;
+        return this.G1;
     }
 
-    public void r3(int i) {
-        this.B0 = i;
+    public void r3(BaijiahaoData baijiahaoData) {
+        this.h2 = baijiahaoData;
     }
 
-    public void r4(int i) {
-        this.H = i;
+    public void r4(VideoInfo videoInfo) {
+        this.k0 = videoInfo;
     }
 
     public int s0() {
@@ -2803,15 +2806,16 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean s2() {
-        return this.R1;
+        int i = this.Z;
+        return i == 63 || i == 64;
     }
 
-    public void s3(long j) {
-        this.h1.diffAgreeNum = j;
+    public void s3(int i) {
+        this.B0 = i;
     }
 
-    public void s4(ArrayList<VoiceData$VoiceModel> arrayList) {
-        this.U = arrayList;
+    public void s4(int i) {
+        this.H = i;
     }
 
     public int t0() {
@@ -2823,15 +2827,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean t2() {
-        return this.V == 1;
+        return this.R1;
     }
 
     public void t3(long j) {
-        this.B = j;
+        this.h1.diffAgreeNum = j;
     }
 
-    public void t4(long j) {
-        this.q0 = j;
+    public void t4(ArrayList<VoiceData$VoiceModel> arrayList) {
+        this.U = arrayList;
     }
 
     public int u0() {
@@ -2843,19 +2847,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean u2() {
-        return x0() != 0;
+        return this.V == 1;
     }
 
-    public void u3(String str) {
-        this.D = str;
+    public void u3(long j) {
+        this.B = j;
     }
 
-    public void u4(List<PbGoodsData> list) {
-        this.o2 = list;
-        if (ListUtils.isEmpty(list) || this.p2) {
-            return;
-        }
-        this.p2 = true;
+    public void u4(long j) {
+        this.q0 = j;
     }
 
     public int v0() {
@@ -2867,14 +2867,41 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean v2() {
+        return x0() != 0;
+    }
+
+    public void v3(String str) {
+        this.D = str;
+    }
+
+    public void v4(List<PbGoodsData> list) {
+        this.o2 = list;
+        if (ListUtils.isEmpty(list) || this.p2) {
+            return;
+        }
+        this.p2 = true;
+    }
+
+    public int w0() {
+        return this.L;
+    }
+
+    public String w1() {
+        if (!StringUtils.isNull(this.A) && !"0".equals(this.A)) {
+            return this.A;
+        }
+        return this.z;
+    }
+
+    public boolean w2() {
         return this.v1 == 1;
     }
 
-    public void v3(List<PbContent> list) {
+    public void w3(List<PbContent> list) {
         this.v = list;
     }
 
-    public final d.b.b.j.b v4(String str) {
+    public final d.b.c.j.b w4(String str) {
         if (str == null) {
             return null;
         }
@@ -2896,32 +2923,9 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         if (drawingCache != null) {
             BitmapDrawable bitmapDrawable = new BitmapDrawable(drawingCache);
             bitmapDrawable.setBounds(0, 0, drawingCache.getWidth(), drawingCache.getHeight());
-            return new d.b.b.j.b(bitmapDrawable, 1);
+            return new d.b.c.j.b(bitmapDrawable, 1);
         }
         return null;
-    }
-
-    public int w0() {
-        return this.L;
-    }
-
-    public String w1() {
-        if (!StringUtils.isNull(this.A) && !"0".equals(this.A)) {
-            return this.A;
-        }
-        return this.z;
-    }
-
-    public boolean w2() {
-        return this.C1 != null;
-    }
-
-    public void w3(boolean z) {
-        this.N0 = z;
-    }
-
-    public void w4(int i) {
-        this.q = i;
     }
 
     public int x0() {
@@ -2933,21 +2937,15 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean x2() {
-        BaijiahaoData baijiahaoData = this.h2;
-        if (baijiahaoData == null) {
-            return false;
-        }
-        return UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
+        return this.C1 != null;
     }
 
-    public void x3(String str) {
-        this.Q = str;
+    public void x3(boolean z) {
+        this.N0 = z;
     }
 
-    public void x4() {
-        if (this.t0 == 0) {
-            this.t0 = 1;
-        }
+    public void x4(int i) {
+        this.q = i;
     }
 
     public Item y0() {
@@ -2959,12 +2957,21 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean y2() {
-        int i = this.Z;
-        return i == 40 || i == 50;
+        BaijiahaoData baijiahaoData = this.h2;
+        if (baijiahaoData == null) {
+            return false;
+        }
+        return UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
     }
 
-    public void y3(boolean z) {
-        this.U1 = z;
+    public void y3(String str) {
+        this.Q = str;
+    }
+
+    public void y4() {
+        if (this.t0 == 0) {
+            this.t0 = 1;
+        }
     }
 
     public final SpannableStringBuilder z(String str, SpannableStringBuilder spannableStringBuilder, boolean z, boolean z2, boolean z4, boolean z5) {
@@ -3002,10 +3009,11 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     }
 
     public boolean z2() {
-        return y2() && C2();
+        int i = this.Z;
+        return i == 40 || i == 50;
     }
 
     public void z3(boolean z) {
-        this.S1 = z;
+        this.U1 = z;
     }
 }

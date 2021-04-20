@@ -17,7 +17,8 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.apollon.statistics.g;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.NetworkInterface;
 import java.util.Collections;
@@ -30,26 +31,26 @@ public class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f67275a;
+        public Intent f68268a;
 
         public final int e() {
-            return this.f67275a.getIntExtra("level", 0);
+            return this.f68268a.getIntExtra("level", 0);
         }
 
         public final int f() {
-            return this.f67275a.getIntExtra("scale", 0);
+            return this.f68268a.getIntExtra("scale", 0);
         }
 
         public final int g() {
-            return this.f67275a.getIntExtra("temperature", 0);
+            return this.f68268a.getIntExtra("temperature", 0);
         }
 
         public final int h() {
-            return this.f67275a.getIntExtra("voltage", 0);
+            return this.f68268a.getIntExtra("voltage", 0);
         }
 
         public b(Context context) {
-            this.f67275a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f68268a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 
@@ -59,7 +60,7 @@ public class a {
         try {
             String p = p();
             if (!TextUtils.isEmpty(p)) {
-                jSONObject.put(IXAdRequestInfo.OS, p);
+                jSONObject.put(IAdRequestParam.OS, p);
             }
             String i = i(context);
             if (!TextUtils.isEmpty(i)) {
@@ -75,7 +76,7 @@ public class a {
             }
             String k = k(context);
             if (!TextUtils.isEmpty(k)) {
-                jSONObject.put("mac", k);
+                jSONObject.put(IAdRequestParam.MAC, k);
             }
             String h2 = h(context);
             if (!TextUtils.isEmpty(h2)) {
@@ -167,7 +168,7 @@ public class a {
 
     public static String c(Context context) {
         try {
-            return Settings.Secure.getString(context.getContentResolver(), "android_id");
+            return Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception unused) {
             return "";
         }
@@ -215,7 +216,7 @@ public class a {
                     case 12:
                     case 14:
                     case 15:
-                        str = g.f3874b;
+                        str = g.f3909b;
                         str2 = str;
                         break;
                     case 13:
@@ -288,7 +289,7 @@ public class a {
     public static String l() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
                     byte[] hardwareAddress = networkInterface.getHardwareAddress();
                     if (hardwareAddress == null) {
                         return "";

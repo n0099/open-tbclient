@@ -5,66 +5,66 @@ import android.text.TextUtils;
 public class BaiduPoiPanoData extends BaiduPanoData {
 
     /* renamed from: d  reason: collision with root package name */
-    public float f6361d;
+    public float f6396d;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f6360c = 0.0f;
+    public float f6395c = 0.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6358a = "";
+    public String f6393a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6359b = "";
+    public String f6394b = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6362e = "";
+    public String f6397e = "";
 
     public double getHeading() {
-        return this.f6360c;
+        return this.f6395c;
     }
 
     public String getIid() {
-        return this.f6358a;
+        return this.f6393a;
     }
 
     public String getPanoTag() {
-        return this.f6362e;
+        return this.f6397e;
     }
 
     public float getPitch() {
-        return this.f6361d;
+        return this.f6396d;
     }
 
     public String getUid() {
-        return this.f6359b;
+        return this.f6394b;
     }
 
     public boolean hasInnerPano() {
-        return !TextUtils.isEmpty(this.f6358a);
+        return !TextUtils.isEmpty(this.f6393a);
     }
 
     public void setHeading(float f2) {
-        this.f6360c = f2;
+        this.f6395c = f2;
     }
 
     public void setIid(String str) {
-        this.f6358a = str;
+        this.f6393a = str;
     }
 
     public void setPanoTag(String str) {
-        this.f6362e = str;
+        this.f6397e = str;
     }
 
     public void setPitch(float f2) {
-        this.f6361d = f2;
+        this.f6396d = f2;
     }
 
     public void setUid(String str) {
-        this.f6359b = str;
+        this.f6394b = str;
     }
 
     @Override // com.baidu.lbsapi.model.BaiduPanoData
     public String toString() {
-        return super.toString() + "\n BaiduPoiPanoData [heading=" + this.f6360c + ", pitch=" + this.f6361d + ", iid=" + this.f6358a + ",  uid=" + this.f6359b + ", panoTag=" + this.f6362e + ", hasInnerPano=" + hasInnerPano() + "]";
+        return super.toString() + "\n BaiduPoiPanoData [heading=" + this.f6395c + ", pitch=" + this.f6396d + ", iid=" + this.f6393a + ",  uid=" + this.f6394b + ", panoTag=" + this.f6397e + ", hasInnerPano=" + hasInnerPano() + "]";
     }
 }

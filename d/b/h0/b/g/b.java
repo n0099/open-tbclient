@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.b.d;
 import d.b.h0.r.q.a2;
 /* loaded from: classes3.dex */
@@ -25,7 +25,7 @@ public final class b {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        if (d.R()) {
+        if (d.T()) {
             marginLayoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), i2);
         } else {
             marginLayoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), i);
@@ -34,14 +34,14 @@ public final class b {
     }
 
     public static int c(int i, int i2) {
-        return d.R() ? i2 : i;
+        return d.T() ? i2 : i;
     }
 
     public static void d(TextView textView) {
         if (textView == null) {
             return;
         }
-        if (d.R()) {
+        if (d.T()) {
             textView.setTypeface(Typeface.DEFAULT);
             textView.setTextSize(0, textView.getResources().getDimension(R.dimen.tbds39));
             return;
@@ -54,7 +54,7 @@ public final class b {
         if (textView == null) {
             return;
         }
-        if (d.R()) {
+        if (d.T()) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
         } else {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
@@ -65,7 +65,7 @@ public final class b {
         if (view == null) {
             return;
         }
-        if (d.R()) {
+        if (d.T()) {
             view.setBackgroundResource(R.drawable.bg_img_mask);
         } else if (i > 0) {
             view.setBackgroundResource(i);
@@ -95,7 +95,7 @@ public final class b {
     public static void i(a2 a2Var, int[] iArr) {
         int i;
         int i2;
-        if (iArr == null || iArr.length != 2 || a2Var == null || !d.R()) {
+        if (iArr == null || iArr.length != 2 || a2Var == null || !d.T()) {
             return;
         }
         int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
@@ -120,7 +120,7 @@ public final class b {
     public static int[] j(MediaData mediaData) {
         int i;
         int[] iArr = new int[2];
-        if (mediaData != null && d.R()) {
+        if (mediaData != null && d.T()) {
             int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i2 = (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2) + dimensionPixelSize;
@@ -143,7 +143,7 @@ public final class b {
 
     public static void k(TextView textView, int i, int i2) {
         if (textView != null && Build.VERSION.SDK_INT >= 16) {
-            if (d.R()) {
+            if (d.T()) {
                 textView.setLineSpacing(l.g(textView.getContext(), i2), textView.getLineSpacingMultiplier());
             } else {
                 textView.setLineSpacing(l.g(textView.getContext(), i), textView.getLineSpacingMultiplier());
@@ -152,7 +152,7 @@ public final class b {
     }
 
     public static boolean l(ViewGroup.LayoutParams layoutParams, ViewGroup.LayoutParams layoutParams2, int i, int i2, boolean z) {
-        if (layoutParams == null || layoutParams2 == null || !d.R()) {
+        if (layoutParams == null || layoutParams2 == null || !d.T()) {
             return z;
         }
         int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
@@ -165,8 +165,8 @@ public final class b {
         return true;
     }
 
-    public static boolean m(ViewGroup.LayoutParams layoutParams, boolean z, d.b.i0.i2.q.a aVar, int i, int i2) {
-        if (layoutParams == null || !d.R()) {
+    public static boolean m(ViewGroup.LayoutParams layoutParams, boolean z, d.b.i0.j2.q.a aVar, int i, int i2) {
+        if (layoutParams == null || !d.T()) {
             return z;
         }
         int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004) * 2);

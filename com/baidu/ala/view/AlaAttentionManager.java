@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import d.b.b.a.f;
+import d.b.c.a.f;
 import d.b.h0.r.d0.b;
 import d.b.h0.r.s.a;
 import d.b.h0.s.d.d;
@@ -116,13 +116,13 @@ public class AlaAttentionManager {
             super.onPostExecute((AttentionAsyncTask) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.f13693a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                aVar.f13694b = this.mNetwork.getErrorString();
-                aVar.f13696d = this.isAttention;
-                aVar.f13695c = this.toUid;
-                aVar.f13697e = this.isGod;
+                aVar.f13354a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                aVar.f13355b = this.mNetwork.getErrorString();
+                aVar.f13357d = this.isAttention;
+                aVar.f13356c = this.toUid;
+                aVar.f13358e = this.isGod;
                 aVar.b(str, this.showToastAfterAttentionSuc);
-                aVar.f13698f = this.mNetwork.getNetContext().getResponse();
+                aVar.f13359f = this.mNetwork.getNetContext().getResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -183,8 +183,8 @@ public class AlaAttentionManager {
     }
 
     private long getLastShowTime() {
-        b i = b.i();
-        return i.k("ala_live_push_remind_showtime" + getUserId(), 0L);
+        b j = b.j();
+        return j.l("ala_live_push_remind_showtime" + getUserId(), 0L);
     }
 
     private String getUserId() {
@@ -198,8 +198,8 @@ public class AlaAttentionManager {
 
     private void saveLastShowTime() {
         long currentTimeMillis = System.currentTimeMillis();
-        b i = b.i();
-        i.v("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
+        b j = b.j();
+        j.w("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
     }
 
     public void cancelAllTask() {
@@ -220,15 +220,15 @@ public class AlaAttentionManager {
     }
 
     public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
-        if (aVar != null && aVar.f13699g != null && aVar.f13698f != null && fVar != null && fVar.getPageActivity() != null) {
-            int i = aVar.f13698f.mServerErrorCode;
+        if (aVar != null && aVar.f13360g != null && aVar.f13359f != null && fVar != null && fVar.getPageActivity() != null) {
+            int i = aVar.f13359f.mServerErrorCode;
             if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004)) {
                 return false;
             }
-            if (aVar.f13700h) {
+            if (aVar.f13361h) {
                 return true;
             }
-            JSONObject optJSONObject = aVar.f13699g.optJSONObject("info");
+            JSONObject optJSONObject = aVar.f13360g.optJSONObject("info");
             if (optJSONObject == null) {
                 return false;
             }
@@ -237,7 +237,7 @@ public class AlaAttentionManager {
             String optString3 = optJSONObject.optString("block_confirm");
             String optString4 = optJSONObject.optString("block_cancel");
             if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                aVar.f13700h = true;
+                aVar.f13361h = true;
                 a aVar2 = new a(fVar.getPageActivity());
                 aVar2.setAutoNight(z);
                 aVar2.setMessage(optString);

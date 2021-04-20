@@ -2,7 +2,7 @@ package d.b.i0.m;
 
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,54 +10,54 @@ import java.util.List;
 public class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d f56802e;
+    public static volatile d f58158e;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f56803a;
+    public ArrayList<Integer> f58159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f56804b;
+    public a f58160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f56805c;
+    public c f58161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<StatisticItem> f56806d;
+    public List<StatisticItem> f58162d;
 
     public d() {
         ArrayList<Integer> arrayList = new ArrayList<>();
-        this.f56803a = arrayList;
+        this.f58159a = arrayList;
         arrayList.add(1);
-        this.f56803a.add(2);
+        this.f58159a.add(2);
         c cVar = new c();
-        this.f56805c = cVar;
-        this.f56804b = new a(cVar, this.f56803a);
-        g(d.b.h0.r.d0.b.i().j("key_abtest_channel", 0));
+        this.f58161c = cVar;
+        this.f58160b = new a(cVar, this.f58159a);
+        g(d.b.h0.r.d0.b.j().k("key_abtest_channel", 0));
     }
 
     public static d c() {
-        if (f56802e == null) {
+        if (f58158e == null) {
             synchronized (c.class) {
-                if (f56802e == null) {
-                    f56802e = new d();
+                if (f58158e == null) {
+                    f58158e = new d();
                 }
             }
         }
-        return f56802e;
+        return f58158e;
     }
 
     public void a(StatisticItem statisticItem) {
         if (statisticItem == null) {
             return;
         }
-        if (this.f56806d == null) {
-            this.f56806d = new ArrayList();
+        if (this.f58162d == null) {
+            this.f58162d = new ArrayList();
         }
-        this.f56806d.add(statisticItem);
+        this.f58162d.add(statisticItem);
     }
 
     public int b(String str, int i) {
-        a aVar = this.f56804b;
+        a aVar = this.f58160b;
         if (aVar == null) {
             return 0;
         }
@@ -66,27 +66,27 @@ public class d {
 
     public void d(String str) {
         c cVar;
-        if (k.isEmpty(str) || (cVar = this.f56805c) == null || !cVar.g()) {
+        if (k.isEmpty(str) || (cVar = this.f58161c) == null || !cVar.g()) {
             d.b.m0.a.a.d(str);
         }
     }
 
     public void e(String str) {
         c cVar;
-        if (k.isEmpty(str) || (cVar = this.f56805c) == null || !cVar.g()) {
+        if (k.isEmpty(str) || (cVar = this.f58161c) == null || !cVar.g()) {
             d.b.m0.a.a.e(str);
         }
     }
 
     public void f(String str) {
-        a aVar = this.f56804b;
+        a aVar = this.f58160b;
         if (aVar != null) {
             aVar.b(str);
         }
     }
 
     public void g(int i) {
-        c cVar = this.f56805c;
+        c cVar = this.f58161c;
         if (cVar != null) {
             cVar.k(i);
         }
@@ -94,11 +94,11 @@ public class d {
 
     public void h(String str, String str2) {
         c cVar;
-        if (ListUtils.isEmpty(this.f56806d) || (cVar = this.f56805c) == null || !cVar.g()) {
+        if (ListUtils.isEmpty(this.f58162d) || (cVar = this.f58161c) == null || !cVar.g()) {
             return;
         }
         int i = -1;
-        for (StatisticItem statisticItem : this.f56806d) {
+        for (StatisticItem statisticItem : this.f58162d) {
             if (statisticItem != null) {
                 if (statisticItem.getPosition() == 0) {
                     i(str, str2, statisticItem);
@@ -108,12 +108,12 @@ public class d {
                 }
             }
         }
-        this.f56806d.clear();
+        this.f58162d.clear();
     }
 
     public void i(String str, String str2, StatisticItem statisticItem) {
         c cVar;
-        if (statisticItem == null || (cVar = this.f56805c) == null || !cVar.g()) {
+        if (statisticItem == null || (cVar = this.f58161c) == null || !cVar.g()) {
             return;
         }
         HashMap hashMap = new HashMap();

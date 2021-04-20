@@ -18,16 +18,16 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.tencent.connect.common.Constants;
-import d.b.b.e.p.j;
-import d.b.i0.l3.e;
-import d.b.i0.s1.k;
-import d.b.i0.s1.l;
+import d.b.c.e.p.j;
+import d.b.i0.m3.e;
+import d.b.i0.t1.k;
+import d.b.i0.t1.l;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class VideoPlatformStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f14456a = new a(2007015);
+    public static CustomMessageListener f14133a = new a(2007015);
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -39,7 +39,7 @@ public class VideoPlatformStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.h().o();
-            d.b.i0.l3.b.d().k();
+            d.b.i0.m3.b.d().k();
         }
     }
 
@@ -54,12 +54,12 @@ public class VideoPlatformStatic {
 
     static {
         f();
-        MessageManager.getInstance().registerListener(f14456a);
+        MessageManager.getInstance().registerListener(f14133a);
         e();
     }
 
     public static String a(String str) {
-        return TextUtils.equals(str, "1") ? "index" : TextUtils.equals(str, "2") ? "frs" : TextUtils.equals(str, "6") ? "pb" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SET_AVATAR) ? "frs_bavideotab" : TextUtils.equals(str, "3") ? "floor5" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QQ) ? "floor10" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE) ? "floor15" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_JOININ_GROUP) ? "auto_midpage" : str;
+        return TextUtils.equals(str, "1") ? "index" : TextUtils.equals(str, "2") ? "frs" : TextUtils.equals(str, "6") ? "pb" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SET_AVATAR) ? "frs_bavideotab" : TextUtils.equals(str, "3") ? "floor5" : TextUtils.equals(str, "10") ? "floor10" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE) ? "floor15" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_JOININ_GROUP) ? "auto_midpage" : str;
     }
 
     public static int b(int i) {
@@ -100,7 +100,7 @@ public class VideoPlatformStatic {
     }
 
     public static String d() {
-        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3874b : (j.v() || j.z()) ? "4G" : "NONE";
+        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3909b : (j.v() || j.z()) ? "4G" : "NONE";
     }
 
     public static void e() {

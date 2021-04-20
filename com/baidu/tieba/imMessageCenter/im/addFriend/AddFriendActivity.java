@@ -24,8 +24,8 @@ import com.baidu.tbadk.newFriends.RequestNewFriendActionLocalMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.b.e.p.l;
-/* loaded from: classes3.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes4.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String defaultMessage;
     public boolean isLower;
@@ -41,8 +41,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String st_type;
     public String userId;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class a extends d.b.c.c.g.c {
         public a(int i) {
             super(i);
         }
@@ -55,7 +55,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new d.b.i0.e1.a.a.a(AddFriendActivity.this.userId, AddFriendActivity.this.name)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new d.b.i0.f1.a.a.a(AddFriendActivity.this.userId, AddFriendActivity.this.name)));
                     if (AddFriendActivity.this.isLower) {
                         AddFriendActivity addFriendActivity = AddFriendActivity.this;
                         addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
@@ -73,7 +73,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -85,7 +85,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -98,7 +98,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -115,7 +115,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnFocusChangeListener {
         public e() {
         }
@@ -132,7 +132,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnTouchListener {
         public f() {
         }
@@ -234,7 +234,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         if (TextUtils.isEmpty(str)) {
             str = getPageContext().getPageActivity().getString(R.string.my_name_is) + TbadkCoreApplication.getCurrentAccountName();
         }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(d.b.b.e.m.b.f(this.userId, 0L), this.name, this.portrait, str, this.st_type));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(d.b.c.e.m.b.f(this.userId, 0L), this.name, this.portrait, str, this.st_type));
     }
 
     @Override // com.baidu.tbadk.BaseActivity

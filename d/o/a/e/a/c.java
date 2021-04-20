@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bumptech.glide.load.engine.GlideException;
 import com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity;
@@ -26,22 +27,22 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f66800a = "c";
+    public static final String f67793a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f66801b;
+    public static e f67794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, j.a> f66802c = new HashMap<>();
+    public static final HashMap<String, j.a> f67795c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static C1839c f66803d;
+    public static C1874c f67796d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements d {
         @Override // d.o.a.e.a.c.d
         public boolean a(@NonNull Context context) {
@@ -49,7 +50,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements d {
         @Override // d.o.a.e.a.c.d
         public boolean a(@NonNull Context context) {
@@ -58,97 +59,97 @@ public class c {
     }
 
     /* renamed from: d.o.a.e.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1839c implements a.b {
+    /* loaded from: classes6.dex */
+    public static class C1874c implements a.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final g f66804e;
+        public final g f67797e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f66805f;
+        public final int f67798f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f66806g;
+        public JSONObject f67799g;
 
-        public C1839c(Context context, Intent intent, int i, JSONObject jSONObject, d dVar) {
-            this.f66806g = jSONObject;
+        public C1874c(Context context, Intent intent, int i, JSONObject jSONObject, d dVar) {
+            this.f67799g = jSONObject;
             int optInt = jSONObject.optInt("query_interval", 1000);
-            this.f66805f = optInt;
-            this.f66804e = new g(context, intent, i, dVar, optInt);
+            this.f67798f = optInt;
+            this.f67797e = new g(context, intent, i, dVar, optInt);
         }
 
         @Override // d.o.a.e.b.a.a.b
         public void b() {
-            if (!this.f66804e.f66818g) {
+            if (!this.f67797e.f67811g) {
                 Message obtain = Message.obtain();
                 obtain.what = 2;
-                this.f66804e.f66815d.sendMessage(obtain);
+                this.f67797e.f67808d.sendMessage(obtain);
             }
             d.o.a.e.b.a.a.c().h(this);
-            C1839c unused = c.f66803d = null;
+            C1874c unused = c.f67796d = null;
         }
 
         @Override // d.o.a.e.b.a.a.b
         public void c() {
-            int optInt = this.f66806g.optInt("time_out_second", 20);
+            int optInt = this.f67799g.optInt("time_out_second", 20);
             Message obtain = Message.obtain();
             obtain.what = 1;
-            this.f66804e.f66815d.sendMessage(obtain);
+            this.f67797e.f67808d.sendMessage(obtain);
             if (optInt <= 0 || optInt >= 60) {
                 return;
             }
             Message obtain2 = Message.obtain();
             obtain2.what = 2;
-            this.f66804e.f66815d.sendMessageDelayed(obtain2, optInt * 1000);
+            this.f67797e.f67808d.sendMessageDelayed(obtain2, optInt * 1000);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         boolean a(@NonNull Context context);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         void a(DownloadInfo downloadInfo, d.o.a.e.a.b bVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class f implements Callable<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f66807e;
+        public final Context f67800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d f66808f;
+        public final d f67801f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Handler f66809g;
+        public final Handler f67802g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f66810h;
+        public final long f67803h;
 
         public f(Handler handler, Context context, d dVar, long j) {
-            this.f66807e = context;
-            this.f66808f = dVar;
-            this.f66809g = handler;
-            this.f66810h = j;
+            this.f67800e = context;
+            this.f67801f = dVar;
+            this.f67802g = handler;
+            this.f67803h = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Boolean call() throws Exception {
-            if (this.f66808f != null && this.f66810h > 0 && this.f66810h <= 10000) {
-                Context context = this.f66807e;
-                boolean a2 = context != null ? this.f66808f.a(context) : false;
+            if (this.f67801f != null && this.f67803h > 0 && this.f67803h <= 10000) {
+                Context context = this.f67800e;
+                boolean a2 = context != null ? this.f67801f.a(context) : false;
                 Message obtain = Message.obtain();
                 if (a2) {
                     obtain.what = 2;
-                    this.f66809g.sendMessage(obtain);
+                    this.f67802g.sendMessage(obtain);
                 } else {
                     obtain.what = 1;
-                    this.f66809g.sendMessageDelayed(obtain, this.f66810h);
+                    this.f67802g.sendMessageDelayed(obtain, this.f67803h);
                 }
                 return Boolean.FALSE;
             }
@@ -156,41 +157,41 @@ public class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class g implements g.a {
 
         /* renamed from: h  reason: collision with root package name */
-        public static int f66811h;
+        public static int f67804h;
         public static int i;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f66812a;
+        public final Context f67805a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Intent f66813b;
+        public final Intent f67806b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final d f66814c;
+        public final d f67807c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Handler f66815d;
+        public final Handler f67808d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f66816e;
+        public final long f67809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Future<Boolean> f66817f;
+        public Future<Boolean> f67810f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f66818g = false;
+        public boolean f67811g = false;
 
         public g(Context context, Intent intent, int i2, d dVar, long j) {
-            this.f66812a = context;
-            this.f66813b = intent;
+            this.f67805a = context;
+            this.f67806b = intent;
             i = i2;
-            this.f66814c = dVar;
-            this.f66815d = new d.o.a.e.b.k.g(Looper.getMainLooper(), this);
-            this.f66816e = j;
+            this.f67807c = dVar;
+            this.f67808d = new d.o.a.e.b.k.g(Looper.getMainLooper(), this);
+            this.f67809e = j;
         }
 
         @Override // d.o.a.e.b.k.g.a
@@ -198,43 +199,43 @@ public class c {
             if (message != null) {
                 int i2 = message.what;
                 if (i2 == 1) {
-                    long j = this.f66816e;
+                    long j = this.f67809e;
                     if (j <= 0 || j > 10000) {
                         return;
                     }
-                    f66811h = 1;
-                    this.f66817f = d.o.a.e.b.g.d.w0().submit(new f(this.f66815d, this.f66812a, this.f66814c, this.f66816e));
+                    f67804h = 1;
+                    this.f67810f = d.o.a.e.b.g.d.w0().submit(new f(this.f67808d, this.f67805a, this.f67807c, this.f67809e));
                 } else if (i2 == 2) {
-                    f66811h = 2;
-                    this.f66815d.removeMessages(2);
-                    this.f66815d.removeMessages(1);
-                    Future<Boolean> future = this.f66817f;
+                    f67804h = 2;
+                    this.f67808d.removeMessages(2);
+                    this.f67808d.removeMessages(1);
+                    Future<Boolean> future = this.f67810f;
                     if (future != null) {
                         future.cancel(true);
                     }
-                    if (!this.f66818g && (Build.VERSION.SDK_INT < 29 || d.o.a.e.b.a.a.c().j())) {
-                        Intent intent = this.f66813b;
+                    if (!this.f67811g && (Build.VERSION.SDK_INT < 29 || d.o.a.e.b.a.a.c().j())) {
+                        Intent intent = this.f67806b;
                         if (intent != null) {
-                            c.E(this.f66812a, intent);
+                            c.E(this.f67805a, intent);
                         } else {
-                            DownloadInfo f2 = d.o.a.e.b.g.a.l(this.f66812a).f(i);
+                            DownloadInfo f2 = d.o.a.e.b.g.a.l(this.f67805a).f(i);
                             if (f2 != null && f2.m1()) {
-                                d.o.a.e.a.d.D(this.f66812a, i, false);
+                                d.o.a.e.a.d.D(this.f67805a, i, false);
                             }
                         }
-                        this.f66818g = true;
+                        this.f67811g = true;
                     }
-                    c.C(i, this.f66813b == null, c.l(this.f66812a));
+                    c.C(i, this.f67806b == null, c.l(this.f67805a));
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f66819a;
+        public static final String f67812a;
 
         static {
             StringBuilder sb = new StringBuilder();
@@ -264,20 +265,20 @@ public class c {
                 }
             }
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            f66819a = sb.toString();
+            f67812a = sb.toString();
         }
     }
 
     public static j.a A(String str) {
-        if (f66802c.containsKey(str)) {
-            j.a aVar = f66802c.get(str);
+        if (f67795c.containsKey(str)) {
+            j.a aVar = f67795c.get(str);
             if (aVar != null) {
                 return aVar;
             }
             return null;
         }
         j.a c2 = j.c(str);
-        f66802c.put(str, c2);
+        f67795c.put(str, c2);
         if (c2 != null) {
             return c2;
         }
@@ -324,7 +325,7 @@ public class c {
             if (TextUtils.isEmpty(F0)) {
                 return false;
             }
-            bVar.f66798d = "custom";
+            bVar.f67791d = "custom";
             d.o.a.e.a.a.a a2 = d.o.a.e.a.a.d.a(context, "custom", jSONObject, downloadInfo);
             if (a2 != null && a2.a()) {
                 Intent b2 = a2.b();
@@ -333,16 +334,16 @@ public class c {
                 }
                 if (u(new File(F0), downloadInfo, jSONObject)) {
                     if (E(context, b2)) {
-                        bVar.f66796b = 0;
+                        bVar.f67789b = 0;
                         return true;
                     }
-                    bVar.f66796b = 1;
+                    bVar.f67789b = 1;
                 } else {
-                    bVar.f66796b = 6;
+                    bVar.f67789b = 6;
                 }
                 return false;
             }
-            bVar.f66796b = 3;
+            bVar.f67789b = 3;
         }
         return false;
     }
@@ -356,16 +357,16 @@ public class c {
         if (jSONObject == null) {
             return bVar;
         }
-        bVar.f66795a = jSONObject.optString("type");
+        bVar.f67788a = jSONObject.optString("type");
         try {
             if (!v(jSONObject.optJSONArray("device_requirements"))) {
                 i(bVar, 2);
                 return bVar;
             }
-            bVar.f66796b = 0;
+            bVar.f67789b = 0;
             return bVar;
         } catch (Throwable th) {
-            bVar.f66797c = "check plan_d Config" + e(th);
+            bVar.f67790c = "check plan_d Config" + e(th);
             i(bVar, 4);
             return bVar;
         }
@@ -449,11 +450,11 @@ public class c {
                         if (optJSONObject != null && M(optJSONObject) && y(optJSONObject) && G(optJSONObject)) {
                             String optString = optJSONObject.optString("type");
                             if (!"plan_a".equals(optString) && !"plan_b".equals(optString) && !"plan_e".equals(optString) && !"plan_f".equals(optString)) {
-                                if ("plan_d".equalsIgnoreCase(optString) && (i = H(optJSONObject).f66796b) == 0) {
+                                if ("plan_d".equalsIgnoreCase(optString) && (i = H(optJSONObject).f67789b) == 0) {
                                     return 0;
                                 }
                             } else {
-                                i = b(optJSONObject, aVar).f66796b;
+                                i = b(optJSONObject, aVar).f67789b;
                                 if (i == 0) {
                                     return 0;
                                 }
@@ -475,28 +476,28 @@ public class c {
             return bVar;
         }
         String optString = jSONObject.optString("type");
-        bVar.f66795a = optString;
+        bVar.f67788a = optString;
         try {
             boolean v = v(jSONObject.optJSONArray("device_requirements"));
-            d.o.a.e.b.c.a.g(f66800a, "requirements fit ? " + v);
+            d.o.a.e.b.c.a.g(f67793a, "requirements fit ? " + v);
             if (!v) {
                 i(bVar, 2);
                 return bVar;
             }
             if ("plan_b".equals(optString)) {
-                bVar.f66799e = "custom";
+                bVar.f67792e = "custom";
                 if (d.o.a.e.a.a.d.b(d.o.a.e.b.g.d.l(), "custom", jSONObject, aVar)) {
-                    bVar.f66796b = 0;
+                    bVar.f67789b = 0;
                     return bVar;
                 }
                 i(bVar, 3);
             } else {
                 String optString2 = jSONObject.optString("device_plans");
-                bVar.f66799e = optString2;
+                bVar.f67792e = optString2;
                 if (!TextUtils.isEmpty(optString2)) {
                     for (String str : optString2.split(",")) {
                         if (d.o.a.e.a.a.d.b(d.o.a.e.b.g.d.l(), str, jSONObject, aVar)) {
-                            bVar.f66796b = 0;
+                            bVar.f67789b = 0;
                             return bVar;
                         }
                         i(bVar, 3);
@@ -505,7 +506,7 @@ public class c {
             }
             return bVar;
         } catch (Throwable th) {
-            bVar.f66797c = "check plan_a Config" + e(th);
+            bVar.f67790c = "check plan_a Config" + e(th);
             i(bVar, 4);
             return bVar;
         }
@@ -551,29 +552,29 @@ public class c {
     }
 
     public static void h(Context context, Intent intent, int i, JSONObject jSONObject, d dVar) {
-        if (f66803d != null) {
-            d.o.a.e.b.a.a.c().h(f66803d);
-            f66803d = null;
+        if (f67796d != null) {
+            d.o.a.e.b.a.a.c().h(f67796d);
+            f67796d = null;
         }
-        f66803d = new C1839c(context, intent, i, jSONObject, dVar);
-        d.o.a.e.b.a.a.c().f(f66803d);
+        f67796d = new C1874c(context, intent, i, jSONObject, dVar);
+        d.o.a.e.b.a.a.c().f(f67796d);
     }
 
     public static void i(d.o.a.e.a.b bVar, int i) {
-        int i2 = bVar.f66796b;
+        int i2 = bVar.f67789b;
         if (i2 != -1) {
-            bVar.f66796b = (i2 * 10) + i;
+            bVar.f67789b = (i2 * 10) + i;
         } else {
-            bVar.f66796b = i;
+            bVar.f67789b = i;
         }
     }
 
     public static void j(e eVar) {
-        f66801b = eVar;
+        f67794b = eVar;
     }
 
     public static boolean k() {
-        return g.f66811h == 1;
+        return g.f67804h == 1;
     }
 
     public static boolean l(Context context) {
@@ -620,7 +621,7 @@ public class c {
                 sharedPreferences.edit().putLong("last_jump_unknown_source_time", System.currentTimeMillis()).apply();
                 if (jSONObject.optInt("show_unknown_source_dialog", 0) == 1) {
                     Intent intent2 = new Intent(context, JumpUnknownSourceActivity.class);
-                    intent2.addFlags(268435456);
+                    intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     intent2.putExtra("intent", intent);
                     intent2.putExtra("config", jSONObject.toString());
                     intent2.putExtra("id", i);
@@ -631,8 +632,8 @@ public class c {
                         return true;
                     } catch (Throwable th) {
                         if (bVar != null) {
-                            bVar.f66796b = 1;
-                            bVar.f66797c = "tryShowUnknownSourceDialog" + e(th);
+                            bVar.f67789b = 1;
+                            bVar.f67790c = "tryShowUnknownSourceDialog" + e(th);
                         }
                         return false;
                     }
@@ -675,7 +676,7 @@ public class c {
             String optString = jSONObject.optString("type");
             if (!TextUtils.isEmpty(optString)) {
                 d.o.a.e.b.j.a f2 = d.o.a.e.b.j.a.f(downloadInfo);
-                bVar.f66795a = optString;
+                bVar.f67788a = optString;
                 switch (optString.hashCode()) {
                     case -985763637:
                         if (optString.equals("plan_a")) {
@@ -734,14 +735,14 @@ public class c {
                     case 0:
                     case 1:
                         if (!downloadInfo.O1()) {
-                            bVar.f66796b = downloadInfo.s(-1);
+                            bVar.f67789b = downloadInfo.s(-1);
                             break;
                         }
                     case 2:
                         b2 = b(jSONObject, f2);
-                        if (b2.f66796b == 0) {
+                        if (b2.f67789b == 0) {
                             if (optString.equals("plan_f") && TextUtils.isEmpty(downloadInfo.I("file_content_uri"))) {
-                                bVar.f66796b = downloadInfo.s(10);
+                                bVar.f67789b = downloadInfo.s(10);
                                 break;
                             } else {
                                 s = s(context, downloadInfo, jSONObject, bVar);
@@ -753,9 +754,9 @@ public class c {
                         break;
                     case 3:
                         b2 = b(jSONObject, f2);
-                        if (b2.f66796b == 0) {
+                        if (b2.f67789b == 0) {
                             if (!downloadInfo.O1()) {
-                                bVar.f66796b = downloadInfo.s(-1);
+                                bVar.f67789b = downloadInfo.s(-1);
                                 break;
                             } else {
                                 s = F(context, downloadInfo, jSONObject, bVar);
@@ -767,15 +768,15 @@ public class c {
                         break;
                     case 4:
                         d.o.a.e.a.b H = H(jSONObject);
-                        if (H.f66796b == 0) {
+                        if (H.f67789b == 0) {
                             try {
                                 d.o.a.e.a.d.f(context, intent);
-                                bVar.f66796b = 0;
+                                bVar.f67789b = 0;
                                 z2 = true;
                                 break;
                             } catch (Throwable th) {
-                                bVar.f66796b = 4;
-                                bVar.f66797c = th.toString();
+                                bVar.f67789b = 4;
+                                bVar.f67790c = th.toString();
                                 break;
                             }
                         } else {
@@ -784,7 +785,7 @@ public class c {
                         }
                     case 5:
                         b2 = z(jSONObject, f2);
-                        if (b2.f66796b == 0) {
+                        if (b2.f67789b == 0) {
                             s = t(context, downloadInfo, jSONObject, bVar, f2);
                             z2 = s;
                             break;
@@ -806,7 +807,7 @@ public class c {
                 if (z2) {
                     downloadInfo.L0().put("ah_attempt", bVar.b());
                 }
-                e eVar = f66801b;
+                e eVar = f67794b;
                 if (eVar != null) {
                     eVar.a(downloadInfo, bVar);
                 }
@@ -834,7 +835,7 @@ public class c {
         boolean z;
         if (context != null && jSONObject != null) {
             String optString = jSONObject.optString("device_plans");
-            bVar.f66799e = optString;
+            bVar.f67792e = optString;
             if (!TextUtils.isEmpty(optString)) {
                 String[] split = optString.split(",");
                 String F0 = downloadInfo.F0();
@@ -883,10 +884,10 @@ public class c {
                     i++;
                 }
                 if (!z) {
-                    bVar.f66797c = sb.toString();
+                    bVar.f67790c = sb.toString();
                 } else {
-                    bVar.f66798d = str;
-                    bVar.f66796b = 0;
+                    bVar.f67791d = str;
+                    bVar.f67789b = 0;
                 }
                 return z;
             }
@@ -897,7 +898,7 @@ public class c {
     public static boolean t(Context context, @NonNull DownloadInfo downloadInfo, JSONObject jSONObject, @NonNull d.o.a.e.a.b bVar, d.o.a.e.b.j.a aVar) {
         boolean z;
         String optString = jSONObject.optString("type");
-        bVar.f66795a = optString;
+        bVar.f67788a = optString;
         Intent b2 = d.o.a.e.a.a.d.a(context, "vbi", jSONObject, downloadInfo).b();
         StringBuilder sb = new StringBuilder();
         try {
@@ -910,9 +911,9 @@ public class c {
             z = false;
         }
         if (!z) {
-            bVar.f66797c = sb.toString();
+            bVar.f67790c = sb.toString();
         } else {
-            bVar.f66796b = 0;
+            bVar.f67789b = 0;
         }
         return true;
     }
@@ -1023,21 +1024,21 @@ public class c {
         if (jSONObject == null) {
             return bVar;
         }
-        bVar.f66795a = jSONObject.optString("type");
+        bVar.f67788a = jSONObject.optString("type");
         try {
             if (!v(jSONObject.optJSONArray("device_requirements"))) {
                 i(bVar, 2);
                 return bVar;
             }
-            bVar.f66799e = "vbi";
+            bVar.f67792e = "vbi";
             if (d.o.a.e.a.a.d.b(d.o.a.e.b.g.d.l(), "vbi", jSONObject, aVar)) {
-                bVar.f66796b = 0;
+                bVar.f67789b = 0;
             } else {
                 i(bVar, 3);
             }
             return bVar;
         } catch (Throwable th) {
-            bVar.f66797c = "check plan_g Config" + e(th);
+            bVar.f67790c = "check plan_g Config" + e(th);
             i(bVar, 4);
             return bVar;
         }

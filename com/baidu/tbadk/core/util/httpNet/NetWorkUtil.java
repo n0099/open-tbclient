@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.httpNet;
 
 import android.net.Proxy;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 /* loaded from: classes3.dex */
 public class NetWorkUtil {
     public static final String NET_TYPE_NET = "1";

@@ -19,25 +19,25 @@ public class a {
     public WheelView.DividerType U;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f49994a;
+    public e f50387a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f49995b;
+    public d f50388b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.h0.b1.o.a.d.a f49996c;
+    public d.b.h0.b1.o.a.d.a f50389c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Calendar f49998e;
+    public Calendar f50391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Calendar f49999f;
+    public Calendar f50392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Calendar f50000g;
+    public Calendar f50393g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50001h;
+    public int f50394h;
     public int i;
     public String l;
     public String m;
@@ -55,7 +55,7 @@ public class a {
     public ViewGroup y;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean[] f49997d = {true, true, true, false, false, false};
+    public boolean[] f50390d = {true, true, true, false, false, false};
     public boolean j = false;
     public boolean k = false;
     public int z = 17;

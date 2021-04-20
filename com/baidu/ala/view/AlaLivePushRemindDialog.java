@@ -2,6 +2,7 @@ package com.baidu.ala.view;
 
 import android.content.Intent;
 import android.net.Uri;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
@@ -10,7 +11,7 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.b.c.g.c;
+import d.b.c.c.g.c;
 import d.b.h0.r.s.a;
 import d.b.h0.s.d.d;
 /* loaded from: classes.dex */
@@ -44,7 +45,7 @@ public class AlaLivePushRemindDialog {
     public void jumpSystemPermissionSetting() {
         try {
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName()));
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             this.mPageContext.getPageActivity().startActivity(intent);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

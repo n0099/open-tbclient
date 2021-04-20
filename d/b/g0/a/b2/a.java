@@ -19,12 +19,12 @@ import java.util.Locale;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: d.b.g0.a.b2.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0613a implements Comparator<c> {
+    /* loaded from: classes3.dex */
+    public static class C0625a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -35,39 +35,39 @@ public class a {
             if (cVar2 == null) {
                 return 1;
             }
-            return String.valueOf(cVar.f43566a).compareTo(String.valueOf(cVar2.f43566a));
+            return String.valueOf(cVar.f43958a).compareTo(String.valueOf(cVar2.f43958a));
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43565a = new a(null);
+        public static final a f43957a = new a(null);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f43566a;
+        public long f43958a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f43567b;
+        public long f43959b;
 
         public c(long j, long j2) {
-            this.f43566a = j;
-            this.f43567b = j2;
+            this.f43958a = j;
+            this.f43959b = j2;
         }
 
         public String a() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.f43566a);
-                jSONObject.put("version", this.f43567b);
+                jSONObject.put("time", this.f43958a);
+                jSONObject.put("version", this.f43959b);
                 return jSONObject.toString();
             } catch (JSONException e2) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -79,25 +79,25 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.f43566a));
-                try {
-                    str2 = d.b.g0.a.b2.b.q(this.f43567b);
-                } catch (Exception e2) {
-                    e = e2;
-                    if (k.f45051a) {
-                        e.printStackTrace();
-                    }
-                    return str + " ---> " + str2;
-                }
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.f43958a));
+            } catch (Exception e2) {
+                e = e2;
+                str = null;
+            }
+            try {
+                str2 = d.b.g0.a.b2.b.q(this.f43959b);
             } catch (Exception e3) {
                 e = e3;
-                str = null;
+                if (k.f45443a) {
+                    e.printStackTrace();
+                }
+                return str + " ---> " + str2;
             }
             return str + " ---> " + str2;
         }
     }
 
-    public /* synthetic */ a(C0613a c0613a) {
+    public /* synthetic */ a(C0625a c0625a) {
         this();
     }
 
@@ -106,7 +106,7 @@ public class a {
     }
 
     public static a c() {
-        return b.f43565a;
+        return b.f43957a;
     }
 
     public static String d(int i) {
@@ -114,7 +114,7 @@ public class a {
     }
 
     public static void h(List<c> list) {
-        Collections.sort(list, new C0613a());
+        Collections.sort(list, new C0625a());
     }
 
     public void a(long j, int i) {
@@ -129,7 +129,7 @@ public class a {
                 break;
             }
             c next = it.next();
-            if (next != null && next.f43567b == j) {
+            if (next != null && next.f43959b == j) {
                 z = true;
                 break;
             }
@@ -174,7 +174,7 @@ public class a {
         } else {
             SwanCoreVersion L = f.V().L();
             c cVar2 = f2.get(size - 1);
-            if (cVar2 != null && L != null && L.swanCoreVersion > cVar2.f43567b) {
+            if (cVar2 != null && L != null && L.swanCoreVersion > cVar2.f43959b) {
                 sb.append("\n");
                 sb.append(new c(System.currentTimeMillis(), L.swanCoreVersion).toString());
             }
@@ -205,7 +205,7 @@ public class a {
             JSONObject jSONObject = new JSONObject(str);
             return new c(jSONObject.optLong("time"), jSONObject.optLong("version"));
         } catch (JSONException e2) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 e2.printStackTrace();
                 return null;
             }

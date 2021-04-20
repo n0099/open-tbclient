@@ -23,7 +23,7 @@ public final class d {
             case 12:
             case 14:
             case 15:
-                return com.baidu.apollon.statistics.g.f3874b;
+                return com.baidu.apollon.statistics.g.f3909b;
             case 13:
                 return "4G";
             default:

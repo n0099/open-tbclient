@@ -1,6 +1,5 @@
 package com.bun.miitmdid.b;
 
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.bun.miitmdid.b.b;
 import com.bun.miitmdid.utils.d;
@@ -11,18 +10,18 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f27077a = new HashMap();
+    public Map<String, String> f26762a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f27077a.isEmpty()) {
-            this.f27077a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-            this.f27077a.put("sv", sysParamters.a().c());
-            this.f27077a.put(IXAdRequestInfo.TEST_MODE, sysParamters.a().d());
-            this.f27077a.put("mf", sysParamters.a().e());
-            this.f27077a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f26762a.isEmpty()) {
+            this.f26762a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+            this.f26762a.put("sv", sysParamters.a().c());
+            this.f26762a.put("md", sysParamters.a().d());
+            this.f26762a.put("mf", sysParamters.a().e());
+            this.f26762a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f27077a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
-        return this.f27077a;
+        this.f26762a.put("tm", String.valueOf(System.currentTimeMillis()));
+        return this.f26762a;
     }
 
     public boolean a(boolean z, String str, String str2, String str3, String str4) {

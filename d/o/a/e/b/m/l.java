@@ -1,31 +1,31 @@
 package d.o.a.e.b.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d.o.a.e.b.g.m f67161a;
+    public static volatile d.o.a.e.b.g.m f68154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d.o.a.e.b.g.m f67162b;
+    public static volatile d.o.a.e.b.g.m f68155b;
 
     public static d.o.a.e.b.g.m a(boolean z) {
         if (z) {
-            if (f67162b == null) {
+            if (f68155b == null) {
                 synchronized (l.class) {
-                    if (f67162b == null) {
-                        f67162b = new n();
+                    if (f68155b == null) {
+                        f68155b = new n();
                     }
                 }
             }
-            return f67162b;
+            return f68155b;
         }
-        if (f67161a == null) {
+        if (f68154a == null) {
             synchronized (l.class) {
-                if (f67161a == null) {
-                    f67161a = new o();
+                if (f68154a == null) {
+                    f68154a = new o();
                 }
             }
         }
-        return f67161a;
+        return f68154a;
     }
 }

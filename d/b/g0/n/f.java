@@ -3,21 +3,21 @@ package d.b.g0.n;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49231a;
+    public String f49623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49232b;
+    public String f49624b;
 
     public f(String str, String str2) {
-        this.f49231a = str;
-        this.f49232b = str2;
+        this.f49623a = str;
+        this.f49624b = str2;
     }
 
     public String a() {
-        return this.f49231a;
+        return this.f49623a;
     }
 
     public String b() {
-        return this.f49232b;
+        return this.f49624b;
     }
 }

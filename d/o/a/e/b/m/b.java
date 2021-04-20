@@ -1,5 +1,5 @@
 package d.o.a.e.b.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements d.o.a.e.b.g.h {
     @Override // d.o.a.e.b.g.h
     public int a(int i, com.ss.android.socialbase.downloader.network.l lVar) {

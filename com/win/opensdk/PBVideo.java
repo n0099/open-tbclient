@@ -5,27 +5,27 @@ import android.content.Context;
 public class PBVideo implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39768a;
+    public String f40057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m2 f39769b;
+    public m2 f40058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBVideoListener f39770c;
+    public PBVideoListener f40059c;
 
     public PBVideo(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
-        this.f39768a = str;
+        this.f40057a = str;
         m2 m2Var = new m2(applicationContext, str);
-        this.f39769b = m2Var;
-        m2Var.f39982h = new o(this);
+        this.f40058b = m2Var;
+        m2Var.f40271h = new o(this);
     }
 
     public void destroy() {
-        m2 m2Var = this.f39769b;
-        m2Var.f39979e = false;
-        m2Var.f39977c = false;
-        m2Var.f39978d = false;
+        m2 m2Var = this.f40058b;
+        m2Var.f40268e = false;
+        m2Var.f40266c = false;
+        m2Var.f40267d = false;
         n1 n1Var = m2Var.i;
         if (n1Var != null) {
             n1Var.a();
@@ -33,46 +33,46 @@ public class PBVideo implements d {
     }
 
     public String getPid() {
-        return this.f39768a;
+        return this.f40057a;
     }
 
     public boolean isReady() {
-        m2 m2Var = this.f39769b;
+        m2 m2Var = this.f40058b;
         return m2Var.a() || m2Var.e();
     }
 
     public void load() {
-        m2 m2Var = this.f39769b;
-        if (m2Var.b() && m2Var.f39980f.isEffective() && !m2Var.f39980f.isShown()) {
-            m2Var.a(m2Var.f39980f);
+        m2 m2Var = this.f40058b;
+        if (m2Var.b() && m2Var.f40269f.isEffective() && !m2Var.f40269f.isShown()) {
+            m2Var.a(m2Var.f40269f);
             return;
         }
         if (m2Var.i == null) {
-            m2Var.i = new n1(m2Var.f39976b, m2Var.f39975a, F.Video);
+            m2Var.i = new n1(m2Var.f40265b, m2Var.f40264a, F.Video);
         }
-        m2Var.i.f39990g = new j2(m2Var);
+        m2Var.i.f40279g = new j2(m2Var);
         m2Var.i.b();
     }
 
     public void setVideoListener(PBVideoListener pBVideoListener) {
-        this.f39770c = pBVideoListener;
+        this.f40059c = pBVideoListener;
     }
 
     public void show() {
-        m2 m2Var = this.f39769b;
-        if (!G.g(m2Var.f39976b)) {
-            PBVideoListener pBVideoListener = m2Var.f39982h;
+        m2 m2Var = this.f40058b;
+        if (!G.g(m2Var.f40265b)) {
+            PBVideoListener pBVideoListener = m2Var.f40271h;
             if (pBVideoListener != null) {
                 pBVideoListener.onRewardedShowFail(PBError.NO_NETWORK.getMsg());
             }
         } else if (m2Var.c()) {
             if (m2Var.a() && m2Var.b()) {
-                m2Var.f39977c = false;
-                B2.a().a(B2.a(m2Var.f39980f.getTraceid(), m2Var.f39980f.getId(), m2Var.f39980f.getPid()), m2Var.f39981g);
+                m2Var.f40266c = false;
+                B2.a().a(B2.a(m2Var.f40269f.getTraceid(), m2Var.f40269f.getId(), m2Var.f40269f.getPid()), m2Var.f40270g);
                 m2Var.f();
             }
         } else if (m2Var.d() && m2Var.e() && m2Var.b()) {
-            m2Var.f39978d = false;
+            m2Var.f40267d = false;
             m2Var.f();
         }
     }

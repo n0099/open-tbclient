@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     public String business;
     public int flag;

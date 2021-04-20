@@ -10,10 +10,10 @@ import d.b.g0.i.r.c;
 public abstract class PagerAdapterImpl extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public c<View> f13012a = new c<>(5);
+    public c<View> f12673a = new c<>(5);
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f13013b = new SparseArray<>();
+    public SparseArray<View> f12674b = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -31,8 +31,8 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.f13012a.b(view);
-        this.f13013b.remove(i);
+        this.f12673a.b(view);
+        this.f12674b.remove(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -42,11 +42,11 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View a2 = this.f13012a.a();
+        View a2 = this.f12673a.a();
         if (a2 == null) {
             a2 = b(viewGroup, i);
         }
-        this.f13013b.put(i, a2);
+        this.f12674b.put(i, a2);
         viewGroup.addView(a2);
         a(a2, i);
         return a2;

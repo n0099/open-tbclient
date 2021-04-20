@@ -27,8 +27,8 @@ public class LoadingActivity extends Activity implements d.b.g0.a.i2.u0.b<i.a> {
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0174a implements Runnable {
-            public RunnableC0174a() {
+        public class RunnableC0175a implements Runnable {
+            public RunnableC0175a() {
             }
 
             @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class LoadingActivity extends Activity implements d.b.g0.a.i2.u0.b<i.a> {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            k0.X(new RunnableC0174a());
+            k0.X(new RunnableC0175a());
         }
     }
 
@@ -75,7 +75,7 @@ public class LoadingActivity extends Activity implements d.b.g0.a.i2.u0.b<i.a> {
     private void init() {
         Intent intent = getIntent();
         String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-        e i = d.b.g0.a.j0.i.c.f44832d.i(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+        e i = d.b.g0.a.j0.i.c.f45224d.i(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
         this.mUpdating = i;
         if (i != null && !i.n()) {
             this.mUpdating.v(this.mProgressCallback);
@@ -129,7 +129,7 @@ public class LoadingActivity extends Activity implements d.b.g0.a.i2.u0.b<i.a> {
         if (m == null || !m.a()) {
             return;
         }
-        int min = (int) ((Math.min(Math.max(m.f44842a, 0L), m.f44843b) / m.f44843b) * 100.0d);
+        int min = (int) ((Math.min(Math.max(m.f45234a, 0L), m.f45235b) / m.f45235b) * 100.0d);
         LoadingProgressBar loadingProgressBar = this.mLoadingProgressBar;
         if (loadingProgressBar == null || this.mProgressView == null || min <= 0) {
             return;
@@ -141,7 +141,7 @@ public class LoadingActivity extends Activity implements d.b.g0.a.i2.u0.b<i.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.g0.a.i2.u0.b
     public void onCallback(i.a aVar) {
-        if (TextUtils.equals(aVar.f45745g, EVENT_ID_HIDE)) {
+        if (TextUtils.equals(aVar.f46137g, EVENT_ID_HIDE)) {
             finish();
         }
     }

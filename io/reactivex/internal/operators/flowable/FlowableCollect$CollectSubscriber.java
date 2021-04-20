@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.a0.a;
-import f.a.g;
-import f.a.w.b;
+import f.b.a0.a;
+import f.b.g;
+import f.b.w.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
@@ -55,13 +55,13 @@ public final class FlowableCollect$CollectSubscriber<T, U> extends DeferredScala
         try {
             this.collector.a((U) this.u, t);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.s.cancel();
             onError(th);
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

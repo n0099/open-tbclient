@@ -12,7 +12,11 @@ public class FastJsonFeature implements Feature {
     public static final String JSON_FEATURE = FastJsonFeature.class.getSimpleName();
 
     public boolean configure(FeatureContext featureContext) {
-        Configuration configuration = featureContext.getConfiguration();
+        Configuration configuration;
+        try {
+            configuration = featureContext.getConfiguration();
+        } catch (NoSuchMethodError unused) {
+        }
         if (JSON_FEATURE.equalsIgnoreCase((String) CommonProperties.getValue(configuration.getProperties(), configuration.getRuntimeType(), "jersey.config.jsonFeature", JSON_FEATURE, String.class))) {
             featureContext.property(PropertiesHelper.getPropertyNameForRuntime("jersey.config.jsonFeature", configuration.getRuntimeType()), JSON_FEATURE);
             if (!configuration.isRegistered(FastJsonProvider.class)) {

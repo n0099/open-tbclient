@@ -5,31 +5,31 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f43234a;
+    public d f43626a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43235a;
+        public static final /* synthetic */ int[] f43627a;
 
         static {
             int[] iArr = new int[PathType.values().length];
-            f43235a = iArr;
+            f43627a = iArr;
             try {
                 iArr[PathType.RELATIVE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43235a[PathType.ERROR.ordinal()] = 2;
+                f43627a[PathType.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43235a[PathType.BD_FILE.ordinal()] = 3;
+                f43627a[PathType.BD_FILE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -38,13 +38,13 @@ public class e implements c {
     @Override // d.b.g0.a.a2.f.c
     public String a() {
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
-        return O == null ? "" : d.b.g0.a.a2.b.j(O.f45740f);
+        return O == null ? "" : d.b.g0.a.a2.b.j(O.f46132f);
     }
 
     @Override // d.b.g0.a.a2.f.c
     public String b(String str) {
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
-        return O == null ? str : d.b.g0.a.a2.b.q(str, O.f45740f);
+        return O == null ? str : d.b.g0.a.a2.b.q(str, O.f46132f);
     }
 
     @Override // d.b.g0.a.a2.f.c
@@ -62,7 +62,7 @@ public class e implements c {
         if (O == null) {
             return null;
         }
-        return d.b.g0.a.a2.b.u(str, O.f45740f);
+        return d.b.g0.a.a2.b.u(str, O.f46132f);
     }
 
     @Override // d.b.g0.a.a2.f.c
@@ -73,7 +73,7 @@ public class e implements c {
     @Override // d.b.g0.a.a2.f.c
     public String f(String str) {
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
-        return O == null ? "" : d.b.g0.a.a2.b.b(O.f45740f, str, null);
+        return O == null ? "" : d.b.g0.a.a2.b.b(O.f46132f, str, null);
     }
 
     @Override // d.b.g0.a.a2.f.c
@@ -91,10 +91,10 @@ public class e implements c {
     @Override // d.b.g0.a.a2.f.c
     @NonNull
     public synchronized d h() {
-        if (this.f43234a == null) {
-            this.f43234a = new f();
+        if (this.f43626a == null) {
+            this.f43626a = new f();
         }
-        return this.f43234a;
+        return this.f43626a;
     }
 
     @Override // d.b.g0.a.a2.f.c
@@ -109,7 +109,7 @@ public class e implements c {
     @Override // d.b.g0.a.a2.f.c
     public String j() {
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
-        return O == null ? "" : d.b.g0.a.a2.b.h(O.f45740f);
+        return O == null ? "" : d.b.g0.a.a2.b.h(O.f46132f);
     }
 
     @Override // d.b.g0.a.a2.f.c
@@ -141,7 +141,7 @@ public class e implements c {
     }
 
     public final PathType o(String str, PathType pathType) {
-        int i = a.f43235a[pathType.ordinal()];
+        int i = a.f43627a[pathType.ordinal()];
         if (i == 1) {
             return n(str) ? PathType.ERROR : pathType;
         } else if (i != 2) {

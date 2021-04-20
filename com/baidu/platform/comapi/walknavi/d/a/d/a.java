@@ -6,10 +6,10 @@ import com.baidu.platform.comapi.walknavi.d.a.d.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9966a = false;
+    public static boolean f9524a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f9967b = false;
+    public static boolean f9525b = false;
 
     public static boolean a(b.a aVar) {
         return false;

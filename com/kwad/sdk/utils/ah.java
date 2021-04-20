@@ -20,6 +20,8 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.SdkConfig;
@@ -43,28 +45,28 @@ import java.util.Random;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36708a = "";
+    public static String f36997a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36709b = "";
+    public static String f36998b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36710c = "";
+    public static String f36999c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f36711d = "";
+    public static String f37000d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f36712e = "";
+    public static String f37001e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36713f = null;
+    public static String f37002f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f36714g = false;
+    public static boolean f37003g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f36715h = false;
+    public static boolean f37004h = false;
     public static boolean i = false;
     public static boolean j = false;
     public static int k = 0;
@@ -173,7 +175,7 @@ public class ah {
         if (context == null) {
             return;
         }
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putString("android_id", str).apply();
+        context.getSharedPreferences("ksadsdk_pref", 0).edit().putString(IAdRequestParam.ANDROID_ID, str).apply();
     }
 
     public static int c() {
@@ -209,25 +211,25 @@ public class ah {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String d(@Nullable Context context) {
-        if (f36714g) {
+        if (f37003g) {
             return "";
         }
-        if (!TextUtils.isEmpty(f36709b) || context == null) {
-            return f36709b;
+        if (!TextUtils.isEmpty(f36998b) || context == null) {
+            return f36998b;
         }
         try {
             r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
             if (r1) {
-                f36709b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                f36998b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            f36709b = null;
+            f36998b = null;
         }
-        if (r1 && f36710c == null) {
-            f36714g = true;
+        if (r1 && f36999c == null) {
+            f37003g = true;
         }
-        return f36709b;
+        return f36998b;
     }
 
     public static String e() {
@@ -237,11 +239,11 @@ public class ah {
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String e(Context context) {
         String str;
-        if (f36715h) {
+        if (f37004h) {
             return "";
         }
-        if (!TextUtils.isEmpty(f36710c) || context == null) {
-            return f36710c;
+        if (!TextUtils.isEmpty(f36999c) || context == null) {
+            return f36999c;
         }
         try {
             r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
@@ -250,10 +252,10 @@ public class ah {
             str = null;
         }
         if (r2 && str == null) {
-            f36715h = true;
+            f37004h = true;
         }
         String str2 = TextUtils.isEmpty(str) ? "" : str;
-        f36710c = str2;
+        f36999c = str2;
         return str2;
     }
 
@@ -269,7 +271,7 @@ public class ah {
         if (i) {
             return "";
         }
-        if (TextUtils.isEmpty(f36711d)) {
+        if (TextUtils.isEmpty(f37000d)) {
             if (context != null && n) {
                 try {
                     r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
@@ -282,11 +284,11 @@ public class ah {
                     i = true;
                 }
                 str = TextUtils.isEmpty(str2) ? "" : str2;
-                f36711d = str;
+                f37000d = str;
             }
             return str;
         }
-        return f36711d;
+        return f37000d;
     }
 
     public static int g(Context context) {
@@ -326,17 +328,17 @@ public class ah {
         if (j) {
             return "";
         }
-        if (!TextUtils.isEmpty(f36712e) || context == null) {
-            return f36712e;
+        if (!TextUtils.isEmpty(f37001e) || context == null) {
+            return f37001e;
         }
         try {
-            f36712e = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            f37001e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception unused) {
         }
-        if (TextUtils.isEmpty(f36712e)) {
+        if (TextUtils.isEmpty(f37001e)) {
             j = true;
         }
-        return f36712e;
+        return f37001e;
     }
 
     public static int j() {
@@ -359,20 +361,20 @@ public class ah {
         if (context == null || !m) {
             return "";
         }
-        if (TextUtils.isEmpty(f36708a)) {
+        if (TextUtils.isEmpty(f36997a)) {
             try {
                 WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    f36708a = connectionInfo.getMacAddress();
+                    f36997a = connectionInfo.getMacAddress();
                 }
-                if (TextUtils.isEmpty(f36708a) || f36708a.equals(Config.DEF_MAC_ID)) {
+                if (TextUtils.isEmpty(f36997a) || f36997a.equals(Config.DEF_MAC_ID)) {
                     Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         NetworkInterface networkInterface = (NetworkInterface) it.next();
-                        if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                        if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
                             byte[] hardwareAddress = networkInterface.getHardwareAddress();
                             if (hardwareAddress != null && hardwareAddress.length != 0) {
                                 StringBuilder sb = new StringBuilder();
@@ -383,21 +385,21 @@ public class ah {
                                 if (sb.length() > 0) {
                                     sb.deleteCharAt(sb.length() - 1);
                                 }
-                                f36708a = sb.toString();
+                                f36997a = sb.toString();
                             }
                         }
                     }
                 }
-                if (TextUtils.isEmpty(f36708a) || f36708a.equals(Config.DEF_MAC_ID)) {
-                    f36708a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                if (TextUtils.isEmpty(f36997a) || f36997a.equals(Config.DEF_MAC_ID)) {
+                    f36997a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                 }
-                if (!TextUtils.isEmpty(f36708a)) {
-                    f36708a = f36708a.toUpperCase(Locale.US);
+                if (!TextUtils.isEmpty(f36997a)) {
+                    f36997a = f36997a.toUpperCase(Locale.US);
                 }
             } catch (Exception unused) {
             }
         }
-        return f36708a;
+        return f36997a;
     }
 
     public static String l() {
@@ -432,28 +434,28 @@ public class ah {
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        if (TextUtils.isEmpty(f36713f)) {
+        if (TextUtils.isEmpty(f37002f)) {
             String p = p();
             if (!TextUtils.isEmpty(p)) {
                 String str = "ANDROID_" + p;
-                f36713f = str;
+                f37002f = str;
                 return str;
             }
             String i2 = i(KsAdSDKImpl.get().getContext());
             if (!TextUtils.isEmpty(i2) && !a(i2)) {
                 String str2 = "ANDROID_" + i2;
-                f36713f = str2;
+                f37002f = str2;
                 return str2;
             }
             String o2 = o();
             if (!TextUtils.isEmpty(o2)) {
-                f36713f = "ANDROID_" + o2;
+                f37002f = "ANDROID_" + o2;
                 b(o2);
-                return f36713f;
+                return f37002f;
             }
             return "ANDROID_";
         }
-        return f36713f;
+        return f37002f;
     }
 
     public static String m(Context context) {
@@ -539,6 +541,6 @@ public class ah {
         if (context == null) {
             return null;
         }
-        return context.getSharedPreferences("ksadsdk_pref", 0).getString("android_id", null);
+        return context.getSharedPreferences("ksadsdk_pref", 0).getString(IAdRequestParam.ANDROID_ID, null);
     }
 }

@@ -18,17 +18,17 @@ public class b extends c {
         JSONObject jSONObject;
         g gVar = new g();
         try {
-            jSONObject = new JSONObject(new String(eVar.f3457b));
+            jSONObject = new JSONObject(new String(eVar.f3492b));
         } catch (JSONException e2) {
-            new b.c(this.f3453a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f3488a).a(Log.getStackTraceString(e2)).a();
             jSONObject = null;
         }
         int optInt = jSONObject != null ? jSONObject.optInt(Constants.KEYS.RET, -1) : -1;
         if (optInt == 2002) {
-            com.baidu.android.pushservice.k.a(this.f3453a).a(null, null, null, null);
-            m.c(this.f3453a);
+            com.baidu.android.pushservice.k.a(this.f3488a).a(null, null, null, null);
+            m.c(this.f3488a);
         }
-        new b.C0053b(this.f3453a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+        new b.C0052b(this.f3488a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
         gVar.a(optInt);
         return gVar;
     }

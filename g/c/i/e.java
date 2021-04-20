@@ -3,11 +3,11 @@ package g.c.i;
 public class e extends g implements i {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67644c;
+    public String f68650c;
 
     @Override // g.c.i.h
     public String b() {
-        return this.f67644c;
+        return this.f68650c;
     }
 
     @Override // g.c.i.i
@@ -16,6 +16,6 @@ public class e extends g implements i {
 
     @Override // g.c.i.i
     public void h(String str) {
-        this.f67644c = str;
+        this.f68650c = str;
     }
 }

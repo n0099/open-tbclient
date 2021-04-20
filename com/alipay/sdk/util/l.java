@@ -6,20 +6,20 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1992a = "resultStatus";
+    public static final String f2017a = "resultStatus";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1993b = "memo";
+    public static final String f2018b = "memo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1994c = "result";
+    public static final String f2019c = "result";
 
     public static Map<String, String> a(String str) {
         Map<String, String> a2 = a();
         try {
             return b(str);
         } catch (Throwable th) {
-            com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.f1841g, th);
+            com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.f1866g, th);
             return a2;
         }
     }
@@ -37,8 +37,8 @@ public class l {
     public static Map<String, String> a() {
         com.alipay.sdk.app.k b2 = com.alipay.sdk.app.k.b(com.alipay.sdk.app.k.CANCELED.a());
         HashMap hashMap = new HashMap();
-        hashMap.put(f1992a, Integer.toString(b2.a()));
-        hashMap.put(f1993b, b2.b());
+        hashMap.put(f2017a, Integer.toString(b2.a()));
+        hashMap.put(f2018b, b2.b());
         hashMap.put("result", "");
         return hashMap;
     }

@@ -11,39 +11,39 @@ import java.io.InputStreamReader;
 public class k {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f50342e = "tb_perfor_samllflow_time";
+    public static String f50749e = "tb_perfor_samllflow_time";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile k f50343f;
+    public static volatile k f50750f;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f50347d;
+    public long f50754d;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50344a = false;
+    public boolean f50751a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f50346c = 86400;
+    public long f50753c = 86400;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f50345b = d.b.h0.r.d0.b.i().k(f50342e, 0);
+    public long f50752b = d.b.h0.r.d0.b.j().l(f50749e, 0);
 
     public k() {
-        this.f50347d = 0L;
-        BdBaseApplication.getInst().setStartSmallFlowTime(this.f50345b);
-        this.f50347d = this.f50346c;
-        BdBaseApplication.getInst().setSmallFlowInterval(this.f50347d);
+        this.f50754d = 0L;
+        BdBaseApplication.getInst().setStartSmallFlowTime(this.f50752b);
+        this.f50754d = this.f50753c;
+        BdBaseApplication.getInst().setSmallFlowInterval(this.f50754d);
     }
 
     public static k d() {
-        if (f50343f == null) {
+        if (f50750f == null) {
             synchronized (k.class) {
-                if (f50343f == null) {
-                    f50343f = new k();
+                if (f50750f == null) {
+                    f50750f = new k();
                 }
             }
         }
-        return f50343f;
+        return f50750f;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0097 */
@@ -114,7 +114,7 @@ public class k {
                                     str2 = str;
                                     if (str2 != null) {
                                     }
-                                    return d.b.b.e.m.b.d(str2, -1);
+                                    return d.b.c.e.m.b.d(str2, -1);
                                 }
                             }
                             if (bufferedReader != null) {
@@ -123,7 +123,7 @@ public class k {
                             str2 = str;
                             if (str2 != null) {
                             }
-                            return d.b.b.e.m.b.d(str2, -1);
+                            return d.b.c.e.m.b.d(str2, -1);
                         } catch (Throwable th) {
                             th = th;
                             if (process != null) {
@@ -180,7 +180,7 @@ public class k {
                 str2 = split2[0];
             }
         }
-        return d.b.b.e.m.b.d(str2, -1);
+        return d.b.c.e.m.b.d(str2, -1);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0039, code lost:
@@ -287,15 +287,15 @@ public class k {
             switch (i) {
                 case 1000:
                     m mVar = new m();
-                    mVar.f50341a = "frs";
+                    mVar.f50748a = "frs";
                     return mVar;
                 case 1001:
                     m mVar2 = new m();
-                    mVar2.f50341a = "pb";
+                    mVar2.f50748a = "pb";
                     return mVar2;
                 case 1002:
                     i iVar = new i();
-                    iVar.f50341a = "im";
+                    iVar.f50748a = "im";
                     return iVar;
                 case 1003:
                 case 1006:
@@ -304,35 +304,35 @@ public class k {
                     return null;
                 case 1004:
                     m mVar3 = new m();
-                    mVar3.f50341a = "photo_live";
+                    mVar3.f50748a = "photo_live";
                     return mVar3;
                 case 1005:
                     e eVar = new e();
-                    eVar.f50341a = "home_page";
+                    eVar.f50748a = "home_page";
                     return eVar;
                 case 1008:
                     m mVar4 = new m();
-                    mVar4.f50341a = "user_center";
+                    mVar4.f50748a = "user_center";
                     return mVar4;
                 case 1009:
                     m mVar5 = new m();
-                    mVar5.f50341a = "sign_all";
+                    mVar5.f50748a = "sign_all";
                     return mVar5;
                 case 1010:
                     m mVar6 = new m();
-                    mVar6.f50341a = "person_center";
+                    mVar6.f50748a = "person_center";
                     return mVar6;
                 case 1011:
                     m mVar7 = new m();
-                    mVar7.f50341a = "person_center_home";
+                    mVar7.f50748a = "person_center_home";
                     return mVar7;
                 case 1012:
                     m mVar8 = new m();
-                    mVar8.f50341a = "person_center_post";
+                    mVar8.f50748a = "person_center_post";
                     return mVar8;
                 case 1013:
                     m mVar9 = new m();
-                    mVar9.f50341a = "person_center_dynamic";
+                    mVar9.f50748a = "person_center_dynamic";
                     return mVar9;
             }
         }
@@ -340,12 +340,12 @@ public class k {
     }
 
     public String f() {
-        return !d.b.b.e.p.j.z() ? "N" : d.b.b.e.p.j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : d.b.b.e.p.j.v() ? "4G" : d.b.b.e.p.j.u() ? com.baidu.apollon.statistics.g.f3874b : d.b.b.e.p.j.t() ? "2G" : "N";
+        return !d.b.c.e.p.j.z() ? "N" : d.b.c.e.p.j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : d.b.c.e.p.j.v() ? "4G" : d.b.c.e.p.j.u() ? com.baidu.apollon.statistics.g.f3909b : d.b.c.e.p.j.t() ? "2G" : "N";
     }
 
     public boolean g() {
-        if (!this.f50344a || (System.currentTimeMillis() - this.f50345b) / 1000 <= this.f50347d) {
-            return this.f50344a;
+        if (!this.f50751a || (System.currentTimeMillis() - this.f50752b) / 1000 <= this.f50754d) {
+            return this.f50751a;
         }
         return false;
     }
@@ -353,18 +353,18 @@ public class k {
     public void h(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            long j = this.f50345b;
-            if (0 == j || currentTimeMillis - j >= this.f50347d) {
-                this.f50345b = currentTimeMillis;
-                BdBaseApplication.getInst().setStartSmallFlowTime(this.f50345b);
-                d.b.h0.r.d0.b.i().v(f50342e, this.f50345b);
+            long j = this.f50752b;
+            if (0 == j || currentTimeMillis - j >= this.f50754d) {
+                this.f50752b = currentTimeMillis;
+                BdBaseApplication.getInst().setStartSmallFlowTime(this.f50752b);
+                d.b.h0.r.d0.b.j().w(f50749e, this.f50752b);
             }
         } else {
-            this.f50345b = 0L;
+            this.f50752b = 0L;
             BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-            d.b.h0.r.d0.b.i().v(f50342e, this.f50345b);
+            d.b.h0.r.d0.b.j().w(f50749e, this.f50752b);
         }
-        this.f50344a = z;
+        this.f50751a = z;
         BdBaseApplication.getInst().setIsSmallFlow(z);
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             l.b().f();
@@ -373,7 +373,7 @@ public class k {
 
     public void i(long j) {
         if (j > 0) {
-            this.f50347d = j;
+            this.f50754d = j;
             BdBaseApplication.getInst().setSmallFlowInterval(j);
         }
     }

@@ -26,14 +26,14 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f29703b = new Handler(Looper.getMainLooper());
+    public static final Handler f29388b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f29702a = Charset.forName("UTF-8");
+    public static final Charset f29387a = Charset.forName("UTF-8");
 
     public static void a(Closeable closeable) {
         if (closeable != null) {
@@ -109,9 +109,9 @@ public final class d {
         for (int i = 0; i < size; i++) {
             i.b bVar = list.get(0);
             if (bVar != null) {
-                sb.append(bVar.f29716a);
+                sb.append(bVar.f29401a);
                 sb.append(": ");
-                sb.append(bVar.f29717b);
+                sb.append(bVar.f29402b);
                 sb.append(Part.CRLF);
             }
         }
@@ -141,7 +141,7 @@ public final class d {
         sb.append(' ');
         sb.append(aVar.f());
         sb.append(Part.CRLF);
-        if (e.f29633c) {
+        if (e.f29318c) {
             Log.i("TAG_PROXY_headers", aVar.e().toUpperCase() + " " + aVar.a() + " " + aVar.f());
         }
         List<i.b> a3 = a(aVar.c());
@@ -151,8 +151,8 @@ public final class d {
             for (int i2 = 0; i2 < size; i2++) {
                 i.b bVar = a3.get(i2);
                 if (bVar != null) {
-                    String str = bVar.f29716a;
-                    String str2 = bVar.f29717b;
+                    String str = bVar.f29401a;
+                    String str2 = bVar.f29402b;
                     sb.append(str);
                     sb.append(": ");
                     sb.append(str2);
@@ -176,7 +176,7 @@ public final class d {
         sb.append(Part.CRLF);
         sb.append(Part.CRLF);
         String sb2 = sb.toString();
-        if (e.f29633c) {
+        if (e.f29318c) {
             Log.i("TAG_PROXY_WRITE_TO_MP", sb2);
         }
         return sb2;
@@ -232,29 +232,29 @@ public final class d {
         sb.append("Accept-Ranges: bytes");
         sb.append(Part.CRLF);
         sb.append(Part.CONTENT_TYPE);
-        sb.append(aVar.f29584b);
+        sb.append(aVar.f29269b);
         sb.append(Part.CRLF);
         if (i <= 0) {
             sb.append("Content-Length: ");
-            sb.append(aVar.f29585c);
+            sb.append(aVar.f29270c);
             sb.append(Part.CRLF);
         } else {
             sb.append("Content-Range: bytes ");
             sb.append(i);
             sb.append("-");
-            sb.append(aVar.f29585c - 1);
+            sb.append(aVar.f29270c - 1);
             sb.append("/");
-            sb.append(aVar.f29585c);
+            sb.append(aVar.f29270c);
             sb.append(Part.CRLF);
             sb.append("Content-Length: ");
-            sb.append(aVar.f29585c - i);
+            sb.append(aVar.f29270c - i);
             sb.append(Part.CRLF);
         }
         sb.append("Connection: close");
         sb.append(Part.CRLF);
         sb.append(Part.CRLF);
         String sb2 = sb.toString();
-        if (e.f29633c) {
+        if (e.f29318c) {
             Log.i("TAG_PROXY_WRITE_TO_MP", sb2);
         }
         return sb2;
@@ -270,11 +270,11 @@ public final class d {
             if (!file.exists() || (listFiles = file.listFiles(new FilenameFilter() { // from class: com.bytedance.sdk.openadsdk.k.g.d.1
 
                 /* renamed from: a  reason: collision with root package name */
-                public Pattern f29704a = Pattern.compile("^cpu[0-9]+$");
+                public Pattern f29389a = Pattern.compile("^cpu[0-9]+$");
 
                 @Override // java.io.FilenameFilter
                 public boolean accept(File file2, String str) {
-                    return this.f29704a.matcher(str).matches();
+                    return this.f29389a.matcher(str).matches();
                 }
             })) == null) {
                 return 1;
@@ -305,36 +305,36 @@ public final class d {
     public static String a(com.bytedance.sdk.openadsdk.k.e.a aVar, boolean z, boolean z2) {
         String a2;
         if (aVar == null) {
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_Response", "response null");
             }
             return "response null";
         } else if (!aVar.b()) {
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_Response", "response code: " + aVar.a());
             }
             return "response code: " + aVar.a();
         } else {
             String a3 = aVar.a("Content-Type", null);
             if (!c(a3)) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_Response", Part.CONTENT_TYPE + a3);
                 }
                 return Part.CONTENT_TYPE + a3;
             }
             int a4 = a(aVar);
             if (a4 <= 0) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_Response", "Content-Length: " + a4);
                 }
                 return "Content-Length: " + a4;
             } else if (z && ((a2 = aVar.a(Util.ACCEPT_RANGES, null)) == null || !a2.contains("bytes"))) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_Response", "Accept-Ranges: " + a2);
                 }
                 return "Accept-Ranges: " + a2;
             } else if (z2 && aVar.d() == null) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_Response", "response body null");
                 }
                 return "response body null";
@@ -348,14 +348,14 @@ public final class d {
         if (gVar != null) {
             if (b()) {
                 com.bytedance.sdk.openadsdk.l.e.a(gVar);
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_UTIL", "invoke in pool thread");
                     return;
                 }
                 return;
             }
             gVar.run();
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_UTIL", "invoke calling thread");
             }
         }
@@ -366,7 +366,7 @@ public final class d {
             if (b()) {
                 runnable.run();
             } else {
-                f29703b.post(runnable);
+                f29388b.post(runnable);
             }
         }
     }
@@ -375,28 +375,28 @@ public final class d {
         if (list == null || list.size() == 0) {
             return null;
         }
-        if (e.f29633c) {
+        if (e.f29318c) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 i.b bVar = list.get(i);
                 if (bVar != null) {
-                    Log.i("TAG_PROXY_PRE_FILTER", bVar.f29716a + ": " + bVar.f29716a);
+                    Log.i("TAG_PROXY_PRE_FILTER", bVar.f29401a + ": " + bVar.f29401a);
                 }
             }
         }
         ArrayList arrayList = new ArrayList();
         for (i.b bVar2 : list) {
-            if ("Host".equals(bVar2.f29716a) || HTTP.CONN_KEEP_ALIVE.equals(bVar2.f29716a) || HTTP.CONN_DIRECTIVE.equals(bVar2.f29716a) || "Proxy-Connection".equals(bVar2.f29716a)) {
+            if ("Host".equals(bVar2.f29401a) || HTTP.CONN_KEEP_ALIVE.equals(bVar2.f29401a) || HTTP.CONN_DIRECTIVE.equals(bVar2.f29401a) || "Proxy-Connection".equals(bVar2.f29401a)) {
                 arrayList.add(bVar2);
             }
         }
         list.removeAll(arrayList);
-        if (e.f29633c) {
+        if (e.f29318c) {
             int size2 = list.size();
             for (int i2 = 0; i2 < size2; i2++) {
                 i.b bVar3 = list.get(i2);
                 if (bVar3 != null) {
-                    Log.i("TAG_PROXY_POST_FILTER", bVar3.f29716a + ": " + bVar3.f29717b);
+                    Log.i("TAG_PROXY_POST_FILTER", bVar3.f29401a + ": " + bVar3.f29402b);
                 }
             }
         }
@@ -432,8 +432,8 @@ public final class d {
             }
             f g2 = aVar.g();
             if (g2 != null) {
-                str3 = g2.f29644b;
-                str2 = b(g2.f29647e);
+                str3 = g2.f29329b;
+                str2 = b(g2.f29332e);
             } else {
                 str2 = "";
                 str3 = str2;

@@ -7,59 +7,59 @@ import tbclient.Page;
 public class z0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50946a = 0;
+    public int f51353a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50947b = 0;
+    public int f51354b = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50950e = 0;
+    public int f51357e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50951f = 0;
+    public int f51358f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50952g = 0;
+    public int f51359g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50953h = 0;
+    public int f51360h = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50948c = 0;
+    public int f51355c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50949d = 0;
+    public int f51356d = 0;
 
     public int a() {
-        return this.f50950e;
+        return this.f51357e;
     }
 
     public int b() {
-        return this.f50952g;
+        return this.f51359g;
     }
 
     public int c() {
-        return this.f50953h;
+        return this.f51360h;
     }
 
     public int d() {
-        return this.f50949d;
+        return this.f51356d;
     }
 
     public int e() {
-        return this.f50951f;
+        return this.f51358f;
     }
 
     public int f() {
-        return this.f50948c;
+        return this.f51355c;
     }
 
     public int g() {
-        return this.f50947b;
+        return this.f51354b;
     }
 
     public int h() {
-        return this.f50946a;
+        return this.f51353a;
     }
 
     public void i(JSONObject jSONObject) {
@@ -67,14 +67,14 @@ public class z0 {
             return;
         }
         try {
-            this.f50946a = jSONObject.optInt("total_page", 0);
-            this.f50947b = jSONObject.optInt("total_num", 0);
-            this.f50948c = jSONObject.optInt("total_count", 0);
-            this.f50950e = jSONObject.optInt("current_page", 0);
-            this.f50951f = jSONObject.optInt("page_size", 0);
-            this.f50952g = jSONObject.optInt("has_more", 0);
-            this.f50953h = jSONObject.optInt("has_prev", 0);
-            this.f50949d = jSONObject.optInt("lz_total_floor", 0);
+            this.f51353a = jSONObject.optInt("total_page", 0);
+            this.f51354b = jSONObject.optInt("total_num", 0);
+            this.f51355c = jSONObject.optInt("total_count", 0);
+            this.f51357e = jSONObject.optInt("current_page", 0);
+            this.f51358f = jSONObject.optInt("page_size", 0);
+            this.f51359g = jSONObject.optInt("has_more", 0);
+            this.f51360h = jSONObject.optInt("has_prev", 0);
+            this.f51356d = jSONObject.optInt("lz_total_floor", 0);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -84,41 +84,41 @@ public class z0 {
         if (page == null) {
             return;
         }
-        this.f50946a = page.total_page.intValue();
-        this.f50947b = page.total_num.intValue();
-        this.f50948c = page.total_count.intValue();
-        this.f50950e = page.current_page.intValue();
-        this.f50951f = page.page_size.intValue();
-        this.f50952g = page.has_more.intValue();
-        this.f50953h = page.has_prev.intValue();
-        this.f50949d = page.lz_total_floor.intValue();
+        this.f51353a = page.total_page.intValue();
+        this.f51354b = page.total_num.intValue();
+        this.f51355c = page.total_count.intValue();
+        this.f51357e = page.current_page.intValue();
+        this.f51358f = page.page_size.intValue();
+        this.f51359g = page.has_more.intValue();
+        this.f51360h = page.has_prev.intValue();
+        this.f51356d = page.lz_total_floor.intValue();
     }
 
     public void k(int i) {
-        this.f50950e = i;
+        this.f51357e = i;
     }
 
     public void l(int i) {
-        this.f50952g = i;
+        this.f51359g = i;
     }
 
     public void m(int i) {
-        this.f50953h = i;
+        this.f51360h = i;
     }
 
     public void n(int i) {
-        this.f50949d = i;
+        this.f51356d = i;
     }
 
     public void o(int i) {
-        this.f50951f = i;
+        this.f51358f = i;
     }
 
     public void p(int i) {
-        this.f50947b = i;
+        this.f51354b = i;
     }
 
     public void q(int i) {
-        this.f50946a = i;
+        this.f51353a = i;
     }
 }

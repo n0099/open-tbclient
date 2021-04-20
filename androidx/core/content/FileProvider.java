@@ -16,6 +16,7 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -157,8 +158,8 @@ public class FileProvider extends ContentProvider {
     }
 
     public static int modeToMode(String str) {
-        if (r.f7664a.equals(str)) {
-            return 268435456;
+        if (r.f7699a.equals(str)) {
+            return Label.FORWARD_REFERENCE_TYPE_SHORT;
         }
         if ("w".equals(str) || "wt".equals(str)) {
             return 738197504;

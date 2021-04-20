@@ -81,7 +81,7 @@ public class d0 {
             }
             return Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
         } catch (Exception e2) {
-            if (d.b.g0.a.k.f45051a) {
+            if (d.b.g0.a.k.f45443a) {
                 e2.printStackTrace();
             }
             return false;

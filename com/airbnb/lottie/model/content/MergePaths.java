@@ -1,11 +1,12 @@
 package com.airbnb.lottie.model.content;
 
 import androidx.annotation.Nullable;
-import d.a.a.c;
 import d.a.a.f;
-import d.a.a.q.a.k;
-import d.a.a.s.j.b;
-import d.a.a.s.k.a;
+import d.a.a.s.b.c;
+import d.a.a.s.b.l;
+import d.a.a.u.j.b;
+import d.a.a.u.k.a;
+import d.a.a.x.d;
 /* loaded from: classes.dex */
 public class MergePaths implements b {
 
@@ -15,13 +16,16 @@ public class MergePaths implements b {
     /* renamed from: b  reason: collision with root package name */
     public final MergePathsMode f1592b;
 
+    /* renamed from: c  reason: collision with root package name */
+    public final boolean f1593c;
+
     /* loaded from: classes.dex */
     public enum MergePathsMode {
-        Merge,
-        Add,
-        Subtract,
-        Intersect,
-        ExcludeIntersections;
+        MERGE,
+        ADD,
+        SUBTRACT,
+        INTERSECT,
+        EXCLUDE_INTERSECTIONS;
 
         public static MergePathsMode forId(int i) {
             if (i != 1) {
@@ -29,33 +33,34 @@ public class MergePaths implements b {
                     if (i != 3) {
                         if (i != 4) {
                             if (i != 5) {
-                                return Merge;
+                                return MERGE;
                             }
-                            return ExcludeIntersections;
+                            return EXCLUDE_INTERSECTIONS;
                         }
-                        return Intersect;
+                        return INTERSECT;
                     }
-                    return Subtract;
+                    return SUBTRACT;
                 }
-                return Add;
+                return ADD;
             }
-            return Merge;
+            return MERGE;
         }
     }
 
-    public MergePaths(String str, MergePathsMode mergePathsMode) {
+    public MergePaths(String str, MergePathsMode mergePathsMode, boolean z) {
         this.f1591a = str;
         this.f1592b = mergePathsMode;
+        this.f1593c = z;
     }
 
-    @Override // d.a.a.s.j.b
+    @Override // d.a.a.u.j.b
     @Nullable
-    public d.a.a.q.a.b a(f fVar, a aVar) {
-        if (!fVar.j()) {
-            c.d("Animation contains merge paths but they are disabled.");
+    public c a(f fVar, a aVar) {
+        if (!fVar.n()) {
+            d.c("Animation contains merge paths but they are disabled.");
             return null;
         }
-        return new k(this);
+        return new l(this);
     }
 
     public MergePathsMode b() {
@@ -64,6 +69,10 @@ public class MergePaths implements b {
 
     public String c() {
         return this.f1591a;
+    }
+
+    public boolean d() {
+        return this.f1593c;
     }
 
     public String toString() {

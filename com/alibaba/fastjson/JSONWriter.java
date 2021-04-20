@@ -20,7 +20,7 @@ public class JSONWriter implements Closeable, Flushable {
         this.serializer = new JSONSerializer(serializeWriter);
     }
 
-    private void afterWriter() {
+    private void afterWrite() {
         int i;
         JSONStreamContext jSONStreamContext = this.context;
         if (jSONStreamContext == null) {
@@ -150,7 +150,7 @@ public class JSONWriter implements Closeable, Flushable {
     public void writeObject(String str) {
         beforeWrite();
         this.serializer.write(str);
-        afterWriter();
+        afterWrite();
     }
 
     @Deprecated
@@ -170,6 +170,6 @@ public class JSONWriter implements Closeable, Flushable {
     public void writeObject(Object obj) {
         beforeWrite();
         this.serializer.write(obj);
-        afterWriter();
+        afterWrite();
     }
 }

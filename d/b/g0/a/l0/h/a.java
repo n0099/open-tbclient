@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45154a;
+    public String f45546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45155b;
+    public String f45547b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45156c;
+    public String f45548c;
 }

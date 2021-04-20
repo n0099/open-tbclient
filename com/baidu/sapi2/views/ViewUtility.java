@@ -14,7 +14,7 @@ import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.google.protobuf.CodedInputStream;
-import d.b.a0.a.b;
+import d.b.x.a.b;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
@@ -24,10 +24,10 @@ public class ViewUtility implements NoProguard {
     public static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f11584a;
+        public final /* synthetic */ float f11168a;
 
         public a(float f2) {
-            this.f11584a = f2;
+            this.f11168a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -40,7 +40,7 @@ public class ViewUtility implements NoProguard {
                 }
                 return false;
             } else if (Build.VERSION.SDK_INT >= 11) {
-                view.setAlpha(this.f11584a);
+                view.setAlpha(this.f11168a);
                 return false;
             } else {
                 return false;

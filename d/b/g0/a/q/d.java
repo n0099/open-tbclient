@@ -7,34 +7,34 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45480a;
+    public String f45872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45481b;
+    public String f45873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45482c;
+    public String f45874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45483d;
+    public int f45875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45484e;
+    public int f45876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45485f;
+    public int f45877f;
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public d(String str, String str2, String str3, int i, int i2, int i3) {
-        this.f45480a = str;
-        this.f45481b = str2;
-        this.f45482c = str3;
-        this.f45483d = i;
-        this.f45484e = i2;
-        this.f45485f = i3;
+        this.f45872a = str;
+        this.f45873b = str2;
+        this.f45874c = str3;
+        this.f45875d = i;
+        this.f45876e = i2;
+        this.f45877f = i3;
     }
 
     public d.b.g0.a.b1.g.c a() {
@@ -44,18 +44,18 @@ public class d {
             jSONObject.put("showCenterPlayBtn", true);
             d.b.g0.a.b1.g.c cVar = new d.b.g0.a.b1.g.c();
             cVar.n = "SwanAdPlayer";
-            cVar.f43113f = "SwanAdPlayer";
+            cVar.f43505f = "SwanAdPlayer";
             cVar.s = true;
             cVar.o = false;
             cVar.B = true;
             cVar.M = false;
-            cVar.p = this.f45480a;
-            cVar.C = this.f45481b;
-            cVar.f43114g = this.f45482c;
-            d.b.g0.a.e1.d.a.a aVar = new d.b.g0.a.e1.d.a.a(0, 0, this.f45483d, this.f45484e);
+            cVar.p = this.f45872a;
+            cVar.C = this.f45873b;
+            cVar.f43506g = this.f45874c;
+            d.b.g0.a.e1.d.a.a aVar = new d.b.g0.a.e1.d.a.a(0, 0, this.f45875d, this.f45876e);
             cVar.l = aVar;
             aVar.j(true);
-            cVar.q = this.f45485f;
+            cVar.q = this.f45877f;
             return d.b.g0.a.b1.g.c.h(jSONObject, cVar);
         } catch (JSONException e2) {
             e2.printStackTrace();

@@ -36,7 +36,7 @@ public class h extends c implements View.OnClickListener {
             return;
         }
         f.b i = F1.i("navigateTo");
-        i.n(f.f44013g, f.i);
+        i.n(f.f44405g, f.i);
         i.k("authority", null).a();
         d.b.g0.a.c1.a.p("permission");
     }

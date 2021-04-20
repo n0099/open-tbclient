@@ -41,30 +41,30 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String VERSION_NAME = "9.2.9.8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10615b = "SapiAccountManager";
+    public static final String f10199b = "SapiAccountManager";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SapiAccountManager f10616c;
+    public static SapiAccountManager f10200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static SapiConfiguration f10617d;
+    public static SapiConfiguration f10201d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static SapiAccountService f10618e;
+    public static SapiAccountService f10202e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static ServiceManager f10619f;
+    public static ServiceManager f10203f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static GlobalCallback f10620g;
+    public static GlobalCallback f10204g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static CheckUrlIsAvailableListener f10621h;
+    public static CheckUrlIsAvailableListener f10205h;
     public static TidConvertSidCallback i;
     public static final List<String> j;
 
     /* renamed from: a  reason: collision with root package name */
-    public char f10622a = 0;
+    public char f10206a = 0;
 
     /* loaded from: classes2.dex */
     public interface CheckUrlIsAvailableListener {
@@ -93,25 +93,25 @@ public final class SapiAccountManager implements ISAccountManager {
         } catch (Exception unused2) {
             com.baidu.sapi2.utils.a.b("please import the package : sofire-sdk-*.aar");
         }
-        if (f10617d.supportFaceLogin) {
+        if (f10201d.supportFaceLogin) {
             try {
                 Class.forName("com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager");
             } catch (Throwable unused3) {
                 com.baidu.sapi2.utils.a.b("please import the package :pass-biometrics-face-*.aar and pass-biometrics-base-*.aar");
             }
         }
-        if (f10617d.loginShareStrategy() == LoginShareStrategy.DISABLED || f10620g != null) {
+        if (f10201d.loginShareStrategy() == LoginShareStrategy.DISABLED || f10204g != null) {
             return;
         }
         com.baidu.sapi2.utils.a.a("please register globalCallback to support share login function");
     }
 
     public static CheckUrlIsAvailableListener getCheckUrlIsAvailablelister() {
-        return f10621h;
+        return f10205h;
     }
 
     public static GlobalCallback getGlobalCallback() {
-        GlobalCallback globalCallback = f10620g;
+        GlobalCallback globalCallback = f10204g;
         return globalCallback == null ? new GlobalCallback() { // from class: com.baidu.sapi2.SapiAccountManager.2
             @Override // com.baidu.sapi2.callback.GlobalCallback
             public void onLoginStatusChange() {
@@ -126,10 +126,10 @@ public final class SapiAccountManager implements ISAccountManager {
     public static synchronized SapiAccountManager getInstance() {
         SapiAccountManager sapiAccountManager;
         synchronized (SapiAccountManager.class) {
-            if (f10616c == null) {
-                f10616c = new SapiAccountManager();
+            if (f10200c == null) {
+                f10200c = new SapiAccountManager();
             }
-            sapiAccountManager = f10616c;
+            sapiAccountManager = f10200c;
         }
         return sapiAccountManager;
     }
@@ -139,11 +139,11 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     public static void registerCheckUrlIsAvailableListener(CheckUrlIsAvailableListener checkUrlIsAvailableListener) {
-        f10621h = checkUrlIsAvailableListener;
+        f10205h = checkUrlIsAvailableListener;
     }
 
     public static void setGlobalCallback(GlobalCallback globalCallback) {
-        f10620g = globalCallback;
+        f10204g = globalCallback;
     }
 
     public static void setTidConvertSidCallback(TidConvertSidCallback tidConvertSidCallback) {
@@ -151,17 +151,17 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     public static void unregisterCheckUrlIsAvailableListener() {
-        f10621h = null;
+        f10205h = null;
     }
 
     public SapiAccountService getAccountService() {
         a();
-        return f10618e;
+        return f10202e;
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public SapiConfiguration getConfignation() {
-        return f10617d;
+        return f10201d;
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -182,7 +182,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public void getOneKeyLoginIsAvailable(OneKeyLoginCallback oneKeyLoginCallback) {
         GetOneKeyLoginStateDTO getOneKeyLoginStateDTO = new GetOneKeyLoginStateDTO();
         getOneKeyLoginStateDTO.connectTimeout = 15000;
-        f10618e.getOneKeyLoginIsAvailable(getOneKeyLoginStateDTO, oneKeyLoginCallback);
+        f10202e.getOneKeyLoginIsAvailable(getOneKeyLoginStateDTO, oneKeyLoginCallback);
     }
 
     public SapiSafeFacade getSafeFacade() {
@@ -192,7 +192,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public SapiConfiguration getSapiConfiguration() {
         a();
-        return f10617d;
+        return f10201d;
     }
 
     public String getSession(String str, String str2) {
@@ -216,13 +216,13 @@ public final class SapiAccountManager implements ISAccountManager {
         a();
         SapiConfiguration sapiConfiguration = getInstance().getSapiConfiguration();
         if (sapiConfiguration == null) {
-            Log.d(com.baidu.sapi2.share.d.f11377a, "getShareModels config is null");
+            Log.d(com.baidu.sapi2.share.d.f10961a, "getShareModels config is null");
             shareModelCallback.onReceiveShareModels(new ArrayList(0));
         } else if (!SapiUtils.isOnline(sapiConfiguration.context)) {
-            Log.d(com.baidu.sapi2.share.d.f11377a, "getShareModels environment is not online");
+            Log.d(com.baidu.sapi2.share.d.f10961a, "getShareModels environment is not online");
             shareModelCallback.onReceiveShareModels(new ArrayList(0));
         } else if (sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED) {
-            Log.d(com.baidu.sapi2.share.d.f11377a, "getShareModels config loginShareStrategy is not DISABLED");
+            Log.d(com.baidu.sapi2.share.d.f10961a, "getShareModels config loginShareStrategy is not DISABLED");
             shareModelCallback.onReceiveShareModels(new ArrayList(0));
         } else {
             com.baidu.sapi2.share.d.a(j2, sapiConfiguration.context, sapiConfiguration.tpl, shareModelCallback);
@@ -245,11 +245,11 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public synchronized void init(final SapiConfiguration sapiConfiguration) {
         if (sapiConfiguration != null) {
-            if (f10617d == null) {
-                f10617d = sapiConfiguration;
-                f10618e = new SapiAccountService();
+            if (f10201d == null) {
+                f10201d = sapiConfiguration;
+                f10202e = new SapiAccountService();
                 ServiceManager serviceManager = ServiceManager.getInstance();
-                f10619f = serviceManager;
+                f10203f = serviceManager;
                 serviceManager.setIsAccountManager(this);
                 if (b(sapiConfiguration.context)) {
                     a.e().a((Application) sapiConfiguration.context);
@@ -289,7 +289,7 @@ public final class SapiAccountManager implements ISAccountManager {
                             }
                             sapiContext.setHostsHijacked(f.a(sapiConfiguration.context));
                             if (sapiConfiguration.supportFaceLogin) {
-                                new com.baidu.sapi2.outsdk.a().a(SapiAccountManager.f10617d);
+                                new com.baidu.sapi2.outsdk.a().a(SapiAccountManager.f10201d);
                             }
                             com.baidu.sapi2.utils.d a2 = com.baidu.sapi2.utils.d.a();
                             SapiConfiguration sapiConfiguration2 = sapiConfiguration;
@@ -345,11 +345,11 @@ public final class SapiAccountManager implements ISAccountManager {
                 SapiContext.getInstance().setSearchBoxSid(i.tidConvertSid(tid.split("-")));
                 return;
             } else {
-                Log.d(f10615b, "tid is null or empty");
+                Log.d(f10199b, "tid is null or empty");
                 return;
             }
         }
-        Log.d(f10615b, "convert tid to sid failed, because tidConvertSidCallback is null");
+        Log.d(f10199b, "convert tid to sid failed, because tidConvertSidCallback is null");
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -362,7 +362,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiContext sapiContext = SapiContext.getInstance();
         sapiContext.setCurrentAccount(sapiAccount);
         sapiContext.addLoginAccount(sapiAccount);
-        new com.baidu.sapi2.utils.c().a(com.baidu.sapi2.utils.c.f11449h);
+        new com.baidu.sapi2.utils.c().a(com.baidu.sapi2.utils.c.f11033h);
         new ShareStorage().set(2);
         return true;
     }
@@ -376,7 +376,7 @@ public final class SapiAccountManager implements ISAccountManager {
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        return curProcessName.equals(a2) || curProcessName.equals(f10617d.processName);
+        return curProcessName.equals(a2) || curProcessName.equals(f10201d.processName);
     }
 
     public boolean a(String str) {
@@ -385,7 +385,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public List<ShareStorage.StorageModel> getV2ShareModelList(String str) {
         a();
-        Log.d(com.baidu.sapi2.share.d.f11377a, "build version is " + Build.VERSION.SDK_INT);
+        Log.d(com.baidu.sapi2.share.d.f10961a, "build version is " + Build.VERSION.SDK_INT);
         SapiStatUtil.statLoadLogin("product_line_call");
         List<ShareStorage.StorageModel> e2 = com.baidu.sapi2.share.d.e();
         if (e2 != null && e2.size() > 0) {
@@ -400,15 +400,15 @@ public final class SapiAccountManager implements ISAccountManager {
         sb.append("");
         sb.append(e2 != null ? e2.size() : 0);
         hashMap.put("shareModels", sb.toString());
-        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11369a, hashMap);
+        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f10953a, hashMap);
         return e2;
     }
 
     public void a() {
-        if (f10617d == null) {
+        if (f10201d == null) {
             getGlobalCallback().onNeedInitPassSdk();
         }
-        if (f10617d == null) {
+        if (f10201d == null) {
             if (!Log.enabled) {
                 android.util.Log.e(Log.TAG, "pass sdk have not been initialized");
                 return;
@@ -426,15 +426,15 @@ public final class SapiAccountManager implements ISAccountManager {
     public SapiAccount getSession() {
         a();
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (this.f10622a == 0) {
+        if (this.f10206a == 0) {
             SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
             if (sapiOptions.getOpenBdussTpls().contains(getConfignation().tpl) && !sapiOptions.canGetBduss) {
-                this.f10622a = (char) 1;
+                this.f10206a = (char) 1;
             } else {
-                this.f10622a = (char) 2;
+                this.f10206a = (char) 2;
             }
         }
-        if (currentAccount != null && this.f10622a == 1) {
+        if (currentAccount != null && this.f10206a == 1) {
             currentAccount.uid = "";
             currentAccount.bduss = "";
         }

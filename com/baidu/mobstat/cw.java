@@ -3,23 +3,23 @@ package com.baidu.mobstat;
 public class cw extends cy implements da {
 
     /* renamed from: a  reason: collision with root package name */
-    public short f9193a;
+    public short f8767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9194b;
+    public String f8768b;
 
     @Override // com.baidu.mobstat.cz
     public String a() {
-        return this.f9194b;
+        return this.f8768b;
     }
 
     @Override // com.baidu.mobstat.da
     public void a(String str) {
-        this.f9194b = str;
+        this.f8768b = str;
     }
 
     @Override // com.baidu.mobstat.da
     public void a(short s) {
-        this.f9193a = s;
+        this.f8767a = s;
     }
 }

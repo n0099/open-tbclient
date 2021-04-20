@@ -15,67 +15,67 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.l.f f48349a;
+    public d.b.g0.g.l.f f48741a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.g.i.a f48350b;
+    public d.b.g0.g.i.a f48742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.g.l.i f48351c;
+    public d.b.g0.g.l.i f48743c;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48352e;
+        public final /* synthetic */ String f48744e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Boolean f48353f;
+        public final /* synthetic */ Boolean f48745f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48354g;
+        public final /* synthetic */ int f48746g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f48355h;
+        public final /* synthetic */ Map f48747h;
         public final /* synthetic */ d.b.g0.g.l.o.b i;
 
         /* renamed from: d.b.g0.g.l.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0980a implements Runnable {
+        public class RunnableC0992a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48356e;
+            public final /* synthetic */ d.b.g0.g.l.c f48748e;
 
-            public RunnableC0980a(d.b.g0.g.l.c cVar) {
-                this.f48356e = cVar;
+            public RunnableC0992a(d.b.g0.g.l.c cVar) {
+                this.f48748e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(a.this.f48354g), "dirPath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48356e, "mkdir:", a.this.f48355h);
+                hashMap.put(Integer.valueOf(a.this.f48746g), "dirPath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48748e, "mkdir:", a.this.f48747h);
                 a aVar = a.this;
-                if (d.b.g0.g.l.n.a(t, aVar.i, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, aVar.i, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.b bVar = a.this.i;
-                    bVar.errMsg = "mkdir:" + this.f48356e.f48342b;
+                    bVar.errMsg = "mkdir:" + this.f48748e.f48734b;
                     a aVar2 = a.this;
-                    d.b.g0.g.l.n.b(aVar2.i, aVar2.f48355h);
+                    d.b.g0.g.l.n.b(aVar2.i, aVar2.f48747h);
                 }
             }
         }
 
         public a(String str, Boolean bool, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48352e = str;
-            this.f48353f = bool;
-            this.f48354g = i;
-            this.f48355h = map;
+            this.f48744e = str;
+            this.f48745f = bool;
+            this.f48746g = i;
+            this.f48747h = map;
             this.i = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new RunnableC0980a(e.this.f48349a.o(this.f48352e, this.f48353f.booleanValue(), false)));
+            e.this.f48742b.runOnJSThread(new RunnableC0992a(e.this.f48741a.o(this.f48744e, this.f48745f.booleanValue(), false)));
         }
     }
 
@@ -83,16 +83,16 @@ public class e {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48358e;
+        public final /* synthetic */ String f48750e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48359f;
+        public final /* synthetic */ String f48751f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48360g;
+        public final /* synthetic */ int f48752g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48361h;
+        public final /* synthetic */ int f48753h;
         public final /* synthetic */ Map i;
         public final /* synthetic */ d.b.g0.g.l.o.b j;
 
@@ -100,20 +100,20 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48362e;
+            public final /* synthetic */ d.b.g0.g.l.c f48754e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48362e = cVar;
+                this.f48754e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(b.this.f48360g), "srcPath");
-                hashMap.put(Integer.valueOf(b.this.f48361h), "destPath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48362e, "copyFile:", b.this.i);
+                hashMap.put(Integer.valueOf(b.this.f48752g), "srcPath");
+                hashMap.put(Integer.valueOf(b.this.f48753h), "destPath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48754e, "copyFile:", b.this.i);
                 b bVar = b.this;
-                if (d.b.g0.g.l.n.a(t, bVar.j, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, bVar.j, hashMap, e.this.f48742b)) {
                     b bVar2 = b.this;
                     d.b.g0.g.l.n.b(bVar2.j, bVar2.i);
                 }
@@ -121,17 +121,17 @@ public class e {
         }
 
         public b(String str, String str2, int i, int i2, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48358e = str;
-            this.f48359f = str2;
-            this.f48360g = i;
-            this.f48361h = i2;
+            this.f48750e = str;
+            this.f48751f = str2;
+            this.f48752g = i;
+            this.f48753h = i2;
             this.i = map;
             this.j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.c(this.f48358e, this.f48359f, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.c(this.f48750e, this.f48751f, false)));
         }
     }
 
@@ -139,16 +139,16 @@ public class e {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48364e;
+        public final /* synthetic */ String f48756e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48365f;
+        public final /* synthetic */ String f48757f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f48366g;
+        public final /* synthetic */ byte[] f48758g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f48367h;
+        public final /* synthetic */ Map f48759h;
         public final /* synthetic */ String i;
         public final /* synthetic */ int j;
         public final /* synthetic */ int k;
@@ -158,30 +158,30 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48368e;
+            public final /* synthetic */ d.b.g0.g.l.c f48760e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48368e = cVar;
+                this.f48760e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
                 hashMap.put(Integer.valueOf(c.this.k), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48368e, "appendFile:", c.this.f48367h);
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48760e, "appendFile:", c.this.f48759h);
                 c cVar = c.this;
-                if (d.b.g0.g.l.n.a(t, cVar.l, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, cVar.l, hashMap, e.this.f48742b)) {
                     c cVar2 = c.this;
-                    d.b.g0.g.l.n.b(cVar2.l, cVar2.f48367h);
+                    d.b.g0.g.l.n.b(cVar2.l, cVar2.f48759h);
                 }
             }
         }
 
         public c(String str, String str2, byte[] bArr, Map map, String str3, int i, int i2, d.b.g0.g.l.o.b bVar) {
-            this.f48364e = str;
-            this.f48365f = str2;
-            this.f48366g = bArr;
-            this.f48367h = map;
+            this.f48756e = str;
+            this.f48757f = str2;
+            this.f48758g = bArr;
+            this.f48759h = map;
             this.i = str3;
             this.j = i;
             this.k = i2;
@@ -190,20 +190,20 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.l.c b2 = e.this.f48349a.b(this.f48364e, TextUtils.isEmpty(this.f48365f) ? this.f48366g : this.f48365f, d.b.g0.g.l.n.F("encoding", this.f48367h), false);
+            d.b.g0.g.l.c b2 = e.this.f48741a.b(this.f48756e, TextUtils.isEmpty(this.f48757f) ? this.f48758g : this.f48757f, d.b.g0.g.l.n.F("encoding", this.f48759h), false);
             if (!TextUtils.isEmpty(this.i)) {
-                b2.f48342b = this.i;
-                b2.f48341a = -2;
-                d.b.g0.g.l.n.d(e.this.f48350b, this.i);
+                b2.f48734b = this.i;
+                b2.f48733a = -2;
+                d.b.g0.g.l.n.d(e.this.f48742b, this.i);
             } else {
                 int i = this.j;
                 if (i != 7 && i != 12) {
-                    b2.f48342b = "fail encoding must be a string";
-                    b2.f48341a = -2;
-                    d.b.g0.g.l.n.d(e.this.f48350b, b2.f48342b);
+                    b2.f48734b = "fail encoding must be a string";
+                    b2.f48733a = -2;
+                    d.b.g0.g.l.n.d(e.this.f48742b, b2.f48734b);
                 }
             }
-            e.this.f48350b.runOnJSThread(new a(b2));
+            e.this.f48742b.runOnJSThread(new a(b2));
         }
     }
 
@@ -211,106 +211,106 @@ public class e {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48370e;
+        public final /* synthetic */ String f48762e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48371f;
+        public final /* synthetic */ int f48763f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f48372g;
+        public final /* synthetic */ Map f48764g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48373h;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48765h;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48374e;
+            public final /* synthetic */ d.b.g0.g.l.c f48766e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48374e = cVar;
+                this.f48766e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(d.this.f48371f), "path");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48374e, "access:", d.this.f48372g);
+                hashMap.put(Integer.valueOf(d.this.f48763f), "path");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48766e, "access:", d.this.f48764g);
                 d dVar = d.this;
-                if (d.b.g0.g.l.n.a(t, dVar.f48373h, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, dVar.f48765h, hashMap, e.this.f48742b)) {
                     d dVar2 = d.this;
-                    d.b.g0.g.l.n.b(dVar2.f48373h, dVar2.f48372g);
+                    d.b.g0.g.l.n.b(dVar2.f48765h, dVar2.f48764g);
                 }
             }
         }
 
         public d(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48370e = str;
-            this.f48371f = i;
-            this.f48372g = map;
-            this.f48373h = bVar;
+            this.f48762e = str;
+            this.f48763f = i;
+            this.f48764g = map;
+            this.f48765h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.a(this.f48370e, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.a(this.f48762e, false)));
         }
     }
 
     /* renamed from: d.b.g0.g.l.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0981e implements Runnable {
+    public class RunnableC0993e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48376e;
+        public final /* synthetic */ String f48768e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48377f;
+        public final /* synthetic */ int f48769f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f48378g;
+        public final /* synthetic */ Map f48770g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48379h;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48771h;
 
         /* renamed from: d.b.g0.g.l.e$e$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48380e;
+            public final /* synthetic */ d.b.g0.g.l.c f48772e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48380e = cVar;
+                this.f48772e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(RunnableC0981e.this.f48377f), "path");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48380e, "stat:", RunnableC0981e.this.f48378g);
-                RunnableC0981e runnableC0981e = RunnableC0981e.this;
-                if (d.b.g0.g.l.n.a(t, runnableC0981e.f48379h, hashMap, e.this.f48350b)) {
+                hashMap.put(Integer.valueOf(RunnableC0993e.this.f48769f), "path");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48772e, "stat:", RunnableC0993e.this.f48770g);
+                RunnableC0993e runnableC0993e = RunnableC0993e.this;
+                if (d.b.g0.g.l.n.a(t, runnableC0993e.f48771h, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.h hVar = new d.b.g0.g.l.o.h();
-                    d.b.g0.g.l.c cVar = this.f48380e;
-                    hVar.stats = cVar.f48344d;
-                    hVar.errMsg = cVar.f48342b;
-                    d.b.g0.g.l.n.b(hVar, RunnableC0981e.this.f48378g);
+                    d.b.g0.g.l.c cVar = this.f48772e;
+                    hVar.stats = cVar.f48736d;
+                    hVar.errMsg = cVar.f48734b;
+                    d.b.g0.g.l.n.b(hVar, RunnableC0993e.this.f48770g);
                 }
             }
         }
 
-        public RunnableC0981e(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48376e = str;
-            this.f48377f = i;
-            this.f48378g = map;
-            this.f48379h = bVar;
+        public RunnableC0993e(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
+            this.f48768e = str;
+            this.f48769f = i;
+            this.f48770g = map;
+            this.f48771h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.y(this.f48376e, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.y(this.f48768e, false)));
         }
     }
 
@@ -318,54 +318,54 @@ public class e {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48382e;
+        public final /* synthetic */ String f48774e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48383f;
+        public final /* synthetic */ int f48775f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f48384g;
+        public final /* synthetic */ Map f48776g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48385h;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48777h;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48386e;
+            public final /* synthetic */ d.b.g0.g.l.c f48778e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48386e = cVar;
+                this.f48778e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(f.this.f48383f), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48386e, "getFileInfo:", f.this.f48384g);
+                hashMap.put(Integer.valueOf(f.this.f48775f), "filePath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48778e, "getFileInfo:", f.this.f48776g);
                 f fVar = f.this;
-                if (d.b.g0.g.l.n.a(t, fVar.f48385h, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, fVar.f48777h, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.c cVar = new d.b.g0.g.l.o.c();
-                    cVar.errMsg = "getFileInfo:" + this.f48386e.f48342b;
-                    d.b.g0.g.l.c cVar2 = this.f48386e;
-                    cVar.digest = cVar2.f48347g;
-                    cVar.size = (int) cVar2.f48345e;
-                    d.b.g0.g.l.n.b(cVar, f.this.f48384g);
+                    cVar.errMsg = "getFileInfo:" + this.f48778e.f48734b;
+                    d.b.g0.g.l.c cVar2 = this.f48778e;
+                    cVar.digest = cVar2.f48739g;
+                    cVar.size = (int) cVar2.f48737e;
+                    d.b.g0.g.l.n.b(cVar, f.this.f48776g);
                 }
             }
         }
 
         public f(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48382e = str;
-            this.f48383f = i;
-            this.f48384g = map;
-            this.f48385h = bVar;
+            this.f48774e = str;
+            this.f48775f = i;
+            this.f48776g = map;
+            this.f48777h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.e(this.f48382e)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.e(this.f48774e)));
         }
     }
 
@@ -373,45 +373,45 @@ public class e {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map f48388e;
+        public final /* synthetic */ Map f48780e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48389f;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48781f;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48391e;
+            public final /* synthetic */ d.b.g0.g.l.c f48783e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48391e = cVar;
+                this.f48783e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48391e, "getSavedFileList:", g.this.f48388e);
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48783e, "getSavedFileList:", g.this.f48780e);
                 g gVar = g.this;
-                if (d.b.g0.g.l.n.a(t, gVar.f48389f, null, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, gVar.f48781f, null, e.this.f48742b)) {
                     d.b.g0.g.l.o.d dVar = new d.b.g0.g.l.o.d();
-                    List<d.b.g0.g.l.d> list = this.f48391e.f48346f;
+                    List<d.b.g0.g.l.d> list = this.f48783e.f48738f;
                     int size = list == null ? 0 : list.size();
-                    dVar.fileList = size == 0 ? new d.b.g0.g.l.d[0] : (d.b.g0.g.l.d[]) this.f48391e.f48346f.toArray(new d.b.g0.g.l.d[size]);
+                    dVar.fileList = size == 0 ? new d.b.g0.g.l.d[0] : (d.b.g0.g.l.d[]) this.f48783e.f48738f.toArray(new d.b.g0.g.l.d[size]);
                     g gVar2 = g.this;
-                    dVar.errMsg = gVar2.f48389f.errMsg;
-                    d.b.g0.g.l.n.b(dVar, gVar2.f48388e);
+                    dVar.errMsg = gVar2.f48781f.errMsg;
+                    d.b.g0.g.l.n.b(dVar, gVar2.f48780e);
                 }
             }
         }
 
         public g(Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48388e = map;
-            this.f48389f = bVar;
+            this.f48780e = map;
+            this.f48781f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.i()));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.i()));
         }
     }
 
@@ -419,50 +419,50 @@ public class e {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48393e;
+        public final /* synthetic */ String f48785e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48394f;
+        public final /* synthetic */ int f48786f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f48395g;
+        public final /* synthetic */ Map f48787g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48396h;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48788h;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48397e;
+            public final /* synthetic */ d.b.g0.g.l.c f48789e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48397e = cVar;
+                this.f48789e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(h.this.f48394f), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48397e, "removeSavedFile:", h.this.f48395g);
+                hashMap.put(Integer.valueOf(h.this.f48786f), "filePath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48789e, "removeSavedFile:", h.this.f48787g);
                 h hVar = h.this;
-                if (d.b.g0.g.l.n.a(t, hVar.f48396h, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, hVar.f48788h, hashMap, e.this.f48742b)) {
                     h hVar2 = h.this;
-                    d.b.g0.g.l.n.b(hVar2.f48396h, hVar2.f48395g);
+                    d.b.g0.g.l.n.b(hVar2.f48788h, hVar2.f48787g);
                 }
             }
         }
 
         public h(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48393e = str;
-            this.f48394f = i;
-            this.f48395g = map;
-            this.f48396h = bVar;
+            this.f48785e = str;
+            this.f48786f = i;
+            this.f48787g = map;
+            this.f48788h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.t(this.f48393e)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.t(this.f48785e)));
         }
     }
 
@@ -470,16 +470,16 @@ public class e {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48399e;
+        public final /* synthetic */ String f48791e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48400f;
+        public final /* synthetic */ String f48792f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f48401g;
+        public final /* synthetic */ byte[] f48793g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f48402h;
+        public final /* synthetic */ Map f48794h;
         public final /* synthetic */ String i;
         public final /* synthetic */ int j;
         public final /* synthetic */ int k;
@@ -489,32 +489,32 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48403e;
+            public final /* synthetic */ d.b.g0.g.l.c f48795e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48403e = cVar;
+                this.f48795e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
                 hashMap.put(Integer.valueOf(i.this.k), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48403e, "writeFile:", i.this.f48402h);
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48795e, "writeFile:", i.this.f48794h);
                 i iVar = i.this;
-                if (d.b.g0.g.l.n.a(t, iVar.l, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, iVar.l, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.b bVar = i.this.l;
-                    bVar.errMsg = "writeFile:" + this.f48403e.f48342b;
+                    bVar.errMsg = "writeFile:" + this.f48795e.f48734b;
                     i iVar2 = i.this;
-                    d.b.g0.g.l.n.b(iVar2.l, iVar2.f48402h);
+                    d.b.g0.g.l.n.b(iVar2.l, iVar2.f48794h);
                 }
             }
         }
 
         public i(String str, String str2, byte[] bArr, Map map, String str3, int i, int i2, d.b.g0.g.l.o.b bVar) {
-            this.f48399e = str;
-            this.f48400f = str2;
-            this.f48401g = bArr;
-            this.f48402h = map;
+            this.f48791e = str;
+            this.f48792f = str2;
+            this.f48793g = bArr;
+            this.f48794h = map;
             this.i = str3;
             this.j = i;
             this.k = i2;
@@ -523,20 +523,20 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.l.c C = e.this.f48349a.C(false, this.f48399e, TextUtils.isEmpty(this.f48400f) ? this.f48401g : this.f48400f, d.b.g0.g.l.n.F("encoding", this.f48402h));
+            d.b.g0.g.l.c C = e.this.f48741a.C(false, this.f48791e, TextUtils.isEmpty(this.f48792f) ? this.f48793g : this.f48792f, d.b.g0.g.l.n.F("encoding", this.f48794h));
             if (!TextUtils.isEmpty(this.i)) {
-                C.f48342b = this.i;
-                C.f48341a = -2;
-                d.b.g0.g.l.n.d(e.this.f48350b, this.i);
+                C.f48734b = this.i;
+                C.f48733a = -2;
+                d.b.g0.g.l.n.d(e.this.f48742b, this.i);
             } else {
                 int i = this.j;
                 if (i != 7 && i != 12) {
-                    C.f48342b = "fail encoding must be a string";
-                    C.f48341a = -2;
-                    d.b.g0.g.l.n.d(e.this.f48350b, C.f48342b);
+                    C.f48734b = "fail encoding must be a string";
+                    C.f48733a = -2;
+                    d.b.g0.g.l.n.d(e.this.f48742b, C.f48734b);
                 }
             }
-            e.this.f48350b.runOnJSThread(new a(C));
+            e.this.f48742b.runOnJSThread(new a(C));
         }
     }
 
@@ -544,52 +544,52 @@ public class e {
     public class j implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48405e;
+        public final /* synthetic */ String f48797e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48406f;
+        public final /* synthetic */ int f48798f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f48407g;
+        public final /* synthetic */ Map f48799g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48408h;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48800h;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48409e;
+            public final /* synthetic */ d.b.g0.g.l.c f48801e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48409e = cVar;
+                this.f48801e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(j.this.f48406f), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48409e, "unlink:", j.this.f48407g);
+                hashMap.put(Integer.valueOf(j.this.f48798f), "filePath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48801e, "unlink:", j.this.f48799g);
                 j jVar = j.this;
-                if (d.b.g0.g.l.n.a(t, jVar.f48408h, hashMap, e.this.f48350b)) {
-                    d.b.g0.g.l.o.b bVar = j.this.f48408h;
-                    bVar.errMsg = "unlink:" + this.f48409e.f48342b;
+                if (d.b.g0.g.l.n.a(t, jVar.f48800h, hashMap, e.this.f48742b)) {
+                    d.b.g0.g.l.o.b bVar = j.this.f48800h;
+                    bVar.errMsg = "unlink:" + this.f48801e.f48734b;
                     j jVar2 = j.this;
-                    d.b.g0.g.l.n.b(jVar2.f48408h, jVar2.f48407g);
+                    d.b.g0.g.l.n.b(jVar2.f48800h, jVar2.f48799g);
                 }
             }
         }
 
         public j(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48405e = str;
-            this.f48406f = i;
-            this.f48407g = map;
-            this.f48408h = bVar;
+            this.f48797e = str;
+            this.f48798f = i;
+            this.f48799g = map;
+            this.f48800h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.z(this.f48405e, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.z(this.f48797e, false)));
         }
     }
 
@@ -597,16 +597,16 @@ public class e {
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48411e;
+        public final /* synthetic */ String f48803e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48412f;
+        public final /* synthetic */ String f48804f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48413g;
+        public final /* synthetic */ int f48805g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48414h;
+        public final /* synthetic */ int f48806h;
         public final /* synthetic */ Map i;
         public final /* synthetic */ d.b.g0.g.l.o.b j;
 
@@ -614,22 +614,22 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48415e;
+            public final /* synthetic */ d.b.g0.g.l.c f48807e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48415e = cVar;
+                this.f48807e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(k.this.f48413g), "zipFilePath");
-                hashMap.put(Integer.valueOf(k.this.f48414h), "targetPath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48415e, "unzip:", k.this.i);
+                hashMap.put(Integer.valueOf(k.this.f48805g), "zipFilePath");
+                hashMap.put(Integer.valueOf(k.this.f48806h), "targetPath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48807e, "unzip:", k.this.i);
                 k kVar = k.this;
-                if (d.b.g0.g.l.n.a(t, kVar.j, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, kVar.j, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.b bVar = k.this.j;
-                    bVar.errMsg = "unzip:" + this.f48415e.f48342b;
+                    bVar.errMsg = "unzip:" + this.f48807e.f48734b;
                     k kVar2 = k.this;
                     d.b.g0.g.l.n.b(kVar2.j, kVar2.i);
                 }
@@ -637,17 +637,17 @@ public class e {
         }
 
         public k(String str, String str2, int i, int i2, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48411e = str;
-            this.f48412f = str2;
-            this.f48413g = i;
-            this.f48414h = i2;
+            this.f48803e = str;
+            this.f48804f = str2;
+            this.f48805g = i;
+            this.f48806h = i2;
             this.i = map;
             this.j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.A(this.f48411e, this.f48412f)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.A(this.f48803e, this.f48804f)));
         }
     }
 
@@ -655,16 +655,16 @@ public class e {
     public class l implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48417e;
+        public final /* synthetic */ String f48809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48418f;
+        public final /* synthetic */ String f48810f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48419g;
+        public final /* synthetic */ int f48811g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48420h;
+        public final /* synthetic */ int f48812h;
         public final /* synthetic */ Map i;
         public final /* synthetic */ d.b.g0.g.l.o.b j;
 
@@ -672,41 +672,41 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48421e;
+            public final /* synthetic */ d.b.g0.g.l.c f48813e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48421e = cVar;
+                this.f48813e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(l.this.f48419g), "tempFilePath");
-                hashMap.put(Integer.valueOf(l.this.f48420h), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48421e, "saveFile:", l.this.i);
+                hashMap.put(Integer.valueOf(l.this.f48811g), "tempFilePath");
+                hashMap.put(Integer.valueOf(l.this.f48812h), "filePath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48813e, "saveFile:", l.this.i);
                 l lVar = l.this;
-                if (d.b.g0.g.l.n.a(t, lVar.j, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, lVar.j, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.g gVar = new d.b.g0.g.l.o.g();
-                    List<String> list = this.f48421e.f48343c;
+                    List<String> list = this.f48813e.f48735c;
                     gVar.savedFilePath = list != null ? list.get(0) : null;
-                    gVar.errMsg = this.f48421e.f48342b;
+                    gVar.errMsg = this.f48813e.f48734b;
                     d.b.g0.g.l.n.b(gVar, l.this.i);
                 }
             }
         }
 
         public l(String str, String str2, int i, int i2, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48417e = str;
-            this.f48418f = str2;
-            this.f48419g = i;
-            this.f48420h = i2;
+            this.f48809e = str;
+            this.f48810f = str2;
+            this.f48811g = i;
+            this.f48812h = i2;
             this.i = map;
             this.j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.x(this.f48417e, this.f48418f, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.x(this.f48809e, this.f48810f, false)));
         }
     }
 
@@ -714,54 +714,54 @@ public class e {
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48423e;
+        public final /* synthetic */ String f48815e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48424f;
+        public final /* synthetic */ int f48816f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f48425g;
+        public final /* synthetic */ Map f48817g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.l.o.b f48426h;
+        public final /* synthetic */ d.b.g0.g.l.o.b f48818h;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48427e;
+            public final /* synthetic */ d.b.g0.g.l.c f48819e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48427e = cVar;
+                this.f48819e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(m.this.f48424f), "dirPath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48427e, "readdir:", m.this.f48425g);
+                hashMap.put(Integer.valueOf(m.this.f48816f), "dirPath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48819e, "readdir:", m.this.f48817g);
                 m mVar = m.this;
-                if (d.b.g0.g.l.n.a(t, mVar.f48426h, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, mVar.f48818h, hashMap, e.this.f48742b)) {
                     d.b.g0.g.l.o.e eVar = new d.b.g0.g.l.o.e();
-                    List<String> list = this.f48427e.f48343c;
+                    List<String> list = this.f48819e.f48735c;
                     int size = list == null ? 0 : list.size();
-                    eVar.files = size == 0 ? new String[0] : (String[]) this.f48427e.f48343c.toArray(new String[size]);
-                    eVar.errMsg = this.f48427e.f48342b;
-                    d.b.g0.g.l.n.b(eVar, m.this.f48425g);
+                    eVar.files = size == 0 ? new String[0] : (String[]) this.f48819e.f48735c.toArray(new String[size]);
+                    eVar.errMsg = this.f48819e.f48734b;
+                    d.b.g0.g.l.n.b(eVar, m.this.f48817g);
                 }
             }
         }
 
         public m(String str, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48423e = str;
-            this.f48424f = i;
-            this.f48425g = map;
-            this.f48426h = bVar;
+            this.f48815e = str;
+            this.f48816f = i;
+            this.f48817g = map;
+            this.f48818h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.s(this.f48423e, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.s(this.f48815e, false)));
         }
     }
 
@@ -769,52 +769,52 @@ public class e {
     public class n implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48429e;
+        public final /* synthetic */ String f48821e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Boolean f48430f;
+        public final /* synthetic */ Boolean f48822f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48431g;
+        public final /* synthetic */ int f48823g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f48432h;
+        public final /* synthetic */ Map f48824h;
         public final /* synthetic */ d.b.g0.g.l.o.b i;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48433e;
+            public final /* synthetic */ d.b.g0.g.l.c f48825e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48433e = cVar;
+                this.f48825e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(n.this.f48431g), "dirPath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48433e, "rmdir:", n.this.f48432h);
+                hashMap.put(Integer.valueOf(n.this.f48823g), "dirPath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48825e, "rmdir:", n.this.f48824h);
                 n nVar = n.this;
-                if (d.b.g0.g.l.n.a(t, nVar.i, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, nVar.i, hashMap, e.this.f48742b)) {
                     n nVar2 = n.this;
-                    d.b.g0.g.l.n.b(nVar2.i, nVar2.f48432h);
+                    d.b.g0.g.l.n.b(nVar2.i, nVar2.f48824h);
                 }
             }
         }
 
         public n(String str, Boolean bool, int i, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48429e = str;
-            this.f48430f = bool;
-            this.f48431g = i;
-            this.f48432h = map;
+            this.f48821e = str;
+            this.f48822f = bool;
+            this.f48823g = i;
+            this.f48824h = map;
             this.i = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.v(this.f48429e, this.f48430f.booleanValue(), false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.v(this.f48821e, this.f48822f.booleanValue(), false)));
         }
     }
 
@@ -822,16 +822,16 @@ public class e {
     public class o implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48435e;
+        public final /* synthetic */ String f48827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48436f;
+        public final /* synthetic */ String f48828f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48437g;
+        public final /* synthetic */ int f48829g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48438h;
+        public final /* synthetic */ int f48830h;
         public final /* synthetic */ Map i;
         public final /* synthetic */ d.b.g0.g.l.o.b j;
 
@@ -839,60 +839,60 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48439e;
+            public final /* synthetic */ d.b.g0.g.l.c f48831e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48439e = cVar;
+                this.f48831e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(o.this.f48438h), "filePath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48439e, "readFile:", o.this.i);
+                hashMap.put(Integer.valueOf(o.this.f48830h), "filePath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48831e, "readFile:", o.this.i);
                 o oVar = o.this;
-                if (d.b.g0.g.l.n.a(t, oVar.j, hashMap, e.this.f48350b)) {
-                    if (TextUtils.isEmpty(o.this.f48436f)) {
+                if (d.b.g0.g.l.n.a(t, oVar.j, hashMap, e.this.f48742b)) {
+                    if (TextUtils.isEmpty(o.this.f48828f)) {
                         d.b.g0.g.l.o.a aVar = new d.b.g0.g.l.o.a();
-                        d.b.g0.g.l.c cVar = this.f48439e;
-                        if (cVar.f48348h == null) {
-                            cVar.f48348h = new byte[0];
+                        d.b.g0.g.l.c cVar = this.f48831e;
+                        if (cVar.f48740h == null) {
+                            cVar.f48740h = new byte[0];
                         }
-                        byte[] bArr = this.f48439e.f48348h;
+                        byte[] bArr = this.f48831e.f48740h;
                         aVar.data = new JsArrayBuffer(bArr, bArr.length);
-                        aVar.errMsg = this.f48439e.f48342b;
+                        aVar.errMsg = this.f48831e.f48734b;
                         d.b.g0.g.l.n.b(aVar, o.this.i);
                         return;
                     }
-                    List<String> list = this.f48439e.f48343c;
+                    List<String> list = this.f48831e.f48735c;
                     String str = list != null ? list.get(0) : null;
                     d.b.g0.g.l.o.f fVar = new d.b.g0.g.l.o.f();
                     fVar.data = str;
-                    fVar.errMsg = this.f48439e.f48342b;
+                    fVar.errMsg = this.f48831e.f48734b;
                     d.b.g0.g.l.n.b(fVar, o.this.i);
                 }
             }
         }
 
         public o(String str, String str2, int i, int i2, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48435e = str;
-            this.f48436f = str2;
-            this.f48437g = i;
-            this.f48438h = i2;
+            this.f48827e = str;
+            this.f48828f = str2;
+            this.f48829g = i;
+            this.f48830h = i2;
             this.i = map;
             this.j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.l.c q = e.this.f48349a.q(this.f48435e, this.f48436f, false);
-            int i = this.f48437g;
+            d.b.g0.g.l.c q = e.this.f48741a.q(this.f48827e, this.f48828f, false);
+            int i = this.f48829g;
             if (i != 7 && i != 12) {
-                q.f48342b = "fail encoding must be a string";
-                q.f48341a = -2;
-                d.b.g0.g.l.n.d(e.this.f48350b, q.f48342b);
+                q.f48734b = "fail encoding must be a string";
+                q.f48733a = -2;
+                d.b.g0.g.l.n.d(e.this.f48742b, q.f48734b);
             }
-            e.this.f48350b.runOnJSThread(new a(q));
+            e.this.f48742b.runOnJSThread(new a(q));
         }
     }
 
@@ -900,16 +900,16 @@ public class e {
     public class p implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48441e;
+        public final /* synthetic */ String f48833e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48442f;
+        public final /* synthetic */ String f48834f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48443g;
+        public final /* synthetic */ int f48835g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48444h;
+        public final /* synthetic */ int f48836h;
         public final /* synthetic */ Map i;
         public final /* synthetic */ d.b.g0.g.l.o.b j;
 
@@ -917,20 +917,20 @@ public class e {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.g.l.c f48445e;
+            public final /* synthetic */ d.b.g0.g.l.c f48837e;
 
             public a(d.b.g0.g.l.c cVar) {
-                this.f48445e = cVar;
+                this.f48837e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Integer.valueOf(p.this.f48443g), "oldPath");
-                hashMap.put(Integer.valueOf(p.this.f48444h), "newPath");
-                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48445e, "rename:", p.this.i);
+                hashMap.put(Integer.valueOf(p.this.f48835g), "oldPath");
+                hashMap.put(Integer.valueOf(p.this.f48836h), "newPath");
+                d.b.g0.g.l.b t = d.b.g0.g.l.n.t(this.f48837e, "rename:", p.this.i);
                 p pVar = p.this;
-                if (d.b.g0.g.l.n.a(t, pVar.j, hashMap, e.this.f48350b)) {
+                if (d.b.g0.g.l.n.a(t, pVar.j, hashMap, e.this.f48742b)) {
                     p pVar2 = p.this;
                     d.b.g0.g.l.n.b(pVar2.j, pVar2.i);
                 }
@@ -938,71 +938,71 @@ public class e {
         }
 
         public p(String str, String str2, int i, int i2, Map map, d.b.g0.g.l.o.b bVar) {
-            this.f48441e = str;
-            this.f48442f = str2;
-            this.f48443g = i;
-            this.f48444h = i2;
+            this.f48833e = str;
+            this.f48834f = str2;
+            this.f48835g = i;
+            this.f48836h = i2;
             this.i = map;
             this.j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f48350b.runOnJSThread(new a(e.this.f48349a.u(this.f48441e, this.f48442f, false)));
+            e.this.f48742b.runOnJSThread(new a(e.this.f48741a.u(this.f48833e, this.f48834f, false)));
         }
     }
 
     public e(d.b.g0.g.i.a aVar) {
-        this.f48350b = aVar;
+        this.f48742b = aVar;
         c();
     }
 
     @JavascriptInterface
     public void access(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("path", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "access:fail parameter error: parameter.path should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "access:fail parameter error: parameter.path should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("path", G);
-            this.f48351c.h(new d(F, L, G, bVar), "aigamesaccess:", F);
+            this.f48743c.h(new d(F, L, G, bVar), "aigamesaccess:", F);
         }
     }
 
     @JavascriptInterface
     public void accessSync(String str) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.a(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.a(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
         }
     }
 
     @JavascriptInterface
     public void appendFile(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("encoding", jsObject);
             int L2 = d.b.g0.g.l.n.L("filePath", jsObject);
             int L3 = d.b.g0.g.l.n.L("data", jsObject);
             String u = (L3 == 5 || L3 == 2 || L3 == 3) ? "fail data argument must not be a number" : d.b.g0.g.l.n.u(L3);
             byte[] p2 = d.b.g0.g.l.n.p(jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "appendFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "appendFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("data", G);
             String F2 = d.b.g0.g.l.n.F("filePath", G);
-            this.f48351c.h(new c(F2, F, p2, G, u, L, L2, bVar), "aigamesappendFile:", F2);
+            this.f48743c.h(new c(F2, F, p2, G, u, L, L2, bVar), "aigamesappendFile:", F2);
         }
     }
 
     @JavascriptInterface
     public void appendFileSync(String str, String str2, String str3) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
         }
     }
 
@@ -1014,45 +1014,45 @@ public class e {
         } else {
             lVar = new d.b.g0.g.l.l();
         }
-        this.f48349a = new d.b.g0.g.l.f(AppRuntime.getAppContext(), d.b.g0.a.z0.f.V().h(), lVar);
-        this.f48351c = d.b.g0.g.l.i.d();
+        this.f48741a = new d.b.g0.g.l.f(AppRuntime.getAppContext(), d.b.g0.a.z0.f.V().h(), lVar);
+        this.f48743c = d.b.g0.g.l.i.d();
     }
 
     @JavascriptInterface
     public void copyFile(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("srcPath", jsObject);
             int L2 = d.b.g0.g.l.n.L("destPath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "copyFile:fail parameter error: parameter.srcPath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "copyFile:fail parameter error: parameter.srcPath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("srcPath", G);
             String F2 = d.b.g0.g.l.n.F("destPath", G);
-            this.f48351c.h(new b(F, F2, L, L2, G, bVar), "aigamescopyFile:", F, F2);
+            this.f48743c.h(new b(F, F2, L, L2, G, bVar), "aigamescopyFile:", F, F2);
         }
     }
 
     @JavascriptInterface
     public void copyFileSync(String str, String str2) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str, str2);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.c(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str, str2);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.c(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
         }
     }
 
     @JavascriptInterface
     public void getFileInfo(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("filePath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "getFileInfo:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "getFileInfo:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("filePath", G);
-            this.f48351c.h(new f(F, L, G, bVar), "aigamesgetFileInfo:", F);
+            this.f48743c.h(new f(F, L, G, bVar), "aigamesgetFileInfo:", F);
         }
     }
 
@@ -1060,22 +1060,22 @@ public class e {
     public void getSavedFileList(JsObject jsObject) {
         d.b.g0.g.l.o.b bVar;
         Map<String, Object> G;
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.filePath should be String instead of ") && (G = d.b.g0.g.l.n.G(this.f48349a, jsObject, (bVar = new d.b.g0.g.l.o.b()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) != null) {
-            this.f48351c.h(new g(G, bVar), "aigamesgetSavedFileList:", new String[0]);
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.filePath should be String instead of ") && (G = d.b.g0.g.l.n.G(this.f48741a, jsObject, (bVar = new d.b.g0.g.l.o.b()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) != null) {
+            this.f48743c.h(new g(G, bVar), "aigamesgetSavedFileList:", new String[0]);
         }
     }
 
     @JavascriptInterface
     public void mkdir(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("dirPath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "mkdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "mkdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("dirPath", G);
-            this.f48351c.h(new a(F, (Boolean) d.b.g0.g.l.n.E("recursive", G, Boolean.FALSE), L, G, bVar), "aigamesmkdir:", F);
+            this.f48743c.h(new a(F, (Boolean) d.b.g0.g.l.n.E("recursive", G, Boolean.FALSE), L, G, bVar), "aigamesmkdir:", F);
         }
     }
 
@@ -1086,28 +1086,28 @@ public class e {
 
     @JavascriptInterface
     public void readFile(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("filePath", jsObject);
             int L2 = d.b.g0.g.l.n.L("encoding", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "readFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "readFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("encoding", G);
             String F2 = d.b.g0.g.l.n.F("filePath", G);
-            this.f48351c.h(new o(F2, F, L2, L, G, bVar), "aigamesreadFile:", F2);
+            this.f48743c.h(new o(F2, F, L2, L, G, bVar), "aigamesreadFile:", F2);
         }
     }
 
     @JavascriptInterface
     public String readFileSync(String str, String str2) {
         List<String> list;
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.c q = this.f48349a.q(str, str2, true);
-            d.b.g0.g.l.n.Z(this.f48350b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
-            if (q == null || q.f48341a != 0 || (list = q.f48343c) == null) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.c q = this.f48741a.q(str, str2, true);
+            d.b.g0.g.l.n.Z(this.f48742b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
+            if (q == null || q.f48733a != 0 || (list = q.f48735c) == null) {
                 return null;
             }
             return list.get(0);
@@ -1117,82 +1117,82 @@ public class e {
 
     @JavascriptInterface
     public void readdir(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("dirPath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "readdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "readdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("dirPath", G);
-            this.f48351c.h(new m(F, L, G, bVar), "aigamesreaddir:", F);
+            this.f48743c.h(new m(F, L, G, bVar), "aigamesreaddir:", F);
         }
     }
 
     @JavascriptInterface
     public String[] readdirSync(String str) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.c s = this.f48349a.s(str, true);
-            d.b.g0.g.l.n.Z(this.f48350b, s, JSExceptionType.Error, "unknown error", "readdirSync:");
-            if (s == null || s.f48341a != 0) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.c s = this.f48741a.s(str, true);
+            d.b.g0.g.l.n.Z(this.f48742b, s, JSExceptionType.Error, "unknown error", "readdirSync:");
+            if (s == null || s.f48733a != 0) {
                 return new String[0];
             }
-            List<String> list = s.f48343c;
+            List<String> list = s.f48735c;
             int size = list == null ? 0 : list.size();
-            return size == 0 ? new String[0] : (String[]) s.f48343c.toArray(new String[size]);
+            return size == 0 ? new String[0] : (String[]) s.f48735c.toArray(new String[size]);
         }
         return null;
     }
 
     @JavascriptInterface
     public void removeSavedFile(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("filePath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "removeSavedFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "removeSavedFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
-            this.f48351c.h(new h(d.b.g0.g.l.n.F("filePath", G), L, G, bVar), "aigamesremoveSavedFile:", new String[0]);
+            this.f48743c.h(new h(d.b.g0.g.l.n.F("filePath", G), L, G, bVar), "aigamesremoveSavedFile:", new String[0]);
         }
     }
 
     @JavascriptInterface
     public void rename(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("oldPath", jsObject);
             int L2 = d.b.g0.g.l.n.L("newPath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "rename:fail parameter error: parameter.oldPath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "rename:fail parameter error: parameter.oldPath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("oldPath", G);
             String F2 = d.b.g0.g.l.n.F("newPath", G);
-            this.f48351c.h(new p(F, F2, L, L2, G, bVar), "aigamesrename:", F, F2);
+            this.f48743c.h(new p(F, F2, L, L2, G, bVar), "aigamesrename:", F, F2);
         }
     }
 
     @JavascriptInterface
     public void renameSync(String str, String str2) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str, str2);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.u(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str, str2);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.u(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
         }
     }
 
     @JavascriptInterface
     public void rmdir(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("dirPath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "rmdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "rmdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("dirPath", G);
-            this.f48351c.h(new n(F, (Boolean) d.b.g0.g.l.n.E("recursive", G, Boolean.FALSE), L, G, bVar), "aigamesrmdir:", F);
+            this.f48743c.h(new n(F, (Boolean) d.b.g0.g.l.n.E("recursive", G, Boolean.FALSE), L, G, bVar), "aigamesrmdir:", F);
         }
     }
 
@@ -1203,18 +1203,18 @@ public class e {
 
     @JavascriptInterface
     public void saveFile(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("tempFilePath", jsObject);
             int L2 = d.b.g0.g.l.n.L("filePath", jsObject);
             int i2 = L2 == 12 ? 7 : L2;
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "saveFile:fail parameter error: parameter.tempFilePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "saveFile:fail parameter error: parameter.tempFilePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("tempFilePath", G);
             String F2 = d.b.g0.g.l.n.F("filePath", G);
-            this.f48351c.h(new l(F, F2, L, i2, G, bVar), "aigamessaveFile:", F, F2);
+            this.f48743c.h(new l(F, F2, L, i2, G, bVar), "aigamessaveFile:", F, F2);
         }
     }
 
@@ -1225,120 +1225,120 @@ public class e {
 
     @JavascriptInterface
     public void stat(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("path", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "stat:fail parameter error: parameter.path should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "stat:fail parameter error: parameter.path should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("path", G);
-            this.f48351c.h(new RunnableC0981e(F, L, G, bVar), "aigamesstat:", F);
+            this.f48743c.h(new RunnableC0993e(F, L, G, bVar), "aigamesstat:", F);
         }
     }
 
     @JavascriptInterface
     public d.b.g0.g.l.j statSync(String str) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.c y = this.f48349a.y(str, true);
-            d.b.g0.g.l.n.Z(this.f48350b, y, JSExceptionType.Error, "unknown error", "statSync:");
-            if (y == null || y.f48341a != 0) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.c y = this.f48741a.y(str, true);
+            d.b.g0.g.l.n.Z(this.f48742b, y, JSExceptionType.Error, "unknown error", "statSync:");
+            if (y == null || y.f48733a != 0) {
                 return null;
             }
-            return y.f48344d;
+            return y.f48736d;
         }
         return null;
     }
 
     @JavascriptInterface
     public void unlink(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("filePath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "unlink:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "unlink:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("filePath", G);
-            this.f48351c.h(new j(F, L, G, bVar), "aigamesunlink:", F);
+            this.f48743c.h(new j(F, L, G, bVar), "aigamesunlink:", F);
         }
     }
 
     @JavascriptInterface
     public void unlinkSync(String str) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.z(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.z(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
         }
     }
 
     @JavascriptInterface
     public void unzip(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("zipFilePath", jsObject);
             int L2 = d.b.g0.g.l.n.L("targetPath", jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "unzip:fail parameter error: parameter.zipFilePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "unzip:fail parameter error: parameter.zipFilePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("zipFilePath", G);
             String F2 = d.b.g0.g.l.n.F("targetPath", G);
-            this.f48351c.h(new k(F, F2, L, L2, G, bVar), "aigamesunzip:", F, F2);
+            this.f48743c.h(new k(F, F2, L, L2, G, bVar), "aigamesunzip:", F, F2);
         }
     }
 
     @JavascriptInterface
     public void writeFile(JsObject jsObject) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int L = d.b.g0.g.l.n.L("filePath", jsObject);
             String u = d.b.g0.g.l.n.u(d.b.g0.g.l.n.L("data", jsObject));
             int L2 = d.b.g0.g.l.n.L("encoding", jsObject);
             byte[] p2 = d.b.g0.g.l.n.p(jsObject);
             d.b.g0.g.l.o.b bVar = new d.b.g0.g.l.o.b();
-            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48349a, jsObject, bVar, "writeFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            Map<String, Object> G = d.b.g0.g.l.n.G(this.f48741a, jsObject, bVar, "writeFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (G == null) {
                 return;
             }
             String F = d.b.g0.g.l.n.F("data", G);
             String F2 = d.b.g0.g.l.n.F("filePath", G);
-            this.f48351c.h(new i(F2, F, p2, G, u, L2, L, bVar), "aigameswriteFile:", F2);
+            this.f48743c.h(new i(F2, F, p2, G, u, L2, L, bVar), "aigameswriteFile:", F2);
         }
     }
 
     @JavascriptInterface
     public void writeFileSync(String str, String str2, String str3) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.C(true, str, str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.C(true, str, str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
         }
     }
 
     @JavascriptInterface
     public void mkdirSync(String str, boolean z) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.o(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.o(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
         }
     }
 
     @JavascriptInterface
     public void rmdirSync(String str, boolean z) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.v(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.v(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
         }
     }
 
     @JavascriptInterface
     public String saveFileSync(String str, String str2) {
         List<String> list;
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str, str2);
-            d.b.g0.g.l.c x = this.f48349a.x(str, str2, true);
-            d.b.g0.g.l.n.Z(this.f48350b, x, JSExceptionType.Error, "unknown error", "saveFileSync:");
-            if (x == null || x.f48341a != 0 || (list = x.f48343c) == null) {
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str, str2);
+            d.b.g0.g.l.c x = this.f48741a.x(str, str2, true);
+            d.b.g0.g.l.n.Z(this.f48742b, x, JSExceptionType.Error, "unknown error", "saveFileSync:");
+            if (x == null || x.f48733a != 0 || (list = x.f48735c) == null) {
                 return null;
             }
             return list.get(0);
@@ -1363,22 +1363,22 @@ public class e {
 
     @JavascriptInterface
     public void writeFileSync(String str, JsArrayBuffer jsArrayBuffer) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.n.Z(this.f48350b, this.f48349a.C(true, str, jsArrayBuffer == null ? new byte[0] : jsArrayBuffer.buffer(), null), JSExceptionType.Error, "unknown error", "writeFileSync:");
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.n.Z(this.f48742b, this.f48741a.C(true, str, jsArrayBuffer == null ? new byte[0] : jsArrayBuffer.buffer(), null), JSExceptionType.Error, "unknown error", "writeFileSync:");
         }
     }
 
     @JavascriptInterface
     public JsArrayBuffer readFileSync(String str) {
-        if (d.b.g0.g.l.n.P(this.f48349a, this.f48350b, null, null)) {
-            this.f48351c.k(str);
-            d.b.g0.g.l.c q = this.f48349a.q(str, null, true);
-            d.b.g0.g.l.n.Z(this.f48350b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
-            if (q.f48348h == null) {
-                q.f48348h = new byte[0];
+        if (d.b.g0.g.l.n.P(this.f48741a, this.f48742b, null, null)) {
+            this.f48743c.k(str);
+            d.b.g0.g.l.c q = this.f48741a.q(str, null, true);
+            d.b.g0.g.l.n.Z(this.f48742b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
+            if (q.f48740h == null) {
+                q.f48740h = new byte[0];
             }
-            byte[] bArr = q.f48348h;
+            byte[] bArr = q.f48740h;
             return new JsArrayBuffer(bArr, bArr.length);
         }
         return null;

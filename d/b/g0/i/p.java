@@ -34,17 +34,17 @@ public class p extends PopupWindow implements View.OnClickListener {
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f48870e;
+        public final /* synthetic */ View f49262e;
 
         public a(View view) {
-            this.f48870e = view;
+            this.f49262e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            p.this.Y.a(this.f48870e.getHeight());
+            p.this.Y.a(this.f49262e.getHeight());
             p.this.g0();
-            this.f48870e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            this.f49262e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
         }
     }
 

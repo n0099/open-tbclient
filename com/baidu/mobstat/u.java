@@ -5,7 +5,7 @@ import android.content.Context;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f9259a;
+    public static a f8833a;
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x003a A[Catch: all -> 0x0058, TryCatch #2 {, blocks: (B:4:0x0003, B:6:0x0010, B:8:0x0018, B:9:0x0021, B:15:0x0030, B:18:0x003a, B:19:0x0048), top: B:29:0x0003 }] */
     /*
@@ -18,7 +18,7 @@ public class u {
         Class<?> a2;
         synchronized (u.class) {
             bb.c().a("getBPStretegyController begin");
-            aVar = f9259a;
+            aVar = f8833a;
             if (aVar == null) {
                 try {
                     a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
@@ -36,7 +36,7 @@ public class u {
                         aVar = aVar2;
                         if (aVar == null) {
                         }
-                        f9259a = aVar;
+                        f8833a = aVar;
                         x.a(context, aVar);
                         bb.c().a("getBPStretegyController end");
                         return aVar;
@@ -48,7 +48,7 @@ public class u {
                 aVar = new v();
                 bb.c().a("Get BPStretegyController load local class");
             }
-            f9259a = aVar;
+            f8833a = aVar;
             x.a(context, aVar);
             bb.c().a("getBPStretegyController end");
         }
@@ -57,7 +57,7 @@ public class u {
 
     public static synchronized void a() {
         synchronized (u.class) {
-            f9259a = null;
+            f8833a = null;
         }
     }
 }

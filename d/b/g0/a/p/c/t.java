@@ -5,5 +5,5 @@ import android.content.Context;
 public interface t {
     String a(Context context);
 
-    String getAndroidId(Context context);
+    String b(Context context);
 }

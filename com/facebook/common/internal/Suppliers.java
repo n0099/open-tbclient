@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Suppliers {
     public static final Supplier<Boolean> BOOLEAN_TRUE = new Supplier<Boolean>() { // from class: com.facebook.common.internal.Suppliers.2
         /* JADX DEBUG: Method merged with bridge method */

@@ -2,7 +2,7 @@ package com.facebook.common.internal;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Preconditions {
     public static String badElementIndex(int i, int i2, @Nullable String str) {
         if (i < 0) {

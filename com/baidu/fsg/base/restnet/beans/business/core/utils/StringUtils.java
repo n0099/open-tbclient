@@ -5,7 +5,7 @@ import com.google.zxing.client.result.ResultParser;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class StringUtils {
     public static String fen2Yuan(String str) {
         if (TextUtils.isEmpty(str)) {

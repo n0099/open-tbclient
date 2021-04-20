@@ -11,6 +11,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.alibaba.fastjson.asm.Label;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
@@ -170,7 +171,7 @@ public class PublicMsg implements Parcelable {
             String launcherActivityName = getLauncherActivityName(context, str);
             if (launcherActivityName != null) {
                 parseUri.setClassName(str, launcherActivityName);
-                parseUri.setFlags(parseUri.getFlags() | 268435456);
+                parseUri.setFlags(parseUri.getFlags() | Label.FORWARD_REFERENCE_TYPE_SHORT);
                 parseUri.putExtra("open_type", 1);
                 parseUri.putExtra("msgid", str2);
                 context.startActivity(parseUri);
@@ -222,7 +223,7 @@ public class PublicMsg implements Parcelable {
                 if (packageManager.queryBroadcastReceivers(parseUri, 0).size() > 0) {
                     context.sendBroadcast(parseUri);
                 } else if (packageManager.queryIntentActivities(parseUri, 0).size() > 0) {
-                    parseUri.addFlags(268435456);
+                    parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     context.startActivity(parseUri);
                 }
                 i = 1;
@@ -255,7 +256,7 @@ public class PublicMsg implements Parcelable {
         if (i == 0) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(Uri.parse(this.mUrl));
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e5) {
@@ -293,7 +294,7 @@ public class PublicMsg implements Parcelable {
                     Intent intent2 = new Intent();
                     intent2.setAction("android.intent.action.VIEW");
                     intent2.setData(Uri.parse(this.mUrl));
-                    intent2.addFlags(268435456);
+                    intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     context.startActivity(intent2);
                 } else if (this.mOpenType == 2) {
                     if (TextUtils.isEmpty(this.mPkgContent)) {
@@ -309,7 +310,7 @@ public class PublicMsg implements Parcelable {
                         } else {
                             List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
                             if (queryIntentActivities != null && queryIntentActivities.size() > 0 && (activityInfo = queryIntentActivities.get(0).activityInfo) != null && activityInfo.exported) {
-                                parseUri.addFlags(268435456);
+                                parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                                 parseUri.putExtra("open_type", 1);
                                 parseUri.putExtra("msgid", str2);
                                 context.startActivity(parseUri);

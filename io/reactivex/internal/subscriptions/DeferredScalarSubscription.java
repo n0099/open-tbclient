@@ -25,7 +25,7 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         this.value = null;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public final void clear() {
         lazySet(32);
         this.value = null;
@@ -70,12 +70,12 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         return get() == 4;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public final boolean isEmpty() {
         return get() != 16;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public final T poll() {
         if (get() == 16) {
             lazySet(32);
@@ -112,7 +112,7 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.c
     public final int requestFusion(int i) {
         if ((i & 2) != 0) {
             lazySet(8);

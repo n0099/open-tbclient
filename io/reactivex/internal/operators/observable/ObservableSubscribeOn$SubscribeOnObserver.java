@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -14,33 +14,33 @@ public final class ObservableSubscribeOn$SubscribeOnObserver<T> extends AtomicRe
         this.actual = oVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this.s);
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.actual.onComplete();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         this.actual.onNext(t);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this.s, bVar);
     }

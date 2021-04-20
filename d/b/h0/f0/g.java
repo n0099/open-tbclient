@@ -1,231 +1,36 @@
 package d.b.h0.f0;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Process;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.FrameHelper;
+import android.content.ContentResolver;
+import android.net.Uri;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ListUtils;
-import d.b.b.e.p.l;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public class g {
-
-    /* renamed from: h  reason: collision with root package name */
-    public static g f50181h;
-
-    /* renamed from: d  reason: collision with root package name */
-    public d f50185d;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f50182a = false;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final d.b.h0.f0.c f50186e = new a();
-
-    /* renamed from: f  reason: collision with root package name */
-    public Handler f50187f = new Handler(Looper.getMainLooper());
-
-    /* renamed from: g  reason: collision with root package name */
-    public final d.b.h0.m.g f50188g = new c();
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Map<Class<? extends d.b.h0.f0.a>, d.b.h0.f0.b> f50183b = new HashMap();
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Map<Class<? extends d.b.h0.f0.a>, LinkedList<h>> f50184c = new HashMap();
-
-    /* loaded from: classes3.dex */
-    public class a implements d.b.h0.f0.c {
-        public a() {
-        }
-
-        @Override // d.b.h0.f0.c
-        public void a(d.b.h0.f0.a aVar) {
-            g.this.d(aVar);
-        }
+    public static String a() {
+        return d.b.h0.r.d0.b.j().h();
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.f0.a f50190e;
-
-        public b(d.b.h0.f0.a aVar) {
-            this.f50190e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            g.this.c(this.f50190e);
-        }
+    public static ContentResolver b() {
+        return d.b.h0.r.d0.b.j().i();
     }
 
-    /* loaded from: classes3.dex */
-    public class c extends d.b.h0.m.g {
-        public c() {
+    public static OrmObject c(String str, Class<?> cls) {
+        if (str == null || cls == null) {
+            return null;
         }
-
-        @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            if (activity instanceof TbPageContextSupport) {
-                g.this.l(((TbPageContextSupport) activity).getPageContext().getUniqueId());
-            }
-        }
+        return OrmObject.objectWithJsonStr(d(str), cls);
     }
 
-    public static g e() {
-        if (f50181h == null) {
-            synchronized (g.class) {
-                if (f50181h == null) {
-                    f50181h = new g();
-                }
-            }
-        }
-        return f50181h;
+    public static String d(String str) {
+        return e(Uri.parse(a() + str));
     }
 
-    public static void g(d.b.h0.f0.a aVar) {
-        int myPid = Process.myPid();
-        int pid = aVar.getPid();
-        if (aVar.getType() == 2 && myPid == pid) {
-            e().d(aVar);
-        } else {
-            e().h(aVar);
-        }
-    }
-
-    public final void c(d.b.h0.f0.a aVar) {
-        if (aVar == null) {
-            return;
-        }
-        Class<?> cls = aVar.getClass();
+    public static String e(Uri uri) {
         try {
-            d.b.h0.f0.b bVar = this.f50183b.get(cls);
-            if (bVar != null) {
-                bVar.onEvent(aVar);
-            }
-        } catch (Exception e2) {
-            BdLog.detailException(cls.getName(), e2);
-        }
-        try {
-            LinkedList<h> linkedList = this.f50184c.get(cls);
-            if (ListUtils.isEmpty(linkedList)) {
-                return;
-            }
-            int myPid = Process.myPid();
-            for (h hVar : linkedList) {
-                if (hVar != null && (!hVar.isSelfListener() || (aVar.getPid() == myPid && hVar.getTag() != null && hVar.getTag().getId() == aVar.getTag()))) {
-                    try {
-                        hVar.onEvent(aVar);
-                    } catch (Exception e3) {
-                        BdLog.detailException(cls.getName(), e3);
-                    }
-                }
-            }
-        } catch (Exception e4) {
-            BdLog.detailException(cls.getName(), e4);
-        }
-    }
-
-    public final void d(d.b.h0.f0.a aVar) {
-        if (l.B()) {
-            c(aVar);
-        } else {
-            this.f50187f.post(new b(aVar));
-        }
-    }
-
-    public void f(Application application) {
-        if (this.f50182a) {
-            return;
-        }
-        if (application != null) {
-            i(application);
-            e eVar = new e(application);
-            this.f50185d = eVar;
-            eVar.b(this.f50186e);
-            this.f50185d.c();
-            this.f50182a = true;
-            return;
-        }
-        throw new NullPointerException("MutiProcessManager Initialized, application is null");
-    }
-
-    public final void h(d.b.h0.f0.a aVar) {
-        d dVar = this.f50185d;
-        if (dVar != null) {
-            dVar.a(aVar);
-        }
-    }
-
-    public final void i(Application application) {
-        try {
-            application.registerActivityLifecycleCallbacks(this.f50188g);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public void j(Class<? extends d.b.h0.f0.a> cls, d.b.h0.f0.b bVar) {
-        if (bVar == null) {
-            throw new NullPointerException("register listener is null");
-        }
-        if (cls != null) {
-            if (this.f50183b.containsKey(cls)) {
-                BdLog.e(cls + " has existed, Please unRegister old listener first！");
-                return;
-            }
-            this.f50183b.put(cls, bVar);
-            return;
-        }
-        throw new NullPointerException("register IEvent class is null");
-    }
-
-    public void k(Class<? extends d.b.h0.f0.a> cls, h hVar, BdUniqueId bdUniqueId) {
-        if (hVar == null) {
-            throw new NullPointerException("register listener is null");
-        }
-        if (cls != null) {
-            LinkedList<h> linkedList = this.f50184c.get(cls);
-            if (linkedList == null) {
-                linkedList = new LinkedList<>();
-                this.f50184c.put(cls, linkedList);
-            }
-            if (linkedList.contains(hVar)) {
-                BdLog.e("listener has existed, Please unRegister old listener first！");
-                return;
-            }
-            hVar.setTag(bdUniqueId);
-            FrameHelper.f(linkedList, hVar);
-            return;
-        }
-        throw new NullPointerException("register IEvent class is null");
-    }
-
-    public void l(BdUniqueId bdUniqueId) {
-        if (bdUniqueId == null) {
-            return;
-        }
-        for (Map.Entry<Class<? extends d.b.h0.f0.a>, LinkedList<h>> entry : this.f50184c.entrySet()) {
-            LinkedList<h> value = entry.getValue();
-            if (!ListUtils.isEmpty(value)) {
-                Iterator<h> it = value.iterator();
-                while (it.hasNext()) {
-                    h next = it.next();
-                    if (next != null && next.getTag() != null && next.getTag() == bdUniqueId) {
-                        it.remove();
-                    }
-                }
-            }
+            return b().getType(uri);
+        } catch (SecurityException e2) {
+            BdLog.detailException(e2);
+            return null;
         }
     }
 }

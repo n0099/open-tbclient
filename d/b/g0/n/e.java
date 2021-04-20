@@ -20,29 +20,29 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile IRemoteUBCService f49228a;
+    public static volatile IRemoteUBCService f49620a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Integer> f49229b = new HashMap();
+    public static Map<String, Integer> f49621b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public static Set<String> f49230c;
+    public static Set<String> f49622c;
 
     static {
         HashSet hashSet = new HashSet();
-        f49230c = hashSet;
+        f49622c = hashSet;
         hashSet.add("606");
-        f49230c.add("671");
-        f49229b.put("606", -1);
-        f49229b.put("671", -1);
+        f49622c.add("671");
+        f49621b.put("606", -1);
+        f49621b.put("671", -1);
     }
 
     public static String a(String str, String str2) {
         l g2;
         Integer valueOf;
-        if (f49230c.contains(str) && (g2 = g()) != null && g2.o()) {
+        if (f49622c.contains(str) && (g2 = g()) != null && g2.p()) {
             synchronized (e.class) {
-                Integer num = f49229b.get(str);
+                Integer num = f49621b.get(str);
                 if (num == null) {
                     num = -1;
                 }
@@ -60,7 +60,7 @@ public class e {
                     jSONObject.put("counter", valueOf);
                     str2 = jSONObject.toString();
                     t.f().putInt("ubc_counter" + str, valueOf.intValue());
-                    f49229b.put(str, valueOf);
+                    f49621b.put(str, valueOf);
                 } catch (JSONException unused) {
                 }
             }
@@ -72,9 +72,9 @@ public class e {
     public static JSONObject b(String str, JSONObject jSONObject) {
         l g2;
         Integer valueOf;
-        if (f49230c.contains(str) && (g2 = g()) != null && g2.o()) {
+        if (f49622c.contains(str) && (g2 = g()) != null && g2.p()) {
             synchronized (e.class) {
-                Integer num = f49229b.get(str);
+                Integer num = f49621b.get(str);
                 if (num == null) {
                     num = -1;
                 }
@@ -90,7 +90,7 @@ public class e {
                     }
                     jSONObject.put("counter", valueOf);
                     t.f().putInt("ubc_counter" + str, valueOf.intValue());
-                    f49229b.put(str, valueOf);
+                    f49621b.put(str, valueOf);
                 } catch (JSONException unused) {
                 }
             }
@@ -112,20 +112,20 @@ public class e {
     }
 
     public static IRemoteUBCService f() throws RemoteException {
-        if (f49228a == null) {
+        if (f49620a == null) {
             synchronized (e.class) {
-                if (f49228a == null) {
+                if (f49620a == null) {
                     IBinder f2 = IPCServiceManager.f("open_log", true);
                     if (f2 == null) {
                         throw new RemoteException("Ceres get remote service empty !");
                     }
                     if (f2 != null) {
-                        f49228a = IRemoteUBCService.Stub.asInterface(f2);
+                        f49620a = IRemoteUBCService.Stub.asInterface(f2);
                     }
                 }
             }
         }
-        return f49228a;
+        return f49620a;
     }
 
     @Inject
@@ -138,7 +138,7 @@ public class e {
     }
 
     public static void i(String str, String str2, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             str2 = a(str, str2);
         }
         if (d.b.g0.o.d.a()) {
@@ -161,7 +161,7 @@ public class e {
     }
 
     public static void m(String str, JSONObject jSONObject, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             b(str, jSONObject);
         }
         if (d.b.g0.o.d.a()) {

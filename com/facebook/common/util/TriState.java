@@ -2,14 +2,14 @@ package com.facebook.common.util;
 
 import com.facebook.infer.annotation.Functional;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public enum TriState {
     YES,
     NO,
     UNSET;
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
 

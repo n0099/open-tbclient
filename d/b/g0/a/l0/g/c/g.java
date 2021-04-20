@@ -15,22 +15,22 @@ public class g extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45143e;
+        public final /* synthetic */ CallbackHandler f45535e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f45144f;
+        public final /* synthetic */ UnitedSchemeEntity f45536f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45145g;
+        public final /* synthetic */ JSONObject f45537g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f45146h;
+        public final /* synthetic */ Context f45538h;
 
         public a(g gVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            this.f45143e = callbackHandler;
-            this.f45144f = unitedSchemeEntity;
-            this.f45145g = jSONObject;
-            this.f45146h = context;
+            this.f45535e = callbackHandler;
+            this.f45536f = unitedSchemeEntity;
+            this.f45537g = jSONObject;
+            this.f45538h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,16 +38,16 @@ public class g extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.n(hVar, this.f45143e, this.f45144f);
+                d.b.g0.a.v1.c.c.n(hVar, this.f45535e, this.f45536f);
                 return;
             }
-            int optInt = this.f45145g.optInt("useExtension");
+            int optInt = this.f45537g.optInt("useExtension");
             if (!d.b.g0.a.l0.g.b.b().exists()) {
-                this.f45144f.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.f45146h.getResources().getString(d.b.g0.a.h.aiapps_debug_no_extension_core));
+                this.f45536f.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.f45538h.getResources().getString(d.b.g0.a.h.aiapps_debug_no_extension_core));
                 return;
             }
             d.b.g0.a.m1.a.a.P(d.b.g0.a.l0.g.a.b(optInt));
-            UnitedSchemeUtility.callCallback(this.f45143e, this.f45144f, UnitedSchemeUtility.wrapCallbackParams(0));
+            UnitedSchemeUtility.callCallback(this.f45535e, this.f45536f, UnitedSchemeUtility.wrapCallbackParams(0));
             d.b.g0.a.m1.a.a.T();
         }
     }

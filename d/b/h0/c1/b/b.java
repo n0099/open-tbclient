@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f50083a = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
+    public final SharedPreferences f50476a = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50084b;
+    public String f50477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50085c;
+    public String f50478c;
 
     public b(String str, String str2) {
-        this.f50084b = str;
-        this.f50085c = str2;
+        this.f50477b = str;
+        this.f50478c = str2;
     }
 
     public void a(long j) {
-        if (b(this.f50084b, this.f50085c)) {
-            String str = this.f50084b + '_' + this.f50085c + "_youngster_tip_times";
-            String str2 = this.f50084b + '_' + this.f50085c + "_youngster_tip_time";
-            int i = this.f50083a.getInt(str, 0);
-            SharedPreferences.Editor edit = this.f50083a.edit();
+        if (b(this.f50477b, this.f50478c)) {
+            String str = this.f50477b + '_' + this.f50478c + "_youngster_tip_times";
+            String str2 = this.f50477b + '_' + this.f50478c + "_youngster_tip_time";
+            int i = this.f50476a.getInt(str, 0);
+            SharedPreferences.Editor edit = this.f50476a.edit();
             int i2 = i + 1;
             if (i2 <= 10) {
                 i = i2;
@@ -41,15 +41,15 @@ public class b {
     }
 
     public long c() {
-        if (b(this.f50084b, this.f50085c)) {
-            return this.f50083a.getLong(this.f50084b + '_' + this.f50085c + "_youngster_tip_time", 0L);
+        if (b(this.f50477b, this.f50478c)) {
+            return this.f50476a.getLong(this.f50477b + '_' + this.f50478c + "_youngster_tip_time", 0L);
         }
         return 0L;
     }
 
     public int d() {
-        if (b(this.f50084b, this.f50085c)) {
-            return this.f50083a.getInt(this.f50084b + '_' + this.f50085c + "_youngster_tip_times", 0);
+        if (b(this.f50477b, this.f50478c)) {
+            return this.f50476a.getInt(this.f50477b + '_' + this.f50478c + "_youngster_tip_times", 0);
         }
         return 0;
     }

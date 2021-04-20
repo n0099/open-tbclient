@@ -22,22 +22,22 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44893e = d.b.g0.a.k.f45051a;
+    public static final boolean f45285e = d.b.g0.a.k.f45443a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static k f44894f;
+    public static k f45286f;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f44896b;
+    public String[] f45288b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, JSONArray> f44895a = new ArrayMap();
+    public Map<String, JSONArray> f45287a = new ArrayMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44897c = "";
+    public String f45289c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f44898d = new HashMap();
+    public Map<String, String> f45290d = new HashMap();
 
     /* loaded from: classes2.dex */
     public static abstract class a {
@@ -55,26 +55,26 @@ public class k {
     public class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public AtomicInteger f44899a = new AtomicInteger(0);
+        public AtomicInteger f45291a = new AtomicInteger(0);
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f44900b;
+        public boolean f45292b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f44901c;
+        public int f45293c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f44902d;
+        public a f45294d;
 
         public b(int i, a aVar) {
-            this.f44901c = i;
-            this.f44902d = aVar;
+            this.f45293c = i;
+            this.f45294d = aVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             a aVar;
-            if (this.f44900b || this.f44899a.incrementAndGet() < this.f44901c || (aVar = this.f44902d) == null) {
+            if (this.f45292b || this.f45291a.incrementAndGet() < this.f45293c || (aVar = this.f45294d) == null) {
                 return;
             }
             aVar.b(d.b.g0.a.h.aiapps_debug_report_fail);
@@ -82,9 +82,9 @@ public class k {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(Object obj, int i) {
-            this.f44900b = true;
-            k.this.f44895a = new ArrayMap();
-            a aVar = this.f44902d;
+            this.f45292b = true;
+            k.this.f45287a = new ArrayMap();
+            a aVar = this.f45294d;
             if (aVar != null) {
                 aVar.b(d.b.g0.a.h.aiapps_debug_report_success);
             }
@@ -96,7 +96,7 @@ public class k {
                 try {
                     return response.body().string();
                 } catch (IOException e2) {
-                    if (k.f44893e) {
+                    if (k.f45285e) {
                         Log.d("TraceDataManager", "Trace Data publish fail for IOException", e2);
                     }
                 }
@@ -106,41 +106,41 @@ public class k {
     }
 
     public static k e() {
-        if (f44894f == null) {
+        if (f45286f == null) {
             synchronized (k.class) {
-                if (f44894f == null) {
-                    f44894f = new k();
+                if (f45286f == null) {
+                    f45286f = new k();
                 }
             }
         }
-        return f44894f;
+        return f45286f;
     }
 
     public void c(JSONObject jSONObject) {
-        if (this.f44895a == null || jSONObject == null) {
+        if (this.f45287a == null || jSONObject == null) {
             return;
         }
         String U = d.b.g0.a.z0.f.V().U();
-        JSONArray jSONArray = this.f44895a.get(U);
+        JSONArray jSONArray = this.f45287a.get(U);
         if (jSONArray == null) {
             jSONArray = new JSONArray();
-            this.f44895a.put(U, jSONArray);
+            this.f45287a.put(U, jSONArray);
         }
         jSONArray.put(jSONObject);
     }
 
     public final String d(int i) {
-        if (!f() || i >= this.f44896b.length) {
+        if (!f() || i >= this.f45288b.length) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         sb.append("http://");
-        sb.append(this.f44896b[i]);
+        sb.append(this.f45288b[i]);
         sb.append(":");
-        sb.append(this.f44897c);
+        sb.append(this.f45289c);
         sb.append("/uploadTraceData");
         sb.append("?");
-        for (Map.Entry<String, String> entry : this.f44898d.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f45290d.entrySet()) {
             sb.append(entry.getKey());
             sb.append("=");
             sb.append(entry.getValue());
@@ -149,8 +149,8 @@ public class k {
     }
 
     public boolean f() {
-        String[] strArr = this.f44896b;
-        return (strArr == null || strArr.length <= 0 || TextUtils.isEmpty(this.f44897c)) ? false : true;
+        String[] strArr = this.f45288b;
+        return (strArr == null || strArr.length <= 0 || TextUtils.isEmpty(this.f45289c)) ? false : true;
     }
 
     public void g(a aVar) {
@@ -158,25 +158,25 @@ public class k {
             d.b.g0.a.q1.b.f.d.e(d.b.g0.a.r1.d.e().n(), d.b.g0.a.h.aiapps_debug_report_invalid_params).C();
             return;
         }
-        Map<String, JSONArray> map = this.f44895a;
+        Map<String, JSONArray> map = this.f45287a;
         if (map != null && map.size() > 0) {
             JSONArray jSONArray = new JSONArray();
             try {
-                for (Map.Entry<String, JSONArray> entry : this.f44895a.entrySet()) {
+                for (Map.Entry<String, JSONArray> entry : this.f45287a.entrySet()) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.putOpt("path", entry.getKey());
                     jSONObject.putOpt("data", entry.getValue().toString());
                     jSONArray.put(jSONObject);
                 }
             } catch (JSONException e2) {
-                if (f44893e) {
+                if (f45285e) {
                     Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
                 }
             }
             d.b.g0.k.c.f postRequest = d.b.g0.k.e.a.f().postRequest();
             postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
             postRequest.connectionTimeout(3000);
-            int min = Math.min(this.f44896b.length, 4);
+            int min = Math.min(this.f45288b.length, 4);
             b bVar = new b(min, aVar);
             for (int i = 0; i < min; i++) {
                 postRequest.url(d(i));
@@ -200,15 +200,15 @@ public class k {
         String string2 = bundle.getString("tool_port");
         String string3 = bundle.getString("projectId");
         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (f44893e) {
+            if (f45285e) {
                 Log.d("TraceDataManager", "IP : " + string);
                 Log.d("TraceDataManager", "Port : " + string2);
                 Log.d("TraceDataManager", "Project ID : " + string3);
             }
-            this.f44896b = string.split("_");
-            this.f44897c = string2;
-            this.f44898d.put("projectId", string3);
-        } else if (f44893e) {
+            this.f45288b = string.split("_");
+            this.f45289c = string2;
+            this.f45290d.put("projectId", string3);
+        } else if (f45285e) {
             Log.d("TraceDataManager", "Trace Data Params is invalid");
         }
     }

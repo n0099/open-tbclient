@@ -15,37 +15,37 @@ import org.json.JSONObject;
 public abstract class d<T> implements f.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.l.h.g f48932e;
+    public d.b.g0.l.h.g f49324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.l.l.k.g f48933f;
+    public d.b.g0.l.l.k.g f49325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48934g;
+    public String f49326g;
 
     public d(d.b.g0.l.h.g gVar, d.b.g0.l.l.k.g gVar2) {
-        this.f48932e = gVar;
-        this.f48933f = gVar2;
+        this.f49324e = gVar;
+        this.f49325f = gVar2;
     }
 
     @Override // d.b.g0.l.l.f.a
     public void a(String str, String str2, JSONObject jSONObject) {
-        d.b.g0.l.h.g gVar = this.f48932e;
+        d.b.g0.l.h.g gVar = this.f49324e;
         if (gVar != null) {
-            gVar.I(str, str2, jSONObject);
+            gVar.H(str, str2, jSONObject);
         }
-        this.f48934g = str;
+        this.f49326g = str;
     }
 
     @Override // d.b.g0.l.l.f.a
     public void b(String str, int i) {
-        d.b.g0.l.h.g gVar = this.f48932e;
+        d.b.g0.l.h.g gVar = this.f49324e;
         if (gVar != null) {
-            gVar.H(str, i);
+            gVar.G(str, i);
         }
         if (i != 200) {
             d.b.g0.l.k.a aVar = new d.b.g0.l.k.a(2104, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION + i);
-            this.f48932e.C(aVar);
+            this.f49324e.B(aVar);
             c(aVar, str);
             return;
         }
@@ -53,14 +53,14 @@ public abstract class d<T> implements f.a {
         if (a2 == null) {
             JSONObject m = d.b.g0.l.r.e.m(str);
             d.b.g0.l.k.a aVar2 = new d.b.g0.l.k.a(2103, "metadata : parse response error - ,errmsg:" + m.toString());
-            this.f48932e.C(aVar2);
+            this.f49324e.B(aVar2);
             c(aVar2, str);
             return;
         }
         int d2 = a2.d();
         if (d2 != 0) {
             d.b.g0.l.k.a aVar3 = new d.b.g0.l.k.a(d2, d.b.g0.l.d.a(d2, "response errorCode with errmsg:" + a2.e()), a2.f());
-            this.f48932e.C(aVar3);
+            this.f49324e.B(aVar3);
             if (a2.d() != 1010) {
                 c(aVar3, str);
                 return;
@@ -70,11 +70,11 @@ public abstract class d<T> implements f.a {
         T m2 = m(a2.c());
         if (m2 == null) {
             d.b.g0.l.k.a aVar4 = new d.b.g0.l.k.a(2102, "response data empty");
-            this.f48932e.C(aVar4);
+            this.f49324e.B(aVar4);
             c(aVar4, str);
         } else if (!d(m2)) {
             d.b.g0.l.k.a aVar5 = new d.b.g0.l.k.a(2103, str);
-            this.f48932e.C(aVar5);
+            this.f49324e.B(aVar5);
             c(aVar5, str);
         } else {
             l(m2);
@@ -86,21 +86,21 @@ public abstract class d<T> implements f.a {
         int i = 0;
         if (aVar != null) {
             try {
-                if (aVar.f48914a != 0) {
-                    i = aVar.f48914a;
+                if (aVar.f49306a != 0) {
+                    i = aVar.f49306a;
                     jSONObject.put("response", str);
-                    if (!TextUtils.isEmpty(this.f48934g) && (aVar.f48914a == 1011 || aVar.f48914a == 1012)) {
-                        jSONObject.put("request_url", this.f48934g);
+                    if (!TextUtils.isEmpty(this.f49326g) && (aVar.f49306a == 1011 || aVar.f49306a == 1012)) {
+                        jSONObject.put("request_url", this.f49326g);
                     }
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.f48933f instanceof d.b.g0.l.l.k.c) {
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, ((d.b.g0.l.l.k.c) this.f48933f).g());
+        if (this.f49325f instanceof d.b.g0.l.l.k.c) {
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, ((d.b.g0.l.l.k.c) this.f49325f).g());
         }
-        d.b.g0.l.p.a.a(this.f48933f.a(), "cs_protocol", e(), i, jSONObject);
+        d.b.g0.l.p.a.a(this.f49325f.a(), "cs_protocol", e(), i, jSONObject);
     }
 
     public abstract boolean d(T t);
@@ -145,11 +145,11 @@ public abstract class d<T> implements f.a {
     }
 
     public void k(PMSAppInfo pMSAppInfo) {
-        d.b.g0.l.h.f q;
-        if (pMSAppInfo == null || (q = this.f48932e.q()) == null) {
+        d.b.g0.l.h.f p;
+        if (pMSAppInfo == null || (p = this.f49324e.p()) == null) {
             return;
         }
-        q.a(pMSAppInfo);
+        p.a(pMSAppInfo);
     }
 
     public abstract d.b.g0.l.k.a l(T t);
@@ -159,7 +159,7 @@ public abstract class d<T> implements f.a {
     @Override // d.b.g0.l.l.f.a
     public void onFail(Exception exc) {
         d.b.g0.l.k.a aVar = new d.b.g0.l.k.a(2101, Log.getStackTraceString(exc));
-        this.f48932e.C(aVar);
+        this.f49324e.B(aVar);
         c(aVar, exc.getMessage());
     }
 }

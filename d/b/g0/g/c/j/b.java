@@ -16,28 +16,28 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f47983g = k.f45051a;
+    public static final boolean f48375g = k.f45443a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f47984h;
+    public static volatile b f48376h;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f47988d;
+    public HandlerThread f48380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f47989e;
+    public Handler f48381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAudioPlayer f47990f;
+    public SwanAudioPlayer f48382f;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Long> f47986b = new HashMap<>();
+    public HashMap<String, Long> f48378b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47987c = f.g();
+    public String f48379c = f.g();
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.c.i.b f47985a = new d.b.g0.g.c.i.b(this.f47987c);
+    public d.b.g0.g.c.i.b f48377a = new d.b.g0.g.c.i.b(this.f48379c);
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -46,20 +46,20 @@ public class b {
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f47990f = SwanAudioPlayer.getInstance();
+            b.this.f48382f = SwanAudioPlayer.getInstance();
             SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
         }
     }
 
     /* renamed from: d.b.g0.g.c.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0955b implements Runnable {
-        public RunnableC0955b() {
+    public class RunnableC0967b implements Runnable {
+        public RunnableC0967b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f47990f.pauseAll();
+            b.this.f48382f.pauseAll();
         }
     }
 
@@ -70,7 +70,7 @@ public class b {
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f47990f.resume();
+            b.this.f48382f.resume();
         }
     }
 
@@ -84,39 +84,39 @@ public class b {
     }
 
     public static b h() {
-        if (f47984h == null) {
+        if (f48376h == null) {
             synchronized (b.class) {
-                if (f47984h == null) {
-                    f47984h = new b();
+                if (f48376h == null) {
+                    f48376h = new b();
                 }
             }
         }
-        return f47984h;
+        return f48376h;
     }
 
     public final void c() {
-        if (this.f47988d == null) {
+        if (this.f48380d == null) {
             HandlerThread handlerThread = new HandlerThread("audio_thread");
-            this.f47988d = handlerThread;
+            this.f48380d = handlerThread;
             handlerThread.start();
-            this.f47989e = new Handler(this.f47988d.getLooper());
+            this.f48381e = new Handler(this.f48380d.getLooper());
         }
     }
 
     public synchronized d.b.g0.g.c.j.c d(String str, boolean z) {
-        if (f47983g) {
+        if (f48375g) {
             Log.e("AudioPlayerManager", "create media player src = " + str);
         }
         return new d();
     }
 
     public Handler e() {
-        return this.f47989e;
+        return this.f48381e;
     }
 
     public long f(String str) {
-        if (this.f47986b.containsKey(str)) {
-            return this.f47986b.get(str).longValue();
+        if (this.f48378b.containsKey(str)) {
+            return this.f48378b.get(str).longValue();
         }
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -124,10 +124,10 @@ public class b {
                 mediaMetadataRetriever.setDataSource(str);
                 long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                 mediaMetadataRetriever.release();
-                this.f47986b.put(str, Long.valueOf(parseLong));
+                this.f48378b.put(str, Long.valueOf(parseLong));
                 return parseLong;
             } catch (Exception e2) {
-                if (f47983g) {
+                if (f48375g) {
                     e2.printStackTrace();
                 }
                 mediaMetadataRetriever.release();
@@ -139,11 +139,11 @@ public class b {
     }
 
     public String g(String str) throws MalformedURLException {
-        return this.f47987c + f.d(str);
+        return this.f48379c + f.d(str);
     }
 
     public boolean i() {
-        SwanAudioPlayer swanAudioPlayer = this.f47990f;
+        SwanAudioPlayer swanAudioPlayer = this.f48382f;
         if (swanAudioPlayer != null) {
             swanAudioPlayer.isAudioPlayer();
             return false;
@@ -152,18 +152,18 @@ public class b {
     }
 
     public void j(String str, d.b.g0.g.c.i.a aVar) {
-        this.f47985a.e(str, aVar);
+        this.f48377a.e(str, aVar);
     }
 
     public void k() {
-        if (this.f47990f != null) {
+        if (this.f48382f != null) {
             e().post(new c());
         }
     }
 
     public void l() {
-        if (this.f47990f != null) {
-            e().postDelayed(new RunnableC0955b(), 50L);
+        if (this.f48382f != null) {
+            e().postDelayed(new RunnableC0967b(), 50L);
         }
     }
 

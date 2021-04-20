@@ -46,7 +46,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
         public final String entryToString$kotlin_stdlib(Map.Entry<?, ?> entry) {
             StringBuilder sb = new StringBuilder();
             sb.append(entry.getKey());
-            sb.append(a.f1897h);
+            sb.append(a.f1922h);
             sb.append(entry.getValue());
             return sb.toString();
         }

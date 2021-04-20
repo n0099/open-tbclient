@@ -15,14 +15,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.b.a.b;
-import d.b.b.a.f;
-import d.b.b.a.g;
-import d.b.b.a.h;
-import d.b.b.a.i;
-import d.b.b.e.l.d;
-import d.b.b.e.p.l;
-import d.b.b.j.e.q;
+import d.b.c.a.b;
+import d.b.c.a.f;
+import d.b.c.a.g;
+import d.b.c.a.h;
+import d.b.c.a.i;
+import d.b.c.e.l.d;
+import d.b.c.e.p.l;
+import d.b.c.j.e.q;
 /* loaded from: classes.dex */
 public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, g<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static final int PRELOAD_DELAY = 100;
@@ -47,8 +47,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if (view == null) {
             return;
         }
-        if (view instanceof d.b.b.f.a.i) {
-            ((d.b.b.f.a.i) view).refresh();
+        if (view instanceof d.b.c.f.a.i) {
+            ((d.b.c.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -63,7 +63,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         return this;
     }
 
-    @Override // d.b.b.a.g
+    @Override // d.b.c.a.g
     public abstract /* synthetic */ f<T> getPageContext();
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -72,7 +72,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -83,7 +83,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
@@ -98,7 +98,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        d.b.b.a.a.b(this);
+        d.b.c.a.a.b(this);
         super.onCreate(bundle);
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
@@ -141,7 +141,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public void onPreLoad(q qVar) {
     }
 
@@ -212,14 +212,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        if (d.b.b.a.a.d(this) && d.b.b.a.a.a(i)) {
+        if (d.b.c.a.a.d(this) && d.b.c.a.a.a(i)) {
             return;
         }
         super.setRequestedOrientation(i);
@@ -250,14 +250,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void registerListener(d.b.b.c.g.a aVar) {
+    public void registerListener(d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    public void registerListener(int i, d.b.b.c.g.a aVar) {
+    public void registerListener(int i, d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }

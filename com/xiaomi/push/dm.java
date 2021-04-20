@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class dm {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f40366a = new Object();
+    public static final Object f40655a = new Object();
     @Deprecated
 
     /* renamed from: a  reason: collision with other field name */
@@ -11,5 +11,5 @@ public class dm {
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f40367b = String.valueOf(hh.BroadcastActionChanged.a());
+    public static final String f40656b = String.valueOf(hh.BroadcastActionChanged.a());
 }

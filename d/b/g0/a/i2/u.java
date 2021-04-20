@@ -8,7 +8,7 @@ import android.util.Log;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44788a = d.b.g0.a.k.f45051a;
+    public static final boolean f45180a = d.b.g0.a.k.f45443a;
 
     public static boolean a(Activity activity) {
         if (activity == null || !b(activity.getIntent())) {
@@ -41,7 +41,7 @@ public class u {
         try {
             return bundle.getBoolean(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getBoolean failed on bundle " + bundle);
             }
             return z;
@@ -52,7 +52,7 @@ public class u {
         try {
             return bundle.getBundle(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getBundle failed on bundle " + bundle);
                 return null;
             }
@@ -64,7 +64,7 @@ public class u {
         try {
             return intent.getBundleExtra(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getBundleExtra failed on intent " + intent);
                 return null;
             }
@@ -76,7 +76,7 @@ public class u {
         try {
             return bundle.getInt(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getInt failed on bundle " + bundle);
             }
             return i;
@@ -87,7 +87,7 @@ public class u {
         try {
             return bundle.getString(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getString failed on bundle " + bundle);
                 return null;
             }
@@ -99,7 +99,7 @@ public class u {
         try {
             return intent.getStringExtra(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getStringExtra failed on intent " + intent);
                 return null;
             }
@@ -111,7 +111,7 @@ public class u {
         try {
             return bundle.getString(str);
         } catch (Throwable unused) {
-            if (f44788a) {
+            if (f45180a) {
                 Log.e("IntentUtils", "getStringExtra failed on bundle " + bundle);
                 return null;
             }

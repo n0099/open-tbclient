@@ -38,12 +38,12 @@ import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.view.GuidePopupWindow;
-import d.b.b.e.m.g;
-import d.b.b.e.p.k;
-import d.b.h0.f0.h;
+import d.b.c.e.m.g;
+import d.b.c.e.p.k;
+import d.b.h0.f0.i;
 import d.b.h0.k0.e;
-import d.b.i0.p0.l2.f;
-import d.b.i0.p0.m0;
+import d.b.i0.q0.m0;
+import d.b.i0.q0.m2.f;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,20 +53,20 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
     public GuidePopupWindow frsGuidePopupView;
     public boolean isNeedTransition;
     public ItemInfo mCommentTabItemInfo;
-    public d.b.b.e.k.b<TbImageView> mFrsCommonImagePool;
+    public d.b.c.e.k.b<TbImageView> mFrsCommonImagePool;
     public long mSpecialTabPageStayTime;
     public FrsTabController mTabController;
     public f mTransitionController;
-    public d.b.b.e.k.b<TbImageView> mUserIconPool;
+    public d.b.c.e.k.b<TbImageView> mUserIconPool;
     public WeakReference<Context> mWeakContext;
     public boolean mIsFromSchema = false;
     public boolean doRefresh = true;
-    public h mTipsEventListener = new a();
-    public h mSwanappReturnProductDateListener = new b();
+    public i mTipsEventListener = new a();
+    public i mSwanappReturnProductDateListener = new b();
     public CustomMessageListener mGuideWindowListener = new c(2921476);
 
     /* loaded from: classes4.dex */
-    public class a extends h<TipEvent> {
+    public class a extends i<TipEvent> {
         public a() {
         }
 
@@ -83,7 +83,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
     }
 
     /* loaded from: classes4.dex */
-    public class b extends h<GoodsEvent> {
+    public class b extends i<GoodsEvent> {
         public b() {
         }
 
@@ -136,7 +136,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
     }
 
     private boolean isShowGuidePopup() {
-        if (TbadkCoreApplication.isLogin() && !d.b.h0.r.d0.b.i().g("has_guide_popup_window_been_shown", false)) {
+        if (TbadkCoreApplication.isLogin() && !d.b.h0.r.d0.b.j().g("has_guide_popup_window_been_shown", false)) {
             FrsTabController frsTabController = this.mTabController;
             return frsTabController == null || frsTabController.R() == null || this.mTabController.R().getUserData() == null || this.mTabController.R().getUserData().getIs_manager() == 1;
         }
@@ -148,7 +148,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         if (frsTabController == null || frsTabController.R() == null || this.mTabController.R().getForum() == null) {
             return;
         }
-        SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(d.b.b.e.m.b.f(this.mTabController.R().getForum().getId(), 0L)));
+        SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(d.b.c.e.m.b.f(this.mTabController.R().getForum().getId(), 0L)));
     }
 
     private void setWindowData() {
@@ -158,18 +158,18 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         }
         ForumData forum = this.mTabController.R().getForum();
         this.frsGuidePopupView.t();
+        this.frsGuidePopupView.s(String.valueOf(this.mTabController.R().getUserData().getLevel_id()));
         this.frsGuidePopupView.r(this.mTabController.R().getUserData());
         this.frsGuidePopupView.k(forum.getName());
         this.frsGuidePopupView.p(forum.getMember_num(), forum.getThread_num());
         this.frsGuidePopupView.o(Integer.parseInt(forum.getId()));
         this.frsGuidePopupView.u(forum.getName());
-        this.frsGuidePopupView.s(String.valueOf(this.mTabController.R().getUserData().getLevel_id()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showGuideWindow() {
         if (isShowGuidePopup()) {
-            d.b.h0.r.d0.b.i().s("has_guide_popup_window_been_shown", true);
+            d.b.h0.r.d0.b.j().t("has_guide_popup_window_been_shown", true);
             setWindowData();
             g.i(this.frsGuidePopupView, this);
         }
@@ -206,7 +206,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.e
-    public d.b.b.e.k.b<TbImageView> getFrsCommonImageLayoutPool() {
+    public d.b.c.e.k.b<TbImageView> getFrsCommonImageLayoutPool() {
         if (this.mFrsCommonImagePool == null) {
             this.mFrsCommonImagePool = FrsCommonImageLayout.m(getPageContext().getPageActivity(), 12);
         }
@@ -235,7 +235,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         return null;
     }
 
-    @Override // d.b.i0.p0.m0
+    @Override // d.b.i0.q0.m0
     public ItemInfo getItemInfo() {
         return this.mCommentTabItemInfo;
     }
@@ -265,7 +265,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         if (pageStayDurationItem != null) {
             FrsTabController frsTabController = this.mTabController;
             if (frsTabController != null && frsTabController.M() != null) {
-                pageStayDurationItem.q(d.b.b.e.m.b.f(this.mTabController.M().p, 0L));
+                pageStayDurationItem.q(d.b.c.e.m.b.f(this.mTabController.M().p, 0L));
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 pageStayDurationItem.n(TbadkCoreApplication.getInst().getAdAdSense().r);
@@ -292,7 +292,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public d.b.b.e.k.b<TbImageView> getUserIconPool() {
+    public d.b.c.e.k.b<TbImageView> getUserIconPool() {
         if (this.mUserIconPool == null) {
             this.mUserIconPool = UserIconBox.c(getPageContext().getPageActivity(), 8);
         }
@@ -325,10 +325,10 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         }
     }
 
-    @Override // d.b.i0.p0.m0
+    @Override // d.b.i0.q0.m0
     public boolean isInScoreTab() {
         FrsTabController frsTabController = this.mTabController;
-        return (frsTabController == null || frsTabController.M() == null || this.mTabController.M().z2() == null || this.mTabController.M().z2().y() == null || this.mTabController.M().z2().y().f16656d != 16) ? false : true;
+        return (frsTabController == null || frsTabController.M() == null || this.mTabController.M().z2() == null || this.mTabController.M().z2().y() == null || this.mTabController.M().z2().y().f16317d != 16) ? false : true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -357,7 +357,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
             if (bdUniqueId2 != null) {
                 setUniqueId(bdUniqueId2);
             }
-            if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.b.a.b.f().h("MainTabActivity")) {
+            if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.c.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
         } else if (bundle != null && (bdUniqueId = (BdUniqueId) bundle.getSerializable(FrsActivityConfig.FRS_PAGE_ID)) != null) {
@@ -385,7 +385,10 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         registerListener(this.mGuideWindowListener);
         this.mSwanappReturnProductDateListener.setPriority(10);
         registerResponsedEventListener(GoodsEvent.class, this.mSwanappReturnProductDateListener);
-        d.b.i0.q0.a.h().p(this);
+        if (d.b.h0.b.d.m()) {
+            FrsTabController frsTabController2 = this.mTabController;
+            d.b.i0.r0.a.h().q(this, d.b.i0.r0.d.c.e().d("frs_feed"), d.b.i0.r0.a.a("frs", "1"), (frsTabController2 == null || frsTabController2.M() == null) ? "" : this.mTabController.M().V());
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -396,10 +399,10 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         if (frsTabController != null) {
             frsTabController.f0();
         }
-        d.b.i0.p0.b.e().k();
-        d.b.i0.p0.a.h().n();
-        d.b.i0.p0.a.h().c();
-        d.b.i0.p0.c.c().a();
+        d.b.i0.q0.b.e().k();
+        d.b.i0.q0.a.h().n();
+        d.b.i0.q0.a.h().c();
+        d.b.i0.q0.c.c().a();
         if (!k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
@@ -506,7 +509,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
         }
     }
 
-    @Override // d.b.i0.p0.m0
+    @Override // d.b.i0.q0.m0
     public void setItemInfo(ItemInfo itemInfo) {
         this.mCommentTabItemInfo = itemInfo;
     }

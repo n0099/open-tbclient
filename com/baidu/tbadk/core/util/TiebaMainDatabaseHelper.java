@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tbadk.TbConfig;
-import d.b.b.a.k.c;
+import d.b.c.a.k.c;
 /* loaded from: classes3.dex */
 public class TiebaMainDatabaseHelper extends c {
     public static final int DATABASE_VERSION = 22;
@@ -17,7 +17,7 @@ public class TiebaMainDatabaseHelper extends c {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists ad_follow_up_info_table(download_key TEXT NOT NULL, package_name TEXT NOT NULL, last_show_time TEXT NOT NULL, show_times TEXT, finish_download_time TEXT, ad_string TEXT NOT NULL, cmatch TEXT, install_status TEXT, ad_extension_info1 TEXT, ad_extension_info2 TEXT, ad_extension_info3 TEXT,PRIMARY KEY(download_key , package_name ) )");
     }
 
-    @Override // d.b.b.a.k.c
+    @Override // d.b.c.a.k.c
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS cash_data;");
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='cash_data';");
@@ -50,7 +50,7 @@ public class TiebaMainDatabaseHelper extends c {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
     }
 
-    @Override // d.b.b.a.k.c
+    @Override // d.b.c.a.k.c
     public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         try {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
@@ -76,7 +76,7 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, d.b.b.a.k.a
+    @Override // android.database.sqlite.SQLiteOpenHelper, d.b.c.a.k.a
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (i == 1) {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");

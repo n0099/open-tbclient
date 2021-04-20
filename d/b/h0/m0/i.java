@@ -5,37 +5,37 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 public class i extends j {
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f50329b = 100;
+    public static int f50736b = 100;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f50330c = 10;
+    public static int f50737c = 10;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f50331a;
+        public static int f50738a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f50332b;
+        public static int f50739b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f50333c;
+        public static int f50740c;
 
         public static void a() {
-            d.b.b.e.n.a a2 = j.a();
+            d.b.c.e.n.a a2 = j.a();
             a2.b("action", "imbusy");
-            a2.b("totalNum", String.valueOf(f50331a));
-            a2.b("tfailNum", String.valueOf(f50332b));
-            a2.b("qfailNum", String.valueOf(f50333c));
+            a2.b("totalNum", String.valueOf(f50738a));
+            a2.b("tfailNum", String.valueOf(f50739b));
+            a2.b("qfailNum", String.valueOf(f50740c));
             BdStatisticsManager.getInstance().performance("im", a2);
             b();
         }
 
         public static void b() {
-            f50331a = 0;
-            f50332b = 0;
-            f50333c = 0;
+            f50738a = 0;
+            f50739b = 0;
+            f50740c = 0;
         }
     }
 
@@ -43,68 +43,68 @@ public class i extends j {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f50334a;
+        public static int f50741a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static long f50335b;
+        public static long f50742b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static long f50336c;
+        public static long f50743c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static long f50337d;
+        public static long f50744d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f50338e;
+        public static int f50745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f50339f;
+        public static int f50746f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static long f50340g;
+        public static long f50747g;
 
         public static void a() {
-            d.b.b.e.n.a a2 = j.a();
+            d.b.c.e.n.a a2 = j.a();
             a2.b("action", "imcost");
-            a2.b("dect", String.valueOf(f50335b));
-            a2.b("dlsize", String.valueOf(f50336c));
-            a2.b("dbt", String.valueOf(f50337d));
-            a2.b("pnum", String.valueOf(f50338e));
-            a2.b("reqcost", String.valueOf(f50340g));
-            a2.b("cpu", String.valueOf(f50339f));
-            a2.b("totalNum", String.valueOf(f50334a));
+            a2.b("dect", String.valueOf(f50742b));
+            a2.b("dlsize", String.valueOf(f50743c));
+            a2.b("dbt", String.valueOf(f50744d));
+            a2.b("pnum", String.valueOf(f50745e));
+            a2.b("reqcost", String.valueOf(f50747g));
+            a2.b("cpu", String.valueOf(f50746f));
+            a2.b("totalNum", String.valueOf(f50741a));
             BdStatisticsManager.getInstance().performance("im", a2);
             b();
         }
 
         public static void b() {
-            f50334a = 0;
-            f50335b = 0L;
-            f50336c = 0L;
-            f50337d = 0L;
-            f50338e = 0;
-            f50339f = 0;
+            f50741a = 0;
+            f50742b = 0L;
+            f50743c = 0L;
+            f50744d = 0L;
+            f50745e = 0;
+            f50746f = 0;
         }
     }
 
     public static void b(boolean z, boolean z2, boolean z3) {
-        a.f50331a++;
+        a.f50738a++;
         if (z2) {
-            a.f50332b++;
+            a.f50739b++;
         } else if (z3) {
-            a.f50333c++;
+            a.f50740c++;
         }
-        if (a.f50331a > f50329b) {
+        if (a.f50738a > f50736b) {
             a.a();
         }
     }
 
     public static void d() {
         if (k.d().g()) {
-            if (b.f50334a > f50330c) {
+            if (b.f50741a > f50737c) {
                 b.a();
             }
-            if (a.f50331a > f50330c) {
+            if (a.f50738a > f50737c) {
                 a.a();
             }
         }
@@ -112,14 +112,14 @@ public class i extends j {
 
     public void c(f fVar) {
         if (k.d().g()) {
-            if (b.f50334a < f50329b) {
-                b.f50335b += fVar.f50312b;
-                b.f50336c += fVar.f50313c;
-                b.f50337d += fVar.f50314d;
-                b.f50338e += fVar.f50315e;
-                b.f50340g += fVar.f50316f;
-                b.f50339f += fVar.f50317g;
-                b.f50334a++;
+            if (b.f50741a < f50736b) {
+                b.f50742b += fVar.f50719b;
+                b.f50743c += fVar.f50720c;
+                b.f50744d += fVar.f50721d;
+                b.f50745e += fVar.f50722e;
+                b.f50747g += fVar.f50723f;
+                b.f50746f += fVar.f50724g;
+                b.f50741a++;
                 return;
             }
             b.a();

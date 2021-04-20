@@ -9,7 +9,7 @@ public class c extends com.baidu.platform.base.e {
     }
 
     private void a(PoiDetailShareURLOption poiDetailShareURLOption) {
-        this.f9821a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
+        this.f9379a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
         b(false);
         a(false);
     }

@@ -6,24 +6,24 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f54221a;
+    public static volatile d f55104a;
 
     public static final d c() {
-        if (f54221a == null) {
+        if (f55104a == null) {
             synchronized (d.class) {
-                if (f54221a == null) {
-                    f54221a = new d();
+                if (f55104a == null) {
+                    f55104a = new d();
                 }
             }
         }
-        return f54221a;
+        return f55104a;
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+        d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.b("workflow", "dnsproxy_error");
         if (!TextUtils.isEmpty(str)) {
             statsItem.b("reason", str);
@@ -38,7 +38,7 @@ public class d {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
             return;
         }
-        d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+        d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.b("workflow", "dnsproxy_event");
         if (!TextUtils.isEmpty(str)) {
             statsItem.b("key", str);

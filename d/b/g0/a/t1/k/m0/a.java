@@ -9,7 +9,7 @@ import d.b.g0.a.e0.l.f;
 import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideNavigationBarLoading");
@@ -17,7 +17,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         f W = d.b.g0.a.z0.f.V().W();

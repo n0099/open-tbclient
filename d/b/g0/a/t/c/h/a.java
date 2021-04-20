@@ -14,22 +14,22 @@ public class a extends d {
 
     /* renamed from: d.b.g0.a.t.c.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0816a implements Runnable {
+    public class RunnableC0828a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f46082e;
+        public final /* synthetic */ e f46474e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46083f;
+        public final /* synthetic */ String f46475f;
 
-        public RunnableC0816a(e eVar, String str) {
-            this.f46082e = eVar;
-            this.f46083f = str;
+        public RunnableC0828a(e eVar, String str) {
+            this.f46474e = eVar;
+            this.f46475f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f46082e.N().b(a.this.a().h(), this.f46083f);
+            this.f46474e.N().b(a.this.a().h(), this.f46475f);
         }
     }
 
@@ -47,12 +47,12 @@ public class a extends d {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("networkType", e2);
-            if (d.f45929c) {
+            if (d.f46321c) {
                 Log.i("Api-Network", "getNetworkType:  " + jSONObject);
             }
             return new d.b.g0.a.t.e.b(0, jSONObject);
         } catch (JSONException e3) {
-            if (d.f45929c) {
+            if (d.f46321c) {
                 e3.printStackTrace();
             }
             return new d.b.g0.a.t.e.b(202);
@@ -62,7 +62,7 @@ public class a extends d {
     public d.b.g0.a.t.e.b r(String str) {
         e y = e.y();
         if (y == null) {
-            if (d.f45929c) {
+            if (d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-Network", "swan app is null");
             }
             return new d.b.g0.a.t.e.b(202, "swan app is null");
@@ -70,19 +70,19 @@ public class a extends d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-Network", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.f45929c) {
+            if (d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-Network", "parse fail");
             }
             return bVar;
         }
         String optString = ((JSONObject) a2.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
-            if (d.f45929c) {
+            if (d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-Network", "callback is null");
             }
             return new d.b.g0.a.t.e.b(1001, "callback is null");
         }
-        d.b.g0.a.r1.d.g().post(new RunnableC0816a(y, optString));
+        d.b.g0.a.r1.d.g().post(new RunnableC0828a(y, optString));
         return new d.b.g0.a.t.e.b(0);
     }
 }

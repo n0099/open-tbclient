@@ -14,39 +14,39 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43472c = k.f45051a;
+    public static final boolean f43864c = k.f45443a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f43473d;
+    public static String f43865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f43474e;
+    public static String f43866e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f43475f;
+    public static String f43867f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f43476g;
+    public static String f43868g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f43477h;
+    public static String f43869h;
     public static String i;
     public static String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public CallbackHandler f43478a;
+    public CallbackHandler f43870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UnitedSchemeEntity f43479b;
+    public UnitedSchemeEntity f43871b;
 
     public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.f43478a = callbackHandler;
-        this.f43479b = unitedSchemeEntity;
-        f43473d = str;
-        f43474e = str2;
-        f43475f = str3;
-        f43476g = str4;
-        f43477h = str5;
+        this.f43870a = callbackHandler;
+        this.f43871b = unitedSchemeEntity;
+        f43865d = str;
+        f43866e = str2;
+        f43867f = str3;
+        f43868g = str4;
+        f43869h = str5;
         i = str6;
         j = str7;
     }
@@ -82,8 +82,8 @@ public class b {
             return;
         }
         JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.f43478a, this.f43479b, wrapCallbackParams.toString(), str);
-        if (f43472c) {
+        UnitedSchemeUtility.safeCallback(this.f43870a, this.f43871b, wrapCallbackParams.toString(), str);
+        if (f43864c) {
             Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
         }
     }
@@ -99,6 +99,6 @@ public class b {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        c(f43477h, jSONObject);
+        c(f43869h, jSONObject);
     }
 }

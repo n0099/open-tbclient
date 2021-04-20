@@ -6,25 +6,25 @@ import java.util.regex.Pattern;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9769a = "f";
+    public static final String f9327a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f9770b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f9328b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f9771c = false;
+    public static boolean f9329c = false;
 
     public static void a(String str, String str2) {
-        if (f9771c) {
+        if (f9329c) {
             Log.e(str, str2);
         }
     }
 
     public static boolean b(String str) {
-        return f9770b.matcher(str).matches();
+        return f9328b.matcher(str).matches();
     }
 
     public static void a(String str) {
-        a(f9769a, str);
+        a(f9327a, str);
     }
 }

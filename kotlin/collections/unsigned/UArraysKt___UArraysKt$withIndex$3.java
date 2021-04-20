@@ -19,6 +19,6 @@ public final class UArraysKt___UArraysKt$withIndex$3 extends Lambda implements F
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function0
     public final UByteIterator invoke() {
-        return UByteArray.m699iteratorimpl(this.$this_withIndex);
+        return UByteArray.m703iteratorimpl(this.$this_withIndex);
     }
 }

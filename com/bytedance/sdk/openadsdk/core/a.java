@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static String a(String str, String str2) {
         try {

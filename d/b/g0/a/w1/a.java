@@ -40,67 +40,67 @@ import d.b.g0.a.y0.e.c;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46862a = k.f45051a;
+    public static final boolean f47254a = k.f45443a;
 
     /* renamed from: d.b.g0.a.w1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0873a implements c.b {
+    /* loaded from: classes3.dex */
+    public static class C0885a implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46863a;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47255a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a f46864b;
+        public final /* synthetic */ c.a f47256b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f46865c;
+        public final /* synthetic */ int f47257c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ f f46866d;
+        public final /* synthetic */ f f47258d;
 
-        public C0873a(d.b.g0.a.y0.e.b bVar, c.a aVar, int i, f fVar) {
-            this.f46863a = bVar;
-            this.f46864b = aVar;
-            this.f46865c = i;
-            this.f46866d = fVar;
+        public C0885a(d.b.g0.a.y0.e.b bVar, c.a aVar, int i, f fVar) {
+            this.f47255a = bVar;
+            this.f47256b = aVar;
+            this.f47257c = i;
+            this.f47258d = fVar;
         }
 
         @Override // d.b.g0.a.e0.p.r.c.b
         public void a(Bitmap bitmap) {
             if (d.b.g0.a.r1.e.y() != null) {
                 SwanAppActivity n = d.b.g0.a.r1.d.e().n();
-                a.p(n, this.f46863a, this.f46864b, bitmap, this.f46865c);
-                a.q(n, this.f46863a, this.f46866d);
+                a.p(n, this.f47255a, this.f47256b, bitmap, this.f47257c);
+                a.q(n, this.f47255a, this.f47258d);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46867e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47259e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46868f;
+        public final /* synthetic */ Context f47260f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46869g;
+        public final /* synthetic */ int f47261g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46870h;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47262h;
         public final /* synthetic */ Bitmap i;
         public final /* synthetic */ d.b.g0.a.y0.e.c j;
 
         public b(d.b.g0.a.y0.e.b bVar, Context context, int i, d.b.g0.a.y0.e.b bVar2, Bitmap bitmap, d.b.g0.a.y0.e.c cVar) {
-            this.f46867e = bVar;
-            this.f46868f = context;
-            this.f46869g = i;
-            this.f46870h = bVar2;
+            this.f47259e = bVar;
+            this.f47260f = context;
+            this.f47261g = i;
+            this.f47262h = bVar2;
             this.i = bitmap;
             this.j = cVar;
         }
@@ -108,45 +108,45 @@ public final class a {
         @Override // java.lang.Runnable
         public void run() {
             h H = d.b.g0.a.w0.a.H();
-            String h1 = this.f46867e.h1();
-            if (!TextUtils.isEmpty(h1) && H.a(this.f46868f, h1)) {
+            String h1 = this.f47259e.h1();
+            if (!TextUtils.isEmpty(h1) && H.a(this.f47260f, h1)) {
                 a.m(PrefetchEvent.STATE_CLICK);
-                if (H.c(this.f46868f, h1)) {
-                    if (this.f46869g != 1) {
-                        a.t(this.f46868f);
+                if (H.c(this.f47260f, h1)) {
+                    if (this.f47261g != 1) {
+                        a.t(this.f47260f);
                         return;
                     }
                     return;
-                } else if (H.b(this.f46868f, h1)) {
+                } else if (H.b(this.f47260f, h1)) {
                     a.m("show");
-                    if (this.f46869g != 1) {
-                        a.t(this.f46868f);
+                    if (this.f47261g != 1) {
+                        a.t(this.f47260f);
                         return;
                     }
                     return;
                 }
             }
             if (d.b.g0.a.i2.c.j()) {
-                a.s(this.f46868f, this.f46870h.G(), this.f46870h.J(), this.i, d.b.g0.a.y0.e.c.W0(this.f46868f, this.j));
+                a.s(this.f47260f, this.f47262h.G(), this.f47262h.J(), this.i, d.b.g0.a.y0.e.c.W0(this.f47260f, this.j));
             } else {
-                this.f46868f.sendBroadcast(a.l(this.f46870h.J(), this.i, d.b.g0.a.y0.e.c.W0(this.f46868f, this.j)));
+                this.f47260f.sendBroadcast(a.l(this.f47262h.J(), this.i, d.b.g0.a.y0.e.c.W0(this.f47260f, this.j)));
             }
-            if (this.f46869g != 1) {
-                a.t(this.f46868f);
+            if (this.f47261g != 1) {
+                a.t(this.f47260f);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46871e;
+        public final /* synthetic */ Context f47263e;
 
         /* renamed from: d.b.g0.a.w1.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0874a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0874a(c cVar) {
+        /* loaded from: classes3.dex */
+        public class DialogInterface$OnClickListenerC0886a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0886a(c cVar) {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -155,18 +155,18 @@ public final class a {
         }
 
         public c(Context context) {
-            this.f46871e = context;
+            this.f47263e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.a aVar = new g.a(this.f46871e);
+            g.a aVar = new g.a(this.f47263e);
             aVar.n(new d.b.g0.a.j2.g.a());
             g c2 = aVar.c();
             aVar.U(d.b.g0.a.h.aiapps_add_shortcut_note_dialog_title);
-            aVar.x(a.o(this.f46871e, c2));
+            aVar.x(a.o(this.f47263e, c2));
             aVar.z();
-            aVar.I(d.b.g0.a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface$OnClickListenerC0874a(this));
+            aVar.I(d.b.g0.a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface$OnClickListenerC0886a(this));
             aVar.K(d.b.g0.a.w0.a.z().a());
             aVar.a();
             c2.setCancelable(false);
@@ -174,24 +174,24 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f46872e;
+        public final /* synthetic */ g f47264e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46873f;
+        public final /* synthetic */ Context f47265f;
 
         public d(g gVar, Context context) {
-            this.f46872e = gVar;
-            this.f46873f = context;
+            this.f47264e = gVar;
+            this.f47265f = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            this.f46872e.dismiss();
-            y.g(this.f46873f);
+            this.f47264e.dismiss();
+            y.g(this.f47265f);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -200,31 +200,31 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f46874e;
+        public final /* synthetic */ f f47266e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46875f;
+        public final /* synthetic */ Context f47267f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46876g;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f47268g;
 
         public e(f fVar, Context context, d.b.g0.a.y0.e.b bVar) {
-            this.f46874e = fVar;
-            this.f46875f = context;
-            this.f46876g = bVar;
+            this.f47266e = fVar;
+            this.f47267f = context;
+            this.f47268g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f46874e.a(a.r(this.f46875f, this.f46876g.J(), this.f46876g.G()));
+            this.f47266e.a(a.r(this.f47267f, this.f47268g.J(), this.f47268g.G()));
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void a(int i);
     }
@@ -246,7 +246,7 @@ public final class a {
             q(context, bVar, fVar);
             return;
         }
-        d.b.g0.a.e0.p.r.c.c(P, aVar.F(), new C0873a(bVar, aVar, i, fVar));
+        d.b.g0.a.e0.p.r.c.c(P, aVar.F(), new C0885a(bVar, aVar, i, fVar));
     }
 
     public static void j(Context context, d.b.g0.a.y0.e.b bVar, f fVar) {
@@ -269,11 +269,11 @@ public final class a {
 
     public static void m(String str) {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47255e = d.b.g0.a.r1.d.e().getAppId();
-        eVar.f47252b = str;
-        eVar.f47251a = d.b.g0.a.z1.h.n(d.b.g0.a.r1.d.e().h());
+        eVar.f47647e = d.b.g0.a.r1.d.e().getAppId();
+        eVar.f47644b = str;
+        eVar.f47643a = d.b.g0.a.z1.h.n(d.b.g0.a.r1.d.e().h());
         if (d.b.g0.a.r1.e.O() != null && d.b.g0.a.r1.e.O().J() != null) {
-            eVar.f47253c = d.b.g0.a.r1.e.O().J().S();
+            eVar.f47645c = d.b.g0.a.r1.e.O().J().S();
         }
         d.b.g0.a.z1.h.u("1591", eVar);
     }
@@ -358,7 +358,7 @@ public final class a {
             }
             return 0;
         } catch (Exception e2) {
-            if (f46862a) {
+            if (f47254a) {
                 Log.d("SwanAppShortcutHelper", "fail: " + e2);
                 return -1;
             }
@@ -374,7 +374,7 @@ public final class a {
                 shortcutManager.requestPinShortcut(new ShortcutInfo.Builder(context, str).setShortLabel(str2).setLongLabel(str2).setIcon(Icon.createWithBitmap(bitmap)).setIntent(intent).build(), null);
                 return;
             } catch (IllegalStateException e2) {
-                if (f46862a) {
+                if (f47254a) {
                     throw e2;
                 }
                 return;
@@ -385,7 +385,7 @@ public final class a {
 
     public static void t(Context context) {
         if (!(context instanceof Activity)) {
-            if (f46862a) {
+            if (f47254a) {
                 throw new IllegalArgumentException("context must be activity.");
             }
             return;

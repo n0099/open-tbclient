@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
@@ -13,31 +13,31 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13693a;
+        public boolean f13354a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13694b;
+        public String f13355b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13695c;
+        public String f13356c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f13696d;
+        public boolean f13357d;
 
         /* renamed from: f  reason: collision with root package name */
-        public HttpResponse f13698f;
+        public HttpResponse f13359f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f13699g;
+        public JSONObject f13360g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f13700h;
+        public boolean f13361h;
         public boolean i;
         public String j;
         public BlockPopInfoData k;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f13697e = false;
+        public boolean f13358e = false;
         public int l = 0;
 
         public final void a(JSONObject jSONObject) {
@@ -65,7 +65,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f13699g = jSONObject;
+                this.f13360g = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -89,20 +89,20 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13696d;
+        return getData().f13357d;
     }
 
     public boolean isGod() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13697e;
+        return getData().f13358e;
     }
 
     public boolean isSucc() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13693a;
+        return getData().f13354a;
     }
 }

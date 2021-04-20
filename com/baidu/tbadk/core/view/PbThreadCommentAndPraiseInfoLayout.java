@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.e;
 import d.b.h0.r.u.c;
@@ -51,7 +51,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void M(a2 a2Var) {
         super.M(a2Var);
-        if (a2Var == null || this.k == null || !a2Var.z2()) {
+        if (a2Var == null || this.k == null || !a2Var.A2()) {
             return;
         }
         if (a2Var.Z0() == 0) {
@@ -167,10 +167,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         e eVar = new e();
-        eVar.f50763b = 4;
-        eVar.f50765d = 2;
-        this.f13493h.setStatisticData(eVar);
-        this.f13493h.s();
+        eVar.f51170b = 4;
+        eVar.f51172d = 2;
+        this.f13154h.setStatisticData(eVar);
+        this.f13154h.s();
     }
 
     public void T() {
@@ -189,7 +189,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public boolean U() {
         a2 a2Var = this.E;
-        return (a2Var == null || !a2Var.y2() || this.E.u1() == null) ? false : true;
+        return (a2Var == null || !a2Var.z2() || this.E.u1() == null) ? false : true;
     }
 
     public boolean V() {
@@ -215,9 +215,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_pb_operate_commen, R.color.CAM_X0107, null);
         EMTextView eMTextView = this.k;
         if (eMTextView != null) {
-            c a2 = c.a(eMTextView);
-            a2.s(R.string.F_X02);
-            a2.n(R.color.CAM_X0107);
+            c d2 = c.d(eMTextView);
+            d2.v(R.string.F_X02);
+            d2.q(R.color.CAM_X0107);
             EMTextView eMTextView2 = this.k;
             int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
             int i = R.color.CAM_X0207;
@@ -232,21 +232,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f13493h.setDisagreeShow(a2Var.x2());
+            this.f13154h.setDisagreeShow(a2Var.y2());
         }
-        if (a2Var != null && a2Var.z2()) {
-            this.f13493h.setDisagreeShow(true);
+        if (a2Var != null && a2Var.A2()) {
+            this.f13154h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13493h.getLayoutParams();
-            if (a2Var.z2()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13154h.getLayoutParams();
+            if (a2Var.A2()) {
                 layoutParams.weight = 0.2f;
-            } else if (a2Var.x2()) {
+            } else if (a2Var.y2()) {
                 layoutParams.weight = 0.25f;
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f13493h.setLayoutParams(layoutParams);
+            this.f13154h.setLayoutParams(layoutParams);
         }
     }
 

@@ -28,16 +28,16 @@ public class df implements LoggerInterface {
     public Handler f231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40360b;
+    public String f40649b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40361c = "";
+    public String f40650c = "";
 
     /* renamed from: a  reason: collision with other field name */
     public static final SimpleDateFormat f228a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40359a = "/MiPushLog";
+    public static String f40648a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
     public static List<Pair<String, Throwable>> f229a = Collections.synchronizedList(new ArrayList());
@@ -47,7 +47,7 @@ public class df implements LoggerInterface {
         if (context.getApplicationContext() != null) {
             this.f230a = context.getApplicationContext();
         }
-        this.f40360b = this.f230a.getPackageName();
+        this.f40649b = this.f230a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f231a = new Handler(handlerThread.getLooper());
@@ -56,7 +56,7 @@ public class df implements LoggerInterface {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:85:0x017a -> B:108:0x017f). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m225a() {
+    public void m229a() {
         RandomAccessFile randomAccessFile;
         FileLock fileLock;
         File file;
@@ -65,12 +65,12 @@ public class df implements LoggerInterface {
         try {
             try {
                 try {
-                    if (TextUtils.isEmpty(this.f40361c) && (externalFilesDir = this.f230a.getExternalFilesDir(null)) != null) {
-                        this.f40361c = externalFilesDir.getAbsolutePath() + "";
+                    if (TextUtils.isEmpty(this.f40650c) && (externalFilesDir = this.f230a.getExternalFilesDir(null)) != null) {
+                        this.f40650c = externalFilesDir.getAbsolutePath() + "";
                     }
-                    file = new File(this.f40361c + f40359a);
+                    file = new File(this.f40650c + f40648a);
                 } catch (IOException e2) {
-                    Log.e(this.f40360b, "", e2);
+                    Log.e(this.f40649b, "", e2);
                 }
             } catch (Exception e3) {
                 e = e3;
@@ -82,7 +82,7 @@ public class df implements LoggerInterface {
                 randomAccessFile = null;
             }
             if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                Log.w(this.f40360b, "Create mipushlog directory fail.");
+                Log.w(this.f40649b, "Create mipushlog directory fail.");
                 return;
             }
             File file2 = new File(file, "log.lock");
@@ -105,19 +105,19 @@ public class df implements LoggerInterface {
                         } catch (Exception e4) {
                             e = e4;
                             bufferedWriter = bufferedWriter2;
-                            Log.e(this.f40360b, "", e);
+                            Log.e(this.f40649b, "", e);
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e5) {
-                                    Log.e(this.f40360b, "", e5);
+                                    Log.e(this.f40649b, "", e5);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e6) {
-                                    Log.e(this.f40360b, "", e6);
+                                    Log.e(this.f40649b, "", e6);
                                 }
                             }
                             if (randomAccessFile != null) {
@@ -131,21 +131,21 @@ public class df implements LoggerInterface {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e7) {
-                                    Log.e(this.f40360b, "", e7);
+                                    Log.e(this.f40649b, "", e7);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e8) {
-                                    Log.e(this.f40360b, "", e8);
+                                    Log.e(this.f40649b, "", e8);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 try {
                                     randomAccessFile.close();
                                 } catch (IOException e9) {
-                                    Log.e(this.f40360b, "", e9);
+                                    Log.e(this.f40649b, "", e9);
                                 }
                             }
                             throw th;
@@ -165,14 +165,14 @@ public class df implements LoggerInterface {
                         try {
                             bufferedWriter.close();
                         } catch (IOException e10) {
-                            Log.e(this.f40360b, "", e10);
+                            Log.e(this.f40649b, "", e10);
                         }
                     }
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
                         } catch (IOException e11) {
-                            Log.e(this.f40360b, "", e11);
+                            Log.e(this.f40649b, "", e11);
                         }
                     }
                     randomAccessFile.close();
@@ -203,6 +203,6 @@ public class df implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void setTag(String str) {
-        this.f40360b = str;
+        this.f40649b = str;
     }
 }

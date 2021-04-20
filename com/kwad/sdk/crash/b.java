@@ -5,28 +5,28 @@ import android.content.Context;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.b f34415a;
+    public final com.kwad.sdk.crash.model.b f34704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.a f34416b;
+    public final com.kwad.sdk.crash.model.a f34705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f34417c;
+    public final f f34706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f34418d;
+    public final String[] f34707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String[] f34419e;
+    public final String[] f34708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f34420f;
+    public final boolean f34709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f34421g;
+    public final Context f34710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final e f34422h;
+    public final e f34711h;
     public final String i;
     public final String j;
     public final String k;
@@ -38,28 +38,28 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34423a;
+        public int f34712a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f34424b;
+        public String[] f34713b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f34425c = false;
+        public boolean f34714c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public Context f34426d;
+        public Context f34715d;
 
         /* renamed from: e  reason: collision with root package name */
-        public e f34427e;
+        public e f34716e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f34428f;
+        public String f34717f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f34429g;
+        public String f34718g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f34430h;
+        public String f34719h;
         public String i;
         public String j;
         public String k;
@@ -81,12 +81,12 @@ public class b {
         }
 
         public a a(Context context) {
-            this.f34426d = context;
+            this.f34715d = context;
             return this;
         }
 
         public a a(e eVar) {
-            this.f34427e = eVar;
+            this.f34716e = eVar;
             return this;
         }
 
@@ -96,7 +96,7 @@ public class b {
         }
 
         public a a(String str) {
-            this.f34428f = str;
+            this.f34717f = str;
             return this;
         }
 
@@ -115,17 +115,17 @@ public class b {
         }
 
         public a b(String str) {
-            this.f34430h = str;
+            this.f34719h = str;
             return this;
         }
 
         public a b(String[] strArr) {
-            this.f34424b = strArr;
+            this.f34713b = strArr;
             return this;
         }
 
         public a c(int i) {
-            this.f34423a = i;
+            this.f34712a = i;
             return this;
         }
 
@@ -176,37 +176,37 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f34415a = new com.kwad.sdk.crash.model.b();
-        this.f34416b = new com.kwad.sdk.crash.model.a();
-        this.f34420f = aVar.f34425c;
-        this.f34421g = aVar.f34426d;
-        this.f34422h = aVar.f34427e;
-        this.i = aVar.f34428f;
-        this.j = aVar.f34429g;
-        this.k = aVar.f34430h;
+        this.f34704a = new com.kwad.sdk.crash.model.b();
+        this.f34705b = new com.kwad.sdk.crash.model.a();
+        this.f34709f = aVar.f34714c;
+        this.f34710g = aVar.f34715d;
+        this.f34711h = aVar.f34716e;
+        this.i = aVar.f34717f;
+        this.j = aVar.f34718g;
+        this.k = aVar.f34719h;
         this.l = aVar.i;
         this.m = aVar.j;
         this.n = aVar.k;
-        this.f34416b.f34457a = aVar.q;
-        this.f34416b.f34458b = aVar.r;
-        this.f34416b.f34460d = aVar.t;
-        this.f34416b.f34459c = aVar.s;
-        this.f34415a.f34464d = aVar.o;
-        this.f34415a.f34465e = aVar.p;
-        this.f34415a.f34462b = aVar.m;
-        this.f34415a.f34463c = aVar.n;
-        this.f34415a.f34461a = aVar.l;
-        this.f34415a.f34466f = aVar.f34423a;
-        this.f34417c = aVar.u;
-        this.f34418d = aVar.v;
-        this.f34419e = aVar.f34424b;
+        this.f34705b.f34746a = aVar.q;
+        this.f34705b.f34747b = aVar.r;
+        this.f34705b.f34749d = aVar.t;
+        this.f34705b.f34748c = aVar.s;
+        this.f34704a.f34753d = aVar.o;
+        this.f34704a.f34754e = aVar.p;
+        this.f34704a.f34751b = aVar.m;
+        this.f34704a.f34752c = aVar.n;
+        this.f34704a.f34750a = aVar.l;
+        this.f34704a.f34755f = aVar.f34712a;
+        this.f34706c = aVar.u;
+        this.f34707d = aVar.v;
+        this.f34708e = aVar.f34713b;
     }
 
     public e a() {
-        return this.f34422h;
+        return this.f34711h;
     }
 
     public boolean b() {
-        return this.f34420f;
+        return this.f34709f;
     }
 }

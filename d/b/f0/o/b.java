@@ -8,28 +8,28 @@ import android.text.TextUtils;
 public final class b implements d.b.f0.m.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43048a = null;
+    public a f43440a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43049b;
+    public String f43441b;
 
     @Override // d.b.f0.m.b
     public final String a() {
-        if (TextUtils.isEmpty(this.f43049b)) {
-            String a2 = this.f43048a.a("OUID");
-            this.f43049b = a2;
+        if (TextUtils.isEmpty(this.f43441b)) {
+            String a2 = this.f43440a.a("OUID");
+            this.f43441b = a2;
             return a2;
         }
-        return this.f43049b;
+        return this.f43441b;
     }
 
     @Override // d.b.f0.m.b
     public final void a(Context context, d.b.f0.m.c cVar) {
         a aVar = new a(context, cVar);
-        this.f43048a = aVar;
+        this.f43440a = aVar;
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-        aVar.f43044b.bindService(intent, aVar.f43047e, 1);
+        aVar.f43436b.bindService(intent, aVar.f43439e, 1);
     }
 }

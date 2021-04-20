@@ -28,49 +28,49 @@ import java.util.concurrent.TimeUnit;
 public final class e {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f45396f = k.f45051a;
+    public static final boolean f45788f = k.f45443a;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f45397g = TimeUnit.MINUTES.toMillis(5);
+    public static final long f45789g = TimeUnit.MINUTES.toMillis(5);
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<SwanAppProcessInfo, d.b.g0.a.n1.c.f.c> f45398a;
+    public final LinkedHashMap<SwanAppProcessInfo, d.b.g0.a.n1.c.f.c> f45790a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Deque<Long> f45399b;
+    public final Deque<Long> f45791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Messenger f45400c;
+    public final Messenger f45792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<d.b.g0.a.n1.c.f.a> f45401d;
+    public final Set<d.b.g0.a.n1.c.f.a> f45793d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.g0.a.n1.c.f.a f45402e;
+    public final d.b.g0.a.n1.c.f.a f45794e;
 
     /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.n1.c.f.a {
 
         /* renamed from: d.b.g0.a.n1.c.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0748a implements d.b.g0.a.i2.u0.b<d.b.g0.a.n1.c.f.a> {
+        public class C0760a implements d.b.g0.a.i2.u0.b<d.b.g0.a.n1.c.f.a> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f45404e;
+            public final /* synthetic */ String f45796e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.n1.c.f.c f45405f;
+            public final /* synthetic */ d.b.g0.a.n1.c.f.c f45797f;
 
-            public C0748a(a aVar, String str, d.b.g0.a.n1.c.f.c cVar) {
-                this.f45404e = str;
-                this.f45405f = cVar;
+            public C0760a(a aVar, String str, d.b.g0.a.n1.c.f.c cVar) {
+                this.f45796e = str;
+                this.f45797f = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.g0.a.i2.u0.b
             /* renamed from: a */
             public void onCallback(d.b.g0.a.n1.c.f.a aVar) {
-                aVar.a(this.f45404e, this.f45405f);
+                aVar.a(this.f45796e, this.f45797f);
             }
         }
 
@@ -79,11 +79,11 @@ public final class e {
 
         @Override // d.b.g0.a.n1.c.f.a
         public void a(String str, d.b.g0.a.n1.c.f.c cVar) {
-            if (e.f45396f) {
-                Log.i("SwanPuppetManager", "onEvent: to=" + e.this.f45401d.size() + " event=" + str + " client=" + cVar.f45391f);
+            if (e.f45788f) {
+                Log.i("SwanPuppetManager", "onEvent: to=" + e.this.f45793d.size() + " event=" + str + " client=" + cVar.f45783f);
             }
-            synchronized (e.this.f45401d) {
-                d.b.g0.a.i2.u0.a.a(d.b.g0.a.r1.d.g(), new C0748a(this, str, cVar), e.this.f45401d);
+            synchronized (e.this.f45793d) {
+                d.b.g0.a.i2.u0.a.a(d.b.g0.a.r1.d.g(), new C0760a(this, str, cVar), e.this.f45793d);
             }
         }
 
@@ -96,21 +96,21 @@ public final class e {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.n1.c.f.a f45406e;
+        public final /* synthetic */ d.b.g0.a.n1.c.f.a f45798e;
 
         public b(d.b.g0.a.n1.c.f.a aVar) {
-            this.f45406e = aVar;
+            this.f45798e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (e.this.f45401d) {
-                if (e.this.f45401d.contains(this.f45406e)) {
-                    if (e.f45396f) {
-                        Log.i("SwanPuppetManager", "timeout: callback = " + this.f45406e);
+            synchronized (e.this.f45793d) {
+                if (e.this.f45793d.contains(this.f45798e)) {
+                    if (e.f45788f) {
+                        Log.i("SwanPuppetManager", "timeout: callback = " + this.f45798e);
                     }
-                    e.this.g(this.f45406e);
-                    this.f45406e.timeout();
+                    e.this.g(this.f45798e);
+                    this.f45798e.timeout();
                 }
             }
         }
@@ -125,7 +125,7 @@ public final class e {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f45408a = new e(null);
+        public static e f45800a = new e(null);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -133,17 +133,17 @@ public final class e {
     }
 
     public static e j() {
-        if (!f45396f || ProcessUtils.isMainProcess()) {
-            return d.f45408a;
+        if (!f45788f || ProcessUtils.isMainProcess()) {
+            return d.f45800a;
         }
         throw new IllegalStateException("SwanAppClientObjManager should run in main process only");
     }
 
     public void b(d.b.g0.a.n1.c.f.a aVar, long j) {
-        synchronized (this.f45401d) {
-            this.f45401d.add(aVar);
-            if (f45396f) {
-                Log.i("SwanPuppetManager", "addCallback: after = " + this.f45401d.size());
+        synchronized (this.f45793d) {
+            this.f45793d.add(aVar);
+            if (f45788f) {
+                Log.i("SwanPuppetManager", "addCallback: after = " + this.f45793d.size());
             }
         }
         if (j > 0) {
@@ -152,27 +152,27 @@ public final class e {
     }
 
     public final boolean c() {
-        synchronized (this.f45399b) {
+        synchronized (this.f45791b) {
             s("checkRescuable ===>");
-            if (this.f45399b.size() < 3) {
-                s(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.f45399b.size()), 3));
+            if (this.f45791b.size() < 3) {
+                s(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.f45791b.size()), 3));
                 return true;
             }
-            int size = this.f45399b.size() - 3;
+            int size = this.f45791b.size() - 3;
             s("after offer purgeCount=" + size);
             if (size > 0) {
                 for (int i = 0; i < size; i++) {
-                    s("purge: " + this.f45399b.poll());
+                    s("purge: " + this.f45791b.poll());
                 }
             }
             s("after purge");
-            Long peek = this.f45399b.peek();
+            Long peek = this.f45791b.peek();
             if (peek == null) {
                 s("allowRescue by null oldestRecord is should not happen");
                 return true;
             }
             long currentTimeMillis = System.currentTimeMillis() - peek.longValue();
-            boolean z = currentTimeMillis > f45397g;
+            boolean z = currentTimeMillis > f45789g;
             s("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
             return z;
         }
@@ -183,10 +183,10 @@ public final class e {
         d.b.g0.a.n1.c.f.c cVar = null;
         d.b.g0.a.n1.c.f.c cVar2 = null;
         for (int i = 0; i <= 5; i++) {
-            d.b.g0.a.n1.c.f.c cVar3 = this.f45398a.get(SwanAppProcessInfo.indexOf(i));
-            if (cVar3 != null && cVar3.f45391f.isSwanAppProcess() && !cVar3.x()) {
+            d.b.g0.a.n1.c.f.c cVar3 = this.f45790a.get(SwanAppProcessInfo.indexOf(i));
+            if (cVar3 != null && cVar3.f45783f.isSwanAppProcess() && !cVar3.x()) {
                 if (cVar3.C()) {
-                    if (f45396f) {
+                    if (f45788f) {
                         Log.i("SwanPuppetManager", "computNextAvailableProcess: firstPreloadedClient=" + cVar3);
                     }
                     return cVar3;
@@ -200,25 +200,25 @@ public final class e {
             }
         }
         if (cVar != null) {
-            if (f45396f) {
+            if (f45788f) {
                 Log.i("SwanPuppetManager", "computNextAvailableProcess: firstConnectedEmptyClient=" + cVar);
             }
             return cVar;
         } else if (cVar2 != null) {
-            if (f45396f) {
+            if (f45788f) {
                 Log.i("SwanPuppetManager", "computNextAvailableProcess: firstEmptyClient=" + cVar2);
             }
             return cVar2;
         } else {
-            for (d.b.g0.a.n1.c.f.c cVar4 : this.f45398a.values()) {
+            for (d.b.g0.a.n1.c.f.c cVar4 : this.f45790a.values()) {
                 if (cVar4 != null) {
-                    if (f45396f) {
+                    if (f45788f) {
                         Log.i("SwanPuppetManager", "computNextAvailableProcess: lruClient=" + cVar4);
                     }
                     return cVar4;
                 }
             }
-            if (f45396f) {
+            if (f45788f) {
                 Log.i("SwanPuppetManager", "computNextAvailableProcess: P0");
             }
             return n(SwanAppProcessInfo.P0);
@@ -230,10 +230,10 @@ public final class e {
         t("b4 computNextPreloadProcess");
         d.b.g0.a.n1.c.f.c cVar = null;
         for (int i = 0; i <= 5; i++) {
-            d.b.g0.a.n1.c.f.c cVar2 = this.f45398a.get(SwanAppProcessInfo.indexOf(i));
-            if (cVar2 != null && cVar2.f45391f.isSwanAppProcess() && !cVar2.x()) {
+            d.b.g0.a.n1.c.f.c cVar2 = this.f45790a.get(SwanAppProcessInfo.indexOf(i));
+            if (cVar2 != null && cVar2.f45783f.isSwanAppProcess() && !cVar2.x()) {
                 if (cVar2.C()) {
-                    if (f45396f) {
+                    if (f45788f) {
                         Log.i("SwanPuppetManager", "computNextPreloadProcess: return null by found empty process=" + cVar2);
                     }
                     return null;
@@ -242,7 +242,7 @@ public final class e {
                 }
             }
         }
-        if (f45396f) {
+        if (f45788f) {
             Log.i("SwanPuppetManager", "computNextPreloadProcess: firstPreloadableClient=" + cVar);
         }
         return cVar;
@@ -258,7 +258,7 @@ public final class e {
         }
         for (d.b.g0.a.n1.c.f.c cVar2 : i) {
             if (cVar2 != cVar && cVar2 != null && cVar2.x()) {
-                if (f45396f) {
+                if (f45788f) {
                     Log.i("SwanPuppetManager", "deduplicateClients: protectedClient=" + cVar);
                     Log.i("SwanPuppetManager", "deduplicateClients: exClient=" + cVar2);
                 }
@@ -267,7 +267,7 @@ public final class e {
                 if (cVar2.D()) {
                     d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
                     d.b.g0.a.n1.c.c cVar3 = new d.b.g0.a.n1.c.c(110, new Bundle());
-                    cVar3.b(cVar2.f45391f);
+                    cVar3.b(cVar2.f45783f);
                     e2.h(cVar3);
                 }
             }
@@ -275,10 +275,10 @@ public final class e {
     }
 
     public void g(d.b.g0.a.n1.c.f.a aVar) {
-        synchronized (this.f45401d) {
-            this.f45401d.remove(aVar);
-            if (f45396f) {
-                Log.i("SwanPuppetManager", "delCallback: after = " + this.f45401d.size());
+        synchronized (this.f45793d) {
+            this.f45793d.remove(aVar);
+            if (f45788f) {
+                Log.i("SwanPuppetManager", "delCallback: after = " + this.f45793d.size());
             }
         }
     }
@@ -297,7 +297,7 @@ public final class e {
         ArrayList arrayList;
         arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
-            for (d.b.g0.a.n1.c.f.c cVar : this.f45398a.values()) {
+            for (d.b.g0.a.n1.c.f.c cVar : this.f45790a.values()) {
                 if (TextUtils.equals(cVar.getAppId(), str)) {
                     arrayList.add(cVar);
                 }
@@ -316,7 +316,7 @@ public final class e {
     }
 
     public d.b.g0.a.n1.c.f.a l() {
-        return this.f45402e;
+        return this.f45794e;
     }
 
     public synchronized d.b.g0.a.n1.c.f.c m(int i) {
@@ -324,11 +324,11 @@ public final class e {
     }
 
     public synchronized d.b.g0.a.n1.c.f.c n(SwanAppProcessInfo swanAppProcessInfo) {
-        return this.f45398a.get(swanAppProcessInfo);
+        return this.f45790a.get(swanAppProcessInfo);
     }
 
     public synchronized <FILTER> d.b.g0.a.n1.c.f.c o(FILTER filter, c<FILTER> cVar) {
-        for (d.b.g0.a.n1.c.f.c cVar2 : this.f45398a.values()) {
+        for (d.b.g0.a.n1.c.f.c cVar2 : this.f45790a.values()) {
             if (cVar.a(filter, cVar2)) {
                 return cVar2;
             }
@@ -337,14 +337,14 @@ public final class e {
     }
 
     public synchronized LinkedHashSet<d.b.g0.a.n1.c.f.c> p() {
-        return new LinkedHashSet<>(this.f45398a.values());
+        return new LinkedHashSet<>(this.f45790a.values());
     }
 
     @NonNull
     public synchronized d.b.g0.a.n1.c.f.c q(@Nullable String str) {
         d.b.g0.a.n1.c.f.c k;
         k = k(str);
-        u(k.f45391f);
+        u(k.f45783f);
         return k;
     }
 
@@ -365,10 +365,10 @@ public final class e {
     }
 
     public final void s(String str) {
-        if (f45396f) {
+        if (f45788f) {
             Log.i("SwanPuppetManager", "SwanRescue:: status => " + str);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
-            Iterator<Long> it = this.f45399b.iterator();
+            Iterator<Long> it = this.f45791b.iterator();
             while (it.hasNext()) {
                 Log.i("SwanPuppetManager", "SwanRescue::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue())));
             }
@@ -376,7 +376,7 @@ public final class e {
     }
 
     public void t(String str) {
-        if (f45396f) {
+        if (f45788f) {
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -398,19 +398,19 @@ public final class e {
     }
 
     public synchronized void u(SwanAppProcessInfo swanAppProcessInfo) {
-        d.b.g0.a.n1.c.f.c remove = this.f45398a.remove(swanAppProcessInfo);
+        d.b.g0.a.n1.c.f.c remove = this.f45790a.remove(swanAppProcessInfo);
         if (remove != null) {
-            this.f45398a.put(swanAppProcessInfo, remove);
+            this.f45790a.put(swanAppProcessInfo, remove);
         }
-        if (f45396f) {
+        if (f45788f) {
             t("lru -> " + swanAppProcessInfo);
         }
     }
 
     public void v() {
-        synchronized (this.f45399b) {
+        synchronized (this.f45791b) {
             if (c()) {
-                this.f45399b.offer(Long.valueOf(System.currentTimeMillis()));
+                this.f45791b.offer(Long.valueOf(System.currentTimeMillis()));
                 Bundle bundle = new Bundle();
                 bundle.putString("bundle_key_preload_preload_scene", "1");
                 d.b.g0.a.n1.c.f.b.l(d.b.g0.a.w0.a.c(), bundle);
@@ -420,14 +420,14 @@ public final class e {
 
     public e() {
         SwanAppProcessInfo[] indices;
-        this.f45398a = new LinkedHashMap<>();
-        this.f45399b = new ArrayDeque();
-        this.f45400c = new Messenger(new SwanAppMessengerService.a());
-        this.f45401d = new HashSet();
-        this.f45402e = new a();
+        this.f45790a = new LinkedHashMap<>();
+        this.f45791b = new ArrayDeque();
+        this.f45792c = new Messenger(new SwanAppMessengerService.a());
+        this.f45793d = new HashSet();
+        this.f45794e = new a();
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
-                this.f45398a.put(swanAppProcessInfo, new d.b.g0.a.n1.c.f.c(swanAppProcessInfo));
+                this.f45790a.put(swanAppProcessInfo, new d.b.g0.a.n1.c.f.c(swanAppProcessInfo));
             }
         }
     }

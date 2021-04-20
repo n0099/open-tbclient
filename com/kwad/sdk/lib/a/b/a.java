@@ -6,16 +6,16 @@ import com.kwad.sdk.lib.a.a.b;
 public class a<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> extends com.kwad.sdk.lib.a.a.a<MODEL, CallerContext> {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView f35908a;
+    public RecyclerView f36197a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<?, MODEL> f35909c;
+    public com.kwad.sdk.lib.b.c<?, MODEL> f36198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> f35910d;
+    public com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> f36199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f35911e = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.lib.a.b.a.1
+    public RecyclerView.OnScrollListener f36200e = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.lib.a.b.a.1
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
@@ -36,33 +36,33 @@ public class a<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> ex
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        CallerContext callercontext = ((com.kwad.sdk.lib.a.a.a) this).f35902b;
-        RecyclerView recyclerView = callercontext.f35905f;
-        this.f35908a = recyclerView;
-        this.f35909c = (com.kwad.sdk.lib.b.c<?, MODEL>) callercontext.f35906g;
-        this.f35910d = callercontext.f35907h;
-        recyclerView.addOnScrollListener(this.f35911e);
+        CallerContext callercontext = ((com.kwad.sdk.lib.a.a.a) this).f36191b;
+        RecyclerView recyclerView = callercontext.f36194f;
+        this.f36197a = recyclerView;
+        this.f36198c = (com.kwad.sdk.lib.b.c<?, MODEL>) callercontext.f36195g;
+        this.f36199d = callercontext.f36196h;
+        recyclerView.addOnScrollListener(this.f36200e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f35908a.removeOnScrollListener(this.f35911e);
+        this.f36197a.removeOnScrollListener(this.f36200e);
     }
 
     public void e() {
-        RecyclerView.LayoutManager layoutManager = this.f35908a.getLayoutManager();
+        RecyclerView.LayoutManager layoutManager = this.f36197a.getLayoutManager();
         if (layoutManager.getChildCount() <= 0 || !f()) {
             return;
         }
-        if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() < this.f35910d.getItemCount() - ((com.kwad.sdk.lib.a.a.a) this).f35902b.l || this.f35910d.j()) {
+        if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() < this.f36199d.getItemCount() - ((com.kwad.sdk.lib.a.a.a) this).f36191b.l || this.f36199d.j()) {
             return;
         }
-        this.f35909c.m();
+        this.f36198c.m();
     }
 
     public boolean f() {
-        com.kwad.sdk.lib.b.c<?, MODEL> cVar = this.f35909c;
-        return (cVar == null || cVar.f() == null || this.f35909c.f().isEmpty()) ? false : true;
+        com.kwad.sdk.lib.b.c<?, MODEL> cVar = this.f36198c;
+        return (cVar == null || cVar.f() == null || this.f36198c.f().isEmpty()) ? false : true;
     }
 }

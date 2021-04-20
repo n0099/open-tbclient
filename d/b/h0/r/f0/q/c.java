@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import d.b.b.e.m.g;
+import d.b.c.e.m.g;
 import d.b.h0.r.s.h;
 import d.b.h0.r.s.j;
 import d.b.h0.r.s.l;
@@ -24,16 +24,16 @@ import java.util.ArrayList;
 public class c implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.r.f0.q.a f50557e;
+    public d.b.h0.r.f0.q.a f50964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.h0.r.f0.q.b f50558f;
+    public d.b.h0.r.f0.q.b f50965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f50559g;
+    public TbPageContext f50966g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.s.e.a f50560h;
+    public d.b.h0.s.e.a f50967h;
     public BdUniqueId i;
     public boolean k;
     public boolean l;
@@ -56,8 +56,8 @@ public class c implements View.OnClickListener {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                d.b.h0.r.f0.q.a aVar = c.this.f50557e;
-                if (aVar == null || StringUtils.isNull(aVar.getUserId()) || data == null || !c.this.f50557e.getUserId().equals(data.f13695c)) {
+                d.b.h0.r.f0.q.a aVar = c.this.f50964e;
+                if (aVar == null || StringUtils.isNull(aVar.getUserId()) || data == null || !c.this.f50964e.getUserId().equals(data.f13356c)) {
                     return;
                 }
                 boolean z = (updateAttentionMessage.getOrginalMessage() == null || c.this.i == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(c.this.i)) ? false : true;
@@ -71,32 +71,32 @@ public class c implements View.OnClickListener {
                     } else if (TextUtils.isEmpty(str)) {
                         str = TbadkCoreApplication.getInst().getString(R.string.anti_no_chance_com_tip);
                     }
-                    c.this.f50559g.showToast(str);
-                } else if (!data.f13693a) {
+                    c.this.f50966g.showToast(str);
+                } else if (!data.f13354a) {
                     c.this.n = false;
-                    String str2 = updateAttentionMessage.getData() != null ? updateAttentionMessage.getData().f13694b : "";
+                    String str2 = updateAttentionMessage.getData() != null ? updateAttentionMessage.getData().f13355b : "";
                     if (TextUtils.isEmpty(str2)) {
                         str2 = TbadkCoreApplication.getInst().getString(R.string.operation_failed);
                     }
                     BdToast.h(TbadkCoreApplication.getInst().getContext(), str2, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
-                    if (c.this.f50558f == null) {
+                    if (c.this.f50965f == null) {
                         return;
                     }
                     if (z) {
-                        c.this.f50558f.d(c.this.f50557e.getIsLike(), c.this.f50557e.getLikeStatus(), z);
+                        c.this.f50965f.d(c.this.f50964e.getIsLike(), c.this.f50964e.getLikeStatus(), z);
                     } else {
-                        c.this.f50558f.a(c.this.f50557e.getIsLike(), c.this.f50557e.getLikeStatus());
+                        c.this.f50965f.a(c.this.f50964e.getIsLike(), c.this.f50964e.getLikeStatus());
                     }
                 } else {
-                    int fansNum = c.this.f50557e.getFansNum();
-                    boolean isLike = c.this.f50557e.getIsLike();
-                    if (data.f13696d && !isLike) {
+                    int fansNum = c.this.f50964e.getFansNum();
+                    boolean isLike = c.this.f50964e.getIsLike();
+                    if (data.f13357d && !isLike) {
                         fansNum++;
-                    } else if (!data.f13696d && isLike) {
+                    } else if (!data.f13357d && isLike) {
                         if (!c.this.l || c.this.n) {
                             fansNum--;
                             if (!c.this.k) {
-                                c.this.f50559g.showToast(R.string.un_attention_success);
+                                c.this.f50966g.showToast(R.string.un_attention_success);
                             }
                         } else {
                             c.this.n = false;
@@ -104,21 +104,21 @@ public class c implements View.OnClickListener {
                             return;
                         }
                     }
-                    c.this.f50557e.setLikeStatus(data.l);
-                    c.this.f50557e.setIsLike(data.f13696d);
-                    c.this.f50557e.setIsFromNetWork(false);
-                    c.this.f50557e.setFansNum(fansNum);
+                    c.this.f50964e.setLikeStatus(data.l);
+                    c.this.f50964e.setIsLike(data.f13357d);
+                    c.this.f50964e.setIsFromNetWork(false);
+                    c.this.f50964e.setFansNum(fansNum);
                     c.this.n = false;
-                    if (c.this.f50558f != null) {
-                        c.this.f50558f.e(fansNum);
+                    if (c.this.f50965f != null) {
+                        c.this.f50965f.e(fansNum);
                         if (z) {
                             if (c.this.p != null) {
-                                c.this.p.a(data.f13696d);
+                                c.this.p.a(data.f13357d);
                             }
-                            c.this.f50558f.d(data.f13696d, data.l, true);
+                            c.this.f50965f.d(data.f13357d, data.l, true);
                             return;
                         }
-                        c.this.f50558f.a(data.f13696d, data.l);
+                        c.this.f50965f.a(data.f13357d, data.l);
                     }
                 }
             }
@@ -132,10 +132,10 @@ public class c implements View.OnClickListener {
 
         @Override // d.b.h0.r.s.l.d
         public void onClick() {
-            if (c.this.f50558f instanceof View) {
+            if (c.this.f50965f instanceof View) {
                 c.this.n = true;
                 c cVar = c.this;
-                cVar.onClick((View) cVar.f50558f);
+                cVar.onClick((View) cVar.f50965f);
             }
             g.a(c.this.m, TbadkCoreApplication.getInst().getCurrentActivity());
         }
@@ -143,8 +143,8 @@ public class c implements View.OnClickListener {
 
     /* renamed from: d.b.h0.r.f0.q.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1078c implements l.c {
-        public C1078c() {
+    public class C1091c implements l.c {
+        public C1091c() {
         }
 
         @Override // d.b.h0.r.s.l.c
@@ -162,20 +162,20 @@ public class c implements View.OnClickListener {
     }
 
     public c(TbPageContext tbPageContext, d.b.h0.r.f0.q.b bVar) {
-        this.f50559g = tbPageContext;
-        this.f50560h = new d.b.h0.s.e.a(tbPageContext);
-        this.i = this.f50559g.getUniqueId();
+        this.f50966g = tbPageContext;
+        this.f50967h = new d.b.h0.s.e.a(tbPageContext);
+        this.i = this.f50966g.getUniqueId();
         tbPageContext.registerListener(this.q);
         q(bVar);
     }
 
     public d.b.h0.r.f0.q.a j() {
-        return this.f50557e;
+        return this.f50964e;
     }
 
     public void k(boolean z) {
         this.k = z;
-        this.f50560h.j(z);
+        this.f50967h.j(z);
     }
 
     public void l(BdUniqueId bdUniqueId) {
@@ -193,13 +193,13 @@ public class c implements View.OnClickListener {
     }
 
     public void n(d.b.h0.r.f0.q.a aVar) {
-        this.f50557e = aVar;
-        d.b.h0.r.f0.q.b bVar = this.f50558f;
+        this.f50964e = aVar;
+        d.b.h0.r.f0.q.b bVar = this.f50965f;
         if (bVar == null || aVar == null) {
             return;
         }
         bVar.a(aVar.getIsLike(), aVar.getLikeStatus());
-        this.f50558f.e(aVar.getFansNum());
+        this.f50965f.e(aVar.getFansNum());
     }
 
     public void o(d dVar) {
@@ -211,22 +211,22 @@ public class c implements View.OnClickListener {
         d.b.h0.r.f0.q.a aVar;
         d.b.h0.m.d dVar = this.o;
         if (dVar == null || !dVar.b(view)) {
-            if (!d.b.b.e.p.j.A()) {
-                this.f50559g.showToast(R.string.neterror);
+            if (!d.b.c.e.p.j.A()) {
+                this.f50966g.showToast(R.string.neterror);
                 return;
             }
-            d.b.h0.r.f0.q.b bVar = this.f50558f;
+            d.b.h0.r.f0.q.b bVar = this.f50965f;
             if (bVar != null) {
                 bVar.b(view);
             }
-            if (!ViewHelper.checkUpIsLogin(this.f50559g.getPageActivity()) || (aVar = this.f50557e) == null) {
+            if (!ViewHelper.checkUpIsLogin(this.f50966g.getPageActivity()) || (aVar = this.f50964e) == null) {
                 return;
             }
             boolean z = !aVar.getIsLike();
             if (this.i == null) {
-                this.f50560h.m(z, this.f50557e.getPortrait(), this.f50557e.getUserId(), this.f50557e.isGod(), this.j, this.f50559g.getUniqueId(), null, "0");
+                this.f50967h.m(z, this.f50964e.getPortrait(), this.f50964e.getUserId(), this.f50964e.isGod(), this.j, this.f50966g.getUniqueId(), null, "0");
             } else {
-                this.f50560h.m(z, this.f50557e.getPortrait(), this.f50557e.getUserId(), this.f50557e.isGod(), this.j, this.i, null, "0");
+                this.f50967h.m(z, this.f50964e.getPortrait(), this.f50964e.getUserId(), this.f50964e.isGod(), this.j, this.i, null, "0");
             }
         }
     }
@@ -236,7 +236,7 @@ public class c implements View.OnClickListener {
     }
 
     public void q(d.b.h0.r.f0.q.b bVar) {
-        this.f50558f = bVar;
+        this.f50965f = bVar;
         if (bVar != null) {
             bVar.c(this);
         }
@@ -250,7 +250,7 @@ public class c implements View.OnClickListener {
             h hVar = new h(TbadkCoreApplication.getInst().getString(R.string.confirm), lVar);
             hVar.m(new b());
             arrayList.add(hVar);
-            lVar.m(new C1078c());
+            lVar.m(new C1091c());
             lVar.k(arrayList);
             j jVar = new j(UtilHelper.getTbPageContext(TbadkCoreApplication.getInst().getCurrentActivity()), lVar);
             this.m = jVar;

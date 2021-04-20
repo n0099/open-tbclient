@@ -4,7 +4,7 @@ import com.facebook.common.internal.Objects;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImagePerfData {
     public static final int UNSET = -1;
     @Nullable

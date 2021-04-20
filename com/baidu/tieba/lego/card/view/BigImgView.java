@@ -5,8 +5,8 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.lego.card.model.BigImgCard;
-import d.b.b.e.p.l;
-/* loaded from: classes3.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes4.dex */
 public class BigImgView extends BaseCardView<BigImgCard> {
     public TbImageView r;
 

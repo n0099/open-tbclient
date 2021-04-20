@@ -11,19 +11,19 @@ import java.util.List;
 public class g<DataType, ResourceType, Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<DataType> f35531a;
+    public final Class<DataType> f35820a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> f35532b;
+    public final List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> f35821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> f35533c;
+    public final com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> f35822c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Pools.Pool<List<Throwable>> f35534d;
+    public final Pools.Pool<List<Throwable>> f35823d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f35535e;
+    public final String f35824e;
 
     /* loaded from: classes6.dex */
     public interface a<ResourceType> {
@@ -32,29 +32,29 @@ public class g<DataType, ResourceType, Transcode> {
     }
 
     public g(Class<DataType> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> list, com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> eVar, Pools.Pool<List<Throwable>> pool) {
-        this.f35531a = cls;
-        this.f35532b = list;
-        this.f35533c = eVar;
-        this.f35534d = pool;
-        this.f35535e = "Failed DecodePath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
+        this.f35820a = cls;
+        this.f35821b = list;
+        this.f35822c = eVar;
+        this.f35823d = pool;
+        this.f35824e = "Failed DecodePath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
     @NonNull
     private s<ResourceType> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2) {
-        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.f35534d.acquire());
+        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.f35823d.acquire());
         try {
             return a(eVar, i, i2, eVar2, list);
         } finally {
-            this.f35534d.release(list);
+            this.f35823d.release(list);
         }
     }
 
     @NonNull
     private s<ResourceType> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2, List<Throwable> list) {
-        int size = this.f35532b.size();
+        int size = this.f35821b.size();
         s<ResourceType> sVar = null;
         for (int i3 = 0; i3 < size; i3++) {
-            com.kwad.sdk.glide.load.f<DataType, ResourceType> fVar = this.f35532b.get(i3);
+            com.kwad.sdk.glide.load.f<DataType, ResourceType> fVar = this.f35821b.get(i3);
             try {
                 if (fVar.a(eVar.a(), eVar2)) {
                     sVar = fVar.a(eVar.a(), i, i2, eVar2);
@@ -72,14 +72,14 @@ public class g<DataType, ResourceType, Transcode> {
         if (sVar != null) {
             return sVar;
         }
-        throw new GlideException(this.f35535e, new ArrayList(list));
+        throw new GlideException(this.f35824e, new ArrayList(list));
     }
 
     public s<Transcode> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2, a<ResourceType> aVar) {
-        return this.f35533c.a(aVar.a(a(eVar, i, i2, eVar2)), eVar2);
+        return this.f35822c.a(aVar.a(a(eVar, i, i2, eVar2)), eVar2);
     }
 
     public String toString() {
-        return "DecodePath{ dataClass=" + this.f35531a + ", decoders=" + this.f35532b + ", transcoder=" + this.f35533c + '}';
+        return "DecodePath{ dataClass=" + this.f35820a + ", decoders=" + this.f35821b + ", transcoder=" + this.f35822c + '}';
     }
 }

@@ -29,8 +29,8 @@ public class l extends h {
     public l(Context context) {
         super(context);
         this.o = new a();
-        int g2 = d.b.b.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = d.b.b.e.p.l.g(context, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        int g2 = d.b.c.e.p.l.g(context, R.dimen.M_H_X003);
+        int g3 = d.b.c.e.p.l.g(context, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
         r(g2);
         q(g3);
         ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
@@ -49,7 +49,7 @@ public class l extends h {
     }
 
     public void t() {
-        int g2 = d.b.b.e.p.l.g(this.f51763f, R.dimen.M_H_X003);
+        int g2 = d.b.c.e.p.l.g(this.f52187f, R.dimen.M_H_X003);
         r(g2);
         q(0);
         w(this.m, g2, 0);
@@ -60,7 +60,7 @@ public class l extends h {
     /* renamed from: u */
     public void a(d.b.h0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f51762e.i());
+        this.m.setSourceForPb(this.f52186e.i());
         this.m.setFrstype(this.n);
         this.m.setData(aVar);
     }

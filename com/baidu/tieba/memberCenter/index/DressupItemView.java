@@ -12,46 +12,46 @@ import com.baidu.tieba.R;
 public class DressupItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18920e;
+    public Context f18597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18921f;
+    public View f18598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18922g;
+    public TbImageView f18599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f18923h;
+    public TbImageView f18600h;
     public TextView i;
     public TextView j;
 
     public DressupItemView(Context context) {
         super(context);
-        this.f18920e = context;
+        this.f18597e = context;
         a();
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.f18920e).inflate(R.layout.index_dressup_item, this);
-        this.f18921f = inflate;
-        this.f18922g = (TbImageView) inflate.findViewById(R.id.bg_image);
-        TbImageView tbImageView = (TbImageView) this.f18921f.findViewById(R.id.permission_icon);
-        this.f18923h = tbImageView;
+        View inflate = LayoutInflater.from(this.f18597e).inflate(R.layout.index_dressup_item, this);
+        this.f18598f = inflate;
+        this.f18599g = (TbImageView) inflate.findViewById(R.id.bg_image);
+        TbImageView tbImageView = (TbImageView) this.f18598f.findViewById(R.id.permission_icon);
+        this.f18600h = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
-        this.f18923h.setDefaultBgResource(R.drawable.transparent_bg);
-        this.i = (TextView) this.f18921f.findViewById(R.id.txt_type);
-        this.j = (TextView) this.f18921f.findViewById(R.id.txt_name);
+        this.f18600h.setDefaultBgResource(R.drawable.transparent_bg);
+        this.i = (TextView) this.f18598f.findViewById(R.id.txt_type);
+        this.j = (TextView) this.f18598f.findViewById(R.id.txt_name);
     }
 
     public DressupItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18920e = context;
+        this.f18597e = context;
         a();
     }
 
     public DressupItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.f18920e = context;
+        this.f18597e = context;
         a();
     }
 }

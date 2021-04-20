@@ -18,19 +18,19 @@ public class ConcernTabEmptyView extends b<e> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f14911a;
+        public View f14574a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f14912b;
+        public TextView f14575b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f14913c;
+        public View f14576c;
 
         public ViewHolder(View view) {
             super(view);
-            this.f14911a = view;
-            this.f14912b = (TextView) view.findViewById(R.id.tv_empty);
-            this.f14913c = this.f14911a.findViewById(R.id.devider_line);
+            this.f14574a = view;
+            this.f14575b = (TextView) view.findViewById(R.id.tv_empty);
+            this.f14576c = this.f14574a.findViewById(R.id.devider_line);
         }
     }
 
@@ -47,8 +47,8 @@ public class ConcernTabEmptyView extends b<e> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        SkinManager.setViewTextColor(this.m.f14912b, R.color.CAM_X0109);
-        SkinManager.setBackgroundColor(this.m.f14913c, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.m.f14575b, R.color.CAM_X0109);
+        SkinManager.setBackgroundColor(this.m.f14576c, R.color.CAM_X0204);
     }
 
     @Override // android.view.View.OnClickListener

@@ -19,16 +19,16 @@ import java.io.File;
 public class BdWalletUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26819a = "__Baidu_Wallet_SDK_FP";
+    public static final String f26504a = "__Baidu_Wallet_SDK_FP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f26820b = "device_fp";
+    public static final String f26505b = "device_fp";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f26821c = "__Baidu_Wallet_SDK_KEFU";
+    public static final String f26506c = "__Baidu_Wallet_SDK_KEFU";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f26822d = "kefu_phone_num";
+    public static final String f26507d = "kefu_phone_num";
 
     public static void addFlagsSecure(Activity activity) {
         activity.getWindow().addFlags(8192);
@@ -46,12 +46,12 @@ public class BdWalletUtils {
     }
 
     public static String getDeviceFP(Context context) {
-        String str = (String) SharedPreferencesUtils.getParam(context, f26819a, f26820b, "");
+        String str = (String) SharedPreferencesUtils.getParam(context, f26504a, f26505b, "");
         return !TextUtils.isEmpty(str) ? SafePay.getInstance().localDecrypt1(str) : str;
     }
 
     public static String getFPFileLastModified(Context context) {
-        File file = new File(context.getFilesDir().getParent() + "/shared_prefs/" + f26819a + ActivityChooserModel.HISTORY_FILE_EXTENSION);
+        File file = new File(context.getFilesDir().getParent() + "/shared_prefs/" + f26504a + ActivityChooserModel.HISTORY_FILE_EXTENSION);
         if (file.exists()) {
             return "" + (file.lastModified() / 1000);
         }
@@ -68,7 +68,7 @@ public class BdWalletUtils {
         if (context == null) {
             return "";
         }
-        String str = (String) SharedPreferencesUtils.getParam(context, f26821c, f26822d, "");
+        String str = (String) SharedPreferencesUtils.getParam(context, f26506c, f26507d, "");
         return TextUtils.isEmpty(str) ? ResUtils.getString(context, "wallet_base_help_phone_no_dial") : str;
     }
 
@@ -83,7 +83,7 @@ public class BdWalletUtils {
 
     public static void setDeviceFP(Context context, String str) {
         if (str != null) {
-            SharedPreferencesUtils.setParam(context, f26819a, f26820b, SafePay.getInstance().localEncrypt1(str));
+            SharedPreferencesUtils.setParam(context, f26504a, f26505b, SafePay.getInstance().localEncrypt1(str));
         }
     }
 
@@ -91,7 +91,7 @@ public class BdWalletUtils {
         if (str == null || context == null) {
             return;
         }
-        SharedPreferencesUtils.setParam(context, f26821c, f26822d, str);
+        SharedPreferencesUtils.setParam(context, f26506c, f26507d, str);
     }
 
     public static void showThemeDialog(Context context, String str, String str2, String str3, final View.OnClickListener onClickListener, final View.OnClickListener onClickListener2) {

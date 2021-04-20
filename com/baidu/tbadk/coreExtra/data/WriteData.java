@@ -13,7 +13,7 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.google.gson.Gson;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;

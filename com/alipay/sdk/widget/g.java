@@ -9,11 +9,11 @@ import android.widget.FrameLayout;
 public abstract class g extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f2027a;
+    public Activity f2052a;
 
     public g(Activity activity) {
         super(activity);
-        this.f2027a = activity;
+        this.f2052a = activity;
     }
 
     public abstract void a();
@@ -24,7 +24,7 @@ public abstract class g extends FrameLayout {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        CookieSyncManager.createInstance(this.f2027a.getApplicationContext()).sync();
+        CookieSyncManager.createInstance(this.f2052a.getApplicationContext()).sync();
         CookieManager.getInstance().setCookie(str, str2);
         CookieSyncManager.getInstance().sync();
     }

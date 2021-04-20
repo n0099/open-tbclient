@@ -5,26 +5,26 @@ import com.baidu.tbadk.core.data.MetaData;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55600a;
+    public String f56723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55601b;
+    public String f56724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55602c;
+    public String f56725c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55603d;
+    public String f56726d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55604e;
+    public String f56727e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MetaData f55605f;
+    public MetaData f56728f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f55606g = false;
+    public boolean f56729g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55607h = false;
+    public boolean f56730h = false;
 }

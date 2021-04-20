@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40228a;
+    public int f40517a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f109a;
@@ -23,7 +23,7 @@ public class al {
     public volatile boolean f112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f40229b;
+    public final boolean f40518b;
 
     /* loaded from: classes7.dex */
     public class a extends Thread {
@@ -54,7 +54,7 @@ public class al {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            long j = al.this.f40228a > 0 ? al.this.f40228a : Long.MAX_VALUE;
+            long j = al.this.f40517a > 0 ? al.this.f40517a : Long.MAX_VALUE;
             while (!al.this.f112a) {
                 try {
                     b poll = this.f113a.poll(j, TimeUnit.SECONDS);
@@ -63,7 +63,7 @@ public class al {
                         a(0, poll);
                         poll.b();
                         a(1, poll);
-                    } else if (al.this.f40228a > 0) {
+                    } else if (al.this.f40517a > 0) {
                         al.this.a();
                     }
                 } catch (InterruptedException e2) {
@@ -81,7 +81,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo223c() {
+        public void mo227c() {
         }
     }
 
@@ -96,10 +96,10 @@ public class al {
     public al(boolean z, int i) {
         this.f109a = null;
         this.f112a = false;
-        this.f40228a = 0;
+        this.f40517a = 0;
         this.f109a = new am(this, Looper.getMainLooper());
-        this.f40229b = z;
-        this.f40228a = i;
+        this.f40518b = z;
+        this.f40517a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class al {
         if (this.f110a == null) {
             a aVar = new a();
             this.f110a = aVar;
-            aVar.setDaemon(this.f40229b);
+            aVar.setDaemon(this.f40518b);
             this.f112a = false;
             this.f110a.start();
         }

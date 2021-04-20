@@ -2,89 +2,89 @@ package com.baidu.tieba.recapp.adapter;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.b.i0.i2.e;
-import d.b.i0.r2.k;
-/* loaded from: classes5.dex */
+import d.b.i0.j2.e;
+import d.b.i0.s2.m;
+/* loaded from: classes4.dex */
 public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public k f20694e;
+    public m f20386e;
 
-    public FrsAppLegoViewHolder(d.b.i0.i1.o.l.e<?> eVar) {
+    public FrsAppLegoViewHolder(d.b.i0.j1.o.l.e<?> eVar) {
         super((View) eVar);
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public boolean D() {
         return false;
     }
 
     public void b() {
-        k kVar = this.f20694e;
-        if (kVar != null) {
-            kVar.release();
+        m mVar = this.f20386e;
+        if (mVar != null) {
+            mVar.release();
         }
     }
 
-    public void c(k kVar) {
-        this.f20694e = kVar;
+    public void c(m mVar) {
+        this.f20386e = mVar;
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public int getCurrentPosition() {
-        k kVar = this.f20694e;
-        if (kVar == null) {
+        m mVar = this.f20386e;
+        if (mVar == null) {
             return 0;
         }
-        return (int) kVar.getCurrentPosition();
+        return (int) mVar.getCurrentPosition();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public String getPlayUrl() {
-        k kVar = this.f20694e;
-        return kVar == null ? "" : kVar.getPlayUrl();
+        m mVar = this.f20386e;
+        return mVar == null ? "" : mVar.getPlayUrl();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public View getVideoContainer() {
-        k kVar = this.f20694e;
-        if (kVar == null) {
+        m mVar = this.f20386e;
+        if (mVar == null) {
             return null;
         }
-        return kVar.getVideoContainer();
+        return mVar.getVideoContainer();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public boolean isPlayStarted() {
-        k kVar = this.f20694e;
-        if (kVar == null) {
+        m mVar = this.f20386e;
+        if (mVar == null) {
             return false;
         }
-        return kVar.isPlayStarted();
+        return mVar.isPlayStarted();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public boolean isPlaying() {
-        k kVar = this.f20694e;
-        if (kVar == null) {
+        m mVar = this.f20386e;
+        if (mVar == null) {
             return false;
         }
-        return kVar.isPlaying();
+        return mVar.isPlaying();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public void startPlay() {
-        k kVar = this.f20694e;
-        if (kVar != null) {
-            kVar.startPlay();
+        m mVar = this.f20386e;
+        if (mVar != null) {
+            mVar.startPlay();
         }
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public void stopPlay() {
-        k kVar = this.f20694e;
-        if (kVar != null) {
-            kVar.stopPlay();
+        m mVar = this.f20386e;
+        if (mVar != null) {
+            mVar.stopPlay();
         }
     }
 }

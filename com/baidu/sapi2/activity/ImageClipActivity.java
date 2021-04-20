@@ -25,9 +25,9 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.b;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
-import d.b.a0.a.a;
-import d.b.a0.a.e;
-import d.b.a0.a.f;
+import d.b.x.a.a;
+import d.b.x.a.e;
+import d.b.x.a.f;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -50,39 +50,39 @@ public class ImageClipActivity extends Activity {
     public static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10988a = 0;
+    public int f10572a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10989b = 0;
+    public int f10573b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10990c = 0;
+    public int f10574c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10991d = 0;
+    public int f10575d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10992e;
+    public int f10576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10993f;
+    public int f10577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10994g;
+    public String f10578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClipBoxView f10995h;
+    public ClipBoxView f10579h;
     public ZoomImageView i;
     public static final String j = ImageClipActivity.class.getSimpleName();
     public static String EXTRA_IMAGE = "extra_image";
 
     private void d() {
-        if (this.f10990c == 0 && this.f10991d == 0) {
+        if (this.f10574c == 0 && this.f10575d == 0) {
             return;
         }
-        overridePendingTransition(this.f10990c, this.f10991d);
-        this.f10990c = 0;
-        this.f10991d = 0;
+        overridePendingTransition(this.f10574c, this.f10575d);
+        this.f10574c = 0;
+        this.f10575d = 0;
     }
 
     @Override // android.app.Activity
@@ -140,10 +140,10 @@ public class ImageClipActivity extends Activity {
     }
 
     public void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f10988a = i;
-        this.f10989b = i2;
-        this.f10990c = i3;
-        this.f10991d = i4;
+        this.f10572a = i;
+        this.f10573b = i2;
+        this.f10574c = i3;
+        this.f10575d = i4;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -162,7 +162,7 @@ public class ImageClipActivity extends Activity {
                     return null;
                 }
                 int i2 = 160;
-                if (ImageClipActivity.this.f10992e != 0) {
+                if (ImageClipActivity.this.f10576e != 0) {
                     i2 = bitmapArr[0].getWidth();
                     i = bitmapArr[0].getHeight();
                 } else {
@@ -172,7 +172,7 @@ public class ImageClipActivity extends Activity {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 int i3 = 100;
                 createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                while (byteArrayOutputStream.toByteArray().length > ImageClipActivity.this.f10993f && i3 > 0 && i3 - 5 > 0) {
+                while (byteArrayOutputStream.toByteArray().length > ImageClipActivity.this.f10577f && i3 > 0 && i3 - 5 > 0) {
                     byteArrayOutputStream.reset();
                     createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
                 }
@@ -198,17 +198,17 @@ public class ImageClipActivity extends Activity {
 
     private void b() {
         setContentView(f.layout_sapi_sdk_image_clip);
-        this.f10992e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
+        this.f10576e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
         int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
-        this.f10993f = intExtra;
+        this.f10577f = intExtra;
         if (intExtra <= 0) {
-            this.f10993f = 512;
+            this.f10577f = 512;
         }
-        this.f10993f *= 1024;
-        this.f10995h = (ClipBoxView) findViewById(e.sapi_clip_box);
+        this.f10577f *= 1024;
+        this.f10579h = (ClipBoxView) findViewById(e.sapi_clip_box);
         this.i = (ZoomImageView) findViewById(e.sapi_background_picture);
-        if (this.f10992e == 1) {
-            ClipBoxView clipBoxView = this.f10995h;
+        if (this.f10576e == 1) {
+            ClipBoxView clipBoxView = this.f10579h;
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
@@ -236,12 +236,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f10988a == 0 && this.f10989b == 0) {
+        if (this.f10572a == 0 && this.f10573b == 0) {
             return;
         }
-        overridePendingTransition(this.f10988a, this.f10989b);
-        this.f10988a = 0;
-        this.f10989b = 0;
+        overridePendingTransition(this.f10572a, this.f10573b);
+        this.f10572a = 0;
+        this.f10573b = 0;
     }
 
     private void a(Intent intent) {
@@ -258,7 +258,7 @@ public class ImageClipActivity extends Activity {
                     a2 = query.getString(query.getColumnIndex("_data"));
                 } else {
                     a2 = a(getBaseContext(), uri);
-                    this.f10994g = a2;
+                    this.f10578g = a2;
                 }
                 str2 = a2;
             }
@@ -352,10 +352,10 @@ public class ImageClipActivity extends Activity {
         Bitmap operateBitmap = operateBitmap(str);
         if (operateBitmap != null) {
             this.i.setImageBitmap(operateBitmap);
-            if (TextUtils.isEmpty(this.f10994g)) {
+            if (TextUtils.isEmpty(this.f10578g)) {
                 return;
             }
-            b.a(new File(this.f10994g));
+            b.a(new File(this.f10578g));
             return;
         }
         Toast.makeText(this, "加载图片失败", 0).show();

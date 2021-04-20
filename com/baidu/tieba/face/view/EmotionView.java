@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class EmotionView extends TbImageView {
     public FrameLayout A0;
@@ -33,13 +33,13 @@ public class EmotionView extends TbImageView {
     public int z0;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             if (aVar != null) {
                 EmotionView.this.L = aVar.t();
                 View findViewWithTag = EmotionView.this.findViewWithTag(str);
@@ -104,15 +104,15 @@ public class EmotionView extends TbImageView {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f15564e;
+        public long f15227e;
 
         public d(long j) {
-            this.f15564e = j;
+            this.f15227e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.C0 && this.f15564e == EmotionView.this.B0 && EmotionView.this.B0()) {
+            if (EmotionView.this.C0 && this.f15227e == EmotionView.this.B0 && EmotionView.this.B0()) {
                 EmotionView.this.E0();
             }
         }
@@ -149,8 +149,8 @@ public class EmotionView extends TbImageView {
     }
 
     public final void D0(EmotionImageData emotionImageData) {
-        Object k = d.b.b.e.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-        d.b.b.j.d.a aVar = (k == null || !(k instanceof d.b.b.j.d.a)) ? null : (d.b.b.j.d.a) k;
+        Object k = d.b.c.e.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
+        d.b.c.j.d.a aVar = (k == null || !(k instanceof d.b.c.j.d.a)) ? null : (d.b.c.j.d.a) k;
         if (aVar != null) {
             aVar.h(this);
             setTag(null);

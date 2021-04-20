@@ -1,46 +1,35 @@
 package d.b.i0.d1;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
-/* loaded from: classes3.dex */
+import GetSugTopic.TopicList;
+/* loaded from: classes4.dex */
 public class d {
-    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, d.b.i0.d1.k.b.o().l());
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f53689a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Integer f53690b;
+
+    public Integer a() {
+        return this.f53690b;
     }
 
-    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-        imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
-        imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
-        imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
-        imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-        imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
-        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
-        imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
-        imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-        imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-        imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
-        imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
-        imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
-        imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
-        imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
-        imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
-        imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-            if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                if (!d.b.i0.d1.t.d.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
-                    imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
-                } else {
-                    d.b.i0.d1.t.c.a().c(true);
-                }
-            }
+    public String b() {
+        return this.f53689a;
+    }
+
+    public void c(TopicList topicList) {
+        if (topicList != null) {
+            Long l = topicList.topic_id;
+            this.f53689a = topicList.topic_name;
+            String str = topicList.topic_pic;
+            String str2 = topicList.topic_desc;
+            Long l2 = topicList.discuss_num;
+            this.f53690b = topicList.tag;
         }
-        if (imMessageCenterPojo2.getUnread_count() <= 0) {
-            imMessageCenterPojo2.setUnread_count(1);
-            d.b.i0.d1.t.c.a().c(false);
-        }
-        return imMessageCenterPojo2;
+    }
+
+    public void d(String str) {
+        this.f53689a = str;
     }
 }

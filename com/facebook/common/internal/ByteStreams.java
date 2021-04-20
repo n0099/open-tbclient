@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ByteStreams {
     public static final int BUF_SIZE = 4096;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FastByteArrayOutputStream extends ByteArrayOutputStream {
         public FastByteArrayOutputStream() {
         }

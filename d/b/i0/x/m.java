@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class m {
     public static void a(String str) {
-        d.b.i0.c3.n0.d readThreadHistory;
+        d.b.i0.d3.n0.d readThreadHistory;
         if (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || readThreadHistory.b(str)) {
             return;
         }
@@ -27,7 +27,7 @@ public class m {
     }
 
     public static void b(a2 a2Var, SpannableStringBuilder spannableStringBuilder, boolean z) {
-        if (spannableStringBuilder == null || d.b.b.e.p.k.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || a2Var == null || a2Var.x0() != 0) {
+        if (spannableStringBuilder == null || d.b.c.e.p.k.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || a2Var == null || a2Var.x0() != 0) {
             return;
         }
         if (z || a2Var.v0() == 1 || StringUtils.isNull(a2Var.x1())) {
@@ -94,24 +94,24 @@ public class m {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                int i2 = aVar.f62263a;
+                int i2 = aVar.f63838a;
                 if (i2 > 0) {
-                    aVar.f62264b = context.getString(i2);
+                    aVar.f63839b = context.getString(i2);
                 }
-                if (!d.b.b.e.p.k.isEmpty(aVar.f62264b)) {
+                if (!d.b.c.e.p.k.isEmpty(aVar.f63839b)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.f62264b);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f62265c)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.f63839b);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f63840c)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap bitmap = SkinManager.getBitmap(aVar.f62266d);
+                    Bitmap bitmap = SkinManager.getBitmap(aVar.f63841d);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                     if (bitmap != null) {
                         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                     }
                     d.b.h0.r.f0.i iVar = new d.b.h0.r.f0.i(bitmapDrawable);
-                    int i3 = aVar.f62267e;
+                    int i3 = aVar.f63842e;
                     if (i3 != 0) {
                         iVar.b(i3);
                     }
@@ -131,7 +131,7 @@ public class m {
 
     public static void j(a2 a2Var, TextView textView) {
         if ((StringUtils.isNull(a2Var.x1()) && (a2Var.b1() == null || a2Var.b1().size() == 0)) || a2Var.v0() == 1) {
-            a2Var.R2(false, true);
+            a2Var.S2(false, true);
             if (a2Var.l1() != null && !StringUtils.isNull(a2Var.l1().toString())) {
                 textView.setVisibility(0);
                 textView.setText(a2Var.l1());
@@ -142,15 +142,15 @@ public class m {
         }
         textView.setVisibility(0);
         a2Var.p = 0;
-        a2Var.R2(false, true);
+        a2Var.S2(false, true);
         SpannableStringBuilder l1 = a2Var.l1();
-        textView.setOnTouchListener(new d.b.i0.t3.i(l1));
+        textView.setOnTouchListener(new d.b.i0.u3.i(l1));
         textView.setText(l1);
         l(textView, a2Var.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
     public static boolean k(String str) {
-        d.b.i0.c3.n0.d readThreadHistory;
+        d.b.i0.d3.n0.d readThreadHistory;
         return (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) ? false : true;
     }
 
@@ -168,57 +168,57 @@ public class m {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f62263a;
+        public int f63838a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62264b;
+        public String f63839b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62265c;
+        public int f63840c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f62266d;
+        public int f63841d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f62267e;
+        public int f63842e;
 
         public a(int i, int i2, int i3) {
-            this.f62263a = -1;
-            this.f62264b = "";
-            this.f62265c = R.color.CAM_X0304;
-            this.f62266d = R.drawable.pic_dot_title;
-            this.f62267e = 0;
-            this.f62263a = i;
-            this.f62265c = i2;
-            this.f62266d = i3;
+            this.f63838a = -1;
+            this.f63839b = "";
+            this.f63840c = R.color.CAM_X0304;
+            this.f63841d = R.drawable.pic_dot_title;
+            this.f63842e = 0;
+            this.f63838a = i;
+            this.f63840c = i2;
+            this.f63841d = i3;
         }
 
         public a(int i) {
-            this.f62263a = -1;
-            this.f62264b = "";
-            this.f62265c = R.color.CAM_X0304;
-            this.f62266d = R.drawable.pic_dot_title;
-            this.f62267e = 0;
-            this.f62263a = i;
+            this.f63838a = -1;
+            this.f63839b = "";
+            this.f63840c = R.color.CAM_X0304;
+            this.f63841d = R.drawable.pic_dot_title;
+            this.f63842e = 0;
+            this.f63838a = i;
         }
 
         public a(String str) {
-            this.f62263a = -1;
-            this.f62264b = "";
-            this.f62265c = R.color.CAM_X0304;
-            this.f62266d = R.drawable.pic_dot_title;
-            this.f62267e = 0;
-            this.f62264b = str;
+            this.f63838a = -1;
+            this.f63839b = "";
+            this.f63840c = R.color.CAM_X0304;
+            this.f63841d = R.drawable.pic_dot_title;
+            this.f63842e = 0;
+            this.f63839b = str;
         }
 
         public a(String str, int i) {
-            this.f62263a = -1;
-            this.f62264b = "";
-            this.f62265c = R.color.CAM_X0304;
-            this.f62266d = R.drawable.pic_dot_title;
-            this.f62267e = 0;
-            this.f62264b = str;
-            this.f62266d = i;
+            this.f63838a = -1;
+            this.f63839b = "";
+            this.f63840c = R.color.CAM_X0304;
+            this.f63841d = R.drawable.pic_dot_title;
+            this.f63842e = 0;
+            this.f63839b = str;
+            this.f63841d = i;
         }
     }
 }

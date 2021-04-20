@@ -17,42 +17,42 @@ public class e extends d.b.g0.a.l1.c.d.a {
     public class a implements d.b.g0.a.i2.u0.b<h<f.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.n.b f45219e;
+        public final /* synthetic */ d.b.g0.a.e0.n.b f45611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.l1.c.c.a f45220f;
+        public final /* synthetic */ d.b.g0.a.l1.c.c.a f45612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.v1.d.a f45221g;
+        public final /* synthetic */ d.b.g0.a.v1.d.a f45613g;
 
         public a(e eVar, d.b.g0.a.e0.n.b bVar, d.b.g0.a.l1.c.c.a aVar, d.b.g0.a.v1.d.a aVar2) {
-            this.f45219e = bVar;
-            this.f45220f = aVar;
-            this.f45221g = aVar2;
+            this.f45611e = bVar;
+            this.f45612f = aVar;
+            this.f45613g = aVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(h<f.d> hVar) {
-            if (hVar != null && hVar.c() && !TextUtils.isEmpty(hVar.f46808a.f46826a)) {
-                JSONObject jSONObject = this.f45221g.f46839g;
+            if (hVar != null && hVar.c() && !TextUtils.isEmpty(hVar.f47200a.f47218a)) {
+                JSONObject jSONObject = this.f45613g.f47231g;
                 if (jSONObject != null) {
                     try {
-                        jSONObject.put("code", hVar.f46808a.f46826a);
-                        this.f45220f.f45198d = true;
+                        jSONObject.put("code", hVar.f47200a.f47218a);
+                        this.f45612f.f45590d = true;
                     } catch (JSONException e2) {
-                        if (k.f45051a) {
+                        if (k.f45443a) {
                             d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e2));
                         }
                     }
-                    this.f45220f.f45199e = jSONObject.toString();
+                    this.f45612f.f45591e = jSONObject.toString();
                 }
-                this.f45219e.a(this.f45220f);
+                this.f45611e.a(this.f45612f);
                 return;
             }
             d.b.g0.a.l1.d.a.a("login failure, can't get login code");
-            this.f45219e.a(this.f45220f);
+            this.f45611e.a(this.f45612f);
         }
     }
 
@@ -68,13 +68,13 @@ public class e extends d.b.g0.a.l1.c.d.a {
 
     @Override // d.b.g0.a.l1.c.d.a
     public void o(SwanAppActivity swanAppActivity, String str, d.b.g0.a.l1.c.b.b bVar, d.b.g0.a.v1.d.a aVar, d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> bVar2) {
-        d.b.g0.a.l1.c.c.a aVar2 = new d.b.g0.a.l1.c.c.a(bVar.f45192f);
-        aVar2.f45195a = bVar.f45191e;
+        d.b.g0.a.l1.c.c.a aVar2 = new d.b.g0.a.l1.c.c.a(bVar.f45584f);
+        aVar2.f45587a = bVar.f45583e;
         if (aVar != null && aVar.j.a() == 0) {
             d.b.g0.a.l1.d.a.a("obtain user info detail, get login code");
-            b.c cVar = new b.c(bVar.f45193g);
+            b.c cVar = new b.c(bVar.f45585g);
             Bundle bundle = new Bundle();
-            bundle.putString("__plugin__", bVar.f45187a);
+            bundle.putString("__plugin__", bVar.f45579a);
             d.b.g0.a.r1.d.e().s().R().q(swanAppActivity, cVar, bundle, new a(this, bVar2, aVar2, aVar));
             return;
         }

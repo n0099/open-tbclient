@@ -11,42 +11,42 @@ import java.util.concurrent.Executors;
 public class AegonLoggerDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentLinkedQueue<a> f31606a = new ConcurrentLinkedQueue<>();
+    public static ConcurrentLinkedQueue<a> f31895a = new ConcurrentLinkedQueue<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static Executor f31607b = null;
+    public static Executor f31896b = null;
 
     public static Executor a() {
         Executor executor;
-        Executor executor2 = f31607b;
+        Executor executor2 = f31896b;
         if (executor2 != null) {
             return executor2;
         }
         synchronized (AegonLoggerDispatcher.class) {
-            if (f31607b == null) {
-                f31607b = Executors.newSingleThreadExecutor();
+            if (f31896b == null) {
+                f31896b = Executors.newSingleThreadExecutor();
             }
-            executor = f31607b;
+            executor = f31896b;
         }
         return executor;
     }
 
     public static void a(a aVar) {
-        f31606a.add(aVar);
+        f31895a.add(aVar);
     }
 
     public static void b(a aVar) {
-        f31606a.remove(aVar);
+        f31895a.remove(aVar);
     }
 
     @Keep
     public static void onConnectionStats(String str) {
         Log.i("AegonLogger", str);
-        if (f31606a.isEmpty()) {
+        if (f31895a.isEmpty()) {
             return;
         }
         Executor a2 = a();
-        Iterator<a> it = f31606a.iterator();
+        Iterator<a> it = f31895a.iterator();
         while (it.hasNext()) {
             a2.execute(b.a(it.next(), str));
         }
@@ -54,11 +54,11 @@ public class AegonLoggerDispatcher {
 
     @Keep
     public static void onRequestFinished(RequestFinishedInfo requestFinishedInfo, String str) {
-        if (f31606a.isEmpty()) {
+        if (f31895a.isEmpty()) {
             return;
         }
         Executor a2 = a();
-        Iterator<a> it = f31606a.iterator();
+        Iterator<a> it = f31895a.iterator();
         while (it.hasNext()) {
             a2.execute(c.a(it.next(), requestFinishedInfo, str));
         }

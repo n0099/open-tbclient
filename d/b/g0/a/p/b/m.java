@@ -9,11 +9,11 @@ import java.util.List;
 public class m implements d.b.g0.i.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<String> f45434a;
+    public SparseArray<String> f45826a;
 
     public m() {
         SparseArray<String> sparseArray = new SparseArray<>();
-        this.f45434a = sparseArray;
+        this.f45826a = sparseArray;
         sparseArray.put(38, DI.BD.FAVOR);
     }
 
@@ -41,7 +41,7 @@ public class m implements d.b.g0.i.b {
         }
         ArrayList arrayList = new ArrayList();
         for (d.b.g0.i.o oVar : list) {
-            if (this.f45434a.get(oVar.c()) != null) {
+            if (this.f45826a.get(oVar.c()) != null) {
                 arrayList.add(oVar);
             }
         }

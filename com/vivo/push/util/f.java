@@ -5,16 +5,16 @@ import java.util.concurrent.ThreadFactory;
 public final class f implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39541a;
+    public final /* synthetic */ String f39830a;
 
     public f(String str) {
-        this.f39541a = str;
+        this.f39830a = str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public final Thread newThread(Runnable runnable) {
         Thread thread = new Thread(runnable);
-        thread.setName(this.f39541a);
+        thread.setName(this.f39830a);
         thread.setDaemon(true);
         return thread;
     }

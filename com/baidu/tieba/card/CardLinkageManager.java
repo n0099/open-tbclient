@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
 import d.b.h0.r.u.c;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,20 +54,20 @@ public enum CardLinkageManager {
                         BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                         if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                             if (baseCardInfo2.isSupportFull()) {
-                                c a2 = c.a(findViewByPosition);
-                                a2.g(0);
-                                a2.h(R.string.J_X06);
-                                a2.c(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                c d2 = c.d(findViewByPosition);
+                                d2.j(0);
+                                d2.k(R.string.J_X06);
+                                d2.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             } else if (baseCardInfo2.isSupportTop()) {
-                                c a3 = c.a(findViewByPosition);
-                                a3.g(1);
-                                a3.h(R.string.J_X06);
-                                a3.c(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                c d3 = c.d(findViewByPosition);
+                                d3.j(1);
+                                d3.k(R.string.J_X06);
+                                d3.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             } else if (baseCardInfo2.isSupportBottom()) {
-                                c a4 = c.a(findViewByPosition);
-                                a4.g(2);
-                                a4.h(R.string.J_X06);
-                                a4.c(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                c d4 = c.d(findViewByPosition);
+                                d4.j(2);
+                                d4.k(R.string.J_X06);
+                                d4.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
                                 SkinManager.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             }

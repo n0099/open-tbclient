@@ -10,7 +10,7 @@ import d.b.g0.a.w0.a;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanJSVersionUpdateEvent {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String TAG = "SwanJSVersionUpdateEven";
     public final long mVersionNum;
     public final String mVersionString;

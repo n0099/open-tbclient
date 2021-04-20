@@ -16,22 +16,22 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import d.b.h0.w.n;
-import d.b.i0.q1.h.e.g;
-import d.b.i0.q1.h.e.h;
+import d.b.i0.r1.h.e.g;
+import d.b.i0.r1.h.e.h;
 /* loaded from: classes3.dex */
 public class TailToolController extends NoPressedLinearLayout implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19018e;
+    public int f18695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f19019f;
+    public h f18696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f19020g;
+    public g f18697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.q1.h.e.b f19021h;
+    public d.b.i0.r1.h.e.b f18698h;
     public Context i;
     public EditorTools j;
     public CustomMessageListener k;
@@ -64,9 +64,9 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && TailToolController.this.f19020g.h()) {
+            if (customResponsedMessage != null && TailToolController.this.f18697g.h()) {
                 TailToolController.this.setVisibility(0);
-                TailToolController.this.f19020g.m(false);
+                TailToolController.this.f18697g.m(false);
             }
         }
     }
@@ -85,7 +85,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     public TailToolController(Context context) {
         super(context);
-        this.f19018e = 0;
+        this.f18695e = 0;
         this.k = new a(2001344);
         this.l = new b(2001348);
         this.m = new c();
@@ -95,7 +95,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
     @Override // d.b.h0.w.n
     public void b() {
         setVisibility(0);
-        this.f19020g.j();
+        this.f18697g.j();
     }
 
     @Override // d.b.h0.w.n
@@ -108,7 +108,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     @Override // d.b.h0.w.n
     public int getToolId() {
-        return this.f19018e;
+        return this.f18695e;
     }
 
     @Override // d.b.h0.w.n
@@ -123,20 +123,20 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     public final void j(Context context) {
         this.i = context;
-        this.f19019f = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
-        this.f19020g = new g(context);
-        d.b.i0.q1.h.e.b bVar = new d.b.i0.q1.h.e.b(context, this.f19020g, this.m);
-        this.f19021h = bVar;
-        this.f19019f.a(bVar);
+        this.f18696f = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
+        this.f18697g = new g(context);
+        d.b.i0.r1.h.e.b bVar = new d.b.i0.r1.h.e.b(context, this.f18697g, this.m);
+        this.f18698h = bVar;
+        this.f18696f.a(bVar);
     }
 
     public final void k() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.i, this.f19020g.i().isEmpty())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.i, this.f18697g.i().isEmpty())));
     }
 
     public final void l() {
         hide();
-        this.f19020g.m(true);
+        this.f18697g.m(true);
     }
 
     public final void m(boolean z) {
@@ -165,7 +165,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.f19020g.k();
+        this.f18697g.k();
         MessageManager.getInstance().registerListener(this.k);
         MessageManager.getInstance().registerListener(this.l);
     }
@@ -177,7 +177,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f19020g.l();
+        this.f18697g.l();
         MessageManager.getInstance().unRegisterListener(this.k);
         MessageManager.getInstance().unRegisterListener(this.l);
     }
@@ -189,12 +189,12 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     @Override // d.b.h0.w.n
     public void setToolId(int i) {
-        this.f19018e = i;
+        this.f18695e = i;
     }
 
     public TailToolController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19018e = 0;
+        this.f18695e = 0;
         this.k = new a(2001344);
         this.l = new b(2001348);
         this.m = new c();

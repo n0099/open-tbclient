@@ -5,54 +5,54 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f30289a = new HashMap();
+    public static final Map<String, Lock> f29974a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ReentrantLock f30290b = new ReentrantLock();
+    public static ReentrantLock f29975b = new ReentrantLock();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30291c;
+    public String f29976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FileLock f30292d;
+    public FileLock f29977d;
 
     public b(String str, FileLock fileLock) {
-        this.f30291c = str;
-        this.f30292d = fileLock;
+        this.f29976c = str;
+        this.f29977d = fileLock;
     }
 
     public static b a(String str) throws Exception {
-        f30290b.lock();
+        f29975b.lock();
         try {
             FileLock a2 = FileLock.a(str);
-            Lock lock = f30289a.get(str);
+            Lock lock = f29974a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f30289a.put(str, lock);
+                f29974a.put(str, lock);
             }
             lock.lock();
             return new b(str, a2);
         } catch (Exception e2) {
-            f30290b.unlock();
+            f29975b.unlock();
             throw e2;
         }
     }
 
     public void a() {
         try {
-            this.f30292d.a();
-            this.f30292d.b();
-            Lock lock = f30289a.get(this.f30291c);
+            this.f29977d.a();
+            this.f29977d.b();
+            Lock lock = f29974a.get(this.f29976c);
             if (lock == null) {
                 return;
             }
             lock.unlock();
         } finally {
-            f30290b.unlock();
+            f29975b.unlock();
         }
     }
 }

@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.tencent.connect.common.Constants;
 import d.b.h0.s.e.e;
-import d.b.i0.c3.z;
+import d.b.i0.d3.z;
 import java.util.Date;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
@@ -28,16 +28,16 @@ public class l {
     public static String a() {
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String o = d.b.h0.r.d0.b.i().o("version_name", "");
+            String p = d.b.h0.r.d0.b.j().p("version_name", "");
             if (TextUtils.isEmpty(versionName)) {
                 return null;
             }
-            if (versionName.equals(o)) {
-                return d.b.h0.r.d0.b.i().o("apk_md5", "");
+            if (versionName.equals(p)) {
+                return d.b.h0.r.d0.b.j().p("apk_md5", "");
             }
-            d.b.h0.r.d0.b.i().w("version_name", versionName);
+            d.b.h0.r.d0.b.j().x("version_name", versionName);
             String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-            d.b.h0.r.d0.b.i().w("apk_md5", aPKMd5);
+            d.b.h0.r.d0.b.j().x("apk_md5", aPKMd5);
             return aPKMd5;
         } catch (PackageManager.NameNotFoundException e2) {
             BdLog.detailException(e2);
@@ -59,14 +59,14 @@ public class l {
             intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             Bundle bundle = new Bundle();
             bundle.putInt("versioncode", versionData.getNewVersionCode());
-            bundle.putLong("patch_size", d.b.b.e.m.b.f(versionData.getPatchSize(), 0L));
+            bundle.putLong("patch_size", d.b.c.e.m.b.f(versionData.getPatchSize(), 0L));
             bundle.putString("patch_url", versionData.getPatch());
             bundle.putString("sname", context.getString(R.string.app_name));
             bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
             bundle.putString("downurl", versionData.getUrl());
             bundle.putString("versionname", versionData.getNewVersion());
             bundle.putString("iconurl", versionData.getTiebaIconUrl());
-            bundle.putString("updatetime", d.b.b.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
+            bundle.putString("updatetime", d.b.c.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
             bundle.putString("size", versionData.getSize());
             bundle.putString("signmd5", str);
             bundle.putString("tj", str + context.getString(R.string.app_name));
@@ -82,14 +82,14 @@ public class l {
             intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             Bundle bundle2 = new Bundle();
             bundle2.putInt("versioncode", versionData.getNewVersionCode());
-            bundle2.putLong("patch_size", d.b.b.e.m.b.f(versionData.getPatchSize(), 0L));
+            bundle2.putLong("patch_size", d.b.c.e.m.b.f(versionData.getPatchSize(), 0L));
             bundle2.putString("patch_url", versionData.getPatch());
             bundle2.putString("sname", context.getString(R.string.app_name));
             bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
             bundle2.putString("downurl", versionData.getUrl());
             bundle2.putString("versionname", versionData.getNewVersion());
             bundle2.putString("iconurl", versionData.getTiebaIconUrl());
-            bundle2.putString("updatetime", d.b.b.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
+            bundle2.putString("updatetime", d.b.c.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
             bundle2.putString("size", versionData.getSize());
             bundle2.putString("signmd5", str);
             bundle2.putString("tj", str + context.getString(R.string.app_name));
@@ -103,14 +103,14 @@ public class l {
         intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
         Bundle bundle22 = new Bundle();
         bundle22.putInt("versioncode", versionData.getNewVersionCode());
-        bundle22.putLong("patch_size", d.b.b.e.m.b.f(versionData.getPatchSize(), 0L));
+        bundle22.putLong("patch_size", d.b.c.e.m.b.f(versionData.getPatchSize(), 0L));
         bundle22.putString("patch_url", versionData.getPatch());
         bundle22.putString("sname", context.getString(R.string.app_name));
         bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
         bundle22.putString("downurl", versionData.getUrl());
         bundle22.putString("versionname", versionData.getNewVersion());
         bundle22.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle22.putString("updatetime", d.b.b.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
+        bundle22.putString("updatetime", d.b.c.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
         bundle22.putString("size", versionData.getSize());
         bundle22.putString("signmd5", str);
         bundle22.putString("tj", str + context.getString(R.string.app_name));
@@ -144,7 +144,7 @@ public class l {
     public static void e() {
         if (TbSingleton.getInstance().getSyncModel() != null) {
             e syncModel = TbSingleton.getInstance().getSyncModel();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().p(), syncModel.h())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().s(), syncModel.j())));
         }
     }
 }

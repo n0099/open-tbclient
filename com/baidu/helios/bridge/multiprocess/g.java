@@ -13,28 +13,28 @@ import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
-import d.b.q.d.a;
-import d.b.q.g.c.a.c;
+import d.b.p.d.a;
+import d.b.p.g.c.a.c;
 /* loaded from: classes2.dex */
 public class g extends a implements IBinder.DeathRecipient {
 
     /* renamed from: g  reason: collision with root package name */
-    public ContentProviderClient f6208g;
+    public ContentProviderClient f6243g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f6209h;
-    public d.b.q.d.d.b i;
+    public e f6244h;
+    public d.b.p.d.d.b i;
     public String j;
 
-    public g(d.b.q.d.d.b bVar, String str) {
+    public g(d.b.p.d.d.b bVar, String str) {
         this.i = bVar;
         this.j = str;
     }
 
     public static Bundle j(a.d dVar) {
         Bundle bundle = new Bundle();
-        bundle.putInt("errcode", dVar.f64265b);
-        bundle.putString("id", dVar.f64264a);
+        bundle.putInt("errcode", dVar.f64959b);
+        bundle.putString("id", dVar.f64958a);
         return bundle;
     }
 
@@ -63,10 +63,10 @@ public class g extends a implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // d.b.q.d.a
+    @Override // d.b.p.d.a
     public void a(String str, Bundle bundle, final a.c<String> cVar) {
         try {
-            this.f6209h.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
+            this.f6244h.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
                 @Override // com.baidu.helios.bridge.multiprocess.f
                 public void a(int i, Bundle bundle2) {
                     cVar.b(i, null, bundle2);
@@ -87,24 +87,24 @@ public class g extends a implements IBinder.DeathRecipient {
         this.i.j();
     }
 
-    @Override // d.b.q.d.a
+    @Override // d.b.p.d.a
     public boolean d(String str) {
         try {
-            return this.f6209h.a(str);
+            return this.f6244h.a(str);
         } catch (RemoteException unused) {
             return false;
         }
     }
 
-    @Override // d.b.q.d.a
+    @Override // d.b.p.d.a
     public void e(a.b bVar) {
-        this.f6209h = p(this.f64257e.f64261c);
+        this.f6244h = p(this.f64951e.f64955c);
     }
 
-    @Override // d.b.q.d.a
+    @Override // d.b.p.d.a
     public a.d f(String str, Bundle bundle) {
         try {
-            Bundle a2 = this.f6209h.a(str, bundle);
+            Bundle a2 = this.f6244h.a(str, bundle);
             if (a2 != null) {
                 return k(a2);
             }
@@ -117,7 +117,7 @@ public class g extends a implements IBinder.DeathRecipient {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f6189a), null, null, null, null);
+            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f6224a), null, null, null, null);
         } catch (Exception unused) {
             cursor = null;
         } catch (Throwable th) {
@@ -161,7 +161,7 @@ public class g extends a implements IBinder.DeathRecipient {
                 bundle = g(acquireContentProviderClient, uri);
             }
             if (bundle != null) {
-                this.f6208g = acquireContentProviderClient;
+                this.f6243g = acquireContentProviderClient;
                 break;
             }
             try {
@@ -178,12 +178,12 @@ public class g extends a implements IBinder.DeathRecipient {
     }
 
     public boolean n() {
-        return this.f6209h != null;
+        return this.f6244h != null;
     }
 
     public final e p(Context context) {
         IBinder o;
-        Bundle i = i(context, false, Uri.parse("content://" + l(context)), BaseIPCProvider.f6190b);
+        Bundle i = i(context, false, Uri.parse("content://" + l(context)), BaseIPCProvider.f6225b);
         StringBuilder sb = new StringBuilder();
         sb.append("remote bridge bundle result is ");
         sb.append(i);

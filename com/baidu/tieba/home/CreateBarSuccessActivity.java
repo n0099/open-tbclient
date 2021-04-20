@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,7 +18,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.CreateBarTipSwitch;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public static final String BAR_NAME_STRING = "barname";
     public NavigationBar mNavigationBar;
@@ -57,7 +58,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Intent intent = new Intent(context, CreateBarSuccessActivity.class);
         intent.putExtra("barname", str);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }

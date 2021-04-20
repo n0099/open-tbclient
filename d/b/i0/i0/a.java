@@ -14,7 +14,7 @@ public class a {
             return;
         }
         a2 n = aVar.n();
-        if (n.y2()) {
+        if (n.z2()) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(n, str));
             return;
         }
@@ -46,7 +46,7 @@ public class a {
         if (aVar == null || aVar.n() == null) {
             return;
         }
-        if (aVar.n().y2()) {
+        if (aVar.n().z2()) {
             t.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(aVar.n(), str));
         } else {
             t.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(aVar.n(), str));

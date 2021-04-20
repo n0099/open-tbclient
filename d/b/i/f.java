@@ -9,9 +9,9 @@ import d.b.h0.r.q.a2;
 /* loaded from: classes.dex */
 public class f extends c implements p<a2>, q {
     public final CardForumHeadLayout i;
-    public int j = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-    public int k = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-    public int l = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+    public int j = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+    public int k = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+    public int l = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
 
     public f(TbPageContext tbPageContext) {
         this.i = new CardForumHeadLayout(tbPageContext.getPageActivity());

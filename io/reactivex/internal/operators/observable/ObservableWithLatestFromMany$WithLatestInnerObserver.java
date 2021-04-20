@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -20,17 +20,17 @@ public final class ObservableWithLatestFromMany$WithLatestInnerObserver extends 
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.parent.innerComplete(this.index, this.hasValue);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.parent.innerError(this.index, th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(Object obj) {
         if (!this.hasValue) {
             this.hasValue = true;
@@ -38,7 +38,7 @@ public final class ObservableWithLatestFromMany$WithLatestInnerObserver extends 
         this.parent.innerNext(this.index, obj);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }

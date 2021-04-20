@@ -12,7 +12,7 @@ public class c extends a {
     @Override // d.b.g0.a.f1.h.a
     public boolean a(Bitmap bitmap, Rect rect) {
         Set<Integer> set;
-        if (a.f44447c) {
+        if (a.f44839c) {
             Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
         }
         if (bitmap == null) {
@@ -24,7 +24,7 @@ public class c extends a {
         try {
             int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
             boolean z = pixel == -1 || pixel == -657931;
-            if (!z && (set = this.f44449b) != null) {
+            if (!z && (set = this.f44841b) != null) {
                 Iterator<Integer> it = set.iterator();
                 while (true) {
                     if (it.hasNext()) {
@@ -41,21 +41,21 @@ public class c extends a {
                 for (int i = rect.left + 1; i < rect.right - 1; i++) {
                     for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
                         if (pixel != bitmap.getPixel(i, i2)) {
-                            if (k.f45051a) {
+                            if (k.f45443a) {
                                 Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
                             }
                             return false;
                         }
                     }
                 }
-                if (a.f44447c) {
+                if (a.f44839c) {
                     Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
                 }
                 return true;
             }
             return false;
         } catch (IllegalArgumentException e2) {
-            if (a.f44447c) {
+            if (a.f44839c) {
                 Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
                 e2.printStackTrace();
             }

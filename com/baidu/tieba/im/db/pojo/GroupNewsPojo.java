@@ -10,7 +10,7 @@ import com.baidu.tieba.im.model.ModelHelper;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupNewsPojo implements Serializable {
     public static final int hide = 3;
     public static final int read = 2;

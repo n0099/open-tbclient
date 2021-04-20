@@ -29,7 +29,7 @@ public final class ULongProgressionIterator extends ULongIterator {
             z = false;
         }
         this.hasNext = z;
-        this.step = ULong.m782constructorimpl(j3);
+        this.step = ULong.m786constructorimpl(j3);
         this.next = this.hasNext ? j : this.finalElement;
     }
 
@@ -48,7 +48,7 @@ public final class ULongProgressionIterator extends ULongIterator {
                 throw new NoSuchElementException();
             }
         } else {
-            this.next = ULong.m782constructorimpl(this.step + j);
+            this.next = ULong.m786constructorimpl(this.step + j);
         }
         return j;
     }

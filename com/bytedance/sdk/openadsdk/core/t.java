@@ -9,20 +9,20 @@ import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static t f28630a;
+    public static t f28315a;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f28632c = false;
+    public volatile boolean f28317c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28633d = null;
+    public String f28318d = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.m.b.b.d.b f28631b = d.m.b.b.d.c.a(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, d());
+    public d.m.b.b.d.b f28316b = d.m.b.b.d.c.a(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, d());
 
     public t() {
         if (TextUtils.isEmpty(i.d().g())) {
@@ -30,18 +30,18 @@ public class t {
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(Constants.APP_ID, i.d().g());
-        this.f28631b.setCustomInfo(hashMap);
+        this.f28316b.setCustomInfo(hashMap);
     }
 
     public static t b() {
-        if (f28630a == null) {
+        if (f28315a == null) {
             synchronized (t.class) {
-                if (f28630a == null) {
-                    f28630a = new t();
+                if (f28315a == null) {
+                    f28315a = new t();
                 }
             }
         }
-        return f28630a;
+        return f28315a;
     }
 
     private d.m.b.b.d.a d() {
@@ -101,7 +101,7 @@ public class t {
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) == null) {
                     return null;
                 } else {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30398b);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30083b);
                 }
             }
 
@@ -116,19 +116,19 @@ public class t {
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) == null) {
                     return null;
                 } else {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30397a);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30082a);
                 }
             }
         };
     }
 
     public String a() {
-        return this.f28631b.onEvent();
+        return this.f28316b.onEvent();
     }
 
     public String c() {
         try {
-            String pullSg = this.f28631b.pullSg();
+            String pullSg = this.f28316b.pullSg();
             if (d(pullSg)) {
                 return pullSg.toUpperCase();
             }
@@ -143,14 +143,14 @@ public class t {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f28633d = str;
-        this.f28631b.setParams(str, null);
+        this.f28318d = str;
+        this.f28316b.setParams(str, null);
         if (TextUtils.isEmpty(i.d().g())) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(Constants.APP_ID, i.d().g());
-        this.f28631b.setCustomInfo(hashMap);
+        this.f28316b.setCustomInfo(hashMap);
     }
 
     private boolean d(String str) {
@@ -167,11 +167,11 @@ public class t {
     }
 
     public void b(@NonNull String str) {
-        if (this.f28632c) {
+        if (this.f28317c) {
             return;
         }
-        this.f28631b.reportNow(str);
-        this.f28632c = true;
+        this.f28316b.reportNow(str);
+        this.f28317c = true;
     }
 
     public String c(String str) {
@@ -179,6 +179,6 @@ public class t {
             return "";
         }
         String a2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
-        return TextUtils.isEmpty(a2) ? "" : this.f28631b.pullVer(a2);
+        return TextUtils.isEmpty(a2) ? "" : this.f28316b.pullVer(a2);
     }
 }

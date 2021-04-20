@@ -10,6 +10,8 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class BigDecimalCodec implements ObjectSerializer, ObjectDeserializer {
+    public static final BigDecimal LOW = BigDecimal.valueOf(-9007199254740991L);
+    public static final BigDecimal HIGH = BigDecimal.valueOf(9007199254740991L);
     public static final BigDecimalCodec instance = new BigDecimalCodec();
 
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
@@ -35,10 +37,15 @@ public class BigDecimalCodec implements ObjectSerializer, ObjectDeserializer {
             return;
         }
         BigDecimal bigDecimal2 = (BigDecimal) obj;
-        if (serializeWriter.isEnabled(SerializerFeature.WriteBigDecimalAsPlain)) {
+        int scale = bigDecimal2.scale();
+        if (SerializerFeature.isEnabled(i, serializeWriter.features, SerializerFeature.WriteBigDecimalAsPlain) && scale >= -100 && scale < 100) {
             bigDecimal = bigDecimal2.toPlainString();
         } else {
             bigDecimal = bigDecimal2.toString();
+        }
+        if (scale == 0 && bigDecimal.length() >= 16 && SerializerFeature.isEnabled(i, serializeWriter.features, SerializerFeature.BrowserCompatible) && (bigDecimal2.compareTo(LOW) < 0 || bigDecimal2.compareTo(HIGH) > 0)) {
+            serializeWriter.writeString(bigDecimal);
+            return;
         }
         serializeWriter.write(bigDecimal);
         if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) && type != BigDecimal.class && bigDecimal2.scale() == 0) {

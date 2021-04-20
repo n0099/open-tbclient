@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.a0.a;
-import f.a.g;
-import f.a.x.c.f;
+import f.b.a0.a;
+import f.b.g;
+import f.b.x.c.f;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
@@ -63,11 +63,11 @@ public final class FlowableSwitchMap$SwitchMapInnerSubscriber<T, R> extends Atom
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;

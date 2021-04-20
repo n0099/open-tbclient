@@ -5,10 +5,10 @@ import com.baidu.platform.comapi.walknavi.g.a;
 public class f implements a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f10044a;
+    public final /* synthetic */ b f9602a;
 
     public f(b bVar) {
-        this.f10044a = bVar;
+        this.f9602a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.a.b
@@ -20,6 +20,6 @@ public class f implements a.b {
             }
             return;
         }
-        this.f10044a.s();
+        this.f9602a.s();
     }
 }

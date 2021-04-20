@@ -1,21 +1,21 @@
 package d.b.h0.r.g0.b;
 
 import com.baidu.tieba.R;
-import d.b.b.e.q.h;
+import d.b.c.e.q.h;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50587a = null;
+    public String f50994a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50588b = null;
+    public String f50995b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50589c = 0;
+    public int f50996c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50590d = null;
+    public String f50997d = null;
 
     public static String a(int i) {
         switch (i) {

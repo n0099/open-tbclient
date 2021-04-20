@@ -12,62 +12,62 @@ import java.util.List;
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public BaiduMap f48840e;
+    public BaiduMap f49232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<OverlayOptions> f48841f;
+    public List<OverlayOptions> f49233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Overlay> f48842g;
+    public List<Overlay> f49234g;
 
     public c(BaiduMap baiduMap) {
-        this.f48840e = null;
-        this.f48841f = null;
-        this.f48842g = null;
-        this.f48840e = baiduMap;
+        this.f49232e = null;
+        this.f49233f = null;
+        this.f49234g = null;
+        this.f49232e = baiduMap;
         if (0 == 0) {
-            this.f48841f = new ArrayList();
+            this.f49233f = new ArrayList();
         }
-        if (this.f48842g == null) {
-            this.f48842g = new ArrayList();
+        if (this.f49234g == null) {
+            this.f49234g = new ArrayList();
         }
     }
 
     public final void a() {
-        if (this.f48840e == null) {
+        if (this.f49232e == null) {
             return;
         }
         c();
         if (b() != null) {
-            this.f48841f.addAll(b());
+            this.f49233f.addAll(b());
         }
-        for (OverlayOptions overlayOptions : this.f48841f) {
-            this.f48842g.add(this.f48840e.addOverlay(overlayOptions));
+        for (OverlayOptions overlayOptions : this.f49233f) {
+            this.f49234g.add(this.f49232e.addOverlay(overlayOptions));
         }
     }
 
     public abstract List<OverlayOptions> b();
 
     public final void c() {
-        if (this.f48840e == null) {
+        if (this.f49232e == null) {
             return;
         }
-        for (Overlay overlay : this.f48842g) {
+        for (Overlay overlay : this.f49234g) {
             overlay.remove();
         }
-        this.f48841f.clear();
-        this.f48842g.clear();
+        this.f49233f.clear();
+        this.f49234g.clear();
     }
 
     public void d() {
-        if (this.f48840e != null && this.f48842g.size() > 0) {
+        if (this.f49232e != null && this.f49234g.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.f48842g) {
+            for (Overlay overlay : this.f49234g) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.f48840e.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.f49232e.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

@@ -10,7 +10,7 @@ import d.b.g0.a.e0.l.f;
 import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/startPullDownRefresh");
@@ -19,7 +19,7 @@ public class a extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (eVar != null && eVar.Z()) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
@@ -36,13 +36,13 @@ public class a extends a0 {
             return false;
         } else {
             d.b.g0.a.e0.l.e eVar2 = (d.b.g0.a.e0.l.e) W.m();
-            if (eVar2.Y() == null) {
+            if (eVar2.b0() == null) {
                 c.b("startPullDownRefresh", "view is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             c.g("startPullDownRefresh", "start pull refresh");
-            eVar2.Y().k(true, 100L);
+            eVar2.b0().k(true, 100L);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

@@ -44,7 +44,7 @@ public class e extends d.b.g0.a.e0.l.i {
 
     public final void N2() {
         d.b.g0.a.m.a c2;
-        if (f.f45697d.b() || (c2 = f.f45697d.c()) == null) {
+        if (f.f46089d.b() || (c2 = f.f46089d.c()) == null) {
             return;
         }
         c2.onResult(-2);
@@ -89,7 +89,7 @@ public class e extends d.b.g0.a.e0.l.i {
         d.b.g0.a.p.d.e n = n();
         this.y0 = n;
         n.P(G2());
-        this.z0 = this.y0.getWebView();
+        this.z0 = this.y0.F();
         this.y0.loadUrl(this.A0);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(d.b.g0.a.f.aiapps_webView_container);
         this.y0.m(frameLayout, this.z0.covertToView());

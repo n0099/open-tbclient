@@ -11,38 +11,38 @@ import java.util.List;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f49896c;
+    public final RectF f50289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f49897d;
+    public final int f50290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f49898e;
+    public final int f50291e;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f49901h;
+    public final int f50294h;
     public a i;
     public final Rect j;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RectF f49894a = new RectF();
+    public final RectF f50287a = new RectF();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Rect f49895b = new Rect();
+    public final Rect f50288b = new Rect();
 
     /* renamed from: f  reason: collision with root package name */
-    public float f49899f = 1.0f;
+    public float f50292f = 1.0f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<a> f49900g = new ArrayList();
+    public final List<a> f50293g = new ArrayList();
     public final Matrix k = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.f49898e = i2;
-        this.f49897d = i;
-        this.f49896c = new RectF(0.0f, 0.0f, i, i2);
+        this.f50291e = i2;
+        this.f50290d = i;
+        this.f50289c = new RectF(0.0f, 0.0f, i, i2);
         this.j = new Rect(0, 0, iArr[0], iArr[1]);
-        this.f49901h = i / 2;
+        this.f50294h = i / 2;
     }
 
     public void a(Rect rect) {
@@ -66,21 +66,21 @@ public class b {
 
     public boolean b(int i, int i2, int i3) {
         if (i3 == k()) {
-            return j(i, i2, i3).intersect(this.f49895b);
+            return j(i, i2, i3).intersect(this.f50288b);
         }
         return false;
     }
 
     public a c() {
-        return new a(this.f49901h);
+        return new a(this.f50294h);
     }
 
     public List<a> d() {
-        return this.f49900g;
+        return this.f50293g;
     }
 
     public int e() {
-        return this.f49901h;
+        return this.f50294h;
     }
 
     public Rect f() {
@@ -95,15 +95,15 @@ public class b {
     }
 
     public int h() {
-        return this.f49898e;
+        return this.f50291e;
     }
 
     public int i() {
-        return this.f49897d;
+        return this.f50290d;
     }
 
     public Rect j(int i, int i2, int i3) {
-        int i4 = this.f49901h;
+        int i4 = this.f50294h;
         int i5 = i4 * i3 * i2;
         int i6 = i4 * i3 * i;
         return new Rect(i5, i6, (i3 * i4) + i5, (i3 * i4) + i6);
@@ -111,21 +111,21 @@ public class b {
 
     public int k() {
         int i = 1;
-        while (i < Math.round(this.f49899f)) {
+        while (i < Math.round(this.f50292f)) {
             i *= 2;
         }
         return i;
     }
 
     public float l() {
-        return this.f49899f;
+        return this.f50292f;
     }
 
     public Point[] m() {
         o();
         int k = k();
-        Rect rect = this.f49895b;
-        int i = this.f49901h;
+        Rect rect = this.f50288b;
+        int i = this.f50294h;
         int i2 = (rect.top / k) / i;
         int i3 = (rect.left / k) / i;
         Point point = new Point();
@@ -142,9 +142,9 @@ public class b {
     }
 
     public Rect o() {
-        this.k.mapRect(this.f49894a, this.f49896c);
-        u(this.f49895b, this.f49894a);
-        return this.f49895b;
+        this.k.mapRect(this.f50287a, this.f50289c);
+        u(this.f50288b, this.f50287a);
+        return this.f50288b;
     }
 
     public void p(float f2, float f3) {
@@ -160,14 +160,14 @@ public class b {
     }
 
     public void s(float f2) {
-        this.f49899f = f2;
+        this.f50292f = f2;
     }
 
     public void t(Bitmap bitmap) {
         if (bitmap != null) {
             a aVar = new a(bitmap);
             this.i = aVar;
-            aVar.i(0, 0, this.f49897d, this.f49898e);
+            aVar.i(0, 0, this.f50290d, this.f50291e);
         }
     }
 

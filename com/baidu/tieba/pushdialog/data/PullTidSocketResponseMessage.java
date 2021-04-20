@@ -3,7 +3,7 @@ package com.baidu.tieba.pushdialog.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import tbclient.GetLockWindowTid.GetLockWindowTidResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PullTidSocketResponseMessage extends SocketResponsedMessage {
     public String tid;
 
@@ -19,7 +19,7 @@ public class PullTidSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         try {
-            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20621a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20313a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
         } catch (Throwable unused) {
         }
     }

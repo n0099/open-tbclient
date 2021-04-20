@@ -2,34 +2,34 @@ package d.c.d.b.a;
 
 import d.c.d.b.h.h;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f65783e;
+    public final c f66628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f65784f = false;
+    public volatile boolean f66629f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f65785g = new a();
+    public Runnable f66630g = new a();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f65784f = false;
+            d.this.f66629f = false;
         }
     }
 
     public d(c cVar) {
-        this.f65783e = cVar;
+        this.f66628e = cVar;
         a();
         h.a(2L);
-        d.c.d.b.h.g.a().b(4500L, this.f65785g);
+        d.c.d.b.h.g.a().b(4500L, this.f66630g);
         d.c.d.b.h.g.a().c(5000L, this, 40, 5000L);
     }
 
@@ -50,7 +50,7 @@ public class d implements Runnable {
     public void run() {
         String str;
         int i;
-        if (this.f65784f) {
+        if (this.f66629f) {
             return;
         }
         if (c()) {
@@ -60,8 +60,8 @@ public class d implements Runnable {
             str = null;
             i = 100;
         }
-        if (this.f65783e.e(i, str, 25)) {
-            this.f65784f = true;
+        if (this.f66628e.e(i, str, 25)) {
+            this.f66629f = true;
         }
     }
 }

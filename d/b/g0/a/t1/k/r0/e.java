@@ -9,21 +9,21 @@ import d.b.g0.a.t1.k.a0;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class e extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.e0.n.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f46559a;
+        public final /* synthetic */ d f46951a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46560b;
+        public final /* synthetic */ CallbackHandler f46952b;
 
         public a(d dVar, CallbackHandler callbackHandler) {
-            this.f46559a = dVar;
-            this.f46560b = callbackHandler;
+            this.f46951a = dVar;
+            this.f46952b = callbackHandler;
         }
 
         @Override // d.b.g0.a.e0.n.d
@@ -32,8 +32,8 @@ public abstract class e extends a0 {
 
         @Override // d.b.g0.a.e0.n.d
         public boolean b(String str) {
-            if (e.this.l(str, this.f46559a.r)) {
-                e.this.k(str, this.f46560b, this.f46559a.i);
+            if (e.this.l(str, this.f46951a.r)) {
+                e.this.k(str, this.f46952b, this.f46951a.i);
                 return true;
             }
             return false;
@@ -61,7 +61,7 @@ public abstract class e extends a0 {
         try {
             jSONObject.put("url", str);
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
         }
@@ -81,6 +81,6 @@ public abstract class e extends a0 {
     }
 
     public void m(CallbackHandler callbackHandler, SwanAppSlaveManager swanAppSlaveManager, d dVar) {
-        swanAppSlaveManager.g1(new a(dVar, callbackHandler));
+        swanAppSlaveManager.h1(new a(dVar, callbackHandler));
     }
 }

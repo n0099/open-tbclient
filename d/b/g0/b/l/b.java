@@ -11,7 +11,7 @@ import java.util.List;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47330a = k.f45051a;
+    public static final boolean f47722a = k.f45443a;
 
     static {
         try {
@@ -34,7 +34,7 @@ public class b extends g {
         String str2 = "";
         try {
             str2 = CookieManager.getInstance().getCookie(str);
-            if (f47330a) {
+            if (f47722a) {
                 Log.d("RealCookieManager", "RealCookieManager:" + str2);
             }
         } catch (Exception unused) {
@@ -54,7 +54,7 @@ public class b extends g {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public void storeCookie(String str, List<String> list) {
-        if (f47330a) {
+        if (f47722a) {
             Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
             Log.d("RealCookieManager", "storeCookie cookies: " + list);
         }

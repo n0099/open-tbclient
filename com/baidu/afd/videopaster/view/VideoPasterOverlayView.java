@@ -13,23 +13,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class VideoPasterOverlayView extends FrameLayout {
     public static final int w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds22);
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f2493e;
+    public TextView f2528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f2494f;
+    public TextView f2529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f2495g;
+    public TextView f2530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f2496h;
+    public View f2531h;
     public View i;
     public ImageView j;
     public boolean k;
@@ -42,7 +42,7 @@ public class VideoPasterOverlayView extends FrameLayout {
     public int r;
     public String s;
     public boolean t;
-    public d.b.c.m.e.a u;
+    public d.b.d.m.e.a u;
     public View.OnClickListener v;
 
     /* loaded from: classes.dex */
@@ -67,7 +67,7 @@ public class VideoPasterOverlayView extends FrameLayout {
                 }
             } else if (view.getId() == R.id.video_paster_mask_wrapper) {
                 if (VideoPasterOverlayView.this.m != null) {
-                    VideoPasterOverlayView.this.m.e();
+                    VideoPasterOverlayView.this.m.onClickAd();
                     VideoPasterOverlayView.this.t = true;
                 }
             } else if (view.getId() != R.id.video_paster_mask_back || VideoPasterOverlayView.this.m == null) {
@@ -87,7 +87,7 @@ public class VideoPasterOverlayView extends FrameLayout {
 
         void d();
 
-        void e();
+        void onClickAd();
     }
 
     public VideoPasterOverlayView(@NonNull Context context) {
@@ -102,16 +102,16 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.o = e(context);
         View inflate = LayoutInflater.from(context).inflate(R.layout.video_paster_overlay_layout, (ViewGroup) null);
         this.i = inflate;
-        this.f2496h = inflate.findViewById(R.id.video_paster_mask_wrapper);
-        this.f2493e = (TextView) this.i.findViewById(R.id.video_paster_overlay_title);
-        this.f2494f = (TextView) this.i.findViewById(R.id.video_paster_overlay_time_and_close);
-        this.f2495g = (TextView) this.i.findViewById(R.id.video_paster_overlay_detail);
+        this.f2531h = inflate.findViewById(R.id.video_paster_mask_wrapper);
+        this.f2528e = (TextView) this.i.findViewById(R.id.video_paster_overlay_title);
+        this.f2529f = (TextView) this.i.findViewById(R.id.video_paster_overlay_time_and_close);
+        this.f2530g = (TextView) this.i.findViewById(R.id.video_paster_overlay_detail);
         this.j = (ImageView) this.i.findViewById(R.id.video_paster_mask_back);
-        this.f2495g.setOnClickListener(this.v);
-        this.f2494f.setOnClickListener(this.v);
-        this.f2496h.setOnClickListener(this.v);
+        this.f2530g.setOnClickListener(this.v);
+        this.f2529f.setOnClickListener(this.v);
+        this.f2531h.setOnClickListener(this.v);
         this.j.setOnClickListener(this.v);
-        this.f2493e.setOnClickListener(this.v);
+        this.f2528e.setOnClickListener(this.v);
     }
 
     private String getNavBarOverride() {
@@ -126,16 +126,16 @@ public class VideoPasterOverlayView extends FrameLayout {
 
     public final void c() {
         this.j.setVisibility(0);
-        this.f2494f.setPadding(w, 0, 0, 0);
-        this.f2495g.setPadding(0, 0, w, 0);
+        this.f2529f.setPadding(w, 0, 0, 0);
+        this.f2530g.setPadding(0, 0, w, 0);
         this.i.setPadding(0, 0, 0, 0);
         p();
     }
 
     public final void d() {
         this.j.setVisibility(8);
-        this.f2494f.setPadding(0, 0, 0, 0);
-        this.f2495g.setPadding(0, 0, 0, 0);
+        this.f2529f.setPadding(0, 0, 0, 0);
+        this.f2530g.setPadding(0, 0, 0, 0);
         boolean f2 = f(this.n);
         if (this.k && this.l && f2) {
             this.i.setPadding(0, 0, 0, this.o);
@@ -241,15 +241,15 @@ public class VideoPasterOverlayView extends FrameLayout {
     public void m() {
     }
 
-    public void n(d.b.c.m.e.a aVar, boolean z, boolean z2) {
+    public void n(d.b.d.m.e.a aVar, boolean z, boolean z2) {
         if (aVar == null) {
             return;
         }
         this.u = aVar;
         this.k = z;
         this.l = z2;
-        this.f2493e.setText(aVar.f42521h);
-        this.f2495g.setText(aVar.b());
+        this.f2528e.setText(aVar.f43111h);
+        this.f2530g.setText(aVar.b());
         if (z && !z2) {
             c();
         } else {
@@ -274,10 +274,10 @@ public class VideoPasterOverlayView extends FrameLayout {
 
     public final void p() {
         Context context = this.n;
-        if (context == null || this.f2496h == null || !f(context)) {
+        if (context == null || this.f2531h == null || !f(context)) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2496h.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2531h.getLayoutParams();
         if (this.k) {
             if (this.l) {
                 layoutParams.setMargins(0, 0, 0, this.o);
@@ -288,18 +288,18 @@ public class VideoPasterOverlayView extends FrameLayout {
         } else {
             layoutParams.setMargins(0, 0, 0, 0);
         }
-        this.f2496h.setLayoutParams(layoutParams);
+        this.f2531h.setLayoutParams(layoutParams);
     }
 
     public void setCountDownNum(int i) {
         String str;
-        if (this.f2494f != null && i > 0) {
+        if (this.f2529f != null && i > 0) {
             if (i < 10) {
                 str = "0" + i;
             } else {
                 str = "" + i;
             }
-            this.f2494f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
+            this.f2529f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
         }
     }
 

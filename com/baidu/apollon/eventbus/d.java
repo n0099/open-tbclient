@@ -5,14 +5,14 @@ import com.baidu.apollon.eventbus.EventBus;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public EventBus.Event f3616a;
+    public EventBus.Event f3651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f3617b;
+    public g f3652b;
 
     public d(EventBus.Event event, g gVar) {
-        this.f3616a = event;
-        this.f3617b = gVar;
+        this.f3651a = event;
+        this.f3652b = gVar;
     }
 
     public static d a(g gVar, EventBus.Event event) {

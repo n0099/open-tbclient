@@ -18,47 +18,47 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class b implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39355a = new Object();
+    public static final Object f39644a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, b> f39356b = new HashMap();
+    public static Map<String, b> f39645b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39357c;
+    public boolean f39646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39358d;
+    public String f39647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39359e;
+    public Context f39648e;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile IPCInvoke f39361g;
+    public volatile IPCInvoke f39650g;
     public String i;
     public Handler j;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f39362h = new Object();
+    public Object f39651h = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f39360f = new AtomicInteger(1);
+    public AtomicInteger f39649f = new AtomicInteger(1);
 
     public b(Context context, String str) {
-        this.f39358d = null;
+        this.f39647d = null;
         this.j = null;
-        this.f39359e = context;
+        this.f39648e = context;
         this.i = str;
         this.j = new Handler(Looper.getMainLooper(), new c(this));
         String b2 = com.vivo.push.util.s.b(context);
-        this.f39358d = b2;
+        this.f39647d = b2;
         if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(this.i)) {
-            this.f39357c = com.vivo.push.util.z.a(context, this.f39358d) >= 1260;
+            this.f39646c = com.vivo.push.util.z.a(context, this.f39647d) >= 1260;
             b();
             return;
         }
-        Context context2 = this.f39359e;
-        com.vivo.push.util.p.c(context2, "init error : push pkgname is " + this.f39358d + " ; action is " + this.i);
-        this.f39357c = false;
+        Context context2 = this.f39648e;
+        com.vivo.push.util.p.c(context2, "init error : push pkgname is " + this.f39647d + " ; action is " + this.i);
+        this.f39646c = false;
     }
 
     private void d() {
@@ -68,7 +68,7 @@ public final class b implements ServiceConnection {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         try {
-            this.f39359e.unbindService(this);
+            this.f39648e.unbindService(this);
         } catch (Exception e2) {
             com.vivo.push.util.p.a("AidlManager", "On unBindServiceException:" + e2.getMessage());
         }
@@ -82,37 +82,37 @@ public final class b implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         d();
-        this.f39361g = IPCInvoke.Stub.asInterface(iBinder);
-        if (this.f39361g == null) {
+        this.f39650g = IPCInvoke.Stub.asInterface(iBinder);
+        if (this.f39650g == null) {
             com.vivo.push.util.p.d("AidlManager", "onServiceConnected error : aidl must not be null.");
             e();
-            this.f39360f.set(1);
+            this.f39649f.set(1);
             return;
         }
-        if (this.f39360f.get() == 2) {
+        if (this.f39649f.get() == 2) {
             a(4);
-        } else if (this.f39360f.get() != 4) {
+        } else if (this.f39649f.get() != 4) {
             e();
         }
-        synchronized (this.f39362h) {
-            this.f39362h.notifyAll();
+        synchronized (this.f39651h) {
+            this.f39651h.notifyAll();
         }
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f39361g = null;
+        this.f39650g = null;
         a(1);
     }
 
     public static b a(Context context, String str) {
-        b bVar = f39356b.get(str);
+        b bVar = f39645b.get(str);
         if (bVar == null) {
-            synchronized (f39355a) {
-                bVar = f39356b.get(str);
+            synchronized (f39644a) {
+                bVar = f39645b.get(str);
                 if (bVar == null) {
                     bVar = new b(context, str);
-                    f39356b.put(str, bVar);
+                    f39645b.put(str, bVar);
                 }
             }
         }
@@ -120,9 +120,9 @@ public final class b implements ServiceConnection {
     }
 
     private void b() {
-        int i = this.f39360f.get();
+        int i = this.f39649f.get();
         com.vivo.push.util.p.d("AidlManager", "Enter connect, Connection Status: " + i);
-        if (i == 4 || i == 2 || i == 3 || i == 5 || !this.f39357c) {
+        if (i == 4 || i == 2 || i == 3 || i == 5 || !this.f39646c) {
             return;
         }
         a(2);
@@ -137,9 +137,9 @@ public final class b implements ServiceConnection {
 
     private boolean c() {
         Intent intent = new Intent(this.i);
-        intent.setPackage(this.f39358d);
+        intent.setPackage(this.f39647d);
         try {
-            return this.f39359e.bindService(intent, this, 1);
+            return this.f39648e.bindService(intent, this, 1);
         } catch (Exception e2) {
             com.vivo.push.util.p.a("AidlManager", "bind core error", e2);
             return false;
@@ -147,46 +147,46 @@ public final class b implements ServiceConnection {
     }
 
     public final boolean a() {
-        String b2 = com.vivo.push.util.s.b(this.f39359e);
-        this.f39358d = b2;
+        String b2 = com.vivo.push.util.s.b(this.f39648e);
+        this.f39647d = b2;
         if (TextUtils.isEmpty(b2)) {
-            com.vivo.push.util.p.c(this.f39359e, "push pkgname is null");
+            com.vivo.push.util.p.c(this.f39648e, "push pkgname is null");
             return false;
         }
-        boolean z = com.vivo.push.util.z.a(this.f39359e, this.f39358d) >= 1260;
-        this.f39357c = z;
+        boolean z = com.vivo.push.util.z.a(this.f39648e, this.f39647d) >= 1260;
+        this.f39646c = z;
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        this.f39360f.set(i);
+        this.f39649f.set(i);
     }
 
     public final boolean a(Bundle bundle) {
         b();
-        if (this.f39360f.get() == 2) {
-            synchronized (this.f39362h) {
+        if (this.f39649f.get() == 2) {
+            synchronized (this.f39651h) {
                 try {
-                    this.f39362h.wait(2000L);
+                    this.f39651h.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
             }
         }
         try {
-            int i = this.f39360f.get();
+            int i = this.f39649f.get();
             if (i == 4) {
                 this.j.removeMessages(2);
                 this.j.sendEmptyMessageDelayed(2, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
-                this.f39361g.asyncCall(bundle, null);
+                this.f39650g.asyncCall(bundle, null);
                 return true;
             }
             com.vivo.push.util.p.d("AidlManager", "invoke error : connect status = " + i);
             return false;
         } catch (Exception e3) {
             com.vivo.push.util.p.a("AidlManager", "invoke error ", e3);
-            int i2 = this.f39360f.get();
+            int i2 = this.f39649f.get();
             com.vivo.push.util.p.d("AidlManager", "Enter disconnect, Connection Status: " + i2);
             if (i2 == 2) {
                 d();

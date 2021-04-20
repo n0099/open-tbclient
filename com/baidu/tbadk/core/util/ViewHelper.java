@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
-import d.b.b.e.k.a;
+import d.b.c.e.k.a;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ViewHelper {

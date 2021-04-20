@@ -9,7 +9,7 @@ import d.b.g0.g.d.g.g;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f48032a;
+    public static volatile d f48424a;
 
     public static int a(byte[] bArr) {
         if (bArr != null) {
@@ -34,14 +34,14 @@ public class d {
     }
 
     public static d f() {
-        if (f48032a == null) {
+        if (f48424a == null) {
             synchronized (d.class) {
-                if (f48032a == null) {
-                    f48032a = new d();
+                if (f48424a == null) {
+                    f48424a = new d();
                 }
             }
         }
-        return f48032a;
+        return f48424a;
     }
 
     public static byte[] g(int i) {
@@ -67,7 +67,7 @@ public class d {
             }
             return d.b.g0.g.d.h.b.b(a2);
         } catch (Exception e2) {
-            if (a.f48028a) {
+            if (a.f48420a) {
                 e2.printStackTrace();
                 Log.d("BDTLS", "exception=" + e2.getMessage());
                 return null;
@@ -85,7 +85,7 @@ public class d {
                 Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.e());
                 if (parseFrom != null) {
                     String str = new String(parseFrom.getDescription().toByteArray());
-                    if (a.f48028a) {
+                    if (a.f48420a) {
                         Log.d("BDTLS", "bdtls ubc application alert : " + str);
                     }
                     f.b(gVar, parseFrom);
@@ -96,12 +96,12 @@ public class d {
                     } else {
                         fVar.d(-1);
                     }
-                    if (a.f48028a) {
+                    if (a.f48420a) {
                         if (parseFrom.getDescription() != null) {
-                            if (a.f48028a) {
+                            if (a.f48420a) {
                                 Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
                             }
-                        } else if (a.f48028a) {
+                        } else if (a.f48420a) {
                             Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
                         }
                     }
@@ -113,7 +113,7 @@ public class d {
                 fVar.d(1);
             }
         } catch (Exception e2) {
-            if (a.f48028a) {
+            if (a.f48420a) {
                 e2.printStackTrace();
                 Log.d("BDTLS", "exception=" + e2.getMessage());
             }
@@ -137,7 +137,7 @@ public class d {
             a2.m(b2);
             return d.b.g0.g.d.h.b.b(a2);
         } catch (Exception e2) {
-            if (a.f48028a) {
+            if (a.f48420a) {
                 e2.printStackTrace();
                 Log.d("BDTLS", "exception=" + e2.getMessage());
             }

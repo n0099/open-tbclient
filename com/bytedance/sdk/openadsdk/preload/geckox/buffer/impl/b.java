@@ -4,45 +4,45 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public RandomAccessFile f30238a;
+    public RandomAccessFile f29923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f30239b = new AtomicBoolean(false);
+    public AtomicBoolean f29924b = new AtomicBoolean(false);
 
     /* renamed from: c  reason: collision with root package name */
-    public File f30240c;
+    public File f29925c;
 
     public b(File file) throws IOException {
-        this.f30240c = file;
+        this.f29925c = file;
         file.getParentFile().mkdirs();
         try {
-            this.f30238a = new RandomAccessFile(file, "rw");
+            this.f29923a = new RandomAccessFile(file, "rw");
         } catch (Exception e2) {
-            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f30238a);
+            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f29923a);
             throw new IOException("create raf mSwap failed! path: " + file.getAbsolutePath() + " caused by: " + e2.getMessage(), e2);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void a() throws IOException {
-        if (this.f30239b.get()) {
+        if (this.f29924b.get()) {
             throw new IOException("released!");
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public long b() throws IOException {
-        return this.f30238a.length();
+        return this.f29923a.length();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public long c() throws IOException {
-        if (!this.f30239b.get()) {
-            return this.f30238a.getFilePointer();
+        if (!this.f29924b.get()) {
+            return this.f29923a.getFilePointer();
         }
         throw new IOException("released!");
     }
@@ -58,24 +58,24 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void e() {
-        if (this.f30239b.getAndSet(true)) {
+        if (this.f29924b.getAndSet(true)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f30238a);
+        com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f29923a);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public File f() {
-        return this.f30240c;
+        return this.f29925c;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void b(long j) throws IOException {
-        if (!this.f30239b.get()) {
+        if (!this.f29924b.get()) {
             if (j < 0) {
                 j = 0;
             }
-            this.f30238a.seek(j);
+            this.f29923a.seek(j);
             return;
         }
         throw new IOException("released!");
@@ -94,7 +94,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public synchronized long a(long j) throws IOException {
         int i;
-        if (this.f30239b.get()) {
+        if (this.f29924b.get()) {
             throw new IOException("released!");
         }
         i = (int) j;
@@ -102,7 +102,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         } else {
             throw new IOException("too large:" + j);
         }
-        return this.f30238a.skipBytes(i);
+        return this.f29923a.skipBytes(i);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -113,7 +113,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public int b(byte[] bArr, int i, int i2) throws IOException {
         int read;
-        if (!this.f30239b.get()) {
+        if (!this.f29924b.get()) {
             if (bArr == null || i2 < 1 || i < 0 || i >= bArr.length) {
                 return 0;
             }
@@ -121,7 +121,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                 i2 = bArr.length - i;
             }
             synchronized (this) {
-                read = this.f30238a.read(bArr, i, i2);
+                read = this.f29923a.read(bArr, i, i2);
             }
             return read;
         }
@@ -130,7 +130,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public int a(byte[] bArr, int i, int i2) throws IOException {
-        if (!this.f30239b.get()) {
+        if (!this.f29924b.get()) {
             if (bArr == null || bArr.length == 0 || i2 < 1 || i < 0 || i >= bArr.length) {
                 return 0;
             }
@@ -138,7 +138,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                 i2 = bArr.length - i;
             }
             synchronized (this) {
-                this.f30238a.write(bArr, i, i2);
+                this.f29923a.write(bArr, i, i2);
             }
             return i2;
         }

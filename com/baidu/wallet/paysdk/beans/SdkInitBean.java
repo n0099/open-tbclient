@@ -25,7 +25,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return com.baidu.wallet.core.beans.BeanConstants.BEAN_ID_GET_FP;
+        return 530;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean

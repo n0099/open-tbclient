@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.PushThread.DataRes;
 import tbclient.PushThread.PushThreadResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
     public int mPushType;
 

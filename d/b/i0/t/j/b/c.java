@@ -7,27 +7,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class c extends d.b.b.j.e.a<d.b.i0.t.j.d.f, CardViewHolder<d.b.i0.t.j.h.b>> {
+public class c extends d.b.c.j.e.a<d.b.i0.t.j.d.f, CardViewHolder<d.b.i0.t.j.h.b>> {
     public TbPageContext m;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.j.d.f f60820e;
+        public final /* synthetic */ d.b.i0.t.j.d.f f62384e;
 
         public a(d.b.i0.t.j.d.f fVar) {
-            this.f60820e = fVar;
+            this.f62384e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.i0(this.f60820e);
+            c.this.i0(this.f62384e);
         }
     }
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.f.f60866f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.f.f62430f);
         this.m = tbPageContext;
     }
 
@@ -41,25 +41,25 @@ public class c extends d.b.b.j.e.a<d.b.i0.t.j.d.f, CardViewHolder<d.b.i0.t.j.h.b
         } else {
             TiebaStatic.log("c11857");
         }
-        String o = d.b.h0.r.d0.b.i().o("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
-        if (o == null) {
+        String p = d.b.h0.r.d0.b.j().p("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+        if (p == null) {
             return;
         }
-        if (o.endsWith("/")) {
-            o = o.substring(0, o.length() - 1);
+        if (p.endsWith("/")) {
+            p = p.substring(0, p.length() - 1);
         }
-        d.b.h0.l.a.l(this.m.getPageActivity(), o);
+        d.b.h0.l.a.l(this.m.getPageActivity(), p);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public CardViewHolder<d.b.i0.t.j.h.b> R(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.b.i0.t.j.h.b(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.j.d.f fVar, CardViewHolder<d.b.i0.t.j.h.b> cardViewHolder) {
         if (cardViewHolder.b() == null) {

@@ -3,24 +3,24 @@ package com.qq.e.comm.util;
 public class AdError {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38392a;
+    public int f38681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38393b;
+    public String f38682b;
 
     public AdError() {
     }
 
     public AdError(int i, String str) {
-        this.f38392a = i;
-        this.f38393b = str;
+        this.f38681a = i;
+        this.f38682b = str;
     }
 
     public int getErrorCode() {
-        return this.f38392a;
+        return this.f38681a;
     }
 
     public String getErrorMsg() {
-        return this.f38393b;
+        return this.f38682b;
     }
 }

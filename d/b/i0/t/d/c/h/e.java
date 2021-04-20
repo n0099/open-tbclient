@@ -51,8 +51,8 @@ public class e extends d.b.i0.x.b<d.b.i0.t.d.c.e.e> {
     /* renamed from: u */
     public void n(d.b.i0.t.d.c.e.e eVar) {
         if (eVar != null) {
-            this.m.j(eVar.f60329e);
-            this.n.j(eVar.f60330f);
+            this.m.j(eVar.f61893e);
+            this.n.j(eVar.f61894f);
         }
     }
 

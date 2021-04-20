@@ -25,12 +25,12 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
-    public d.b.i0.c3.l0.c jsCallback;
+    public d.b.i0.d3.l0.c jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public d.b.i0.c3.l0.a mJsBridge;
+    public d.b.i0.d3.l0.a mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -41,14 +41,14 @@ public class BaseWebView extends WebView {
     public WebViewClient mWebViewClient;
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.i0.c3.l0.c {
+    public class a implements d.b.i0.d3.l0.c {
         public a() {
         }
 
-        @Override // d.b.i0.c3.l0.c
+        @Override // d.b.i0.d3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             BaseWebView baseWebView = BaseWebView.this;
-            d.b.i0.c3.l0.a aVar = baseWebView.mJsBridge;
+            d.b.i0.d3.l0.a aVar = baseWebView.mJsBridge;
             if (aVar != null) {
                 return aVar.b(baseWebView.getWebView(), str, jsPromptResult);
             }
@@ -106,7 +106,7 @@ public class BaseWebView extends WebView {
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             if (BaseWebView.this.mOnReceivedErrorListener != null) {
-                BaseWebView.this.mOnReceivedErrorListener.onReceivedError(webView, i, str, str2);
+                BaseWebView.this.mOnReceivedErrorListener.a(webView, i, str, str2);
             }
         }
 
@@ -117,7 +117,7 @@ public class BaseWebView extends WebView {
                 sslErrorHandler.cancel();
             }
             if (BaseWebView.this.mOnReceivedSslErrorListener != null) {
-                BaseWebView.this.mOnReceivedSslErrorListener.onReceivedSslError(webView, sslErrorHandler, sslError);
+                BaseWebView.this.mOnReceivedSslErrorListener.a(webView, sslErrorHandler, sslError);
             }
         }
 
@@ -157,12 +157,12 @@ public class BaseWebView extends WebView {
 
     /* loaded from: classes3.dex */
     public interface h {
-        void onReceivedError(WebView webView, int i, String str, String str2);
+        void a(WebView webView, int i, String str, String str2);
     }
 
     /* loaded from: classes3.dex */
     public interface i {
-        void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
+        void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
     }
 
     /* loaded from: classes3.dex */
@@ -172,7 +172,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && d.b.b.e.m.g.e((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && d.b.c.e.m.g.e((Activity) BaseWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -180,7 +180,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && d.b.b.e.m.g.e((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && d.b.c.e.m.g.e((Activity) BaseWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -188,7 +188,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && d.b.b.e.m.g.e((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && d.b.c.e.m.g.e((Activity) BaseWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -245,7 +245,7 @@ public class BaseWebView extends WebView {
         d.b.h0.l.a.a(getSettings());
         this.mWebViewClient = new c();
         this.mWebChromeClient = new j(this, null);
-        this.mJsBridge = new d.b.i0.c3.l0.a();
+        this.mJsBridge = new d.b.i0.d3.l0.a();
         setWebViewClient(this.mWebViewClient);
         setWebChromeClient(this.mWebChromeClient);
         if (Build.VERSION.SDK_INT >= 11) {
@@ -332,7 +332,7 @@ public class BaseWebView extends WebView {
         setOnLoadUrlListener(null);
     }
 
-    public void setOnJsPromptCallback(d.b.i0.c3.l0.c cVar) {
+    public void setOnJsPromptCallback(d.b.i0.d3.l0.c cVar) {
         this.jsCallback = cVar;
     }
 

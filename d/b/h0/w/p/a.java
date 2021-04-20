@@ -4,7 +4,7 @@ public abstract class a implements Comparable<a> {
 
     /* renamed from: d.b.h0.w.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1109a {
+    public interface InterfaceC1122a {
         void a(c cVar);
     }
 
@@ -22,7 +22,7 @@ public abstract class a implements Comparable<a> {
         return c() - aVar.c();
     }
 
-    public abstract void b(InterfaceC1109a interfaceC1109a);
+    public abstract void b(InterfaceC1122a interfaceC1122a);
 
     public abstract int c();
 

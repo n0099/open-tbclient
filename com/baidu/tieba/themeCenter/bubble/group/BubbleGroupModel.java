@@ -12,33 +12,33 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BubbleGroupActivity f21628e;
+    public BubbleGroupActivity f21313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21629f;
+    public e f21314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.b.i0.i3.f.b.b> f21630g;
+    public List<d.b.i0.j3.f.b.b> f21315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f21631h;
+    public c f21316h;
     public boolean i;
-    public d.b.b.c.g.a j;
+    public d.b.c.c.g.a j;
     public final HttpMessageListener k;
 
     /* loaded from: classes5.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -46,23 +46,23 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             boolean z = responsedMessage instanceof BubbleGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (BubbleGroupModel.this.f21631h != null) {
-                        BubbleGroupModel.this.f21631h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21629f, BubbleGroupModel.this.f21630g);
+                    if (BubbleGroupModel.this.f21316h != null) {
+                        BubbleGroupModel.this.f21316h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21314f, BubbleGroupModel.this.f21315g);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
-                    BubbleGroupModel.this.f21629f = bubbleGroupHttpResponseMessage.getRecommand();
-                    BubbleGroupModel.this.f21630g = bubbleGroupHttpResponseMessage.getGroupList();
+                    BubbleGroupModel.this.f21314f = bubbleGroupHttpResponseMessage.getRecommand();
+                    BubbleGroupModel.this.f21315g = bubbleGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
                     BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
-                    BubbleGroupModel.this.f21629f = bubbleGroupSocketResponseMessage.getRecommand();
-                    BubbleGroupModel.this.f21630g = bubbleGroupSocketResponseMessage.getGroupList();
+                    BubbleGroupModel.this.f21314f = bubbleGroupSocketResponseMessage.getRecommand();
+                    BubbleGroupModel.this.f21315g = bubbleGroupSocketResponseMessage.getGroupList();
                 }
-                if (BubbleGroupModel.this.f21631h != null) {
-                    BubbleGroupModel.this.f21631h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21629f, BubbleGroupModel.this.f21630g);
+                if (BubbleGroupModel.this.f21316h != null) {
+                    BubbleGroupModel.this.f21316h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21314f, BubbleGroupModel.this.f21315g);
                 }
             }
         }
@@ -82,24 +82,24 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             }
             BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
             if (bubbleSetResponseMessage.getError() != 0) {
-                BubbleGroupModel.this.f21628e.showToast(bubbleSetResponseMessage.getErrorString());
+                BubbleGroupModel.this.f21313e.showToast(bubbleSetResponseMessage.getErrorString());
                 return;
             }
             BubbleGroupModel.this.D(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-            BubbleGroupModel.this.f21631h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.f21629f, BubbleGroupModel.this.f21630g);
+            BubbleGroupModel.this.f21316h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.f21314f, BubbleGroupModel.this.f21315g);
         }
     }
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, String str, e eVar, List<d.b.i0.i3.f.b.b> list);
+        void a(int i, String str, e eVar, List<d.b.i0.j3.f.b.b> list);
     }
 
     public BubbleGroupModel(BubbleGroupActivity bubbleGroupActivity) {
         super(bubbleGroupActivity.getPageContext());
         this.j = new a(CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
         this.k = new b(CmdConfigHttp.CMD_BUBBLE_SET);
-        this.f21628e = bubbleGroupActivity;
+        this.f21313e = bubbleGroupActivity;
         this.i = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         A();
         registerListener(this.j);
@@ -108,8 +108,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void A() {
-        d.b.i0.c3.d0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
     }
 
     public final void B() {
@@ -120,15 +120,15 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public void C(c cVar) {
-        this.f21631h = cVar;
+        this.f21316h = cVar;
     }
 
     public final void D(int i) {
-        List<d.b.i0.i3.f.b.b> list = this.f21630g;
+        List<d.b.i0.j3.f.b.b> list = this.f21315g;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (d.b.i0.i3.f.b.b bVar : this.f21630g) {
+        for (d.b.i0.j3.f.b.b bVar : this.f21315g) {
             if (bVar != null && bVar.a() != null) {
                 for (DressItemData dressItemData : bVar.a()) {
                     if (dressItemData != null) {

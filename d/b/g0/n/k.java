@@ -8,28 +8,28 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49255a;
+    public String f49647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49256b;
+    public int f49648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49257c;
+    public String f49649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f49258d;
+    public JSONObject f49650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f49259e;
+    public long f49651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49260f;
+    public long f49652f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49261g;
+    public int f49653g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49262h;
+    public String f49654h;
     public String i;
     public String j;
     public JSONArray k;
@@ -39,7 +39,7 @@ public class k {
     }
 
     public long a() {
-        return this.f49259e;
+        return this.f49651e;
     }
 
     public String b() {
@@ -47,11 +47,11 @@ public class k {
     }
 
     public String c() {
-        return this.f49257c;
+        return this.f49649c;
     }
 
     public long d() {
-        return this.f49260f;
+        return this.f49652f;
     }
 
     public String e() {
@@ -59,19 +59,19 @@ public class k {
     }
 
     public int f() {
-        return this.f49256b;
+        return this.f49648b;
     }
 
     public String g() {
-        return this.f49255a;
+        return this.f49647a;
     }
 
     public JSONObject h() {
-        return this.f49258d;
+        return this.f49650d;
     }
 
     public int i() {
-        return this.f49261g;
+        return this.f49653g;
     }
 
     public JSONArray j() {
@@ -79,7 +79,7 @@ public class k {
     }
 
     public String k() {
-        return this.f49262h;
+        return this.f49654h;
     }
 
     public boolean l() {
@@ -87,7 +87,7 @@ public class k {
     }
 
     public void m(long j) {
-        this.f49259e = j;
+        this.f49651e = j;
     }
 
     public void n(String str) {
@@ -95,7 +95,7 @@ public class k {
     }
 
     public void o(String str) {
-        this.f49257c = str;
+        this.f49649c = str;
     }
 
     public void p(boolean z) {
@@ -103,11 +103,11 @@ public class k {
     }
 
     public void q(long j) {
-        this.f49260f = j;
+        this.f49652f = j;
     }
 
     public void r() {
-        if (d.g().a(this.f49255a)) {
+        if (d.g().a(this.f49647a)) {
             this.i = e.g().i();
         }
     }
@@ -117,11 +117,11 @@ public class k {
     }
 
     public void t(int i) {
-        this.f49256b = i;
+        this.f49648b = i;
     }
 
     public void u(String str) {
-        this.f49255a = str;
+        this.f49647a = str;
     }
 
     public void v(String str) {
@@ -136,13 +136,13 @@ public class k {
     }
 
     public void w(String str) {
-        this.f49262h = str;
+        this.f49654h = str;
     }
 
     public k(String str, int i, String str2, int i2, boolean z) {
-        this.f49255a = str;
-        this.f49256b = i;
-        this.f49257c = str2;
-        this.f49261g = i2;
+        this.f49647a = str;
+        this.f49648b = i;
+        this.f49649c = str2;
+        this.f49653g = i2;
     }
 }

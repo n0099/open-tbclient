@@ -7,10 +7,10 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ar implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f23066a;
+    public final /* synthetic */ FeedbackFacePageActivity f22751a;
 
     public ar(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f23066a = feedbackFacePageActivity;
+        this.f22751a = feedbackFacePageActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,20 +18,20 @@ public final class ar implements Runnable {
         Handler handler;
         int i;
         Handler handler2;
-        com.baidu.ufosdk.e.a.a(this.f23066a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f22751a.getApplicationContext());
         if (UfoSDK.clientid.length() != 0) {
-            handler = this.f23066a.v;
+            handler = this.f22751a.v;
             i = 1;
         } else {
-            handler = this.f23066a.v;
+            handler = this.f22751a.v;
             i = 4;
         }
         handler.obtainMessage(i, null).sendToTarget();
-        Context applicationContext = this.f23066a.getApplicationContext();
+        Context applicationContext = this.f22751a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c2 != null) {
-            handler2 = this.f23066a.v;
+            handler2 = this.f22751a.v;
             handler2.obtainMessage(0, c2).sendToTarget();
         }
     }

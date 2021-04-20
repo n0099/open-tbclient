@@ -14,19 +14,19 @@ public class d {
     public static class a extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42980f;
+        public final /* synthetic */ int f43372f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42981g;
+        public final /* synthetic */ int f43373g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f42982h;
+        public final /* synthetic */ int f43374h;
         public final /* synthetic */ Context i;
 
         public a(int i, int i2, int i3, Context context) {
-            this.f42980f = i;
-            this.f42981g = i2;
-            this.f42982h = i3;
+            this.f43372f = i;
+            this.f43373g = i2;
+            this.f43374h = i3;
             this.i = context;
         }
 
@@ -35,10 +35,10 @@ public class d {
             try {
                 JSONArray jSONArray = new JSONArray();
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f42980f);
+                jSONObject.put("0", this.f43372f);
                 jSONObject.put("1", System.currentTimeMillis());
-                jSONObject.put("2", this.f42981g);
-                jSONObject.put("3", this.f42982h);
+                jSONObject.put("2", this.f43373g);
+                jSONObject.put("3", this.f43374h);
                 jSONObject.put("4", "1");
                 jSONArray.put(jSONObject);
                 d.b.f0.h.b.c(this.i).f(jSONArray.toString(), "1077112", 2);
@@ -52,20 +52,20 @@ public class d {
     public static class b extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42983f;
+        public final /* synthetic */ int f43375f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f42984g;
+        public final /* synthetic */ Context f43376g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f42985h;
+        public final /* synthetic */ int f43377h;
         public final /* synthetic */ int i;
         public final /* synthetic */ String j;
 
         public b(int i, Context context, int i2, int i3, String str) {
-            this.f42983f = i;
-            this.f42984g = context;
-            this.f42985h = i2;
+            this.f43375f = i;
+            this.f43376g = context;
+            this.f43377h = i2;
             this.i = i3;
             this.j = str;
         }
@@ -74,22 +74,22 @@ public class d {
         public void b() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f42983f);
+                jSONObject.put("0", this.f43375f);
                 jSONObject.put("3", System.currentTimeMillis());
-                int X = d.b.f0.b.a.g(this.f42984g).X();
+                int X = d.b.f0.b.a.g(this.f43376g).X();
                 if (X != -1) {
                     jSONObject.put("4", X);
                 }
-                jSONObject.put("5", d.b.f0.b.a.g(this.f42984g).Y());
-                jSONObject.put("7", this.f42985h);
+                jSONObject.put("5", d.b.f0.b.a.g(this.f43376g).Y());
+                jSONObject.put("7", this.f43377h);
                 if (this.i != -1) {
                     jSONObject.put("8", this.i);
                 }
                 jSONObject.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, this.j);
-                jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, 1);
+                jSONObject.put("10", 1);
                 jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, i.q);
                 jSONObject.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "1");
-                new d.b.f0.f.d(this.f42984g, null).g(jSONObject);
+                new d.b.f0.f.d(this.f43376g, null).g(jSONObject);
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
             }
@@ -100,20 +100,20 @@ public class d {
     public static class c extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42986f;
+        public final /* synthetic */ int f43378f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f42987g;
+        public final /* synthetic */ Context f43379g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f42988h;
+        public final /* synthetic */ int f43380h;
         public final /* synthetic */ int i;
         public final /* synthetic */ String j;
 
         public c(int i, Context context, int i2, int i3, String str) {
-            this.f42986f = i;
-            this.f42987g = context;
-            this.f42988h = i2;
+            this.f43378f = i;
+            this.f43379g = context;
+            this.f43380h = i2;
             this.i = i3;
             this.j = str;
         }
@@ -123,23 +123,23 @@ public class d {
             try {
                 JSONArray jSONArray = new JSONArray();
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f42986f);
+                jSONObject.put("0", this.f43378f);
                 jSONObject.put("3", System.currentTimeMillis());
-                int b0 = d.b.f0.b.a.g(this.f42987g).b0();
+                int b0 = d.b.f0.b.a.g(this.f43379g).b0();
                 if (b0 != -1) {
                     jSONObject.put("4", b0);
                 }
-                jSONObject.put("5", d.b.f0.b.a.g(this.f42987g).c0());
-                jSONObject.put("7", this.f42988h);
+                jSONObject.put("5", d.b.f0.b.a.g(this.f43379g).c0());
+                jSONObject.put("7", this.f43380h);
                 if (this.i != -1) {
                     jSONObject.put("8", this.i);
                 }
                 jSONObject.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, this.j);
-                jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, 1);
+                jSONObject.put("10", 1);
                 jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, i.r);
                 jSONObject.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "1");
                 jSONArray.put(jSONObject);
-                d.b.f0.h.b.c(this.f42987g).f(jSONArray.toString(), "1077122", 2);
+                d.b.f0.h.b.c(this.f43379g).f(jSONArray.toString(), "1077122", 2);
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
             }
@@ -148,24 +148,24 @@ public class d {
 
     /* renamed from: d.b.f0.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0584d extends d.b.f0.k.c {
+    public static class C0596d extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42989f;
+        public final /* synthetic */ int f43381f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42990g;
+        public final /* synthetic */ int f43382g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f42991h;
+        public final /* synthetic */ String f43383h;
         public final /* synthetic */ int i;
         public final /* synthetic */ int j;
         public final /* synthetic */ Context k;
 
-        public C0584d(int i, int i2, String str, int i3, int i4, Context context) {
-            this.f42989f = i;
-            this.f42990g = i2;
-            this.f42991h = str;
+        public C0596d(int i, int i2, String str, int i3, int i4, Context context) {
+            this.f43381f = i;
+            this.f43382g = i2;
+            this.f43383h = str;
             this.i = i3;
             this.j = i4;
             this.k = context;
@@ -178,12 +178,12 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", System.currentTimeMillis());
                 jSONObject.put("1", this.i);
-                jSONObject.put("2", this.f42989f);
-                if (this.f42990g != -1) {
-                    jSONObject.put("3", this.f42990g);
+                jSONObject.put("2", this.f43381f);
+                if (this.f43382g != -1) {
+                    jSONObject.put("3", this.f43382g);
                 }
-                if (!TextUtils.isEmpty(this.f42991h)) {
-                    jSONObject.put("4", this.f42991h);
+                if (!TextUtils.isEmpty(this.f43383h)) {
+                    jSONObject.put("4", this.f43383h);
                 }
                 jSONObject.put("5", 1);
                 jSONObject.put("6", i.q);
@@ -201,21 +201,21 @@ public class d {
     public static class e extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42992f;
+        public final /* synthetic */ int f43384f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42993g;
+        public final /* synthetic */ int f43385g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f42994h;
+        public final /* synthetic */ String f43386h;
         public final /* synthetic */ int i;
         public final /* synthetic */ int j;
         public final /* synthetic */ Context k;
 
         public e(int i, int i2, String str, int i3, int i4, Context context) {
-            this.f42992f = i;
-            this.f42993g = i2;
-            this.f42994h = str;
+            this.f43384f = i;
+            this.f43385g = i2;
+            this.f43386h = str;
             this.i = i3;
             this.j = i4;
             this.k = context;
@@ -228,12 +228,12 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", System.currentTimeMillis());
                 jSONObject.put("1", this.i);
-                jSONObject.put("2", this.f42992f);
-                if (this.f42993g != -1) {
-                    jSONObject.put("3", this.f42993g);
+                jSONObject.put("2", this.f43384f);
+                if (this.f43385g != -1) {
+                    jSONObject.put("3", this.f43385g);
                 }
-                if (!TextUtils.isEmpty(this.f42994h)) {
-                    jSONObject.put("4", this.f42994h);
+                if (!TextUtils.isEmpty(this.f43386h)) {
+                    jSONObject.put("4", this.f43386h);
                 }
                 jSONObject.put("5", 1);
                 jSONObject.put("6", i.r);
@@ -252,7 +252,7 @@ public class d {
     }
 
     public static void b(Context context, int i, int i2, int i3, int i4, String str) {
-        d.b.f0.k.e.c().b(new C0584d(i3, i4, str, i, i2, context));
+        d.b.f0.k.e.c().b(new C0596d(i3, i4, str, i, i2, context));
     }
 
     public static void c(Context context, int i, int i2, int i3, String str) {

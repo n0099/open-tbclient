@@ -10,16 +10,16 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f56419a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern f57841a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f56420b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern f57842b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
     public static int a(String str) {
         CustomResponsedMessage runTask;
         int i = 0;
         if (str != null && str.length() != 0) {
-            Matcher matcher = f56419a.matcher(str);
+            Matcher matcher = f57841a.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
                 if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
@@ -45,7 +45,7 @@ public class a {
     }
 
     public static String b(String str) {
-        String replaceAll = str.replaceAll(d.f49685f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+        String replaceAll = str.replaceAll(d.f50078f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;

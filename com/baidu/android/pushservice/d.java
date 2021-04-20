@@ -14,20 +14,20 @@ import java.io.ObjectOutputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2939a = "NotificationBuilderManager";
+    public static String f2974a = "NotificationBuilderManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2940b = "notification_builder_storage";
+    public static String f2975b = "notification_builder_storage";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f2941c = new Object();
+    public static Object f2976c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2942d;
+    public static int f2977d;
 
     public static Notification a(Context context, int i, int i2, String str, String str2, boolean z) {
         Notification construct;
-        synchronized (f2941c) {
+        synchronized (f2976c) {
             PushNotificationBuilder a2 = a(context, i);
             a2.setNotificationTitle(str);
             a2.setNotificationText(str2);
@@ -58,7 +58,7 @@ public class d {
 
     public static Notification a(Context context, int i, String str, String str2, boolean z) {
         Notification construct;
-        synchronized (f2941c) {
+        synchronized (f2976c) {
             PushNotificationBuilder a2 = a(context, i);
             a2.setNotificationTitle(str);
             a2.setNotificationText(str2);
@@ -82,7 +82,7 @@ public class d {
 
     public static PushNotificationBuilder a(Context context, int i) {
         PushNotificationBuilder pushNotificationBuilder = null;
-        String string = context.getSharedPreferences(f2940b, 0).getString("" + i, null);
+        String string = context.getSharedPreferences(f2975b, 0).getString("" + i, null);
         if (string == null) {
             return b(context);
         }
@@ -106,13 +106,13 @@ public class d {
     }
 
     public static void a(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (f2941c) {
+        synchronized (f2976c) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(f2940b, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(f2975b, 0).edit();
                 edit.putString("" + i, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
@@ -124,14 +124,14 @@ public class d {
     }
 
     public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (f2941c) {
+        synchronized (f2976c) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(f2940b, 0).edit();
-                edit.putString("" + f2942d, encodeToString);
+                SharedPreferences.Editor edit = context.getSharedPreferences(f2975b, 0).edit();
+                edit.putString("" + f2977d, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
@@ -144,9 +144,9 @@ public class d {
     public static PushNotificationBuilder b(Context context) {
         ObjectInputStream objectInputStream;
         PushNotificationBuilder pushNotificationBuilder;
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f2940b, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f2975b, 0);
         PushNotificationBuilder pushNotificationBuilder2 = null;
-        String string = sharedPreferences.getString("" + f2942d, null);
+        String string = sharedPreferences.getString("" + f2977d, null);
         if (string != null) {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
             try {

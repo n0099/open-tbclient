@@ -18,26 +18,26 @@ import com.bytedance.sdk.openadsdk.utils.al;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends c {
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28018c;
+    public Context f27703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final l f28019d;
+    public final l f27704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28020e;
+    public final String f27705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f28021f;
+    public final int f27706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakReference<View> f28022g;
+    public WeakReference<View> f27707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<View> f28023h;
+    public WeakReference<View> f27708h;
     public f i;
     public a j;
     public TTNativeAd k;
@@ -49,16 +49,16 @@ public class b extends c {
     public boolean r = false;
     public Map<String, Object> o = new HashMap();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(View view, int i);
     }
 
     public b(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i) {
-        this.f28018c = context;
-        this.f28019d = lVar;
-        this.f28020e = str;
-        this.f28021f = i;
+        this.f27703c = context;
+        this.f27704d = lVar;
+        this.f27705e = str;
+        this.f27706f = i;
     }
 
     public void a(com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
@@ -66,7 +66,7 @@ public class b extends c {
     }
 
     public void b(View view) {
-        this.f28023h = new WeakReference<>(view);
+        this.f27708h = new WeakReference<>(view);
     }
 
     public void d(boolean z) {
@@ -86,12 +86,12 @@ public class b extends c {
     }
 
     public void e() {
-        l lVar = this.f28019d;
+        l lVar = this.f27704d;
         if (lVar == null) {
             return;
         }
         boolean C = lVar.C();
-        z.a(this.f28018c, this.f28019d, this.f28021f, this.k, this.p, C ? this.f28020e : ak.a(this.f28021f), this.n, C, this.o, this.r, a(this.f28020e));
+        z.a(this.f27703c, this.f27704d, this.f27706f, this.k, this.p, C ? this.f27705e : ak.a(this.f27706f), this.n, C, this.o, this.r, a(this.f27705e));
     }
 
     public void a(TTNativeAd tTNativeAd) {
@@ -111,7 +111,7 @@ public class b extends c {
     }
 
     public void a(View view) {
-        this.f28022g = new WeakReference<>(view);
+        this.f27707g = new WeakReference<>(view);
     }
 
     public void a(Map<String, Object> map) {
@@ -129,26 +129,26 @@ public class b extends c {
         if (a(1)) {
             return;
         }
-        if (this.f28018c == null) {
-            this.f28018c = p.a();
+        if (this.f27703c == null) {
+            this.f27703c = p.a();
         }
-        if (this.f28018c == null) {
+        if (this.f27703c == null) {
             return;
         }
         long j = this.w;
         long j2 = this.x;
-        WeakReference<View> weakReference = this.f28022g;
+        WeakReference<View> weakReference = this.f27707g;
         View view2 = weakReference == null ? null : weakReference.get();
-        WeakReference<View> weakReference2 = this.f28023h;
+        WeakReference<View> weakReference2 = this.f27708h;
         this.i = a(i, i2, i3, i4, j, j2, view2, weakReference2 == null ? null : weakReference2.get());
         a aVar = this.j;
         if (aVar != null) {
             aVar.a(view, -1);
         }
-        boolean C = this.f28019d.C();
-        boolean a2 = z.a(this.f28018c, this.f28019d, this.f28021f, this.k, this.p, C ? this.f28020e : ak.a(this.f28021f), this.n, C, this.o, this.r, a(this.f28020e));
-        if (a2 || (lVar = this.f28019d) == null || lVar.ao() == null || this.f28019d.ao().c() != 2) {
-            com.bytedance.sdk.openadsdk.c.d.a(this.f28018c, PrefetchEvent.STATE_CLICK, this.f28019d, this.i, this.f28020e, a2, this.o);
+        boolean C = this.f27704d.C();
+        boolean a2 = z.a(this.f27703c, this.f27704d, this.f27706f, this.k, this.p, C ? this.f27705e : ak.a(this.f27706f), this.n, C, this.o, this.r, a(this.f27705e));
+        if (a2 || (lVar = this.f27704d) == null || lVar.ao() == null || this.f27704d.ao().c() != 2) {
+            com.bytedance.sdk.openadsdk.c.d.a(this.f27703c, PrefetchEvent.STATE_CLICK, this.f27704d, this.i, this.f27705e, a2, this.o);
         }
     }
 
@@ -164,10 +164,10 @@ public class b extends c {
         if (this.q != null) {
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
-            WeakReference<View> weakReference = this.f28023h;
+            WeakReference<View> weakReference = this.f27708h;
             if (weakReference != null) {
                 iArr = al.a(weakReference.get());
-                iArr2 = al.c(this.f28023h.get());
+                iArr2 = al.c(this.f27708h.get());
             }
             this.q.a(i, new j.a().d(this.s).c(this.t).b(this.u).a(this.v).b(this.w).a(this.x).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
             return true;

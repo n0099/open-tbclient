@@ -21,6 +21,7 @@ public interface Opcodes {
     public static final int GETFIELD = 180;
     public static final int GETSTATIC = 178;
     public static final int GOTO = 167;
+    public static final int GOTO_W = 200;
     public static final int IADD = 96;
     public static final int IAND = 126;
     public static final int IASTORE = 79;

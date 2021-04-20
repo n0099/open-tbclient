@@ -5,7 +5,7 @@ import com.baidu.apollon.statistics.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.r.y.l;
 import d.b.h0.r.y.n;
 import d.b.h0.r.y.o;
@@ -23,8 +23,8 @@ public class b extends n {
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        int k = d.b.b.e.p.l.k(b());
-        int i = d.b.b.e.p.l.i(b());
+        int k = d.b.c.e.p.l.k(b());
+        int i = d.b.c.e.p.l.i(b());
         String str3 = String.valueOf(k) + "," + String.valueOf(i);
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
@@ -52,7 +52,7 @@ public class b extends n {
             str = "2G";
         } else if (j.u()) {
             i = 4;
-            str = g.f3874b;
+            str = g.f3909b;
         } else if (j.v()) {
             i = 5;
             str = "4G";

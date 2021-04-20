@@ -14,7 +14,7 @@ import d.b.g0.a.q1.b.b.g;
 import d.b.g0.a.q1.b.f.d;
 /* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String TAG = "SwanAppAdbDebugActivity";
 
     /* loaded from: classes2.dex */
@@ -32,16 +32,16 @@ public class SwanAppAdbDebugActivity extends Activity {
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f12131e;
+        public final /* synthetic */ Intent f11792e;
 
         public b(Intent intent) {
-            this.f12131e = intent;
+            this.f11792e = intent;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            this.f12131e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
-            SwanAppAdbDebugActivity.this.startActivity(this.f12131e);
+            this.f11792e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
+            SwanAppAdbDebugActivity.this.startActivity(this.f11792e);
             SwanAppAdbDebugActivity.this.finish();
         }
     }

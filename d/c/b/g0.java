@@ -23,7 +23,7 @@ public class g0 extends z {
     @Override // d.c.b.z
     @NonNull
     public z a(@NonNull Cursor cursor) {
-        this.f65112e = cursor.getLong(0);
+        this.f65957e = cursor.getLong(0);
         this.m = cursor.getBlob(1);
         this.n = cursor.getInt(2);
         this.u = null;
@@ -63,7 +63,7 @@ public class g0 extends z {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("magic_tag", "ss_app_log");
         jSONObject.put("header", this.u);
-        jSONObject.put("time_sync", x.f65096b);
+        jSONObject.put("time_sync", x.f65941b);
         if (this.r != null) {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(this.r.m());
@@ -146,7 +146,7 @@ public class g0 extends z {
     }
 
     public void p(long j, JSONObject jSONObject, f0 f0Var, j0 j0Var, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONArray jSONArray4) {
-        this.f65112e = j;
+        this.f65957e = j;
         this.u = jSONObject;
         this.r = f0Var;
         this.t = j0Var;

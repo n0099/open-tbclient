@@ -11,22 +11,22 @@ import d.b.g0.a.r1.e;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43592a;
+    public static boolean f43984a;
 
     /* renamed from: d.b.g0.a.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class DialogInterface$OnClickListenerC0618a implements DialogInterface.OnClickListener {
+    public static class DialogInterface$OnClickListenerC0630a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f43593e;
+        public final /* synthetic */ e f43985e;
 
-        public DialogInterface$OnClickListenerC0618a(e eVar) {
-            this.f43593e = eVar;
+        public DialogInterface$OnClickListenerC0630a(e eVar) {
+            this.f43985e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            SwanAppActivity n = this.f43593e.n();
+            SwanAppActivity n = this.f43985e.n();
             if (n != null && Build.VERSION.SDK_INT >= 21) {
                 n.finishAndRemoveTask();
             }
@@ -35,11 +35,11 @@ public class a {
     }
 
     public static boolean a() {
-        return f43592a;
+        return f43984a;
     }
 
     public static void b(boolean z) {
-        f43592a = z;
+        f43984a = z;
     }
 
     public static void c(Context context, boolean z) {
@@ -52,7 +52,7 @@ public class a {
             aVar.y(context.getString(i));
             aVar.n(new d.b.g0.a.j2.g.a());
             aVar.m(false);
-            aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0618a(y));
+            aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0630a(y));
             aVar.X();
         }
     }

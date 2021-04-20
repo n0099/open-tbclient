@@ -24,28 +24,28 @@ import java.util.concurrent.atomic.AtomicReference;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Runnable> f66066a;
+    public final Queue<Runnable> f66911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66067b;
+    public Context f66912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f66068c;
+    public volatile int f66913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.google.a.b.a.a.a.a f66069d;
+    public com.google.a.b.a.a.a.a f66914d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f66070e;
+    public BroadcastReceiver f66915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f66071f;
+    public Context f66916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f66072g;
+    public final ServiceConnection f66917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final AtomicReference<c> f66073h;
+    public final AtomicReference<c> f66918h;
 
     public l() {
     }
@@ -81,28 +81,28 @@ public class l {
 
     public synchronized void a() {
         p();
-        int i = this.f66068c - 1;
+        int i = this.f66913c - 1;
         if (i == 1 || i == 2) {
-            this.f66067b.unbindService(this.f66072g);
-            this.f66067b = null;
-            this.f66068c = s.f66087a;
+            this.f66912b.unbindService(this.f66917g);
+            this.f66912b = null;
+            this.f66913c = s.f66932a;
         }
-        if (this.f66070e != null) {
-            this.f66071f.unregisterReceiver(this.f66070e);
+        if (this.f66915e != null) {
+            this.f66916f.unregisterReceiver(this.f66915e);
         }
     }
 
     public void c(Activity activity, m mVar) {
         c cVar = new c(activity, mVar);
-        c andSet = this.f66073h.getAndSet(cVar);
+        c andSet = this.f66918h.getAndSet(cVar);
         if (andSet != null) {
             andSet.a();
         }
         cVar.start();
-        if (this.f66070e == null) {
+        if (this.f66915e == null) {
             p pVar = new p(this, mVar);
-            this.f66070e = pVar;
-            this.f66071f = activity;
+            this.f66915e = pVar;
+            this.f66916f = activity;
             activity.registerReceiver(pVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
         }
         try {
@@ -114,15 +114,15 @@ public class l {
     }
 
     public synchronized void d(Context context) {
-        this.f66067b = context;
-        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f66072g, 1)) {
-            this.f66068c = s.f66088b;
+        this.f66912b = context;
+        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f66917g, 1)) {
+            this.f66913c = s.f66933b;
             return;
         }
-        this.f66068c = s.f66087a;
-        this.f66067b = null;
+        this.f66913c = s.f66932a;
+        this.f66912b = null;
         Log.w("ARCore-InstallService", "bindService returned false.");
-        context.unbindService(this.f66072g);
+        context.unbindService(this.f66917g);
     }
 
     public synchronized void e(Context context, ArCoreApk.a aVar) {
@@ -137,20 +137,20 @@ public class l {
     public final synchronized void f(IBinder iBinder) {
         com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.f66069d = a2;
-        this.f66068c = s.f66089c;
-        for (Runnable runnable : this.f66066a) {
+        this.f66914d = a2;
+        this.f66913c = s.f66934c;
+        for (Runnable runnable : this.f66911a) {
             runnable.run();
         }
     }
 
     public final synchronized void k(Runnable runnable) throws ab {
-        int i = this.f66068c - 1;
+        int i = this.f66913c - 1;
         if (i == 0) {
             throw new ab();
         }
         if (i == 1) {
-            this.f66066a.offer(runnable);
+            this.f66911a.offer(runnable);
             return;
         }
         if (i == 2) {
@@ -159,7 +159,7 @@ public class l {
     }
 
     public final void p() {
-        c andSet = this.f66073h.getAndSet(null);
+        c andSet = this.f66918h.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -167,16 +167,16 @@ public class l {
 
     public final synchronized void q() {
         Log.i("ARCore-InstallService", "Install service disconnected");
-        this.f66068c = s.f66087a;
-        this.f66069d = null;
+        this.f66913c = s.f66932a;
+        this.f66914d = null;
         p();
     }
 
     public l(byte b2) {
         this();
-        this.f66066a = new ArrayDeque();
-        this.f66068c = s.f66087a;
-        this.f66072g = new n(this);
-        this.f66073h = new AtomicReference<>();
+        this.f66911a = new ArrayDeque();
+        this.f66913c = s.f66932a;
+        this.f66917g = new n(this);
+        this.f66918h = new AtomicReference<>();
     }
 }

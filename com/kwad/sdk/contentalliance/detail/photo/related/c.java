@@ -15,24 +15,24 @@ import org.json.JSONObject;
 public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f32490c;
+    public AdTemplate f32779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SceneImpl f32491d;
+    public SceneImpl f32780d;
 
     public c(AdTemplate adTemplate) {
-        this.f32490c = adTemplate;
-        this.f32491d = adTemplate.mAdScene;
+        this.f32779c = adTemplate;
+        this.f32780d = adTemplate.mAdScene;
     }
 
     @Override // com.kwad.sdk.lib.b.b
     public i<g, AdResultData> a() {
         final l.a aVar = new l.a();
-        f fVar = new f(this.f32491d);
-        fVar.f33652b = this.f32491d.getPageScene();
-        aVar.f33810a = fVar;
-        aVar.f33811b = new com.kwad.sdk.core.g.a.c();
-        aVar.f33812c = String.valueOf(com.kwad.sdk.core.response.b.d.k(this.f32490c.photoInfo));
+        f fVar = new f(this.f32780d);
+        fVar.f33941b = this.f32780d.getPageScene();
+        aVar.f34099a = fVar;
+        aVar.f34100b = new com.kwad.sdk.core.g.a.c();
+        aVar.f34101c = String.valueOf(com.kwad.sdk.core.response.b.d.k(this.f32779c.photoInfo));
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.a
@@ -48,7 +48,7 @@ public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(c.this.f32491d);
+                AdResultData adResultData = new AdResultData(c.this.f32780d);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -72,7 +72,7 @@ public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
 
     @Override // com.kwad.sdk.lib.b.b
     public boolean a(int i) {
-        return i != com.kwad.sdk.core.network.f.f33875g.k;
+        return i != com.kwad.sdk.core.network.f.f34164g.k;
     }
 
     @Override // com.kwad.sdk.lib.b.b
@@ -91,7 +91,7 @@ public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
         }
         ArrayList arrayList = new ArrayList(d2.size());
         for (AdTemplate adTemplate : d2) {
-            adTemplate.mAdScene = this.f32491d;
+            adTemplate.mAdScene = this.f32780d;
             arrayList.add(adTemplate);
         }
         a.a().e();

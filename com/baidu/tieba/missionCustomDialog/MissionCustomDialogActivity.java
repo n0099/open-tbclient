@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.mission.SignItemView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.a.q;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */

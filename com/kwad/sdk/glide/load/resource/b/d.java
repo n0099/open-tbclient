@@ -16,10 +16,10 @@ import java.util.List;
 public class d implements f<Uri, Drawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f35635a;
+    public final Context f35924a;
 
     public d(Context context) {
-        this.f35635a = context.getApplicationContext();
+        this.f35924a = context.getApplicationContext();
     }
 
     @DrawableRes
@@ -45,14 +45,14 @@ public class d implements f<Uri, Drawable> {
 
     @NonNull
     private Context a(Uri uri, String str) {
-        if (str.equals(this.f35635a.getPackageName())) {
-            return this.f35635a;
+        if (str.equals(this.f35924a.getPackageName())) {
+            return this.f35924a;
         }
         try {
-            return this.f35635a.createPackageContext(str, 0);
+            return this.f35924a.createPackageContext(str, 0);
         } catch (PackageManager.NameNotFoundException e2) {
-            if (str.contains(this.f35635a.getPackageName())) {
-                return this.f35635a;
+            if (str.contains(this.f35924a.getPackageName())) {
+                return this.f35924a;
             }
             throw new IllegalArgumentException("Failed to obtain context or unrecognized Uri format for: " + uri, e2);
         }
@@ -79,7 +79,7 @@ public class d implements f<Uri, Drawable> {
     @Nullable
     public s<Drawable> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         Context a2 = a(uri, uri.getAuthority());
-        return c.a(a.a(this.f35635a, a2, a(a2, uri)));
+        return c.a(a.a(this.f35924a, a2, a(a2, uri)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

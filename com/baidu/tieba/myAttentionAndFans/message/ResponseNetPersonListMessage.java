@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.r.q.g1;
 import d.b.h0.r.r.a;
 import java.util.Map;

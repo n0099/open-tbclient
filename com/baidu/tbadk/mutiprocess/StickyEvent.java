@@ -1,0 +1,43 @@
+package com.baidu.tbadk.mutiprocess;
+
+import android.os.Process;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import d.b.h0.f0.a;
+import java.io.Serializable;
+/* loaded from: classes3.dex */
+public abstract class StickyEvent extends OrmObject implements Serializable, a {
+    public int mTag = 0;
+    public int mType = 2;
+    public int mPid = Process.myPid();
+
+    @Override // d.b.h0.f0.a
+    public int getPid() {
+        return this.mPid;
+    }
+
+    @Override // d.b.h0.f0.a
+    public int getTag() {
+        return this.mTag;
+    }
+
+    @Override // d.b.h0.f0.a
+    public int getType() {
+        return this.mType;
+    }
+
+    public void resetPid() {
+        this.mPid = Process.myPid();
+    }
+
+    @Override // d.b.h0.f0.a
+    public void setTag(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.mTag = bdUniqueId.getId();
+        }
+    }
+
+    public void setType(int i) {
+        this.mType = i;
+    }
+}

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContextSupport;
@@ -10,10 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
+    public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
     public static final String TAG_AD_EXT_INFO = "tag_ad_ext_info";
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
@@ -106,7 +108,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+            getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         setIntentAction(IntentAction.Activity);
     }
@@ -121,7 +123,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+            getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         setIntentAction(IntentAction.Activity);
     }
@@ -136,7 +138,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z4);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+            getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         setIntentAction(IntentAction.Activity);
     }

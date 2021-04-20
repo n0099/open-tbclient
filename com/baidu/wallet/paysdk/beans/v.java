@@ -21,29 +21,29 @@ import java.util.List;
 public class v extends PayBaseBean<DirectPayContentResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequest f25536a;
+    public PayRequest f25221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25537b;
+    public String f25222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25538c;
+    public String f25223c;
 
     public <T> v(Context context) {
         super(context);
-        this.f25536a = null;
-        this.f25537b = null;
-        this.f25538c = null;
-        this.f25536a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f25221a = null;
+        this.f25222b = null;
+        this.f25223c = null;
+        this.f25221a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(String str) {
-        this.f25537b = str;
+        this.f25222b = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        if (BeanConstants.API_GET_PAY_ORDER.equals(this.f25538c)) {
+        if (BeanConstants.API_GET_PAY_ORDER.equals(this.f25223c)) {
             List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo());
             HashMap hashMap = new HashMap();
             hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
@@ -76,31 +76,31 @@ public class v extends PayBaseBean<DirectPayContentResponse> {
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
         String str;
-        this.f25538c = BeanConstants.API_GET_PAY_ORDER;
-        if (this.f25536a.hasCashDeskCode()) {
-            this.f25538c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
-        } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f25536a.getPayFrom())) {
-            this.f25538c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
-        } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f25536a.getPayFrom())) {
-            this.f25538c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
-        } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f25536a.getPayFrom())) {
-            this.f25538c = BeanConstants.API_CARD_ADD;
-        } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f25536a.getPayFrom())) {
-            this.f25538c = BeanConstants.API_AUTHORIZE_ORDER;
+        this.f25223c = BeanConstants.API_GET_PAY_ORDER;
+        if (this.f25221a.hasCashDeskCode()) {
+            this.f25223c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
+        } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f25221a.getPayFrom())) {
+            this.f25223c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
+        } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f25221a.getPayFrom())) {
+            this.f25223c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
+        } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f25221a.getPayFrom())) {
+            this.f25223c = BeanConstants.API_CARD_ADD;
+        } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f25221a.getPayFrom())) {
+            this.f25223c = BeanConstants.API_AUTHORIZE_ORDER;
         } else if (PayDataCache.getInstance().isFromPreCashier()) {
-            this.f25538c = BeanConstants.API_GET_PRE_PAY_ORDER;
+            this.f25223c = BeanConstants.API_GET_PRE_PAY_ORDER;
         }
         if (PayDataCache.getInstance().isFromPreCashier()) {
-            str = DomainConfig.getInstance().getAppPayHost() + this.f25538c + "?" + this.f25536a.mParams + "&" + this.f25537b;
+            str = DomainConfig.getInstance().getAppPayHost() + this.f25223c + "?" + this.f25221a.mParams + "&" + this.f25222b;
         } else {
-            str = DomainConfig.getInstance().getAppPayHost() + this.f25538c + "?" + this.f25536a.mParams;
+            str = DomainConfig.getInstance().getAppPayHost() + this.f25223c + "?" + this.f25221a.mParams;
         }
         if (WalletFingerprint.getInstance(this.mContext).hasEnrollFingerprint()) {
             str = str + "&enroll_fingerprint=1";
         }
-        if (TextUtils.isEmpty(this.f25536a.mSecurityParams)) {
+        if (TextUtils.isEmpty(this.f25221a.mSecurityParams)) {
             return str;
         }
-        return str + "&security_sdk_param=" + this.f25536a.mSecurityParams;
+        return str + "&security_sdk_param=" + this.f25221a.mSecurityParams;
     }
 }

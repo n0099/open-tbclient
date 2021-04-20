@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements Parcelable {
     public static int a(Parcel parcel, int i) {
         parcel.writeInt(i | (-65536));

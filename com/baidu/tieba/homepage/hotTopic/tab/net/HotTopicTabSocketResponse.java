@@ -2,12 +2,12 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.b.j.e.n;
-import d.b.i0.z0.e.a.c;
-import d.b.i0.z0.e.a.f.a;
+import d.b.c.j.e.n;
+import d.b.i0.a1.e.a.c;
+import d.b.i0.a1.e.a.f.a;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicTabSocketResponse extends SocketResponsedMessage implements a {
     public HotThreadListResIdl mData;
     public List<n> mHotTopicDataList;
@@ -16,12 +16,12 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         super(309661);
     }
 
-    @Override // d.b.i0.z0.e.a.f.a
+    @Override // d.b.i0.a1.e.a.f.a
     public List<n> getDataList() {
         return this.mHotTopicDataList;
     }
 
-    @Override // d.b.i0.z0.e.a.f.a
+    @Override // d.b.i0.a1.e.a.f.a
     public HotThreadListResIdl getResData() {
         return this.mData;
     }

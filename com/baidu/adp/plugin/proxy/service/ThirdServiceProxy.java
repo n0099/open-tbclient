@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.proxy.ServiceProxy;
-import d.b.b.h.d;
-import d.b.b.h.h.a;
+import d.b.c.h.d;
+import d.b.c.h.h.a;
 /* loaded from: classes.dex */
 public class ThirdServiceProxy extends ServiceProxy {
     private Object createServiceInstance(Intent intent) {

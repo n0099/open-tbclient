@@ -30,7 +30,7 @@ public final class ContinuationKt {
 
             @Override // kotlin.coroutines.Continuation
             public void resumeWith(Object obj) {
-                function1.invoke(Result.m627boximpl(obj));
+                function1.invoke(Result.m631boximpl(obj));
             }
         };
     }
@@ -53,14 +53,14 @@ public final class ContinuationKt {
     @InlineOnly
     public static final <T> void resume(Continuation<? super T> continuation, T t) {
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m628constructorimpl(t));
+        continuation.resumeWith(Result.m632constructorimpl(t));
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <T> void resumeWithException(Continuation<? super T> continuation, Throwable th) {
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m628constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m632constructorimpl(ResultKt.createFailure(th)));
     }
 
     @SinceKotlin(version = "1.3")
@@ -68,7 +68,7 @@ public final class ContinuationKt {
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(function1, continuation));
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        intercepted.resumeWith(Result.m628constructorimpl(unit));
+        intercepted.resumeWith(Result.m632constructorimpl(unit));
     }
 
     @SinceKotlin(version = "1.3")
@@ -95,6 +95,6 @@ public final class ContinuationKt {
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(function2, r, continuation));
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        intercepted.resumeWith(Result.m628constructorimpl(unit));
+        intercepted.resumeWith(Result.m632constructorimpl(unit));
     }
 }

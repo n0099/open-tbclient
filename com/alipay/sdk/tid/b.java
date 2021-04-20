@@ -12,28 +12,28 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1947a = "alipay_tid_storage";
+    public static final String f1972a = "alipay_tid_storage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1948b = "tidinfo";
+    public static final String f1973b = "tidinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1949c = "upgraded_from_db";
+    public static final String f1974c = "upgraded_from_db";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1950d = "tid";
+    public static final String f1975d = "tid";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1951e = "client_key";
+    public static final String f1976e = "client_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1952f = "timestamp";
+    public static final String f1977f = "timestamp";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1953g = "vimei";
+    public static final String f1978g = "vimei";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1954h = "vimsi";
+    public static final String f1979h = "vimsi";
     public static Context i;
     public static b o;
     public String j;
@@ -85,7 +85,7 @@ public class b {
         if (context == null) {
             return;
         }
-        if (a.d(f1947a, f1949c)) {
+        if (a.d(f1972a, f1974c)) {
             c.b("TidStorage", "transferTidFromOldDb: already migrated. returning");
             return;
         }
@@ -127,7 +127,7 @@ public class b {
                 aVar = aVar2;
                 try {
                     c.a(th);
-                    a.a(f1947a, f1949c, "updated", false);
+                    a.a(f1972a, f1974c, "updated", false);
                 } finally {
                     if (aVar != null) {
                         aVar.close();
@@ -137,7 +137,7 @@ public class b {
         } catch (Throwable th5) {
             th = th5;
         }
-        a.a(f1947a, f1949c, "updated", false);
+        a.a(f1972a, f1974c, "updated", false);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0091  */
@@ -154,7 +154,7 @@ public class b {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
         String str5 = null;
         try {
-            a2 = a.a(f1947a, f1948b, true);
+            a2 = a.a(f1972a, f1973b, true);
         } catch (Exception e2) {
             e = e2;
             str = null;
@@ -164,10 +164,10 @@ public class b {
             JSONObject jSONObject = new JSONObject(a2);
             str = jSONObject.optString("tid", "");
             try {
-                str2 = jSONObject.optString(f1951e, "");
+                str2 = jSONObject.optString(f1976e, "");
                 try {
                     valueOf = Long.valueOf(jSONObject.optLong("timestamp", System.currentTimeMillis()));
-                    str3 = jSONObject.optString(f1953g, "");
+                    str3 = jSONObject.optString(f1978g, "");
                 } catch (Exception e3) {
                     e = e3;
                     str3 = null;
@@ -184,7 +184,7 @@ public class b {
                 }
             }
             try {
-                str4 = jSONObject.optString(f1954h, "");
+                str4 = jSONObject.optString(f1979h, "");
             } catch (Exception e5) {
                 e = e5;
                 c.a(e);
@@ -221,7 +221,7 @@ public class b {
         this.l = System.currentTimeMillis();
         this.m = n();
         this.n = n();
-        a.b(f1947a, f1948b);
+        a.b(f1972a, f1973b);
     }
 
     private String n() {
@@ -237,11 +237,11 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.j);
-            jSONObject.put(f1951e, this.k);
+            jSONObject.put(f1976e, this.k);
             jSONObject.put("timestamp", this.l);
-            jSONObject.put(f1953g, this.m);
-            jSONObject.put(f1954h, this.n);
-            a.a(f1947a, f1948b, jSONObject.toString(), true);
+            jSONObject.put(f1978g, this.m);
+            jSONObject.put(f1979h, this.n);
+            a.a(f1972a, f1973b, jSONObject.toString(), true);
         } catch (Exception e2) {
             c.a(e2);
         }

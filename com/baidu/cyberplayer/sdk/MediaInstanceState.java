@@ -13,28 +13,28 @@ public class MediaInstanceState {
     public Map<String, String> A;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberPlayerManager.OnPreparedListener f4833a;
+    public CyberPlayerManager.OnPreparedListener f4868a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f4834b;
+    public CyberPlayerManager.OnCompletionListener f4869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f4835c;
+    public CyberPlayerManager.OnBufferingUpdateListener f4870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f4836d;
+    public CyberPlayerManager.OnSeekCompleteListener f4871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f4837e;
+    public CyberPlayerManager.OnVideoSizeChangedListener f4872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f4838f;
+    public CyberPlayerManager.OnInfoListener f4873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnMediaSourceChangedListener f4839g;
+    public CyberPlayerManager.OnMediaSourceChangedListener f4874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Surface f4840h;
+    public Surface f4875h;
     public CyberPlayerManager.HttpDNS i;
     public Uri z;
     public int j = -1;
@@ -101,7 +101,7 @@ public class MediaInstanceState {
     }
 
     public Surface getInstanceSurface() {
-        return this.f4840h;
+        return this.f4875h;
     }
 
     public Uri getInstanceUri() {
@@ -119,31 +119,31 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnBufferingUpdateListener getOnBufferingUpdateListener() {
-        return this.f4835c;
+        return this.f4870c;
     }
 
     public CyberPlayerManager.OnCompletionListener getOnCompletionListener() {
-        return this.f4834b;
+        return this.f4869b;
     }
 
     public CyberPlayerManager.OnInfoListener getOnInfoListener() {
-        return this.f4838f;
+        return this.f4873f;
     }
 
     public CyberPlayerManager.OnMediaSourceChangedListener getOnMediaSourceChangedListener() {
-        return this.f4839g;
+        return this.f4874g;
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.f4833a;
+        return this.f4868a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
-        return this.f4836d;
+        return this.f4871d;
     }
 
     public CyberPlayerManager.OnVideoSizeChangedListener getOnVideoSizeChangedListener() {
-        return this.f4837e;
+        return this.f4872e;
     }
 
     public String getPlayJson() {
@@ -177,14 +177,14 @@ public class MediaInstanceState {
     }
 
     public void release() {
-        this.f4833a = null;
-        this.f4838f = null;
-        this.f4836d = null;
-        this.f4835c = null;
-        this.f4837e = null;
-        this.f4833a = null;
-        this.f4839g = null;
-        this.f4840h = null;
+        this.f4868a = null;
+        this.f4873f = null;
+        this.f4871d = null;
+        this.f4870c = null;
+        this.f4872e = null;
+        this.f4868a = null;
+        this.f4874g = null;
+        this.f4875h = null;
         this.i = null;
         this.A = null;
         this.z = null;
@@ -199,31 +199,31 @@ public class MediaInstanceState {
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        this.f4835c = onBufferingUpdateListener;
+        this.f4870c = onBufferingUpdateListener;
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.f4834b = onCompletionListener;
+        this.f4869b = onCompletionListener;
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        this.f4838f = onInfoListener;
+        this.f4873f = onInfoListener;
     }
 
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        this.f4839g = onMediaSourceChangedListener;
+        this.f4874g = onMediaSourceChangedListener;
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f4833a = onPreparedListener;
+        this.f4868a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        this.f4836d = onSeekCompleteListener;
+        this.f4871d = onSeekCompleteListener;
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        this.f4837e = onVideoSizeChangedListener;
+        this.f4872e = onVideoSizeChangedListener;
     }
 
     public void setPlayJson(String str) {
@@ -285,6 +285,6 @@ public class MediaInstanceState {
     }
 
     public void updateSurface(Surface surface) {
-        this.f4840h = surface;
+        this.f4875h = surface;
     }
 }

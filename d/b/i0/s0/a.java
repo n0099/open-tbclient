@@ -1,78 +1,72 @@
 package d.b.i0.s0;
 
-import tbclient.EsportRank;
-import tbclient.EsportUser;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import d.b.c.j.e.n;
+import d.b.h0.r.q.a2;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60133a;
+    public int f61434a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f60134b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f60135c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f60136d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f60137e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f60138f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f60139g;
-
-    public String a() {
-        return this.f60135c;
+    public static a a(boolean z) {
+        if (z && d()) {
+            return new a();
+        }
+        return null;
     }
 
-    public String b() {
-        return this.f60138f;
+    public static boolean d() {
+        return d.b.h0.b.d.m();
     }
 
-    public String c() {
-        return this.f60139g;
+    public static boolean e(FrsTabInfo frsTabInfo, int i) {
+        if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+            return false;
+        }
+        if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
+            return false;
+        }
+        return ((frsTabInfo != null && 502 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) || i == 2) ? false : true;
     }
 
-    public String d() {
-        return this.f60134b;
+    public void b(List<n> list, boolean z, String str) {
+        int i;
+        int d2 = d.b.i0.r0.a.h().d();
+        if (z) {
+            i = d.b.i0.r0.a.h().e() - 1;
+            for (n nVar : list) {
+                if (nVar instanceof a2) {
+                    if (((a2) nVar).x0() != 1) {
+                        break;
+                    }
+                    i++;
+                }
+            }
+        } else {
+            i = this.f61434a;
+        }
+        this.f61434a = c(i, d2, list, str);
     }
 
-    public String e() {
-        return this.f60136d;
-    }
-
-    public String f() {
-        return this.f60137e;
-    }
-
-    public String g() {
-        return this.f60133a;
-    }
-
-    public void h(EsportRank esportRank) {
-        if (esportRank != null) {
-            this.f60133a = esportRank.title;
-            this.f60134b = String.valueOf(esportRank.rank);
-            this.f60135c = esportRank.text;
-            this.f60139g = esportRank.url;
-            EsportUser esportUser = esportRank.user;
-            if (esportUser != null) {
-                this.f60136d = esportUser.steam_name;
-                this.f60137e = esportUser.steam_portrait;
+    public final int c(int i, int i2, List<n> list, String str) {
+        if (list == null || list.size() == 0 || i > list.size() - 1) {
+            return 0;
+        }
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            a2 a2Var = new a2();
+            d.b.i0.d3.h0.n nVar = new d.b.i0.d3.h0.n();
+            nVar.k(true);
+            a2Var.C2 = nVar;
+            nVar.j(str);
+            list.add(i, a2Var);
+            i = i + i2 + 1;
+            if (i > list.size() - 1) {
+                return (i - (list.size() - 1)) - 1;
             }
         }
-    }
-
-    public void i(String str) {
-        this.f60138f = str;
-    }
-
-    public void j(String str) {
-        this.f60139g = str;
+        return 0;
     }
 }

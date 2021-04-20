@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import d.b.i0.d1.f.i.b;
-import d.b.i0.d1.t.d;
+import d.b.i0.e1.f.i.b;
+import d.b.i0.e1.t.d;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static final int MASK_TYPE = 12;
 

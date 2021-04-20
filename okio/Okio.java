@@ -1,6 +1,5 @@
 package okio;
 
-import com.alipay.sdk.data.a;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,7 +16,6 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 /* loaded from: classes7.dex */
 public final class Okio {
     public static final Logger logger = Logger.getLogger(Okio.class.getName());
@@ -71,7 +69,7 @@ public final class Okio {
         return new AsyncTimeout() { // from class: okio.Okio.4
             @Override // okio.AsyncTimeout
             public IOException newTimeoutException(@Nullable IOException iOException) {
-                SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.i);
+                SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
                 if (iOException != null) {
                     socketTimeoutException.initCause(iOException);
                 }
@@ -222,7 +220,6 @@ public final class Okio {
         throw new IllegalArgumentException("file == null");
     }
 
-    @IgnoreJRERequirement
     public static Source source(Path path, OpenOption... openOptionArr) throws IOException {
         if (path != null) {
             return source(Files.newInputStream(path, openOptionArr));
@@ -248,7 +245,6 @@ public final class Okio {
         throw new IllegalArgumentException("file == null");
     }
 
-    @IgnoreJRERequirement
     public static Sink sink(Path path, OpenOption... openOptionArr) throws IOException {
         if (path != null) {
             return sink(Files.newOutputStream(path, openOptionArr));

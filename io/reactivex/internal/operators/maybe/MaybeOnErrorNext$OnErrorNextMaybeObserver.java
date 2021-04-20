@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.j;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.i;
+import f.b.j;
+import f.b.t.b;
+import f.b.w.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -18,34 +18,34 @@ public final class MaybeOnErrorNext$OnErrorNextMaybeObserver<T> extends AtomicRe
     public static final class a<T> implements i<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f68049e;
+        public final i<? super T> f69055e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicReference<b> f68050f;
+        public final AtomicReference<b> f69056f;
 
         public a(i<? super T> iVar, AtomicReference<b> atomicReference) {
-            this.f68049e = iVar;
-            this.f68050f = atomicReference;
+            this.f69055e = iVar;
+            this.f69056f = atomicReference;
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onComplete() {
-            this.f68049e.onComplete();
+            this.f69055e.onComplete();
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onError(Throwable th) {
-            this.f68049e.onError(th);
+            this.f69055e.onError(th);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSubscribe(b bVar) {
-            DisposableHelper.setOnce(this.f68050f, bVar);
+            DisposableHelper.setOnce(this.f69056f, bVar);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSuccess(T t) {
-            this.f68049e.onSuccess(t);
+            this.f69055e.onSuccess(t);
         }
     }
 
@@ -55,22 +55,22 @@ public final class MaybeOnErrorNext$OnErrorNextMaybeObserver<T> extends AtomicRe
         this.allowFatal = z;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         this.actual.onComplete();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         if (!this.allowFatal && !(th instanceof Exception)) {
             this.actual.onError(th);
@@ -78,24 +78,24 @@ public final class MaybeOnErrorNext$OnErrorNextMaybeObserver<T> extends AtomicRe
         }
         try {
             j<? extends T> apply = this.resumeFunction.apply(th);
-            f.a.x.b.a.b(apply, "The resumeFunction returned a null MaybeSource");
+            f.b.x.b.a.b(apply, "The resumeFunction returned a null MaybeSource");
             j<? extends T> jVar = apply;
             DisposableHelper.replace(this, null);
             jVar.a(new a(this.actual, this));
         } catch (Throwable th2) {
-            f.a.u.a.a(th2);
+            f.b.u.a.a(th2);
             this.actual.onError(new CompositeException(th, th2));
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
         if (DisposableHelper.setOnce(this, bVar)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         this.actual.onSuccess(t);
     }

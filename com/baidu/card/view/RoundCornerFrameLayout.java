@@ -18,23 +18,23 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.a.o;
+import d.a.a.q;
 import d.b.h0.r.u.a;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f4516e;
+    public RectF f4551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f4517f;
+    public float[] f4552f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f4518g;
+    public Paint f4553g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f4519h;
+    public ImageView f4554h;
     public Bitmap i;
     public int j;
     public ColorFilter k;
@@ -42,8 +42,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.f4517f = new float[8];
-        this.f4519h = null;
+        this.f4552f = new float[8];
+        this.f4554h = null;
         this.j = 3;
         b();
     }
@@ -52,7 +52,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         if (getMeasuredHeight() <= 0 || getMeasuredWidth() <= 0) {
             return;
         }
-        this.f4516e.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f4551e.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         try {
             this.i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
         } catch (OutOfMemoryError e2) {
@@ -70,56 +70,56 @@ public class RoundCornerFrameLayout extends FrameLayout {
         }
         Canvas canvas = new Canvas(this.i);
         canvas.drawColor(-16777216);
-        this.f4518g.setColor(-1);
+        this.f4553g.setColor(-1);
         Path path = new Path();
-        path.addRoundRect(this.f4516e, this.f4517f, Path.Direction.CW);
-        canvas.drawPath(path, this.f4518g);
-        this.f4519h.setImageBitmap(this.i);
-        if (this.f4519h.getParent() == null) {
-            addView(this.f4519h);
+        path.addRoundRect(this.f4551e, this.f4552f, Path.Direction.CW);
+        canvas.drawPath(path, this.f4553g);
+        this.f4554h.setImageBitmap(this.i);
+        if (this.f4554h.getParent() == null) {
+            addView(this.f4554h);
         }
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        ImageView imageView = this.f4519h;
+        ImageView imageView = this.f4554h;
         if (imageView == null || view == imageView) {
             return;
         }
         if (imageView.getParent() != null) {
-            ((ViewGroup) this.f4519h.getParent()).removeView(this.f4519h);
+            ((ViewGroup) this.f4554h.getParent()).removeView(this.f4554h);
         }
-        super.addView(this.f4519h);
+        super.addView(this.f4554h);
     }
 
     public final void b() {
         setWillNotDraw(false);
-        this.f4516e = new RectF();
-        this.f4517f = a.u(R.string.J_X05);
+        this.f4551e = new RectF();
+        this.f4552f = a.u(R.string.J_X05);
         Paint paint = new Paint();
-        this.f4518g = paint;
+        this.f4553g = paint;
         paint.setStrokeWidth(0.0f);
-        this.f4518g.setStrokeCap(Paint.Cap.ROUND);
-        this.f4518g.setAntiAlias(true);
-        this.f4518g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f4553g.setStrokeCap(Paint.Cap.ROUND);
+        this.f4553g.setAntiAlias(true);
+        this.f4553g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         ImageView imageView = new ImageView(getContext());
-        this.f4519h = imageView;
+        this.f4554h = imageView;
         imageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void c(int i) {
-        if (this.f4519h == null || this.j == i) {
+        if (this.f4554h == null || this.j == i) {
             return;
         }
         this.j = i;
-        this.k = new o(SkinManager.getColor(R.color.CAM_X0201));
-        this.l = new o(SkinManager.getColor(R.color.CAM_X0205));
-        this.f4519h.setColorFilter(this.k);
+        this.k = new q(SkinManager.getColor(R.color.CAM_X0201));
+        this.l = new q(SkinManager.getColor(R.color.CAM_X0205));
+        this.f4554h.setColorFilter(this.k);
     }
 
     public void d(boolean z) {
-        ImageView imageView = this.f4519h;
+        ImageView imageView = this.f4554h;
         if (imageView != null) {
             imageView.setColorFilter(z ? this.l : this.k);
         }
@@ -139,17 +139,17 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        ImageView imageView = this.f4519h;
+        ImageView imageView = this.f4554h;
         if (imageView != null) {
             if (imageView.getParent() != null) {
-                ((ViewGroup) this.f4519h.getParent()).removeView(this.f4519h);
+                ((ViewGroup) this.f4554h.getParent()).removeView(this.f4554h);
             }
-            super.addView(this.f4519h);
+            super.addView(this.f4554h);
         }
     }
 
     public void setCorner(float f2) {
-        Arrays.fill(this.f4517f, f2);
+        Arrays.fill(this.f4552f, f2);
         Bitmap bitmap = this.i;
         if (bitmap != null) {
             bitmap.recycle();
@@ -158,7 +158,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
     }
 
     public void setCornerId(int i) {
-        this.f4517f = a.u(i);
+        this.f4552f = a.u(i);
         Bitmap bitmap = this.i;
         if (bitmap != null) {
             bitmap.recycle();
@@ -168,16 +168,16 @@ public class RoundCornerFrameLayout extends FrameLayout {
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4517f = new float[8];
-        this.f4519h = null;
+        this.f4552f = new float[8];
+        this.f4554h = null;
         this.j = 3;
         b();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f4517f = new float[8];
-        this.f4519h = null;
+        this.f4552f = new float[8];
+        this.f4554h = null;
         this.j = 3;
         b();
     }

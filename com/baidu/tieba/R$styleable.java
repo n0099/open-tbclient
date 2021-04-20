@@ -807,16 +807,20 @@ public final class R$styleable {
     public static final int LiveBroadcastCard_intro_singline = 0;
     public static final int LiveBroadcastCard_status = 1;
     public static final int LottieAnimationView_lottie_autoPlay = 0;
+    public static final int LottieAnimationView_lottie_cacheComposition = 12;
     public static final int LottieAnimationView_lottie_colorFilter = 1;
     public static final int LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove = 2;
+    public static final int LottieAnimationView_lottie_fallbackRes = 13;
     public static final int LottieAnimationView_lottie_fileName = 3;
     public static final int LottieAnimationView_lottie_imageAssetsFolder = 4;
     public static final int LottieAnimationView_lottie_loop = 5;
     public static final int LottieAnimationView_lottie_progress = 6;
     public static final int LottieAnimationView_lottie_rawRes = 7;
+    public static final int LottieAnimationView_lottie_renderMode = 14;
     public static final int LottieAnimationView_lottie_repeatCount = 8;
     public static final int LottieAnimationView_lottie_repeatMode = 9;
     public static final int LottieAnimationView_lottie_scale = 10;
+    public static final int LottieAnimationView_lottie_speed = 15;
     public static final int LottieAnimationView_lottie_url = 11;
     public static final int MagicProgressCircle_mpc_default_color = 0;
     public static final int MagicProgressCircle_mpc_end_color = 1;
@@ -1182,6 +1186,7 @@ public final class R$styleable {
     public static final int ShimmerFrameLayout_repeat_mode = 12;
     public static final int ShimmerFrameLayout_shimmer_shape = 13;
     public static final int ShimmerFrameLayout_tilt = 14;
+    public static final int SimpleAdInfoView_layoutId = 0;
     public static final int SimpleDraweeView_actualImageResource = 0;
     public static final int SimpleDraweeView_actualImageScaleType = 1;
     public static final int SimpleDraweeView_actualImageUri = 2;
@@ -1799,7 +1804,7 @@ public final class R$styleable {
     public static final int[] ListPopupWindow = {16843436, 16843437};
     public static final int[] ListView = {R.attr.dividerHeight, R.attr.footerDividersEnabled, R.attr.headerDividersEnabled, R.attr.overScrollFooter, R.attr.overScrollHeader, R.attr.plaContentBackground};
     public static final int[] LiveBroadcastCard = {R.attr.intro_singline, R.attr.status};
-    public static final int[] LottieAnimationView = {R.attr.lottie_autoPlay, R.attr.lottie_colorFilter, R.attr.lottie_enableMergePathsForKitKatAndAbove, R.attr.lottie_fileName, R.attr.lottie_imageAssetsFolder, R.attr.lottie_loop, R.attr.lottie_progress, R.attr.lottie_rawRes, R.attr.lottie_repeatCount, R.attr.lottie_repeatMode, R.attr.lottie_scale, R.attr.lottie_url};
+    public static final int[] LottieAnimationView = {R.attr.lottie_autoPlay, R.attr.lottie_colorFilter, R.attr.lottie_enableMergePathsForKitKatAndAbove, R.attr.lottie_fileName, R.attr.lottie_imageAssetsFolder, R.attr.lottie_loop, R.attr.lottie_progress, R.attr.lottie_rawRes, R.attr.lottie_repeatCount, R.attr.lottie_repeatMode, R.attr.lottie_scale, R.attr.lottie_url, R.attr.lottie_cacheComposition, R.attr.lottie_fallbackRes, R.attr.lottie_renderMode, R.attr.lottie_speed};
     public static final int[] MagicProgressCircle = {R.attr.mpc_default_color, R.attr.mpc_end_color, R.attr.mpc_foot_over_head, R.attr.mpc_percent, R.attr.mpc_start_color, R.attr.mpc_stroke_width};
     public static final int[] MaterialButton = {16843191, 16843192, 16843193, 16843194, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.cornerRadius, R.attr.icon, R.attr.iconGravity, R.attr.iconPadding, R.attr.iconSize, R.attr.iconTint, R.attr.iconTintMode, R.attr.rippleColor, R.attr.strokeColor, R.attr.strokeWidth};
     public static final int[] MaterialCardView = {R.attr.strokeColor, R.attr.strokeWidth};
@@ -1840,6 +1845,7 @@ public final class R$styleable {
     public static final int[] ScrollingViewBehavior_Layout = {R.attr.behavior_overlapTop};
     public static final int[] SearchView = {16842970, 16843039, 16843296, 16843364, R.attr.closeIcon, R.attr.commitIcon, R.attr.defaultQueryHint, R.attr.goIcon, R.attr.iconifiedByDefault, R.attr.layout, R.attr.queryBackground, R.attr.queryHint, R.attr.searchHintIcon, R.attr.searchIcon, R.attr.submitBackground, R.attr.suggestionRowLayout, R.attr.voiceIcon};
     public static final int[] ShimmerFrameLayout = {R.attr.angle, R.attr.auto_start, R.attr.base_alpha, R.attr.dropoff, R.attr.duration, R.attr.fixed_height, R.attr.fixed_width, R.attr.intensity, R.attr.relative_height, R.attr.relative_width, R.attr.repeat_count, R.attr.repeat_delay, R.attr.repeat_mode, R.attr.shimmer_shape, R.attr.tilt};
+    public static final int[] SimpleAdInfoView = {R.attr.layoutId};
     public static final int[] SimpleDraweeView = {R.attr.actualImageResource, R.attr.actualImageScaleType, R.attr.actualImageUri, R.attr.backgroundImage, R.attr.fadeDuration, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.overlayImage, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.pressedStateOverlayImage, R.attr.progressBarAutoRotateInterval, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.roundAsCircle, R.attr.roundBottomEnd, R.attr.roundBottomLeft, R.attr.roundBottomRight, R.attr.roundBottomStart, R.attr.roundTopEnd, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundTopStart, R.attr.roundWithOverlayColor, R.attr.roundedCornerRadius, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.roundingBorderWidth, R.attr.svgImage, R.attr.viewAspectRatio};
     public static final int[] SliderBar = {R.attr.animation, R.attr.barChosenTextColor, R.attr.barLineColor, R.attr.barLineWide, R.attr.barTextColor, R.attr.barTextPadding, R.attr.barTextSize, R.attr.currentIndex, R.attr.defaultWidth, R.attr.isShowShadow, R.attr.shadowColor, R.attr.thumbCircleColor, R.attr.thumbCircleWide, R.attr.thumbColorNormal, R.attr.thumbColorPressed, R.attr.thumbRadius, R.attr.tickDiameter};
     public static final int[] Snackbar = {R.attr.snackbarButtonStyle, R.attr.snackbarStyle};

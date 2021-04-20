@@ -3,22 +3,22 @@ package com.baidu.fsg.base.widget;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f5519a;
+    public final /* synthetic */ j f5554a;
 
     public k(j jVar) {
-        this.f5519a = jVar;
+        this.f5554a = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SafeScrollView safeScrollView;
-        SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f5519a.f5518a.mPopupWindow;
+        SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f5554a.f5553a.mPopupWindow;
         if (safeKeyBoardPopupWindow == null || !safeKeyBoardPopupWindow.isShowing()) {
             return;
         }
-        safeScrollView = this.f5519a.f5518a.f5496e;
+        safeScrollView = this.f5554a.f5553a.f5531e;
         if (safeScrollView.hasWindowFocus()) {
-            this.f5519a.f5518a.a();
+            this.f5554a.f5553a.a();
         }
     }
 }

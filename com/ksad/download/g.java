@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
 /* loaded from: classes6.dex */
@@ -13,7 +14,7 @@ public class g {
     public static PendingIntent a(DownloadTask downloadTask) {
         File file = new File(downloadTask.getTargetFilePath());
         Intent intent = new Intent("android.intent.action.VIEW");
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.addFlags(3);
         Context a2 = b.a();
         Uri a3 = a(a2, file);
@@ -26,7 +27,7 @@ public class g {
 
     public static PendingIntent a(File file, int i) {
         Intent intent = new Intent("android.intent.action.VIEW");
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.addFlags(3);
         Context a2 = b.a();
         Uri a3 = a(a2, file);

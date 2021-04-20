@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static int a(Context context, String str) {
         ConnectivityManager connectivityManager;

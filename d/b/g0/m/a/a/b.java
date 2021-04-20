@@ -29,49 +29,49 @@ public class b {
 
     /* renamed from: d.b.g0.m.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class SharedElementCallbackC1024b extends SharedElementCallback {
+    public static class SharedElementCallbackC1036b extends SharedElementCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f49067a;
+        public a f49459a;
 
-        public SharedElementCallbackC1024b(a aVar) {
-            this.f49067a = aVar;
+        public SharedElementCallbackC1036b(a aVar) {
+            this.f49459a = aVar;
         }
 
         @Override // android.app.SharedElementCallback
         public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
-            return this.f49067a.a(view, matrix, rectF);
+            return this.f49459a.a(view, matrix, rectF);
         }
 
         @Override // android.app.SharedElementCallback
         public View onCreateSnapshotView(Context context, Parcelable parcelable) {
-            return this.f49067a.b(context, parcelable);
+            return this.f49459a.b(context, parcelable);
         }
 
         @Override // android.app.SharedElementCallback
         public void onMapSharedElements(List<String> list, Map<String, View> map) {
-            this.f49067a.c(list, map);
+            this.f49459a.c(list, map);
         }
 
         @Override // android.app.SharedElementCallback
         public void onRejectSharedElements(List<View> list) {
-            this.f49067a.d(list);
+            this.f49459a.d(list);
         }
 
         @Override // android.app.SharedElementCallback
         public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
-            this.f49067a.e(list, list2, list3);
+            this.f49459a.e(list, list2, list3);
         }
 
         @Override // android.app.SharedElementCallback
         public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
-            this.f49067a.f(list, list2, list3);
+            this.f49459a.f(list, list2, list3);
         }
     }
 
     public static SharedElementCallback a(a aVar) {
         if (aVar != null) {
-            return new SharedElementCallbackC1024b(aVar);
+            return new SharedElementCallbackC1036b(aVar);
         }
         return null;
     }

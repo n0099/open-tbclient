@@ -28,10 +28,10 @@ public class c extends d.b.i0.x.b<b> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             SkinManager.setBackgroundColor(this.m, this.n);
         }
-        this.f62180e = i;
+        this.f63755e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -46,10 +46,10 @@ public class c extends d.b.i0.x.b<b> {
             return;
         }
         this.m.setVisibility(0);
-        this.n = bVar.f62230e;
-        this.o = bVar.f62231f;
+        this.n = bVar.f63805e;
+        this.o = bVar.f63806f;
         v();
-        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f63756f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void v() {

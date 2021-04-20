@@ -19,19 +19,19 @@ import java.util.List;
 public class b extends d.b.g0.d.i.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f47498a = {"_id", Constants.APP_ID, com.alipay.sdk.cons.b.f1858h, "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", DpStatConstants.KEY_APP_NAME, "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+    public static final String[] f47890a = {"_id", Constants.APP_ID, com.alipay.sdk.cons.b.f1883h, "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", DpStatConstants.KEY_APP_NAME, "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
 
     /* renamed from: d.b.g0.d.i.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0921b implements Comparator<c> {
-        public C0921b() {
+    public static class C0933b implements Comparator<c> {
+        public C0933b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(c cVar, c cVar2) {
-            return Long.compare(cVar2.f47500b, cVar.f47500b);
+            return Long.compare(cVar2.f47892b, cVar.f47892b);
         }
     }
 
@@ -39,14 +39,14 @@ public class b extends d.b.g0.d.i.a.a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47499a;
+        public String f47891a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f47500b;
+        public long f47892b;
 
         public c(b bVar, String str, long j) {
-            this.f47499a = str;
-            this.f47500b = j;
+            this.f47891a = str;
+            this.f47892b = j;
         }
     }
 
@@ -61,11 +61,11 @@ public class b extends d.b.g0.d.i.a.a {
         if (a2.isEmpty()) {
             return null;
         }
-        Collections.sort(f2, new C0921b());
-        MatrixCursor matrixCursor = new MatrixCursor(f47498a, f2.size());
+        Collections.sort(f2, new C0933b());
+        MatrixCursor matrixCursor = new MatrixCursor(f47890a, f2.size());
         int i = 0;
         for (c cVar : f2) {
-            PMSAppInfo pMSAppInfo = a2.get(cVar.f47499a);
+            PMSAppInfo pMSAppInfo = a2.get(cVar.f47891a);
             if (pMSAppInfo != null) {
                 e(matrixCursor, i, cVar, pMSAppInfo);
                 i++;
@@ -78,7 +78,7 @@ public class b extends d.b.g0.d.i.a.a {
         if (matrixCursor == null || i < 0 || cVar == null || pMSAppInfo == null) {
             return;
         }
-        matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(Constants.APP_ID, pMSAppInfo.appId).add(com.alipay.sdk.cons.b.f1858h, pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add(DpStatConstants.KEY_APP_NAME, pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.orientation)).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f47500b));
+        matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(Constants.APP_ID, pMSAppInfo.appId).add(com.alipay.sdk.cons.b.f1883h, pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add(DpStatConstants.KEY_APP_NAME, pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.orientation)).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f47892b));
     }
 
     public final List<c> f() {

@@ -12,16 +12,16 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f50372a = 604800000;
+    public static long f50779a = 604800000;
 
     /* renamed from: d.b.h0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1070a extends CustomMessageListener {
+    public static class C1083a extends CustomMessageListener {
 
         /* renamed from: d.b.h0.o.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1071a extends Thread {
-            public C1071a(C1070a c1070a) {
+        public class C1084a extends Thread {
+            public C1084a(C1083a c1083a) {
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
@@ -35,22 +35,22 @@ public class a {
             }
         }
 
-        public C1070a(int i) {
+        public C1083a(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            long k = b.i().k("key_clear_resource", 0L);
+            long l = b.j().l("key_clear_resource", 0L);
             long currentTimeMillis = System.currentTimeMillis();
-            if (k == 0) {
-                b.i().v("key_clear_resource", currentTimeMillis);
-                k = currentTimeMillis;
+            if (l == 0) {
+                b.j().w("key_clear_resource", currentTimeMillis);
+                l = currentTimeMillis;
             }
-            if (currentTimeMillis - k > a.f50372a) {
-                new C1071a(this).start();
-                b.i().v("key_clear_resource", currentTimeMillis);
+            if (currentTimeMillis - l > a.f50779a) {
+                new C1084a(this).start();
+                b.j().w("key_clear_resource", currentTimeMillis);
             }
         }
     }
@@ -81,6 +81,6 @@ public class a {
     }
 
     public static void d() {
-        MessageManager.getInstance().registerListener(new C1070a(2005016));
+        MessageManager.getInstance().registerListener(new C1083a(2005016));
     }
 }

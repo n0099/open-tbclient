@@ -1,7 +1,6 @@
 package okhttp3;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -95,7 +94,7 @@ public final class ConnectionSpec {
 
     public int hashCode() {
         if (this.tls) {
-            return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.cipherSuites)) * 31) + Arrays.hashCode(this.tlsVersions)) * 31) + (!this.supportsTlsExtensions ? 1 : 0);
+            return ((((527 + Arrays.hashCode(this.cipherSuites)) * 31) + Arrays.hashCode(this.tlsVersions)) * 31) + (!this.supportsTlsExtensions ? 1 : 0);
         }
         return 17;
     }

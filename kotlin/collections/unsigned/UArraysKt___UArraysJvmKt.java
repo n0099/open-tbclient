@@ -21,36 +21,36 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList--ajY-9A  reason: not valid java name */
-    public static final List<UInt> m979asListajY9A(int[] iArr) {
+    public static final List<UInt> m983asListajY9A(int[] iArr) {
         return new UArraysKt___UArraysJvmKt$asList$1(iArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-GBYM_sE  reason: not valid java name */
-    public static final List<UByte> m980asListGBYM_sE(byte[] bArr) {
+    public static final List<UByte> m984asListGBYM_sE(byte[] bArr) {
         return new UArraysKt___UArraysJvmKt$asList$3(bArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-QwZRm1k  reason: not valid java name */
-    public static final List<ULong> m981asListQwZRm1k(long[] jArr) {
+    public static final List<ULong> m985asListQwZRm1k(long[] jArr) {
         return new UArraysKt___UArraysJvmKt$asList$2(jArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-rL5Bavg  reason: not valid java name */
-    public static final List<UShort> m982asListrL5Bavg(short[] sArr) {
+    public static final List<UShort> m986asListrL5Bavg(short[] sArr) {
         return new UArraysKt___UArraysJvmKt$asList$4(sArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-2fe2U9s  reason: not valid java name */
-    public static final int m983binarySearch2fe2U9s(int[] iArr, int i, int i2, int i3) {
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UIntArray.m765getSizeimpl(iArr));
+    public static final int m987binarySearch2fe2U9s(int[] iArr, int i, int i2, int i3) {
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UIntArray.m769getSizeimpl(iArr));
         int i4 = i3 - 1;
         while (i2 <= i4) {
             int i5 = (i2 + i4) >>> 1;
@@ -67,21 +67,21 @@ public class UArraysKt___UArraysJvmKt {
     }
 
     /* renamed from: binarySearch-2fe2U9s$default  reason: not valid java name */
-    public static /* synthetic */ int m984binarySearch2fe2U9s$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
+    public static /* synthetic */ int m988binarySearch2fe2U9s$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
         if ((i4 & 2) != 0) {
             i2 = 0;
         }
         if ((i4 & 4) != 0) {
-            i3 = UIntArray.m765getSizeimpl(iArr);
+            i3 = UIntArray.m769getSizeimpl(iArr);
         }
-        return m983binarySearch2fe2U9s(iArr, i, i2, i3);
+        return m987binarySearch2fe2U9s(iArr, i, i2, i3);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-EtDCXyQ  reason: not valid java name */
-    public static final int m985binarySearchEtDCXyQ(short[] sArr, short s, int i, int i2) {
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UShortArray.m929getSizeimpl(sArr));
+    public static final int m989binarySearchEtDCXyQ(short[] sArr, short s, int i, int i2) {
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UShortArray.m933getSizeimpl(sArr));
         int i3 = s & UShort.MAX_VALUE;
         int i4 = i2 - 1;
         while (i <= i4) {
@@ -99,21 +99,21 @@ public class UArraysKt___UArraysJvmKt {
     }
 
     /* renamed from: binarySearch-EtDCXyQ$default  reason: not valid java name */
-    public static /* synthetic */ int m986binarySearchEtDCXyQ$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int m990binarySearchEtDCXyQ$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = UShortArray.m929getSizeimpl(sArr);
+            i2 = UShortArray.m933getSizeimpl(sArr);
         }
-        return m985binarySearchEtDCXyQ(sArr, s, i, i2);
+        return m989binarySearchEtDCXyQ(sArr, s, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-K6DWlUc  reason: not valid java name */
-    public static final int m987binarySearchK6DWlUc(long[] jArr, long j, int i, int i2) {
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, ULongArray.m834getSizeimpl(jArr));
+    public static final int m991binarySearchK6DWlUc(long[] jArr, long j, int i, int i2) {
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, ULongArray.m838getSizeimpl(jArr));
         int i3 = i2 - 1;
         while (i <= i3) {
             int i4 = (i + i3) >>> 1;
@@ -130,21 +130,21 @@ public class UArraysKt___UArraysJvmKt {
     }
 
     /* renamed from: binarySearch-K6DWlUc$default  reason: not valid java name */
-    public static /* synthetic */ int m988binarySearchK6DWlUc$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int m992binarySearchK6DWlUc$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = ULongArray.m834getSizeimpl(jArr);
+            i2 = ULongArray.m838getSizeimpl(jArr);
         }
-        return m987binarySearchK6DWlUc(jArr, j, i, i2);
+        return m991binarySearchK6DWlUc(jArr, j, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-WpHrYlw  reason: not valid java name */
-    public static final int m989binarySearchWpHrYlw(byte[] bArr, byte b2, int i, int i2) {
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UByteArray.m696getSizeimpl(bArr));
+    public static final int m993binarySearchWpHrYlw(byte[] bArr, byte b2, int i, int i2) {
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UByteArray.m700getSizeimpl(bArr));
         int i3 = b2 & 255;
         int i4 = i2 - 1;
         while (i <= i4) {
@@ -162,45 +162,45 @@ public class UArraysKt___UArraysJvmKt {
     }
 
     /* renamed from: binarySearch-WpHrYlw$default  reason: not valid java name */
-    public static /* synthetic */ int m990binarySearchWpHrYlw$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int m994binarySearchWpHrYlw$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = UByteArray.m696getSizeimpl(bArr);
+            i2 = UByteArray.m700getSizeimpl(bArr);
         }
-        return m989binarySearchWpHrYlw(bArr, b2, i, i2);
+        return m993binarySearchWpHrYlw(bArr, b2, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-PpDY95g  reason: not valid java name */
-    public static final byte m991elementAtPpDY95g(byte[] bArr, int i) {
-        return UByteArray.m695getimpl(bArr, i);
+    public static final byte m995elementAtPpDY95g(byte[] bArr, int i) {
+        return UByteArray.m699getimpl(bArr, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-nggk6HY  reason: not valid java name */
-    public static final short m992elementAtnggk6HY(short[] sArr, int i) {
-        return UShortArray.m928getimpl(sArr, i);
+    public static final short m996elementAtnggk6HY(short[] sArr, int i) {
+        return UShortArray.m932getimpl(sArr, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-qFRl0hI  reason: not valid java name */
-    public static final int m993elementAtqFRl0hI(int[] iArr, int i) {
-        return UIntArray.m764getimpl(iArr, i);
+    public static final int m997elementAtqFRl0hI(int[] iArr, int i) {
+        return UIntArray.m768getimpl(iArr, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-r7IrZao  reason: not valid java name */
-    public static final long m994elementAtr7IrZao(long[] jArr, int i) {
-        return ULongArray.m833getimpl(jArr, i);
+    public static final long m998elementAtr7IrZao(long[] jArr, int i) {
+        return ULongArray.m837getimpl(jArr, i);
     }
 }

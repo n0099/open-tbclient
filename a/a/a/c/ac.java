@@ -6,40 +6,40 @@ import org.json.JSONObject;
 public class ac {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1402e;
+    public int f1388e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1405h;
+    public String f1391h;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1398a = "";
+    public String f1384a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1399b = "";
+    public String f1385b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1400c = "";
+    public String f1386c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1401d = "";
+    public String f1387d = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1403f = "";
+    public String f1389f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1404g = 0;
+    public int f1390g = 0;
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", this.f1398a);
-            jSONObject.put("id", this.f1399b);
-            jSONObject.put("image", this.f1400c);
-            jSONObject.put("url", this.f1401d);
-            jSONObject.put("progress", this.f1402e);
-            jSONObject.put("downloadPerSize", this.f1403f);
-            jSONObject.put("status", this.f1404g);
-            jSONObject.put("savePath", this.f1405h);
+            jSONObject.put("name", this.f1384a);
+            jSONObject.put("id", this.f1385b);
+            jSONObject.put("image", this.f1386c);
+            jSONObject.put("url", this.f1387d);
+            jSONObject.put("progress", this.f1388e);
+            jSONObject.put("downloadPerSize", this.f1389f);
+            jSONObject.put("status", this.f1390g);
+            jSONObject.put("savePath", this.f1391h);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

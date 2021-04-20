@@ -2,11 +2,11 @@ package com.baidu.tieba.im.recommend.detail;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.r.r.a;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage {
     public UserInfoBigVip mDetailInfo;
 

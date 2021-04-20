@@ -23,13 +23,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31784a;
+    public String f32073a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31785b;
+    public String f32074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31786c;
+    public int f32075c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -39,14 +39,14 @@ public class e {
     }
 
     public e(String str) {
-        this.f31785b = str;
-        this.f31784a = str;
+        this.f32074b = str;
+        this.f32073a = str;
     }
 
     private String a() {
         int i;
         Context context = Loader.get().getContext();
-        int i2 = com.kwad.sdk.api.a.f31746a;
+        int i2 = com.kwad.sdk.api.a.f32035a;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
         if (ksAdSDKImpl != null) {
@@ -155,10 +155,10 @@ public class e {
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f31784a)) {
+        if (TextUtils.isEmpty(this.f32073a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f31784a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f32073a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -184,9 +184,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f31786c < 21) {
-                        this.f31784a = httpURLConnection.getHeaderField("Location");
-                        this.f31786c++;
+                    } else if (this.f32075c < 21) {
+                        this.f32073a = httpURLConnection.getHeaderField("Location");
+                        this.f32075c++;
                         b(aVar);
                     }
                 }

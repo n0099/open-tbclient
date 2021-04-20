@@ -6,29 +6,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import d.b.i0.q1.f.b;
-import d.b.i0.q1.f.f;
+import d.b.i0.r1.f.b;
+import d.b.i0.r1.f.f;
 /* loaded from: classes3.dex */
 public class MemberPayFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18967e;
+    public int f18644e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18968f;
+    public String f18645f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18969g;
+    public String f18646g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18970h;
+    public boolean f18647h;
     public int i;
     public b j;
     public f k = null;
     public View l;
 
     public int E0() {
-        return this.f18967e;
+        return this.f18644e;
     }
 
     public void F0(Boolean bool) {
@@ -64,17 +64,17 @@ public class MemberPayFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
-        this.f18967e = arguments.getInt("member_type");
-        this.f18968f = arguments.getString("member_refer_page");
-        this.f18969g = arguments.getString("member_click_zone");
-        this.f18970h = arguments.getBoolean("member_is_pay_dialog");
+        this.f18644e = arguments.getInt("member_type");
+        this.f18645f = arguments.getString("member_refer_page");
+        this.f18646g = arguments.getString("member_click_zone");
+        this.f18647h = arguments.getBoolean("member_is_pay_dialog");
         this.i = arguments.getInt("member_from_type");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.l = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-        b bVar = new b(getPageContext(), this.l, this.f18967e, this.f18968f, this.f18969g, this.f18970h, this.i);
+        b bVar = new b(getPageContext(), this.l, this.f18644e, this.f18645f, this.f18646g, this.f18647h, this.i);
         this.j = bVar;
         bVar.s(this.k);
         return this.l;

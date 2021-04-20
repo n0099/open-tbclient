@@ -27,8 +27,8 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.b.r.a;
-import d.b.s.a.b.d.b;
+import d.b.q.a;
+import d.b.r.a.b.d.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -537,14 +537,14 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f64552e) {
+                if (a.f65246e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f6378a = 2L;
-                    bLCPRequest.f6379b = 95L;
-                    bLCPRequest.f6380c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f6381d = System.nanoTime();
-                    d.b.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
-                        @Override // d.b.s.a.b.d.b
+                    bLCPRequest.f6413a = 2L;
+                    bLCPRequest.f6414b = 95L;
+                    bLCPRequest.f6415c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f6416d = System.nanoTime();
+                    d.b.r.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                        @Override // d.b.r.a.b.d.b
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + j3 + ", data :" + bArr.length);
                             if (j3 == 95) {

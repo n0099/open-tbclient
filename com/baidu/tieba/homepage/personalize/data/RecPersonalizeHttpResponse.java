@@ -3,13 +3,13 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.z0.g.j.i;
+import d.b.i0.a1.g.j.i;
 import java.util.List;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     public DataRes resultData;
 
@@ -38,10 +38,10 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f63195a = false;
+        i.f52814a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f63195a = true;
+            i.f52814a = true;
             i.a();
             return;
         }

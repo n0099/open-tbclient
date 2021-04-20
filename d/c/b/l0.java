@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class l0 implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<WeakReference<b>> f65033a = new ArrayList<>(4);
+    public static ArrayList<WeakReference<b>> f65878a = new ArrayList<>(4);
 
     @Override // d.c.b.b
     public synchronized void a(String str, String str2, String str3) {
-        Iterator<WeakReference<b>> it = f65033a.iterator();
+        Iterator<WeakReference<b>> it = f65878a.iterator();
         while (it.hasNext()) {
             b bVar = it.next().get();
             if (bVar == null) {
@@ -25,7 +25,7 @@ public class l0 implements b {
 
     @Override // d.c.b.b
     public synchronized void b(boolean z, JSONObject jSONObject) {
-        Iterator<WeakReference<b>> it = f65033a.iterator();
+        Iterator<WeakReference<b>> it = f65878a.iterator();
         while (it.hasNext()) {
             b bVar = it.next().get();
             if (bVar == null) {
@@ -38,7 +38,7 @@ public class l0 implements b {
 
     @Override // d.c.b.b
     public synchronized void c(boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
-        Iterator<WeakReference<b>> it = f65033a.iterator();
+        Iterator<WeakReference<b>> it = f65878a.iterator();
         while (it.hasNext()) {
             b bVar = it.next().get();
             if (bVar == null) {
@@ -51,7 +51,7 @@ public class l0 implements b {
 
     @Override // d.c.b.b
     public synchronized void d(boolean z, JSONObject jSONObject) {
-        Iterator<WeakReference<b>> it = f65033a.iterator();
+        Iterator<WeakReference<b>> it = f65878a.iterator();
         while (it.hasNext()) {
             b bVar = it.next().get();
             if (bVar == null) {

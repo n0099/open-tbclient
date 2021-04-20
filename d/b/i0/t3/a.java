@@ -1,270 +1,88 @@
 package d.b.i0.t3;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import d.b.h0.s.c.i0;
+import java.util.Date;
 /* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f61128a;
+    public long f62604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61129b;
+    public long f62605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f61130c;
+    public long f62606c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61131d;
+    public long f62607d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f61132e;
+    public i0 f62608e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f61133f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f61134g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<b> f61135h;
-    public e i;
-    public c j;
-    public boolean k;
+    public CustomMessageListener f62609f = new C1633a(2001371);
 
     /* renamed from: d.b.i0.t3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1588a implements View.OnClickListener {
-        public View$OnClickListenerC1588a() {
+    public class C1633a extends CustomMessageListener {
+        public C1633a(int i) {
+            super(i);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            a.this.j.onClick();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-
-        /* renamed from: b  reason: collision with root package name */
-        public a f61138b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f61139c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f61140d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f61141e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f61142f;
-
-        /* renamed from: h  reason: collision with root package name */
-        public d f61144h;
-        public boolean j;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f61143g = 17;
-        public boolean i = true;
-        public final View.OnClickListener k = new View$OnClickListenerC1589a();
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f61137a = hashCode();
-
-        /* renamed from: d.b.i0.t3.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1589a implements View.OnClickListener {
-            public View$OnClickListenerC1589a() {
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (b.this.f61144h != null) {
-                    b.this.f61144h.onClick();
-                }
-                if (b.this.f61138b == null || b.this.f61138b.d() == null) {
-                    return;
-                }
-                b.this.f61138b.d().a(b.this.f61137a, view);
-            }
-        }
-
-        public b(String str, a aVar) {
-            this.f61142f = str;
-            this.f61138b = aVar;
-            f();
-            e();
-        }
-
-        public View d() {
-            return this.f61139c;
-        }
-
-        public final void e() {
-            TextView textView = this.f61140d;
-            if (textView != null) {
-                textView.setOnClickListener(this.k);
-            }
-        }
-
-        public final void f() {
-            a aVar = this.f61138b;
-            if (aVar == null || aVar.c() == null) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
                 return;
             }
-            View inflate = LayoutInflater.from(this.f61138b.c()).inflate(R.layout.bottom_up_list_dialog_item, this.f61138b.e(), false);
-            this.f61139c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.item_view);
-            this.f61140d = textView;
-            textView.setText(this.f61142f);
-            this.f61140d.setGravity(this.f61143g);
-            View findViewById = this.f61139c.findViewById(R.id.divider_line);
-            this.f61141e = findViewById;
-            if (this.i) {
-                findViewById.setVisibility(0);
-            } else {
-                findViewById.setVisibility(8);
+            a.this.f();
+        }
+    }
+
+    public a() {
+        c();
+    }
+
+    public boolean b() {
+        if (this.f62604a != 0 && this.f62605b != 0 && this.f62606c != 0) {
+            Date date = new Date();
+            if (d(date) && e(date)) {
+                return true;
             }
-            g();
         }
-
-        public void g() {
-            TextView textView = this.f61140d;
-            if (textView != null) {
-                if (this.j) {
-                    SkinManager.setBackgroundResource(textView, R.drawable.bg_bottom_up_corner_dialog);
-                } else {
-                    textView.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0211));
-                }
-            }
-            SkinManager.setViewTextColor(this.f61140d, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f61141e, R.color.CAM_X0204);
-        }
-
-        public void h(d dVar) {
-            this.f61144h = dVar;
-            e();
-        }
+        return false;
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void onClick();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void onClick();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(int i, View view);
-    }
-
-    public a(Context context) {
-        if (context == null) {
-            return;
-        }
-        this.f61128a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
-        this.f61129b = inflate;
-        this.f61130c = (LinearLayout) inflate.findViewById(R.id.content_view);
-        this.f61131d = (TextView) this.f61129b.findViewById(R.id.title);
-        this.f61132e = this.f61129b.findViewById(R.id.title_divide_line);
-        this.f61135h = new ArrayList();
-        this.f61133f = (TextView) this.f61129b.findViewById(R.id.dialog_bottom_cancel_button);
-    }
-
-    public View b() {
-        if (!StringUtils.isNull(this.f61134g)) {
-            this.f61131d.setText(this.f61134g);
-            this.f61132e.setVisibility(0);
-        } else {
-            this.f61131d.setVisibility(8);
-            this.f61132e.setVisibility(8);
-        }
-        if (this.j != null) {
-            this.f61133f.setOnClickListener(new View$OnClickListenerC1588a());
-        }
+    public final void c() {
         f();
-        return this.f61129b;
+        this.f62607d = d.b.h0.r.d0.b.j().l("key_video_splash_last_show_time", 0L);
+        MessageManager.getInstance().registerListener(this.f62609f);
     }
 
-    public Context c() {
-        return this.f61128a;
+    public final boolean d(Date date) {
+        return date != null && date.getTime() >= this.f62604a && date.getTime() <= this.f62605b;
     }
 
-    public e d() {
-        return this.i;
+    public final boolean e(Date date) {
+        return date != null && date.getTime() - this.f62607d >= this.f62606c;
     }
 
-    public ViewGroup e() {
-        return this.f61130c;
-    }
-
-    public void f() {
-        TextView textView;
-        SkinManager.setBackgroundColor(this.f61129b, R.color.CAM_X0204);
-        SkinManager.setBackgroundResource(this.f61131d, R.drawable.bg_title_corner_dialog_item);
-        SkinManager.setViewTextColor(this.f61131d, R.color.CAM_X0108);
-        SkinManager.setBackgroundColor(this.f61132e, R.color.CAM_X0204);
-        SkinManager.setBackgroundResource(this.f61133f, R.drawable.bg_bottom_up_list_dialog_item);
-        SkinManager.setViewTextColor(this.f61133f, R.color.CAM_X0107);
-        List<b> list = this.f61135h;
-        if (list != null) {
-            for (b bVar : list) {
-                bVar.g();
-            }
+    public final void f() {
+        if (this.f62608e == null) {
+            this.f62608e = new i0();
         }
-        if (this.k) {
-            if (!StringUtils.isNull(this.f61134g) && (textView = this.f61131d) != null && (textView.getBackground() instanceof GradientDrawable)) {
-                float dimension = c().getResources().getDimension(R.dimen.tbds32);
-                ((GradientDrawable) this.f61131d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
-            } else if (ListUtils.getCount(this.f61135h) > 0) {
-                b bVar2 = this.f61135h.get(0);
-                if (bVar2.j) {
-                    return;
-                }
-                bVar2.j = true;
-                bVar2.g();
-            }
-        }
+        this.f62608e.g(d.b.h0.r.d0.b.j().p("key_video_splash_config", ""));
+        this.f62604a = this.f62608e.e();
+        this.f62605b = this.f62608e.a();
+        this.f62606c = this.f62608e.d();
     }
 
-    public void g(List<b> list) {
-        if (list == null) {
-            return;
-        }
-        this.f61135h = list;
-        this.f61130c.removeAllViews();
-        for (int i = 0; i < list.size(); i++) {
-            b bVar = list.get(i);
-            if (bVar != null) {
-                this.f61130c.addView(bVar.d());
-            }
-        }
-    }
-
-    public void h(c cVar) {
-        this.j = cVar;
-    }
-
-    public void i(String str) {
-        this.f61134g = str;
+    public void g(long j) {
+        this.f62607d = j;
+        d.b.h0.r.d0.b.j().w("key_video_splash_last_show_time", j);
     }
 }

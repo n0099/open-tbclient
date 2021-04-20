@@ -30,7 +30,7 @@ public class c extends d.b.g0.a.a0.b.b {
     public boolean z;
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public c() {

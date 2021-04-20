@@ -8,55 +8,55 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<com.ksad.lottie.model.a> f31537a;
+    public final List<com.ksad.lottie.model.a> f31826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PointF f31538b;
+    public PointF f31827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31539c;
+    public boolean f31828c;
 
     public h() {
-        this.f31537a = new ArrayList();
+        this.f31826a = new ArrayList();
     }
 
     public h(PointF pointF, boolean z, List<com.ksad.lottie.model.a> list) {
         ArrayList arrayList = new ArrayList();
-        this.f31537a = arrayList;
-        this.f31538b = pointF;
-        this.f31539c = z;
+        this.f31826a = arrayList;
+        this.f31827b = pointF;
+        this.f31828c = z;
         arrayList.addAll(list);
     }
 
     private void a(float f2, float f3) {
-        if (this.f31538b == null) {
-            this.f31538b = new PointF();
+        if (this.f31827b == null) {
+            this.f31827b = new PointF();
         }
-        this.f31538b.set(f2, f3);
+        this.f31827b.set(f2, f3);
     }
 
     public PointF a() {
-        return this.f31538b;
+        return this.f31827b;
     }
 
     public void a(h hVar, h hVar2, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        if (this.f31538b == null) {
-            this.f31538b = new PointF();
+        if (this.f31827b == null) {
+            this.f31827b = new PointF();
         }
-        this.f31539c = hVar.b() || hVar2.b();
+        this.f31828c = hVar.b() || hVar2.b();
         if (hVar.c().size() != hVar2.c().size()) {
             com.ksad.lottie.c.b("Curves must have the same number of control points. Shape 1: " + hVar.c().size() + "\tShape 2: " + hVar2.c().size());
         }
-        if (this.f31537a.isEmpty()) {
+        if (this.f31826a.isEmpty()) {
             int min = Math.min(hVar.c().size(), hVar2.c().size());
             for (int i = 0; i < min; i++) {
-                this.f31537a.add(new com.ksad.lottie.model.a());
+                this.f31826a.add(new com.ksad.lottie.model.a());
             }
         }
         PointF a2 = hVar.a();
         PointF a3 = hVar2.a();
         a(com.ksad.lottie.d.e.a(a2.x, a3.x, f2), com.ksad.lottie.d.e.a(a2.y, a3.y, f2));
-        for (int size = this.f31537a.size() - 1; size >= 0; size--) {
+        for (int size = this.f31826a.size() - 1; size >= 0; size--) {
             com.ksad.lottie.model.a aVar = hVar.c().get(size);
             com.ksad.lottie.model.a aVar2 = hVar2.c().get(size);
             PointF a4 = aVar.a();
@@ -65,21 +65,21 @@ public class h {
             PointF a5 = aVar2.a();
             PointF b3 = aVar2.b();
             PointF c3 = aVar2.c();
-            this.f31537a.get(size).a(com.ksad.lottie.d.e.a(a4.x, a5.x, f2), com.ksad.lottie.d.e.a(a4.y, a5.y, f2));
-            this.f31537a.get(size).b(com.ksad.lottie.d.e.a(b2.x, b3.x, f2), com.ksad.lottie.d.e.a(b2.y, b3.y, f2));
-            this.f31537a.get(size).c(com.ksad.lottie.d.e.a(c2.x, c3.x, f2), com.ksad.lottie.d.e.a(c2.y, c3.y, f2));
+            this.f31826a.get(size).a(com.ksad.lottie.d.e.a(a4.x, a5.x, f2), com.ksad.lottie.d.e.a(a4.y, a5.y, f2));
+            this.f31826a.get(size).b(com.ksad.lottie.d.e.a(b2.x, b3.x, f2), com.ksad.lottie.d.e.a(b2.y, b3.y, f2));
+            this.f31826a.get(size).c(com.ksad.lottie.d.e.a(c2.x, c3.x, f2), com.ksad.lottie.d.e.a(c2.y, c3.y, f2));
         }
     }
 
     public boolean b() {
-        return this.f31539c;
+        return this.f31828c;
     }
 
     public List<com.ksad.lottie.model.a> c() {
-        return this.f31537a;
+        return this.f31826a;
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.f31537a.size() + "closed=" + this.f31539c + '}';
+        return "ShapeData{numCurves=" + this.f31826a.size() + "closed=" + this.f31828c + '}';
     }
 }

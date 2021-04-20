@@ -15,7 +15,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
@@ -29,28 +29,28 @@ import java.util.Map;
 public class DeviceStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38333a;
+    public String f38622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38334b;
+    public String f38623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38335c;
+    public int f38624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38336d;
+    public int f38625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38337e;
+    public int f38626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38338f;
+    public String f38627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38339g;
+    public String f38628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38340h;
+    public String f38629h;
     public String i;
     public String j;
     public volatile String k;
@@ -62,9 +62,9 @@ public class DeviceStatus {
     public DeviceStatus(Context context) {
         this.n = context.getApplicationContext();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f38337e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
-        this.f38335c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
-        this.f38336d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
+        this.f38626e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
+        this.f38624c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
+        this.f38625d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
         a();
     }
 
@@ -159,21 +159,21 @@ public class DeviceStatus {
             return null;
         }
         int type = networkInfo.getType();
-        String str = type != 0 ? type != 1 ? "unknow" : IXAdRequestInfo.WIFI : Config.EVENT_PATH_MAPPING;
+        String str = type != 0 ? type != 1 ? "unknow" : IAdRequestParam.WIFI : Config.EVENT_PATH_MAPPING;
         this.i = str;
         return str;
     }
 
     public int getDeviceDensity() {
-        return this.f38337e;
+        return this.f38626e;
     }
 
     public int getDeviceHeight() {
-        return this.f38336d;
+        return this.f38625d;
     }
 
     public int getDeviceWidth() {
-        return this.f38335c;
+        return this.f38624c;
     }
 
     public String getDid() {
@@ -219,14 +219,14 @@ public class DeviceStatus {
     }
 
     public String getLanguage() {
-        if (this.f38334b == null) {
+        if (this.f38623b == null) {
             String lowerCase = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-            this.f38334b = lowerCase;
+            this.f38623b = lowerCase;
             if (lowerCase.length() == 0) {
-                this.f38334b = "en";
+                this.f38623b = "en";
             }
         }
-        return this.f38334b;
+        return this.f38623b;
     }
 
     public String getLat() {
@@ -244,7 +244,7 @@ public class DeviceStatus {
     public NetworkType getNetworkType() {
         int i;
         String dataNet = getDataNet();
-        if (dataNet == null || !dataNet.equals(IXAdRequestInfo.WIFI)) {
+        if (dataNet == null || !dataNet.equals(IAdRequestParam.WIFI)) {
             try {
                 i = Integer.parseInt(getPhoneNet());
             } catch (NumberFormatException unused) {
@@ -287,10 +287,10 @@ public class DeviceStatus {
 
     public String getOperator() {
         try {
-            this.f38339g = ((TelephonyManager) this.n.getSystemService("phone")).getNetworkOperator();
+            this.f38628g = ((TelephonyManager) this.n.getSystemService("phone")).getNetworkOperator();
         } catch (Exception unused) {
         }
-        return this.f38339g;
+        return this.f38628g;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v6 int)] */
@@ -305,11 +305,11 @@ public class DeviceStatus {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(networkType);
-                this.f38340h = sb.toString();
+                this.f38629h = sb.toString();
             }
         } catch (Exception unused) {
         }
-        return this.f38340h;
+        return this.f38629h;
     }
 
     public String getPlainDid() {
@@ -328,17 +328,17 @@ public class DeviceStatus {
     }
 
     public String getScreenOrientation() {
-        this.f38338f = this.n.getResources().getConfiguration().orientation == 2 ? "l" : "p";
-        return this.f38338f;
+        this.f38627f = this.n.getResources().getConfiguration().orientation == 2 ? "l" : "p";
+        return this.f38627f;
     }
 
     public String getUid() {
         if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-            if (this.f38333a == null) {
-                String string = Settings.Secure.getString(this.n.getContentResolver(), "android_id");
-                this.f38333a = string != null ? Md5Util.encode(string) : "";
+            if (this.f38622a == null) {
+                String string = Settings.Secure.getString(this.n.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                this.f38622a = string != null ? Md5Util.encode(string) : "";
             }
-            return this.f38333a;
+            return this.f38622a;
         }
         return "";
     }

@@ -1,6 +1,6 @@
 package io.reactivex.internal.disposables;
 
-import f.a.t.b;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SequentialDisposable extends AtomicReference<b> implements b {
@@ -9,12 +9,12 @@ public final class SequentialDisposable extends AtomicReference<b> implements b 
     public SequentialDisposable() {
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }

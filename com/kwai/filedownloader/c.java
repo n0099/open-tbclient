@@ -10,25 +10,25 @@ import java.util.ArrayList;
 public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final w f36883b;
+    public final w f37172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final w.a f36884c;
+    public final w.a f37173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36885d;
+    public int f37174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<a.InterfaceC0440a> f36886e;
+    public ArrayList<a.InterfaceC0454a> f37175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f36887f;
+    public final String f37176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36888g;
+    public String f37177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36889h;
+    public String f37178h;
     public boolean i;
     public com.kwai.filedownloader.d.b j;
     public i k;
@@ -42,7 +42,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     public boolean r = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f36882a = 0;
+    public volatile int f37171a = 0;
     public boolean s = false;
     public final Object u = new Object();
     public volatile boolean v = false;
@@ -51,31 +51,31 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     public static final class a implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final c f36890a;
+        public final c f37179a;
 
         public a(c cVar) {
-            this.f36890a = cVar;
+            this.f37179a = cVar;
             cVar.s = true;
         }
 
         @Override // com.kwai.filedownloader.a.c
         public int a() {
-            int h2 = this.f36890a.h();
-            if (com.kwai.filedownloader.f.d.f37012a) {
+            int h2 = this.f37179a.h();
+            if (com.kwai.filedownloader.f.d.f37301a) {
                 com.kwai.filedownloader.f.d.c(this, "add the task[%d] to the queue", Integer.valueOf(h2));
             }
-            h.a().c(this.f36890a);
+            h.a().c(this.f37179a);
             return h2;
         }
     }
 
     public c(String str) {
-        this.f36887f = str;
+        this.f37176f = str;
         Object obj = new Object();
         this.t = obj;
         d dVar = new d(this, obj);
-        this.f36883b = dVar;
-        this.f36884c = dVar;
+        this.f37172b = dVar;
+        this.f37173c = dVar;
     }
 
     private int T() {
@@ -83,12 +83,12 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
             if (!d()) {
                 J();
             }
-            this.f36883b.e();
+            this.f37172b.e();
             return h();
         } else if (c()) {
             throw new IllegalStateException(com.kwai.filedownloader.f.f.a("This task is running %d, if you want to start the same task, please create a new one by FileDownloader.create", Integer.valueOf(h())));
         } else {
-            throw new IllegalStateException("This task is dirty to restart, If you want to reuse this task, please invoke #reuse method manually and retry to restart again." + this.f36883b.toString());
+            throw new IllegalStateException("This task is dirty to restart, If you want to reuse this task, please invoke #reuse method manually and retry to restart again." + this.f37172b.toString());
         }
     }
 
@@ -109,7 +109,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public int B() {
-        return this.f36883b.m();
+        return this.f37172b.m();
     }
 
     @Override // com.kwai.filedownloader.a
@@ -119,7 +119,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public boolean D() {
-        return this.f36883b.n();
+        return this.f37172b.n();
     }
 
     @Override // com.kwai.filedownloader.a
@@ -134,7 +134,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a.b
     public w.a G() {
-        return this.f36884c;
+        return this.f37173c;
     }
 
     @Override // com.kwai.filedownloader.a.b
@@ -144,12 +144,12 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a.b
     public int I() {
-        return this.f36882a;
+        return this.f37171a;
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void J() {
-        this.f36882a = p() != null ? p().hashCode() : hashCode();
+        this.f37171a = p() != null ? p().hashCode() : hashCode();
     }
 
     @Override // com.kwai.filedownloader.a.b
@@ -164,7 +164,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a.b
     public void M() {
-        this.f36883b.o();
+        this.f37172b.o();
         if (h.a().a(this)) {
             this.v = false;
         }
@@ -177,12 +177,12 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a.b
     public boolean O() {
-        ArrayList<a.InterfaceC0440a> arrayList = this.f36886e;
+        ArrayList<a.InterfaceC0454a> arrayList = this.f37175e;
         return arrayList != null && arrayList.size() > 0;
     }
 
     public boolean P() {
-        return this.f36883b.g() != 0;
+        return this.f37172b.g() != 0;
     }
 
     @Override // com.kwai.filedownloader.d.a
@@ -196,8 +196,8 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     }
 
     @Override // com.kwai.filedownloader.d.a
-    public ArrayList<a.InterfaceC0440a> S() {
-        return this.f36886e;
+    public ArrayList<a.InterfaceC0454a> S() {
+        return this.f37175e;
     }
 
     @Override // com.kwai.filedownloader.a
@@ -214,7 +214,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     @Override // com.kwai.filedownloader.a
     public com.kwai.filedownloader.a a(i iVar) {
         this.k = iVar;
-        if (com.kwai.filedownloader.f.d.f37012a) {
+        if (com.kwai.filedownloader.f.d.f37301a) {
             com.kwai.filedownloader.f.d.c(this, "setListener %s", iVar);
         }
         return this;
@@ -223,7 +223,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     @Override // com.kwai.filedownloader.a
     public com.kwai.filedownloader.a a(Object obj) {
         this.l = obj;
-        if (com.kwai.filedownloader.f.d.f37012a) {
+        if (com.kwai.filedownloader.f.d.f37301a) {
             com.kwai.filedownloader.f.d.c(this, "setTag %s", obj);
         }
         return this;
@@ -243,12 +243,12 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public com.kwai.filedownloader.a a(String str, boolean z) {
-        this.f36888g = str;
-        if (com.kwai.filedownloader.f.d.f37012a) {
+        this.f37177g = str;
+        if (com.kwai.filedownloader.f.d.f37301a) {
             com.kwai.filedownloader.f.d.c(this, "setPath %s", str);
         }
         this.i = z;
-        this.f36889h = z ? null : new File(str).getName();
+        this.f37178h = z ? null : new File(str).getName();
         return this;
     }
 
@@ -283,10 +283,10 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
             com.kwai.filedownloader.f.d.d(this, "This task[%d] is running, if you want start the same task, please create a new one by FileDownloader#create", Integer.valueOf(h()));
             return false;
         }
-        this.f36882a = 0;
+        this.f37171a = 0;
         this.s = false;
         this.v = false;
-        this.f36883b.i();
+        this.f37172b.i();
         return true;
     }
 
@@ -297,7 +297,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.d.a
     public void c(String str) {
-        this.f36889h = str;
+        this.f37178h = str;
     }
 
     @Override // com.kwai.filedownloader.a
@@ -310,7 +310,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public boolean d() {
-        return this.f36882a != 0;
+        return this.f37171a != 0;
     }
 
     @Override // com.kwai.filedownloader.a
@@ -325,7 +325,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     public boolean f() {
         boolean f2;
         synchronized (this.t) {
-            f2 = this.f36883b.f();
+            f2 = this.f37172b.f();
         }
         return f2;
     }
@@ -337,21 +337,21 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public int h() {
-        int i = this.f36885d;
+        int i = this.f37174d;
         if (i != 0) {
             return i;
         }
-        if (TextUtils.isEmpty(this.f36888g) || TextUtils.isEmpty(this.f36887f)) {
+        if (TextUtils.isEmpty(this.f37177g) || TextUtils.isEmpty(this.f37176f)) {
             return 0;
         }
-        int a2 = com.kwai.filedownloader.f.f.a(this.f36887f, this.f36888g, this.i);
-        this.f36885d = a2;
+        int a2 = com.kwai.filedownloader.f.f.a(this.f37176f, this.f37177g, this.i);
+        this.f37174d = a2;
         return a2;
     }
 
     @Override // com.kwai.filedownloader.a
     public String i() {
-        return this.f36887f;
+        return this.f37176f;
     }
 
     @Override // com.kwai.filedownloader.a
@@ -366,7 +366,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public String l() {
-        return this.f36888g;
+        return this.f37177g;
     }
 
     @Override // com.kwai.filedownloader.a
@@ -376,7 +376,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public String n() {
-        return this.f36889h;
+        return this.f37178h;
     }
 
     @Override // com.kwai.filedownloader.a
@@ -391,28 +391,28 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public int q() {
-        if (this.f36883b.j() > 2147483647L) {
+        if (this.f37172b.j() > 2147483647L) {
             return Integer.MAX_VALUE;
         }
-        return (int) this.f36883b.j();
+        return (int) this.f37172b.j();
     }
 
     @Override // com.kwai.filedownloader.a
     public long r() {
-        return this.f36883b.j();
+        return this.f37172b.j();
     }
 
     @Override // com.kwai.filedownloader.a
     public int s() {
-        if (this.f36883b.k() > 2147483647L) {
+        if (this.f37172b.k() > 2147483647L) {
             return Integer.MAX_VALUE;
         }
-        return (int) this.f36883b.k();
+        return (int) this.f37172b.k();
     }
 
     @Override // com.kwai.filedownloader.a
     public long t() {
-        return this.f36883b.k();
+        return this.f37172b.k();
     }
 
     public String toString() {
@@ -421,17 +421,17 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public int u() {
-        return this.f36883b.b();
+        return this.f37172b.b();
     }
 
     @Override // com.kwai.filedownloader.a
     public byte v() {
-        return this.f36883b.g();
+        return this.f37172b.g();
     }
 
     @Override // com.kwai.filedownloader.a
     public long w() {
-        return this.f36883b.h();
+        return this.f37172b.h();
     }
 
     @Override // com.kwai.filedownloader.a
@@ -441,7 +441,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
 
     @Override // com.kwai.filedownloader.a
     public Throwable y() {
-        return this.f36883b.l();
+        return this.f37172b.l();
     }
 
     @Override // com.kwai.filedownloader.a

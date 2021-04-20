@@ -29,27 +29,27 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46594a = k.f45051a;
+    public static final boolean f46986a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f46595b = Executors.newSingleThreadExecutor();
+    public static ExecutorService f46987b = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46596e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f46988e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46597f;
+        public final /* synthetic */ JSONObject f46989f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.u0.b f46598g;
+        public final /* synthetic */ d.b.g0.a.u0.b f46990g;
 
         public a(d.b.g0.a.y0.e.b bVar, JSONObject jSONObject, d.b.g0.a.u0.b bVar2) {
-            this.f46596e = bVar;
-            this.f46597f = jSONObject;
-            this.f46598g = bVar2;
+            this.f46988e = bVar;
+            this.f46989f = jSONObject;
+            this.f46990g = bVar2;
         }
 
         @Override // java.lang.Runnable
@@ -57,13 +57,13 @@ public class d {
             g k;
             SwanAppConfigData swanAppConfigData;
             d.b.g0.a.i2.r0.b bVar = new d.b.g0.a.i2.r0.b();
-            if (d.b.g0.a.m1.a.a.y(this.f46596e)) {
-                k = d.b.g0.a.m1.a.a.c(this.f46596e, bVar);
+            if (d.b.g0.a.m1.a.a.y(this.f46988e)) {
+                k = d.b.g0.a.m1.a.a.c(this.f46988e, bVar);
             } else {
-                k = e.k(this.f46596e, bVar, this.f46597f);
+                k = e.k(this.f46988e, bVar, this.f46989f);
             }
-            if (k == null || (swanAppConfigData = k.f46601b) == null || swanAppConfigData.f12613a == null) {
-                d.b.g0.a.f2.a aVar = bVar.f44761a;
+            if (k == null || (swanAppConfigData = k.f46993b) == null || swanAppConfigData.f12274a == null) {
+                d.b.g0.a.f2.a aVar = bVar.f45153a;
                 if (aVar == null) {
                     aVar = new d.b.g0.a.f2.a();
                     aVar.j(5L);
@@ -71,14 +71,14 @@ public class d {
                     aVar.e("小程序loadbundle出错，loadinfo为空或者页面配置空 ");
                 }
                 d.b.g0.a.z1.k.d dVar = new d.b.g0.a.z1.k.d();
-                d.b.g0.a.y0.e.b bVar2 = this.f46596e;
+                d.b.g0.a.y0.e.b bVar2 = this.f46988e;
                 dVar.q(h.n(bVar2 != null ? bVar2.F() : 0));
                 dVar.p(aVar);
                 dVar.s("appjson_config_invalid");
-                dVar.r(this.f46596e);
+                dVar.r(this.f46988e);
                 h.H(dVar);
             }
-            this.f46598g.a(0, k);
+            this.f46990g.a(0, k);
         }
     }
 
@@ -98,8 +98,8 @@ public class d {
                     aVar.h(7L);
                     aVar.e("小程序bundle解压失败! for debug");
                     d.b.g0.a.f2.e.a().f(aVar);
-                    if (bVar2 != null && bVar2.f44761a == null) {
-                        bVar2.f44761a = aVar;
+                    if (bVar2 != null && bVar2.f45153a == null) {
+                        bVar2.f45153a = aVar;
                     }
                     return null;
                 }
@@ -114,8 +114,8 @@ public class d {
                         aVar2.h(7L);
                         aVar2.e("小程序bundle解压失败! for debug");
                         d.b.g0.a.f2.e.a().f(aVar2);
-                        if (bVar2 != null && bVar2.f44761a == null) {
-                            bVar2.f44761a = aVar2;
+                        if (bVar2 != null && bVar2.f45153a == null) {
+                            bVar2.f45153a = aVar2;
                         }
                         return null;
                     }
@@ -126,11 +126,11 @@ public class d {
             File e2 = e();
             File file = new File(e2, "app.json");
             SwanAppConfigData c2 = SwanAppConfigData.c(d.b.g0.p.d.r(file), e2);
-            gVar.f46600a = e2.getPath() + File.separator;
-            gVar.f46601b = c2;
+            gVar.f46992a = e2.getPath() + File.separator;
+            gVar.f46993b = c2;
             d.b.g0.a.l1.b.a.e(c2, true);
             d.b.g0.a.l1.g.b.k(c2);
-            d.b.g0.a.c0.c.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f46600a);
+            d.b.g0.a.c0.c.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f46992a);
             return gVar;
         }
 
@@ -148,14 +148,14 @@ public class d {
             aVar.e("没有小程序包! for debug, bundle files are empty");
             d.b.g0.a.f2.e.a().f(aVar);
             if (bVar != null) {
-                bVar.f44761a = aVar;
+                bVar.f45153a = aVar;
                 return null;
             }
             return null;
         }
 
         public static File c() {
-            File file = new File(d.b.g0.a.y0.c.a.d().get(0).f44686a, "/aiapps_debug/");
+            File file = new File(d.b.g0.a.y0.c.a.d().get(0).f45078a, "/aiapps_debug/");
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -194,10 +194,10 @@ public class d {
 
     /* renamed from: d.b.g0.a.u0.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0849d {
+    public static class C0861d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46599a;
+        public String f46991a;
     }
 
     /* loaded from: classes2.dex */
@@ -238,7 +238,7 @@ public class d {
             }
             for (File file : listFiles) {
                 if (j(str2, file.getName())) {
-                    if (d.f46594a) {
+                    if (d.f46986a) {
                         Log.i("SwanAppBundleHelper", "删除低版本文件夹：" + file.getAbsolutePath());
                     }
                     d.b.g0.l.i.a.h().d(str, file.getName());
@@ -273,7 +273,7 @@ public class d {
             if (file.exists() && file.isFile()) {
                 return file;
             }
-            if (d.f46594a && z) {
+            if (d.f46986a && z) {
                 Context appContext = AppRuntime.getAppContext();
                 d.b.g0.a.q1.b.f.d.f(appContext, g2.getPath() + " 没有小程序包!").C();
             }
@@ -283,7 +283,7 @@ public class d {
                 aVar.h(4L);
                 aVar.e("没有小程序包! for release, no such bundle file");
                 d.b.g0.a.f2.e.a().f(aVar);
-                bVar.f44761a = aVar;
+                bVar.f45153a = aVar;
             }
             return null;
         }
@@ -308,13 +308,13 @@ public class d {
         }
 
         public static boolean j(String str, String str2) {
-            if (d.f46594a) {
+            if (d.f46986a) {
                 Log.i("SwanAppBundleHelper", "curVersion:" + str + ",targetVersion:" + str2);
             }
             try {
                 return a(str, str2) > 0;
             } catch (IllegalArgumentException e2) {
-                if (d.f46594a) {
+                if (d.f46986a) {
                     Log.e("SwanAppBundleHelper", "比较版本号Exception：" + e2.getMessage());
                 }
                 return false;
@@ -342,7 +342,7 @@ public class d {
                     dVar.p(aVar);
                     dVar.r(bVar);
                     h.H(dVar);
-                    if (d.f46594a) {
+                    if (d.f46986a) {
                         Log.w("SwanAppBundleHelper", "20050004：reset aiapps");
                     }
                     return null;
@@ -355,8 +355,8 @@ public class d {
                     aVar2.h(7L);
                     aVar2.e("小程序bundle解压失败! for release");
                     d.b.g0.a.f2.e.a().f(aVar2);
-                    if (bVar2 != null && bVar2.f44761a == null) {
-                        bVar2.f44761a = aVar2;
+                    if (bVar2 != null && bVar2.f45153a == null) {
+                        bVar2.f45153a = aVar2;
                     }
                     return null;
                 }
@@ -368,8 +368,8 @@ public class d {
             if (c2 == null) {
                 return null;
             }
-            gVar.f46600a = h(bVar.G(), bVar.n1()).getPath() + File.separator;
-            gVar.f46601b = c2;
+            gVar.f46992a = h(bVar.G(), bVar.n1()).getPath() + File.separator;
+            gVar.f46993b = c2;
             if (d.b.g0.a.j1.m.c.d()) {
                 d.b.g0.a.l1.b.a.f(c2, true);
                 d.b.g0.a.l1.g.b.l(c2);
@@ -377,7 +377,7 @@ public class d {
                 d.b.g0.a.l1.b.a.e(c2, true);
                 d.b.g0.a.l1.g.b.k(c2);
             }
-            d.b.g0.a.c0.c.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f46600a);
+            d.b.g0.a.c0.c.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f46992a);
             return gVar;
         }
     }
@@ -392,11 +392,11 @@ public class d {
             g gVar = new g();
             File file = new File(d2, "app.json");
             SwanAppConfigData c2 = SwanAppConfigData.c(d.b.g0.p.d.r(file), d2);
-            gVar.f46600a = d2.getPath() + File.separator;
-            gVar.f46601b = c2;
+            gVar.f46992a = d2.getPath() + File.separator;
+            gVar.f46993b = c2;
             d.b.g0.a.l1.b.a.e(c2, true);
             d.b.g0.a.l1.g.b.k(c2);
-            d.b.g0.a.c0.c.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f46600a);
+            d.b.g0.a.c0.c.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f46992a);
             return gVar;
         }
 
@@ -425,10 +425,10 @@ public class d {
     public static class g extends d.b.g0.a.u0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46600a;
+        public String f46992a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SwanAppConfigData f46601b;
+        public SwanAppConfigData f46993b;
     }
 
     public static void c(d.b.g0.a.y0.e.b bVar, d.b.g0.a.u0.b bVar2) {
@@ -443,7 +443,7 @@ public class d {
                 try {
                     A1 = bVar.A1();
                 } catch (JSONException e2) {
-                    if (f46594a) {
+                    if (f46986a) {
                         e2.printStackTrace();
                     }
                 }
@@ -453,7 +453,7 @@ public class d {
         } else {
             jSONObject = null;
         }
-        f46595b.execute(new a(bVar, jSONObject, bVar2));
+        f46987b.execute(new a(bVar, jSONObject, bVar2));
     }
 
     public static File d() {
@@ -478,17 +478,17 @@ public class d {
                 return "";
             }
             String path = file.getPath();
-            if (f46594a) {
+            if (f46986a) {
                 Log.d("SwanAppBundleHelper", "getConfigContent path: " + path);
             }
             String str = (String) d.b.g0.a.e0.w.c.b().a(path, "");
             if (TextUtils.isEmpty(str)) {
-                if (f46594a) {
+                if (f46986a) {
                     Log.d("SwanAppBundleHelper", "getConfigContent read start: " + path);
                 }
                 String r = d.b.g0.p.d.r(file);
                 d.b.g0.a.e0.w.c.b().c(path, r);
-                if (f46594a) {
+                if (f46986a) {
                     Log.d("SwanAppBundleHelper", "getConfigContent read end: " + path);
                 }
                 return r;
@@ -507,7 +507,7 @@ public class d {
 
     public static File k(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f46594a) {
+            if (f46986a) {
                 throw new IllegalArgumentException("plugin name can't be empty");
             }
             return null;
@@ -519,7 +519,7 @@ public class d {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             return new File(k(str), str2);
         }
-        if (f46594a) {
+        if (f46986a) {
             throw new IllegalArgumentException("plugin name or version can't be empty");
         }
         return null;
@@ -531,7 +531,7 @@ public class d {
         }
         b.a J = eVar.J();
         File n = n(eVar.getAppId(), J.n1(), J.k0(), J.e0(), null);
-        if (f46594a) {
+        if (f46986a) {
             Log.d("SwanAppBundleHelper", "sendLaunchEvent folderFile: " + n.getPath());
             Log.d("SwanAppBundleHelper", "sendLaunchEvent file exists: " + n.exists());
         }
@@ -563,22 +563,22 @@ public class d {
     }
 
     public static void r(String str, c cVar) {
-        C0849d c0849d = new C0849d();
-        c0849d.f46599a = str;
+        C0861d c0861d = new C0861d();
+        c0861d.f46991a = str;
         d.b.g0.a.l0.g.b.a();
-        new d.b.g0.a.h0.a().e(c0849d, d.b.g0.a.l0.g.b.c().getPath(), cVar);
+        new d.b.g0.a.h0.a().e(c0861d, d.b.g0.a.l0.g.b.c().getPath(), cVar);
     }
 
     public static void s(String str, c cVar) {
-        C0849d c0849d = new C0849d();
-        c0849d.f46599a = str;
+        C0861d c0861d = new C0861d();
+        c0861d.f46991a = str;
         d.b.g0.a.b2.d.a.a();
-        new d.b.g0.a.h0.a().e(c0849d, d.b.g0.a.b2.d.a.d().getPath(), cVar);
+        new d.b.g0.a.h0.a().e(c0861d, d.b.g0.a.b2.d.a.d().getPath(), cVar);
     }
 
-    public static void t(C0849d c0849d, c cVar) {
+    public static void t(C0861d c0861d, c cVar) {
         File c2 = b.c();
-        new d.b.g0.a.h0.a().e(c0849d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
+        new d.b.g0.a.h0.a().e(c0861d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
     }
 
     public static boolean u(File file, File file2, d.b.g0.a.y0.e.b bVar) {
@@ -593,15 +593,15 @@ public class d {
                 i.n().A(new UbcFlowEvent("package_start_unzip"));
                 long currentTimeMillis = System.currentTimeMillis();
                 a.b f2 = d.b.g0.a.u0.g.a.f(file);
-                int i2 = f2.f46619b;
+                int i2 = f2.f47011b;
                 if (i2 != -1) {
-                    F = d.b.g0.a.u0.g.a.a(f2.f46618a, file2, i2).f46616a;
-                    i = f2.f46619b;
+                    F = d.b.g0.a.u0.g.a.a(f2.f47010a, file2, i2).f47008a;
+                    i = f2.f47011b;
                 } else {
                     F = d.b.g0.p.d.F(file.getPath(), file2.getPath());
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (f46594a) {
+                if (f46986a) {
                     d.b.g0.a.u0.g.a.d((int) (currentTimeMillis2 - currentTimeMillis));
                 }
                 if (!F) {
@@ -610,7 +610,7 @@ public class d {
                     aVar.h(7L);
                     aVar.e("小程序bundle解压失败! PkgType=" + i);
                     if (bVar2 != null) {
-                        bVar2.f44761a = aVar;
+                        bVar2.f45153a = aVar;
                     }
                 }
                 HybridUbcFlow n = i.n();
@@ -623,7 +623,7 @@ public class d {
             aVar2.h(4L);
             aVar2.e("小程序bundle文件不存在或者空文件! ");
             if (bVar2 != null) {
-                bVar2.f44761a = aVar2;
+                bVar2.f45153a = aVar2;
             }
         }
         return false;

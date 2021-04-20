@@ -10,24 +10,24 @@ public class s1 extends a {
     public static final BdUniqueId i = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50882e;
+    public String f51289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50883f;
+    public int f51290f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50885h = true;
+    public boolean f51292h = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<MetaData> f50884g = new ArrayList();
+    public List<MetaData> f51291g = new ArrayList();
 
     public void A(List<User> list) {
         if (list != null) {
-            int min = Math.min(list.size(), this.f50885h ? 10 : list.size());
+            int min = Math.min(list.size(), this.f51292h ? 10 : list.size());
             for (int i2 = 0; i2 < min; i2++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i2));
-                this.f50884g.add(metaData);
+                this.f51291g.add(metaData);
             }
         }
     }
@@ -37,7 +37,7 @@ public class s1 extends a {
         return new v0();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return i;
     }
@@ -48,6 +48,6 @@ public class s1 extends a {
     }
 
     public List<MetaData> z() {
-        return this.f50884g;
+        return this.f51291g;
     }
 }

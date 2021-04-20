@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
@@ -24,34 +24,34 @@ import tbclient.SimpleUser;
 public class FrsHeaderPraiseView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f16238e;
+    public View f15899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f16239f;
+    public View f15900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16240g;
+    public TextView f15901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f16241h;
+    public FrameLayout f15902h;
     public ImageView i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeBanner f16242e;
+        public final /* synthetic */ AgreeBanner f15903e;
 
         public a(AgreeBanner agreeBanner) {
-            this.f16242e = agreeBanner;
+            this.f15903e = agreeBanner;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f16242e.url)) {
+            if (TextUtils.isEmpty(this.f15903e.url)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(FrsHeaderPraiseView.this.getContext(), null, this.f16242e.url, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(FrsHeaderPraiseView.this.getContext(), null, this.f15903e.url, true)));
         }
     }
 
@@ -60,10 +60,10 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     }
 
     public final void a() {
-        this.f16238e = findViewById(R.id.divider_top);
-        this.f16239f = findViewById(R.id.divider_bottom);
-        this.f16240g = (TextView) findViewById(R.id.frs_praise_title);
-        this.f16241h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+        this.f15899e = findViewById(R.id.divider_top);
+        this.f15900f = findViewById(R.id.divider_bottom);
+        this.f15901g = (TextView) findViewById(R.id.frs_praise_title);
+        this.f15902h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
         ImageView imageView = (ImageView) findViewById(R.id.frs_praise_more);
         this.i = imageView;
         SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
@@ -75,9 +75,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.f16240g.setText(agreeBanner.text);
+        this.f15901g.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.f16241h.removeAllViews();
+        this.f15902h.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -87,7 +87,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.f16241h.getChildCount() != 5; size--) {
+            for (int size = arrayList.size() - 1; size >= 0 && this.f15902h.getChildCount() != 5; size--) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
@@ -100,7 +100,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.f16241h.addView(headImageView, layoutParams);
+                this.f15902h.addView(headImageView, layoutParams);
             }
         }
         setOnClickListener(new a(agreeBanner));

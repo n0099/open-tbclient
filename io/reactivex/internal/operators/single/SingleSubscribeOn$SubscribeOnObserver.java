@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.s;
-import f.a.t.b;
+import f.b.r;
+import f.b.s;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicReference;
@@ -18,28 +18,28 @@ public final class SingleSubscribeOn$SubscribeOnObserver<T> extends AtomicRefere
         this.source = sVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
         this.task.dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         this.actual.onSuccess(t);
     }

@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import com.baidu.android.util.io.PathUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes2.dex */
@@ -12,28 +13,28 @@ public class f {
     public static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9445a;
+    public int f9003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9446b;
+    public int f9004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9447c;
+    public int f9005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9448d;
+    public int f9006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9449e = "-1";
+    public String f9007e = "-1";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9450f = "02";
+    public String f9008f = "02";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9451g = "";
+    public String f9009g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9452h = "baidu";
+    public String f9010h = PathUtils.DIRCTORY_BAIDU;
     public Context i;
 
     public f(Context context) {
@@ -62,7 +63,7 @@ public class f {
     }
 
     private String e() {
-        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9450f;
+        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9008f;
     }
 
     private String f() {
@@ -76,7 +77,7 @@ public class f {
     }
 
     private String g() {
-        return this.f9452h;
+        return this.f9010h;
     }
 
     private String h() {
@@ -84,34 +85,34 @@ public class f {
     }
 
     private int i() {
-        return this.f9445a;
+        return this.f9003a;
     }
 
     private int j() {
-        return this.f9446b;
+        return this.f9004b;
     }
 
     private int k() {
-        return this.f9447c;
+        return this.f9005c;
     }
 
     private int l() {
-        return this.f9448d;
+        return this.f9006d;
     }
 
     private void m() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f9447c = (int) displayMetrics.xdpi;
-            this.f9448d = (int) displayMetrics.ydpi;
+            this.f9005c = (int) displayMetrics.xdpi;
+            this.f9006d = (int) displayMetrics.ydpi;
         }
     }
 
     private void n() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f9445a = displayMetrics.widthPixels;
-            this.f9446b = displayMetrics.heightPixels;
+            this.f9003a = displayMetrics.widthPixels;
+            this.f9004b = displayMetrics.heightPixels;
         }
     }
 

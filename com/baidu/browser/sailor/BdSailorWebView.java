@@ -661,10 +661,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public class a extends WebBackForwardListClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4313a;
+        public WebView f4348a;
 
         public a(WebView webView) {
-            this.f4313a = webView;
+            this.f4348a = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -702,10 +702,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public class c implements DownloadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4316a;
+        public WebView f4351a;
 
         public c(WebView webView) {
-            this.f4316a = webView;
+            this.f4351a = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -721,7 +721,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public class d extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4318a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
+        public String[] f4353a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
 
         public d() {
         }
@@ -888,7 +888,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (!TextUtils.isEmpty(str)) {
                 String host = Uri.parse(str).getHost();
                 if (!TextUtils.isEmpty(host)) {
-                    for (String str3 : this.f4318a) {
+                    for (String str3 : this.f4353a) {
                         if (host.contains(str3)) {
                             jsResult.confirm();
                             return true;
@@ -1148,10 +1148,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public class e extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4320a;
+        public String[] f4355a;
 
         public e() {
-            this.f4320a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
+            this.f4355a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
         }
 
         public /* synthetic */ e(BdSailorWebView bdSailorWebView, byte b2) {
@@ -1805,7 +1805,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 shouldOverrideUrlLoading = shouldOverrideUrlLoading(webView, uri);
             }
             if (shouldOverrideUrlLoading && !TextUtils.isEmpty(uri)) {
-                String[] strArr = this.f4320a;
+                String[] strArr = this.f4355a;
                 int length = strArr.length;
                 while (true) {
                     if (i >= length) {

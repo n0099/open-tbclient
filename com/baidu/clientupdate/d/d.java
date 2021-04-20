@@ -6,14 +6,14 @@ import android.widget.Toast;
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f4601a;
+    public final /* synthetic */ Context f4636a;
 
     public d(Context context) {
-        this.f4601a = context;
+        this.f4636a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Toast.makeText(this.f4601a, "无SD卡，将为你下载到手机内存", 0).show();
+        Toast.makeText(this.f4636a, "无SD卡，将为你下载到手机内存", 0).show();
     }
 }

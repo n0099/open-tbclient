@@ -5,8 +5,8 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
 import com.google.gson.stream.JsonToken;
-import d.g.c.c.a;
-import d.g.c.d.b;
+import d.g.d.c.a;
+import d.g.d.d.b;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final TypeAdapterFactory f30942c = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
+    public static final TypeAdapterFactory f31231c = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
             Type e2 = aVar.e();
@@ -29,18 +29,18 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<E> f30943a;
+    public final Class<E> f31232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TypeAdapter<E> f30944b;
+    public final TypeAdapter<E> f31233b;
 
     public ArrayTypeAdapter(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.f30944b = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
-        this.f30943a = cls;
+        this.f31233b = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
+        this.f31232a = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
-    public Object read(d.g.c.d.a aVar) throws IOException {
+    public Object read(d.g.d.d.a aVar) throws IOException {
         if (aVar.M() == JsonToken.NULL) {
             aVar.I();
             return null;
@@ -48,11 +48,11 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         ArrayList arrayList = new ArrayList();
         aVar.n();
         while (aVar.y()) {
-            arrayList.add(this.f30944b.read(aVar));
+            arrayList.add(this.f31233b.read(aVar));
         }
         aVar.t();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.f30943a, size);
+        Object newInstance = Array.newInstance((Class<?>) this.f31232a, size);
         for (int i = 0; i < size; i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }
@@ -70,7 +70,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         bVar.q();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.f30944b.write(bVar, Array.get(obj, i));
+            this.f31233b.write(bVar, Array.get(obj, i));
         }
         bVar.t();
     }

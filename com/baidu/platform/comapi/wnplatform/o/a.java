@@ -3,9 +3,9 @@ package com.baidu.platform.comapi.wnplatform.o;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f10335a;
+    public static boolean f9893a;
 
     public static boolean a() {
-        return f10335a;
+        return f9893a;
     }
 }

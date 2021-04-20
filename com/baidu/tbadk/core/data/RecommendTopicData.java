@@ -19,10 +19,10 @@ import tbclient.RecomTopicList;
 public class RecommendTopicData {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13223a;
+    public String f12884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f13224b = new ArrayList();
+    public List<RecommendTopicListData> f12885b = new ArrayList();
 
     /* loaded from: classes3.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -62,9 +62,9 @@ public class RecommendTopicData {
 
         public m getConvertedCardData() {
             m mVar = new m();
-            mVar.f62220c = this.tag;
-            mVar.f62218a = this.topicId;
-            mVar.f62219b = this.topicName;
+            mVar.f63795c = this.tag;
+            mVar.f63793a = this.topicId;
+            mVar.f63794b = this.topicName;
             return mVar;
         }
 
@@ -147,10 +147,10 @@ public class RecommendTopicData {
     public n a() {
         ArrayList arrayList;
         n nVar = new n();
-        nVar.f62223g = b();
-        if (this.f13224b != null) {
+        nVar.f63798g = b();
+        if (this.f12885b != null) {
             arrayList = new ArrayList();
-            for (RecommendTopicListData recommendTopicListData : this.f13224b) {
+            for (RecommendTopicListData recommendTopicListData : this.f12885b) {
                 if (recommendTopicListData != null) {
                     arrayList.add(recommendTopicListData.getConvertedCardData());
                 }
@@ -158,15 +158,15 @@ public class RecommendTopicData {
         } else {
             arrayList = null;
         }
-        nVar.f62224h = arrayList;
+        nVar.f63799h = arrayList;
         return nVar;
     }
 
     public String b() {
-        if (StringUtils.isNull(this.f13223a)) {
+        if (StringUtils.isNull(this.f12884a)) {
             return TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title);
         }
-        return this.f13223a;
+        return this.f12884a;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {
@@ -177,14 +177,14 @@ public class RecommendTopicData {
         if (recomTopicInfo == null) {
             return;
         }
-        this.f13223a = recomTopicInfo.recom_title;
+        this.f12884a = recomTopicInfo.recom_title;
         if (ListUtils.getCount(recomTopicInfo.topic_list) > 0) {
             for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                 if (recomTopicList != null) {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f13224b.add(recommendTopicListData);
+                        this.f12885b.add(recommendTopicListData);
                     }
                 }
             }

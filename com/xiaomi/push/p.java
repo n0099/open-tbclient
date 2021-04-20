@@ -10,7 +10,7 @@ import java.util.Map;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile p f40896a;
+    public static volatile p f41185a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f818a;
@@ -26,14 +26,14 @@ public class p {
     }
 
     public static p a(Context context) {
-        if (f40896a == null) {
+        if (f41185a == null) {
             synchronized (p.class) {
-                if (f40896a == null) {
-                    f40896a = new p(context);
+                if (f41185a == null) {
+                    f41185a = new p(context);
                 }
             }
         }
-        return f40896a;
+        return f41185a;
     }
 
     private synchronized String a(String str, String str2) {
@@ -74,7 +74,7 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m521a(String str, String str2, String str3) {
+    public synchronized void m525a(String str, String str2, String str3) {
         b(str, str2, str3);
         this.f819a.post(new q(this, str, str2, str3));
     }

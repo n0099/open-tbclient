@@ -17,7 +17,7 @@ public class d extends d.b.g0.l.m.b {
             jSONObject.put("version_name", b2 != null ? b2.l() : "0");
             jSONArray.put(jSONObject);
         } catch (JSONException e2) {
-            if (f.f48889a) {
+            if (f.f49281a) {
                 e2.printStackTrace();
             }
         }
@@ -27,7 +27,7 @@ public class d extends d.b.g0.l.m.b {
             jSONObject2.put("version_name", b2 != null ? b2.m() : "0");
             jSONArray.put(jSONObject2);
         } catch (JSONException e3) {
-            if (f.f48889a) {
+            if (f.f49281a) {
                 e3.printStackTrace();
             }
         }
@@ -37,7 +37,7 @@ public class d extends d.b.g0.l.m.b {
             jSONObject3.put("version_name", b2 != null ? b2.C() : "0");
             jSONArray.put(jSONObject3);
         } catch (JSONException e4) {
-            if (f.f48889a) {
+            if (f.f49281a) {
                 e4.printStackTrace();
             }
         }

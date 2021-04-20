@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.n1;
 import d.b.h0.r.q.w;
 /* loaded from: classes4.dex */
@@ -45,16 +45,16 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.i0.d.f f55789e;
+        public final /* synthetic */ d.b.i0.i0.d.f f56912e;
 
         public a(d.b.i0.i0.d.f fVar) {
-            this.f55789e = fVar;
+            this.f56912e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log("c13386");
-            c.this.v.dispatchMvcEvent(new d.b.h0.g0.c.b(15, this.f55789e, null, null));
+            c.this.v.dispatchMvcEvent(new d.b.h0.g0.c.b(15, this.f56912e, null, null));
         }
     }
 
@@ -62,10 +62,10 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ w f55791e;
+        public final /* synthetic */ w f56914e;
 
         public b(w wVar) {
-            this.f55791e = wVar;
+            this.f56914e = wVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -73,7 +73,7 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
             Bundle bundle = new Bundle();
             bundle.putParcelable("info_forum_image_rect", c.this.r());
             bundle.putParcelable("info_forum_name_rect", c.this.s());
-            d.b.h0.g0.c.b bVar = new d.b.h0.g0.c.b(1, this.f55791e, null, null);
+            d.b.h0.g0.c.b bVar = new d.b.h0.g0.c.b(1, this.f56914e, null, null);
             bVar.g(bundle);
             c.this.v.dispatchMvcEvent(bVar);
         }
@@ -81,18 +81,18 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
 
     /* renamed from: d.b.i0.i0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnLongClickListenerC1298c implements View.OnLongClickListener {
+    public class View$OnLongClickListenerC1336c implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ w f55793e;
+        public final /* synthetic */ w f56916e;
 
-        public View$OnLongClickListenerC1298c(w wVar) {
-            this.f55793e = wVar;
+        public View$OnLongClickListenerC1336c(w wVar) {
+            this.f56916e = wVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            c.this.v.dispatchMvcEvent(new d.b.h0.g0.c.b(12, this.f55793e, null, null));
+            c.this.v.dispatchMvcEvent(new d.b.h0.g0.c.b(12, this.f56916e, null, null));
             return true;
         }
     }
@@ -101,25 +101,25 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f55795e;
+        public final /* synthetic */ TextView f56918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f55796f;
+        public final /* synthetic */ int f56919f;
 
         public d(TextView textView, int i) {
-            this.f55795e = textView;
-            this.f55796f = i;
+            this.f56918e = textView;
+            this.f56919f = i;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int k;
-            if (!(this.f55795e.getParent() instanceof ViewGroup) || (k = l.k(c.this.b())) == 0) {
+            if (!(this.f56918e.getParent() instanceof ViewGroup) || (k = l.k(c.this.b())) == 0) {
                 return;
             }
-            this.f55795e.setMaxWidth(k - (this.f55796f + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds452)));
-            this.f55795e.postInvalidate();
-            this.f55795e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            this.f56918e.setMaxWidth(k - (this.f56919f + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds452)));
+            this.f56918e.postInvalidate();
+            this.f56918e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
         }
     }
 
@@ -145,7 +145,7 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
         this.t.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    @Override // d.b.i0.c3.t
+    @Override // d.b.i0.d3.t
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         d.b.h0.s0.a.a(tbPageContext, g());
         return true;
@@ -242,7 +242,7 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
                 SkinManager.setViewTextColor(this.n, R.color.CAM_X0101);
                 this.m.setVisibility(8);
             } else {
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911007, Boolean.class, Long.valueOf(d.b.b.e.m.b.f(fVar.D(), 0L)));
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911007, Boolean.class, Long.valueOf(d.b.c.e.m.b.f(fVar.D(), 0L)));
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.m.setVisibility(0);
                     this.m.setText("");
@@ -282,7 +282,7 @@ public class c extends d.b.h0.g0.f.a<w, d.b.i0.i0.d.c> {
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
         this.x.setVisibility(8);
         this.k.setOnClickListener(new b(wVar));
-        this.k.setOnLongClickListener(new View$OnLongClickListenerC1298c(wVar));
+        this.k.setOnLongClickListener(new View$OnLongClickListenerC1336c(wVar));
         u(this.l, i2);
     }
 }

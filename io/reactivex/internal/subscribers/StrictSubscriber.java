@@ -1,7 +1,7 @@
 package io.reactivex.internal.subscribers;
 
-import f.a.g;
-import f.a.x.i.e;
+import f.b.g;
+import f.b.x.i.e;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -49,7 +49,7 @@ public class StrictSubscriber<T> extends AtomicInteger implements g<T>, d {
         e.f(this.actual, t, this, this.error);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (this.once.compareAndSet(false, true)) {
             this.actual.onSubscribe(this);

@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.WbUtils;
@@ -18,7 +17,7 @@ import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShareWebViewClient extends BaseWebViewClient {
     public static final String RESP_PARAM_CODE = "code";
     public static final String RESP_PARAM_MSG = "msg";
@@ -68,7 +67,7 @@ public class ShareWebViewClient extends BaseWebViewClient {
             return;
         }
         Intent intent = new Intent(WBConstants.ACTIVITY_REQ_SDK);
-        String string = extras.getString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        String string = extras.getString("packageName");
         intent.setFlags(131072);
         intent.setPackage(string);
         intent.putExtras(extras);

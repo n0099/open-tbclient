@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes4.dex */
 public class FrsGameStrategyActivity extends BaseFragmentActivity {
@@ -14,7 +15,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         intent.putExtra("fid", str);
         intent.putExtra("name", str2);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }

@@ -26,28 +26,28 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
 
     /* renamed from: d.b.g0.a.a0.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class C0588a {
+    public static /* synthetic */ class C0600a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43096a;
+        public static final /* synthetic */ int[] f43488a;
 
         static {
             int[] iArr = new int[PathType.values().length];
-            f43096a = iArr;
+            f43488a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43096a[PathType.RELATIVE.ordinal()] = 2;
+                f43488a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43096a[PathType.NETWORK.ordinal()] = 3;
+                f43488a[PathType.NETWORK.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f43096a[PathType.ERROR.ordinal()] = 4;
+                f43488a[PathType.ERROR.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -63,7 +63,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
         PathType c2 = d.b.g0.a.a2.b.c(str);
         e y = e.y();
         if (y != null) {
-            str2 = y.f45740f;
+            str2 = y.f46132f;
             str3 = y.W();
         } else {
             str2 = null;
@@ -72,7 +72,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return null;
         }
-        int i = C0588a.f43096a[c2.ordinal()];
+        int i = C0600a.f43488a[c2.ordinal()];
         if (i == 1) {
             String u = d.b.g0.a.a2.b.u(str, str2);
             if (TextUtils.isEmpty(u)) {
@@ -120,7 +120,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-SimpleDrawee", "renderImageStyle");
         }
         String str = m.x;

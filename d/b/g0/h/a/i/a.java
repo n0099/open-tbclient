@@ -5,8 +5,8 @@ import android.view.View;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.a1.c.h.b f48755a;
+    public d.b.g0.a.a1.c.h.b f49147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48756b;
+    public View f49148b;
 }

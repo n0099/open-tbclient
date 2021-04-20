@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.fsg.base.NoProguard;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PermissionManager implements NoProguard {
     public static final int PERMISSION_REQUEST_CODE_BASE = 0;
     public static final int REQUEST_CODE_CALL_PHONE = 2;

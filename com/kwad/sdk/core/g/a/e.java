@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class e implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public double f33649a;
+    public double f33938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f33650b;
+    public double f33939b;
 
     public static e a() {
         double longitude;
@@ -21,22 +21,22 @@ public class e implements com.kwad.sdk.core.b {
         if (proxyForAdLocation == null) {
             Location a2 = com.kwad.sdk.utils.l.a(KsAdSDKImpl.get().getContext());
             if (a2 != null) {
-                eVar.f33649a = a2.getLatitude();
+                eVar.f33938a = a2.getLatitude();
                 longitude = a2.getLongitude();
             }
             return eVar;
         }
-        eVar.f33649a = proxyForAdLocation.getLatitude();
+        eVar.f33938a = proxyForAdLocation.getLatitude();
         longitude = proxyForAdLocation.getLongitude();
-        eVar.f33650b = longitude;
+        eVar.f33939b = longitude;
         return eVar;
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "latitude", this.f33649a);
-        o.a(jSONObject, "longitude", this.f33650b);
+        o.a(jSONObject, "latitude", this.f33938a);
+        o.a(jSONObject, "longitude", this.f33939b);
         return jSONObject;
     }
 }

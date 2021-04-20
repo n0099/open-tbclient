@@ -16,48 +16,48 @@ import d.b.g0.a.t1.k.p0.g;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.UUID;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46519a;
+        public final /* synthetic */ String f46911a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z0.f f46520b;
+        public final /* synthetic */ d.b.g0.a.z0.f f46912b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46521c;
+        public final /* synthetic */ UnitedSchemeEntity f46913c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46522d;
+        public final /* synthetic */ CallbackHandler f46914d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46523e;
+        public final /* synthetic */ d.b.g0.a.r1.e f46915e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46524f;
+        public final /* synthetic */ String f46916f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46525g;
+        public final /* synthetic */ d.b.g0.a.e1.b f46917g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46526h;
+        public final /* synthetic */ String f46918h;
         public final /* synthetic */ b.c i;
         public final /* synthetic */ d.b.g0.a.e0.l.f j;
         public final /* synthetic */ Context k;
 
         public a(String str, d.b.g0.a.z0.f fVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar, String str2, d.b.g0.a.e1.b bVar, String str3, b.c cVar, d.b.g0.a.e0.l.f fVar2, Context context) {
-            this.f46519a = str;
-            this.f46520b = fVar;
-            this.f46521c = unitedSchemeEntity;
-            this.f46522d = callbackHandler;
-            this.f46523e = eVar;
-            this.f46524f = str2;
-            this.f46525g = bVar;
-            this.f46526h = str3;
+            this.f46911a = str;
+            this.f46912b = fVar;
+            this.f46913c = unitedSchemeEntity;
+            this.f46914d = callbackHandler;
+            this.f46915e = eVar;
+            this.f46916f = str2;
+            this.f46917g = bVar;
+            this.f46918h = str3;
             this.i = cVar;
             this.j = fVar2;
             this.k = context;
@@ -65,56 +65,56 @@ public class i extends a0 {
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void a(String str) {
-            d.b.g0.a.j1.j.d(this.f46519a);
+            d.b.g0.a.j1.j.d(this.f46911a);
             d.b.g0.a.c0.c.g("redirect", "check pages success");
-            this.f46520b.C();
-            d.b.g0.a.t1.k.p0.a.k(this.f46521c, this.f46522d, this.f46523e, this.f46524f, this.f46525g.f44362a, null, this.f46526h);
-            i.this.n(this.i, this.f46525g, this.j, this.f46519a);
+            this.f46912b.C();
+            d.b.g0.a.t1.k.p0.a.k(this.f46913c, this.f46914d, this.f46915e, this.f46916f, this.f46917g.f44754a, null, this.f46918h);
+            i.this.n(this.i, this.f46917g, this.j, this.f46911a);
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void b(int i) {
             d.b.g0.a.c0.c.b("redirect", "check pages failed");
-            this.f46520b.C();
-            if (a0.f46288b) {
+            this.f46912b.C();
+            if (a0.f46680b) {
                 Context context = this.k;
                 d.b.g0.a.q1.b.f.d.f(context, this.k.getString(d.b.g0.a.h.aiapps_open_pages_failed) + i).C();
             }
-            d.b.g0.a.t1.k.p0.a.i(this.f46521c, this.f46522d, this.f46526h);
+            d.b.g0.a.t1.k.p0.a.i(this.f46913c, this.f46914d, this.f46918h);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements b.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.c f46527a;
+        public final /* synthetic */ b.c f46919a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46528b;
+        public final /* synthetic */ String f46920b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46529c;
+        public final /* synthetic */ d.b.g0.a.e1.b f46921c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.f f46530d;
+        public final /* synthetic */ d.b.g0.a.e0.l.f f46922d;
 
         public b(i iVar, b.c cVar, String str, d.b.g0.a.e1.b bVar, d.b.g0.a.e0.l.f fVar) {
-            this.f46527a = cVar;
-            this.f46528b = str;
-            this.f46529c = bVar;
-            this.f46530d = fVar;
+            this.f46919a = cVar;
+            this.f46920b = str;
+            this.f46921c = bVar;
+            this.f46922d = fVar;
         }
 
         @Override // d.b.g0.a.e0.v.b.d
         public void onReady() {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
             }
-            d.b.g0.a.j1.j.e(this.f46527a, this.f46528b);
-            d.b.g0.a.t1.k.p0.a.d(this.f46527a.f44304a, this.f46529c, this.f46528b);
-            d.b.g0.a.t.c.i.c.s(this.f46530d, this.f46529c, this.f46528b, false);
-            if (a0.f46288b) {
+            d.b.g0.a.j1.j.e(this.f46919a, this.f46920b);
+            d.b.g0.a.t1.k.p0.a.d(this.f46919a.f44696a, this.f46921c, this.f46920b);
+            d.b.g0.a.t.c.i.c.s(this.f46922d, this.f46921c, this.f46920b, false);
+            if (a0.f46680b) {
                 Log.d("redirectTo", "tryToExecutePageRoute onReady end.");
             }
         }
@@ -127,7 +127,7 @@ public class i extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         d.b.g0.a.e0.l.f fVar;
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
         }
         String uuid = UUID.randomUUID().toString();
@@ -147,13 +147,13 @@ public class i extends a0 {
         }
         d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(n, V.h());
         if (!k0.d(V.I(), c2, false)) {
-            d.b.g0.a.c0.c.b("redirect", "page params error : path=" + c2.f44362a + " ; routePath=" + c2.f44365d);
+            d.b.g0.a.c0.c.b("redirect", "page params error : path=" + c2.f44754a + " ; routePath=" + c2.f44757d);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         String str = unitedSchemeEntity.getParams().get("initData");
-        if (!TextUtils.isEmpty(str) && c2 != null && !TextUtils.isEmpty(c2.f44365d) && d.b.g0.a.r1.e.y() != null) {
-            d.b.g0.a.r1.e.y().r0(str, c2.f44365d);
+        if (!TextUtils.isEmpty(str) && c2 != null && !TextUtils.isEmpty(c2.f44757d) && d.b.g0.a.r1.e.y() != null) {
+            d.b.g0.a.r1.e.y().r0(str, c2.f44757d);
         }
         String m = d.b.g0.a.t1.k.p0.a.m(unitedSchemeEntity, "params", "startTime");
         if (TextUtils.isEmpty(m)) {
@@ -165,12 +165,12 @@ public class i extends a0 {
             ubcFlowEvent.h(Long.valueOf(m).longValue());
             p.A(ubcFlowEvent);
         }
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("redirectTo", "PreloadSlaveManager start.");
         }
         b.c d2 = d.b.g0.a.e0.v.b.d(V.getActivity());
-        String c3 = d2.f44304a.c();
-        if (a0.f46288b) {
+        String c3 = d2.f44696a.c();
+        if (a0.f46680b) {
             Log.d("redirectTo", "webview id: " + c3);
         }
         String optString = v.b(unitedSchemeEntity.getParam("params")).optString("cb");
@@ -192,15 +192,15 @@ public class i extends a0 {
     }
 
     public final void n(b.c cVar, d.b.g0.a.e1.b bVar, d.b.g0.a.e0.l.f fVar, String str) {
-        boolean z = cVar != null && cVar.f44305b;
+        boolean z = cVar != null && cVar.f44697b;
         HybridUbcFlow p = d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
         p.A(new UbcFlowEvent("na_pre_load_slave_check"));
         p.y("preload", z ? "1" : "0");
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + z);
         }
         d.b.g0.a.e0.v.b.j(cVar, new b(this, cVar, str, bVar, fVar));
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("redirectTo", "tryToExecutePageRoute end.");
         }
     }

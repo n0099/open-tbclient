@@ -1,121 +1,64 @@
 package a.a.a.a.r.a.b;
 
-import a.a.a.a.k;
-import a.a.a.a.m;
-import a.a.a.a.r.a.c.f;
-import a.a.a.a.r.a.c.i;
-import a.a.a.a.r.a.c.p;
-import a.a.a.a.r.a.c.q;
-import a.a.a.a.r.a.c.s;
-import a.a.a.a.r.a.c.t;
-import a.a.a.a.s.e;
-import com.fun.ad.sdk.FunAdType;
+import android.view.View;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes.dex */
-public class b implements m.a {
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // a.a.a.a.m.a
-    public k a(e.a aVar) {
-        char c2;
-        String str = aVar.f1335d;
-        switch (str.hashCode()) {
-            case -2105157443:
-                if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
-                    c2 = '\t';
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case -1263692214:
-                if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
-                    c2 = 3;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case -950004865:
-                if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
-                    c2 = 5;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 347930415:
-                if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
-                    c2 = '\b';
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 556489085:
-                if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
-                    c2 = 0;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1168375858:
-                if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
-                    c2 = 6;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1319012390:
-                if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
-                    c2 = 2;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1328722634:
-                if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
-                    c2 = 1;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1922685617:
-                if (str.equals(FunAdType.CSJ_NATIVE)) {
-                    c2 = 4;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 2079438081:
-                if (str.equals(FunAdType.CSJ_SPLASH)) {
-                    c2 = 7;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            default:
-                c2 = 65535;
-                break;
-        }
-        switch (c2) {
-            case 0:
-                return new a.a.a.a.r.a.c.d(aVar);
-            case 1:
-                return new a.a.a.a.r.a.c.a(aVar);
-            case 2:
-                return new i(aVar);
-            case 3:
-                return new a.a.a.a.r.a.c.k(aVar);
-            case 4:
-                return new p(aVar);
-            case 5:
-                return new a.a.a.a.r.a.c.m(aVar);
-            case 6:
-                return new q(aVar);
-            case 7:
-                return new t(aVar);
-            case '\b':
-                return new s(aVar);
-            case '\t':
-                return new f(aVar);
-            default:
-                a.a.a.a.v.d.b("Not supported pid.type:%s", aVar.f1335d);
-                return null;
-        }
+public class b implements TTNativeExpressAd.ExpressAdInteractionListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f1086a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f1087b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ TTNativeExpressAd f1088c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f1089d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ a f1090e;
+
+    public b(a aVar, TTNativeExpressAd tTNativeExpressAd, String str) {
+        this.f1090e = aVar;
+        this.f1088c = tTNativeExpressAd;
+        this.f1089d = str;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view, int i) {
+        a.a.a.a.v.d.a();
+        this.f1090e.f1010g.a(this.f1087b);
+        this.f1087b = true;
+        this.f1090e.e();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view, int i) {
+        a.a.a.a.v.d.a();
+        this.f1090e.f1010g.b(this.f1086a);
+        this.f1086a = true;
+        a aVar = this.f1090e;
+        TTNativeExpressAd tTNativeExpressAd = this.f1088c;
+        aVar.a((a) tTNativeExpressAd, aVar.n.remove(tTNativeExpressAd));
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view, String str, int i) {
+        a.a.a.a.v.d.b("onRenderFail message: " + str + ", code = " + i, new Object[0]);
+        this.f1090e.f1010g.a(i);
+        this.f1090e.l = false;
+        this.f1090e.a(i, str);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view, float f2, float f3) {
+        a.a.a.a.v.d.a();
+        this.f1090e.f1010g.e();
+        this.f1090e.n.put(this.f1088c, this.f1089d);
+        a aVar = this.f1090e;
+        aVar.a((a) this.f1088c);
+        aVar.h();
     }
 }

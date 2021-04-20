@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.l.d;
-/* loaded from: classes5.dex */
+import d.b.c.e.l.d;
+/* loaded from: classes4.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public String mAdPic;
     public String mAdUrl;
@@ -22,14 +22,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public ImageView mIcon;
     public NavigationBar mNavigationBar;
 
-    /* loaded from: classes5.dex */
-    public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    /* loaded from: classes4.dex */
+    public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             super.onLoaded((a) aVar, str, i);
             if (aVar == null) {
                 SignAllForumAdvertActivity.this.finish();
@@ -37,7 +37,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -48,7 +48,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -98,7 +98,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         super.setActivityBgTransparent();
         super.setSwipeBackEnabled(false);
         Intent intent = getIntent();
-        this.mAdPic = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
+        this.mAdPic = intent.getStringExtra("ad_pic");
         this.mAdUrl = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
         this.mHasPrivilege = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();

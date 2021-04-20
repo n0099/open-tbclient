@@ -7,40 +7,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28855a;
+    public int f28540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28856b;
+    public boolean f28541b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f28857c;
+    public a f28542c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28858d;
+    public boolean f28543d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(boolean z);
     }
 
     public TTScrollView(Context context) {
         super(context);
-        this.f28856b = false;
-        this.f28858d = false;
+        this.f28541b = false;
+        this.f28543d = false;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.f28856b) {
+        if (this.f28541b) {
             return;
         }
         try {
-            this.f28856b = true;
+            this.f28541b = true;
             View childAt = ((ViewGroup) getChildAt(0)).getChildAt(1);
             ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
             layoutParams.height = getHeight();
@@ -58,12 +58,12 @@ public class TTScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.f28855a = getChildAt(0).getMeasuredHeight();
+        this.f28540a = getChildAt(0).getMeasuredHeight();
         post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.3
             @Override // java.lang.Runnable
             public void run() {
                 TTScrollView tTScrollView = TTScrollView.this;
-                tTScrollView.smoothScrollTo(0, tTScrollView.f28855a);
+                tTScrollView.smoothScrollTo(0, tTScrollView.f28540a);
             }
         });
     }
@@ -78,13 +78,13 @@ public class TTScrollView extends ScrollView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         a aVar;
         boolean z = true;
-        if (motionEvent.getAction() == 1 && getScrollY() < this.f28855a) {
-            if (getScrollY() > this.f28855a / 2) {
+        if (motionEvent.getAction() == 1 && getScrollY() < this.f28540a) {
+            if (getScrollY() > this.f28540a / 2) {
                 post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.1
                     @Override // java.lang.Runnable
                     public void run() {
                         TTScrollView tTScrollView = TTScrollView.this;
-                        tTScrollView.smoothScrollTo(0, tTScrollView.f28855a);
+                        tTScrollView.smoothScrollTo(0, tTScrollView.f28540a);
                     }
                 });
             } else {
@@ -96,39 +96,39 @@ public class TTScrollView extends ScrollView {
                         }
                     });
                 }
-                aVar = this.f28857c;
-                if (aVar != null && z != this.f28858d) {
+                aVar = this.f28542c;
+                if (aVar != null && z != this.f28543d) {
                     aVar.a(z);
                 }
-                this.f28858d = z;
+                this.f28543d = z;
             }
             z = false;
-            aVar = this.f28857c;
+            aVar = this.f28542c;
             if (aVar != null) {
                 aVar.a(z);
             }
-            this.f28858d = z;
+            this.f28543d = z;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public void setListener(a aVar) {
-        this.f28857c = aVar;
+        this.f28542c = aVar;
     }
 
     public boolean a() {
-        return this.f28858d;
+        return this.f28543d;
     }
 
     public TTScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28856b = false;
-        this.f28858d = false;
+        this.f28541b = false;
+        this.f28543d = false;
     }
 
     public TTScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f28856b = false;
-        this.f28858d = false;
+        this.f28541b = false;
+        this.f28543d = false;
     }
 }

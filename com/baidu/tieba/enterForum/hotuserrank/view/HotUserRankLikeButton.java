@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.m.b;
 /* loaded from: classes4.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {

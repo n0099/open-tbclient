@@ -8,26 +8,26 @@ import android.view.ViewGroup;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public DataSetObservable f49876a = new DataSetObservable();
+    public DataSetObservable f50269a = new DataSetObservable();
 
     public abstract int a();
 
     public abstract View b(int i, ViewGroup viewGroup);
 
     public void c() {
-        this.f49876a.notifyChanged();
+        this.f50269a.notifyChanged();
     }
 
     public void d(DataSetObserver dataSetObserver) {
         try {
-            this.f49876a.registerObserver(dataSetObserver);
+            this.f50269a.registerObserver(dataSetObserver);
         } catch (Throwable unused) {
         }
     }
 
     public void e(DataSetObserver dataSetObserver) {
         try {
-            this.f49876a.unregisterObserver(dataSetObserver);
+            this.f50269a.unregisterObserver(dataSetObserver);
         } catch (Throwable unused) {
         }
     }

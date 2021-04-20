@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import com.squareup.wire.Wire;
 import d.b.h0.z0.w;
-import d.b.i0.r2.a0.a;
-import d.b.i0.r2.b0.b;
+import d.b.i0.s2.d0.a;
+import d.b.i0.s2.f0.b;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static final Wire WIRE = new Wire(new Class[0]);
     public Integer arround;
@@ -208,7 +208,7 @@ public class PbPageRequestMessage extends NetMessage {
     }
 
     public void setForumId(String str) {
-        this.forumId = Long.valueOf(d.b.b.e.m.b.f(str, 0L));
+        this.forumId = Long.valueOf(d.b.c.e.m.b.f(str, 0L));
     }
 
     public void setFromSmartFrs(int i) {

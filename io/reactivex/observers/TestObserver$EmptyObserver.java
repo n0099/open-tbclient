@@ -1,24 +1,24 @@
 package io.reactivex.observers;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 /* loaded from: classes7.dex */
 public enum TestObserver$EmptyObserver implements o<Object> {
     INSTANCE;
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(Object obj) {
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
     }
 }

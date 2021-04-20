@@ -43,15 +43,15 @@ public class c extends d.b.i0.x.b<e> {
     /* renamed from: u */
     public void n(e eVar) {
         if (eVar != null) {
-            this.m.e(eVar.f60329e);
-            this.n.e(eVar.f60330f);
+            this.m.e(eVar.f61893e);
+            this.n.e(eVar.f61894f);
         }
     }
 
     public void v(e eVar, String str) {
         if (eVar != null) {
-            this.m.f(eVar.f60329e, str);
-            this.n.f(eVar.f60330f, str);
+            this.m.f(eVar.f61893e, str);
+            this.n.f(eVar.f61894f, str);
         }
     }
 

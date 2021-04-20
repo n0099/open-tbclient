@@ -12,36 +12,36 @@ import java.util.zip.GZIPInputStream;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1344a;
+    public String f1330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1345b;
+    public String f1331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1346c;
+    public String f1332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f1347d;
+    public byte[] f1333d;
 
     public d(String str, e eVar) {
         StringBuilder sb;
         if (str == null) {
             throw new IllegalArgumentException("url is null");
         }
-        this.f1344a = str;
+        this.f1330a = str;
         if (eVar != null) {
             String str2 = "?";
             if (str.contains("?")) {
                 sb = new StringBuilder();
-                sb.append(this.f1344a);
+                sb.append(this.f1330a);
                 str2 = "&";
             } else {
                 sb = new StringBuilder();
-                sb.append(this.f1344a);
+                sb.append(this.f1330a);
             }
             sb.append(str2);
             sb.append(eVar.b());
-            this.f1344a = sb.toString();
+            this.f1330a = sb.toString();
         }
     }
 
@@ -58,15 +58,15 @@ public abstract class d {
         InputStream inputStream;
         Throwable th;
         OutputStream outputStream2;
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f1344a).openConnection();
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f1330a).openConnection();
         InputStream inputStream2 = null;
         try {
             httpURLConnection.setConnectTimeout(30000);
             httpURLConnection.setReadTimeout(8000);
-            httpURLConnection.setRequestMethod(this.f1345b);
-            httpURLConnection.setDoOutput("POST".equals(this.f1345b) && this.f1347d != null);
-            if (this.f1346c != null) {
-                httpURLConnection.setRequestProperty("Content-Type", this.f1346c);
+            httpURLConnection.setRequestMethod(this.f1331b);
+            httpURLConnection.setDoOutput("POST".equals(this.f1331b) && this.f1333d != null);
+            if (this.f1332c != null) {
+                httpURLConnection.setRequestProperty("Content-Type", this.f1332c);
             }
             httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
             try {
@@ -78,7 +78,7 @@ public abstract class d {
                         outputStream2 = httpURLConnection.getOutputStream();
                         if (outputStream2 != null) {
                             try {
-                                outputStream2.write(this.f1347d);
+                                outputStream2.write(this.f1333d);
                                 outputStream2.close();
                             } catch (Exception e2) {
                                 e = e2;

@@ -48,7 +48,7 @@ public final class g {
                 str2 = d.b.g0.p.f.b(inputStream);
             } catch (IOException e3) {
                 e = e3;
-                if (d.b.g0.a.k.f45051a) {
+                if (d.b.g0.a.k.f45443a) {
                     Log.w(AssetUtils.TAG, "loadPresetDatas", e);
                 }
                 d.b.g0.p.d.a(inputStream);

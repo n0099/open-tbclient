@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
-import f.a.x.c.d;
+import f.b.x.c.d;
 import g.d.c;
 /* loaded from: classes7.dex */
 public enum EmptySubscription implements d<Object> {
@@ -20,21 +20,21 @@ public enum EmptySubscription implements d<Object> {
     public void cancel() {
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public void clear() {
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean isEmpty() {
         return true;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean offer(Object obj) {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public Object poll() {
         return null;
     }
@@ -44,7 +44,7 @@ public enum EmptySubscription implements d<Object> {
         SubscriptionHelper.validate(j);
     }
 
-    @Override // f.a.x.c.c
+    @Override // f.b.x.c.c
     public int requestFusion(int i) {
         return i & 2;
     }

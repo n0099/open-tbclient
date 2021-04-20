@@ -6,28 +6,28 @@ import org.json.JSONArray;
 public class v0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50901a;
+    public String f51308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50902b;
+    public String f51309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50903c;
+    public String f51310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50904d;
+    public String f51311d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f50905e;
+    public long f51312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<String> f50906f = null;
+    public SparseArray<String> f51313f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public SparseArray<String> f50907g = null;
+    public SparseArray<String> f51314g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50908h;
+    public int f51315h;
     public JSONArray i;
     public String j;
     public String k;
@@ -38,23 +38,23 @@ public class v0 {
     public int p;
 
     public int a() {
-        return this.f50908h;
+        return this.f51315h;
     }
 
     public SparseArray<String> b() {
-        return this.f50906f;
+        return this.f51313f;
     }
 
     public String c() {
-        return this.f50903c;
+        return this.f51310c;
     }
 
     public String d() {
-        return this.f50904d;
+        return this.f51311d;
     }
 
     public String e() {
-        return this.f50902b;
+        return this.f51309b;
     }
 
     public JSONArray f() {
@@ -62,35 +62,35 @@ public class v0 {
     }
 
     public long g() {
-        return this.f50905e;
+        return this.f51312e;
     }
 
     public String h() {
-        return this.f50901a;
+        return this.f51308a;
     }
 
     public void i(int i) {
-        this.f50908h = i;
+        this.f51315h = i;
     }
 
     public void j(SparseArray<String> sparseArray) {
-        this.f50906f = sparseArray;
+        this.f51313f = sparseArray;
     }
 
     public void k(long j) {
-        this.f50903c = String.valueOf(j);
+        this.f51310c = String.valueOf(j);
     }
 
     public void l(String str) {
-        this.f50903c = str;
+        this.f51310c = str;
     }
 
     public void m(String str) {
-        this.f50904d = str;
+        this.f51311d = str;
     }
 
     public void n(String str) {
-        this.f50902b = str;
+        this.f51309b = str;
     }
 
     public void o(JSONArray jSONArray) {
@@ -98,10 +98,10 @@ public class v0 {
     }
 
     public void p(long j) {
-        this.f50905e = j;
+        this.f51312e = j;
     }
 
     public void q(String str) {
-        this.f50901a = str;
+        this.f51308a = str;
     }
 }

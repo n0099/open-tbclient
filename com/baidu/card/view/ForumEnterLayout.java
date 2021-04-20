@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.b.d;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.u.c;
@@ -27,16 +27,16 @@ import d.b.h0.r.u.c;
 public class ForumEnterLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4404e;
+    public Context f4439e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterButton f4405f;
+    public ThreadForumEnterButton f4440f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f4406g;
+    public ThreadForumEnterGoodsButton f4441g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f4407h;
+    public TextView f4442h;
     public EMTextView i;
     public d.b.h0.r.q.a j;
     public Drawable k;
@@ -54,9 +54,9 @@ public class ForumEnterLayout extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == ForumEnterLayout.this.f4407h) {
+            if (view == ForumEnterLayout.this.f4442h) {
                 ThreadCardUtils.jumpToPBCommentArea(ForumEnterLayout.this.j, view.getContext(), ForumEnterLayout.this.o, 2);
-            } else if (view == ForumEnterLayout.this.f4405f && ForumEnterLayout.this.p != null) {
+            } else if (view == ForumEnterLayout.this.f4440f && ForumEnterLayout.this.p != null) {
                 ForumEnterLayout.this.p.onClick(view);
             }
             if (ForumEnterLayout.this.j != null) {
@@ -84,13 +84,13 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     public void g() {
-        int k = (l.k(this.f4404e) - (this.l * 2)) - this.m;
+        int k = (l.k(this.f4439e) - (this.l * 2)) - this.m;
         if (k > 0) {
             this.n = k / 2;
         } else {
-            this.n = l.g(this.f4404e, R.dimen.tbds540);
+            this.n = l.g(this.f4439e, R.dimen.tbds540);
         }
-        this.f4407h.setMaxWidth(this.n);
+        this.f4442h.setMaxWidth(this.n);
     }
 
     public final void h(View view, a2 a2Var) {
@@ -116,20 +116,20 @@ public class ForumEnterLayout extends RelativeLayout {
         if (str == null || i <= 0) {
             return;
         }
-        TiebaStatic.log(d.b.i0.b3.a.n(str, a2Var, i));
+        TiebaStatic.log(d.b.i0.c3.a.n(str, a2Var, i));
     }
 
     public final void i(Context context) {
-        this.f4404e = context;
+        this.f4439e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_item, (ViewGroup) this, true);
         TextView textView = (TextView) inflate.findViewById(R.id.text_post);
-        this.f4407h = textView;
+        this.f4442h = textView;
         textView.setCompoundDrawablePadding(l.g(context, R.dimen.tbds10));
-        this.f4405f = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
-        this.f4406g = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
-        this.f4405f.setAfterClickListener(this.q);
-        this.f4406g.setAfterClickListener(this.q);
-        this.f4407h.setOnClickListener(this.q);
+        this.f4440f = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
+        this.f4441g = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
+        this.f4440f.setAfterClickListener(this.q);
+        this.f4441g.setAfterClickListener(this.q);
+        this.f4442h.setOnClickListener(this.q);
         this.i = (EMTextView) inflate.findViewById(R.id.tv_ueg);
     }
 
@@ -138,7 +138,7 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     public final boolean k(d.b.h0.r.q.a aVar) {
-        return (aVar == null || aVar.n() == null || !aVar.n().y2() || aVar.n().u1() == null) ? false : true;
+        return (aVar == null || aVar.n() == null || !aVar.n().z2() || aVar.n().u1() == null) ? false : true;
     }
 
     public final boolean l(d.b.h0.r.q.a aVar) {
@@ -146,12 +146,12 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     public void m(TbPageContext tbPageContext, int i) {
-        this.f4405f.d();
-        this.f4406g.e();
+        this.f4440f.d();
+        this.f4441g.e();
         this.k = getArrowRight();
-        c a2 = c.a(this.i);
-        a2.n(R.color.CAM_X0109);
-        a2.s(R.string.F_X01);
+        c d2 = c.d(this.i);
+        d2.q(R.color.CAM_X0109);
+        d2.v(R.string.F_X01);
     }
 
     public void setData(d.b.h0.r.q.a aVar) {
@@ -160,38 +160,38 @@ public class ForumEnterLayout extends RelativeLayout {
         g();
         a2 n = aVar.n();
         if ((aVar.u() || !n.T1) && !StringUtils.isNull(n.i0()) && !j(n)) {
-            this.f4405f.setVisibility(0);
-            this.f4405f.b(n, this.n);
+            this.f4440f.setVisibility(0);
+            this.f4440f.b(n, this.n);
             z = true;
         } else {
-            this.f4405f.setVisibility(8);
+            this.f4440f.setVisibility(8);
             z = false;
         }
-        if (!l(aVar) && !k(aVar) && aVar.v() && aVar.n().a2()) {
-            this.f4406g.setVisibility(0);
-            this.f4406g.a(n);
+        if (!l(aVar) && !k(aVar) && aVar.v() && aVar.n().b2()) {
+            this.f4441g.setVisibility(0);
+            this.f4441g.a(n);
             z = true;
         } else {
-            this.f4406g.setVisibility(8);
+            this.f4441g.setVisibility(8);
         }
         if (ThreadCardUtils.isSelf(n) && n.b2) {
-            this.f4407h.setVisibility(0);
-            this.f4407h.setTextSize(0, l.g(getContext(), R.dimen.tbds32));
-            this.f4407h.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this.f4407h, R.color.CAM_X0109);
-            this.f4407h.setText(R.string.private_desc);
-            this.f4407h.setOnClickListener(null);
+            this.f4442h.setVisibility(0);
+            this.f4442h.setTextSize(0, l.g(getContext(), R.dimen.tbds32));
+            this.f4442h.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.f4442h, R.color.CAM_X0109);
+            this.f4442h.setText(R.string.private_desc);
+            this.f4442h.setOnClickListener(null);
             z = true;
         } else {
-            this.f4407h.setVisibility(8);
+            this.f4442h.setVisibility(8);
         }
-        int visibility = this.f4407h.getVisibility();
+        int visibility = this.f4442h.getVisibility();
         if (n.D2 == 1 && n.W1) {
             this.i.setVisibility(0);
-            this.f4407h.setVisibility(8);
+            this.f4442h.setVisibility(8);
         } else {
             this.i.setVisibility(8);
-            this.f4407h.setVisibility(visibility);
+            this.f4442h.setVisibility(visibility);
         }
         setVisibility(z ? 0 : 8);
     }

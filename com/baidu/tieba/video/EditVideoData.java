@@ -3,7 +3,7 @@ package com.baidu.tieba.video;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StringHelper;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes5.dex */

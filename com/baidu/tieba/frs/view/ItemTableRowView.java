@@ -12,21 +12,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class ItemTableRowView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16779e;
+    public int f16440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16780f;
+    public int f16441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f16781g;
+    public float f16442g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16782h;
+    public int f16443h;
     public int i;
     public int j;
     public int k;
@@ -55,12 +55,12 @@ public class ItemTableRowView extends View {
     }
 
     public void a() {
-        this.f16781g = 0.0f;
+        this.f16442g = 0.0f;
     }
 
     public final void b() {
         this.i = x;
-        this.f16782h = y;
+        this.f16443h = y;
         this.r = z;
         this.s = A;
         this.t = B;
@@ -90,7 +90,7 @@ public class ItemTableRowView extends View {
         int paddingLeft = getPaddingLeft();
         int i2 = 0;
         while (true) {
-            i = this.f16779e;
+            i = this.f16440e;
             if (i2 >= i) {
                 break;
             }
@@ -99,19 +99,19 @@ public class ItemTableRowView extends View {
             int i3 = this.i;
             drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i3, i3 + getPaddingTop());
             this.n.draw(canvas);
-            paddingLeft += this.f16782h + this.i;
+            paddingLeft += this.f16443h + this.i;
             i2++;
         }
-        while (i < this.f16780f) {
+        while (i < this.f16441f) {
             Drawable drawable2 = this.o;
             int paddingTop2 = getPaddingTop();
             int i4 = this.i;
             drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i4, i4 + getPaddingTop());
             this.o.draw(canvas);
-            paddingLeft += this.f16782h + this.i;
+            paddingLeft += this.f16443h + this.i;
             i++;
         }
-        int i5 = (paddingLeft - this.f16782h) + this.w;
+        int i5 = (paddingLeft - this.f16443h) + this.w;
         float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.s) / 2;
         float f2 = i5;
         this.p.set(f2, measuredHeight, getMeasuredWidth(), this.s + measuredHeight);
@@ -120,7 +120,7 @@ public class ItemTableRowView extends View {
         int i6 = this.t;
         canvas.drawRoundRect(rectF, i6, i6, this.q);
         this.q.setColor(SkinManager.getColor(this.v));
-        this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i5) * this.f16781g) + f2, this.s + measuredHeight);
+        this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i5) * this.f16442g) + f2, this.s + measuredHeight);
         RectF rectF2 = this.p;
         int i7 = this.t;
         canvas.drawRoundRect(rectF2, i7, i7, this.q);
@@ -141,8 +141,8 @@ public class ItemTableRowView extends View {
             size2 = this.i + getPaddingBottom() + getPaddingTop();
         }
         int i3 = this.i;
-        int i4 = this.f16780f;
-        int i5 = (i3 * i4) + (this.f16782h * (i4 - 1));
+        int i4 = this.f16441f;
+        int i5 = (i3 * i4) + (this.f16443h * (i4 - 1));
         this.j = i5;
         if (mode != 1073741824) {
             size = this.w + i5 + getPaddingLeft() + getPaddingRight() + this.r;
@@ -153,11 +153,11 @@ public class ItemTableRowView extends View {
     }
 
     public void setData(float f2) {
-        this.f16781g = f2;
+        this.f16442g = f2;
     }
 
     public void setEmptyStartCount(int i) {
-        this.f16779e = i;
+        this.f16440e = i;
     }
 
     public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet) {
@@ -166,7 +166,7 @@ public class ItemTableRowView extends View {
 
     public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f16780f = 5;
+        this.f16441f = 5;
         this.k = R.drawable.icon_pure_evaluation_star24_n;
         this.l = 17170445;
         this.m = R.color.CAM_X0109;

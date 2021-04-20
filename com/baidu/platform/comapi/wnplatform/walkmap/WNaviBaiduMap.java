@@ -12,13 +12,13 @@ import com.baidu.webkit.net.BdNetTask;
 public class WNaviBaiduMap {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10382b;
+    public static long f9940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WNaviBaiduMap f10383c;
+    public static WNaviBaiduMap f9941c;
 
     /* renamed from: a  reason: collision with root package name */
-    public JNIBaseMap f10384a = new JNIBaseMap();
+    public JNIBaseMap f9942a = new JNIBaseMap();
 
     public static void clearOverlay(Overlay overlay) {
         if (overlay instanceof Marker) {
@@ -30,16 +30,16 @@ public class WNaviBaiduMap {
     }
 
     public static long getId() {
-        return f10382b;
+        return f9940b;
     }
 
     public static synchronized WNaviBaiduMap getInstance() {
         WNaviBaiduMap wNaviBaiduMap;
         synchronized (WNaviBaiduMap.class) {
-            if (f10383c == null) {
-                f10383c = new WNaviBaiduMap();
+            if (f9941c == null) {
+                f9941c = new WNaviBaiduMap();
             }
-            wNaviBaiduMap = f10383c;
+            wNaviBaiduMap = f9941c;
         }
         return wNaviBaiduMap;
     }
@@ -112,7 +112,7 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f10384a.GetZoomToBound(f10382b, bundle);
+        return this.f9942a.GetZoomToBound(f9940b, bundle);
     }
 
     public double getZoomUnitsInMeter() {
@@ -120,7 +120,7 @@ public class WNaviBaiduMap {
     }
 
     public void setId(long j) {
-        f10382b = j;
+        f9940b = j;
     }
 
     public void setSatellite(boolean z) {

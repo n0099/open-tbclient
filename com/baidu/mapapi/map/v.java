@@ -6,26 +6,26 @@ import java.util.HashSet;
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7100a;
+    public final /* synthetic */ int f7135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7101b;
+    public final /* synthetic */ int f7136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f7102c;
+    public final /* synthetic */ int f7137c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f7103d;
+    public final /* synthetic */ String f7138d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f7104e;
+    public final /* synthetic */ TileOverlay f7139e;
 
     public v(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
-        this.f7104e = tileOverlay;
-        this.f7100a = i;
-        this.f7101b = i2;
-        this.f7102c = i3;
-        this.f7103d = str;
+        this.f7139e = tileOverlay;
+        this.f7135a = i;
+        this.f7136b = i2;
+        this.f7137c = i3;
+        this.f7138d = str;
     }
 
     @Override // java.lang.Runnable
@@ -34,21 +34,21 @@ public class v implements Runnable {
         String str;
         String str2;
         HashSet hashSet;
-        tileProvider = this.f7104e.f7040g;
-        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7100a, this.f7101b, this.f7102c);
+        tileProvider = this.f7139e.f7075g;
+        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7135a, this.f7136b, this.f7137c);
         if (tile == null) {
-            str = TileOverlay.f7034b;
+            str = TileOverlay.f7069b;
             str2 = "FileTile pic is null";
         } else if (tile.width == 256 && tile.height == 256) {
-            this.f7104e.a(this.f7100a + "_" + this.f7101b + "_" + this.f7102c, tile);
-            hashSet = this.f7104e.f7039e;
-            hashSet.remove(this.f7103d);
+            this.f7139e.a(this.f7135a + "_" + this.f7136b + "_" + this.f7137c, tile);
+            hashSet = this.f7139e.f7074e;
+            hashSet.remove(this.f7138d);
         } else {
-            str = TileOverlay.f7034b;
+            str = TileOverlay.f7069b;
             str2 = "FileTile pic must be 256 * 256";
         }
         Log.e(str, str2);
-        hashSet = this.f7104e.f7039e;
-        hashSet.remove(this.f7103d);
+        hashSet = this.f7139e.f7074e;
+        hashSet.remove(this.f7138d);
     }
 }

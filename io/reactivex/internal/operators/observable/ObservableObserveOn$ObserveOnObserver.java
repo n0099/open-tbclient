@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.p;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.x.c.f;
+import f.b.o;
+import f.b.p;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.x.c.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 /* loaded from: classes7.dex */
@@ -63,12 +63,12 @@ public final class ObservableObserveOn$ObserveOnObserver<T> extends BasicIntQueu
         }
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public void clear() {
         this.queue.clear();
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -142,17 +142,17 @@ public final class ObservableObserveOn$ObserveOnObserver<T> extends BasicIntQueu
         }
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public boolean isEmpty() {
         return this.queue.isEmpty();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.done) {
             return;
@@ -161,10 +161,10 @@ public final class ObservableObserveOn$ObserveOnObserver<T> extends BasicIntQueu
         schedule();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.done) {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
             return;
         }
         this.error = th;
@@ -172,7 +172,7 @@ public final class ObservableObserveOn$ObserveOnObserver<T> extends BasicIntQueu
         schedule();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -183,12 +183,12 @@ public final class ObservableObserveOn$ObserveOnObserver<T> extends BasicIntQueu
         schedule();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
-            if (bVar instanceof f.a.x.c.b) {
-                f.a.x.c.b bVar2 = (f.a.x.c.b) bVar;
+            if (bVar instanceof f.b.x.c.b) {
+                f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
                 int requestFusion = bVar2.requestFusion(7);
                 if (requestFusion == 1) {
                     this.sourceMode = requestFusion;
@@ -204,17 +204,17 @@ public final class ObservableObserveOn$ObserveOnObserver<T> extends BasicIntQueu
                     return;
                 }
             }
-            this.queue = new f.a.x.f.a(this.bufferSize);
+            this.queue = new f.b.x.f.a(this.bufferSize);
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public T poll() throws Exception {
         return this.queue.poll();
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.c
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.c
     public int requestFusion(int i) {
         if ((i & 2) != 0) {
             this.outputFused = true;

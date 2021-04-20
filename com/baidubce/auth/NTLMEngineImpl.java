@@ -1,6 +1,7 @@
 package com.baidubce.auth;
 
 import android.util.Base64;
+import com.baidu.mobads.container.widget.player.PlayerEvent;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.security.Key;
@@ -430,7 +431,7 @@ public final class NTLMEngineImpl {
             addULong(i5);
             int i6 = this.type2Flags;
             addULong((i6 & 4) | (i6 & 128) | (i6 & 512) | (524288 & i6) | NTLMEngineImpl.FLAG_REQUEST_VERSION | (32768 & i6) | (i6 & 32) | (i6 & 16) | (536870912 & i6) | (Integer.MIN_VALUE & i6) | (1073741824 & i6) | (8388608 & i6) | (i6 & 1));
-            addUShort(261);
+            addUShort(PlayerEvent.PLAY_LOADING_START);
             addULong(2600);
             addUShort(3840);
             addBytes(this.lmResp);
@@ -879,7 +880,7 @@ public final class NTLMEngineImpl {
             addUShort(0);
             addUShort(0);
             addULong(40);
-            addUShort(261);
+            addUShort(PlayerEvent.PLAY_LOADING_START);
             addULong(2600);
             addUShort(3840);
             byte[] bArr = this.hostBytes;

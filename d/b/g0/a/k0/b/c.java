@@ -9,7 +9,7 @@ public class c extends b {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public ContentValues f45058c;
+    public ContentValues f45450c;
 
     public c(@Nullable Map<String, String> map) {
         super("lifecycle", map);
@@ -20,13 +20,13 @@ public class c extends b {
         StringBuilder sb = new StringBuilder();
         sb.append(d.b.g0.a.k0.a.e(str, "cuid", d.b.g0.a.w0.a.O().c(d.b.g0.a.w0.a.c())));
         sb.append(d.b.g0.a.k0.a.e(str, "mtjCuid", d.b.g0.a.w0.a.O().c(d.b.g0.a.w0.a.c())));
-        ContentValues contentValues = this.f45058c;
+        ContentValues contentValues = this.f45450c;
         if (contentValues != null) {
             for (String str2 : contentValues.keySet()) {
-                sb.append(d.b.g0.a.k0.a.d(str, str2, this.f45058c.get(str2)));
+                sb.append(d.b.g0.a.k0.a.d(str, str2, this.f45450c.get(str2)));
             }
         } else {
-            for (Map.Entry<String, String> entry : this.f45057b.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f45449b.entrySet()) {
                 sb.append(d.b.g0.a.k0.a.e(str, entry.getKey(), entry.getValue()));
             }
         }
@@ -35,6 +35,6 @@ public class c extends b {
 
     public c(@NonNull ContentValues contentValues) {
         super("lifecycle", null);
-        this.f45058c = contentValues;
+        this.f45450c = contentValues;
     }
 }

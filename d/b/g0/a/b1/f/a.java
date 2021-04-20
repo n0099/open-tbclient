@@ -10,55 +10,55 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43465a = 60000;
+    public int f43857a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43466b = "aac";
+    public String f43858b = "aac";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43467c = 1;
+    public int f43859c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43468d = 8000;
+    public int f43860d = 8000;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43469e = 16000;
+    public int f43861e = 16000;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43470f = 1;
+    public int f43862f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43471g;
+    public String f43863g;
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.f43465a = jSONObject.optInt("duration", 60000);
+            aVar.f43857a = jSONObject.optInt("duration", 60000);
             String optString = jSONObject.optString(KsMediaMeta.KSM_KEY_FORMAT);
-            aVar.f43466b = optString;
+            aVar.f43858b = optString;
             if (TextUtils.isEmpty(optString)) {
-                aVar.f43466b = "aac";
+                aVar.f43858b = "aac";
             }
-            aVar.f43467c = jSONObject.optInt("numberOfChannels", 1);
-            aVar.f43468d = jSONObject.optInt("sampleRate", 8000);
+            aVar.f43859c = jSONObject.optInt("numberOfChannels", 1);
+            aVar.f43860d = jSONObject.optInt("sampleRate", 8000);
             int optInt = jSONObject.optInt("encodeBitRate");
-            aVar.f43469e = optInt;
+            aVar.f43861e = optInt;
             if (optInt == 0) {
-                int i = aVar.f43468d;
+                int i = aVar.f43860d;
                 if (i == 8000) {
-                    aVar.f43469e = 16000;
+                    aVar.f43861e = 16000;
                 } else if (i == 16000) {
-                    aVar.f43469e = 24000;
+                    aVar.f43861e = 24000;
                 } else if (i == 44100) {
-                    aVar.f43469e = 64000;
+                    aVar.f43861e = 64000;
                 }
             }
-            aVar.f43470f = b(jSONObject.optString("audioSource", "auto"));
-            aVar.f43471g = jSONObject.optString("cb");
+            aVar.f43862f = b(jSONObject.optString("audioSource", "auto"));
+            aVar.f43863g = jSONObject.optString("cb");
         }
         return aVar;
     }
@@ -126,29 +126,29 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public JSONObject c() {
-        int i = this.f43465a;
+        int i = this.f43857a;
         if (i <= 600000 && i >= 0) {
-            int i2 = this.f43467c;
+            int i2 = this.f43859c;
             boolean z = true;
             if (i2 != 1 && i2 != 2) {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
             }
-            if (!TextUtils.equals(this.f43466b, "aac") && !TextUtils.equals(this.f43466b, "pcm")) {
+            if (!TextUtils.equals(this.f43858b, "aac") && !TextUtils.equals(this.f43858b, "pcm")) {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
             }
-            int i3 = this.f43468d;
+            int i3 = this.f43860d;
             if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
             }
-            if (!TextUtils.equals(this.f43466b, "pcm")) {
-                if ((r3 = this.f43468d) != 8000) {
+            if (!TextUtils.equals(this.f43858b, "pcm")) {
+                if ((r3 = this.f43860d) != 8000) {
                     if (z) {
                         return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
                     }
                 } else if (z) {
                 }
             }
-            if (this.f43470f < 0) {
+            if (this.f43862f < 0) {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
             }
             return null;
@@ -157,6 +157,6 @@ public class a {
     }
 
     public String toString() {
-        return "recordTime : " + this.f43465a + "; channel : " + this.f43467c + "; audioFormat : " + this.f43466b + "; sampleRate : " + this.f43468d + "; bitRate : " + this.f43469e + "; callbacks : " + this.f43471g;
+        return "recordTime : " + this.f43857a + "; channel : " + this.f43859c + "; audioFormat : " + this.f43858b + "; sampleRate : " + this.f43860d + "; bitRate : " + this.f43861e + "; callbacks : " + this.f43863g;
     }
 }

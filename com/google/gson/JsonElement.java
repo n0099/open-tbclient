@@ -1,7 +1,7 @@
 package com.google.gson;
 
-import d.g.c.b.h;
-import d.g.c.d.b;
+import d.g.d.b.h;
+import d.g.d.d.b;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;

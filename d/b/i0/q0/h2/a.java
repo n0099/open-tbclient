@@ -1,0 +1,106 @@
+package d.b.i0.q0.h2;
+
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import d.b.c.e.p.l;
+import d.b.i0.q0.d1;
+import d.b.i0.q0.r;
+/* loaded from: classes4.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final FrsFragment f59294a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d1 f59295b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f59296c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f59297d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f59298e = -1;
+
+    public a(FrsFragment frsFragment) {
+        if (frsFragment != null) {
+            this.f59294a = frsFragment;
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                UtilHelper.getStatusBarHeight();
+                return;
+            }
+            return;
+        }
+        throw new NullPointerException("FrsFragment is null");
+    }
+
+    public void a(int i) {
+        if (i >= 0) {
+            d(true);
+            e(i);
+            return;
+        }
+        d(false);
+        e(i);
+    }
+
+    public void b() {
+        int i;
+        if (this.f59297d && (i = this.f59298e) >= 0) {
+            f(i);
+        }
+        this.f59297d = false;
+    }
+
+    public void c() {
+        d1 d1Var = this.f59295b;
+        if (d1Var != null) {
+            d1Var.e();
+        }
+    }
+
+    public void d(boolean z) {
+        this.f59297d = z;
+    }
+
+    public void e(int i) {
+        this.f59298e = i;
+    }
+
+    public final void f(int i) {
+        FrameLayout frameLayout;
+        String string;
+        r x0 = this.f59294a.x0();
+        if (x0 == null || x0.Z() == null || (frameLayout = (FrameLayout) x0.S()) == null) {
+            return;
+        }
+        if (this.f59296c == null && this.f59294a.getPageContext() != null) {
+            TextView textView = new TextView(this.f59294a.getPageContext().getPageActivity());
+            this.f59296c = textView;
+            textView.setTextSize(0, this.f59294a.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            this.f59296c.setGravity(17);
+        }
+        if (this.f59296c != null) {
+            if (i > 0) {
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
+            }
+            this.f59296c.setText(string);
+        }
+        SkinManager.setBackgroundResource(this.f59296c, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f59296c, R.color.CAM_X0112);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.ds56));
+        if (this.f59295b == null) {
+            this.f59295b = new d1();
+        }
+        this.f59295b.h(this.f59296c, frameLayout, layoutParams, 2000);
+        this.f59298e = -1;
+    }
+}

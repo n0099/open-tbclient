@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import d.b.i0.d1.f.i.b;
-import d.b.i0.d1.t.e;
+import d.b.i0.e1.f.i.b;
+import d.b.i0.e1.t.e;
 import java.util.ArrayList;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
     public StrangerListModel(TbPageContext tbPageContext) {
         super(tbPageContext);

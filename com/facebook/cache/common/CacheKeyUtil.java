@@ -4,7 +4,7 @@ import com.facebook.common.util.SecureHashUtil;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CacheKeyUtil {
     public static String getFirstResourceId(CacheKey cacheKey) {
         try {

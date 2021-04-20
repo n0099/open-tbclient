@@ -10,10 +10,10 @@ import java.security.cert.X509Certificate;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f2071a = new a();
+    public static a f2096a = new a();
 
     public static a a() {
-        return f2071a;
+        return f2096a;
     }
 
     public static byte[] b(Context context, String str) {

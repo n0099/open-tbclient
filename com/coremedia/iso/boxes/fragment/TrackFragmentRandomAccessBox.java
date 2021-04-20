@@ -14,22 +14,22 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public static final String TYPE = "tfra";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_9 = null;
     public List<Entry> entries;
     public int lengthSizeOfSampleNum;
     public int lengthSizeOfTrafNum;
@@ -37,7 +37,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public int reserved;
     public long trackId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public long moofOffset;
         public long sampleNumber;

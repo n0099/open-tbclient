@@ -24,9 +24,9 @@ public class f0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f0 f0Var = f0.this;
-            a.InterfaceC1116a interfaceC1116a = f0Var.i;
-            if (interfaceC1116a != null) {
-                interfaceC1116a.a(f0Var.m);
+            a.InterfaceC1129a interfaceC1129a = f0Var.i;
+            if (interfaceC1129a != null) {
+                interfaceC1129a.a(f0Var.m);
             }
         }
     }
@@ -37,12 +37,12 @@ public class f0 extends h {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             if (f0.this.m != null && f0.this.m.n() != null && !f0.this.f().booleanValue()) {
                 a2 n = f0.this.m.n();
                 d.b.i0.x.m.a(n.o0());
-                d.b.i0.x.m.l(f0.this.l.f4511f, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(f0.this.l.f4512g, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(f0.this.l.f4546f, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(f0.this.l.f4547g, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -88,8 +88,8 @@ public class f0 extends h {
         this.o = str;
     }
 
-    public void w(a.InterfaceC1116a interfaceC1116a) {
-        this.i = interfaceC1116a;
+    public void w(a.InterfaceC1129a interfaceC1129a) {
+        this.i = interfaceC1129a;
     }
 
     public void x(boolean z) {

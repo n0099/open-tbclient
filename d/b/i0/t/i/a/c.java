@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.livecard.holder.FrsPageAlaEmptyLiveViewHolder;
 import d.b.h0.r.q.a2;
-import d.b.i0.p0.k;
+import d.b.i0.q0.k;
 import d.b.i0.x.b0;
 import d.b.i0.x.z;
 /* loaded from: classes4.dex */
@@ -43,7 +43,7 @@ public class c extends k<a2, FrsPageAlaEmptyLiveViewHolder> implements z {
         this.x = str;
     }
 
-    @Override // d.b.i0.p0.k, d.b.i0.x.y
+    @Override // d.b.i0.q0.k, d.b.i0.x.y
     public void i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super.i(tbPageContext, bdUniqueId);
     }
@@ -53,7 +53,7 @@ public class c extends k<a2, FrsPageAlaEmptyLiveViewHolder> implements z {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: t0 */
     public FrsPageAlaEmptyLiveViewHolder R(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
@@ -68,14 +68,14 @@ public class c extends k<a2, FrsPageAlaEmptyLiveViewHolder> implements z {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.p0.k, d.b.b.j.e.a
+    @Override // d.b.i0.q0.k, d.b.c.j.e.a
     /* renamed from: u0 */
     public View X(int i, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
-        frsPageAlaEmptyLiveViewHolder.f15032a.n(a2Var);
-        frsPageAlaEmptyLiveViewHolder.f15032a.a(this.x);
-        frsPageAlaEmptyLiveViewHolder.f15032a.q(this.y);
+        frsPageAlaEmptyLiveViewHolder.f14695a.n(a2Var);
+        frsPageAlaEmptyLiveViewHolder.f14695a.a(this.x);
+        frsPageAlaEmptyLiveViewHolder.f14695a.q(this.y);
         if (a2Var != null) {
-            a2Var.x4();
+            a2Var.y4();
         }
         return frsPageAlaEmptyLiveViewHolder.a();
     }

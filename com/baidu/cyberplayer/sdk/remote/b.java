@@ -15,13 +15,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0075a implements b {
+        public static class C0074a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f5009a;
+            public IBinder f5044a;
 
-            public C0075a(IBinder iBinder) {
-                this.f5009a = iBinder;
+            public C0074a(IBinder iBinder) {
+                this.f5044a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -30,7 +30,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(1, obtain, obtain2, 0);
+                    this.f5044a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -46,7 +46,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeFloat(f2);
-                    this.f5009a.transact(22, obtain, obtain2, 0);
+                    this.f5044a.transact(22, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -62,7 +62,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeFloat(f2);
                     obtain.writeFloat(f3);
-                    this.f5009a.transact(21, obtain, obtain2, 0);
+                    this.f5044a.transact(21, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -77,7 +77,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeInt(i);
-                    this.f5009a.transact(8, obtain, obtain2, 0);
+                    this.f5044a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -95,7 +95,7 @@ public interface b extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeLong(j);
                     obtain.writeString(str);
-                    this.f5009a.transact(25, obtain, obtain2, 0);
+                    this.f5044a.transact(25, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -110,7 +110,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeLong(j);
-                    this.f5009a.transact(13, obtain, obtain2, 0);
+                    this.f5044a.transact(13, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -130,7 +130,7 @@ public interface b extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f5009a.transact(2, obtain, obtain2, 0);
+                    this.f5044a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -145,7 +145,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeStrongBinder(dVar != null ? dVar.asBinder() : null);
-                    this.f5009a.transact(30, obtain, obtain2, 0);
+                    this.f5044a.transact(30, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -165,7 +165,7 @@ public interface b extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f5009a.transact(3, obtain, obtain2, 0);
+                    this.f5044a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -180,7 +180,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeString(str);
-                    this.f5009a.transact(33, obtain, obtain2, 0);
+                    this.f5044a.transact(33, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -196,7 +196,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f5009a.transact(24, obtain, obtain2, 0);
+                    this.f5044a.transact(24, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -212,7 +212,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeString(str);
                     obtain.writeInt(z ? 1 : 0);
-                    this.f5009a.transact(23, obtain, obtain2, 0);
+                    this.f5044a.transact(23, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -227,7 +227,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeInt(z ? 1 : 0);
-                    this.f5009a.transact(9, obtain, obtain2, 0);
+                    this.f5044a.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -237,7 +237,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5009a;
+                return this.f5044a;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -246,7 +246,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(4, obtain, obtain2, 0);
+                    this.f5044a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -261,7 +261,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeInt(i);
-                    this.f5009a.transact(32, obtain, obtain2, 0);
+                    this.f5044a.transact(32, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -276,7 +276,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeStrongBinder(dVar != null ? dVar.asBinder() : null);
-                    this.f5009a.transact(31, obtain, obtain2, 0);
+                    this.f5044a.transact(31, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -291,7 +291,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeString(str);
-                    this.f5009a.transact(34, obtain, obtain2, 0);
+                    this.f5044a.transact(34, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -306,7 +306,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeInt(z ? 1 : 0);
-                    this.f5009a.transact(19, obtain, obtain2, 0);
+                    this.f5044a.transact(19, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -320,7 +320,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(5, obtain, obtain2, 0);
+                    this.f5044a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -335,7 +335,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeInt(z ? 1 : 0);
-                    this.f5009a.transact(26, obtain, obtain2, 0);
+                    this.f5044a.transact(26, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -349,7 +349,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(6, obtain, obtain2, 0);
+                    this.f5044a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -364,7 +364,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     obtain.writeInt(z ? 1 : 0);
-                    this.f5009a.transact(29, obtain, obtain2, 0);
+                    this.f5044a.transact(29, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -378,7 +378,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(7, obtain, obtain2, 0);
+                    this.f5044a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -392,7 +392,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(10, obtain, obtain2, 0);
+                    this.f5044a.transact(10, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -407,7 +407,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(11, obtain, obtain2, 0);
+                    this.f5044a.transact(11, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -422,7 +422,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(12, obtain, obtain2, 0);
+                    this.f5044a.transact(12, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -437,7 +437,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(14, obtain, obtain2, 0);
+                    this.f5044a.transact(14, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -452,7 +452,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(15, obtain, obtain2, 0);
+                    this.f5044a.transact(15, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -467,7 +467,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(16, obtain, obtain2, 0);
+                    this.f5044a.transact(16, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -482,7 +482,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(17, obtain, obtain2, 0);
+                    this.f5044a.transact(17, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -496,7 +496,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(18, obtain, obtain2, 0);
+                    this.f5044a.transact(18, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -510,7 +510,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(20, obtain, obtain2, 0);
+                    this.f5044a.transact(20, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -525,7 +525,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(27, obtain, obtain2, 0);
+                    this.f5044a.transact(27, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readLong();
                 } finally {
@@ -540,7 +540,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                    this.f5009a.transact(28, obtain, obtain2, 0);
+                    this.f5044a.transact(28, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readLong();
                 } finally {
@@ -559,7 +559,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0075a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0074a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

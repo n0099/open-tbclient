@@ -8,6 +8,11 @@ public class JSONSerializableSerializer implements ObjectSerializer {
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        ((JSONSerializable) obj).write(jSONSerializer, obj2, type, i);
+        JSONSerializable jSONSerializable = (JSONSerializable) obj;
+        if (jSONSerializable == null) {
+            jSONSerializer.writeNull();
+        } else {
+            jSONSerializable.write(jSONSerializer, obj2, type, i);
+        }
     }
 }

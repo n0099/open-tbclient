@@ -11,23 +11,23 @@ import java.util.List;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48136b = k.f45051a;
+    public static final boolean f48528b = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f48137c;
+    public static volatile a f48529c;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.z.a.a f48138a;
+    public d.b.g0.g.z.a.a f48530a;
 
     public static a b() {
-        if (f48137c == null) {
+        if (f48529c == null) {
             synchronized (a.class) {
-                if (f48137c == null) {
-                    f48137c = new a();
+                if (f48529c == null) {
+                    f48529c = new a();
                 }
             }
         }
-        return f48137c;
+        return f48529c;
     }
 
     public String a(String str) {
@@ -35,7 +35,7 @@ public class a {
         a.c cVar;
         HashMap<String, String> hashMap;
         String c2 = c(str, 1);
-        if (TextUtils.isEmpty(c2) || (aVar = this.f48138a) == null || (cVar = aVar.f48697d) == null || (hashMap = cVar.f48707a) == null) {
+        if (TextUtils.isEmpty(c2) || (aVar = this.f48530a) == null || (cVar = aVar.f49089d) == null || (hashMap = cVar.f49099a) == null) {
             return null;
         }
         return hashMap.get(c2);
@@ -48,23 +48,23 @@ public class a {
     public String c(String str, int i) {
         d.b.g0.g.z.a.a aVar;
         a.b bVar;
-        List<a.C1004a> list;
-        if (!TextUtils.isEmpty(str) && (aVar = this.f48138a) != null && (bVar = aVar.f48696c) != null && (list = bVar.f48705a) != null) {
-            for (a.C1004a c1004a : list) {
-                if (TextUtils.equals(c1004a.f48701a, str) || TextUtils.equals(c1004a.f48702b, str)) {
+        List<a.C1016a> list;
+        if (!TextUtils.isEmpty(str) && (aVar = this.f48530a) != null && (bVar = aVar.f49088c) != null && (list = bVar.f49097a) != null) {
+            for (a.C1016a c1016a : list) {
+                if (TextUtils.equals(c1016a.f49093a, str) || TextUtils.equals(c1016a.f49094b, str)) {
                     if (i != 0) {
                         if (i != 1) {
                             if (i != 2) {
                                 if (i != 3) {
-                                    return c1004a.f48702b;
+                                    return c1016a.f49094b;
                                 }
-                                return c1004a.f48704d;
+                                return c1016a.f49096d;
                             }
-                            return c1004a.f48703c;
+                            return c1016a.f49095c;
                         }
-                        return c1004a.f48702b;
+                        return c1016a.f49094b;
                     }
-                    return c1004a.f48701a;
+                    return c1016a.f49093a;
                 }
                 while (r0.hasNext()) {
                 }
@@ -80,14 +80,14 @@ public class a {
         if (TextUtils.isEmpty(c2)) {
             return false;
         }
-        d.b.g0.g.z.a.a aVar = this.f48138a;
-        if (aVar != null && (bVar = aVar.f48696c) != null && (hashMap = bVar.f48706b) != null && hashMap.containsKey(c2)) {
-            if (f48136b) {
+        d.b.g0.g.z.a.a aVar = this.f48530a;
+        if (aVar != null && (bVar = aVar.f49088c) != null && (hashMap = bVar.f49098b) != null && hashMap.containsKey(c2)) {
+            if (f48528b) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.f48138a.f48696c.f48706b.get(c2).booleanValue();
+            return this.f48530a.f49088c.f49098b.get(c2).booleanValue();
         }
-        if (f48136b) {
+        if (f48528b) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
         String T = e.T();
@@ -106,18 +106,18 @@ public class a {
     }
 
     public void e(d.b.g0.g.z.a.a aVar) {
-        this.f48138a = aVar;
+        this.f48530a = aVar;
     }
 
     public void f(String str, boolean z) {
         d.b.g0.g.z.a.a aVar;
         a.b bVar;
-        if (TextUtils.isEmpty(str) || (aVar = this.f48138a) == null || (bVar = aVar.f48696c) == null || bVar.f48706b == null) {
+        if (TextUtils.isEmpty(str) || (aVar = this.f48530a) == null || (bVar = aVar.f49088c) == null || bVar.f49098b == null) {
             return;
         }
-        if (f48136b) {
+        if (f48528b) {
             Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
         }
-        this.f48138a.f48696c.f48706b.put(str, Boolean.valueOf(z));
+        this.f48530a.f49088c.f49098b.put(str, Boolean.valueOf(z));
     }
 }

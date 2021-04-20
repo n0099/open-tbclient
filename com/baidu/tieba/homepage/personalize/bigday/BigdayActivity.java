@@ -19,7 +19,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.h0.r.d0.b;
 import java.util.Calendar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {
     public ImageView bigdayClose;
     public long bigdayId;
@@ -52,7 +52,7 @@ public class BigdayActivity extends BaseActivity {
             calendar.set(12, 59);
             calendar.set(13, 59);
             calendar.set(14, 0);
-            b.i().v("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+            b.j().w("key_bigday_next_showtime_home", calendar.getTimeInMillis());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
             finish();
         }

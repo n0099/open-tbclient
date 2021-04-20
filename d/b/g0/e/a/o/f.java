@@ -2,8 +2,6 @@ package d.b.g0.e.a.o;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.tencent.connect.common.Constants;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class f extends d {
@@ -19,7 +17,7 @@ public class f extends d {
     public f(Context context, b bVar) {
         super(context, bVar);
         this.r = "rvideo";
-        this.s = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
+        this.s = "10";
         this.t = "MSSP,ANTI,VIDEO,NMON";
         this.u = "LP,DL";
         this.v = "70300";
@@ -34,7 +32,7 @@ public class f extends d {
         hashMap.put("act", this.u);
         hashMap.put("prod", this.r);
         hashMap.put("at", this.s);
-        hashMap.put(IXAdRequestInfo.FET, this.t);
+        hashMap.put("fet", this.t);
         return hashMap;
     }
 

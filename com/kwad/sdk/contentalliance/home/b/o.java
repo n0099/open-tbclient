@@ -16,25 +16,25 @@ import com.kwad.sdk.utils.ae;
 public class o extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    public SlidePlayViewPager f32713b;
+    public SlidePlayViewPager f33002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f32714c;
+    public View f33003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f32715d;
+    public TextView f33004d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LottieAnimationView f32716e;
+    public LottieAnimationView f33005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f32717f;
+    public TextView f33006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LottieAnimationView f32718g;
+    public LottieAnimationView f33007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector.SimpleOnGestureListener f32719h;
+    public GestureDetector.SimpleOnGestureListener f33008h;
     public GestureDetector.SimpleOnGestureListener i;
     public GestureDetector j;
     public ViewPager.OnPageChangeListener k;
@@ -45,7 +45,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     public com.kwad.sdk.contentalliance.home.a.d p = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.b.o.2
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
-            if (z && o.this.f32714c.getVisibility() == 0) {
+            if (z && o.this.f33003c.getVisibility() == 0) {
                 if (o.this.m) {
                     o.this.h();
                 } else if (o.this.l) {
@@ -56,20 +56,20 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     };
 
     private void e() {
-        this.f32713b.b(this.k);
+        this.f33002b.b(this.k);
         ViewPager.SimpleOnPageChangeListener simpleOnPageChangeListener = new ViewPager.SimpleOnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.1
             @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (o.this.n == 1) {
-                    com.kwad.sdk.contentalliance.home.viewpager.a adapter = o.this.f32713b.getAdapter();
+                    com.kwad.sdk.contentalliance.home.viewpager.a adapter = o.this.f33002b.getAdapter();
                     AdTemplate e2 = adapter.e(adapter.a(i));
                     if (e2 == null || !com.kwad.sdk.core.response.b.c.b(e2)) {
                         return;
                     }
                     o.this.q();
                     o.this.j = new GestureDetector(o.this.o(), o.this.i);
-                    o.this.f32714c.setClickable(true);
-                    o.this.f32714c.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.1.1
+                    o.this.f33003c.setClickable(true);
+                    o.this.f33003c.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.1.1
                         @Override // android.view.View.OnTouchListener
                         @SuppressLint({"ClickableViewAccessibility"})
                         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -81,14 +81,14 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             }
         };
         this.k = simpleOnPageChangeListener;
-        this.f32713b.a(simpleOnPageChangeListener);
+        this.f33002b.a(simpleOnPageChangeListener);
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void f() {
         GestureDetector gestureDetector;
-        if (this.f32719h == null) {
-            this.f32719h = new GestureDetector.SimpleOnGestureListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.3
+        if (this.f33008h == null) {
+            this.f33008h = new GestureDetector.SimpleOnGestureListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.3
                 @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
                 public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
                     return (f3 >= -5000.0f || Math.abs(f3) <= Math.abs(f2) * 3.0f) ? super.onFling(motionEvent, motionEvent2, f2, f3) : o.this.h();
@@ -130,18 +130,18 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
                 if (i == 1) {
                     gestureDetector = new GestureDetector(o(), this.i);
                 }
-                this.f32714c.setClickable(true);
-                this.f32714c.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.5
+                this.f33003c.setClickable(true);
+                this.f33003c.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.5
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         return o.this.j.onTouchEvent(motionEvent);
                     }
                 });
             }
-            gestureDetector = new GestureDetector(o(), this.f32719h);
+            gestureDetector = new GestureDetector(o(), this.f33008h);
             this.j = gestureDetector;
-            this.f32714c.setClickable(true);
-            this.f32714c.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.5
+            this.f33003c.setClickable(true);
+            this.f33003c.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.5
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     return o.this.j.onTouchEvent(motionEvent);
@@ -156,10 +156,10 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             this.l = false;
             ae.b(o());
             com.kwad.sdk.contentalliance.detail.photo.newui.d.c.a().b(false);
-            this.f32713b.setEnabled(true);
-            this.f32718g.d();
-            this.f32714c.setOnTouchListener(null);
-            this.f32714c.setVisibility(8);
+            this.f33002b.setEnabled(true);
+            this.f33007g.d();
+            this.f33003c.setOnTouchListener(null);
+            this.f33003c.setVisibility(8);
             this.n = 2;
             return true;
         }
@@ -172,25 +172,25 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             this.m = false;
             ae.d(o());
             com.kwad.sdk.contentalliance.detail.photo.newui.d.c.a().a(false);
-            this.f32713b.setEnabled(true);
-            this.f32716e.d();
-            this.f32714c.setOnTouchListener(null);
+            this.f33002b.setEnabled(true);
+            this.f33005e.d();
+            this.f33003c.setOnTouchListener(null);
             if (this.l) {
                 this.n = 1;
             }
-            this.f32714c.animate().translationYBy(-o().getResources().getDisplayMetrics().heightPixels).setDuration(600L).setListener(new Animator.AnimatorListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.6
+            this.f33003c.animate().translationYBy(-o().getResources().getDisplayMetrics().heightPixels).setDuration(600L).setListener(new Animator.AnimatorListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.6
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    o.this.f32714c.setVisibility(8);
-                    o.this.f32714c.setVisibility(8);
-                    o.this.f32716e.d();
+                    o.this.f33003c.setVisibility(8);
+                    o.this.f33003c.setVisibility(8);
+                    o.this.f33005e.d();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    o.this.f32714c.setVisibility(8);
-                    o.this.f32714c.setVisibility(8);
-                    o.this.f32716e.d();
+                    o.this.f33003c.setVisibility(8);
+                    o.this.f33003c.setVisibility(8);
+                    o.this.f33005e.d();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -208,29 +208,29 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     }
 
     private void p() {
-        this.f32713b.setEnabled(false);
-        this.f32718g.d();
-        this.f32717f.setVisibility(8);
-        this.f32718g.setVisibility(8);
-        this.f32715d.setVisibility(0);
-        this.f32716e.setVisibility(0);
-        this.f32716e.b();
-        this.f32714c.setVisibility(0);
+        this.f33002b.setEnabled(false);
+        this.f33007g.d();
+        this.f33006f.setVisibility(8);
+        this.f33007g.setVisibility(8);
+        this.f33004d.setVisibility(0);
+        this.f33005e.setVisibility(0);
+        this.f33005e.b();
+        this.f33003c.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        this.f32713b.setEnabled(false);
-        this.f32716e.d();
-        this.f32716e.setVisibility(8);
-        this.f32715d.setVisibility(8);
-        this.f32718g.b();
-        this.f32718g.setVisibility(0);
-        this.f32717f.setVisibility(0);
-        this.f32714c.setVisibility(0);
+        this.f33002b.setEnabled(false);
+        this.f33005e.d();
+        this.f33005e.setVisibility(8);
+        this.f33004d.setVisibility(8);
+        this.f33007g.b();
+        this.f33007g.setVisibility(0);
+        this.f33006f.setVisibility(0);
+        this.f33003c.setVisibility(0);
         if (this.o) {
-            int i = this.f32714c.getContext().getResources().getDisplayMetrics().heightPixels;
-            View view = this.f32714c;
+            int i = this.f33003c.getContext().getResources().getDisplayMetrics().heightPixels;
+            View view = this.f33003c;
             view.setTranslationY(view.getTranslationY() + i);
         }
     }
@@ -238,9 +238,9 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32713b.setEnabled(true);
+        this.f33002b.setEnabled(true);
         this.m = ae.c(o());
-        boolean z = ae.a(o()) && ((com.kwad.sdk.contentalliance.home.e) this).f32769a.l;
+        boolean z = ae.a(o()) && ((com.kwad.sdk.contentalliance.home.e) this).f33058a.l;
         this.l = z;
         if (this.m) {
             this.n = 0;
@@ -253,10 +253,10 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             f();
         } else {
             this.n = 2;
-            this.f32718g.setVisibility(8);
-            this.f32714c.setVisibility(8);
+            this.f33007g.setVisibility(8);
+            this.f33003c.setVisibility(8);
         }
-        ((com.kwad.sdk.contentalliance.home.e) this).f32769a.f32771b.a(this.p);
+        ((com.kwad.sdk.contentalliance.home.e) this).f33058a.f33060b.a(this.p);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -264,36 +264,36 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
         super.b_();
         ViewPager.OnPageChangeListener onPageChangeListener = this.k;
         if (onPageChangeListener != null) {
-            this.f32713b.b(onPageChangeListener);
+            this.f33002b.b(onPageChangeListener);
         }
-        if (this.f32716e.c()) {
-            this.f32716e.d();
+        if (this.f33005e.c()) {
+            this.f33005e.d();
         }
-        if (this.f32718g.c()) {
-            this.f32718g.d();
+        if (this.f33007g.c()) {
+            this.f33007g.d();
         }
-        this.f32714c.animate().cancel();
-        this.f32714c.setOnTouchListener(null);
-        this.f32714c.setVisibility(8);
-        ((com.kwad.sdk.contentalliance.home.e) this).f32769a.f32771b.b(this.p);
+        this.f33003c.animate().cancel();
+        this.f33003c.setOnTouchListener(null);
+        this.f33003c.setVisibility(8);
+        ((com.kwad.sdk.contentalliance.home.e) this).f33058a.f33060b.b(this.p);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32713b = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
-        this.f32714c = b(R.id.ksad_guider_mask);
-        this.f32715d = (TextView) b(R.id.ksad_guider_up_title);
+        this.f33002b = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
+        this.f33003c = b(R.id.ksad_guider_mask);
+        this.f33004d = (TextView) b(R.id.ksad_guider_up_title);
         LottieAnimationView lottieAnimationView = (LottieAnimationView) b(R.id.ksad_guider_up_anim);
-        this.f32716e = lottieAnimationView;
+        this.f33005e = lottieAnimationView;
         lottieAnimationView.setAnimation(R.raw.ksad_detail_guider_slide_up_new);
-        this.f32716e.setRepeatMode(1);
-        this.f32716e.setRepeatCount(-1);
-        this.f32717f = (TextView) b(R.id.ksad_guider_left_title);
+        this.f33005e.setRepeatMode(1);
+        this.f33005e.setRepeatCount(-1);
+        this.f33006f = (TextView) b(R.id.ksad_guider_left_title);
         LottieAnimationView lottieAnimationView2 = (LottieAnimationView) b(R.id.ksad_guider_left_anim);
-        this.f32718g = lottieAnimationView2;
+        this.f33007g = lottieAnimationView2;
         lottieAnimationView2.setAnimation(R.raw.ksad_detail_guider_slide_left);
-        this.f32718g.setRepeatMode(1);
-        this.f32718g.setRepeatCount(-1);
+        this.f33007g.setRepeatMode(1);
+        this.f33007g.setRepeatCount(-1);
     }
 }

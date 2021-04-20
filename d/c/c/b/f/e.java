@@ -1,7 +1,7 @@
 package d.c.c.b.f;
 
 import com.bytedance.sdk.adnet.err.VAdError;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface e {
     int a();
 

@@ -27,8 +27,8 @@ public class b extends d.b.g0.s.i.a.b.a {
 
     /* renamed from: d.b.g0.s.i.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1033b implements d.b.g0.a.i2.u0.b<Integer> {
-        public C1033b() {
+    public class C1045b implements d.b.g0.a.i2.u0.b<Integer> {
+        public C1045b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,17 +37,17 @@ public class b extends d.b.g0.s.i.a.b.a {
         public void onCallback(Integer num) {
             if (num.intValue() == 2) {
                 if (d.b.g0.s.i.a.b.a.v) {
-                    Log.d("SwanInlineLiveWidget", b.this.f49364f + "-" + hashCode() + " authorize deny => onError 0");
+                    Log.d("SwanInlineLiveWidget", b.this.f49756f + "-" + hashCode() + " authorize deny => onError 0");
                 }
-                a.InterfaceC0793a interfaceC0793a = b.this.i;
-                if (interfaceC0793a != null) {
-                    interfaceC0793a.onError(0);
+                a.InterfaceC0805a interfaceC0805a = b.this.i;
+                if (interfaceC0805a != null) {
+                    interfaceC0805a.onError(0);
                     return;
                 }
                 return;
             }
             if (d.b.g0.s.i.a.b.a.v) {
-                Log.d("SwanInlineLiveWidget", b.this.f49364f + "-" + hashCode() + " real do prepareAsync");
+                Log.d("SwanInlineLiveWidget", b.this.f49756f + "-" + hashCode() + " real do prepareAsync");
             }
             b.super.prepareAsync();
         }
@@ -57,10 +57,10 @@ public class b extends d.b.g0.s.i.a.b.a {
     public class c implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f49379e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f49771e;
 
         public c(d.b.g0.a.i2.u0.b bVar) {
-            this.f49379e = bVar;
+            this.f49771e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,10 +69,10 @@ public class b extends d.b.g0.s.i.a.b.a {
         public void onCallback(h<b.e> hVar) {
             boolean h2 = d.b.g0.a.v1.c.c.h(hVar);
             if (d.b.g0.s.i.a.b.a.v) {
-                Log.d("SwanInlineLiveWidget", b.this.f49364f + "-" + hashCode() + " authorize: " + h2);
+                Log.d("SwanInlineLiveWidget", b.this.f49756f + "-" + hashCode() + " authorize: " + h2);
             }
             b.this.y = h2 ? 1 : 2;
-            this.f49379e.onCallback(Integer.valueOf(b.this.y));
+            this.f49771e.onCallback(Integer.valueOf(b.this.y));
         }
     }
 
@@ -81,13 +81,13 @@ public class b extends d.b.g0.s.i.a.b.a {
         this.y = 0;
         d.b.g0.s.j.a.a aVar = new d.b.g0.s.j.a.a();
         this.x = aVar;
-        aVar.e(this.f49361c);
+        aVar.e(this.f49753c);
         this.x.f(new a());
     }
 
     public final void A0(@NonNull Context context, @NonNull d.b.g0.a.i2.u0.b<Integer> bVar) {
         if (d.b.g0.s.i.a.b.a.v) {
-            Log.d("SwanInlineLiveWidget", this.f49364f + "-" + hashCode() + " start authorize");
+            Log.d("SwanInlineLiveWidget", this.f49756f + "-" + hashCode() + " start authorize");
         }
         e O = e.O();
         if (O == null) {
@@ -99,7 +99,7 @@ public class b extends d.b.g0.s.i.a.b.a {
         } else if (d.b.g0.a.m1.a.a.p()) {
             this.y = 1;
             if (d.b.g0.s.i.a.b.a.v) {
-                Log.d("SwanInlineLiveWidget", this.f49364f + "-" + hashCode() + " authorize debug: true");
+                Log.d("SwanInlineLiveWidget", this.f49756f + "-" + hashCode() + " authorize debug: true");
             }
             bVar.onCallback(Integer.valueOf(this.y));
         } else {
@@ -119,9 +119,9 @@ public class b extends d.b.g0.s.i.a.b.a {
     @Override // d.b.g0.s.i.a.b.a, d.b.g0.a.s0.k.g.a
     public boolean prepareAsync() {
         if (d.b.g0.s.i.a.b.a.v) {
-            Log.d("SwanInlineLiveWidget", this.f49364f + "-" + hashCode() + " start prepareAsync");
+            Log.d("SwanInlineLiveWidget", this.f49756f + "-" + hashCode() + " start prepareAsync");
         }
-        A0(this.f49361c, new C1033b());
+        A0(this.f49753c, new C1045b());
         return true;
     }
 

@@ -47,13 +47,13 @@ import org.json.JSONObject;
 public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f9895a = 0;
+    public static int f9453a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f9896b = 1;
+    public static int f9454b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f9897c = 2;
+    public static int f9455c = 2;
     public int A;
     public int B;
     public LatLng C;
@@ -73,19 +73,19 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public final BroadcastReceiver Q;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.c.b f9898d;
+    public com.baidu.platform.comapi.walknavi.c.b f9456d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.platform.comapi.wnplatform.i.b f9899e;
+    public com.baidu.platform.comapi.wnplatform.i.b f9457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.platform.comapi.wnplatform.b.a f9900f;
+    public com.baidu.platform.comapi.wnplatform.b.a f9458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.platform.comapi.wnplatform.h.f f9901g;
+    public com.baidu.platform.comapi.wnplatform.h.f f9459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WGuideFSM f9902h;
+    public WGuideFSM f9460h;
     public com.baidu.platform.comapi.wnplatform.walkmap.d i;
     public com.baidu.platform.comapi.walknavi.a.a j;
     public n k;
@@ -109,7 +109,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f9907a = new b(null);
+        public static final b f9465a = new b(null);
     }
 
     public /* synthetic */ b(c cVar) {
@@ -143,7 +143,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     private void Z() {
-        com.baidu.platform.comapi.walknavi.b.a.f9905c = 19;
+        com.baidu.platform.comapi.walknavi.b.a.f9463c = 19;
     }
 
     private void aa() {
@@ -162,38 +162,38 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public com.baidu.platform.comapi.walknavi.c.b B() {
-        if (this.f9898d == null) {
-            this.f9898d = new com.baidu.platform.comapi.walknavi.c.b();
+        if (this.f9456d == null) {
+            this.f9456d = new com.baidu.platform.comapi.walknavi.c.b();
         }
-        return this.f9898d;
+        return this.f9456d;
     }
 
     public com.baidu.platform.comapi.wnplatform.i.b C() {
-        if (this.f9899e == null) {
-            this.f9899e = new com.baidu.platform.comapi.wnplatform.i.b();
+        if (this.f9457e == null) {
+            this.f9457e = new com.baidu.platform.comapi.wnplatform.i.b();
         }
-        return this.f9899e;
+        return this.f9457e;
     }
 
     public com.baidu.platform.comapi.wnplatform.b.a D() {
-        if (this.f9900f == null) {
-            this.f9900f = new com.baidu.platform.comapi.wnplatform.b.a();
+        if (this.f9458f == null) {
+            this.f9458f = new com.baidu.platform.comapi.wnplatform.b.a();
         }
-        return this.f9900f;
+        return this.f9458f;
     }
 
     public com.baidu.platform.comapi.wnplatform.h.f E() {
-        if (this.f9901g == null) {
-            this.f9901g = new com.baidu.platform.comapi.wnplatform.h.f();
+        if (this.f9459g == null) {
+            this.f9459g = new com.baidu.platform.comapi.wnplatform.h.f();
         }
-        return this.f9901g;
+        return this.f9459g;
     }
 
     public WGuideFSM F() {
-        if (this.f9902h == null) {
-            this.f9902h = new WGuideFSM();
+        if (this.f9460h == null) {
+            this.f9460h = new WGuideFSM();
         }
-        return this.f9902h;
+        return this.f9460h;
     }
 
     public com.baidu.platform.comapi.wnplatform.walkmap.d G() {
@@ -288,25 +288,25 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         this.w = 0;
         this.t = null;
         this.u = null;
-        com.baidu.platform.comapi.wnplatform.i.b bVar = this.f9899e;
+        com.baidu.platform.comapi.wnplatform.i.b bVar = this.f9457e;
         if (bVar != null) {
             bVar.release();
-            this.f9899e = null;
+            this.f9457e = null;
         }
-        com.baidu.platform.comapi.wnplatform.b.a aVar = this.f9900f;
+        com.baidu.platform.comapi.wnplatform.b.a aVar = this.f9458f;
         if (aVar != null) {
             aVar.release();
-            this.f9900f = null;
+            this.f9458f = null;
         }
-        com.baidu.platform.comapi.wnplatform.h.f fVar = this.f9901g;
+        com.baidu.platform.comapi.wnplatform.h.f fVar = this.f9459g;
         if (fVar != null) {
             fVar.release();
-            this.f9901g = null;
+            this.f9459g = null;
         }
-        WGuideFSM wGuideFSM = this.f9902h;
+        WGuideFSM wGuideFSM = this.f9460h;
         if (wGuideFSM != null) {
             wGuideFSM.release();
-            this.f9902h = null;
+            this.f9460h = null;
         }
         com.baidu.platform.comapi.wnplatform.walkmap.d dVar = this.i;
         if (dVar != null) {
@@ -379,10 +379,10 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             this.M.recycle();
             this.M = null;
         }
-        this.f9899e = null;
-        this.f9900f = null;
-        this.f9901g = null;
-        this.f9902h = null;
+        this.f9457e = null;
+        this.f9458f = null;
+        this.f9459g = null;
+        this.f9460h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -469,14 +469,14 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public void i() {
-        com.baidu.platform.comapi.walknavi.c.b bVar = this.f9898d;
+        com.baidu.platform.comapi.walknavi.c.b bVar = this.f9456d;
         if (bVar != null) {
             bVar.release();
         }
     }
 
     public boolean j() {
-        com.baidu.platform.comapi.walknavi.c.b bVar = this.f9898d;
+        com.baidu.platform.comapi.walknavi.c.b bVar = this.f9456d;
         return bVar != null && bVar.a() > 0;
     }
 
@@ -519,7 +519,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         this.p.i();
         G().a(1);
         D().d(X());
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f10067a != 4) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f9625a != 4) {
             if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
                 e(1);
             } else {
@@ -529,7 +529,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         }
         a().D().a(true);
         G().a(i);
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f10067a == 4) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f9625a == 4) {
             D().k();
             return true;
         }
@@ -586,9 +586,9 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
 
     public void w() {
         com.baidu.platform.comapi.walknavi.d.e.c().i();
-        com.baidu.platform.comapi.wnplatform.b.a aVar = this.f9900f;
+        com.baidu.platform.comapi.wnplatform.b.a aVar = this.f9458f;
         if (aVar != null && aVar.g()) {
-            this.f9900f.i();
+            this.f9458f.i();
         }
         a().G().a(0);
         aa();
@@ -625,11 +625,11 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public b() {
-        this.f9898d = null;
-        this.f9899e = null;
-        this.f9900f = null;
-        this.f9901g = null;
-        this.f9902h = null;
+        this.f9456d = null;
+        this.f9457e = null;
+        this.f9458f = null;
+        this.f9459g = null;
+        this.f9460h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -701,7 +701,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public static b a() {
-        return a.f9907a;
+        return a.f9465a;
     }
 
     public void a(int i, int i2) {
@@ -748,7 +748,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public void e(int i) {
-        com.baidu.platform.comapi.wnplatform.b.a aVar = this.f9900f;
+        com.baidu.platform.comapi.wnplatform.b.a aVar = this.f9458f;
         if (aVar != null) {
             aVar.h(i);
         }
@@ -785,11 +785,11 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public void a(Context context, long j, com.baidu.platform.comapi.walknavi.c.a aVar) {
-        if (this.f9898d == null) {
-            this.f9898d = new com.baidu.platform.comapi.walknavi.c.b();
+        if (this.f9456d == null) {
+            this.f9456d = new com.baidu.platform.comapi.walknavi.c.b();
         }
         this.w = 1;
-        this.f9898d.a(context, j, aVar);
+        this.f9456d.a(context, j, aVar);
     }
 
     private void b(ArrayList<BaseNpcModel> arrayList) {
@@ -903,7 +903,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
 
     public boolean b(int i) {
         if (D() != null) {
-            return this.f9900f.i(i);
+            return this.f9458f.i(i);
         }
         return false;
     }
@@ -918,9 +918,9 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         this.y = activity;
         try {
             if (bundle != null) {
-                com.baidu.platform.comapi.walknavi.g.a.b.f10067a = bundle.getInt("wnavi_mode", 1);
+                com.baidu.platform.comapi.walknavi.g.a.b.f9625a = bundle.getInt("wnavi_mode", 1);
             } else {
-                com.baidu.platform.comapi.walknavi.g.a.b.f10067a = 1;
+                com.baidu.platform.comapi.walknavi.g.a.b.f9625a = 1;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -967,7 +967,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             a().D().a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), 0);
         }
         q();
-        int i = com.baidu.platform.comapi.walknavi.g.a.b.f10067a;
+        int i = com.baidu.platform.comapi.walknavi.g.a.b.f9625a;
         if (i == 1) {
             P().b(activity);
         } else if (i == 3) {

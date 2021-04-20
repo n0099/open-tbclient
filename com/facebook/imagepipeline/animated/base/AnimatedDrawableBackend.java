@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface AnimatedDrawableBackend {
     void dropCaches();
 

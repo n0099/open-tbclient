@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class DiskEmotionOperate extends DiskFileOperate {

@@ -12,71 +12,71 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import d.b.b.a.f;
-import d.b.b.a.j;
-import d.b.b.e.l.c;
-import d.b.b.e.l.d;
-import d.b.b.e.p.l;
+import d.b.c.a.f;
+import d.b.c.a.j;
+import d.b.c.e.l.c;
+import d.b.c.e.l.d;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50469a;
+    public int f50876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FragmentTabHost f50470b;
+    public FragmentTabHost f50877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c<d.b.b.j.d.a> f50471c = new C1074a();
+    public final c<d.b.c.j.d.a> f50878c = new C1087a();
 
     /* renamed from: d.b.h0.r.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1074a extends c<d.b.b.j.d.a> {
-        public C1074a() {
+    public class C1087a extends c<d.b.c.j.d.a> {
+        public C1087a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
-            super.onLoaded((C1074a) aVar, str, i);
-            if (a.this.f50470b == null || aVar == null || !aVar.w()) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
+            super.onLoaded((C1087a) aVar, str, i);
+            if (a.this.f50877b == null || aVar == null || !aVar.w()) {
                 a.this.f();
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = a.this.f50470b.getFragmentTabWidget();
-            CustomViewPager fragmentViewPager = a.this.f50470b.getFragmentViewPager();
-            ViewGroup tabWrapper = a.this.f50470b.getTabWrapper();
+            FragmentTabWidget fragmentTabWidget = a.this.f50877b.getFragmentTabWidget();
+            CustomViewPager fragmentViewPager = a.this.f50877b.getFragmentViewPager();
+            ViewGroup tabWrapper = a.this.f50877b.getTabWrapper();
             if (fragmentTabWidget == null || fragmentViewPager == null) {
                 return;
             }
-            a.this.f50470b.setNeedShowThemeStyle(false);
+            a.this.f50877b.setNeedShowThemeStyle(false);
             fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
             SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
             SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-            layoutParams.bottomMargin = l.g(a.this.f50470b.getContext(), R.dimen.tbds100);
+            layoutParams.bottomMargin = l.g(a.this.f50877b.getContext(), R.dimen.tbds100);
             fragmentViewPager.setLayoutParams(layoutParams);
             fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.p()));
         }
     }
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.f50469a = 0;
-        this.f50470b = fragmentTabHost;
-        this.f50469a = i;
+        this.f50876a = 0;
+        this.f50877b = fragmentTabHost;
+        this.f50876a = i;
     }
 
     public final BdUniqueId c() {
         f<?> a2;
-        FragmentTabHost fragmentTabHost = this.f50470b;
-        if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = j.a(this.f50470b.getContext())) == null) {
+        FragmentTabHost fragmentTabHost = this.f50877b;
+        if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = j.a(this.f50877b.getContext())) == null) {
             return null;
         }
         return a2.getUniqueId();
     }
 
     public final void d(String str) {
-        d.h().m(str, 10, this.f50471c, c());
+        d.h().m(str, 10, this.f50878c, c());
     }
 
     public void e(Pair<String, String> pair) {
@@ -94,12 +94,12 @@ public class a {
     }
 
     public final void f() {
-        FragmentTabHost fragmentTabHost = this.f50470b;
+        FragmentTabHost fragmentTabHost = this.f50877b;
         if (fragmentTabHost == null || fragmentTabHost.getFragmentTabWidget() == null) {
             return;
         }
-        this.f50470b.getFragmentTabWidget().setBackGroundDrawableResId(this.f50469a);
-        SkinManager.setBackgroundColor(this.f50470b.getFragmentTabWidget(), this.f50469a);
-        SkinManager.setBackgroundColor(this.f50470b.getTabWrapper(), this.f50469a);
+        this.f50877b.getFragmentTabWidget().setBackGroundDrawableResId(this.f50876a);
+        SkinManager.setBackgroundColor(this.f50877b.getFragmentTabWidget(), this.f50876a);
+        SkinManager.setBackgroundColor(this.f50877b.getTabWrapper(), this.f50876a);
     }
 }

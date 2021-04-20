@@ -1,54 +1,120 @@
 package d.a.a.u;
 
-import android.util.JsonReader;
+import androidx.annotation.CheckResult;
 import androidx.annotation.Nullable;
-import java.io.IOException;
+import androidx.annotation.RestrictTo;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final d f41642c = new d("COMPOSITION");
+
+    /* renamed from: a  reason: collision with root package name */
+    public final List<String> f41643a;
     @Nullable
-    public static <T> List<d.a.a.w.a<T>> a(JsonReader jsonReader, float f2, d.a.a.d dVar, j0<T> j0Var) throws IOException {
-        return r.a(jsonReader, dVar, f2, j0Var);
+
+    /* renamed from: b  reason: collision with root package name */
+    public e f41644b;
+
+    public d(String... strArr) {
+        this.f41643a = Arrays.asList(strArr);
+    }
+
+    @CheckResult
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public d a(String str) {
+        d dVar = new d(this);
+        dVar.f41643a.add(str);
+        return dVar;
+    }
+
+    public final boolean b() {
+        List<String> list = this.f41643a;
+        return list.get(list.size() - 1).equals("**");
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean c(String str, int i) {
+        if (i >= this.f41643a.size()) {
+            return false;
+        }
+        boolean z = i == this.f41643a.size() - 1;
+        String str2 = this.f41643a.get(i);
+        if (!str2.equals("**")) {
+            return (z || (i == this.f41643a.size() + (-2) && b())) && (str2.equals(str) || str2.equals("*"));
+        }
+        if (!z && this.f41643a.get(i + 1).equals(str)) {
+            return i == this.f41643a.size() + (-2) || (i == this.f41643a.size() + (-3) && b());
+        } else if (z) {
+            return true;
+        } else {
+            int i2 = i + 1;
+            if (i2 < this.f41643a.size() - 1) {
+                return false;
+            }
+            return this.f41643a.get(i2).equals(str);
+        }
     }
 
     @Nullable
-    public static <T> List<d.a.a.w.a<T>> b(JsonReader jsonReader, d.a.a.d dVar, j0<T> j0Var) throws IOException {
-        return r.a(jsonReader, dVar, 1.0f, j0Var);
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public e d() {
+        return this.f41644b;
     }
 
-    public static d.a.a.s.i.a c(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return new d.a.a.s.i.a(b(jsonReader, dVar, f.f41428a));
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public int e(String str, int i) {
+        if (f(str)) {
+            return 0;
+        }
+        if (this.f41643a.get(i).equals("**")) {
+            return (i != this.f41643a.size() - 1 && this.f41643a.get(i + 1).equals(str)) ? 2 : 0;
+        }
+        return 1;
     }
 
-    public static d.a.a.s.i.j d(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return new d.a.a.s.i.j(b(jsonReader, dVar, h.f41429a));
+    public final boolean f(String str) {
+        return "__container".equals(str);
     }
 
-    public static d.a.a.s.i.b e(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return f(jsonReader, dVar, true);
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean g(String str, int i) {
+        if (f(str)) {
+            return true;
+        }
+        if (i >= this.f41643a.size()) {
+            return false;
+        }
+        return this.f41643a.get(i).equals(str) || this.f41643a.get(i).equals("**") || this.f41643a.get(i).equals("*");
     }
 
-    public static d.a.a.s.i.b f(JsonReader jsonReader, d.a.a.d dVar, boolean z) throws IOException {
-        return new d.a.a.s.i.b(a(jsonReader, z ? d.a.a.v.f.e() : 1.0f, dVar, i.f41430a));
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean h(String str, int i) {
+        return "__container".equals(str) || i < this.f41643a.size() - 1 || this.f41643a.get(i).equals("**");
     }
 
-    public static d.a.a.s.i.c g(JsonReader jsonReader, d.a.a.d dVar, int i) throws IOException {
-        return new d.a.a.s.i.c(b(jsonReader, dVar, new l(i)));
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public d i(e eVar) {
+        d dVar = new d(this);
+        dVar.f41644b = eVar;
+        return dVar;
     }
 
-    public static d.a.a.s.i.d h(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return new d.a.a.s.i.d(b(jsonReader, dVar, o.f41432a));
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("KeyPath{keys=");
+        sb.append(this.f41643a);
+        sb.append(",resolved=");
+        sb.append(this.f41644b != null);
+        sb.append('}');
+        return sb.toString();
     }
 
-    public static d.a.a.s.i.f i(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return new d.a.a.s.i.f(a(jsonReader, d.a.a.v.f.e(), dVar, y.f41437a));
-    }
-
-    public static d.a.a.s.i.g j(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return new d.a.a.s.i.g(b(jsonReader, dVar, c0.f41426a));
-    }
-
-    public static d.a.a.s.i.h k(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        return new d.a.a.s.i.h(a(jsonReader, d.a.a.v.f.e(), dVar, d0.f41427a));
+    public d(d dVar) {
+        this.f41643a = new ArrayList(dVar.f41643a);
+        this.f41644b = dVar.f41644b;
     }
 }

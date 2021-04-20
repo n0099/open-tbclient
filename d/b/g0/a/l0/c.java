@@ -13,14 +13,14 @@ import d.b.g0.a.l0.a;
 public class c extends d.b.g0.a.l0.e.b<d.b.g0.g.k.c.a, d.b.g0.g.k.d.a> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45081d = k.f45051a;
+    public static final boolean f45473d = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile c f45082e;
+    public static volatile c f45474e;
 
     /* loaded from: classes2.dex */
-    public static class a extends a.C0719a {
-        @Override // d.b.g0.a.l0.a.C0719a
+    public static class a extends a.C0731a {
+        @Override // d.b.g0.a.l0.a.C0731a
         public int c() {
             return 1;
         }
@@ -31,14 +31,14 @@ public class c extends d.b.g0.a.l0.e.b<d.b.g0.g.k.c.a, d.b.g0.g.k.d.a> {
     }
 
     public static c h() {
-        if (f45082e == null) {
+        if (f45474e == null) {
             synchronized (c.class) {
-                if (f45082e == null) {
-                    f45082e = new c();
+                if (f45474e == null) {
+                    f45474e = new c();
                 }
             }
         }
-        return f45082e;
+        return f45474e;
     }
 
     @Override // d.b.g0.a.l0.e.b
@@ -50,7 +50,7 @@ public class c extends d.b.g0.a.l0.e.b<d.b.g0.g.k.c.a, d.b.g0.g.k.d.a> {
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
         ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-        if (f45081d) {
+        if (f45473d) {
             Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
             return extensionCore;
         }

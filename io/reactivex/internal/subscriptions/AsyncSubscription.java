@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
-import f.a.t.b;
+import f.b.t.b;
 import g.d.d;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicLong;
@@ -21,13 +21,13 @@ public final class AsyncSubscription extends AtomicLong implements d, b {
         dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         SubscriptionHelper.cancel(this.actual);
         DisposableHelper.dispose(this.resource);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.actual.get() == SubscriptionHelper.CANCELLED;
     }

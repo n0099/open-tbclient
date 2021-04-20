@@ -3,17 +3,17 @@ package d.o.a.e.b.i;
 import androidx.annotation.NonNull;
 import com.baidu.adp.plugin.PluginCenter;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final JSONObject f67069a;
+    public final JSONObject f68062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67070b;
+    public int f68063b;
 
     public m(JSONObject jSONObject) {
-        this.f67069a = jSONObject;
+        this.f68062a = jSONObject;
     }
 
     @NonNull
@@ -22,15 +22,15 @@ public class m {
     }
 
     public int a() {
-        return this.f67070b;
+        return this.f68063b;
     }
 
     public void c(int i) {
-        this.f67070b = d(i);
+        this.f68063b = d(i);
     }
 
     public final int d(int i) {
-        int optInt = this.f67069a.optInt("thread_count", 4);
+        int optInt = this.f68062a.optInt("thread_count", 4);
         if (optInt > 16) {
             optInt = 16;
         }
@@ -52,19 +52,19 @@ public class m {
     }
 
     public int g() {
-        return this.f67069a.optInt("buffer_count", 512);
+        return this.f68062a.optInt("buffer_count", 512);
     }
 
     public int h() {
-        return this.f67069a.optInt("buffer_size", 8192);
+        return this.f68062a.optInt("buffer_size", 8192);
     }
 
     public boolean i() {
-        return this.f67069a.optInt("segment_mode", 1) == 0;
+        return this.f68062a.optInt("segment_mode", 1) == 0;
     }
 
     public long j() {
-        long optInt = this.f67069a.optInt("segment_min_kb", 512) * 1024;
+        long optInt = this.f68062a.optInt("segment_min_kb", 512) * 1024;
         if (optInt < 65536) {
             return 65536L;
         }
@@ -72,7 +72,7 @@ public class m {
     }
 
     public long k() {
-        long optInt = this.f67069a.optInt("segment_max_kb", 0) * 1048576;
+        long optInt = this.f68062a.optInt("segment_max_kb", 0) * 1048576;
         if (optInt < j()) {
             return -1L;
         }
@@ -80,7 +80,7 @@ public class m {
     }
 
     public long l() {
-        long optInt = this.f67069a.optInt("connect_timeout", -1);
+        long optInt = this.f68062a.optInt("connect_timeout", -1);
         if (optInt >= 2000) {
             return optInt;
         }
@@ -88,7 +88,7 @@ public class m {
     }
 
     public long m() {
-        long optInt = this.f67069a.optInt("read_timeout", -1);
+        long optInt = this.f68062a.optInt("read_timeout", -1);
         if (optInt >= PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL) {
             return optInt;
         }
@@ -96,22 +96,22 @@ public class m {
     }
 
     public int n() {
-        return this.f67069a.optInt("ip_strategy", 0);
+        return this.f68062a.optInt("ip_strategy", 0);
     }
 
     public float o() {
-        return (float) this.f67069a.optDouble("main_ratio", 0.0d);
+        return (float) this.f68062a.optDouble("main_ratio", 0.0d);
     }
 
     public boolean p() {
-        return this.f67069a.optInt("ratio_segment", 0) == 1;
+        return this.f68062a.optInt("ratio_segment", 0) == 1;
     }
 
     public float q() {
-        return Math.min(Math.max(0.0f, (float) this.f67069a.optDouble("poor_speed_ratio", 0.0d)), 1.0f);
+        return Math.min(Math.max(0.0f, (float) this.f68062a.optDouble("poor_speed_ratio", 0.0d)), 1.0f);
     }
 
     public final int r() {
-        return this.f67069a.optInt("url_balance", 2);
+        return this.f68062a.optInt("url_balance", 2);
     }
 }

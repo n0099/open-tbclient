@@ -18,10 +18,10 @@ import java.util.Iterator;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10009a;
+    public static String f9567a;
 
     public static void a(String str) {
-        f10009a = str;
+        f9567a = str;
     }
 
     public static String b() {
@@ -32,7 +32,7 @@ public final class f {
     }
 
     public static String a() {
-        return f10009a;
+        return f9567a;
     }
 
     public static String a(String str, int i) {

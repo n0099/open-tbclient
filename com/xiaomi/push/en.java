@@ -14,11 +14,11 @@ import java.util.Map;
 public class en extends Notification.Builder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40449a;
+    public Context f40738a;
 
     public en(Context context) {
         super(context);
-        this.f40449a = context;
+        this.f40738a = context;
     }
 
     public int a(Resources resources, String str, String str2, String str3) {
@@ -29,7 +29,7 @@ public class en extends Notification.Builder {
     }
 
     public Context a() {
-        return this.f40449a;
+        return this.f40738a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,12 +59,12 @@ public class en extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m270a() {
+    public void m274a() {
     }
 
     @Override // android.app.Notification.Builder
     public Notification build() {
-        m270a();
+        m274a();
         return super.build();
     }
 }

@@ -2,9 +2,9 @@ package com.baidu.tieba.square;
 
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-import d.b.i0.z2.a;
-import d.b.i0.z2.b;
-/* loaded from: classes5.dex */
+import d.b.i0.a3.a;
+import d.b.i0.a3.b;
+/* loaded from: classes4.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public a mDelegate;
 
@@ -20,7 +20,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        b bVar = this.mDelegate.f63442d;
+        b bVar = this.mDelegate.f53061d;
         if (bVar != null) {
             bVar.a(i);
         }
@@ -32,7 +32,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         a aVar = new a(this, getPageContext());
         this.mDelegate = aVar;
         aVar.j(getIntent());
-        setContentView(this.mDelegate.f63442d.d());
+        setContentView(this.mDelegate.f53061d.d());
         this.mDelegate.m();
     }
 

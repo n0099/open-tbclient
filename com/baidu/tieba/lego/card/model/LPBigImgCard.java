@@ -3,12 +3,12 @@ package com.baidu.tieba.lego.card.model;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import d.b.b.e.p.l;
-import d.b.i0.i1.o.i.a;
-import d.b.i0.i1.o.k.b;
-import d.b.i0.i1.o.k.d;
+import d.b.c.e.p.l;
+import d.b.i0.j1.o.i.a;
+import d.b.i0.j1.o.k.b;
+import d.b.i0.j1.o.k.d;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     public final int bgColor;
     public final int bgColorNight;
@@ -103,12 +103,12 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.i1.o.i.a
+    @Override // d.b.i0.j1.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         if (lPBigImgCard == null || tbPageContext == null) {
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
-        d.b.b.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
+        d.b.c.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

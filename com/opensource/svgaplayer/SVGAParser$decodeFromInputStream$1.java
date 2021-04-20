@@ -14,23 +14,23 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ SVGAParser f37945e;
+    public final /* synthetic */ SVGAParser f38234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ InputStream f37946f;
+    public final /* synthetic */ InputStream f38235f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ String f37947g;
+    public final /* synthetic */ String f38236g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ SVGAParser.b f37948h;
+    public final /* synthetic */ SVGAParser.b f38237h;
     public final /* synthetic */ boolean i;
 
     public SVGAParser$decodeFromInputStream$1(SVGAParser sVGAParser, InputStream inputStream, String str, SVGAParser.b bVar, boolean z) {
-        this.f37945e = sVGAParser;
-        this.f37946f = inputStream;
-        this.f37947g = str;
-        this.f37948h = bVar;
+        this.f38234e = sVGAParser;
+        this.f38235f = inputStream;
+        this.f38236g = str;
+        this.f38237h = bVar;
         this.i = z;
     }
 
@@ -43,22 +43,22 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
         File j;
         try {
             try {
-                x = this.f37945e.x(this.f37946f);
+                x = this.f38234e.x(this.f38235f);
                 if (x != null) {
                     if (x.length <= 4 || x[0] != 80 || x[1] != 75 || x[2] != 3 || x[3] != 4) {
-                        r = this.f37945e.r(x);
+                        r = this.f38234e.r(x);
                         if (r != null) {
                             MovieEntity decode = MovieEntity.ADAPTER.decode(r);
                             Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                            SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.f37947g));
+                            SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.f38236g));
                             sVGAVideoEntity.i(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(sVGAVideoEntity, this));
                         }
                     } else {
-                        j = this.f37945e.j(this.f37947g);
+                        j = this.f38234e.j(this.f38236g);
                         if (!j.exists()) {
                             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(x);
                             try {
-                                this.f37945e.y(byteArrayInputStream, this.f37947g);
+                                this.f38234e.y(byteArrayInputStream, this.f38236g);
                                 Unit unit = Unit.INSTANCE;
                                 CloseableKt.closeFinally(byteArrayInputStream, null);
                             } catch (Throwable th) {
@@ -70,22 +70,22 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                                 }
                             }
                         }
-                        this.f37945e.n(this.f37947g, this.f37948h);
+                        this.f38234e.n(this.f38236g, this.f38237h);
                     }
                 }
                 if (!this.i) {
                     return;
                 }
             } catch (Exception e2) {
-                this.f37945e.t(e2, this.f37948h);
+                this.f38234e.t(e2, this.f38237h);
                 if (!this.i) {
                     return;
                 }
             }
-            this.f37946f.close();
+            this.f38235f.close();
         } catch (Throwable th3) {
             if (this.i) {
-                this.f37946f.close();
+                this.f38235f.close();
             }
             throw th3;
         }

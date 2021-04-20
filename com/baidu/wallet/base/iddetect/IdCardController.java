@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.wallet.core.NoProguard;
 /* loaded from: classes5.dex */
 public class IdCardController {
 
     /* renamed from: a  reason: collision with root package name */
-    public IIdCardRecognizeListener f23623a;
+    public IIdCardRecognizeListener f23308a;
 
     /* loaded from: classes5.dex */
     public interface IIdCardRecognizeListener extends NoProguard {
@@ -22,36 +23,36 @@ public class IdCardController {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static IdCardController f23624a = new IdCardController();
+        public static IdCardController f23309a = new IdCardController();
     }
 
     public static IdCardController getInstance() {
-        return a.f23624a;
+        return a.f23309a;
     }
 
     public void fail(int i, Bundle bundle) {
-        IIdCardRecognizeListener iIdCardRecognizeListener = this.f23623a;
+        IIdCardRecognizeListener iIdCardRecognizeListener = this.f23308a;
         if (iIdCardRecognizeListener != null) {
             iIdCardRecognizeListener.onFail(i, bundle);
         }
-        this.f23623a = null;
+        this.f23308a = null;
     }
 
     public void startIdcarddetect(Context context, IIdCardRecognizeListener iIdCardRecognizeListener) {
-        this.f23623a = iIdCardRecognizeListener;
+        this.f23308a = iIdCardRecognizeListener;
         Intent intent = new Intent(context, IdCardActivity.class);
         if (!(context instanceof Activity)) {
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }
 
     public void success(Bundle bundle) {
-        IIdCardRecognizeListener iIdCardRecognizeListener = this.f23623a;
+        IIdCardRecognizeListener iIdCardRecognizeListener = this.f23308a;
         if (iIdCardRecognizeListener != null) {
             iIdCardRecognizeListener.onSuccess(bundle);
         }
-        this.f23623a = null;
+        this.f23308a = null;
     }
 
     public IdCardController() {

@@ -10,6 +10,7 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,19 +24,19 @@ import java.util.Enumeration;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43023a = "";
+    public static String f43415a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43024b = "";
+    public static String f43416b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43025c = "";
+    public static String f43417c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f43026d = "";
+    public static String f43418d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f43027e = "";
+    public static String f43419e = "";
 
     public static String a(Context context) {
         try {
@@ -43,18 +44,18 @@ public final class d {
             c.d(th);
         }
         if (!d.b.f0.b.a.g(context).d()) {
-            return f43026d;
+            return f43418d;
         }
-        if (!TextUtils.isEmpty(f43026d)) {
-            return f43026d;
+        if (!TextUtils.isEmpty(f43418d)) {
+            return f43418d;
         }
         if (c.o(context)) {
-            String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
-            f43026d = string;
+            String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            f43418d = string;
             if (TextUtils.isEmpty(string)) {
-                f43026d = "";
+                f43418d = "";
             }
-            return f43026d;
+            return f43418d;
         }
         return "";
     }
@@ -150,11 +151,11 @@ public final class d {
         } catch (Throwable th) {
             c.d(th);
         }
-        if (!TextUtils.isEmpty(f43023a)) {
-            return f43023a;
+        if (!TextUtils.isEmpty(f43415a)) {
+            return f43415a;
         }
-        f43023a = d.b.f0.b.a.g(context).H();
-        return f43023a;
+        f43415a = d.b.f0.b.a.g(context).H();
+        return f43415a;
     }
 
     public static String f() {
@@ -194,21 +195,21 @@ public final class d {
     public static synchronized String g(Context context) {
         synchronized (d.class) {
             if (d.b.f0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f43024b)) {
-                    return f43024b;
+                if (!TextUtils.isEmpty(f43416b)) {
+                    return f43416b;
                 } else if (c.o(context)) {
                     if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == -1) {
-                        return f43024b;
+                        return f43416b;
                     }
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
                         String deviceId = telephonyManager.getDeviceId();
-                        f43024b = deviceId;
+                        f43416b = deviceId;
                         if (TextUtils.isEmpty(deviceId)) {
-                            f43024b = "";
+                            f43416b = "";
                         }
                     }
-                    return f43024b;
+                    return f43416b;
                 } else {
                     return "";
                 }
@@ -285,21 +286,21 @@ public final class d {
             c.d(th);
         }
         if (d.b.f0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f43027e)) {
-                return f43027e;
+            if (!TextUtils.isEmpty(f43419e)) {
+                return f43419e;
             }
             if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) != -1 && c.o(context)) {
                 if (Build.VERSION.SDK_INT > 25) {
                     if (n(context) > 1) {
-                        f43027e = m(context)[0];
+                        f43419e = m(context)[0];
                     } else {
-                        f43027e = o(context);
+                        f43419e = o(context);
                     }
                 }
-                if (f43027e == null) {
+                if (f43419e == null) {
                     return "";
                 }
-                return f43027e;
+                return f43419e;
             }
             return "";
         }
@@ -313,33 +314,33 @@ public final class d {
             c.d(th);
         }
         if (d.b.f0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f43025c)) {
-                return f43025c;
+            if (!TextUtils.isEmpty(f43417c)) {
+                return f43417c;
             }
             if (context.checkPermission("android.permission.ACCESS_WIFI_STATE", Process.myPid(), Process.myUid()) == -1) {
-                return f43025c;
+                return f43417c;
             }
             if (c.o(context)) {
                 WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                 if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                    f43025c = connectionInfo.getMacAddress();
+                    f43417c = connectionInfo.getMacAddress();
                 }
-                if (!TextUtils.isEmpty(f43025c) && !f43025c.equals(Config.DEF_MAC_ID)) {
-                    return f43025c;
+                if (!TextUtils.isEmpty(f43417c) && !f43417c.equals(Config.DEF_MAC_ID)) {
+                    return f43417c;
                 }
                 if (k()) {
-                    f43025c = d();
+                    f43417c = d();
                 }
-                if (TextUtils.isEmpty(f43025c)) {
-                    f43025c = h();
+                if (TextUtils.isEmpty(f43417c)) {
+                    f43417c = h();
                 }
-                if (TextUtils.isEmpty(f43025c)) {
-                    f43025c = f().toUpperCase().substring(0, 17);
+                if (TextUtils.isEmpty(f43417c)) {
+                    f43417c = f().toUpperCase().substring(0, 17);
                 }
-                if (TextUtils.isEmpty(f43025c)) {
-                    f43025c = d();
+                if (TextUtils.isEmpty(f43417c)) {
+                    f43417c = d();
                 }
-                return f43025c;
+                return f43417c;
             }
             return "";
         }

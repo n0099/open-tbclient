@@ -9,46 +9,46 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16721e;
+    public LinearLayout f16382e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16722f;
+    public Context f16383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16723g;
+    public TextView f16384g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16724h;
+    public TextView f16385h;
     public ImageView i;
     public TextView j;
 
     public FrsBroadcastCopyGuideDialogView(Context context) {
         super(context);
-        this.f16722f = context;
+        this.f16383f = context;
         a(context);
     }
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_broadcast_major_copy_guide_dialog, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
-        this.f16721e = linearLayout;
-        this.f16723g = (TextView) linearLayout.findViewById(R.id.frs_broadcast_guide_title);
-        this.f16724h = (TextView) this.f16721e.findViewById(R.id.frs_broadcast_guide_content);
-        this.i = (ImageView) this.f16721e.findViewById(R.id.guide_iv);
-        this.j = (TextView) this.f16721e.findViewById(R.id.to_next_tv);
-        this.f16723g.setText(R.string.forum_broadcast_copy_guide_title);
-        this.f16724h.setText(R.string.forum_broadcast_copy_guide_hint);
+        this.f16382e = linearLayout;
+        this.f16384g = (TextView) linearLayout.findViewById(R.id.frs_broadcast_guide_title);
+        this.f16385h = (TextView) this.f16382e.findViewById(R.id.frs_broadcast_guide_content);
+        this.i = (ImageView) this.f16382e.findViewById(R.id.guide_iv);
+        this.j = (TextView) this.f16382e.findViewById(R.id.to_next_tv);
+        this.f16384g.setText(R.string.forum_broadcast_copy_guide_title);
+        this.f16385h.setText(R.string.forum_broadcast_copy_guide_hint);
         this.j.setText(R.string.comment_tab_dialog_botton_text);
-        SkinManager.setViewTextColor(this.f16723g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f16724h, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f16384g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f16385h, R.color.CAM_X0107);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0302);
         SkinManager.setImageResource(this.i, R.drawable.pic_frs_guide_copylink);
-        TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(l.g(this.f16722f, R.dimen.tbds30)).brRadius(l.g(this.f16722f, R.dimen.tbds30)).tlRadius(l.g(this.f16722f, R.dimen.tbds32)).trRadius(l.g(this.f16722f, R.dimen.tbds32)).into(this.f16721e);
+        TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(l.g(this.f16383f, R.dimen.tbds30)).brRadius(l.g(this.f16383f, R.dimen.tbds30)).tlRadius(l.g(this.f16383f, R.dimen.tbds32)).trRadius(l.g(this.f16383f, R.dimen.tbds32)).into(this.f16382e);
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {

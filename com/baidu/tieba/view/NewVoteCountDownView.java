@@ -12,21 +12,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
 public class NewVoteCountDownView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22147e;
+    public Context f21832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22148f;
+    public TextView f21833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f22149g;
+    public View f21834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f22150h;
+    public View f21835h;
     public View i;
     public TextView j;
     public TextView k;
@@ -72,9 +72,9 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public final void c() {
-        this.f22148f = (TextView) findViewById(R.id.prefix_count_down_view);
-        this.f22149g = findViewById(R.id.day_num_container);
-        this.f22150h = findViewById(R.id.hour_num_container);
+        this.f21833f = (TextView) findViewById(R.id.prefix_count_down_view);
+        this.f21834g = findViewById(R.id.day_num_container);
+        this.f21835h = findViewById(R.id.hour_num_container);
         this.i = findViewById(R.id.minute_num_container);
         this.j = (TextView) findViewById(R.id.day_num_count_down_view);
         this.k = (TextView) findViewById(R.id.hour_num_count_down_view);
@@ -82,7 +82,7 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public final void d() {
-        this.f22147e = getContext();
+        this.f21832e = getContext();
         setOrientation(0);
         setClipToPadding(false);
         setClipChildren(false);
@@ -103,10 +103,10 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public void f(int i) {
-        SkinManager.setViewTextColor(this.f22148f, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f21833f, R.color.CAM_X0105, 1, i);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1, i);
-        SkinManager.setBackgroundResource(this.f22149g, R.drawable.bg_gradient_round, i);
-        SkinManager.setBackgroundResource(this.f22150h, R.drawable.bg_gradient_round, i);
+        SkinManager.setBackgroundResource(this.f21834g, R.drawable.bg_gradient_round, i);
+        SkinManager.setBackgroundResource(this.f21835h, R.drawable.bg_gradient_round, i);
         SkinManager.setBackgroundResource(this.i, R.drawable.bg_gradient_round, i);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1, i);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i);

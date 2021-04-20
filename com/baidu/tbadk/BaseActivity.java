@@ -62,12 +62,13 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
-import d.b.b.e.p.l;
-import d.b.b.j.e.q;
+import d.b.c.e.p.l;
+import d.b.c.j.e.q;
 import d.b.h0.a.o;
 import d.b.h0.a.r;
 import d.b.h0.d0.g;
 import d.b.h0.d0.h;
+import d.b.h0.f0.i;
 import d.b.h0.k0.a;
 import d.b.h0.k0.d;
 import d.b.h0.r.c;
@@ -109,7 +110,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public TbPageContext<T> pageContext;
     public d pageStayDurationItem;
     public List<PopupWindow> popupWindowList;
-    public d.b.b.e.m.c resourcesWrapper;
+    public d.b.c.e.m.c resourcesWrapper;
     public d.b.h0.r.f0.a mWaitingDialog = null;
     public b mListMenu = null;
     public final Handler mSafeHandler = new Handler();
@@ -475,7 +476,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         List<Dialog> list = this.dialogList;
         if (list != null) {
             for (Dialog dialog : list) {
-                d.b.b.e.m.g.b(dialog, getPageContext());
+                d.b.c.e.m.g.b(dialog, getPageContext());
             }
             this.dialogList.clear();
         }
@@ -485,7 +486,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             for (PopupWindow popupWindow : list) {
-                d.b.b.e.m.g.d(popupWindow, getPageContext().getPageActivity());
+                d.b.c.e.m.g.d(popupWindow, getPageContext().getPageActivity());
             }
             this.popupWindowList.clear();
         }
@@ -496,7 +497,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (list != null) {
             list.remove(dialog);
         }
-        d.b.b.e.m.g.b(dialog, getPageContext());
+        d.b.c.e.m.g.b(dialog, getPageContext());
     }
 
     public void dismissDialogInteface(DialogInterface dialogInterface) {
@@ -506,7 +507,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void dismissPopupWindow(PopupWindow popupWindow) {
-        d.b.b.e.m.g.d(popupWindow, getPageContext().getPageActivity());
+        d.b.c.e.m.g.d(popupWindow, getPageContext().getPageActivity());
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             list.remove(popupWindow);
@@ -516,7 +517,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         r.a(motionEvent, getPageId(), getMissionTid());
-        d.b.i0.h3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        d.b.i0.i3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         try {
             if (this.mProgressBar == null || !this.mProgressBar.isShown()) {
                 return super.dispatchTouchEvent(motionEvent);
@@ -675,7 +676,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             return super.getResources();
         }
         if (this.resourcesWrapper == null) {
-            this.resourcesWrapper = new d.b.b.e.m.c(super.getResources());
+            this.resourcesWrapper = new d.b.c.e.m.c(super.getResources());
         }
         return this.resourcesWrapper;
     }
@@ -708,7 +709,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(getBaseContext())) {
                 this.mPermissionCallback = eVar;
-                if (!d.b.h0.r.d0.b.i().g("key_is_window_permission_dialog_shown", false)) {
+                if (!d.b.h0.r.d0.b.j().g("key_is_window_permission_dialog_shown", false)) {
                     d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this);
                     aVar.setCanceledOnTouchOutside(false);
                     aVar.setTitle(R.string.request_permission_default_title);
@@ -738,7 +739,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                         }
                     }).create(getPageContext());
                     aVar.show();
-                    d.b.h0.r.d0.b.i().s("key_is_window_permission_dialog_shown", true);
+                    d.b.h0.r.d0.b.j().t("key_is_window_permission_dialog_shown", true);
                 } else {
                     e eVar2 = this.mPermissionCallback;
                     if (eVar2 != null) {
@@ -878,7 +879,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                 this.mLastScreenWidth = configuration.screenWidthDp;
                 this.mLastScreenHeight = configuration.screenHeightDp;
-                l.f42020a = false;
+                l.f42517a = false;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
             }
         } else {
@@ -955,7 +956,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.mPermissionCallback = null;
         super.onDestroy();
         this.mSafeHandler.removeCallbacksAndMessages(null);
-        d.b.b.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+        d.b.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -1007,7 +1008,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        d.b.i0.h3.a.getInstance().onPause(this);
+        d.b.i0.i3.a.getInstance().onPause(this);
         super.onPause();
         if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
             hideFloatingWindow();
@@ -1024,12 +1025,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         TbadkCoreApplication.getInst().setCurrentActivity(null);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, this));
         if (this.isAddSwipeBackLayout) {
-            d.b.b.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
-            d.b.b.e.m.e.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
+            d.b.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+            d.b.c.e.m.e.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.base.BdBaseActivity, d.b.c.a.i
     public void onPreLoad(q qVar) {
         super.onPreLoad(qVar);
         PreLoadImageHelper.load(qVar, getUniqueId());
@@ -1078,7 +1079,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        d.b.i0.h3.a.getInstance().onResume(this);
+        d.b.i0.i3.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -1107,7 +1108,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             showFloatingWindow();
         }
         if (this.isAddSwipeBackLayout) {
-            d.b.b.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+            d.b.c.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
             g0.b(this);
         }
     }
@@ -1140,15 +1141,15 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (aVar.getTag() == 0) {
             aVar.setTag(getUniqueId());
         }
-        d.b.h0.f0.g.g(aVar);
+        d.b.h0.f0.h.i(aVar);
     }
 
     public void quitDialog() {
         UtilHelper.quitDialog(getPageContext().getPageActivity());
     }
 
-    public void registerResponsedEventListener(Class<? extends d.b.h0.f0.a> cls, d.b.h0.f0.h hVar) {
-        d.b.h0.f0.g.e().k(cls, hVar, getUniqueId());
+    public void registerResponsedEventListener(Class<? extends d.b.h0.f0.a> cls, i iVar) {
+        d.b.h0.f0.h.f().m(cls, iVar, getUniqueId());
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
@@ -1255,7 +1256,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public boolean showDialog(Dialog dialog) {
-        if (d.b.b.e.m.g.j(dialog, getPageContext())) {
+        if (d.b.c.e.m.g.j(dialog, getPageContext())) {
             if (this.dialogList == null) {
                 this.dialogList = new LinkedList();
             }
@@ -1309,7 +1310,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (d.b.b.e.m.g.k(popupWindow, view)) {
+        if (d.b.c.e.m.g.k(popupWindow, view)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -1320,7 +1321,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (d.b.b.e.m.g.m(popupWindow, view, i, i2, i3)) {
+        if (d.b.c.e.m.g.m(popupWindow, view, i, i2, i3)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -1439,7 +1440,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void unRegisterResponsedEventListener() {
-        d.b.h0.f0.g.e().l(getUniqueId());
+        d.b.h0.f0.h.f().n(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload
@@ -1448,7 +1449,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.base.BdBaseActivity, d.b.b.a.g
+    @Override // com.baidu.adp.base.BdBaseActivity, d.b.c.a.g
     public TbPageContext<T> getPageContext() {
         try {
             if (this.pageContext == null && mClazz4GetPageContext != null) {
@@ -1533,7 +1534,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener, boolean z) {
-        if (!isFinishing() && d.b.b.e.m.g.f(getPageContext())) {
+        if (!isFinishing() && d.b.c.e.m.g.f(getPageContext())) {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
@@ -1548,7 +1549,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (d.b.b.e.m.g.l(popupWindow, view, i, i2)) {
+        if (d.b.c.e.m.g.l(popupWindow, view, i, i2)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }

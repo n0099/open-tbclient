@@ -9,28 +9,28 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static y f9268a;
+    public static y f8842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9269b;
+    public Context f8843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f9270c = new JSONObject();
+    public JSONObject f8844c = new JSONObject();
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9271d = 24;
+    public long f8845d = 24;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9272e = 0;
+    public long f8846e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f9273f = 0;
+    public long f8847f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f9274g = 0;
+    public long f8848g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f9275h = 5;
+    public long f8849h = 5;
     public long i = 24;
     public long j = 15;
     public long k = 15;
@@ -42,21 +42,21 @@ public class y {
     public String q = "";
 
     public y(Context context) {
-        this.f9269b = context;
+        this.f8843b = context;
         m();
         j();
         k();
     }
 
     public static y a(Context context) {
-        if (f9268a == null) {
+        if (f8842a == null) {
             synchronized (y.class) {
-                if (f9268a == null) {
-                    f9268a = new y(context);
+                if (f8842a == null) {
+                    f8842a = new y(context);
                 }
             }
         }
-        return f9268a;
+        return f8842a;
     }
 
     private void m() {
@@ -65,17 +65,17 @@ public class y {
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            this.f9270c = new JSONObject(b2);
+            this.f8844c = new JSONObject(b2);
         } catch (Exception unused) {
         }
     }
 
     public boolean b() {
-        return this.f9273f != 0;
+        return this.f8847f != 0;
     }
 
     public long c() {
-        return this.f9271d * 60 * 60 * 1000;
+        return this.f8845d * 60 * 60 * 1000;
     }
 
     public long d() {
@@ -83,7 +83,7 @@ public class y {
     }
 
     public long e() {
-        return this.f9275h * 60 * 1000;
+        return this.f8849h * 60 * 1000;
     }
 
     public long f() {
@@ -104,18 +104,18 @@ public class y {
 
     public void j() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9269b, ".config2").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f8843b, ".config2").getBytes())));
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             JSONObject jSONObject = new JSONObject(str);
             try {
-                this.f9272e = jSONObject.getLong("c");
+                this.f8846e = jSONObject.getLong("c");
             } catch (JSONException e2) {
                 bb.c().b(e2);
             }
             try {
-                this.f9275h = jSONObject.getLong("d");
+                this.f8849h = jSONObject.getLong("d");
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
@@ -130,7 +130,7 @@ public class y {
                 bb.c().b(e5);
             }
             try {
-                this.f9271d = jSONObject.getLong("f");
+                this.f8845d = jSONObject.getLong("f");
             } catch (JSONException e6) {
                 bb.c().b(e6);
             }
@@ -160,12 +160,12 @@ public class y {
                 bb.c().b(e11);
             }
             try {
-                this.f9273f = jSONObject.getLong(Config.DEVICE_MAC_ID);
+                this.f8847f = jSONObject.getLong(Config.DEVICE_MAC_ID);
             } catch (JSONException e12) {
                 bb.c().b(e12);
             }
             try {
-                this.f9274g = jSONObject.getLong("lsc");
+                this.f8848g = jSONObject.getLong("lsc");
             } catch (JSONException e13) {
                 bb.c().b(e13);
             }
@@ -176,7 +176,7 @@ public class y {
 
     public void k() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9269b, ".sign").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f8843b, ".sign").getBytes())));
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -206,7 +206,7 @@ public class y {
     }
 
     public void b(String str) {
-        bo.a(this.f9269b, ".sign", str, false);
+        bo.a(this.f8843b, ".sign", str, false);
         k();
     }
 
@@ -222,11 +222,11 @@ public class y {
     }
 
     public boolean a() {
-        return this.f9272e != 0;
+        return this.f8846e != 0;
     }
 
     public void a(String str) {
-        bo.a(this.f9269b, ".config2", str, false);
+        bo.a(this.f8843b, ".config2", str, false);
         j();
     }
 
@@ -234,8 +234,8 @@ public class y {
         long j = gVar.j;
         try {
             String str = gVar.toString();
-            if (this.f9270c.has(str)) {
-                j = this.f9270c.getLong(str);
+            if (this.f8844c.has(str)) {
+                j = this.f8844c.getLong(str);
             }
         } catch (Exception e2) {
             bb.c().a(e2);
@@ -246,12 +246,12 @@ public class y {
     public void a(g gVar, long j) {
         gVar.j = j;
         try {
-            this.f9270c.put(gVar.toString(), j);
+            this.f8844c.put(gVar.toString(), j);
         } catch (Exception e2) {
             bb.c().a(e2);
         }
         try {
-            bo.a("backups/system/.timestamp", this.f9270c.toString(), false);
+            bo.a("backups/system/.timestamp", this.f8844c.toString(), false);
         } catch (Exception e3) {
             bb.c().a(e3);
         }

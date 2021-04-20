@@ -22,7 +22,7 @@ public final class b {
 
     /* renamed from: d.b.g0.d.j.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0925b {
+    public interface InterfaceC0937b {
         d.b.g0.l.o.b a();
 
         void b(boolean z, d.b.g0.a.e0.u.c cVar);
@@ -42,7 +42,7 @@ public final class b {
     }
 
     @Inject(force = false)
-    public static InterfaceC0925b b() {
+    public static InterfaceC0937b b() {
         return d.b.i0.s.b.o.b.a();
     }
 }

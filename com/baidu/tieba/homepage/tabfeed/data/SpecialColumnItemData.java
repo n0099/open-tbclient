@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import tbclient.ActivityPage.SpecialColumn;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpecialColumnItemData implements n, Parcelable {
     public static final int TYPE_LIVE = 3;
     public static final int TYPE_LIVE_RE = 4;
@@ -22,7 +22,7 @@ public class SpecialColumnItemData implements n, Parcelable {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public static final Parcelable.Creator<SpecialColumnItemData> CREATOR = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SpecialColumnItemData> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -58,7 +58,7 @@ public class SpecialColumnItemData implements n, Parcelable {
         return 0;
     }
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         return TYPE;
     }

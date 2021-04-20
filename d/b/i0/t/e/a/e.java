@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
 /* loaded from: classes4.dex */
-public class e extends d.b.b.j.e.a<d.b.i0.t.e.b.c, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+public class e extends d.b.c.j.e.a<d.b.i0.t.e.b.c, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
     public TbPageContext m;
     public d.b.i0.t.c n;
 
@@ -16,18 +16,18 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.e.b.c, AlaGameFrsLiveGameCardView.Al
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: h0 */
     public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder R(ViewGroup viewGroup) {
         return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.e.b.c cVar, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        alaGameFrsGameViewHolder.f14996a.n(cVar);
-        alaGameFrsGameViewHolder.f14996a.w(this.n);
+        alaGameFrsGameViewHolder.f14659a.n(cVar);
+        alaGameFrsGameViewHolder.f14659a.w(this.n);
         return alaGameFrsGameViewHolder.a();
     }
 

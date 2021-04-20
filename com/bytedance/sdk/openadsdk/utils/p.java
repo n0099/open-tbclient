@@ -15,48 +15,48 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30442a;
+        public String f30127a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30443b;
+        public String f30128b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30444c;
+        public String f30129c;
 
         public a(String str, String str2, String str3) {
-            this.f30442a = str;
-            this.f30443b = str2;
-            this.f30444c = str3;
+            this.f30127a = str;
+            this.f30128b = str2;
+            this.f30129c = str3;
         }
 
         public boolean equals(Object obj) {
             String str;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                String str2 = this.f30442a;
-                return str2 != null && str2.equals(aVar.f30442a) && (str = this.f30444c) != null && str.equals(aVar.f30444c);
+                String str2 = this.f30127a;
+                return str2 != null && str2.equals(aVar.f30127a) && (str = this.f30129c) != null && str.equals(aVar.f30129c);
             }
             return super.equals(obj);
         }
 
         public String toString() {
             try {
-                return "<" + this.f30442a + " name=\"" + this.f30443b + "\" path=\"" + this.f30444c + "\" />";
+                return "<" + this.f30127a + " name=\"" + this.f30128b + "\" path=\"" + this.f30129c + "\" />";
             } catch (Throwable unused) {
                 return super.toString();
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:106:0x02a7  */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x02ae  */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x02b2  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x02ba  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -9,5 +9,5 @@ public abstract class a<T> extends d<T> {
         super(aVar);
     }
 
-    public abstract void K(b<? super k> bVar);
+    public abstract void M(b<? super k> bVar);
 }

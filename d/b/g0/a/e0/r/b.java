@@ -21,38 +21,38 @@ import java.io.File;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44259b = k.f45051a;
+    public static final boolean f44651b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44260a;
+    public boolean f44652a;
 
     /* renamed from: d.b.g0.a.e0.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0681b {
+    public static class C0693b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f44261a = new b();
+        public static final b f44653a = new b();
     }
 
     public static b c() {
-        return C0681b.f44261a;
+        return C0693b.f44653a;
     }
 
     public final void a(@NonNull SwanAppConfigData swanAppConfigData) {
-        if (f44259b) {
+        if (f44651b) {
             Log.d("AppLaunchMessenger", "afterLaunchEventSent: start");
         }
         d.b.g0.a.e0.s.a.e().i(swanAppConfigData);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00a2 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00ae A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00c0 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0101 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0178 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0188 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0195 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x01e3 A[Catch: all -> 0x027b, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0013, B:10:0x0019, B:12:0x0033, B:14:0x003b, B:16:0x0063, B:18:0x0086, B:23:0x0094, B:25:0x00a2, B:26:0x00a8, B:28:0x00ae, B:30:0x00ba, B:31:0x00bc, B:33:0x00c0, B:34:0x00c9, B:36:0x0101, B:37:0x010d, B:39:0x0124, B:41:0x012c, B:43:0x0154, B:45:0x0178, B:46:0x017e, B:48:0x0188, B:49:0x0191, B:51:0x0195, B:52:0x019e, B:54:0x01e3, B:55:0x0274, B:42:0x0131, B:15:0x0040), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00a3 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00af A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00c1 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0102 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0179 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0189 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0196 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01e6 A[Catch: all -> 0x027e, TryCatch #0 {, blocks: (B:3:0x0001, B:5:0x0005, B:6:0x0014, B:10:0x001a, B:12:0x0034, B:14:0x003c, B:16:0x0064, B:18:0x0087, B:23:0x0095, B:25:0x00a3, B:26:0x00a9, B:28:0x00af, B:30:0x00bb, B:31:0x00bd, B:33:0x00c1, B:34:0x00ca, B:36:0x0102, B:37:0x010e, B:39:0x0125, B:41:0x012d, B:43:0x0155, B:45:0x0179, B:46:0x017f, B:48:0x0189, B:49:0x0192, B:51:0x0196, B:52:0x019f, B:54:0x01e6, B:55:0x0277, B:42:0x0132, B:15:0x0041), top: B:61:0x0001 }] */
     /* JADX WARN: Type inference failed for: r9v20, types: [d.b.g0.a.p.d.c] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -61,31 +61,31 @@ public final class b {
         boolean z;
         Bundle O;
         d.b.g0.a.e0.w.b bVar3;
-        if (f44259b) {
+        if (f44651b) {
             Log.d("AppLaunchMessenger", "dispatchLaunchEvent");
             Log.d("SwanPrelink", "start dispatch launch event");
         }
-        if (this.f44260a) {
+        if (this.f44652a) {
             return;
         }
         String d2 = c.d(f.V(), bVar2, swanAppConfigData);
         String g2 = swanAppConfigData.g(d2);
         d.b.g0.a.e0.w.a aVar2 = new d.b.g0.a.e0.w.a();
-        aVar2.f44309a = swanAppConfigData.l;
+        aVar2.f44701a = swanAppConfigData.l;
         swanAppConfigData.l = null;
-        if (gVar != null && !TextUtils.isEmpty(gVar.f46600a)) {
-            aVar2.f44310b = gVar.f46600a;
+        if (gVar != null && !TextUtils.isEmpty(gVar.f46992a)) {
+            aVar2.f44702b = gVar.f46992a;
         } else {
-            aVar2.f44310b = d.e.h(bVar2.G(), bVar2.n1()).getPath() + File.separator;
+            aVar2.f44702b = d.e.h(bVar2.G(), bVar2.n1()).getPath() + File.separator;
         }
-        aVar2.f44311c = bVar.c();
-        aVar2.f44312d = d2;
-        aVar2.f44314f = String.valueOf(d.b.g0.a.c0.a.a());
-        aVar2.f44315g = d.b.g0.a.e0.w.a.b(e.y(), d2);
+        aVar2.f44703c = bVar.c();
+        aVar2.f44704d = d2;
+        aVar2.f44706f = String.valueOf(d.b.g0.a.c0.a.a());
+        aVar2.f44707g = d.b.g0.a.e0.w.a.b(e.y(), d2);
         aVar2.i = g2;
-        if (!f44259b && !f.V().O()) {
+        if (!f44651b && !f.V().O()) {
             z = false;
-            aVar2.f44316h = z;
+            aVar2.f44708h = z;
             aVar2.j = bVar.w();
             if (d.b.g0.a.m1.a.a.C()) {
                 aVar2.k = d.b.g0.a.c0.d.b.b();
@@ -94,10 +94,10 @@ public final class b {
             if (O != null) {
                 String string = O.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
-                    aVar2.f44313e = string;
+                    aVar2.f44705e = string;
                 }
             }
-            if (f44259b) {
+            if (f44651b) {
                 Log.d("AppLaunchMessenger", aVar2.toString());
             }
             i.n().A(new UbcFlowEvent("master_dispatch_start"));
@@ -111,17 +111,17 @@ public final class b {
             }
             d.b.g0.a.r1.n.c k = f.V().k(j.b(i0.d(d2)));
             bVar3 = new d.b.g0.a.e0.w.b();
-            if (gVar == null && !TextUtils.isEmpty(gVar.f46600a)) {
-                bVar3.f44317a = gVar.f46600a;
+            if (gVar == null && !TextUtils.isEmpty(gVar.f46992a)) {
+                bVar3.f44709a = gVar.f46992a;
             } else {
-                bVar3.f44317a = d.e.h(bVar2.G(), bVar2.n1()).getPath() + File.separator;
+                bVar3.f44709a = d.e.h(bVar2.G(), bVar2.n1()).getPath() + File.separator;
             }
-            bVar3.f44318b = d2;
-            bVar3.f44320d = k.f45777g;
-            bVar3.f44319c = g2;
-            bVar3.k = aVar2.f44315g;
-            bVar3.f44321e = String.valueOf(bVar2.i0());
-            bVar3.f44323g = z;
+            bVar3.f44710b = d2;
+            bVar3.f44712d = k.f46169g;
+            bVar3.f44711c = g2;
+            bVar3.k = aVar2.f44707g;
+            bVar3.f44713e = String.valueOf(bVar2.i0());
+            bVar3.f44715g = z;
             bVar3.i = bVar.w();
             if (d.b.g0.a.m1.a.a.C()) {
                 bVar3.j = d.b.g0.a.c0.d.b.d();
@@ -129,37 +129,37 @@ public final class b {
             if (d.b.g0.a.m1.a.a.B(bVar2.d0())) {
                 d.b.g0.a.c0.d.d.d.g().h("pageready");
             }
-            if (f44259b) {
+            if (f44651b) {
                 Log.d("AppLaunchMessenger", bVar3.toString());
             }
             i.n().A(new UbcFlowEvent("slave_dispatch_start"));
             d.b.g0.a.y1.a.d().i("slave_dispatch_start");
             bVar.x(bVar3);
             b0.d();
-            bVar.getWebView().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d2);
+            bVar.F().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d2);
             bVar.s(d2);
             d.b.g0.a.e0.w.d.L().B0(bVar.c(), d.b.g0.a.e0.w.b.a(bVar3));
-            d.b.g0.a.z1.e.B(bVar.c(), bVar3.f44318b);
-            if (f44259b) {
-                Log.d("AppLaunchMessenger", "app path: " + aVar2.f44310b);
+            d.b.g0.a.z1.e.B(bVar.c(), bVar3.f44710b);
+            if (f44651b) {
+                Log.d("AppLaunchMessenger", "app path: " + aVar2.f44702b);
                 Log.d("AppLaunchMessenger", "webviewId: " + bVar.c());
                 Log.d("AppLaunchMessenger", "pageUrl: " + d2);
-                Log.d("AppLaunchMessenger", "pagePath: " + bVar3.f44318b);
-                Log.d("AppLaunchMessenger", "onReachBottomDistance: " + bVar3.f44320d);
-                Log.d("AppLaunchMessenger", "sConsole:" + bVar3.f44321e);
+                Log.d("AppLaunchMessenger", "pagePath: " + bVar3.f44710b);
+                Log.d("AppLaunchMessenger", "onReachBottomDistance: " + bVar3.f44712d);
+                Log.d("AppLaunchMessenger", "sConsole:" + bVar3.f44713e);
             }
             a(swanAppConfigData);
-            this.f44260a = true;
+            this.f44652a = true;
         }
         z = true;
-        aVar2.f44316h = z;
+        aVar2.f44708h = z;
         aVar2.j = bVar.w();
         if (d.b.g0.a.m1.a.a.C()) {
         }
         O = bVar2.O();
         if (O != null) {
         }
-        if (f44259b) {
+        if (f44651b) {
         }
         i.n().A(new UbcFlowEvent("master_dispatch_start"));
         d.b.g0.a.y1.a.d().i("master_dispatch_start");
@@ -172,39 +172,39 @@ public final class b {
         bVar3 = new d.b.g0.a.e0.w.b();
         if (gVar == null) {
         }
-        bVar3.f44317a = d.e.h(bVar2.G(), bVar2.n1()).getPath() + File.separator;
-        bVar3.f44318b = d2;
-        bVar3.f44320d = k2.f45777g;
-        bVar3.f44319c = g2;
-        bVar3.k = aVar2.f44315g;
-        bVar3.f44321e = String.valueOf(bVar2.i0());
-        bVar3.f44323g = z;
+        bVar3.f44709a = d.e.h(bVar2.G(), bVar2.n1()).getPath() + File.separator;
+        bVar3.f44710b = d2;
+        bVar3.f44712d = k2.f46169g;
+        bVar3.f44711c = g2;
+        bVar3.k = aVar2.f44707g;
+        bVar3.f44713e = String.valueOf(bVar2.i0());
+        bVar3.f44715g = z;
         bVar3.i = bVar.w();
         if (d.b.g0.a.m1.a.a.C()) {
         }
         if (d.b.g0.a.m1.a.a.B(bVar2.d0())) {
         }
-        if (f44259b) {
+        if (f44651b) {
         }
         i.n().A(new UbcFlowEvent("slave_dispatch_start"));
         d.b.g0.a.y1.a.d().i("slave_dispatch_start");
         bVar.x(bVar3);
         b0.d();
-        bVar.getWebView().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d2);
+        bVar.F().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d2);
         bVar.s(d2);
         d.b.g0.a.e0.w.d.L().B0(bVar.c(), d.b.g0.a.e0.w.b.a(bVar3));
-        d.b.g0.a.z1.e.B(bVar.c(), bVar3.f44318b);
-        if (f44259b) {
+        d.b.g0.a.z1.e.B(bVar.c(), bVar3.f44710b);
+        if (f44651b) {
         }
         a(swanAppConfigData);
-        this.f44260a = true;
+        this.f44652a = true;
     }
 
     public synchronized void d() {
-        this.f44260a = false;
+        this.f44652a = false;
     }
 
     public b() {
-        this.f44260a = false;
+        this.f44652a = false;
     }
 }

@@ -3,7 +3,7 @@ package d.b.i0.t.d.c.g;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import d.b.i0.t.d.c.e.e;
 import d.b.i0.t.d.c.e.j;
 import java.util.ArrayList;
@@ -13,16 +13,16 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60407a = false;
+    public boolean f61971a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f60408b = new ArrayList();
+    public List<String> f61972b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SdkLiveInfoData> f60409c = new ArrayList();
+    public List<SdkLiveInfoData> f61973c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f60410d = new ArrayList();
+    public List<n> f61974d = new ArrayList();
 
     public a(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         a(alaTabLiveResponsedMessage.tabAllLiveInfo);
@@ -33,21 +33,21 @@ public class a {
             return false;
         }
         boolean e2 = e(jVar);
-        this.f60407a = jVar.f60340a;
+        this.f61971a = jVar.f61904a;
         return e2;
     }
 
     public void b() {
-        this.f60407a = false;
-        List<String> list = this.f60408b;
+        this.f61971a = false;
+        List<String> list = this.f61972b;
         if (list != null) {
             list.clear();
         }
-        List<SdkLiveInfoData> list2 = this.f60409c;
+        List<SdkLiveInfoData> list2 = this.f61973c;
         if (list2 != null) {
             list2.clear();
         }
-        List<n> list3 = this.f60410d;
+        List<n> list3 = this.f61974d;
         if (list3 != null) {
             list3.clear();
         }
@@ -59,14 +59,14 @@ public class a {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             d.b.i0.t.d.a.a aVar = new d.b.i0.t.d.a.a();
-            aVar.f60235e = list.get(i);
+            aVar.f61799e = list.get(i);
             aVar.j = true;
-            eVar.f60329e = aVar;
+            eVar.f61893e = aVar;
             int i2 = i + 1;
             if (i2 < size) {
                 d.b.i0.t.d.a.a aVar2 = new d.b.i0.t.d.a.a();
-                aVar2.f60235e = list.get(i2);
-                eVar.f60330f = aVar2;
+                aVar2.f61799e = list.get(i2);
+                eVar.f61894f = aVar2;
                 aVar2.k = true;
             } else {
                 aVar.j = false;
@@ -79,8 +79,8 @@ public class a {
 
     public List<n> d() {
         ArrayList arrayList = new ArrayList();
-        if (!ListUtils.isEmpty(this.f60410d)) {
-            arrayList.addAll(this.f60410d);
+        if (!ListUtils.isEmpty(this.f61974d)) {
+            arrayList.addAll(this.f61974d);
         }
         return arrayList;
     }
@@ -89,7 +89,7 @@ public class a {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.f60341b;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.f61905b;
         if (ListUtils.isEmpty(arrayList)) {
             return false;
         }
@@ -99,22 +99,22 @@ public class a {
             SdkLiveInfoData next = it.next();
             if (next != null && d.b.i0.t.d.c.c.b(next)) {
                 String str = next.liveId;
-                if (!this.f60408b.contains(str)) {
+                if (!this.f61972b.contains(str)) {
                     arrayList2.add(next);
-                    this.f60408b.add(str);
+                    this.f61972b.add(str);
                 }
             }
         }
         if (ListUtils.isEmpty(arrayList2)) {
             return false;
         }
-        this.f60409c.addAll(arrayList2);
-        ArrayList<n> c2 = c(this.f60409c);
-        this.f60410d = c2;
+        this.f61973c.addAll(arrayList2);
+        ArrayList<n> c2 = c(this.f61973c);
+        this.f61974d = c2;
         return !ListUtils.isEmpty(c2);
     }
 
     public boolean f() {
-        return this.f60407a;
+        return this.f61971a;
     }
 }

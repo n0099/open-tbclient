@@ -27,14 +27,14 @@ public class m {
             if (kVar != null) {
                 return kVar;
             }
-            a aVar2 = this.f1079a.get(aVar.k.f1331c);
+            a aVar2 = this.f1079a.get(aVar.k.f1317c);
             if (aVar2 == null) {
-                a.a.a.a.v.d.a("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", aVar.f1335d);
+                a.a.a.a.v.d.a("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", aVar.f1321d);
                 return null;
             }
             k a2 = aVar2.a(aVar);
             if (a2 == null) {
-                a.a.a.a.v.d.a("The creator of ssp:%s should't create null for pid:%s", aVar.k.f1331c, aVar.f1335d);
+                a.a.a.a.v.d.a("The creator of ssp:%s should't create null for pid:%s", aVar.k.f1317c, aVar.f1321d);
                 return null;
             }
             c cVar = new c(a2);

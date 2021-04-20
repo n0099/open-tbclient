@@ -14,14 +14,14 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f65815a;
+    public JSONObject f66660a;
 
     public a() {
-        this.f65815a = new JSONObject();
+        this.f66660a = new JSONObject();
     }
 
     public static a c(long j, Context context, @Nullable Thread thread, @NonNull Throwable th) {
@@ -50,8 +50,8 @@ public class a {
 
     public a a(int i, String str) {
         try {
-            this.f65815a.put("miniapp_id", i);
-            this.f65815a.put("miniapp_version", str);
+            this.f66660a.put("miniapp_id", i);
+            this.f66660a.put("miniapp_version", str);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -102,7 +102,7 @@ public class a {
     public a h(Map<String, Integer> map) {
         JSONArray jSONArray = new JSONArray();
         if (map == null) {
-            this.f65815a.put("plugin_info", jSONArray);
+            this.f66660a.put("plugin_info", jSONArray);
             return this;
         }
         for (String str : map.keySet()) {
@@ -111,7 +111,7 @@ public class a {
             jSONObject.put("version_code", map.get(str));
             jSONArray.put(jSONObject);
         }
-        this.f65815a.put("plugin_info", jSONArray);
+        this.f66660a.put("plugin_info", jSONArray);
         return this;
     }
 
@@ -121,12 +121,12 @@ public class a {
     }
 
     public JSONObject j() {
-        return this.f65815a;
+        return this.f66660a;
     }
 
     public void k(@NonNull String str, @Nullable Object obj) {
         try {
-            this.f65815a.put(str, obj);
+            this.f66660a.put(str, obj);
         } catch (Exception e2) {
             l.k.c(e2);
         }
@@ -152,7 +152,7 @@ public class a {
                 }
             }
             try {
-                this.f65815a.put("sdk_info", jSONObject);
+                this.f66660a.put("sdk_info", jSONObject);
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
@@ -176,6 +176,6 @@ public class a {
     }
 
     public a(JSONObject jSONObject) {
-        this.f65815a = jSONObject;
+        this.f66660a = jSONObject;
     }
 }

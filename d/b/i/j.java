@@ -12,8 +12,8 @@ import d.b.h0.r.q.a2;
 public class j extends c implements p<a2>, q {
     public FollowUserDecorView i;
     public boolean j = true;
-    public int k = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
-    public int l = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
+    public int k = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
+    public int l = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
@@ -30,13 +30,13 @@ public class j extends c implements p<a2>, q {
     }
 
     public final int l(int i) {
-        return d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), i);
+        return d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), i);
     }
 
     public final void m(boolean z) {
         if (z) {
-            this.k = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
-            this.l = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
+            this.k = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+            this.l = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.k, this.l);
         layoutParams.addRule(11);

@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import com.alipay.sdk.data.a;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -86,17 +85,17 @@ public final class RealInterceptorChain implements Interceptor.Chain {
 
     @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withConnectTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration(a.i, i, timeUnit), this.readTimeout, this.writeTimeout);
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i, timeUnit), this.readTimeout, this.writeTimeout);
     }
 
     @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withReadTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration(a.i, i, timeUnit), this.writeTimeout);
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i, timeUnit), this.writeTimeout);
     }
 
     @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withWriteTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration(a.i, i, timeUnit));
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i, timeUnit));
     }
 
     @Override // okhttp3.Interceptor.Chain

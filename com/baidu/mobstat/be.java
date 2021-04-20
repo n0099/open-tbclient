@@ -6,6 +6,7 @@ import android.graphics.PointF;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.mobstat.bk;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -67,7 +68,7 @@ public class be implements bk.b {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
+            DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);

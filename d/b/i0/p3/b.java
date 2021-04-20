@@ -1,97 +1,113 @@
 package d.b.i0.p3;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.video.EditVideoData;
-import d.b.b.e.p.k;
-import java.io.File;
+import android.app.Application;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
-public abstract class b {
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f58880a;
+    public KeyguardManager f58954a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58881b;
+    public PowerManager f58955b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58882c;
+    public PowerManager.WakeLock f58956c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58883d;
+    public KeyguardManager.KeyguardLock f58957d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58884e;
+    public Context f58958e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f58885f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f58886g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f58887h;
-
-    public b(BaseActivity baseActivity, String str, String str2) {
-        this.f58881b = str;
-        this.f58882c = str2;
-        this.f58880a = baseActivity;
+    public b() {
+        try {
+            Application app = TbadkCoreApplication.getInst().getApp();
+            this.f58958e = app;
+            PowerManager powerManager = (PowerManager) app.getSystemService("power");
+            this.f58955b = powerManager;
+            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
+            this.f58956c = newWakeLock;
+            newWakeLock.setReferenceCounted(false);
+            KeyguardManager keyguardManager = (KeyguardManager) this.f58958e.getSystemService("keyguard");
+            this.f58954a = keyguardManager;
+            this.f58957d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    public final void a() {
-        if (k.isEmpty(this.f58886g)) {
-            return;
+    public static Drawable a() {
+        Bitmap bitmap;
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        try {
+            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+            if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+                return null;
+            }
+            int min = Math.min(l.k(inst), bitmap.getWidth());
+            int min2 = Math.min(l.i(inst), bitmap.getHeight());
+            try {
+                try {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                } catch (Throwable th) {
+                    BdLog.e(th.getMessage());
+                    return null;
+                }
+            } catch (Throwable unused) {
+                return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+            }
+        } catch (Exception unused2) {
         }
-        FileHelper.deleteFile(new File(this.f58886g));
     }
 
     public boolean b() {
-        return this.f58887h;
-    }
-
-    public void c() {
-        a();
-    }
-
-    public void d(int i, String str) {
-        a();
-    }
-
-    public abstract void e();
-
-    public void f(VideoInfo videoInfo) {
-        a();
-    }
-
-    public void g(int i, String str) {
-        a();
-    }
-
-    public abstract void h();
-
-    public void i(boolean z) {
-        this.f58887h = z;
-    }
-
-    public void j(EditVideoData editVideoData) {
-        if (editVideoData != null) {
-            this.f58881b = editVideoData.originPath;
-            this.f58882c = editVideoData.coverPath;
-            this.f58883d = editVideoData.musicPath;
-            this.f58884e = editVideoData.isMute;
-            this.f58885f = editVideoData.filterName;
+        try {
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.f58954a, new Object[0])).booleanValue();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return false;
         }
     }
 
-    public b(BaseActivity baseActivity, EditVideoData editVideoData) {
-        if (editVideoData != null) {
-            this.f58881b = editVideoData.originPath;
-            this.f58882c = editVideoData.coverPath;
-            this.f58883d = editVideoData.musicPath;
-            this.f58884e = editVideoData.isMute;
-            this.f58885f = editVideoData.filterName;
+    public boolean c() {
+        return this.f58955b.isScreenOn();
+    }
+
+    public void d() {
+        try {
+            this.f58957d.reenableKeyguard();
+            if (this.f58956c != null) {
+                this.f58956c.release();
+                this.f58956c = null;
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
-        this.f58880a = baseActivity;
+    }
+
+    public void e() {
+        try {
+            if (this.f58956c == null) {
+                PowerManager.WakeLock newWakeLock = this.f58955b.newWakeLock(268435462, "ScreenLockNotify");
+                this.f58956c = newWakeLock;
+                newWakeLock.setReferenceCounted(false);
+            }
+            if (this.f58956c != null) {
+                this.f58956c.acquire(10000L);
+                this.f58957d.disableKeyguard();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 }

@@ -19,22 +19,22 @@ import java.util.List;
 public class aj extends PayBaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25497a;
+    public BindFastRequest f25182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f25498b;
+    public PayRequest f25183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25499c;
+    public boolean f25184c;
 
     public <T> aj(Context context) {
         super(context);
-        this.f25499c = false;
-        this.f25498b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f25184c = false;
+        this.f25183b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(boolean z) {
-        this.f25499c = z;
+        this.f25184c = z;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -45,33 +45,33 @@ public class aj extends PayBaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         CardData.BondCard bondCard;
-        if (this.f25497a != null) {
+        if (this.f25182a != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25497a.getmPhone())));
-            arrayList.add(new RestNameValuePair("vcode", this.f25497a.mSmsVCode));
-            if (!this.f25499c) {
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25182a.getmPhone())));
+            arrayList.add(new RestNameValuePair("vcode", this.f25182a.mSmsVCode));
+            if (!this.f25184c) {
                 arrayList.add(new RestNameValuePair("source_flag", "3"));
-                BindFastRequest bindFastRequest = this.f25497a;
+                BindFastRequest bindFastRequest = this.f25182a;
                 if (bindFastRequest != null) {
                     arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
                 }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25497a.getServiceType()));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25182a.getServiceType()));
             }
-            arrayList.add(new RestNameValuePair("bind_without_pay", this.f25497a.getWithoutPay()));
-            if (!TextUtils.isEmpty(this.f25497a.getSubBankCode())) {
-                arrayList.add(new RestNameValuePair("sub_bank_code", this.f25497a.getSubBankCode()));
+            arrayList.add(new RestNameValuePair("bind_without_pay", this.f25182a.getWithoutPay()));
+            if (!TextUtils.isEmpty(this.f25182a.getSubBankCode())) {
+                arrayList.add(new RestNameValuePair("sub_bank_code", this.f25182a.getSubBankCode()));
             }
-            PayRequest payRequest = this.f25498b;
+            PayRequest payRequest = this.f25183b;
             if (payRequest != null) {
                 arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
-                arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25498b.mSpNO));
-                arrayList.add(new RestNameValuePair("total_amount", this.f25498b.getOrderPrice()));
+                arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25183b.mSpNO));
+                arrayList.add(new RestNameValuePair("total_amount", this.f25183b.getOrderPrice()));
             }
-            PayRequest payRequest2 = this.f25498b;
+            PayRequest payRequest2 = this.f25183b;
             if (payRequest2 != null && (bondCard = payRequest2.mBondCard) != null && !TextUtils.isEmpty(bondCard.account_no)) {
-                arrayList.add(new RestNameValuePair("card_no", SafePay.getInstance().encryptProxy(this.f25498b.mBondCard.account_no)));
+                arrayList.add(new RestNameValuePair("card_no", SafePay.getInstance().encryptProxy(this.f25183b.mBondCard.account_no)));
             }
-            arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, this.f25497a.getSessionId()));
+            arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, this.f25182a.getSessionId()));
             return arrayList;
         }
         throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
@@ -86,11 +86,11 @@ public class aj extends PayBaseBean<Object> {
     public String getUrl() {
         StringBuilder sb = new StringBuilder();
         sb.append(DomainConfig.getInstance().getAppPayHost());
-        sb.append(this.f25499c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
+        sb.append(this.f25184c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
         return sb.toString();
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        this.f25497a = bindFastRequest;
+        this.f25182a = bindFastRequest;
     }
 }

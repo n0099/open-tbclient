@@ -20,8 +20,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.FileProvider;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.nps.utils.Constant;
 import com.kwai.video.player.KsMediaMeta;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -33,70 +33,70 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66820a;
+    public static int f67813a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f66821b;
+    public static NotificationChannel f67814b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f66822a;
+        public final /* synthetic */ Context f67815a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f66823b;
+        public final /* synthetic */ int f67816b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f66824c;
+        public final /* synthetic */ boolean f67817c;
 
         public a(Context context, int i, boolean z) {
-            this.f66822a = context;
-            this.f66823b = i;
-            this.f66824c = z;
+            this.f67815a = context;
+            this.f67816b = i;
+            this.f67817c = z;
         }
 
         @Override // d.o.a.e.a.d.k
         public void a() {
-            int unused = d.f66820a = d.P(this.f66822a, this.f66823b, this.f66824c);
+            int unused = d.f67813a = d.P(this.f67815a, this.f67816b, this.f67817c);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f66825e;
+        public final /* synthetic */ Context f67818e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66826f;
+        public final /* synthetic */ int f67819f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f66827g;
+        public final /* synthetic */ boolean f67820g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66828h;
+        public final /* synthetic */ DownloadInfo f67821h;
         public final /* synthetic */ File i;
 
         public b(Context context, int i, boolean z, DownloadInfo downloadInfo, File file) {
-            this.f66825e = context;
-            this.f66826f = i;
-            this.f66827g = z;
-            this.f66828h = downloadInfo;
+            this.f67818e = context;
+            this.f67819f = i;
+            this.f67820g = z;
+            this.f67821h = downloadInfo;
             this.i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.I(this.f66828h, this.f66827g, d.e(this.f66825e, this.f66826f, this.f66827g, this.f66828h, this.i));
+            d.I(this.f67821h, this.f67820g, d.e(this.f67818e, this.f67819f, this.f67820g, this.f67821h, this.i));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c implements e {
         @Override // d.o.a.e.a.d.e
         public n a(Context context) {
@@ -114,22 +114,22 @@ public class d {
     }
 
     /* renamed from: d.o.a.e.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public abstract class AbstractC1840d implements n {
+    /* loaded from: classes6.dex */
+    public abstract class AbstractC1875d implements n {
         @Override // d.o.a.e.a.d.n
         public n a(boolean z) {
             return null;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         n a(Context context);
 
         boolean a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(int i, int i2, String str, String str2, String str3);
 
@@ -144,7 +144,7 @@ public class d {
         void b(int i, int i2, String str, int i3, long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface g {
         String a();
 
@@ -159,41 +159,41 @@ public class d {
         void b(int i, String str, String str2, String str3);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface h {
         Uri a(int i, String str, String str2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface i {
         void a(DownloadInfo downloadInfo, boolean z);
 
         void a(List<DownloadInfo> list);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface j {
         void a(DownloadInfo downloadInfo, BaseException baseException, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface k {
         void a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface l {
         void a(DownloadInfo downloadInfo, k kVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface m {
         void a();
 
         boolean b();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface n {
         m a();
 
@@ -210,12 +210,12 @@ public class d {
         n c(DialogInterface.OnCancelListener onCancelListener);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface o {
         NotificationCompat.Builder a(Context context, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface p {
         void a();
 
@@ -297,12 +297,12 @@ public class d {
     @TargetApi(26)
     public static String H(@NonNull Context context) {
         try {
-            if (f66821b == null) {
+            if (f67814b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f66821b = notificationChannel;
+                f67814b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f66821b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f66821b);
+                f67814b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f67814b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -417,9 +417,9 @@ public class d {
             return P(context, i2, z);
         }
         DownloadInfo f2 = d.o.a.e.b.g.a.l(context).f(i2);
-        f66820a = 1;
+        f67813a = 1;
         C.a(f2, new a(context, i2, z));
-        return f66820a;
+        return f67813a;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -494,7 +494,7 @@ public class d {
         if (g2 == null) {
             return iArr[0] == 1 ? 2 : 0;
         }
-        g2.addFlags(268435456);
+        g2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         if (downloadInfo.i0() > 0 && d.o.a.e.b.j.a.d(downloadInfo.c0()).b("app_install_return_result", 0) == 1) {
             g2.putExtra("android.intent.extra.RETURN_RESULT", true);
         }
@@ -686,8 +686,8 @@ public class d {
                 }
                 str2 = "default.apk";
             }
-            if (!O(str3) && !str2.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
-                return str2 + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+            if (!O(str3) && !str2.endsWith(".apk")) {
+                return str2 + ".apk";
             }
         }
         String lastPathSegment = parse.getLastPathSegment();

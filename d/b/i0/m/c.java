@@ -2,7 +2,7 @@ package d.b.i0.m;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.ubs.analytics.SampleResult;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.m0.a.b;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,10 +10,10 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f56800a;
+    public int f58156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56801b = false;
+    public boolean f58157b = false;
 
     public c() {
         i();
@@ -23,7 +23,7 @@ public class c {
         if (i == 1) {
             return d(i);
         }
-        int i2 = this.f56800a;
+        int i2 = this.f58156a;
         if (i2 == 1) {
             return c(i);
         }
@@ -55,7 +55,7 @@ public class c {
 
     public final int d(int i) {
         String f2 = f(i);
-        return (!k.isEmpty(f2) && d.b.h0.r.d0.b.i().j(f2, 0) == 1) ? 1 : 0;
+        return (!k.isEmpty(f2) && d.b.h0.r.d0.b.j().k(f2, 0) == 1) ? 1 : 0;
     }
 
     public final String e(int i) {
@@ -76,7 +76,7 @@ public class c {
     }
 
     public boolean g() {
-        return this.f56801b;
+        return this.f58157b;
     }
 
     public boolean h() {
@@ -101,26 +101,26 @@ public class c {
     }
 
     public final void i() {
-        this.f56800a = d.b.h0.r.d0.b.i().j("key_abtest_channel", 0);
+        this.f58156a = d.b.h0.r.d0.b.j().k("key_abtest_channel", 0);
         j();
     }
 
     public final void j() {
-        if (this.f56801b || this.f56800a != 1) {
+        if (this.f58157b || this.f58156a != 1) {
             return;
         }
         boolean h2 = h();
-        this.f56801b = h2;
+        this.f58157b = h2;
         if (h2) {
             return;
         }
-        this.f56800a = 0;
+        this.f58156a = 0;
     }
 
     public void k(int i) {
         if (i == 1 || i == 0) {
-            this.f56800a = i;
-            d.b.h0.r.d0.b.i().u("key_abtest_channel", this.f56800a);
+            this.f58156a = i;
+            d.b.h0.r.d0.b.j().v("key_abtest_channel", this.f58156a);
             j();
         }
     }

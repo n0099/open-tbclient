@@ -6,37 +6,37 @@ import com.alipay.sdk.widget.a;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2023a;
+    public final /* synthetic */ a f2048a;
 
     public b(a aVar) {
-        this.f2023a = aVar;
+        this.f2048a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        a.AlertDialogC0018a alertDialogC0018a;
-        a.AlertDialogC0018a alertDialogC0018a2;
-        a.AlertDialogC0018a alertDialogC0018a3;
+        a.AlertDialogC0017a alertDialogC0017a;
+        a.AlertDialogC0017a alertDialogC0017a2;
+        a.AlertDialogC0017a alertDialogC0017a3;
         Handler handler;
-        a.AlertDialogC0018a alertDialogC0018a4;
+        a.AlertDialogC0017a alertDialogC0017a4;
         boolean z;
-        alertDialogC0018a = this.f2023a.f2018e;
-        if (alertDialogC0018a == null) {
-            a aVar = this.f2023a;
-            a aVar2 = this.f2023a;
-            aVar.f2018e = new a.AlertDialogC0018a(aVar2.f2019f);
-            alertDialogC0018a4 = this.f2023a.f2018e;
-            z = this.f2023a.k;
-            alertDialogC0018a4.setCancelable(z);
+        alertDialogC0017a = this.f2048a.f2043e;
+        if (alertDialogC0017a == null) {
+            a aVar = this.f2048a;
+            a aVar2 = this.f2048a;
+            aVar.f2043e = new a.AlertDialogC0017a(aVar2.f2044f);
+            alertDialogC0017a4 = this.f2048a.f2043e;
+            z = this.f2048a.k;
+            alertDialogC0017a4.setCancelable(z);
         }
         try {
-            alertDialogC0018a2 = this.f2023a.f2018e;
-            if (alertDialogC0018a2.isShowing()) {
+            alertDialogC0017a2 = this.f2048a.f2043e;
+            if (alertDialogC0017a2.isShowing()) {
                 return;
             }
-            alertDialogC0018a3 = this.f2023a.f2018e;
-            alertDialogC0018a3.show();
-            handler = this.f2023a.l;
+            alertDialogC0017a3 = this.f2048a.f2043e;
+            alertDialogC0017a3.show();
+            handler = this.f2048a.l;
             handler.sendEmptyMessageDelayed(1, 15000L);
         } catch (Exception e2) {
             com.alipay.sdk.util.c.a(e2);

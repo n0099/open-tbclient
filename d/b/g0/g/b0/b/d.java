@@ -3,28 +3,28 @@ package d.b.g0.g.b0.b;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f47926a;
+    public long f48318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f47927b;
+    public long f48319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47928c;
+    public String f48320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47929d;
+    public String f48321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47930e;
+    public String f48322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47931f;
+    public String f48323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47932g;
+    public String f48324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47933h;
+    public String f48325h;
     public int i;
     public String j;
     public String k;
@@ -32,6 +32,6 @@ public class d {
     public int m;
 
     public String toString() {
-        return "{ clipMaxDuration=" + this.f47926a + " , clipMinDuration=" + this.f47927b + " , topicSource=" + this.f47928c + " , publishURL=" + this.f47930e + " , publishType=" + this.k + " , publishTitle=" + this.f47929d + " , atURL=" + this.f47932g + " , topicURL=" + this.f47933h + " , musicURL=" + this.f47931f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
+        return "{ clipMaxDuration=" + this.f48318a + " , clipMinDuration=" + this.f48319b + " , topicSource=" + this.f48320c + " , publishURL=" + this.f48322e + " , publishType=" + this.k + " , publishTitle=" + this.f48321d + " , atURL=" + this.f48324g + " , topicURL=" + this.f48325h + " , musicURL=" + this.f48323f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
     }
 }

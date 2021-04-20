@@ -20,7 +20,7 @@ public class aa {
                         if (hashCode == 115 && nextName.equals("s")) {
                             c2 = 2;
                         }
-                    } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7664a)) {
+                    } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7699a)) {
                         c2 = 3;
                     }
                 } else if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {

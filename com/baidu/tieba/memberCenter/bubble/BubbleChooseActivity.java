@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
-import d.b.b.e.p.l;
-import d.b.i0.q1.a.c;
+import d.b.c.e.p.l;
+import d.b.i0.r1.a.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
-    public d.b.i0.q1.a.b mBubbleChooseView;
+    public d.b.i0.r1.a.b mBubbleChooseView;
     public BubbleListModel mBubbleModel;
     public final int PAGE_NUM = 0;
     public final int PAGE_LENGTH = 50;
@@ -93,7 +93,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public void a(SetBubbleResultData setBubbleResultData) {
             BubbleChooseActivity.this.mBubbleChooseView.h();
             int v = BubbleChooseActivity.this.mBubbleModel.v();
-            d.b.i0.q1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
+            d.b.i0.r1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
             if (v == 0) {
                 d2.d(true);
                 for (BubbleListData.BubbleData bubbleData : d2.b()) {
@@ -142,13 +142,13 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public c() {
         }
 
-        @Override // d.b.i0.q1.a.c.e
+        @Override // d.b.i0.r1.a.c.e
         public void a(int i) {
             BubbleChooseActivity.this.useBubble(i);
             BubbleChooseActivity.this.mBubbleChooseView.k();
         }
 
-        @Override // d.b.i0.q1.a.c.e
+        @Override // d.b.i0.r1.a.c.e
         public void b() {
         }
     }
@@ -158,7 +158,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public d() {
         }
 
-        @Override // d.b.i0.q1.a.c.e
+        @Override // d.b.i0.r1.a.c.e
         public void a(int i) {
             TiebaStatic.eventStat(BubbleChooseActivity.this.getPageContext().getPageActivity(), "consume_19", PrefetchEvent.STATE_CLICK);
             BubbleChooseActivity.this.mBubbleModel.D(i);
@@ -167,7 +167,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
 
-        @Override // d.b.i0.q1.a.c.e
+        @Override // d.b.i0.r1.a.c.e
         public void b() {
         }
     }
@@ -195,7 +195,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     private void initView() {
-        d.b.i0.q1.a.b bVar = new d.b.i0.q1.a.b(getPageContext());
+        d.b.i0.r1.a.b bVar = new d.b.i0.r1.a.b(getPageContext());
         this.mBubbleChooseView = bVar;
         bVar.f().setOnItemClickListener(this);
         this.mBubbleChooseView.k();
@@ -268,10 +268,10 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         }
         if (g2.getBcode() != 0 && !g2.canUse()) {
             if (g2.isFree()) {
-                d.b.i0.q1.a.c.a(getPageContext(), g2, this.mFreeBubbleTipDialogCallback);
+                d.b.i0.r1.a.c.a(getPageContext(), g2, this.mFreeBubbleTipDialogCallback);
                 return;
             } else {
-                d.b.i0.q1.a.c.b(getPageContext(), g2, this.mPayBubbleTipDialogCallback);
+                d.b.i0.r1.a.c.b(getPageContext(), g2, this.mPayBubbleTipDialogCallback);
                 return;
             }
         }

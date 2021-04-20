@@ -6,22 +6,22 @@ import java.util.Map;
 public class ak extends ai.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f40227a;
+    public final /* synthetic */ ai f40516a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(ai aiVar, ai.a aVar) {
         super(aVar);
-        this.f40227a = aiVar;
+        this.f40516a = aiVar;
     }
 
     @Override // com.xiaomi.push.ai.b
     public void b() {
         Object obj;
         Map map;
-        obj = this.f40227a.f104a;
+        obj = this.f40516a.f104a;
         synchronized (obj) {
-            map = this.f40227a.f105a;
-            map.remove(super.f40225a.mo165a());
+            map = this.f40516a.f105a;
+            map.remove(super.f40514a.mo169a());
         }
     }
 }

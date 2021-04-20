@@ -17,10 +17,10 @@ public class e {
     public class a extends GetTplStokenCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f50643e;
+        public final /* synthetic */ b f51050e;
 
         public a(e eVar, b bVar) {
-            this.f50643e = bVar;
+            this.f51050e = bVar;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -34,7 +34,7 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(GetTplStokenResult getTplStokenResult) {
-            b bVar = this.f50643e;
+            b bVar = this.f51050e;
             if (bVar != null) {
                 bVar.onFailed();
             }
@@ -44,7 +44,7 @@ public class e {
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             if (getTplStokenResult == null) {
-                b bVar = this.f50643e;
+                b bVar = this.f51050e;
                 if (bVar != null) {
                     bVar.onFailed();
                     return;
@@ -55,21 +55,21 @@ public class e {
             if (map != null && map.size() > 0) {
                 String str = map.get(TbConfig.PassConfig.TPL);
                 if (StringUtils.isNULL(str)) {
-                    b bVar2 = this.f50643e;
+                    b bVar2 = this.f51050e;
                     if (bVar2 != null) {
                         bVar2.onFailed();
                         return;
                     }
                     return;
                 }
-                b bVar3 = this.f50643e;
+                b bVar3 = this.f51050e;
                 if (bVar3 != null) {
                     bVar3.onSuccess(str);
                     return;
                 }
                 return;
             }
-            b bVar4 = this.f50643e;
+            b bVar4 = this.f51050e;
             if (bVar4 != null) {
                 bVar4.onFailed();
             }

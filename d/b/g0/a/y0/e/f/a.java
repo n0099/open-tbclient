@@ -10,32 +10,32 @@ import java.util.ConcurrentModificationException;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<Boolean> f47092a = new d(Boolean.FALSE);
+    public static final d.b.g0.a.y0.e.f.b<Boolean> f47484a = new d(Boolean.FALSE);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<Integer> f47093b = new e(0);
+    public static final d.b.g0.a.y0.e.f.b<Integer> f47485b = new e(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<Long> f47094c = new f(0L);
+    public static final d.b.g0.a.y0.e.f.b<Long> f47486c = new f(0L);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<Float> f47095d = new g(Float.valueOf(0.0f));
+    public static final d.b.g0.a.y0.e.f.b<Float> f47487d = new g(Float.valueOf(0.0f));
 
     /* renamed from: e  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<String> f47096e = new h();
+    public static final d.b.g0.a.y0.e.f.b<String> f47488e = new h();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<String[]> f47097f = new C0884a();
+    public static final d.b.g0.a.y0.e.f.b<String[]> f47489f = new C0896a();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<Bundle> f47098g = new b();
+    public static final d.b.g0.a.y0.e.f.b<Bundle> f47490g = new b();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final d.b.g0.a.y0.e.f.b<Parcelable> f47099h = new c();
+    public static final d.b.g0.a.y0.e.f.b<Parcelable> f47491h = new c();
 
     /* renamed from: d.b.g0.a.y0.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0884a extends d.b.g0.a.y0.e.f.b<String[]> {
+    public static class C0896a extends d.b.g0.a.y0.e.f.b<String[]> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.y0.e.f.b
         /* renamed from: f */

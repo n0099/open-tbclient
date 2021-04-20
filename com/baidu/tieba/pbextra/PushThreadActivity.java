@@ -25,7 +25,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PushThreadActivityConfig;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PushThreadActivity extends BaseActivity {
     public int mCurrentPushType;
     public GridView mGridView;
@@ -36,7 +36,7 @@ public class PushThreadActivity extends BaseActivity {
     public HttpMessageListener mPushThreadMessageListener = new a(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD);
     public List<PushTypeData> mPushTypeDatas;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public a(int i) {
             super(i);
@@ -61,7 +61,7 @@ public class PushThreadActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
         public b() {
             PushThreadActivity.this.mCurrentPushType = 0;

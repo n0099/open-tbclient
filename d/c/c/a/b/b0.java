@@ -9,37 +9,37 @@ public abstract class b0 {
     public static class a extends b0 {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ x f65456a;
+        public final /* synthetic */ x f66301a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f65457b;
+        public final /* synthetic */ int f66302b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f65458c;
+        public final /* synthetic */ byte[] f66303c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f65459d;
+        public final /* synthetic */ int f66304d;
 
         public a(x xVar, int i, byte[] bArr, int i2) {
-            this.f65456a = xVar;
-            this.f65457b = i;
-            this.f65458c = bArr;
-            this.f65459d = i2;
+            this.f66301a = xVar;
+            this.f66302b = i;
+            this.f66303c = bArr;
+            this.f66304d = i2;
         }
 
         @Override // d.c.c.a.b.b0
         public x a() {
-            return this.f65456a;
+            return this.f66301a;
         }
 
         @Override // d.c.c.a.b.b0
         public void e(d.c.c.a.a.d dVar) throws IOException {
-            dVar.c(this.f65458c, this.f65459d, this.f65457b);
+            dVar.c(this.f66303c, this.f66304d, this.f66302b);
         }
 
         @Override // d.c.c.a.b.b0
         public long f() {
-            return this.f65457b;
+            return this.f66302b;
         }
     }
 

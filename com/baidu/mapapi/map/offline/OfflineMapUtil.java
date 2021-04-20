@@ -14,21 +14,21 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
-        mKOLSearchRecord.cityID = qVar.f7659a;
-        mKOLSearchRecord.cityName = qVar.f7660b;
-        mKOLSearchRecord.cityType = qVar.f7662d;
+        mKOLSearchRecord.cityID = qVar.f7694a;
+        mKOLSearchRecord.cityName = qVar.f7695b;
+        mKOLSearchRecord.cityType = qVar.f7697d;
         long j = 0;
         if (qVar.a() != null) {
             ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
             Iterator<q> it = qVar.a().iterator();
             while (it.hasNext()) {
                 arrayList.add(getSearchRecordFromLocalCityInfo(it.next()));
-                j += next.f7661c;
+                j += next.f7696c;
                 mKOLSearchRecord.childCities = arrayList;
             }
         }
         if (mKOLSearchRecord.cityType != 1) {
-            j = qVar.f7661c;
+            j = qVar.f7696c;
         }
         mKOLSearchRecord.dataSize = j;
         return mKOLSearchRecord;
@@ -39,16 +39,16 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-        mKOLUpdateElement.cityID = tVar.f7670a;
-        mKOLUpdateElement.cityName = tVar.f7671b;
-        GeoPoint geoPoint = tVar.f7676g;
+        mKOLUpdateElement.cityID = tVar.f7705a;
+        mKOLUpdateElement.cityName = tVar.f7706b;
+        GeoPoint geoPoint = tVar.f7711g;
         if (geoPoint != null) {
             mKOLUpdateElement.geoPt = CoordUtil.mc2ll(geoPoint);
         }
-        mKOLUpdateElement.level = tVar.f7674e;
+        mKOLUpdateElement.level = tVar.f7709e;
         int i = tVar.i;
         mKOLUpdateElement.ratio = i;
-        int i2 = tVar.f7677h;
+        int i2 = tVar.f7712h;
         mKOLUpdateElement.serversize = i2;
         if (i != 100) {
             i2 = (i2 / 100) * i;

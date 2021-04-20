@@ -6,24 +6,24 @@ import java.util.Map;
 public class HttpHashMap implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f9744a = new HashMap();
+    public Map<String, String> f9302a = new HashMap();
 
     public void doSign(String str) {
     }
 
     public String get(String str) {
-        return this.f9744a.get(str);
+        return this.f9302a.get(str);
     }
 
     public Map getMap() {
-        return this.f9744a;
+        return this.f9302a;
     }
 
     public void put(String str, String str2) {
-        this.f9744a.put(str, str2);
+        this.f9302a.put(str, str2);
     }
 
     public void putAll(Map<? extends String, ? extends String> map) {
-        this.f9744a.putAll(map);
+        this.f9302a.putAll(map);
     }
 }

@@ -19,41 +19,41 @@ import java.util.List;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f55127c = new e();
+    public static e f56440c = new e();
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdAsyncTaskParallel f55128d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    public static BdAsyncTaskParallel f56441d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d.b.h0.w.p.c> f55129a = new ArrayList<>();
+    public ArrayList<d.b.h0.w.p.c> f56442a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<d.b.h0.w.p.a> f55130b = new ArrayList();
+    public final List<d.b.h0.w.p.a> f56443b = new ArrayList();
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ArrayList<d.b.h0.w.p.c> f55131a = new ArrayList<>();
+        public final ArrayList<d.b.h0.w.p.c> f56444a = new ArrayList<>();
 
         /* renamed from: b  reason: collision with root package name */
-        public final a.InterfaceC1109a f55132b = new C1262a();
+        public final a.InterfaceC1122a f56445b = new C1317a();
 
         /* renamed from: d.b.i0.h0.b.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1262a implements a.InterfaceC1109a {
-            public C1262a() {
+        public class C1317a implements a.InterfaceC1122a {
+            public C1317a() {
             }
 
-            @Override // d.b.h0.w.p.a.InterfaceC1109a
+            @Override // d.b.h0.w.p.a.InterfaceC1122a
             public void a(d.b.h0.w.p.c cVar) {
-                a.this.f55131a.add(cVar);
+                a.this.f56444a.add(cVar);
             }
         }
 
         public a() {
             setPriority(4);
-            setParallel(e.f55128d);
+            setParallel(e.f56441d);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,33 +61,33 @@ public class e {
         /* renamed from: b */
         public void onPostExecute(Void r3) {
             super.onPostExecute(r3);
-            e.this.f55129a = this.f55131a;
+            e.this.f56442a = this.f56444a;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001117));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            for (int i = 0; i < e.this.f55130b.size(); i++) {
-                ((d.b.h0.w.p.a) e.this.f55130b.get(i)).b(this.f55132b);
+            for (int i = 0; i < e.this.f56443b.size(); i++) {
+                ((d.b.h0.w.p.a) e.this.f56443b.get(i)).b(this.f56445b);
             }
             return null;
         }
     }
 
     public static e i() {
-        return f55127c;
+        return f56440c;
     }
 
-    public void d(String str, d.b.b.j.d.a aVar, boolean z) {
+    public void d(String str, d.b.c.j.d.a aVar, boolean z) {
         if (aVar == null) {
             return;
         }
         if (z) {
-            d.b.h0.a0.c.j().e(e(str, z), aVar, true);
+            d.b.h0.a0.c.k().e(e(str, z), aVar, true);
             return;
         }
-        d.b.h0.a0.c.j().e(str, aVar, false);
+        d.b.h0.a0.c.k().e(str, aVar, false);
     }
 
     public String e(String str, boolean z) {
@@ -111,7 +111,7 @@ public class e {
             return null;
         }
         if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-            if (str.equals(d.b.h0.a0.d.f49683d)) {
+            if (str.equals(d.b.h0.a0.d.f50076d)) {
                 return null;
             }
             String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
@@ -158,11 +158,11 @@ public class e {
     }
 
     public ArrayList<d.b.h0.w.p.c> h() {
-        return this.f55129a;
+        return this.f56442a;
     }
 
     public boolean j(String str) {
-        Iterator<d.b.h0.w.p.c> it = this.f55129a.iterator();
+        Iterator<d.b.h0.w.p.c> it = this.f56442a.iterator();
         while (it.hasNext()) {
             if (it.next().m(str)) {
                 return true;
@@ -175,7 +175,7 @@ public class e {
         if (str == null || !j(str)) {
             return false;
         }
-        Iterator<d.b.h0.w.p.c> it = this.f55129a.iterator();
+        Iterator<d.b.h0.w.p.c> it = this.f56442a.iterator();
         while (it.hasNext()) {
             d.b.h0.w.p.c next = it.next();
             if (next.m(str)) {
@@ -186,7 +186,7 @@ public class e {
     }
 
     public boolean l(String str) {
-        if (!d.b.h0.a0.d.f49683d.equals(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+        if (!d.b.h0.a0.d.f50076d.equals(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
             String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
             String substring = replace.substring(0, replace.indexOf(","));
             if (substring.contains("_") && !substring.contains("collect_")) {
@@ -197,31 +197,31 @@ public class e {
     }
 
     public boolean m(String str) {
-        return d.b.h0.a0.d.f49683d.equals(str) || str.startsWith(d.b.h0.a0.d.f49684e);
+        return d.b.h0.a0.d.f50076d.equals(str) || str.startsWith(d.b.h0.a0.d.f50077e);
     }
 
-    public d.b.b.j.d.a n(String str, String str2) {
+    public d.b.c.j.d.a n(String str, String str2) {
         Bitmap o;
-        d.b.b.j.d.a l = d.b.h0.a0.c.j().l(str2);
-        if (l != null) {
-            return l;
+        d.b.c.j.d.a m = d.b.h0.a0.c.k().m(str2);
+        if (m != null) {
+            return m;
         }
-        Iterator<d.b.h0.w.p.c> it = this.f55129a.iterator();
+        Iterator<d.b.h0.w.p.c> it = this.f56442a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             d.b.h0.w.p.c next = it.next();
             if (next.m(str2)) {
-                l = next.o(str2);
+                m = next.o(str2);
                 break;
             }
         }
-        if (l == null && str != null && (o = o(str, f(str2, false))) != null) {
-            l = new d.b.b.j.d.a(o, false, str2);
+        if (m == null && str != null && (o = o(str, f(str2, false))) != null) {
+            m = new d.b.c.j.d.a(o, false, str2);
         }
-        d(str2, l, false);
-        return l;
+        d(str2, m, false);
+        return m;
     }
 
     public Bitmap o(String str, String str2) {
@@ -229,10 +229,10 @@ public class e {
     }
 
     public void p(d.b.h0.w.p.a aVar) {
-        synchronized (this.f55130b) {
-            if (!this.f55130b.contains(aVar)) {
-                this.f55130b.add(aVar);
-                Collections.sort(this.f55130b);
+        synchronized (this.f56443b) {
+            if (!this.f56443b.contains(aVar)) {
+                this.f56443b.add(aVar);
+                Collections.sort(this.f56443b);
             }
         }
     }

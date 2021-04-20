@@ -12,12 +12,12 @@ public class d extends e {
 
     @Override // com.kwad.sdk.emotion.widget.e
     public void a(Editable editable) {
-        TextView textView = this.f34705a.get();
+        TextView textView = this.f34994a.get();
         if (editable == null) {
             return;
         }
         int length = editable.length();
-        this.f34706b = true;
+        this.f34995b = true;
         try {
             a((CharSequence) editable);
         } catch (Throwable th) {
@@ -33,7 +33,7 @@ public class d extends e {
         } catch (Throwable th2) {
             th2.printStackTrace();
         }
-        this.f34706b = false;
+        this.f34995b = false;
     }
 
     @Override // com.kwad.sdk.emotion.widget.e

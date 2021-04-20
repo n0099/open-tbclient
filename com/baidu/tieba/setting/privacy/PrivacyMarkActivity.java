@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.r.d0.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
-    public d.b.i0.u2.e.a privacyMarkView;
+    public d.b.i0.v2.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener = new a(CmdConfigHttp.SET_PRIVATE_CMD, true);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(int i, boolean z) {
             super(i, z);
@@ -35,8 +35,8 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             int type = privacySettingMessage.getType();
             if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                b i = b.i();
-                i.u(operation + currentAccount, type);
+                b j = b.j();
+                j.v(operation + currentAccount, type);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                 return;
             }
@@ -70,7 +70,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         if (intExtra2 != 1 && intExtra2 != 3) {
             intExtra2 = 1;
         }
-        d.b.i0.u2.e.a aVar = new d.b.i0.u2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+        d.b.i0.v2.e.a aVar = new d.b.i0.v2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
         this.privacyMarkView = aVar;
         setContentView(aVar.i());
         registerListener(this.setPrivateHttpListener);

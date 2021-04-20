@@ -11,36 +11,36 @@ public class HistoryTraceDisplayOptions {
     public int n = 30;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDescriptor f7374a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    public BitmapDescriptor f7409a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f7375b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+    public BitmapDescriptor f7410b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
 
     /* renamed from: c  reason: collision with root package name */
-    public BitmapDescriptor f7376c = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
+    public BitmapDescriptor f7411c = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
 
     /* renamed from: d  reason: collision with root package name */
-    public BitmapDescriptor f7377d = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Gray_Arrow.png");
+    public BitmapDescriptor f7412d = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Gray_Arrow.png");
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7378e = 22;
+    public int f7413e = 22;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7379f = true;
+    public boolean f7414f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7380g = true;
+    public boolean f7415g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f7381h = false;
+    public boolean f7416h = false;
     public boolean i = true;
 
     public BitmapDescriptor getCarIcon() {
-        return this.f7376c;
+        return this.f7411c;
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f7375b;
+        return this.f7410b;
     }
 
     public int getPaddingBottom() {
@@ -60,15 +60,15 @@ public class HistoryTraceDisplayOptions {
     }
 
     public BitmapDescriptor getRouteLineTexture() {
-        return this.f7377d;
+        return this.f7412d;
     }
 
     public int getRouteLineWidth() {
-        return this.f7378e;
+        return this.f7413e;
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f7374a;
+        return this.f7409a;
     }
 
     public boolean isRouteLineRenderBySubSection() {
@@ -76,11 +76,11 @@ public class HistoryTraceDisplayOptions {
     }
 
     public boolean isShowCarIcon() {
-        return this.f7381h;
+        return this.f7416h;
     }
 
     public boolean isShowEndPositionIcon() {
-        return this.f7380g;
+        return this.f7415g;
     }
 
     public boolean isShowRoutePlan() {
@@ -88,16 +88,16 @@ public class HistoryTraceDisplayOptions {
     }
 
     public boolean isShowStartPositionIcon() {
-        return this.f7379f;
+        return this.f7414f;
     }
 
     public HistoryTraceDisplayOptions setCarIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f7376c = bitmapDescriptor;
+        this.f7411c = bitmapDescriptor;
         return this;
     }
 
     public HistoryTraceDisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f7375b = bitmapDescriptor;
+        this.f7410b = bitmapDescriptor;
         return this;
     }
 
@@ -126,7 +126,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public HistoryTraceDisplayOptions setRouteLineTexture(BitmapDescriptor bitmapDescriptor) {
-        this.f7377d = bitmapDescriptor;
+        this.f7412d = bitmapDescriptor;
         return this;
     }
 
@@ -135,21 +135,21 @@ public class HistoryTraceDisplayOptions {
         if (i >= 5) {
             i2 = 40;
             if (i <= 40) {
-                this.f7378e = i;
+                this.f7413e = i;
                 return this;
             }
         }
-        this.f7378e = i2;
+        this.f7413e = i2;
         return this;
     }
 
     public HistoryTraceDisplayOptions setShowCarIcon(boolean z) {
-        this.f7381h = z;
+        this.f7416h = z;
         return this;
     }
 
     public HistoryTraceDisplayOptions setShowEndPositionIcon(boolean z) {
-        this.f7380g = z;
+        this.f7415g = z;
         return this;
     }
 
@@ -159,12 +159,12 @@ public class HistoryTraceDisplayOptions {
     }
 
     public HistoryTraceDisplayOptions setShowStartPositionIcon(boolean z) {
-        this.f7379f = z;
+        this.f7414f = z;
         return this;
     }
 
     public HistoryTraceDisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f7374a = bitmapDescriptor;
+        this.f7409a = bitmapDescriptor;
         return this;
     }
 }

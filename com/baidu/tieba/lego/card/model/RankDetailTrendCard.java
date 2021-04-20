@@ -2,9 +2,9 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.i0.i1.o.k.b;
+import d.b.i0.j1.o.k.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RankDetailTrendCard extends BaseCardInfo {
     public final String btnDone;
     public final String btnText;

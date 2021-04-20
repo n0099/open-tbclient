@@ -1,26 +1,26 @@
 package d.b.g0.a.a2.g;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43265a;
+    public final String f43657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f43266b;
+    public final int f43658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f43267c;
+    public final String f43659c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f43268d;
+    public final String f43660d;
 
     public c(String str, int i, String str2, String str3) {
-        this.f43265a = str;
-        this.f43266b = i;
-        this.f43267c = str2;
-        this.f43268d = str3;
+        this.f43657a = str;
+        this.f43658b = i;
+        this.f43659c = str2;
+        this.f43660d = str3;
     }
 
     public static Bundle a(String str, int i, String str2, String str3) {
@@ -40,6 +40,6 @@ public class c {
     }
 
     public String toString() {
-        return "SpMethodInfo{mDataType=" + this.f43266b + ", mPrefName='" + this.f43267c + "', mDataValue='" + this.f43268d + "'}";
+        return "SpMethodInfo{mDataType=" + this.f43658b + ", mPrefName='" + this.f43659c + "', mDataValue='" + this.f43660d + "'}";
     }
 }

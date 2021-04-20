@@ -14,7 +14,7 @@ import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends a0 {
     public d(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/navigateBack");
@@ -23,7 +23,7 @@ public class d extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         int optInt;
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         String uuid = UUID.randomUUID().toString();
@@ -35,7 +35,7 @@ public class d extends a0 {
             try {
                 optInt = new JSONObject(str).optInt("delta", 1);
             } catch (JSONException e2) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     e2.printStackTrace();
                 }
                 d.b.g0.a.c0.c.b("navigateBack", "params parse fail");
@@ -50,7 +50,7 @@ public class d extends a0 {
             return false;
         }
         int k = W.k();
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("NavigateBackAction", "back delta: " + optInt);
         }
         if (k == 1) {
@@ -61,12 +61,12 @@ public class d extends a0 {
         if (optInt >= k) {
             optInt = k - 1;
         }
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
         d.b.g0.a.i2.f.a(W, context);
         f.b i = W.i("navigateBack");
-        i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44014h);
+        i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44406h);
         i.h(optInt);
         i.a();
         d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, uuid).A(new UbcFlowEvent("na_push_page_end"));

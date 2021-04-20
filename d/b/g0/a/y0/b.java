@@ -10,52 +10,52 @@ import java.util.Map;
 public class b extends d.b.g0.a.n1.a.a.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static Map<String, d.b.g0.a.i2.u0.b<Bundle>> f47073h;
+    public static Map<String, d.b.g0.a.i2.u0.b<Bundle>> f47465h;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47074f = -1;
+    public int f47466f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47075g = "";
+    public String f47467g = "";
 
     /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<Bundle> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47076e;
+        public final /* synthetic */ String f47468e;
 
         public a(String str) {
-            this.f47076e = str;
+            this.f47468e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(Bundle bundle) {
-            b.this.f47075g = bundle.getString("key_launch_app_id");
-            b.this.f47074f = bundle.getInt("key_launch_status");
-            if (TextUtils.equals(this.f47076e, b.this.f47075g)) {
+            b.this.f47467g = bundle.getString("key_launch_app_id");
+            b.this.f47466f = bundle.getInt("key_launch_status");
+            if (TextUtils.equals(this.f47468e, b.this.f47467g)) {
                 b bVar = b.this;
-                bVar.f45340d.putInt("ok", bVar.f47074f);
+                bVar.f45732d.putInt("ok", bVar.f47466f);
                 b.this.c();
             }
-            b.f47073h.remove(this.f47076e);
+            b.f47465h.remove(this.f47468e);
         }
     }
 
     /* renamed from: d.b.g0.a.y0.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0881b implements d.b.g0.a.i2.u0.b<Bundle> {
+    public static class C0893b implements d.b.g0.a.i2.u0.b<Bundle> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47078e;
+        public final /* synthetic */ String f47470e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.d f47079f;
+        public final /* synthetic */ a.d f47471f;
 
-        public C0881b(String str, a.d dVar) {
-            this.f47078e = str;
-            this.f47079f = dVar;
+        public C0893b(String str, a.d dVar) {
+            this.f47470e = str;
+            this.f47471f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,31 +64,31 @@ public class b extends d.b.g0.a.n1.a.a.a {
         public void onCallback(Bundle bundle) {
             String string = bundle.getString("key_launch_app_id");
             int i = bundle.getInt("key_launch_status");
-            if (TextUtils.equals(this.f47078e, string)) {
+            if (TextUtils.equals(this.f47470e, string)) {
                 if (i == 0) {
-                    this.f47079f.a();
+                    this.f47471f.a();
                 } else {
-                    this.f47079f.b();
+                    this.f47471f.b();
                 }
             }
-            b.f47073h.remove(this.f47078e);
+            b.f47465h.remove(this.f47470e);
         }
     }
 
     static {
-        boolean z = k.f45051a;
-        f47073h = new d.b.g0.m.a.c.a();
+        boolean z = k.f45443a;
+        f47465h = new d.b.g0.m.a.c.a();
     }
 
     public static void j(String str, a.d dVar) {
         if (TextUtils.isEmpty(str) || dVar == null) {
             return;
         }
-        f47073h.put(str, new C0881b(str, dVar));
+        f47465h.put(str, new C0893b(str, dVar));
     }
 
     public static void k(String str) {
-        d.b.g0.a.i2.u0.b<Bundle> bVar = f47073h.get(str);
+        d.b.g0.a.i2.u0.b<Bundle> bVar = f47465h.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_launch_app_id", str);
@@ -98,7 +98,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public static void l(String str) {
-        d.b.g0.a.i2.u0.b<Bundle> bVar = f47073h.get(str);
+        d.b.g0.a.i2.u0.b<Bundle> bVar = f47465h.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_launch_app_id", str);
@@ -110,6 +110,6 @@ public class b extends d.b.g0.a.n1.a.a.a {
     @Override // d.b.g0.a.n1.a.a.a
     public void b(@NonNull Bundle bundle) {
         String string = bundle.getString("desAppId");
-        f47073h.put(string, new a(string));
+        f47465h.put(string, new a(string));
     }
 }

@@ -5,65 +5,65 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28100a;
+    public String f27785a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28101b;
+    public int f27786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28102c;
+    public String f27787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<l> f28103d = new ArrayList();
+    public List<l> f27788d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28104e;
+    public String f27789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28105f;
+    public long f27790f;
 
     public String a() {
-        return this.f28100a;
+        return this.f27785a;
     }
 
     public int b() {
-        return this.f28101b;
+        return this.f27786b;
     }
 
     public List<l> c() {
-        return this.f28103d;
+        return this.f27788d;
     }
 
     public String d() {
-        return this.f28104e;
+        return this.f27789e;
     }
 
     public void a(String str) {
-        this.f28100a = str;
+        this.f27785a = str;
     }
 
     public void b(String str) {
-        this.f28102c = str;
+        this.f27787c = str;
     }
 
     public void c(String str) {
-        this.f28104e = str;
+        this.f27789e = str;
     }
 
     public void a(int i) {
-        this.f28101b = i;
+        this.f27786b = i;
     }
 
     public void a(l lVar) {
-        this.f28103d.add(lVar);
+        this.f27788d.add(lVar);
     }
 
     public void a(long j) {
-        this.f28105f = j;
+        this.f27790f = j;
     }
 
     public static Map<String, l> a(a aVar) {

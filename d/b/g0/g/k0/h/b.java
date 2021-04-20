@@ -13,47 +13,47 @@ import d.b.g0.g.k0.d;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f48274g = e.a(42.0f);
+    public static final int f48666g = e.a(42.0f);
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f48275h = null;
+    public static volatile b f48667h = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48276a;
+    public int f48668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48277b;
+    public int f48669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48278c;
+    public int f48670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f48279d;
+    public boolean f48671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48280e;
+    public int f48672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f48281f = null;
+    public ViewTreeObserver.OnGlobalLayoutListener f48673f = null;
 
     /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f48282e;
+        public final /* synthetic */ View f48674e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.k0.h.a f48283f;
+        public final /* synthetic */ d.b.g0.g.k0.h.a f48675f;
 
         public a(View view, d.b.g0.g.k0.h.a aVar) {
-            this.f48282e = view;
-            this.f48283f = aVar;
+            this.f48674e = view;
+            this.f48675f = aVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            View view = this.f48282e;
+            View view = this.f48674e;
             if (view == null) {
                 return;
             }
@@ -61,55 +61,55 @@ public class b {
             int i = rect.bottom - rect.top;
             int l = h0.l(AppRuntime.getAppContext());
             int s = h0.s();
-            if (!b.this.f48279d) {
-                b.this.f48279d = true;
-                b.this.f48278c = (l - i) - s;
-                if (b.this.f48278c < 0) {
-                    b.this.f48278c = 0;
+            if (!b.this.f48671d) {
+                b.this.f48671d = true;
+                b.this.f48670c = (l - i) - s;
+                if (b.this.f48670c < 0) {
+                    b.this.f48670c = 0;
                 }
             }
             if (i > 0) {
-                if (i >= b.this.f48280e || this.f48282e.getHeight() - i <= 200) {
-                    if (i <= b.this.f48280e || this.f48282e.getHeight() - i >= 200) {
+                if (i >= b.this.f48672e || this.f48674e.getHeight() - i <= 200) {
+                    if (i <= b.this.f48672e || this.f48674e.getHeight() - i >= 200) {
                         return;
                     }
-                    b.this.f48280e = i;
-                    b.this.s(this.f48283f);
+                    b.this.f48672e = i;
+                    b.this.s(this.f48675f);
                     return;
                 }
-                b.this.f48280e = i;
-                b.this.f48277b = i - b.f48274g;
+                b.this.f48672e = i;
+                b.this.f48669b = i - b.f48666g;
                 b bVar = b.this;
-                bVar.f48276a = ((l - i) - s) - bVar.f48278c;
-                if (b.this.f48276a > 0) {
+                bVar.f48668a = ((l - i) - s) - bVar.f48670c;
+                if (b.this.f48668a > 0) {
                     b bVar2 = b.this;
-                    if (bVar2.t(this.f48283f, bVar2.f48276a, b.this.f48277b)) {
+                    if (bVar2.t(this.f48675f, bVar2.f48668a, b.this.f48669b)) {
                         return;
                     }
-                    b.this.s(this.f48283f);
+                    b.this.s(this.f48675f);
                 }
             }
         }
     }
 
     public static b p() {
-        if (f48275h == null) {
+        if (f48667h == null) {
             synchronized (b.class) {
-                if (f48275h == null) {
-                    f48275h = new b();
+                if (f48667h == null) {
+                    f48667h = new b();
                 }
             }
         }
-        return f48275h;
+        return f48667h;
     }
 
     public final void m(View view, d.b.g0.g.k0.h.a aVar) {
         if (view == null || aVar == null) {
             return;
         }
-        this.f48280e = view.getHeight();
-        this.f48281f = new a(view, aVar);
-        view.getViewTreeObserver().addOnGlobalLayoutListener(this.f48281f);
+        this.f48672e = view.getHeight();
+        this.f48673f = new a(view, aVar);
+        view.getViewTreeObserver().addOnGlobalLayoutListener(this.f48673f);
     }
 
     public boolean n(d.b.g0.g.k0.h.a aVar) {
@@ -152,16 +152,16 @@ public class b {
             return false;
         }
         FrameLayout e2 = Y.e();
-        if (e2 != null && this.f48281f != null) {
-            e2.getViewTreeObserver().removeOnGlobalLayoutListener(this.f48281f);
+        if (e2 != null && this.f48673f != null) {
+            e2.getViewTreeObserver().removeOnGlobalLayoutListener(this.f48673f);
         }
         aVar.h();
-        this.f48281f = null;
-        this.f48276a = -1;
-        this.f48277b = -1;
-        this.f48278c = -1;
-        this.f48279d = false;
-        this.f48280e = -1;
+        this.f48673f = null;
+        this.f48668a = -1;
+        this.f48669b = -1;
+        this.f48670c = -1;
+        this.f48671d = false;
+        this.f48672e = -1;
         return Y.m(aVar.f());
     }
 

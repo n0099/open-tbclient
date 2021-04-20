@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -20,43 +21,43 @@ import d.b.g0.a.z1.h;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public FloatButton f46398c;
+    public FloatButton f46790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.t1.k.i0.a f46399d;
+    public d.b.g0.a.t1.k.i0.a f46791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f46400e;
+    public e f46792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46401f;
+    public String f46793f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46402e;
+        public final /* synthetic */ CallbackHandler f46794e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46403f;
+        public final /* synthetic */ String f46795f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46404g;
+        public final /* synthetic */ JSONObject f46796g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f46405h;
+        public final /* synthetic */ Context f46797h;
         public final /* synthetic */ d.b.g0.a.r1.e i;
         public final /* synthetic */ String j;
 
         public a(CallbackHandler callbackHandler, String str, JSONObject jSONObject, Context context, d.b.g0.a.r1.e eVar, String str2) {
-            this.f46402e = callbackHandler;
-            this.f46403f = str;
-            this.f46404g = jSONObject;
-            this.f46405h = context;
+            this.f46794e = callbackHandler;
+            this.f46795f = str;
+            this.f46796g = jSONObject;
+            this.f46797h = context;
             this.i = eVar;
             this.j = str2;
         }
@@ -65,50 +66,50 @@ public class b extends a0 {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            if (eVar == null || eVar.f46771d) {
-                FloatButton c2 = b.this.f46399d.c();
+            if (eVar == null || eVar.f47163d) {
+                FloatButton c2 = b.this.f46791d.c();
                 if (c2 != null) {
                     c2.setVisibility(8);
                 }
-                d.b.g0.a.v1.c.c.m(10005, this.f46402e, this.f46403f);
+                d.b.g0.a.v1.c.c.m(10005, this.f46794e, this.f46795f);
                 h.q(10005, eVar);
-            } else if (b.this.w(eVar, this.f46404g.optString("scheme"))) {
-                b.this.f46400e = eVar;
-                SwanAppActivity swanAppActivity = (SwanAppActivity) this.f46405h;
-                b.this.f46399d = d.b.g0.a.t1.k.i0.a.d();
-                if (b.this.f46399d.c() == null) {
+            } else if (b.this.w(eVar, this.f46796g.optString("scheme"))) {
+                b.this.f46792e = eVar;
+                SwanAppActivity swanAppActivity = (SwanAppActivity) this.f46797h;
+                b.this.f46791d = d.b.g0.a.t1.k.i0.a.d();
+                if (b.this.f46791d.c() == null) {
                     b bVar = b.this;
-                    bVar.f46398c = bVar.y(this.f46405h, this.f46404g);
-                    b.this.x(this.f46403f, this.f46404g, this.f46402e, swanAppActivity);
+                    bVar.f46790c = bVar.y(this.f46797h, this.f46796g);
+                    b.this.x(this.f46795f, this.f46796g, this.f46794e, swanAppActivity);
                 }
                 this.i.H().h(this.j, Boolean.TRUE);
             } else {
-                this.f46402e.handleSchemeDispatchCallback(this.f46403f, UnitedSchemeUtility.wrapCallbackParams(1001, "open app scheme is not allowed").toString());
+                this.f46794e.handleSchemeDispatchCallback(this.f46795f, UnitedSchemeUtility.wrapCallbackParams(1001, "open app scheme is not allowed").toString());
             }
         }
     }
 
     /* renamed from: d.b.g0.a.t1.k.i0.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0838b implements FullScreenFloatView.c {
+    /* loaded from: classes3.dex */
+    public class C0850b implements FullScreenFloatView.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f46406a;
+        public final /* synthetic */ Activity f46798a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46407b;
+        public final /* synthetic */ JSONObject f46799b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46408c;
+        public final /* synthetic */ CallbackHandler f46800c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f46409d;
+        public final /* synthetic */ String f46801d;
 
-        public C0838b(Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-            this.f46406a = activity;
-            this.f46407b = jSONObject;
-            this.f46408c = callbackHandler;
-            this.f46409d = str;
+        public C0850b(Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
+            this.f46798a = activity;
+            this.f46799b = jSONObject;
+            this.f46800c = callbackHandler;
+            this.f46801d = str;
         }
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
@@ -118,73 +119,73 @@ public class b extends a0 {
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
         public void onClick() {
             boolean z;
-            if (k0.C(this.f46406a, b.this.f46401f)) {
-                String optString = this.f46407b.optString("scheme");
+            if (k0.C(this.f46798a, b.this.f46793f)) {
+                String optString = this.f46799b.optString("scheme");
                 b bVar = b.this;
-                b.this.z(this.f46406a, optString, bVar.v(bVar.f46400e.i.get(0), optString), this.f46408c, this.f46409d);
+                b.this.z(this.f46798a, optString, bVar.v(bVar.f46792e.i.get(0), optString), this.f46800c, this.f46801d);
                 return;
             }
             try {
-                String optString2 = this.f46407b.optString("downloadUrl");
+                String optString2 = this.f46799b.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", optString2);
-                z = k0.f(this.f46406a, jSONObject.toString());
+                z = k0.f(this.f46798a, jSONObject.toString());
             } catch (JSONException e2) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     e2.printStackTrace();
                 }
                 z = false;
             }
-            this.f46408c.handleSchemeDispatchCallback(this.f46409d, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "download app success" : "download app fail").toString());
+            this.f46800c.handleSchemeDispatchCallback(this.f46801d, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "download app success" : "download app fail").toString());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f46411e;
+        public final /* synthetic */ Activity f46803e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46412f;
+        public final /* synthetic */ String f46804f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46413g;
+        public final /* synthetic */ CallbackHandler f46805g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46414h;
+        public final /* synthetic */ String f46806h;
 
         public c(b bVar, Activity activity, String str, CallbackHandler callbackHandler, String str2) {
-            this.f46411e = activity;
-            this.f46412f = str;
-            this.f46413g = callbackHandler;
-            this.f46414h = str2;
+            this.f46803e = activity;
+            this.f46804f = str;
+            this.f46805g = callbackHandler;
+            this.f46806h = str2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            boolean O = k0.O(this.f46411e, this.f46412f);
-            this.f46413g.handleSchemeDispatchCallback(this.f46414h, UnitedSchemeUtility.wrapCallbackParams(O ? 0 : 1001, O ? "open app success" : "open app fail").toString());
+            boolean O = k0.O(this.f46803e, this.f46804f);
+            this.f46805g.handleSchemeDispatchCallback(this.f46806h, UnitedSchemeUtility.wrapCallbackParams(O ? 0 : 1001, O ? "open app success" : "open app fail").toString());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46415e;
+        public final /* synthetic */ CallbackHandler f46807e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46416f;
+        public final /* synthetic */ String f46808f;
 
         public d(b bVar, CallbackHandler callbackHandler, String str) {
-            this.f46415e = callbackHandler;
-            this.f46416f = str;
+            this.f46807e = callbackHandler;
+            this.f46808f = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            this.f46415e.handleSchemeDispatchCallback(this.f46416f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f46807e.handleSchemeDispatchCallback(this.f46808f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
@@ -211,16 +212,16 @@ public class b extends a0 {
                 return false;
             }
             String optString2 = a2.optString("name");
-            this.f46401f = optString2;
+            this.f46793f = optString2;
             if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "packageName is empty");
                 return false;
             }
             d.b.g0.a.t1.k.i0.a d2 = d.b.g0.a.t1.k.i0.a.d();
-            this.f46399d = d2;
-            d2.i(this.f46401f);
-            if (this.f46399d.c() != null) {
-                this.f46398c = y(context, a2);
+            this.f46791d = d2;
+            d2.i(this.f46793f);
+            if (this.f46791d.c() != null) {
+                this.f46790c = y(context, a2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
@@ -254,7 +255,7 @@ public class b extends a0 {
                         }
                     } catch (JSONException e2) {
                         e = e2;
-                        if (a0.f46288b) {
+                        if (a0.f46680b) {
                             e.printStackTrace();
                         }
                         if (!TextUtils.isEmpty(str4)) {
@@ -276,7 +277,7 @@ public class b extends a0 {
 
     public final boolean w(e eVar, String str) {
         if (eVar != null && !TextUtils.isEmpty(str)) {
-            for (String str2 : eVar.f46775h) {
+            for (String str2 : eVar.f47167h) {
                 if (str.contains(str2)) {
                     return true;
                 }
@@ -289,12 +290,12 @@ public class b extends a0 {
         if (callbackHandler == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f46398c.setDragImageListener(new C0838b(activity, jSONObject, callbackHandler, str));
+        this.f46790c.setDragImageListener(new C0850b(activity, jSONObject, callbackHandler, str));
     }
 
     public final FloatButton y(Context context, JSONObject jSONObject) {
-        this.f46399d.g((SwanAppActivity) context, jSONObject);
-        return this.f46399d.f();
+        this.f46791d.g((SwanAppActivity) context, jSONObject);
+        return this.f46791d.f();
     }
 
     public final void z(Activity activity, String str, String str2, CallbackHandler callbackHandler, String str3) {

@@ -27,27 +27,27 @@ import org.json.JSONObject;
 public class b extends d.b.g0.a.g1.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47339e = k.f45051a;
+    public static final boolean f47731e = k.f45443a;
 
     /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47340e;
+        public final /* synthetic */ CallbackHandler f47732e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47341f;
+        public final /* synthetic */ String f47733f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47342g;
+        public final /* synthetic */ String f47734g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f47343h;
+        public final /* synthetic */ d.b.g0.a.r1.e f47735h;
 
         /* renamed from: d.b.g0.b.m.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0905a implements d.b.g0.a.i2.u0.b<String> {
-            public C0905a() {
+        public class C0917a implements d.b.g0.a.i2.u0.b<String> {
+            public C0917a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -55,15 +55,15 @@ public class b extends d.b.g0.a.g1.a {
             /* renamed from: a */
             public void onCallback(String str) {
                 a aVar = a.this;
-                b.this.D(str, aVar.f47340e, aVar.f47341f, aVar.f47343h);
+                b.this.D(str, aVar.f47732e, aVar.f47733f, aVar.f47735h);
             }
         }
 
         public a(CallbackHandler callbackHandler, String str, String str2, d.b.g0.a.r1.e eVar) {
-            this.f47340e = callbackHandler;
-            this.f47341f = str;
-            this.f47342g = str2;
-            this.f47343h = eVar;
+            this.f47732e = callbackHandler;
+            this.f47733f = str;
+            this.f47734g = str2;
+            this.f47735h = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,33 +71,33 @@ public class b extends d.b.g0.a.g1.a {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.o(hVar, this.f47340e, this.f47341f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f47732e, this.f47733f);
             } else {
-                b.z(this.f47342g, new C0905a());
+                b.z(this.f47734g, new C0917a());
             }
         }
     }
 
     /* renamed from: d.b.g0.b.m.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0906b implements d.b.g0.a.i2.u0.b<String> {
+    public class C0918b implements d.b.g0.a.i2.u0.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47345e;
+        public final /* synthetic */ CallbackHandler f47737e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47346f;
+        public final /* synthetic */ String f47738f;
 
-        public C0906b(b bVar, CallbackHandler callbackHandler, String str) {
-            this.f47345e = callbackHandler;
-            this.f47346f = str;
+        public C0918b(b bVar, CallbackHandler callbackHandler, String str) {
+            this.f47737e = callbackHandler;
+            this.f47738f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(String str) {
-            this.f47345e.handleSchemeDispatchCallback(this.f47346f, str);
+            this.f47737e.handleSchemeDispatchCallback(this.f47738f, str);
         }
     }
 
@@ -105,15 +105,15 @@ public class b extends d.b.g0.a.g1.a {
     public static class c extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f47347a;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47739a;
 
         public c(d.b.g0.a.i2.u0.b bVar) {
-            this.f47347a = bVar;
+            this.f47739a = bVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f47347a.onCallback(b.A(exc == null ? "" : exc.getMessage()));
+            this.f47739a.onCallback(b.A(exc == null ? "" : exc.getMessage()));
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -122,7 +122,7 @@ public class b extends d.b.g0.a.g1.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            b.E(response, this.f47347a);
+            b.E(response, this.f47739a);
             return response;
         }
     }
@@ -131,10 +131,10 @@ public class b extends d.b.g0.a.g1.a {
     public static class d implements d.b.g0.a.i2.u0.b<Bundle> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f47348e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47740e;
 
         public d(d.b.g0.a.i2.u0.b bVar) {
-            this.f47348e = bVar;
+            this.f47740e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -143,12 +143,12 @@ public class b extends d.b.g0.a.g1.a {
         public void onCallback(Bundle bundle) {
             JSONObject wrapCallbackParams;
             if (bundle == null) {
-                this.f47348e.onCallback(UnitedSchemeUtility.wrapCallbackParams(1001, "result is null").toString());
+                this.f47740e.onCallback(UnitedSchemeUtility.wrapCallbackParams(1001, "result is null").toString());
                 return;
             }
             String g2 = u.g(bundle, "callbackKey");
             if (TextUtils.isEmpty(g2)) {
-                this.f47348e.onCallback(UnitedSchemeUtility.wrapCallbackParams(1001, u.g(bundle, "failMsg")).toString());
+                this.f47740e.onCallback(UnitedSchemeUtility.wrapCallbackParams(1001, u.g(bundle, "failMsg")).toString());
                 return;
             }
             d.b.g0.a.c0.c.g("FaceVerifyAction", g2);
@@ -157,12 +157,12 @@ public class b extends d.b.g0.a.g1.a {
                 jSONObject.put("callbackKey", g2);
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             } catch (JSONException e2) {
-                if (b.f47339e) {
+                if (b.f47731e) {
                     e2.printStackTrace();
                 }
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
             }
-            this.f47348e.onCallback(wrapCallbackParams.toString());
+            this.f47740e.onCallback(wrapCallbackParams.toString());
         }
     }
 
@@ -178,14 +178,14 @@ public class b extends d.b.g0.a.g1.a {
     public static void B(Request request, d.b.g0.a.i2.u0.b<String> bVar) {
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(request.url().toString(), request.body(), new c(bVar));
         aVar.i = request.tag();
-        aVar.f48884f = true;
-        aVar.f48885g = true;
-        aVar.f48886h = true;
+        aVar.f49276f = true;
+        aVar.f49277g = true;
+        aVar.f49278h = true;
         d.b.g0.k.e.a.f().e(aVar);
     }
 
     public static void C(String str, d.b.g0.a.r1.e eVar, d.b.g0.a.i2.u0.b<String> bVar) {
-        d.b.g0.b.i.a.M(eVar.n(), str, eVar.f45740f, new d(bVar));
+        d.b.g0.b.i.a.M(eVar.n(), str, eVar.f46132f, new d(bVar));
     }
 
     public static void E(Response response, d.b.g0.a.i2.u0.b<String> bVar) {
@@ -203,11 +203,11 @@ public class b extends d.b.g0.a.g1.a {
             try {
                 str = body.string();
             } catch (IOException e2) {
-                if (f47339e) {
+                if (f47731e) {
                     e2.printStackTrace();
                 }
             }
-            if (f47339e) {
+            if (f47731e) {
                 Log.d("FaceVerifyAction", "response body : " + str);
             }
             if (TextUtils.isEmpty(str)) {
@@ -227,7 +227,7 @@ public class b extends d.b.g0.a.g1.a {
                     bVar.onCallback(String.valueOf(optJSONObject.optInt("real_name")));
                 }
             } catch (JSONException e3) {
-                if (f47339e) {
+                if (f47731e) {
                     e3.printStackTrace();
                 }
                 bVar.onCallback(A("body format error"));
@@ -242,7 +242,7 @@ public class b extends d.b.g0.a.g1.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/realnamecheck");
-        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43275d.entrySet()) {
+        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43667d.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
@@ -268,7 +268,7 @@ public class b extends d.b.g0.a.g1.a {
         } else if (!TextUtils.equals(str, "1") && !TextUtils.equals(str, "0")) {
             callbackHandler.handleSchemeDispatchCallback(str2, str);
         } else {
-            C(str, eVar, new C0906b(this, callbackHandler, str2));
+            C(str, eVar, new C0918b(this, callbackHandler, str2));
         }
     }
 
@@ -278,7 +278,7 @@ public class b extends d.b.g0.a.g1.a {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
             return false;
         } else if (eVar.Z()) {
-            if (f47339e) {
+            if (f47731e) {
                 Log.d("FaceVerifyAction", "FaceVerifyAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -294,7 +294,7 @@ public class b extends d.b.g0.a.g1.a {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
                 return false;
             }
-            String a2 = d.b.g0.a.t.c.h.c.a(eVar.f45740f);
+            String a2 = d.b.g0.a.t.c.h.c.a(eVar.f46132f);
             JSONObject n = n(a2);
             eVar.R().h(context, "mapp_i_face_verify", d.b.g0.a.v1.c.c.i(optParamsAsJo), new a(callbackHandler, optString, a2, eVar));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n, 0));

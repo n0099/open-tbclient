@@ -7,28 +7,28 @@ import android.widget.TextView;
 public final class db {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23154a;
+    public TextView f22839a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f23155b;
+    public ImageView f22840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23156c;
+    public TextView f22841c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f23157d;
+    public RelativeLayout f22842d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f23158e;
+    public RelativeLayout f22843e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f23159f;
+    public TextView f22844f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23160g;
+    public TextView f22845g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f23161h;
+    public i f22846h;
     public ImageView i;
     public TextView j;
 }

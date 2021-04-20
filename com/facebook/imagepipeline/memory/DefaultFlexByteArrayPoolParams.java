@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultFlexByteArrayPoolParams {
     public static final int DEFAULT_MAX_BYTE_ARRAY_SIZE = 4194304;
     public static final int DEFAULT_MAX_NUM_THREADS = Runtime.getRuntime().availableProcessors();

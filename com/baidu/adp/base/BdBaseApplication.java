@@ -10,10 +10,10 @@ import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.nps.NPSHookManager;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
-import d.b.b.a.b;
-import d.b.b.a.h;
-import d.b.b.e.p.d;
-import d.b.b.g.c;
+import d.b.c.a.b;
+import d.b.c.a.h;
+import d.b.c.e.p.d;
+import d.b.c.g.c;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
@@ -63,7 +63,7 @@ public class BdBaseApplication extends Application {
     }
 
     private void initPlugin() {
-        d.b.b.h.i.a.d().e();
+        d.b.c.h.i.a.d().e();
     }
 
     private void initWorkMode() {

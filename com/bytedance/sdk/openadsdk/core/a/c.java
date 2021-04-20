@@ -6,24 +6,24 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import com.bytedance.sdk.openadsdk.core.h.g;
 import com.bytedance.sdk.openadsdk.core.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static int B = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f28024a;
+    public static float f27709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f28025b;
+    public static float f27710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f28026c;
+    public static float f27711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f28027d;
+    public static float f27712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f28028e;
+    public static long f27713e;
     public int A;
     public SparseArray<a> C = new SparseArray<>();
     public int s;
@@ -35,27 +35,27 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public int y;
     public int z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f28029a;
+        public int f27714a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f28030b;
+        public double f27715b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f28031c;
+        public double f27716c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f28032d;
+        public long f27717d;
 
         public a(int i, double d2, double d3, long j) {
-            this.f28029a = -1;
-            this.f28029a = i;
-            this.f28030b = d2;
-            this.f28031c = d3;
-            this.f28032d = j;
+            this.f27714a = -1;
+            this.f27714a = i;
+            this.f27715b = d2;
+            this.f27716c = d3;
+            this.f27717d = j;
         }
     }
 
@@ -63,11 +63,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(p.a()) != null) {
             B = ViewConfiguration.get(p.a()).getScaledTouchSlop();
         }
-        f28024a = 0.0f;
-        f28025b = 0.0f;
-        f28026c = 0.0f;
-        f28027d = 0.0f;
-        f28028e = 0L;
+        f27709a = 0.0f;
+        f27710b = 0.0f;
+        f27711c = 0.0f;
+        f27712d = 0.0f;
+        f27713e = 0L;
     }
 
     public abstract void a(View view, int i, int i2, int i3, int i4);
@@ -90,7 +90,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             this.y = motionEvent.getToolType(0);
             this.z = motionEvent.getDeviceId();
             this.A = motionEvent.getSource();
-            f28028e = System.currentTimeMillis();
+            f27713e = System.currentTimeMillis();
             i = 0;
         } else if (actionMasked == 1) {
             this.u = (int) motionEvent.getRawX();
@@ -100,14 +100,14 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         } else if (actionMasked != 2) {
             i = actionMasked != 3 ? -1 : 4;
         } else {
-            f28026c += Math.abs(motionEvent.getX() - f28024a);
-            f28027d += Math.abs(motionEvent.getY() - f28025b);
-            f28024a = motionEvent.getX();
-            f28025b = motionEvent.getY();
-            if (System.currentTimeMillis() - f28028e > 200) {
-                float f2 = f28026c;
+            f27711c += Math.abs(motionEvent.getX() - f27709a);
+            f27712d += Math.abs(motionEvent.getY() - f27710b);
+            f27709a = motionEvent.getX();
+            f27710b = motionEvent.getY();
+            if (System.currentTimeMillis() - f27713e > 200) {
+                float f2 = f27711c;
                 int i2 = B;
-                if (f2 > i2 || f28027d > i2) {
+                if (f2 > i2 || f27712d > i2) {
                     i = 1;
                 }
             }

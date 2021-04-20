@@ -10,7 +10,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(2);
-        mapStatusUpdate.f6914c = latLng;
+        mapStatusUpdate.f6949c = latLng;
         return mapStatusUpdate;
     }
 
@@ -19,7 +19,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(3);
-        mapStatusUpdate.f6915d = latLngBounds;
+        mapStatusUpdate.f6950d = latLngBounds;
         return mapStatusUpdate;
     }
 
@@ -28,9 +28,9 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(9);
-        mapStatusUpdate.f6915d = latLngBounds;
-        mapStatusUpdate.f6916e = i;
-        mapStatusUpdate.f6917f = i2;
+        mapStatusUpdate.f6950d = latLngBounds;
+        mapStatusUpdate.f6951e = i;
+        mapStatusUpdate.f6952f = i2;
         return mapStatusUpdate;
     }
 
@@ -39,7 +39,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(10);
-        mapStatusUpdate.f6915d = latLngBounds;
+        mapStatusUpdate.f6950d = latLngBounds;
         mapStatusUpdate.l = i;
         mapStatusUpdate.m = i2;
         mapStatusUpdate.n = i3;
@@ -52,8 +52,8 @@ public final class MapStatusUpdateFactory {
         if (latLng == null) {
             return null;
         }
-        mapStatusUpdate.f6914c = latLng;
-        mapStatusUpdate.f6918g = f2;
+        mapStatusUpdate.f6949c = latLng;
+        mapStatusUpdate.f6953g = f2;
         return mapStatusUpdate;
     }
 
@@ -62,13 +62,13 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(1);
-        mapStatusUpdate.f6913b = mapStatus;
+        mapStatusUpdate.f6948b = mapStatus;
         return mapStatusUpdate;
     }
 
     public static MapStatusUpdate scrollBy(int i, int i2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(5);
-        mapStatusUpdate.f6919h = i;
+        mapStatusUpdate.f6954h = i;
         mapStatusUpdate.i = i2;
         return mapStatusUpdate;
     }
@@ -103,7 +103,7 @@ public final class MapStatusUpdateFactory {
 
     public static MapStatusUpdate zoomTo(float f2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(8);
-        mapStatusUpdate.f6918g = f2;
+        mapStatusUpdate.f6953g = f2;
         return mapStatusUpdate;
     }
 }

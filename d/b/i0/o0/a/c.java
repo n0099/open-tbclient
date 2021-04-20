@@ -1,38 +1,20 @@
 package d.b.i0.o0.a;
-
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class c extends d.b.b.j.e.a<d.b.i0.o0.c.b, CardViewHolder<d.b.i0.o0.d.d>> {
-    public TbPageContext m;
-    public View.OnClickListener n;
+public class c implements i {
 
-    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.m = tbPageContext;
+    /* renamed from: a  reason: collision with root package name */
+    public String f58681a;
+
+    @Override // d.b.i0.o0.a.i
+    public int a() {
+        return 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<d.b.i0.o0.d.d> R(ViewGroup viewGroup) {
-        d.b.i0.o0.d.d dVar = new d.b.i0.o0.d.d(this.m);
-        dVar.w(this.n);
-        return new CardViewHolder<>(dVar);
+    public String b() {
+        return this.f58681a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: i0 */
-    public View X(int i, View view, ViewGroup viewGroup, d.b.i0.o0.c.b bVar, CardViewHolder<d.b.i0.o0.d.d> cardViewHolder) {
-        cardViewHolder.b().n(bVar);
-        return cardViewHolder.a();
-    }
-
-    public void j0(View.OnClickListener onClickListener) {
-        this.n = onClickListener;
+    public void c(String str) {
+        this.f58681a = str;
     }
 }

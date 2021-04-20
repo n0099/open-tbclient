@@ -10,7 +10,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.b.c.g.a;
+import d.b.c.c.g.a;
 import d.b.h0.r.c;
 /* loaded from: classes3.dex */
 public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
@@ -20,7 +20,7 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal = baseActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Context getContext() {
         return this.orginal.getActivity();
     }
@@ -31,27 +31,27 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [T, com.baidu.tbadk.BaseActivity<T>] */
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public T getOrignalPage() {
         return this.orginal;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Activity getPageActivity() {
         return this.orginal.getActivity();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Resources getResources() {
         return getPageActivity().getResources();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public String getString(int i) {
         return getResources().getString(i);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public BdUniqueId getUniqueId() {
         return this.orginal.getUniqueId();
     }
@@ -61,7 +61,7 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal.registerListener(aVar);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public void sendMessage(Message<?> message) {
         this.orginal.sendMessage(message);
     }
@@ -96,7 +96,7 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal.showToast(str, z);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public void registerListener(MessageListener<?> messageListener) {
         this.orginal.registerListener(messageListener);
     }

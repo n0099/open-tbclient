@@ -12,42 +12,42 @@ import com.baidu.apollon.utils.ResUtils;
 public class LoadingDialogForLightApp extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f25303a;
+    public TextView f24988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f25304b;
+    public ProgressBar f24989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25305c;
+    public String f24990c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f25306d;
+    public Context f24991d;
 
     public LoadingDialogForLightApp(Context context) {
         super(context, ResUtils.style(context, "LoadingDialog"));
-        this.f25306d = null;
-        this.f25306d = context;
+        this.f24991d = null;
+        this.f24991d = context;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
-        setContentView(ResUtils.layout(this.f25306d, "wallet_base_loading_dialog_for_light_app"));
-        this.f25303a = (TextView) findViewById(ResUtils.id(this.f25306d, "dialog_msg"));
-        this.f25304b = (ProgressBar) findViewById(ResUtils.id(this.f25306d, "progress_bar"));
-        if (!TextUtils.isEmpty(this.f25305c)) {
-            this.f25303a.setText(this.f25305c);
+        setContentView(ResUtils.layout(this.f24991d, "wallet_base_loading_dialog_for_light_app"));
+        this.f24988a = (TextView) findViewById(ResUtils.id(this.f24991d, "dialog_msg"));
+        this.f24989b = (ProgressBar) findViewById(ResUtils.id(this.f24991d, "progress_bar"));
+        if (!TextUtils.isEmpty(this.f24990c)) {
+            this.f24988a.setText(this.f24990c);
         }
         if (!TextUtils.isEmpty(GlobalUtils.showStr)) {
-            this.f25303a.setText(GlobalUtils.showStr);
+            this.f24988a.setText(GlobalUtils.showStr);
         }
         setCanceledOnTouchOutside(false);
         setCancelable(true);
     }
 
     public void setMessage(int i) {
-        TextView textView = this.f25303a;
+        TextView textView = this.f24988a;
         if (textView == null) {
             return;
         }
@@ -55,7 +55,7 @@ public class LoadingDialogForLightApp extends Dialog {
     }
 
     public void setMessage(String str) {
-        TextView textView = this.f25303a;
+        TextView textView = this.f24988a;
         if (textView == null) {
             return;
         }
@@ -64,13 +64,13 @@ public class LoadingDialogForLightApp extends Dialog {
 
     public LoadingDialogForLightApp(Context context, String str) {
         super(context, ResUtils.style(context, "LoadingDialog"));
-        this.f25306d = null;
-        this.f25305c = str;
-        this.f25306d = context;
+        this.f24991d = null;
+        this.f24990c = str;
+        this.f24991d = context;
     }
 
     public LoadingDialogForLightApp(Context context, int i) {
         super(context, i);
-        this.f25306d = null;
+        this.f24991d = null;
     }
 }

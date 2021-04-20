@@ -13,15 +13,15 @@ public class a extends e {
 
     @Override // d.b.g0.a.z1.k.e
     public JSONObject f() {
-        if (this.f47257g == null) {
-            this.f47257g = new JSONObject();
+        if (this.f47649g == null) {
+            this.f47649g = new JSONObject();
         }
         try {
-            this.f47257g.put("stage", this.j);
-            this.f47257g.put("errMsg", this.k);
-            this.f47257g.put("netStatus", this.l);
-            this.f47257g.put("touch", this.m);
-            this.f47257g.put("stuck_interval", this.n);
+            this.f47649g.put("stage", this.j);
+            this.f47649g.put("errMsg", this.k);
+            this.f47649g.put("netStatus", this.l);
+            this.f47649g.put("touch", this.m);
+            this.f47649g.put("stuck_interval", this.n);
         } catch (JSONException e2) {
             if (e.i) {
                 e2.printStackTrace();

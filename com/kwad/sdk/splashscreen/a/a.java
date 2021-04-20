@@ -11,10 +11,10 @@ import com.kwad.sdk.widget.KsLogoView;
 public class a extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f36599a;
+    public com.kwad.sdk.splashscreen.c f36888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f36600b;
+    public KsLogoView f36889b;
 
     private void a(ViewGroup viewGroup) {
         DisplayMetrics displayMetrics = viewGroup.getContext().getResources().getDisplayMetrics();
@@ -33,19 +33,19 @@ public class a extends Presenter {
         AdInfo.AdSplashInfo adSplashInfo;
         super.a();
         com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) n();
-        this.f36599a = cVar;
-        KsLogoView ksLogoView = (KsLogoView) cVar.f36661d.findViewById(R.id.ksad_splash_logo_container);
-        this.f36600b = ksLogoView;
+        this.f36888a = cVar;
+        KsLogoView ksLogoView = (KsLogoView) cVar.f36950d.findViewById(R.id.ksad_splash_logo_container);
+        this.f36889b = ksLogoView;
         a((ViewGroup) ksLogoView);
-        if (this.f36599a.f36660c.adInfoList.isEmpty() || (adSplashInfo = this.f36599a.f36660c.adInfoList.get(0).adSplashInfo) == null) {
+        if (this.f36888a.f36949c.adInfoList.isEmpty() || (adSplashInfo = this.f36888a.f36949c.adInfoList.get(0).adSplashInfo) == null) {
             return;
         }
         if (adSplashInfo.logoPosition == 0) {
-            this.f36600b.setVisibility(8);
+            this.f36889b.setVisibility(8);
             return;
         }
-        this.f36600b.setVisibility(0);
-        this.f36600b.a(this.f36599a.f36660c);
+        this.f36889b.setVisibility(0);
+        this.f36889b.a(this.f36888a.f36949c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

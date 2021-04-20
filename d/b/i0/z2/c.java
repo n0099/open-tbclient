@@ -1,184 +1,423 @@
 package d.b.i0.z2;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.enterForum.home.forumRecommendHttpResponseMessage;
-import com.baidu.tieba.enterForum.home.forumRecommendRequestMessage;
-import com.baidu.tieba.enterForum.home.forumRecommendSocketResponseMessage;
-import com.baidu.tieba.square.adapter.LeftAdapter;
-import d.b.b.e.p.j;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class c {
+    public int A;
+    public int G;
+    public BlockPopInfoData J;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f63454a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final d.b.i0.z2.b f63455b;
+    public int f64269a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.i0.z2.a f63456c;
+    public String f64271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.c.g.a f63457d = new a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    public String f64272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View.OnClickListener f63458e = new b();
+    public String f64273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f63459f = new View$OnClickListenerC1718c();
+    public String f64274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LeftAdapter.b f63460g = new d();
+    public String f64275g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f63461h = new e(this);
-    public BdListView.p i = new f();
+    public String f64276h;
+    public int i;
+    public String j;
+    public int k;
+    public boolean l;
+    public int m;
+    public int n;
+    public int o;
+    public int p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public int u;
+    public String v;
+    public String w;
+    public int x;
+    public boolean y;
+    public int z;
 
-    /* loaded from: classes5.dex */
-    public class a extends d.b.b.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    /* renamed from: b  reason: collision with root package name */
+    public String f64270b = "0";
+    public ArrayList<d> B = new ArrayList<>();
+    public ArrayList<d> C = new ArrayList<>();
+    public ArrayList<d> D = new ArrayList<>();
+    public HashMap<String, d> E = new HashMap<>();
+    public d.b.i0.z2.a F = new d.b.i0.z2.a();
+    public f H = new f();
+    public k I = new k();
+
+    /* loaded from: classes4.dex */
+    public class a implements Comparator<d> {
+        public a(c cVar) {
         }
 
-        @Override // d.b.b.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            String str = "";
-            if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
-                if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().s();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(d dVar, d dVar2) {
+            return dVar2.i() - dVar.i();
+        }
+    }
+
+    public boolean A() {
+        return this.y;
+    }
+
+    public boolean B() {
+        return this.l;
+    }
+
+    public boolean C() {
+        f fVar = this.H;
+        if (fVar == null) {
+            return false;
+        }
+        return !StringUtils.isNull(fVar.f64284a);
+    }
+
+    public void D(h hVar) {
+        this.z = 0;
+        this.A = 0;
+        ArrayList<i> d2 = hVar.d();
+        int size = d2.size();
+        for (int i = 0; i < size; i++) {
+            i iVar = d2.get(i);
+            d dVar = this.E.get(iVar.c() + "");
+            if (dVar != null) {
+                if (iVar.e() != 0) {
+                    this.z++;
+                    dVar.r(1);
+                    dVar.o(iVar.d());
+                    dVar.q(iVar.a());
+                    dVar.u(true);
+                    dVar.s(false);
+                    dVar.t(false);
+                    c(dVar);
+                } else {
+                    this.A++;
+                    dVar.u(false);
+                    dVar.s(true);
+                    dVar.t(false);
+                    dVar.p(iVar.b().b());
                 }
-            } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
-                if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().s();
-                }
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = c.this.f63454a.getResources().getString(R.string.enter_forum_search_tip);
-            }
-            if (c.this.f63455b != null) {
-                c.this.f63455b.A(str);
             }
         }
+        b();
+        a(true);
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public b() {
+    public void E(SignData signData) {
+        d dVar;
+        if (signData == null || (dVar = this.E.get(signData.forumId)) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            c.this.f63456c.h();
-        }
+        dVar.r(1);
+        dVar.o(signData.count_sign_num);
+        dVar.q(signData.sign_bonus_point);
+        dVar.u(true);
+        dVar.s(false);
+        dVar.t(false);
+        c(dVar);
+        b();
+        a(true);
     }
 
-    /* renamed from: d.b.i0.z2.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1718c implements View.OnClickListener {
-        public View$OnClickListenerC1718c() {
+    public void F(JSONObject jSONObject) throws Exception {
+        if (jSONObject == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem("c13654").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-            c.this.f();
+        this.F.c(jSONObject.optJSONObject("error"));
+        this.f64269a = jSONObject.optInt("level", 7);
+        this.f64270b = jSONObject.optString("sign_new");
+        this.f64271c = jSONObject.optString("title");
+        this.f64272d = jSONObject.optString("text_pre");
+        this.f64273e = jSONObject.optString("text_color");
+        this.f64274f = jSONObject.optString("text_mid");
+        this.f64275g = jSONObject.optString("text_suf");
+        this.f64276h = jSONObject.optString("num_notice");
+        this.i = jSONObject.optInt("show_dialog");
+        this.j = jSONObject.optString("sign_notice");
+        this.k = jSONObject.optInt("valid", 0);
+        this.G = jSONObject.optInt("sign_max_num", 50);
+        this.u = jSONObject.optInt("can_use", 0);
+        this.w = jSONObject.optString("content");
+        this.v = jSONObject.optString("button_content");
+        JSONObject optJSONObject = jSONObject.optJSONObject("anti_info");
+        if (optJSONObject != null) {
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            this.J = blockPopInfoData;
+            blockPopInfoData.block_info = optJSONObject.optString("block_content");
+            this.J.ahead_info = optJSONObject.optString("block_confirm");
+            this.J.ahead_url = optJSONObject.optString("block_dealurl");
+            this.J.ok_info = optJSONObject.optString("block_cancel");
+            this.J.appeal_status = optJSONObject.optInt("appeal_status");
+            this.J.appeal_msg = optJSONObject.optString("appeal_msg");
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements LeftAdapter.b {
-        public d() {
-        }
-
-        @Override // com.baidu.tieba.square.adapter.LeftAdapter.b
-        public void a(View view, int i, String str) {
-            c.this.f63456c.i(str);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends RecyclerView.OnScrollListener {
-        public e(c cVar) {
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            super.onScrollStateChanged(recyclerView, i);
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            super.onScrolled(recyclerView, i, i2);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements BdListView.p {
-        public f() {
-        }
-
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            c.this.f63456c.g();
-        }
-    }
-
-    public c(@NonNull Context context, d.b.i0.z2.a aVar, @NonNull d.b.i0.z2.b bVar) {
-        this.f63454a = context;
-        this.f63455b = bVar;
-        this.f63456c = aVar;
-        bVar.v(this.f63459f);
-        this.f63455b.x(this.f63458e);
-        this.f63455b.w(this.f63460g);
-        this.f63455b.z(this.i);
-        this.f63455b.y(this.f63461h);
-    }
-
-    public void e() {
-        String hotSearch = TbSingleton.getInstance().getHotSearch();
-        if (!TextUtils.isEmpty(hotSearch)) {
-            this.f63455b.A(hotSearch);
-        } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
+        if (this.u == 1) {
+            this.l = true;
         } else {
-            MessageManager.getInstance().registerListener(this.f63457d);
-            g();
+            this.l = false;
         }
+        this.r = this.f64269a + this.f64271c;
+        this.q = "1-" + (this.f64269a - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
+        j.o = this.G;
+        JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
+        if (optJSONArray != null) {
+            int min = Math.min(optJSONArray.length(), j.o);
+            for (int i = 0; i < min; i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    d dVar = new d();
+                    dVar.n(jSONObject2);
+                    if (dVar.f() == 0) {
+                        if (this.k == 0) {
+                            if (this.l) {
+                                dVar.s(true);
+                            } else if (dVar.i() > this.f64269a) {
+                                dVar.s(true);
+                            }
+                        }
+                        if (dVar.i() >= this.f64269a) {
+                            this.p++;
+                        } else {
+                            this.n++;
+                        }
+                        this.D.add(dVar);
+                        this.E.put(dVar.c() + "", dVar);
+                    } else {
+                        if (dVar.i() >= this.f64269a) {
+                            this.o++;
+                        } else {
+                            this.m++;
+                        }
+                        this.C.add(dVar);
+                        TbadkApplication.getInst().addSignedForum(dVar.d(), dVar.e(), -1);
+                    }
+                    this.B.add(dVar);
+                    Collections.sort(this.B, new a(this));
+                }
+            }
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("advert");
+        if (this.H == null) {
+            this.H = new f();
+        }
+        this.H.a(optJSONObject2);
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("wefan");
+        if (this.I == null) {
+            this.I = new k();
+        }
+        this.I.a(optJSONObject3);
+        a(false);
     }
 
-    public final void f() {
-        if (j.z()) {
-            if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f63454a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f63454a, true, 11013)));
+    public final void a(boolean z) {
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            Iterator<d> it = this.B.iterator();
+            while (it.hasNext()) {
+                d next = it.next();
+                if (next instanceof b) {
+                    arrayList.add(next);
+                }
+            }
+            this.B.removeAll(arrayList);
+        }
+        int i = this.p;
+        int i2 = this.o;
+        if (i + i2 > 0) {
+            if (i2 > 0) {
+                this.t = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.o), Integer.valueOf(this.p));
             } else {
-                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f63454a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                this.t = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.p + this.o));
+            }
+            if (this.B.size() > 0) {
+                this.B.add(0, new b(this.r, this.t));
+            }
+        }
+        int i3 = this.n;
+        int i4 = this.m;
+        if (i3 + i4 > 0) {
+            if (i4 > 0) {
+                this.s = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.m), Integer.valueOf(this.n));
+            } else {
+                this.s = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.n + this.m));
+            }
+            if (this.p + this.o > 0) {
+                if (this.B.size() > this.p + this.o + 1) {
+                    this.B.add(this.p + this.o + 1, new b(this.q, this.s));
+                }
+            } else if (this.B.size() > 0) {
+                this.B.add(0, new b(this.q, this.s));
+            }
+        }
+        if (this.B.size() <= 0) {
+            this.x = 3;
+        } else if (this.l) {
+            if (this.k == 1 && this.D.size() > 0) {
+                this.x = 0;
+            } else {
+                this.x = 2;
+            }
+        } else if (this.k == 1 && this.p > 0) {
+            this.x = 0;
+        } else {
+            int i5 = this.p;
+            int i6 = this.o;
+            if (i5 + i6 > 0) {
+                this.x = 2;
+            } else if (i5 + i6 <= 0) {
+                this.x = 3;
             }
         }
     }
 
-    public final void g() {
-        forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
-        forumrecommendrequestmessage.set_like_forum(Integer.valueOf(TbadkCoreApplication.isLogin() ? 1 : 0));
-        forumrecommendrequestmessage.set_topic(0);
-        forumrecommendrequestmessage.set_recommend(1);
-        MessageManager.getInstance().sendMessage(forumrecommendrequestmessage);
+    public final void b() {
+        if (this.l) {
+            if (this.p + this.n <= 0) {
+                this.y = true;
+            } else {
+                this.y = false;
+            }
+        } else if (this.p <= 0) {
+            this.y = true;
+        } else {
+            this.y = false;
+        }
+    }
+
+    public final void c(d dVar) {
+        if (dVar.i() >= this.f64269a) {
+            this.o++;
+            this.p--;
+        } else {
+            this.m++;
+            this.n--;
+        }
+        this.E.remove(String.valueOf(dVar.c()));
+        this.D.remove(dVar);
+        if (dVar.h() + dVar.e() >= dVar.g()) {
+            dVar.w(dVar.i() + 1);
+            dVar.v(true);
+            if (dVar.i() == this.f64269a) {
+                this.o++;
+                this.m--;
+            }
+        }
+        this.C.add(dVar);
+        TbadkApplication.getInst().addSignedForum(dVar.d(), dVar.e(), -1);
+    }
+
+    public String d() {
+        return this.H.f64284a;
+    }
+
+    public String e() {
+        return this.H.f64285b;
+    }
+
+    public BlockPopInfoData f() {
+        return this.J;
+    }
+
+    public String g() {
+        return this.v;
+    }
+
+    public String h() {
+        return this.w;
+    }
+
+    public d.b.i0.z2.a i() {
+        return this.F;
+    }
+
+    public int j() {
+        return this.A;
+    }
+
+    public ArrayList<d> k() {
+        return this.B;
+    }
+
+    public int l() {
+        return this.f64269a;
+    }
+
+    public String m() {
+        return this.f64276h;
+    }
+
+    public boolean n() {
+        return !StringUtils.isNull(this.f64270b) && this.f64270b.equals("1");
+    }
+
+    public int o() {
+        return this.i;
+    }
+
+    public String p() {
+        return this.j;
+    }
+
+    public int q() {
+        return this.x;
+    }
+
+    public ArrayList<d> r() {
+        return this.C;
+    }
+
+    public int s() {
+        return this.z;
+    }
+
+    public String t() {
+        return this.f64273e;
+    }
+
+    public String u() {
+        return this.f64274f;
+    }
+
+    public String v() {
+        return this.f64272d;
+    }
+
+    public String w() {
+        return this.f64275g;
+    }
+
+    public ArrayList<d> x() {
+        return this.D;
+    }
+
+    public String y() {
+        return this.I.f64325a;
+    }
+
+    public String z() {
+        return this.I.f64326b;
     }
 }

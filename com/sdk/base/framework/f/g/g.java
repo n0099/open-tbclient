@@ -7,23 +7,23 @@ import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 public abstract class g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f38556c = new g(OneKeyLoginSdkCall.f11264b, 0) { // from class: com.sdk.base.framework.f.g.h
+    public static g f38845c = new g(OneKeyLoginSdkCall.f10848b, 0) { // from class: com.sdk.base.framework.f.g.h
         @Override // com.sdk.base.framework.f.g.g
         public final String a() {
-            return OneKeyLoginSdkCall.f11264b;
+            return OneKeyLoginSdkCall.f10848b;
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f38554a = new g(OneKeyLoginSdkCall.f11265c, 1) { // from class: com.sdk.base.framework.f.g.i
+    public static final g f38843a = new g(OneKeyLoginSdkCall.f10849c, 1) { // from class: com.sdk.base.framework.f.g.i
         @Override // com.sdk.base.framework.f.g.g
         public final String a() {
-            return OneKeyLoginSdkCall.f11265c;
+            return OneKeyLoginSdkCall.f10849c;
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f38555b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
+    public static final g f38844b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
         @Override // com.sdk.base.framework.f.g.g
         public final String a() {
             return "CTC";

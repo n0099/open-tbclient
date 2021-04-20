@@ -32,28 +32,28 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60433a;
+    public TbPageContext f61997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60434b;
+    public Context f61998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f60435c;
+    public ViewGroup f61999c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f60436d;
+    public ViewGroup f62000d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppBarLayout f60437e;
+    public AppBarLayout f62001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f60438f;
+    public LinearLayout f62002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f60439g;
+    public FrameLayout f62003g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.t.d.c.h.d f60440h;
+    public d.b.i0.t.d.c.h.d f62004h;
     public ScrollHorizontalTabView i;
     public NestedNoScrollViewPager j;
     public e k;
@@ -62,13 +62,13 @@ public class a {
     public FragmentManager o;
     public boolean l = false;
     public int p = -1;
-    public CustomMessageListener q = new C1546a(2921442);
+    public CustomMessageListener q = new C1599a(2921442);
     public CustomMessageListener r = new d(2921414);
 
     /* renamed from: d.b.i0.t.d.c.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1546a extends CustomMessageListener {
-        public C1546a(int i) {
+    public class C1599a extends CustomMessageListener {
+        public C1599a(int i) {
             super(i);
         }
 
@@ -124,8 +124,8 @@ public class a {
 
         /* renamed from: d.b.i0.t.d.c.h.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1547a implements Runnable {
-            public RunnableC1547a() {
+        public class RunnableC1600a implements Runnable {
+            public RunnableC1600a() {
             }
 
             @Override // java.lang.Runnable
@@ -143,7 +143,7 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.b.b.e.m.e.a().postDelayed(new RunnableC1547a(), 500L);
+            d.b.c.e.m.e.a().postDelayed(new RunnableC1600a(), 500L);
         }
     }
 
@@ -151,25 +151,25 @@ public class a {
     public class e extends FragmentPagerAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<LiveTabBaseSubFragment> f60445a;
+        public List<LiveTabBaseSubFragment> f62009a;
 
         public e(a aVar, FragmentManager fragmentManager, boolean z, boolean z2) {
             super(fragmentManager);
             ArrayList arrayList = new ArrayList();
-            this.f60445a = arrayList;
+            this.f62009a = arrayList;
             arrayList.add(LiveTabRecomSubFragment.R0(aVar.m));
-            this.f60445a.add(LiveTabYanzhiSubFragment.S0(aVar.m));
+            this.f62009a.add(LiveTabYanzhiSubFragment.S0(aVar.m));
             if (z2) {
-                this.f60445a.add(LiveTabFriendSubFragment.W0(aVar.m));
+                this.f62009a.add(LiveTabFriendSubFragment.W0(aVar.m));
             }
             if (z) {
-                this.f60445a.add(LiveTabGameSubFragment.S0(aVar.m));
+                this.f62009a.add(LiveTabGameSubFragment.S0(aVar.m));
             }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            List<LiveTabBaseSubFragment> list = this.f60445a;
+            List<LiveTabBaseSubFragment> list = this.f62009a;
             if (list != null) {
                 return list.size();
             }
@@ -182,18 +182,18 @@ public class a {
         }
 
         public final LiveTabBaseSubFragment i(int i) {
-            if (i < this.f60445a.size()) {
-                return this.f60445a.get(i);
+            if (i < this.f62009a.size()) {
+                return this.f62009a.get(i);
             }
             return null;
         }
 
         public void j() {
-            if (ListUtils.isEmpty(this.f60445a)) {
+            if (ListUtils.isEmpty(this.f62009a)) {
                 return;
             }
-            for (int i = 0; i < this.f60445a.size(); i++) {
-                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f60445a.get(i);
+            for (int i = 0; i < this.f62009a.size(); i++) {
+                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f62009a.get(i);
                 if (liveTabBaseSubFragment != null) {
                     liveTabBaseSubFragment.loadData();
                 }
@@ -201,11 +201,11 @@ public class a {
         }
 
         public void k() {
-            if (ListUtils.isEmpty(this.f60445a)) {
+            if (ListUtils.isEmpty(this.f62009a)) {
                 return;
             }
-            for (int i = 0; i < this.f60445a.size(); i++) {
-                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f60445a.get(i);
+            for (int i = 0; i < this.f62009a.size(); i++) {
+                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f62009a.get(i);
                 if (liveTabBaseSubFragment != null) {
                     liveTabBaseSubFragment.H0();
                 }
@@ -213,17 +213,17 @@ public class a {
         }
 
         public void l(int i) {
-            if (i < 0 || i >= this.f60445a.size()) {
+            if (i < 0 || i >= this.f62009a.size()) {
                 return;
             }
-            this.f60445a.get(i).w();
+            this.f62009a.get(i).w();
         }
     }
 
     public a(TbPageContext tbPageContext, FragmentManager fragmentManager, boolean z) {
-        this.f60433a = tbPageContext;
+        this.f61997a = tbPageContext;
         this.m = z;
-        this.f60434b = tbPageContext.getPageActivity();
+        this.f61998b = tbPageContext.getPageActivity();
         this.o = fragmentManager;
         l();
     }
@@ -237,39 +237,39 @@ public class a {
         ArrayList arrayList = new ArrayList();
         TabData tabData = new TabData();
         tabData.tabId = 100;
-        tabData.tabName = this.f60434b.getResources().getString(R.string.special_recommend_tab_title);
+        tabData.tabName = this.f61998b.getResources().getString(R.string.special_recommend_tab_title);
         arrayList.add(tabData);
         TabData tabData2 = new TabData();
         tabData2.tabId = 200;
-        tabData2.tabName = this.f60434b.getResources().getString(R.string.special_yanzhi_tab_title);
+        tabData2.tabName = this.f61998b.getResources().getString(R.string.special_yanzhi_tab_title);
         arrayList.add(tabData2);
         if (z2) {
             TabData tabData3 = new TabData();
             tabData3.tabId = 400;
-            tabData3.tabName = this.f60434b.getResources().getString(R.string.special_friend_tab_title);
+            tabData3.tabName = this.f61998b.getResources().getString(R.string.special_friend_tab_title);
             arrayList.add(tabData3);
         }
         if (z) {
             TabData tabData4 = new TabData();
             tabData4.tabId = 300;
-            tabData4.tabName = this.f60434b.getResources().getString(R.string.special_game_tab_title);
+            tabData4.tabName = this.f61998b.getResources().getString(R.string.special_game_tab_title);
             arrayList.add(tabData4);
         }
         return arrayList;
     }
 
     public ViewGroup i() {
-        return this.f60435c;
+        return this.f61999c;
     }
 
     public void j() {
-        this.r.setTag(this.f60433a.getUniqueId());
+        this.r.setTag(this.f61997a.getUniqueId());
         MessageManager.getInstance().registerListener(this.r);
         MessageManager.getInstance().registerListener(this.q);
     }
 
     public void k(boolean z) {
-        boolean z2 = d.b.h0.r.d0.b.i().j("key_show_ala_friend_tab", 0) == 1;
+        boolean z2 = d.b.h0.r.d0.b.j().k("key_show_ala_friend_tab", 0) == 1;
         int i = z ? 2 : 1;
         if (z2) {
             i++;
@@ -278,9 +278,9 @@ public class a {
         e eVar = new e(this, this.o, z, z2);
         this.k = eVar;
         this.j.setAdapter(eVar);
-        TbPageContext tbPageContext = this.f60433a;
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null && this.f60433a.getPageActivity().getIntent() != null) {
-            int intExtra = this.f60433a.getPageActivity().getIntent().getIntExtra("locate_type", 0);
+        TbPageContext tbPageContext = this.f61997a;
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null && this.f61997a.getPageActivity().getIntent() != null) {
+            int intExtra = this.f61997a.getPageActivity().getIntent().getIntExtra("locate_type", 0);
             if (intExtra == 17) {
                 this.p = 0;
             } else if (intExtra == 19) {
@@ -295,24 +295,24 @@ public class a {
     }
 
     public final void l() {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f60434b).inflate(R.layout.ala_live_tab_layout, (ViewGroup) null);
-        this.f60435c = viewGroup;
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f61998b).inflate(R.layout.ala_live_tab_layout, (ViewGroup) null);
+        this.f61999c = viewGroup;
         AppBarLayout appBarLayout = (AppBarLayout) viewGroup.findViewById(R.id.live_tab_appbar_layout);
-        this.f60437e = appBarLayout;
+        this.f62001e = appBarLayout;
         appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new b());
-        this.f60436d = (ViewGroup) this.f60435c.findViewById(R.id.live_tab_root_container);
-        this.f60438f = (LinearLayout) this.f60435c.findViewById(R.id.live_tab_base_container);
-        this.f60439g = (FrameLayout) this.f60435c.findViewById(R.id.super_entrance_container);
-        this.i = (ScrollHorizontalTabView) this.f60435c.findViewById(R.id.live_tab_top_tab_layout);
-        this.f60440h = new d.b.i0.t.d.c.h.d(this.f60433a);
-        this.j = (NestedNoScrollViewPager) this.f60435c.findViewById(R.id.live_tab_view_pager);
-        k(d.b.h0.r.d0.b.i().j("chushou_game_tab", 1) == 1);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f60434b.getResources().getDimensionPixelSize(R.dimen.tbds256));
-        if (this.f60440h.m() != null && this.f60440h.m().getParent() == null) {
-            this.f60439g.addView(this.f60440h.m(), layoutParams);
-            this.f60438f.setVisibility(8);
+        this.f62000d = (ViewGroup) this.f61999c.findViewById(R.id.live_tab_root_container);
+        this.f62002f = (LinearLayout) this.f61999c.findViewById(R.id.live_tab_base_container);
+        this.f62003g = (FrameLayout) this.f61999c.findViewById(R.id.super_entrance_container);
+        this.i = (ScrollHorizontalTabView) this.f61999c.findViewById(R.id.live_tab_top_tab_layout);
+        this.f62004h = new d.b.i0.t.d.c.h.d(this.f61997a);
+        this.j = (NestedNoScrollViewPager) this.f61999c.findViewById(R.id.live_tab_view_pager);
+        k(d.b.h0.r.d0.b.j().k("chushou_game_tab", 1) == 1);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f61998b.getResources().getDimensionPixelSize(R.dimen.tbds256));
+        if (this.f62004h.m() != null && this.f62004h.m().getParent() == null) {
+            this.f62003g.addView(this.f62004h.m(), layoutParams);
+            this.f62002f.setVisibility(8);
         }
-        ((FrameLayout.LayoutParams) this.f60436d.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+        ((FrameLayout.LayoutParams) this.f62000d.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
         o();
     }
 
@@ -321,7 +321,7 @@ public class a {
     }
 
     public void n(boolean z) {
-        d.b.i0.t.d.c.h.d dVar = this.f60440h;
+        d.b.i0.t.d.c.h.d dVar = this.f62004h;
         if (dVar != null) {
             dVar.x(z);
         }
@@ -329,9 +329,9 @@ public class a {
 
     public void o() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.f60440h.o(this.f60433a, skinType);
+        this.f62004h.o(this.f61997a, skinType);
         this.i.onChangeSkinType(skinType);
-        SkinManager.setBackgroundColor(this.f60435c, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f61999c, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
     }
 
@@ -349,7 +349,7 @@ public class a {
     }
 
     public void r(boolean z) {
-        this.f60436d.setVisibility(z ? 0 : 8);
+        this.f62000d.setVisibility(z ? 0 : 8);
     }
 
     public void s(int i) {
@@ -369,8 +369,8 @@ public class a {
 
     public void t(d.b.i0.t.d.c.e.h hVar) {
         i iVar = new i();
-        iVar.f60339e = hVar;
-        this.f60440h.n(iVar);
-        this.f60438f.setVisibility(0);
+        iVar.f61903e = hVar;
+        this.f62004h.n(iVar);
+        this.f62002f.setVisibility(0);
     }
 }

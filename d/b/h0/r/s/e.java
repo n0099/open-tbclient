@@ -19,28 +19,28 @@ import java.util.ArrayList;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50988a;
+    public String f51395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f50989b;
+    public ArrayList<n> f51396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f50990c;
+    public AdapterView.OnItemClickListener f51397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f50991d;
+    public ViewGroup f51398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f50992e;
+    public BdListView f51399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public m f50993f;
+    public m f51400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50994g;
+    public TextView f51401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<?> f50995h;
+    public TbPageContext<?> f51402h;
     public AlertDialog j;
     public boolean i = false;
     public AdapterView.OnItemClickListener k = new a();
@@ -52,30 +52,30 @@ public class e {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (e.this.f50990c != null) {
-                e.this.f50990c.onItemClick(adapterView, view, i, j);
+            if (e.this.f51397c != null) {
+                e.this.f51397c.onItemClick(adapterView, view, i, j);
             }
             e.this.f();
         }
     }
 
     public e(TbPageContext<?> tbPageContext) {
-        this.f50995h = tbPageContext;
+        this.f51402h = tbPageContext;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
-        this.f50991d = viewGroup;
-        this.f50994g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
-        this.f50992e = (BdListView) this.f50991d.findViewById(R.id.dialog_content_list);
-        this.f50993f = new m(this.f50995h);
+        this.f51398d = viewGroup;
+        this.f51401g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
+        this.f51399e = (BdListView) this.f51398d.findViewById(R.id.dialog_content_list);
+        this.f51400f = new m(this.f51402h);
     }
 
-    public void b(d.b.b.a.f<?> fVar) {
+    public void b(d.b.c.a.f<?> fVar) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (fVar instanceof TbPageContext) {
             TbPageContext tbPageContext = (TbPageContext) fVar;
             tbPageContext.getLayoutMode().k(skinType == 1);
-            tbPageContext.getLayoutMode().j(this.f50991d);
+            tbPageContext.getLayoutMode().j(this.f51398d);
         }
-        this.f50991d.setBackgroundResource(R.drawable.transparent_bg);
+        this.f51398d.setBackgroundResource(R.drawable.transparent_bg);
     }
 
     public e c() {
@@ -83,27 +83,27 @@ public class e {
             return this;
         }
         this.i = true;
-        if (!TextUtils.isEmpty(this.f50988a)) {
-            this.f50994g.setText(this.f50988a);
-            this.f50994g.setVisibility(0);
+        if (!TextUtils.isEmpty(this.f51395a)) {
+            this.f51401g.setText(this.f51395a);
+            this.f51401g.setVisibility(0);
         } else {
-            this.f50994g.setVisibility(8);
+            this.f51401g.setVisibility(8);
         }
-        this.f50992e.setAdapter((ListAdapter) this.f50993f);
-        this.f50993f.c(this.f50989b);
-        b(this.f50995h);
+        this.f51399e.setAdapter((ListAdapter) this.f51400f);
+        this.f51400f.c(this.f51396b);
+        b(this.f51402h);
         return this;
     }
 
     public void d() {
         AlertDialog alertDialog = this.j;
         if (alertDialog != null) {
-            d.b.b.e.m.g.a(alertDialog, this.f50995h.getPageActivity());
+            d.b.c.e.m.g.a(alertDialog, this.f51402h.getPageActivity());
         }
     }
 
     public View e() {
-        return this.f50991d;
+        return this.f51398d;
     }
 
     public void f() {
@@ -111,56 +111,56 @@ public class e {
     }
 
     public void g() {
-        b(this.f50995h);
-        m mVar = this.f50993f;
+        b(this.f51402h);
+        m mVar = this.f51400f;
         if (mVar != null) {
             mVar.notifyDataSetChanged();
         }
     }
 
     public void h(int i) {
-        for (int i2 = 0; i2 < this.f50989b.size(); i2++) {
+        for (int i2 = 0; i2 < this.f51396b.size(); i2++) {
             if (i2 == i) {
-                this.f50989b.get(i2).e(true);
+                this.f51396b.get(i2).e(true);
             } else {
-                this.f50989b.get(i2).e(false);
+                this.f51396b.get(i2).e(false);
             }
         }
-        this.f50993f.c(this.f50989b);
+        this.f51400f.c(this.f51396b);
     }
 
     public void i(boolean z) {
-        this.f50993f.b(z);
+        this.f51400f.b(z);
     }
 
     public void j(int i) {
-        for (int i2 = 0; i2 < this.f50989b.size(); i2++) {
+        for (int i2 = 0; i2 < this.f51396b.size(); i2++) {
             if (i2 == i) {
-                n nVar = this.f50989b.get(i2);
+                n nVar = this.f51396b.get(i2);
                 nVar.e(!nVar.d());
             }
         }
-        this.f50993f.c(this.f50989b);
+        this.f51400f.c(this.f51396b);
     }
 
     public e k(ArrayList<n> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
         if (arrayList != null && arrayList.size() > 0) {
-            this.f50989b = arrayList;
+            this.f51396b = arrayList;
             if (onItemClickListener != null) {
-                this.f50990c = onItemClickListener;
-                this.f50992e.setOnItemClickListener(this.k);
+                this.f51397c = onItemClickListener;
+                this.f51399e.setOnItemClickListener(this.k);
             }
         }
         return this;
     }
 
     public e l(int i) {
-        m(this.f50995h.getResources().getString(i));
+        m(this.f51402h.getResources().getString(i));
         return this;
     }
 
     public e m(String str) {
-        this.f50988a = str;
+        this.f51395a = str;
         return this;
     }
 
@@ -168,22 +168,22 @@ public class e {
         if (this.i) {
             AlertDialog alertDialog = this.j;
             if (alertDialog != null) {
-                d.b.b.e.m.g.j(alertDialog, this.f50995h);
+                d.b.c.e.m.g.j(alertDialog, this.f51402h);
                 return this;
             }
-            AlertDialog create = new AlertDialog.Builder(this.f50995h.getPageActivity()).create();
+            AlertDialog create = new AlertDialog.Builder(this.f51402h.getPageActivity()).create();
             this.j = create;
             create.setCanceledOnTouchOutside(true);
-            if (d.b.b.e.m.g.i(this.j, this.f50995h.getPageActivity())) {
+            if (d.b.c.e.m.g.i(this.j, this.f51402h.getPageActivity())) {
                 Window window = this.j.getWindow();
                 window.addFlags(512);
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.y = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+                attributes.y = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
                 window.setAttributes(attributes);
                 window.setWindowAnimations(R.style.share_dialog_style);
                 window.setGravity(80);
                 window.setLayout(-1, -2);
-                window.setContentView(this.f50991d);
+                window.setContentView(this.f51398d);
                 return this;
             }
             return this;

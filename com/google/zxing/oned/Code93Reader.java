@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
@@ -24,7 +25,7 @@ public final class Code93Reader extends OneDReader {
     public final int[] counters = new int[6];
 
     static {
-        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, SDKLogTypeConstants.TYPE_FEED_CLICK, 358, 310, 314, 302, 468, 466, 458, SDKLogTypeConstants.TYPE_APO_CLICK, 374, SDKLogTypeConstants.TYPE_LP_DOWNLOAD, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

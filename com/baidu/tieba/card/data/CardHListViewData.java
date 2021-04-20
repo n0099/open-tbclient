@@ -3,8 +3,8 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import d.b.b.e.p.k;
-import d.b.b.j.e.n;
+import d.b.c.e.p.k;
+import d.b.c.j.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return this.mList;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return TYPE;
     }

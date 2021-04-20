@@ -21,50 +21,50 @@ import java.util.List;
 public class a implements c0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f60063b = k.f45051a;
+    public static final boolean f61364b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f60064a;
+    public long f61365a;
 
     @Override // d.b.g0.a.p.c.c0
     public void a() {
-        if (f60063b) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.y().f45740f);
+        if (f61364b) {
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.y().f46132f);
         }
-        this.f60064a = System.currentTimeMillis();
+        this.f61365a = System.currentTimeMillis();
     }
 
     @Override // d.b.g0.a.p.c.c0
     public void b() {
-        if (f60063b) {
+        if (f61364b) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
-        long k = d.b.h0.r.d0.b.i().k("smart_app_tid", 0L);
-        String o = d.b.h0.r.d0.b.i().o("smart_app_id", "");
-        String o2 = d.b.h0.r.d0.b.i().o("smart_app_name", "");
-        if (this.f60064a == 0 || k == 0) {
+        long l = d.b.h0.r.d0.b.j().l("smart_app_tid", 0L);
+        String p = d.b.h0.r.d0.b.j().p("smart_app_id", "");
+        String p2 = d.b.h0.r.d0.b.j().p("smart_app_name", "");
+        if (this.f61365a == 0 || l == 0) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.f60064a;
+        long currentTimeMillis = System.currentTimeMillis() - this.f61365a;
         d dVar = new d();
         dVar.v(currentTimeMillis);
         dVar.p(e());
-        dVar.y(k);
-        dVar.i = o;
-        dVar.j = o2;
+        dVar.y(l);
+        dVar.i = p;
+        dVar.j = p2;
         dVar.u(f());
         d.b.h0.k0.e.b().h(true);
         d.b.h0.k0.e.b().i(TbadkApplication.getInst().getApplicationContext(), dVar, g());
-        d.b.h0.r.d0.b.i().v("smart_app_tid", 0L);
+        d.b.h0.r.d0.b.j().w("smart_app_tid", 0L);
     }
 
     @Override // d.b.g0.a.p.c.c0
     public void c(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable d.b.g0.a.y0.e.b bVar) {
-        if (f60063b) {
+        if (f61364b) {
             Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
-        if (d.b.h0.r.d0.b.i().g("key_ai_app_guide_display", true)) {
-            d.b.h0.r.d0.b.i().s("key_ai_app_guide_display", false);
+        if (d.b.h0.r.d0.b.j().g("key_ai_app_guide_display", true)) {
+            d.b.h0.r.d0.b.j().t("key_ai_app_guide_display", false);
             Intent intent = new Intent(swanAppActivity, DealIntentService.class);
             intent.putExtra(DealIntentService.KEY_CLASS, 38);
             swanAppActivity.startService(intent);

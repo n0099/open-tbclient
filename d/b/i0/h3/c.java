@@ -1,70 +1,127 @@
 package d.b.i0.h3;
 
 import android.content.Context;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class c {
+public class c extends BaseAdapter {
 
-    /* renamed from: b  reason: collision with root package name */
-    public static c f55446b;
+    /* renamed from: e  reason: collision with root package name */
+    public List<InterestFrsData.Card> f56542e;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f55447a = c();
+    /* renamed from: f  reason: collision with root package name */
+    public Context f56543f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View.OnClickListener f56544g;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(Context context);
+    public class b {
 
-        void b(Context context, WebView webView, WebChromeClient webChromeClient);
+        /* renamed from: a  reason: collision with root package name */
+        public FrameLayout f56545a;
 
-        void c(Context context, String str, boolean z);
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public TbImageView f56546b;
 
-    public static c b() {
-        if (f55446b == null) {
-            synchronized (c.class) {
-                if (f55446b == null) {
-                    f55446b = new c();
-                }
-            }
-        }
-        return f55446b;
-    }
+        /* renamed from: c  reason: collision with root package name */
+        public ImageView f56547c;
 
-    public void a(Context context) {
-        a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55447a) != null) {
-            aVar.a(context);
+        /* renamed from: d  reason: collision with root package name */
+        public RelativeLayout f56548d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public TextView f56549e;
+
+        public b(c cVar) {
         }
     }
 
-    public final a c() {
-        CustomResponsedMessage runTask;
-        if (!d() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+    public c(Context context) {
+        this.f56543f = context;
+    }
+
+    public void a(List<InterestFrsData.Card> list) {
+        this.f56542e = list;
+        notifyDataSetChanged();
+    }
+
+    public void b(ImageView imageView, boolean z) {
+        if (!z) {
+            imageView.setBackgroundDrawable(this.f56543f.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
+        } else {
+            imageView.setBackgroundDrawable(this.f56543f.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+        }
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        this.f56544g = onClickListener;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        List<InterestFrsData.Card> list = this.f56542e;
+        if (list != null) {
+            return list.size();
+        }
+        return 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        List<InterestFrsData.Card> list = this.f56542e;
+        if (list == null || i < 0 || i >= list.size()) {
             return null;
         }
-        return (a) runTask.getData();
+        return this.f56542e.get(i);
     }
 
-    public final boolean d() {
-        return d.b.h0.r.d0.b.i().j("pref_key_stat_sdk_enable", 1) != 0;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    public void e(Context context, String str, boolean z) {
-        a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55447a) != null) {
-            aVar.c(context, str, z);
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        b bVar;
+        if (view == null) {
+            view = LayoutInflater.from(this.f56543f).inflate(R.layout.new_user_img_item, viewGroup, false);
+            bVar = new b();
+            bVar.f56546b = (TbImageView) view.findViewById(R.id.pic);
+            bVar.f56547c = (ImageView) view.findViewById(R.id.select_icon);
+            bVar.f56548d = (RelativeLayout) view.findViewById(R.id.lay_select);
+            bVar.f56549e = (TextView) view.findViewById(R.id.tv_fname);
+            FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.pic_layout);
+            bVar.f56545a = frameLayout;
+            frameLayout.setOnClickListener(this.f56544g);
+            view.setTag(bVar);
+        } else {
+            bVar = (b) view.getTag();
         }
-    }
-
-    public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
-        a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55447a) != null) {
-            aVar.b(context, webView, webChromeClient);
+        bVar.f56546b.setTag(null);
+        bVar.f56548d.setTag(null);
+        bVar.f56549e.setText("");
+        bVar.f56545a.setTag(null);
+        Object item = getItem(i);
+        if (item != null && (item instanceof InterestFrsData.Card)) {
+            InterestFrsData.Card card = (InterestFrsData.Card) item;
+            b(bVar.f56547c, card.getIs_like() == 1);
+            bVar.f56548d.setTag(card);
+            bVar.f56545a.setTag(card);
+            bVar.f56546b.setTag(card.getIcon_url());
+            bVar.f56546b.W(card.getIcon_url(), 21, false);
+            bVar.f56549e.setText(card.getFname());
         }
+        return view;
     }
 }

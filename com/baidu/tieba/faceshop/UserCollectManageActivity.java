@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import d.b.i0.l0.d;
 import d.b.i0.l0.o;
@@ -35,19 +35,19 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements u.l, d.e, d.InterfaceC1327d, o.c {
+public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements u.l, d.e, d.InterfaceC1380d, o.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f15711e;
+    public NavigationBar f15374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15712f;
+    public TextView f15375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridView f15713g;
+    public GridView f15376g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.l0.d f15714h;
+    public d.b.i0.l0.d f15377h;
     public RelativeLayout i;
     public TextView j;
     public TextView k;
@@ -77,7 +77,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
             }
             ArrayList arrayList = new ArrayList();
             for (CollectEmotionData collectEmotionData : n) {
-                if (!d.b.h0.a0.d.f49683d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                if (!d.b.h0.a0.d.f50076d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
                     String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + d.b.h0.a0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.setFilePath(str);
@@ -96,8 +96,8 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(List<CollectEmotionData> list) {
-            UserCollectManageActivity.this.f15714h.i(list);
-            UserCollectManageActivity.this.f15714h.notifyDataSetChanged();
+            UserCollectManageActivity.this.f15377h.i(list);
+            UserCollectManageActivity.this.f15377h.notifyDataSetChanged();
         }
     }
 
@@ -130,24 +130,24 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.b.i0.x1.d.m().n()) {
+            if (d.b.i0.y1.d.m().n()) {
                 l.K(view.getContext(), R.string.face_collect_is_syncing);
                 return;
             }
             UserCollectManageActivity userCollectManageActivity = UserCollectManageActivity.this;
             userCollectManageActivity.o = !userCollectManageActivity.o;
             if (UserCollectManageActivity.this.o) {
-                SkinManager.setNavbarTitleColor(UserCollectManageActivity.this.f15712f, R.color.CAM_X0302, R.color.s_navbar_title_color);
-                UserCollectManageActivity.this.f15712f.setText(R.string.done);
+                SkinManager.setNavbarTitleColor(UserCollectManageActivity.this.f15375f, R.color.CAM_X0302, R.color.s_navbar_title_color);
+                UserCollectManageActivity.this.f15375f.setText(R.string.done);
                 UserCollectManageActivity.this.i.setVisibility(0);
                 UserCollectManageActivity.this.m.setVisibility(0);
             } else {
-                SkinManager.setViewTextColor(UserCollectManageActivity.this.f15712f, R.color.CAM_X0105, 1);
-                UserCollectManageActivity.this.f15712f.setText(R.string.collect_manage);
+                SkinManager.setViewTextColor(UserCollectManageActivity.this.f15375f, R.color.CAM_X0105, 1);
+                UserCollectManageActivity.this.f15375f.setText(R.string.collect_manage);
                 UserCollectManageActivity.this.i.setVisibility(8);
                 UserCollectManageActivity.this.l.setText(R.string.delete);
             }
-            UserCollectManageActivity.this.f15714h.j(UserCollectManageActivity.this.o);
+            UserCollectManageActivity.this.f15377h.j(UserCollectManageActivity.this.o);
         }
     }
 
@@ -159,7 +159,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserCollectManageActivity.this.o) {
-                ArrayList arrayList = new ArrayList(UserCollectManageActivity.this.f15714h.g());
+                ArrayList arrayList = new ArrayList(UserCollectManageActivity.this.f15377h.g());
                 if (arrayList.size() == 0) {
                     return;
                 }
@@ -183,7 +183,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 } else {
                     u.s().t(arrayList, true, UserCollectManageActivity.this);
                 }
-                UserCollectManageActivity.this.f15714h.e();
+                UserCollectManageActivity.this.f15377h.e();
             }
         }
     }
@@ -195,9 +195,9 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            u.s().l(new ArrayList(UserCollectManageActivity.this.f15714h.g()), true, UserCollectManageActivity.this);
+            u.s().l(new ArrayList(UserCollectManageActivity.this.f15377h.g()), true, UserCollectManageActivity.this);
             aVar.dismiss();
-            UserCollectManageActivity.this.f15714h.e();
+            UserCollectManageActivity.this.f15377h.e();
             UserCollectManageActivity.this.l.setText(R.string.delete);
         }
     }
@@ -237,7 +237,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.r.h(false);
     }
 
-    @Override // d.b.i0.l0.d.InterfaceC1327d
+    @Override // d.b.i0.l0.d.InterfaceC1380d
     public void d() {
         sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
     }
@@ -267,10 +267,10 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().k(i == 1);
-        this.f15714h.k(i);
-        this.f15711e.onChangeSkinType(getPageContext(), i);
+        this.f15377h.k(i);
+        this.f15374e.onChangeSkinType(getPageContext(), i);
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201, i);
-        SkinManager.setBackgroundColor(this.f15713g, R.color.CAM_X0201, i);
+        SkinManager.setBackgroundColor(this.f15376g, R.color.CAM_X0201, i);
         if (i != 1 && i != 4) {
             SkinManager.setBackgroundColor(this.m, R.color.white_alpha70, i);
         } else {
@@ -291,7 +291,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        this.f15714h.h(null);
+        this.f15377h.h(null);
     }
 
     @Override // d.b.i0.l0.u.l
@@ -324,16 +324,16 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
 
     public final void s() {
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f15711e = navigationBar;
+        this.f15374e = navigationBar;
         navigationBar.setCenterTextTitle(getString(R.string.collect_manage_title));
-        this.f15711e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c());
-        if (this.f15711e.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15711e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f15374e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c());
+        if (this.f15374e.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15374e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        TextView addTextButton = this.f15711e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d());
-        this.f15712f = addTextButton;
+        TextView addTextButton = this.f15374e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d());
+        this.f15375f = addTextButton;
         SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0105);
-        this.f15713g = (GridView) findViewById(R.id.collect_image_gridview);
+        this.f15376g = (GridView) findViewById(R.id.collect_image_gridview);
         this.i = (RelativeLayout) findViewById(R.id.controller_layout);
         TextView textView = (TextView) findViewById(R.id.move_to_first);
         this.j = textView;
@@ -348,12 +348,12 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.l = textView3;
         textView3.setOnClickListener(this.u);
         this.m = findViewById(R.id.cover);
-        this.f15713g = (GridView) findViewById(R.id.collect_image_gridview);
+        this.f15376g = (GridView) findViewById(R.id.collect_image_gridview);
         d.b.i0.l0.d dVar = new d.b.i0.l0.d(this);
-        this.f15714h = dVar;
+        this.f15377h = dVar;
         dVar.h(this);
-        this.f15714h.notifyDataSetChanged();
-        this.f15713g.setAdapter((ListAdapter) this.f15714h);
+        this.f15377h.notifyDataSetChanged();
+        this.f15376g.setAdapter((ListAdapter) this.f15377h);
         this.r = new d.b.h0.r.f0.a(getPageContext());
         TiebaStatic.log("c12225");
     }

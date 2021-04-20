@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     public DynamicBaseWidgetImp(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);
@@ -43,20 +43,20 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     }
 
     public ViewGroup.LayoutParams getWidgetLayoutParams() {
-        return new ViewGroup.LayoutParams(this.f28304e, this.f28305f);
+        return new ViewGroup.LayoutParams(this.f27989e, this.f27990f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         if (this.n != null) {
             u.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i + "," + i2 + "," + i3 + "," + i4);
-            this.n.layout(0, 0, this.f28304e, this.f28305f);
+            this.n.layout(0, 0, this.f27989e, this.f27990f);
         }
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(this.f28304e, this.f28305f);
+        setMeasuredDimension(this.f27989e, this.f27990f);
     }
 }

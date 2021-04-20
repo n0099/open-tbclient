@@ -1,6 +1,6 @@
 package io.reactivex.internal.disposables;
 
-import f.a.t.b;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class ArrayCompositeDisposable extends AtomicReferenceArray<b> implements b {
@@ -10,7 +10,7 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray<b> impl
         super(i);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         b andSet;
         if (get(0) != DisposableHelper.DISPOSED) {
@@ -25,7 +25,7 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray<b> impl
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get(0) == DisposableHelper.DISPOSED;
     }

@@ -11,46 +11,46 @@ import com.baidu.tbadk.core.util.UtilHelper;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Domain f51121a = Domain.DOMAIN_ONLINE;
+    public static Domain f51531a = Domain.DOMAIN_ONLINE;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f51122b = true;
+    public static boolean f51532b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f51123c = null;
+    public static b f51533c = null;
 
     public static void a() {
         if (TbConfig.USE_OLD_LOGIN) {
-            f51122b = true;
+            f51532b = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                f51122b = false;
+                f51532b = false;
             } else {
-                f51122b = true;
+                f51532b = true;
             }
         } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-            f51122b = false;
+            f51532b = false;
         } else {
-            f51122b = true;
+            f51532b = true;
         }
-        if (Build.VERSION.SDK_INT > 10 || f51122b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+        if (Build.VERSION.SDK_INT > 10 || f51532b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
             return;
         }
         TbadkCoreApplication.getInst().incPassportV6CrashCount();
-        f51122b = true;
+        f51532b = true;
     }
 
     public static b b() {
-        return f51123c;
+        return f51533c;
     }
 
     public static void c() {
         CustomResponsedMessage runTask;
-        if (f51123c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
+        if (f51533c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
             return;
         }
-        f51123c = (b) runTask.getData();
+        f51533c = (b) runTask.getData();
     }
 }

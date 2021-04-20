@@ -23,32 +23,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadInfo f67191a;
+    public DownloadInfo f68184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f67192b;
+    public h f68185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f67193c;
+    public i f68186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<g, d.o.a.e.b.f.b> f67194d;
+    public final Map<g, d.o.a.e.b.f.b> f68187d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<g> f67195e;
+    public final SparseArray<g> f68188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.f.b> f67196f;
+    public final SparseArray<d.o.a.e.b.f.b> f68189f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.f.b> f67197g;
+    public final SparseArray<d.o.a.e.b.f.b> f68190g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.f.b> f67198h;
+    public final SparseArray<d.o.a.e.b.f.b> f68191h;
     public d i;
     public x j;
     public q k;
@@ -63,9 +63,9 @@ public class a {
     public final List<p> t;
 
     /* renamed from: d.o.a.e.b.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1851a implements i {
-        public C1851a(a aVar) {
+    /* loaded from: classes6.dex */
+    public class C1886a implements i {
+        public C1886a(a aVar) {
         }
 
         @Override // d.o.a.e.b.g.i
@@ -75,28 +75,28 @@ public class a {
     }
 
     public a() {
-        this.f67194d = new ConcurrentHashMap();
-        this.f67195e = new SparseArray<>();
+        this.f68187d = new ConcurrentHashMap();
+        this.f68188e = new SparseArray<>();
         this.r = false;
         this.t = new ArrayList();
         this.m = new DownloadInfo.b();
-        this.f67196f = new SparseArray<>();
-        this.f67197g = new SparseArray<>();
-        this.f67198h = new SparseArray<>();
+        this.f68189f = new SparseArray<>();
+        this.f68190g = new SparseArray<>();
+        this.f68191h = new SparseArray<>();
     }
 
     public h A() {
-        return this.f67192b;
+        return this.f68185b;
     }
 
     public final void A0() {
-        if (this.f67191a.O0() > 0) {
-            k(new C1851a(this));
+        if (this.f68184a.O0() > 0) {
+            k(new C1886a(this));
         }
     }
 
     public i B() {
-        return this.f67193c;
+        return this.f68186c;
     }
 
     public a B0(List<p> list) {
@@ -118,16 +118,16 @@ public class a {
         }
         try {
             if (gVar == g.MAIN) {
-                synchronized (this.f67196f) {
-                    m(this.f67196f, sparseArray);
+                synchronized (this.f68189f) {
+                    m(this.f68189f, sparseArray);
                 }
             } else if (gVar == g.SUB) {
-                synchronized (this.f67197g) {
-                    m(this.f67197g, sparseArray);
+                synchronized (this.f68190g) {
+                    m(this.f68190g, sparseArray);
                 }
             } else if (gVar == g.NOTIFICATION) {
-                synchronized (this.f67198h) {
-                    m(this.f67198h, sparseArray);
+                synchronized (this.f68191h) {
+                    m(this.f68191h, sparseArray);
                 }
             }
         } catch (Throwable th) {
@@ -167,7 +167,7 @@ public class a {
     }
 
     public int G() {
-        DownloadInfo downloadInfo = this.f67191a;
+        DownloadInfo downloadInfo = this.f68184a;
         if (downloadInfo == null) {
             return 0;
         }
@@ -180,17 +180,17 @@ public class a {
     }
 
     public DownloadInfo H() {
-        return this.f67191a;
+        return this.f68184a;
     }
 
     public a H0(int i, d.o.a.e.b.f.b bVar) {
         if (bVar != null) {
-            synchronized (this.f67197g) {
-                this.f67197g.put(i, bVar);
+            synchronized (this.f68190g) {
+                this.f68190g.put(i, bVar);
             }
-            this.f67194d.put(g.SUB, bVar);
-            synchronized (this.f67195e) {
-                this.f67195e.put(i, g.SUB);
+            this.f68187d.put(g.SUB, bVar);
+            synchronized (this.f68188e) {
+                this.f68188e.put(i, g.SUB);
             }
         }
         return this;
@@ -233,13 +233,13 @@ public class a {
 
     public SparseArray<d.o.a.e.b.f.b> K(g gVar) {
         if (gVar == g.MAIN) {
-            return this.f67196f;
+            return this.f68189f;
         }
         if (gVar == g.SUB) {
-            return this.f67197g;
+            return this.f68190g;
         }
         if (gVar == g.NOTIFICATION) {
-            return this.f67198h;
+            return this.f68191h;
         }
         return null;
     }
@@ -278,7 +278,7 @@ public class a {
     }
 
     public d.o.a.e.b.f.b S(g gVar) {
-        return this.f67194d.get(gVar);
+        return this.f68187d.get(gVar);
     }
 
     public a T(boolean z) {
@@ -310,12 +310,12 @@ public class a {
 
     public a Y(int i, d.o.a.e.b.f.b bVar) {
         if (bVar != null) {
-            synchronized (this.f67196f) {
-                this.f67196f.put(i, bVar);
+            synchronized (this.f68189f) {
+                this.f68189f.put(i, bVar);
             }
-            this.f67194d.put(g.MAIN, bVar);
-            synchronized (this.f67195e) {
-                this.f67195e.put(i, g.MAIN);
+            this.f68187d.put(g.MAIN, bVar);
+            synchronized (this.f68188e) {
+                this.f68188e.put(i, g.MAIN);
             }
         }
         return this;
@@ -364,10 +364,10 @@ public class a {
         if (bVar == null) {
             return;
         }
-        if (z && (map = this.f67194d) != null) {
+        if (z && (map = this.f68187d) != null) {
             map.put(gVar, bVar);
-            synchronized (this.f67195e) {
-                this.f67195e.put(i, gVar);
+            synchronized (this.f68188e) {
+                this.f68188e.put(i, gVar);
             }
         }
         SparseArray<d.o.a.e.b.f.b> K = K(gVar);
@@ -388,7 +388,7 @@ public class a {
         d.o.a.e.b.c.a.g("DownloadTask", "same task just tryDownloading, so add listener in last task instead of tryDownload");
         e(g.MAIN);
         e(g.SUB);
-        d.o.a.e.b.e.a.e(this.l, this.f67191a, new BaseException(1003, "has another same task, add Listener to old task"), 0);
+        d.o.a.e.b.e.a.e(this.l, this.f68184a, new BaseException(1003, "has another same task, add Listener to old task"), 0);
     }
 
     public a d0(y yVar) {
@@ -444,7 +444,7 @@ public class a {
     }
 
     public boolean i() {
-        DownloadInfo downloadInfo = this.f67191a;
+        DownloadInfo downloadInfo = this.f68184a;
         if (downloadInfo != null) {
             return downloadInfo.e();
         }
@@ -457,7 +457,7 @@ public class a {
     }
 
     public a j(h hVar) {
-        this.f67192b = hVar;
+        this.f68185b = hVar;
         return this;
     }
 
@@ -467,7 +467,7 @@ public class a {
     }
 
     public a k(i iVar) {
-        this.f67193c = iVar;
+        this.f68186c = iVar;
         return this;
     }
 
@@ -477,28 +477,28 @@ public class a {
     }
 
     public void l(a aVar) {
-        for (Map.Entry<g, d.o.a.e.b.f.b> entry : aVar.f67194d.entrySet()) {
-            if (entry != null && !this.f67194d.containsKey(entry.getKey())) {
-                this.f67194d.put(entry.getKey(), entry.getValue());
+        for (Map.Entry<g, d.o.a.e.b.f.b> entry : aVar.f68187d.entrySet()) {
+            if (entry != null && !this.f68187d.containsKey(entry.getKey())) {
+                this.f68187d.put(entry.getKey(), entry.getValue());
             }
         }
         try {
-            if (aVar.f67196f.size() != 0) {
-                synchronized (this.f67196f) {
-                    u0(this.f67196f, aVar.f67196f);
-                    a(aVar.f67196f, this.f67196f);
+            if (aVar.f68189f.size() != 0) {
+                synchronized (this.f68189f) {
+                    u0(this.f68189f, aVar.f68189f);
+                    a(aVar.f68189f, this.f68189f);
                 }
             }
-            if (aVar.f67197g.size() != 0) {
-                synchronized (this.f67197g) {
-                    u0(this.f67197g, aVar.f67197g);
-                    a(aVar.f67197g, this.f67197g);
+            if (aVar.f68190g.size() != 0) {
+                synchronized (this.f68190g) {
+                    u0(this.f68190g, aVar.f68190g);
+                    a(aVar.f68190g, this.f68190g);
                 }
             }
-            if (aVar.f67198h.size() != 0) {
-                synchronized (this.f67198h) {
-                    u0(this.f67198h, aVar.f67198h);
-                    a(aVar.f67198h, this.f67198h);
+            if (aVar.f68191h.size() != 0) {
+                synchronized (this.f68191h) {
+                    u0(this.f68191h, aVar.f68191h);
+                    a(aVar.f68191h, this.f68191h);
                 }
             }
         } catch (Throwable th) {
@@ -548,13 +548,13 @@ public class a {
     }
 
     public int p() {
-        this.f67191a = this.m.C();
-        if (d.o.a.e.b.g.d.I0().b(this.f67191a.c0()) == null) {
+        this.f68184a = this.m.C();
+        if (d.o.a.e.b.g.d.I0().b(this.f68184a.c0()) == null) {
             d.o.a.e.b.e.a.h(this, null, 0);
         }
         A0();
         e.c().j(this);
-        DownloadInfo downloadInfo = this.f67191a;
+        DownloadInfo downloadInfo = this.f68184a;
         if (downloadInfo == null) {
             return 0;
         }
@@ -586,12 +586,12 @@ public class a {
 
     public a r0(int i, d.o.a.e.b.f.b bVar) {
         if (bVar != null) {
-            synchronized (this.f67198h) {
-                this.f67198h.put(i, bVar);
+            synchronized (this.f68191h) {
+                this.f68191h.put(i, bVar);
             }
-            this.f67194d.put(g.NOTIFICATION, bVar);
-            synchronized (this.f67195e) {
-                this.f67195e.put(i, g.NOTIFICATION);
+            this.f68187d.put(g.NOTIFICATION, bVar);
+            synchronized (this.f68188e) {
+                this.f68188e.put(i, g.NOTIFICATION);
             }
         }
         return this;
@@ -641,28 +641,28 @@ public class a {
         int indexOfValue;
         SparseArray<d.o.a.e.b.f.b> K = K(gVar);
         if (K == null) {
-            if (z && this.f67194d.containsKey(gVar)) {
-                this.f67194d.remove(gVar);
+            if (z && this.f68187d.containsKey(gVar)) {
+                this.f68187d.remove(gVar);
                 return;
             }
             return;
         }
         synchronized (K) {
             if (z) {
-                if (this.f67194d.containsKey(gVar)) {
-                    bVar = this.f67194d.get(gVar);
-                    this.f67194d.remove(gVar);
+                if (this.f68187d.containsKey(gVar)) {
+                    bVar = this.f68187d.get(gVar);
+                    this.f68187d.remove(gVar);
                 }
                 if (bVar != null && (indexOfValue = K.indexOfValue(bVar)) >= 0 && indexOfValue < K.size()) {
                     K.removeAt(indexOfValue);
                 }
             } else {
                 K.remove(i);
-                synchronized (this.f67195e) {
-                    g gVar2 = this.f67195e.get(i);
-                    if (gVar2 != null && this.f67194d.containsKey(gVar2)) {
-                        this.f67194d.remove(gVar2);
-                        this.f67195e.remove(i);
+                synchronized (this.f68188e) {
+                    g gVar2 = this.f68188e.get(i);
+                    if (gVar2 != null && this.f68187d.containsKey(gVar2)) {
+                        this.f68187d.remove(gVar2);
+                        this.f68188e.remove(i);
                     }
                 }
             }
@@ -711,6 +711,6 @@ public class a {
 
     public a(DownloadInfo downloadInfo) {
         this();
-        this.f67191a = downloadInfo;
+        this.f68184a = downloadInfo;
     }
 }

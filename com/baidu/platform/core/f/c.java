@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class c extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10426b = "c";
+    public static final String f9984b = "c";
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -62,7 +62,7 @@ public class c extends com.baidu.platform.base.d {
                 return false;
             }
         } catch (JSONException e2) {
-            Log.e(f10426b, "Parse sug search error", e2);
+            Log.e(f9984b, "Parse sug search error", e2);
         }
         suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
         return false;
@@ -109,7 +109,7 @@ public class c extends com.baidu.platform.base.d {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                Log.e(f10426b, "Parse suggestion search result error", e2);
+                Log.e(f9984b, "Parse suggestion search result error", e2);
             }
             if (jSONObject.length() != 0) {
                 if (jSONObject.has("SDK_InnerError")) {

@@ -8,7 +8,6 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.math.BigDecimal;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
@@ -30,9 +29,8 @@ public class IntegerCodec implements ObjectSerializer, ObjectDeserializer {
                 jSONLexer.nextToken(16);
                 t = (T) Integer.valueOf(intValue);
             } else if (i == 3) {
-                BigDecimal decimalValue = jSONLexer.decimalValue();
+                t = (T) Integer.valueOf(TypeUtils.intValue(jSONLexer.decimalValue()));
                 jSONLexer.nextToken(16);
-                t = (T) Integer.valueOf(decimalValue.intValue());
             } else if (i == 12) {
                 JSONObject jSONObject = new JSONObject(true);
                 defaultJSONParser.parseObject((Map) jSONObject);
@@ -43,7 +41,11 @@ public class IntegerCodec implements ObjectSerializer, ObjectDeserializer {
             obj = AtomicInteger.class;
             return type == obj ? (T) new AtomicInteger(((Integer) t).intValue()) : t;
         } catch (Exception e2) {
-            throw new JSONException("parseInt error, field : " + obj, e2);
+            String str = "parseInt error";
+            if (obj != null) {
+                str = "parseInt error, field : " + obj;
+            }
+            throw new JSONException(str, e2);
         }
     }
 

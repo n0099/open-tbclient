@@ -15,18 +15,18 @@ import java.util.List;
 public class e extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5893b;
+    public String f5928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5894c;
+    public String f5929c;
 
     public e(Context context) {
         super(context);
-        this.f5894c = "1";
+        this.f5929c = "1";
     }
 
     public void a(String str) {
-        this.f5893b = str;
+        this.f5928b = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -43,15 +43,15 @@ public class e extends l {
             arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
             arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
         }
-        arrayList.add(new RestNameValuePair("imgdigests", this.f5893b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.f5928b));
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5920a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5955a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }
         arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-        arrayList.add(new RestNameValuePair("last", this.f5894c));
+        arrayList.add(new RestNameValuePair("last", this.f5929c));
         return arrayList;
     }
 
@@ -76,6 +76,6 @@ public class e extends l {
     }
 
     public void a(boolean z) {
-        this.f5894c = z ? "1" : "0";
+        this.f5929c = z ? "1" : "0";
     }
 }

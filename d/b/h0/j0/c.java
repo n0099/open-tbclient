@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageInfo.TbPageTag;
-import d.b.b.a.g;
-import d.b.b.a.j;
-import d.b.b.e.p.k;
+import d.b.c.a.g;
+import d.b.c.a.j;
+import d.b.c.e.p.k;
 import d.b.h0.r.q.a2;
 /* loaded from: classes3.dex */
 public class c {

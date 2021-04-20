@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
 public class LegoListActivityConfig extends IntentConfig {
@@ -58,7 +59,7 @@ public class LegoListActivityConfig extends IntentConfig {
         intent.putExtra("rn", i3);
         intent.putExtra("params", str2);
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }

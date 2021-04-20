@@ -13,6 +13,7 @@ import java.util.Date;
 import kotlin.text.Typography;
 /* loaded from: classes.dex */
 public class FieldSerializer implements Comparable<FieldSerializer> {
+    public boolean browserCompatible;
     public boolean disableCircularReferenceDetect;
     public final String double_quoted_fieldPrefix;
     public int features;
@@ -51,7 +52,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
         this.persistenceXToMany = false;
         this.fieldInfo = fieldInfo;
         this.fieldContext = new BeanContext(cls, fieldInfo);
-        if (cls != null && fieldInfo.isEnum && (jSONType = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class)) != null) {
+        if (cls != null && (jSONType = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class)) != null) {
             for (SerializerFeature serializerFeature : jSONType.serialzeFeatures()) {
                 if (serializerFeature == SerializerFeature.WriteEnumUsingToString) {
                     this.writeEnumUsingToString = true;
@@ -59,6 +60,17 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
                     this.writeEnumUsingName = true;
                 } else if (serializerFeature == SerializerFeature.DisableCircularReferenceDetect) {
                     this.disableCircularReferenceDetect = true;
+                } else {
+                    SerializerFeature serializerFeature2 = SerializerFeature.BrowserCompatible;
+                    if (serializerFeature == serializerFeature2) {
+                        this.features |= serializerFeature2.mask;
+                        this.browserCompatible = true;
+                    } else {
+                        SerializerFeature serializerFeature3 = SerializerFeature.WriteMapNullValue;
+                        if (serializerFeature == serializerFeature3) {
+                            this.features |= serializerFeature3.mask;
+                        }
+                    }
                 }
             }
         }
@@ -85,16 +97,18 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
             if (format.trim().length() == 0) {
                 this.format = null;
             }
-            for (SerializerFeature serializerFeature2 : annotation.serialzeFeatures()) {
-                if (serializerFeature2 == SerializerFeature.WriteEnumUsingToString) {
+            for (SerializerFeature serializerFeature4 : annotation.serialzeFeatures()) {
+                if (serializerFeature4 == SerializerFeature.WriteEnumUsingToString) {
                     this.writeEnumUsingToString = true;
-                } else if (serializerFeature2 == SerializerFeature.WriteEnumUsingName) {
+                } else if (serializerFeature4 == SerializerFeature.WriteEnumUsingName) {
                     this.writeEnumUsingName = true;
-                } else if (serializerFeature2 == SerializerFeature.DisableCircularReferenceDetect) {
+                } else if (serializerFeature4 == SerializerFeature.DisableCircularReferenceDetect) {
                     this.disableCircularReferenceDetect = true;
+                } else if (serializerFeature4 == SerializerFeature.BrowserCompatible) {
+                    this.browserCompatible = true;
                 }
             }
-            this.features = SerializerFeature.of(annotation.serialzeFeatures());
+            this.features = SerializerFeature.of(annotation.serialzeFeatures()) | this.features;
         } else {
             z = false;
         }
@@ -104,12 +118,16 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
 
     public Object getPropertyValue(Object obj) throws InvocationTargetException, IllegalAccessException {
         Object obj2 = this.fieldInfo.get(obj);
-        if (this.format == null || obj2 == null || this.fieldInfo.fieldClass != Date.class) {
+        if (this.format == null || obj2 == null) {
             return obj2;
         }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.format);
-        simpleDateFormat.setTimeZone(JSON.defaultTimeZone);
-        return simpleDateFormat.format(obj2);
+        Class<?> cls = this.fieldInfo.fieldClass;
+        if (cls == Date.class || cls == java.sql.Date.class) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.format, JSON.defaultLocale);
+            simpleDateFormat.setTimeZone(JSON.defaultTimeZone);
+            return simpleDateFormat.format(obj2);
+        }
+        return obj2;
     }
 
     public Object getPropertyValueDirect(Object obj) throws InvocationTargetException, IllegalAccessException {
@@ -123,7 +141,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
     public void writePrefix(JSONSerializer jSONSerializer) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (serializeWriter.quoteFieldNames) {
-            if (serializeWriter.useSingleQuotes) {
+            if (SerializerFeature.isEnabled(serializeWriter.features, this.fieldInfo.serialzeFeatures, SerializerFeature.UseSingleQuotes)) {
                 if (this.single_quoted_fieldPrefix == null) {
                     this.single_quoted_fieldPrefix = '\'' + this.fieldInfo.name + "':";
                 }
@@ -142,62 +160,77 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
     public void writeValue(JSONSerializer jSONSerializer, Object obj) throws Exception {
         ObjectSerializer objectSerializer;
         Class<?> cls;
+        Class<?> cls2;
+        ObjectSerializer objectWriter;
         if (this.runtimeInfo == null) {
             if (obj == null) {
-                cls = this.fieldInfo.fieldClass;
+                cls2 = this.fieldInfo.fieldClass;
+                if (cls2 == Byte.TYPE) {
+                    cls2 = Byte.class;
+                } else if (cls2 == Short.TYPE) {
+                    cls2 = Short.class;
+                } else if (cls2 == Integer.TYPE) {
+                    cls2 = Integer.class;
+                } else if (cls2 == Long.TYPE) {
+                    cls2 = Long.class;
+                } else if (cls2 == Float.TYPE) {
+                    cls2 = Float.class;
+                } else if (cls2 == Double.TYPE) {
+                    cls2 = Double.class;
+                } else if (cls2 == Boolean.TYPE) {
+                    cls2 = Boolean.class;
+                }
             } else {
-                cls = obj.getClass();
+                cls2 = obj.getClass();
             }
             ObjectSerializer objectSerializer2 = null;
             JSONField annotation = this.fieldInfo.getAnnotation();
             if (annotation != null && annotation.serializeUsing() != Void.class) {
-                objectSerializer2 = (ObjectSerializer) annotation.serializeUsing().newInstance();
+                objectWriter = (ObjectSerializer) annotation.serializeUsing().newInstance();
                 this.serializeUsing = true;
             } else {
                 if (this.format != null) {
-                    if (cls != Double.TYPE && cls != Double.class) {
-                        if (cls == Float.TYPE || cls == Float.class) {
+                    if (cls2 != Double.TYPE && cls2 != Double.class) {
+                        if (cls2 == Float.TYPE || cls2 == Float.class) {
                             objectSerializer2 = new FloatCodec(this.format);
                         }
                     } else {
                         objectSerializer2 = new DoubleSerializer(this.format);
                     }
                 }
-                if (objectSerializer2 == null) {
-                    objectSerializer2 = jSONSerializer.getObjectWriter(cls);
-                }
+                objectWriter = objectSerializer2 == null ? jSONSerializer.getObjectWriter(cls2) : objectSerializer2;
             }
-            this.runtimeInfo = new RuntimeSerializerInfo(objectSerializer2, cls);
+            this.runtimeInfo = new RuntimeSerializerInfo(objectWriter, cls2);
         }
         RuntimeSerializerInfo runtimeSerializerInfo = this.runtimeInfo;
-        int mask = this.disableCircularReferenceDetect ? this.fieldInfo.serialzeFeatures | SerializerFeature.DisableCircularReferenceDetect.getMask() : this.fieldInfo.serialzeFeatures;
+        int i = (this.disableCircularReferenceDetect ? this.fieldInfo.serialzeFeatures | SerializerFeature.DisableCircularReferenceDetect.mask : this.fieldInfo.serialzeFeatures) | this.features;
         if (obj == null) {
             SerializeWriter serializeWriter = jSONSerializer.out;
             if (this.fieldInfo.fieldClass == Object.class && serializeWriter.isEnabled(SerializerFeature.WRITE_MAP_NULL_FEATURES)) {
                 serializeWriter.writeNull();
                 return;
             }
-            Class<?> cls2 = runtimeSerializerInfo.runtimeFieldClass;
-            if (Number.class.isAssignableFrom(cls2)) {
+            Class<?> cls3 = runtimeSerializerInfo.runtimeFieldClass;
+            if (Number.class.isAssignableFrom(cls3)) {
                 serializeWriter.writeNull(this.features, SerializerFeature.WriteNullNumberAsZero.mask);
                 return;
-            } else if (String.class == cls2) {
+            } else if (String.class == cls3) {
                 serializeWriter.writeNull(this.features, SerializerFeature.WriteNullStringAsEmpty.mask);
                 return;
-            } else if (Boolean.class == cls2) {
+            } else if (Boolean.class == cls3) {
                 serializeWriter.writeNull(this.features, SerializerFeature.WriteNullBooleanAsFalse.mask);
                 return;
-            } else if (Collection.class.isAssignableFrom(cls2)) {
-                serializeWriter.writeNull(this.features, SerializerFeature.WriteNullListAsEmpty.mask);
-                return;
-            } else {
+            } else if (!Collection.class.isAssignableFrom(cls3) && !cls3.isArray()) {
                 ObjectSerializer objectSerializer3 = runtimeSerializerInfo.fieldSerializer;
                 if (serializeWriter.isEnabled(SerializerFeature.WRITE_MAP_NULL_FEATURES) && (objectSerializer3 instanceof JavaBeanSerializer)) {
                     serializeWriter.writeNull();
                     return;
                 }
                 FieldInfo fieldInfo = this.fieldInfo;
-                objectSerializer3.write(jSONSerializer, null, fieldInfo.name, fieldInfo.fieldType, mask);
+                objectSerializer3.write(jSONSerializer, null, fieldInfo.name, fieldInfo.fieldType, i);
+                return;
+            } else {
+                serializeWriter.writeNull(this.features, SerializerFeature.WriteNullListAsEmpty.mask);
                 return;
             }
         }
@@ -210,9 +243,9 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
                 return;
             }
         }
-        Class<?> cls3 = obj.getClass();
-        if (cls3 != runtimeSerializerInfo.runtimeFieldClass && !this.serializeUsing) {
-            objectSerializer = jSONSerializer.getObjectWriter(cls3);
+        Class<?> cls4 = obj.getClass();
+        if (cls4 != runtimeSerializerInfo.runtimeFieldClass && !this.serializeUsing) {
+            objectSerializer = jSONSerializer.getObjectWriter(cls4);
         } else {
             objectSerializer = runtimeSerializerInfo.fieldSerializer;
         }
@@ -230,20 +263,29 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
         FieldInfo fieldInfo2 = this.fieldInfo;
         if (fieldInfo2.unwrapped) {
             if (objectSerializer4 instanceof JavaBeanSerializer) {
-                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, mask, true);
+                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, i, true);
                 return;
             } else if (objectSerializer4 instanceof MapSerializer) {
-                ((MapSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, mask, true);
+                ((MapSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo2.name, fieldInfo2.fieldType, i, true);
                 return;
             }
         }
-        if ((this.features & SerializerFeature.WriteClassName.mask) != 0 && cls3 != this.fieldInfo.fieldClass && JavaBeanSerializer.class.isInstance(objectSerializer4)) {
+        if ((this.features & SerializerFeature.WriteClassName.mask) != 0) {
             FieldInfo fieldInfo3 = this.fieldInfo;
-            ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo3.name, fieldInfo3.fieldType, mask, false);
-            return;
+            if (cls4 != fieldInfo3.fieldClass && (objectSerializer4 instanceof JavaBeanSerializer)) {
+                ((JavaBeanSerializer) objectSerializer4).write(jSONSerializer, obj, fieldInfo3.name, fieldInfo3.fieldType, i, false);
+                return;
+            }
+        }
+        if (this.browserCompatible && ((cls = this.fieldInfo.fieldClass) == Long.TYPE || cls == Long.class)) {
+            long longValue = ((Long) obj).longValue();
+            if (longValue > 9007199254740991L || longValue < -9007199254740991L) {
+                jSONSerializer.getWriter().writeString(Long.toString(longValue));
+                return;
+            }
         }
         FieldInfo fieldInfo4 = this.fieldInfo;
-        objectSerializer4.write(jSONSerializer, obj, fieldInfo4.name, fieldInfo4.fieldType, mask);
+        objectSerializer4.write(jSONSerializer, obj, fieldInfo4.name, fieldInfo4.fieldType, i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

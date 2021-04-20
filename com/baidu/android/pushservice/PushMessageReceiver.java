@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
@@ -32,11 +33,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static class a extends Handler {
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f2645d;
+        public final WeakReference<Context> f2680d;
 
         public a(Context context) {
             super(context.getMainLooper());
-            this.f2645d = new WeakReference<>(context);
+            this.f2680d = new WeakReference<>(context);
         }
     }
 
@@ -48,15 +49,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2650d;
+        public int f2685d;
 
         b(int i) {
-            this.f2650d = i;
+            this.f2685d = i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2650d;
+            return this.f2685d;
         }
     }
 
@@ -72,7 +73,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 try {
                     Intent parseUri = Intent.parseUri(stringExtra4, 0);
                     parseUri.setPackage(context.getPackageName());
-                    parseUri.addFlags(268435456);
+                    parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     if (!TextUtils.isEmpty(stringExtra5)) {
                         JSONObject jSONObject = new JSONObject(stringExtra5);
                         Iterator<String> keys = jSONObject.keys();
@@ -133,7 +134,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             try {
                 Intent parseUri = Intent.parseUri(stringExtra3, 0);
                 parseUri.setPackage(context.getPackageName());
-                parseUri.addFlags(268435456);
+                parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 if (!TextUtils.isEmpty(stringExtra4)) {
                     JSONObject jSONObject = new JSONObject(stringExtra4);
                     Iterator<String> keys = jSONObject.keys();
@@ -175,7 +176,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             try {
                 Intent parseUri = Intent.parseUri(stringExtra5, 0);
                 parseUri.setPackage(context.getPackageName());
-                parseUri.addFlags(268435456);
+                parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 if (!TextUtils.isEmpty(stringExtra6)) {
                     JSONObject jSONObject = new JSONObject(stringExtra6);
                     Iterator<String> keys = jSONObject.keys();
@@ -634,8 +635,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final a aVar = new a(context) { // from class: com.baidu.android.pushservice.PushMessageReceiver.1
                         @Override // android.os.Handler
                         public void handleMessage(Message message) {
-                            if (this.f2645d.get() != null) {
-                                PushMessageReceiver.this.onMessage(this.f2645d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            if (this.f2680d.get() != null) {
+                                PushMessageReceiver.this.onMessage(this.f2680d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
                                 PushMessageReceiver.sendCallback(context, intent, 10, false);
                             }
                         }

@@ -12,7 +12,7 @@ import tbclient.StarTrends.StarTrendsReqIdl;
 public class FrsDynamicRequestData extends OrmObject implements g, d {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16208common;
+    public CommonReq f15869common;
     public long forumId;
     public long lastThreadId;
     public int qType;

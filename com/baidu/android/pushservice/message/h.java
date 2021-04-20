@@ -11,10 +11,10 @@ public enum h {
     
 
     /* renamed from: h  reason: collision with root package name */
-    public short f3471h;
+    public short f3506h;
 
     h(int i2) {
-        this.f3471h = (short) i2;
+        this.f3506h = (short) i2;
     }
 
     public static h a(short s) {
@@ -37,6 +37,6 @@ public enum h {
     }
 
     public short b() {
-        return this.f3471h;
+        return this.f3506h;
     }
 }

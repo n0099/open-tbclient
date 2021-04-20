@@ -7,9 +7,9 @@ import d.b.g0.a.p.d.c;
 public interface a<T extends c> extends d<T> {
     void D(boolean z);
 
-    void J();
+    void K();
 
-    void X(String str, String str2);
+    void Y(String str, String str2);
 
     void l();
 

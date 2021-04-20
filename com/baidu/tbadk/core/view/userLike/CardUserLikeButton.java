@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public CardUserLikeButton(Context context) {
@@ -15,15 +15,15 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.b.h0.r.f0.q.b
     public void a(boolean z, int i) {
-        this.f13639g = z;
+        this.f13300g = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.f13637e);
+            setText(this.f13298e);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.f13638f);
+            setText(this.f13299f);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
         }
         g(TbadkCoreApplication.getInst().getSkinType());
@@ -37,7 +37,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void g(int i) {
-        if (this.f13639g) {
+        if (this.f13300g) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1, i);
             setBackgroundDrawable(null);

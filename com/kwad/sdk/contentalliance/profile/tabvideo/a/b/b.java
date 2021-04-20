@@ -11,23 +11,23 @@ import com.kwad.sdk.utils.ag;
 public class b extends com.kwad.sdk.contentalliance.profile.tabvideo.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f32919b;
+    public ImageView f33208b;
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36008a).i;
+        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i;
         PhotoInfo k = com.kwad.sdk.core.response.b.c.k(adTemplate);
         String g2 = com.kwad.sdk.core.response.b.d.g(k);
         if (ag.a(g2)) {
             g2 = com.kwad.sdk.core.response.b.d.d(k);
         }
-        com.kwad.sdk.glide.c.a(((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36008a).f36003d).a(g2).a((e<Drawable>) new com.kwad.sdk.c(g2, adTemplate)).a(o().getResources().getDrawable(R.drawable.ksad_tube_episode_cover_bg)).c(o().getResources().getDrawable(R.drawable.ksad_tube_episode_cover_bg)).a(this.f32919b);
+        com.kwad.sdk.glide.c.a(((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).f36292d).a(g2).a((e<Drawable>) new com.kwad.sdk.c(g2, adTemplate)).a(o().getResources().getDrawable(R.drawable.ksad_tube_episode_cover_bg)).c(o().getResources().getDrawable(R.drawable.ksad_tube_episode_cover_bg)).a(this.f33208b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32919b = (ImageView) b(R.id.ksad_profile_video_img);
+        this.f33208b = (ImageView) b(R.id.ksad_profile_video_img);
     }
 }

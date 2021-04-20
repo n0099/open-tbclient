@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.bigday;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.r.n.a;
 import java.util.ArrayList;
 import tbclient.Error;

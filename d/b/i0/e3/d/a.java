@@ -1,72 +1,150 @@
 package d.b.i0.e3.d;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import d.b.i0.e3.e.b;
-import java.util.LinkedList;
-import java.util.List;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadvert.view.CountDownTextView;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
-public class a extends BaseAdapter {
+public class a {
 
-    /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f54588e;
+    /* renamed from: a  reason: collision with root package name */
+    public Context f55700a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public LinkedList<b> f54589f = new LinkedList<>();
+    /* renamed from: b  reason: collision with root package name */
+    public FrameLayout f55701b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f54590g;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f55702c;
 
-    public a(TbPageContext tbPageContext) {
-        this.f54588e = tbPageContext;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public d f55703d;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public b getItem(int i) {
-        return (b) ListUtils.getItem(this.f54589f, i);
-    }
-
-    public void b(int i) {
-        this.f54590g = i;
-    }
-
-    public void c(List<b> list) {
-        if (ListUtils.isEmpty(list)) {
-            return;
+    /* renamed from: d.b.i0.e3.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public class View$OnClickListenerC1286a implements View.OnClickListener {
+        public View$OnClickListenerC1286a() {
         }
-        this.f54589f.clear();
-        this.f54589f.addAll(list);
-        notifyDataSetChanged();
-    }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return ListUtils.getCount(this.f54589f);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View view2;
-        d.b.i0.e3.g.a aVar;
-        if (view == null) {
-            aVar = new d.b.i0.e3.g.a(this.f54588e, this.f54590g);
-            view2 = aVar.b();
-            view2.setTag(aVar);
-        } else {
-            view2 = view;
-            aVar = (d.b.i0.e3.g.a) view.getTag();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (a.this.f55703d != null) {
+                a.this.f55703d.a();
+            }
         }
-        aVar.d(getItem(i));
-        return view2;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (a.this.f55703d != null) {
+                a.this.f55703d.b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements CountDownTextView.c {
+        public c() {
+        }
+
+        @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.c
+        public void a(View view) {
+            if (a.this.f55703d != null) {
+                a.this.f55703d.b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a();
+
+        void b();
+    }
+
+    public a(Context context, d dVar) {
+        this.f55703d = dVar;
+        this.f55700a = context;
+        this.f55701b = new FrameLayout(context);
+    }
+
+    public View b() {
+        return this.f55701b;
+    }
+
+    public final void c() {
+        TextView textView = new TextView(this.f55700a);
+        textView.setText(R.string.tb_ad_label);
+        int dimension = (int) this.f55700a.getResources().getDimension(R.dimen.ds28);
+        textView.setTextSize(0, (int) this.f55700a.getResources().getDimension(R.dimen.ds22));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f55700a.getResources().getDimension(R.dimen.ds68), (int) this.f55700a.getResources().getDimension(R.dimen.ds40));
+        textView.setTextColor(-1);
+        textView.setGravity(17);
+        textView.setAlpha(0.5f);
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(-16777216);
+        gradientDrawable.setCornerRadius(this.f55700a.getResources().getDimension(R.dimen.ds4));
+        gradientDrawable.setStroke(1, -16777216);
+        textView.setBackgroundDrawable(gradientDrawable);
+        layoutParams.gravity = 83;
+        layoutParams.setMargins(dimension, 0, 0, (int) this.f55700a.getResources().getDimension(R.dimen.ds28));
+        this.f55701b.addView(textView, layoutParams);
+    }
+
+    public final void d(int i) {
+        CountDownTextView countDownTextView = new CountDownTextView(this.f55700a);
+        int dimension = (int) this.f55700a.getResources().getDimension(R.dimen.ds22);
+        int dimension2 = (int) this.f55700a.getResources().getDimension(R.dimen.ds36);
+        Context context = this.f55700a;
+        if ((context instanceof Activity) && (UtilHelper.isNotchScreen((Activity) context) || UtilHelper.isCutoutScreen((Activity) this.f55700a))) {
+            dimension2 += l.r((Activity) this.f55700a);
+        }
+        String string = this.f55700a.getResources().getString(R.string.skip);
+        countDownTextView.setTextSize(0, dimension);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f55700a.getResources().getDimension(R.dimen.ds106), (int) this.f55700a.getResources().getDimension(R.dimen.ds52));
+        countDownTextView.setTextColor(-1);
+        countDownTextView.setGravity(17);
+        countDownTextView.setAlpha(0.5f);
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(-16777216);
+        gradientDrawable.setCornerRadius(this.f55700a.getResources().getDimension(R.dimen.ds4));
+        gradientDrawable.setStroke(1, -16777216);
+        countDownTextView.setBackgroundDrawable(gradientDrawable);
+        countDownTextView.d(string, i);
+        layoutParams.gravity = 53;
+        layoutParams.setMargins(0, dimension2, (int) this.f55700a.getResources().getDimension(R.dimen.ds32), 0);
+        this.f55701b.addView(countDownTextView, layoutParams);
+        countDownTextView.setOnClickListener(new b());
+        countDownTextView.setTimeoutListener(new c());
+    }
+
+    public final void e(d.b.c.j.d.a aVar) {
+        ImageView imageView = new ImageView(this.f55700a);
+        this.f55702c = imageView;
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        if (aVar != null) {
+            this.f55702c.setImageBitmap(aVar.p());
+        }
+        this.f55702c.setOnClickListener(new View$OnClickListenerC1286a());
+        this.f55701b.addView(this.f55702c);
+    }
+
+    public void f(Object obj, int i) {
+        if (obj instanceof d.b.c.j.d.a) {
+            e((d.b.c.j.d.a) obj);
+        }
+        c();
+        d(i);
     }
 }

@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";

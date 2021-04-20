@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -31,10 +31,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.s.a;
 import d.b.h0.z0.n0;
-import d.b.i0.r2.t;
+import d.b.i0.s2.w;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 /* loaded from: classes3.dex */
@@ -70,7 +70,7 @@ public class c {
 
     /* renamed from: d.b.h0.l.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1067c implements UrlManager.UrlDealListener {
+    public static class C1080c implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             Uri parse;
@@ -89,7 +89,7 @@ public class c {
             if (str2.startsWith("tel:")) {
                 UtilHelper.callPhone(tbPageContext.getPageActivity(), str2.substring(4));
                 return 0;
-            } else if (n0.h(str2) && str2.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+            } else if (n0.h(str2) && str2.toLowerCase().endsWith(".apk")) {
                 c.l(tbPageContext.getPageActivity(), str2);
                 return 0;
             } else {
@@ -124,7 +124,7 @@ public class c {
                     d.b.h0.l.a.j(tbPageContext.getPageActivity(), str2);
                     return 1;
                 } else if (UtilHelper.isNativeAdURL(str2)) {
-                    t.d(tbPageContext.getPageActivity(), str2, null, null);
+                    w.d(tbPageContext.getPageActivity(), str2, null, null);
                     return 1;
                 } else if (!str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                     if ((str2.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
@@ -141,7 +141,7 @@ public class c {
                         Intent intent = new Intent("android.intent.action.VIEW");
                         intent.addCategory("android.intent.category.DEFAULT");
                         intent.setData(Uri.parse(str2));
-                        intent.setFlags(268435456);
+                        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         tbPageContext.getPageActivity().startActivity(intent);
                         return 0;
                     } else if (str2.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_URL) && str2.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_PARAM)) {
@@ -203,24 +203,24 @@ public class c {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f50253e;
+        public final /* synthetic */ TbPageContext f50660e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f50254f;
+        public final /* synthetic */ String f50661f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f50255g;
+        public final /* synthetic */ String f50662g;
 
         public d(TbPageContext tbPageContext, String str, String str2) {
-            this.f50253e = tbPageContext;
-            this.f50254f = str;
-            this.f50255g = str2;
+            this.f50660e = tbPageContext;
+            this.f50661f = str;
+            this.f50662g = str2;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            d.b.h0.l.a.m(this.f50253e.getPageActivity(), this.f50254f, this.f50255g);
+            d.b.h0.l.a.m(this.f50660e.getPageActivity(), this.f50661f, this.f50662g);
         }
     }
 
@@ -387,7 +387,7 @@ public class c {
     public static void e() {
         MessageManager.getInstance().registerListener(2005016, new a(0));
         UrlManager.getInstance().setWebListener(new b());
-        SwitchManager.getInstance().addSwitchData(new d.b.b.e.f.b("switch_mbaidu_startup", 1, null));
+        SwitchManager.getInstance().addSwitchData(new d.b.c.e.f.b("switch_mbaidu_startup", 1, null));
         i();
         j();
         k();
@@ -428,7 +428,7 @@ public class c {
     }
 
     public static void i() {
-        UrlManager.getInstance().addListener(new C1067c());
+        UrlManager.getInstance().addListener(new C1080c());
     }
 
     public static void j() {

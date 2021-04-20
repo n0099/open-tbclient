@@ -1,5 +1,5 @@
 package d.c.d.b.n;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b {
     String a(String str, byte[] bArr);
 }

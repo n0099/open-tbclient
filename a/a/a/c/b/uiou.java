@@ -19,31 +19,31 @@ import java.util.Map;
 public abstract class uiou implements a.a.a.c.a.bv {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1431a;
+    public String f1417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final bv f1432b;
+    public final bv f1418b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final lbvzx f1433c;
+    public final lbvzx f1419c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final bv.InterfaceC0007bv f1434d;
+    public final bv.InterfaceC0006bv f1420d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f1435e;
+    public volatile int f1421e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f1436f = 0;
+    public volatile int f1422f = 0;
 
-    public uiou(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0007bv interfaceC0007bv) {
-        this.f1432b = bvVar;
-        this.f1433c = lbvzxVar;
-        this.f1434d = interfaceC0007bv;
+    public uiou(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0006bv interfaceC0006bv) {
+        this.f1418b = bvVar;
+        this.f1419c = lbvzxVar;
+        this.f1420d = interfaceC0006bv;
         String c2 = c();
-        this.f1431a = c2;
+        this.f1417a = c2;
         if (TextUtils.isEmpty(c2)) {
-            this.f1431a = getClass().getSimpleName();
+            this.f1417a = getClass().getSimpleName();
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
             HttpURLConnection httpURLConnection2 = null;
             try {
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.f1433c.f1416a).openConnection();
+                    httpURLConnection = (HttpURLConnection) new URL(this.f1419c.f1402a).openConnection();
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -65,7 +65,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
                     httpURLConnection.setConnectTimeout(4000);
                     httpURLConnection.setReadTimeout(4000);
                     httpURLConnection.setRequestMethod("GET");
-                    a(a(this.f1433c), httpURLConnection);
+                    a(a(this.f1419c), httpURLConnection);
                     int responseCode = httpURLConnection.getResponseCode();
                     if (responseCode == b()) {
                         a(httpURLConnection);
@@ -100,21 +100,21 @@ public abstract class uiou implements a.a.a.c.a.bv {
     public final void a(DownloadException downloadException) {
         switch (downloadException.getErrorCode()) {
             case 106:
-                synchronized (this.f1434d) {
-                    this.f1435e = 106;
-                    ((shuoy) this.f1434d).d();
+                synchronized (this.f1420d) {
+                    this.f1421e = 106;
+                    ((shuoy) this.f1420d).d();
                 }
                 return;
             case 107:
-                synchronized (this.f1434d) {
-                    this.f1435e = 107;
-                    ((shuoy) this.f1434d).c();
+                synchronized (this.f1420d) {
+                    this.f1421e = 107;
+                    ((shuoy) this.f1420d).c();
                 }
                 return;
             case 108:
-                synchronized (this.f1434d) {
-                    this.f1435e = 108;
-                    ((shuoy) this.f1434d).b(downloadException);
+                synchronized (this.f1420d) {
+                    this.f1421e = 108;
+                    ((shuoy) this.f1420d).b(downloadException);
                 }
                 return;
             default:
@@ -136,9 +136,9 @@ public abstract class uiou implements a.a.a.c.a.bv {
 
     public final void a(InputStream inputStream, RandomAccessFile randomAccessFile) {
         byte[] bArr = new byte[8192];
-        while (this.f1436f != 107) {
-            if (this.f1436f == 106) {
-                c(this.f1433c);
+        while (this.f1422f != 107) {
+            if (this.f1422f == 106) {
+                c(this.f1419c);
                 throw new DownloadException(106, "Download paused!");
             }
             try {
@@ -148,13 +148,13 @@ public abstract class uiou implements a.a.a.c.a.bv {
                 }
                 randomAccessFile.write(bArr, 0, read);
                 long j = read;
-                this.f1433c.f1419d += j;
-                synchronized (this.f1434d) {
-                    this.f1432b.f1415d += j;
-                    ((shuoy) this.f1434d).a(this.f1432b.f1415d, this.f1432b.f1414c);
+                this.f1419c.f1405d += j;
+                synchronized (this.f1420d) {
+                    this.f1418b.f1401d += j;
+                    ((shuoy) this.f1420d).a(this.f1418b.f1401d, this.f1418b.f1400c);
                 }
             } catch (IOException e2) {
-                c(this.f1433c);
+                c(this.f1419c);
                 throw new DownloadException(108, e2);
             }
         }
@@ -169,15 +169,15 @@ public abstract class uiou implements a.a.a.c.a.bv {
             try {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.f1433c.f1417b;
-                    long j2 = this.f1433c.f1419d;
+                    long j = this.f1419c.f1403b;
+                    long j2 = this.f1419c.f1405d;
                     try {
                         try {
-                            File file = this.f1432b.f1413b;
+                            File file = this.f1418b.f1399b;
                             if (!file.exists()) {
                                 file.mkdirs();
                             }
-                            RandomAccessFile a2 = a(file, this.f1432b.f1412a, j + j2);
+                            RandomAccessFile a2 = a(file, this.f1418b.f1398a, j + j2);
                             a(inputStream, a2);
                             try {
                                 a(inputStream);
@@ -229,20 +229,20 @@ public abstract class uiou implements a.a.a.c.a.bv {
     public abstract void c(lbvzx lbvzxVar);
 
     public boolean d() {
-        return this.f1435e == 104;
+        return this.f1421e == 104;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
-        b(this.f1433c);
+        b(this.f1419c);
         try {
-            this.f1435e = 104;
+            this.f1421e = 104;
             a();
-            synchronized (this.f1434d) {
-                this.f1435e = 105;
-                bv.InterfaceC0007bv interfaceC0007bv = this.f1434d;
-                ((shuoy) interfaceC0007bv).a(this.f1432b.f1413b.getAbsolutePath() + File.separator + this.f1432b.f1412a);
+            synchronized (this.f1420d) {
+                this.f1421e = 105;
+                bv.InterfaceC0006bv interfaceC0006bv = this.f1420d;
+                ((shuoy) interfaceC0006bv).a(this.f1418b.f1399b.getAbsolutePath() + File.separator + this.f1418b.f1398a);
             }
         } catch (DownloadException e2) {
             a(e2);

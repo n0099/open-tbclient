@@ -5,46 +5,46 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f67071a;
+    public final String f68064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67072b;
+    public final String f68065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f67073c;
+    public final String f68066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f67074d;
+    public final boolean f68067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<l> f67075e;
+    public final List<l> f68068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67076f;
+    public int f68069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67077g;
+    public boolean f68070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67078h;
+    public int f68071h;
     public String i;
     public final AtomicLong j;
 
     public o(String str, boolean z) {
-        this.f67075e = new ArrayList();
+        this.f68068e = new ArrayList();
         this.j = new AtomicLong();
-        this.f67071a = str;
-        this.f67074d = z;
-        this.f67072b = null;
-        this.f67073c = null;
+        this.f68064a = str;
+        this.f68067d = z;
+        this.f68065b = null;
+        this.f68066c = null;
     }
 
     public synchronized int a() {
-        return this.f67075e.size();
+        return this.f68068e.size();
     }
 
     public final String b(String str) {
@@ -68,12 +68,12 @@ public class o {
     }
 
     public synchronized void d(l lVar) {
-        this.f67075e.add(lVar);
+        this.f68068e.add(lVar);
     }
 
     public synchronized void e() {
-        this.f67076f++;
-        this.f67077g = true;
+        this.f68069f++;
+        this.f68070g = true;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -88,53 +88,53 @@ public class o {
 
     public synchronized void f(l lVar) {
         try {
-            this.f67075e.remove(lVar);
+            this.f68068e.remove(lVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void g() {
-        this.f67077g = false;
+        this.f68070g = false;
     }
 
     public synchronized boolean h() {
-        return this.f67077g;
+        return this.f68070g;
     }
 
     public int hashCode() {
-        if (this.f67078h == 0) {
-            this.f67078h = i().hashCode();
+        if (this.f68071h == 0) {
+            this.f68071h = i().hashCode();
         }
-        return this.f67078h;
+        return this.f68071h;
     }
 
     public final String i() {
         if (this.i == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f67071a);
+            sb.append(this.f68064a);
             sb.append("_");
-            String str = this.f67072b;
+            String str = this.f68065b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f67074d);
+            sb.append(this.f68067d);
             this.i = sb.toString();
         }
         return this.i;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.f67071a + "', ip='" + this.f67072b + "', ipFamily='" + this.f67073c + "', isMainUrl=" + this.f67074d + ", failedTimes=" + this.f67076f + ", isCurrentFailed=" + this.f67077g + '}';
+        return "UrlRecord{url='" + this.f68064a + "', ip='" + this.f68065b + "', ipFamily='" + this.f68066c + "', isMainUrl=" + this.f68067d + ", failedTimes=" + this.f68069f + ", isCurrentFailed=" + this.f68070g + '}';
     }
 
     public o(String str, String str2) {
-        this.f67075e = new ArrayList();
+        this.f68068e = new ArrayList();
         this.j = new AtomicLong();
-        this.f67071a = str;
-        this.f67074d = false;
-        this.f67072b = str2;
-        this.f67073c = b(str2);
+        this.f68064a = str;
+        this.f68067d = false;
+        this.f68065b = str2;
+        this.f68066c = b(str2);
     }
 }

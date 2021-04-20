@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import d.b.b.e.j.b.a;
-import d.b.b.e.p.q;
+import d.b.c.e.j.b.a;
+import d.b.c.e.p.q;
 import d.b.h0.f0.f;
 import d.b.h0.r.l.c;
 import d.b.h0.r.q.q0;
@@ -245,7 +245,7 @@ public class NetWork {
                     return null;
                 }
             }
-            d.b.i0.w0.a.b(this);
+            d.b.i0.x0.a.b(this);
             return netString;
         }
     }
@@ -319,7 +319,7 @@ public class NetWork {
     }
 
     public long getNetDataSize() {
-        return this.netContext.getStat().stat.f41779b;
+        return this.netContext.getStat().stat.f42276b;
     }
 
     public int getNetErrorCode() {

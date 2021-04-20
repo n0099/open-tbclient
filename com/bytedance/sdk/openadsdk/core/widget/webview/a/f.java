@@ -10,11 +10,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static s f29006a;
+    public static s f28691a;
 
     public static void a() {
         FileInputStream fileInputStream;
@@ -31,14 +31,14 @@ public class f {
                         fileInputStream.read(bArr);
                         s a2 = s.a(new JSONObject(new String(bArr, "utf-8")));
                         if (a2 != null) {
-                            f29006a = a2;
-                            u.b(com.alipay.sdk.packet.e.f1919e, "old version read success: " + f29006a.b());
+                            f28691a = a2;
+                            u.b(com.alipay.sdk.packet.e.f1944e, "old version read success: " + f28691a.b());
                         }
                         fileInputStream2 = fileInputStream;
                     } catch (Throwable th2) {
                         th = th2;
                         try {
-                            u.c(com.alipay.sdk.packet.e.f1919e, "version init error", th);
+                            u.c(com.alipay.sdk.packet.e.f1944e, "version init error", th);
                             if (fileInputStream != null) {
                                 fileInputStream.close();
                             }
@@ -54,7 +54,7 @@ public class f {
                         }
                     }
                 } else {
-                    u.b(com.alipay.sdk.packet.e.f1919e, "version pkg json file does not exist");
+                    u.b(com.alipay.sdk.packet.e.f1944e, "version pkg json file does not exist");
                 }
             } catch (IOException unused2) {
                 return;
@@ -71,20 +71,20 @@ public class f {
     public static synchronized s b() {
         s sVar;
         synchronized (f.class) {
-            sVar = f29006a;
+            sVar = f28691a;
         }
         return sVar;
     }
 
     public static void c() {
-        s sVar = f29006a;
+        s sVar = f28691a;
         if (sVar == null) {
-            u.b(com.alipay.sdk.packet.e.f1919e, "version save error1");
+            u.b(com.alipay.sdk.packet.e.f1944e, "version save error1");
             return;
         }
         String g2 = sVar.g();
         if (TextUtils.isEmpty(g2)) {
-            u.b(com.alipay.sdk.packet.e.f1919e, "version save error2");
+            u.b(com.alipay.sdk.packet.e.f1944e, "version save error2");
             return;
         }
         File file = new File(b.e(), "temp_pkg_info.json");
@@ -107,7 +107,7 @@ public class f {
                     th = th;
                     fileOutputStream = fileOutputStream2;
                     try {
-                        u.c(com.alipay.sdk.packet.e.f1919e, "version save error3", th);
+                        u.c(com.alipay.sdk.packet.e.f1944e, "version save error3", th);
                         if (fileOutputStream != null) {
                             fileOutputStream.close();
                         }
@@ -146,7 +146,7 @@ public class f {
                 }
             }
         }
-        f29006a = null;
+        f28691a = null;
     }
 
     public static boolean b(String str) {
@@ -183,7 +183,7 @@ public class f {
         synchronized (f.class) {
             if (sVar != null) {
                 if (sVar.f()) {
-                    f29006a = sVar;
+                    f28691a = sVar;
                 }
             }
         }

@@ -45,7 +45,7 @@ public class CpuStatReader {
 
     private boolean readSystemStat(long[] jArr) {
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/stat", r.f7664a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/stat", r.f7699a);
             String readLine = randomAccessFile.readLine();
             randomAccessFile.close();
             return parseSystemStat(readLine, jArr);

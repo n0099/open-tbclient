@@ -5,25 +5,25 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1831a = "alipay_cashier_statistic_record";
+    public static final String f1856a = "alipay_cashier_statistic_record";
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f1832b;
+    public static c f1857b;
 
     public static void a(Context context) {
-        if (f1832b != null) {
+        if (f1857b != null) {
             return;
         }
-        f1832b = new c(context);
+        f1857b = new c(context);
     }
 
     public static synchronized void b(Context context, String str) {
         synchronized (a.class) {
-            if (f1832b == null) {
+            if (f1857b == null) {
                 return;
             }
-            a(context, f1832b.a(str));
-            f1832b = null;
+            a(context, f1857b.a(str));
+            f1857b = null;
         }
     }
 
@@ -32,14 +32,14 @@ public class a {
     }
 
     public static void a(String str, Throwable th) {
-        if (f1832b == null || th == null || th.getClass() == null) {
+        if (f1857b == null || th == null || th.getClass() == null) {
             return;
         }
-        f1832b.a(str, th.getClass().getSimpleName(), th);
+        f1857b.a(str, th.getClass().getSimpleName(), th);
     }
 
     public static void a(String str, String str2, Throwable th, String str3) {
-        c cVar = f1832b;
+        c cVar = f1857b;
         if (cVar == null) {
             return;
         }
@@ -47,7 +47,7 @@ public class a {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        c cVar = f1832b;
+        c cVar = f1857b;
         if (cVar == null) {
             return;
         }
@@ -55,7 +55,7 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3) {
-        c cVar = f1832b;
+        c cVar = f1857b;
         if (cVar == null) {
             return;
         }

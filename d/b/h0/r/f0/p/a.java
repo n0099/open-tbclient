@@ -8,103 +8,103 @@ import d.b.h0.r.f0.p.a;
 public abstract class a<T extends a> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f50537h = 1;
+    public static int f50944h = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f50538a;
+    public final int f50945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f50539b;
+    public boolean f50946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Editable f50540c;
+    public Editable f50947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50541d;
+    public int f50948d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50542e;
+    public int f50949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50543f;
+    public int f50950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public InterfaceC1077a f50544g;
+    public InterfaceC1090a f50951g;
 
     /* renamed from: d.b.h0.r.f0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1077a {
+    public interface InterfaceC1090a {
         void a(int i, boolean z);
     }
 
     public a() {
-        int i = f50537h;
-        f50537h = i + 1;
-        this.f50538a = i;
+        int i = f50944h;
+        f50944h = i + 1;
+        this.f50945a = i;
     }
 
     public void a(Editable editable, int i, int i2, int i3) {
-        this.f50540c = editable;
-        this.f50541d = i;
-        this.f50542e = i2;
-        this.f50543f = i3;
+        this.f50947c = editable;
+        this.f50948d = i;
+        this.f50949e = i2;
+        this.f50950f = i3;
     }
 
     public void b(T t) {
-        this.f50539b = t.h();
-        this.f50540c = t.g();
-        this.f50541d = t.f();
-        this.f50542e = t.c();
-        this.f50543f = t.d();
+        this.f50946b = t.h();
+        this.f50947c = t.g();
+        this.f50948d = t.f();
+        this.f50949e = t.c();
+        this.f50950f = t.d();
     }
 
     public int c() {
-        return this.f50542e;
+        return this.f50949e;
     }
 
     public int d() {
-        return this.f50543f;
+        return this.f50950f;
     }
 
     public int e() {
-        return this.f50538a;
+        return this.f50945a;
     }
 
     public int f() {
-        return this.f50541d;
+        return this.f50948d;
     }
 
     public Editable g() {
-        return this.f50540c;
+        return this.f50947c;
     }
 
     public boolean h() {
-        return this.f50539b;
+        return this.f50946b;
     }
 
     public void i(@NonNull CharSequence charSequence) {
-        Editable editable = this.f50540c;
+        Editable editable = this.f50947c;
         if (editable == null || charSequence == null) {
             return;
         }
         try {
-            editable.replace(this.f50541d, this.f50542e, charSequence);
+            editable.replace(this.f50948d, this.f50949e, charSequence);
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f50542e = this.f50541d + charSequence.length();
+        this.f50949e = this.f50948d + charSequence.length();
     }
 
     public void j(int i) {
-        this.f50542e = i;
+        this.f50949e = i;
     }
 
-    public void k(InterfaceC1077a interfaceC1077a) {
-        this.f50544g = interfaceC1077a;
+    public void k(InterfaceC1090a interfaceC1090a) {
+        this.f50951g = interfaceC1090a;
     }
 
     public void l(Object obj, int i, int i2, int i3) {
-        Editable editable = this.f50540c;
+        Editable editable = this.f50947c;
         if (editable == null) {
             return;
         }
@@ -112,21 +112,21 @@ public abstract class a<T extends a> {
     }
 
     public void m(int i) {
-        this.f50541d = i;
+        this.f50948d = i;
     }
 
     public void n(Editable editable) {
-        this.f50540c = editable;
+        this.f50947c = editable;
     }
 
     public void o(boolean z) {
-        InterfaceC1077a interfaceC1077a;
-        boolean z2 = this.f50539b;
-        this.f50539b = z;
-        if (z2 == z || (interfaceC1077a = this.f50544g) == null) {
+        InterfaceC1090a interfaceC1090a;
+        boolean z2 = this.f50946b;
+        this.f50946b = z;
+        if (z2 == z || (interfaceC1090a = this.f50951g) == null) {
             return;
         }
-        interfaceC1077a.a(this.f50538a, z);
+        interfaceC1090a.a(this.f50945a, z);
     }
 
     public abstract void p(Editable editable);

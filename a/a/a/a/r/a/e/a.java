@@ -1,78 +1,61 @@
 package a.a.a.a.r.a.e;
 
 import a.a.a.a.s.e;
-import a.a.a.a.v.d;
+import a.a.a.a.u.m;
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.fun.ad.sdk.FunAdSlot;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.PBInterstitialListener;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsDrawAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import java.util.List;
 /* loaded from: classes.dex */
-public class a extends a.a.a.a.b<PBInterstitial> {
+public class a extends a.a.a.a.b<KsDrawAd> {
 
     /* renamed from: a.a.a.a.r.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0002a implements PBInterstitialListener {
+    public class C0003a implements KsLoadManager.DrawAdListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1210a;
+        public final /* synthetic */ FunAdSlot f1216a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f1211b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PBInterstitial f1212c;
-
-        public C0002a(PBInterstitial pBInterstitial) {
-            this.f1212c = pBInterstitial;
+        public C0003a(FunAdSlot funAdSlot) {
+            this.f1216a = funAdSlot;
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            d.a();
-            a.this.f1010g.a(this.f1211b);
-            this.f1211b = true;
-            a.this.e();
+        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+        public void onDrawAdLoad(@Nullable List<KsDrawAd> list) {
+            a.a.a.a.v.d.a();
+            if (list != null && !list.isEmpty()) {
+                a.this.f1010g.b();
+                for (KsDrawAd ksDrawAd : list) {
+                    if (ksDrawAd != null) {
+                        a.this.k.b(ksDrawAd, this.f1216a.getSid());
+                    }
+                }
+                a aVar = a.this;
+                if (aVar == null) {
+                    throw null;
+                }
+                for (KsDrawAd ksDrawAd2 : list) {
+                    aVar.a((a) ksDrawAd2);
+                }
+                aVar.h();
+                return;
+            }
+            a.a.a.a.v.d.b("onDrawAdLoad error: adList is null or empty", new Object[0]);
+            onError(0, "NoFill");
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            d.b("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-            a.this.f1010g.a(Integer.valueOf(pBError.getCode()));
-            a.this.b(pBError.getCode(), pBError.getMsg());
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDismissed() {
-            d.a();
-            a.this.f1010g.d();
-            a.this.f();
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDisplayed() {
-            d.a();
-            a.this.f1010g.b(this.f1210a);
-            this.f1210a = true;
-            a.this.a((a) null, (String) null);
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialShowFail(String str) {
-            d.a();
-            a.this.f1010g.b((Object) 0);
-            a.this.a(0, str);
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            d.a();
-            a.this.f1010g.b();
-            a aVar = a.this;
-            aVar.a((a) this.f1212c);
-            aVar.h();
+        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+        public void onError(int i, String str) {
+            a.a.a.a.v.d.b("onError code: " + i + ", message: " + str, new Object[0]);
+            a.this.f1010g.a(Integer.valueOf(i));
+            a.this.b(i, str);
         }
     }
 
@@ -80,41 +63,40 @@ public class a extends a.a.a.a.b<PBInterstitial> {
         super(aVar);
     }
 
+    @Override // a.a.a.a.b
+    public a.a.a.a.u.a a(e.a aVar) {
+        return new m(aVar);
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
     @Override // a.a.a.a.b
-    public boolean a(Activity activity, ViewGroup viewGroup, String str, PBInterstitial pBInterstitial) {
-        PBInterstitial pBInterstitial2 = pBInterstitial;
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, KsDrawAd ksDrawAd) {
+        KsDrawAd ksDrawAd2 = ksDrawAd;
         this.f1010g.g();
-        if (pBInterstitial2.isReady()) {
-            pBInterstitial2.show();
-            return true;
+        ksDrawAd2.setAdInteractionListener(new b(this, ksDrawAd2, str));
+        View drawView = ksDrawAd2.getDrawView(viewGroup.getContext());
+        if (drawView == null) {
+            a.a.a.a.v.d.b("drawView is null", new Object[0]);
+            return false;
         }
-        d.b("Ad isn't ready now", new Object[0]);
-        return false;
+        if (drawView.getParent() != null) {
+            ((ViewGroup) drawView.getParent()).removeView(drawView);
+        }
+        viewGroup.removeAllViews();
+        viewGroup.addView(drawView);
+        return true;
     }
 
     @Override // a.a.a.a.b
     public void b(Context context, FunAdSlot funAdSlot) {
-        PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.f1011h.f1334c);
-        pBInterstitial.setInterstitialListener(new C0002a(pBInterstitial));
+        KsScene build = new KsScene.Builder(Long.parseLong(this.f1011h.f1320c)).adNum(5).build();
         this.f1010g.a(funAdSlot, this.f1011h);
-        pBInterstitial.load();
+        KsAdSDK.getLoadManager().loadDrawAd(build, new C0003a(funAdSlot));
         g();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // a.a.a.a.b
-    public void b(PBInterstitial pBInterstitial) {
-        PBInterstitial pBInterstitial2 = pBInterstitial;
-        if (pBInterstitial2 != null) {
-            pBInterstitial2.destroy();
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.b
-    public boolean c(PBInterstitial pBInterstitial) {
-        PBInterstitial pBInterstitial2 = pBInterstitial;
-        return pBInterstitial2 != null && pBInterstitial2.isReady();
+    public void b(KsDrawAd ksDrawAd) {
     }
 }

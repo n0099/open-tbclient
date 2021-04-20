@@ -15,51 +15,51 @@ import okhttp3.Response;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f47634a;
+    public Context f48026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.e.a.m.b f47635b;
+    public d.b.g0.e.a.m.b f48027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f47636c;
+    public boolean f48028c;
 
     /* renamed from: d.b.g0.e.a.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0934a implements Runnable {
+    public class RunnableC0946a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f47637e;
+        public final /* synthetic */ d f48029e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.e.a.m.e f47638f;
+        public final /* synthetic */ d.b.g0.e.a.m.e f48030f;
 
         /* renamed from: d.b.g0.e.a.o.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0935a extends ResponseCallback<AdResponseInfo> {
+        public class C0947a extends ResponseCallback<AdResponseInfo> {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f47640a = 0;
+            public int f48032a = 0;
 
             /* renamed from: d.b.g0.e.a.o.a$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class RunnableC0936a implements Runnable {
+            public class RunnableC0948a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ AdElementInfo f47642e;
+                public final /* synthetic */ AdElementInfo f48034e;
 
-                public RunnableC0936a(AdElementInfo adElementInfo) {
-                    this.f47642e = adElementInfo;
+                public RunnableC0948a(AdElementInfo adElementInfo) {
+                    this.f48034e = adElementInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.f47635b != null) {
-                        a.this.f47635b.f(this.f47642e);
+                    if (a.this.f48027b != null) {
+                        a.this.f48027b.f(this.f48034e);
                     }
                 }
             }
 
-            public C0935a() {
+            public C0947a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -69,12 +69,12 @@ public class a {
                 if (adResponseInfo == null) {
                     a.this.f("200000");
                 } else if (adResponseInfo.a().size() > 0) {
-                    k0.X(new RunnableC0936a(adResponseInfo.c()));
-                } else if (this.f47640a == 1 && RunnableC0934a.this.f47637e.i.c() == 1 && d.b.g0.e.a.q.f.h()) {
-                    RunnableC0934a runnableC0934a = RunnableC0934a.this;
-                    a.this.g(runnableC0934a.f47638f, runnableC0934a.f47637e, this);
+                    k0.X(new RunnableC0948a(adResponseInfo.c()));
+                } else if (this.f48032a == 1 && RunnableC0946a.this.f48029e.i.c() == 1 && d.b.g0.e.a.q.f.h()) {
+                    RunnableC0946a runnableC0946a = RunnableC0946a.this;
+                    a.this.g(runnableC0946a.f48030f, runnableC0946a.f48029e, this);
                 } else {
-                    this.f47640a = 0;
+                    this.f48032a = 0;
                     String b2 = adResponseInfo.b();
                     if (b2.equals("0")) {
                         b2 = "201000";
@@ -88,15 +88,15 @@ public class a {
             /* renamed from: b */
             public AdResponseInfo parseResponse(Response response, int i) {
                 if (response != null && response.body() != null) {
-                    this.f47640a++;
+                    this.f48032a++;
                     if (!response.isSuccessful()) {
                         return null;
                     }
                     try {
                         String string = response.body().string();
                         if (!TextUtils.isEmpty(string)) {
-                            if (a.this.f47636c) {
-                                return new AdResponseInfo(string, a.this.f47636c);
+                            if (a.this.f48028c) {
+                                return new AdResponseInfo(string, a.this.f48028c);
                             }
                             return new AdResponseInfo(string);
                         }
@@ -112,35 +112,35 @@ public class a {
             }
         }
 
-        public RunnableC0934a(d dVar, d.b.g0.e.a.m.e eVar) {
-            this.f47637e = dVar;
-            this.f47638f = eVar;
+        public RunnableC0946a(d dVar, d.b.g0.e.a.m.e eVar) {
+            this.f48029e = dVar;
+            this.f48030f = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d dVar = this.f47637e;
+            d dVar = this.f48029e;
             if (dVar == null || dVar.i == null) {
                 return;
             }
-            C0935a c0935a = new C0935a();
-            if (SwanAppNetworkUtils.h(a.this.f47634a)) {
-                if (a.this.f47636c) {
-                    d dVar2 = this.f47637e;
+            C0947a c0947a = new C0947a();
+            if (SwanAppNetworkUtils.h(a.this.f48026a)) {
+                if (a.this.f48028c) {
+                    d dVar2 = this.f48029e;
                     if (dVar2 instanceof e) {
                         e eVar = (e) dVar2;
-                        if (this.f47638f == null || eVar.j() == null) {
+                        if (this.f48030f == null || eVar.j() == null) {
                             return;
                         }
-                        this.f47638f.a(eVar.h(), eVar.j(), c0935a);
+                        this.f48030f.a(eVar.h(), eVar.j(), c0947a);
                         return;
                     }
                 }
-                a.this.f47636c = false;
-                String h2 = this.f47637e.h();
-                d.b.g0.e.a.m.e eVar2 = this.f47638f;
+                a.this.f48028c = false;
+                String h2 = this.f48029e.h();
+                d.b.g0.e.a.m.e eVar2 = this.f48030f;
                 if (eVar2 != null) {
-                    eVar2.e(h2, c0935a);
+                    eVar2.e(h2, c0947a);
                     return;
                 }
                 return;
@@ -153,22 +153,22 @@ public class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47644e;
+        public final /* synthetic */ String f48036e;
 
         public b(String str) {
-            this.f47644e = str;
+            this.f48036e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47635b != null) {
-                a.this.f47635b.c(this.f47644e);
+            if (a.this.f48027b != null) {
+                a.this.f48027b.c(this.f48036e);
             }
         }
     }
 
     public a(Context context) {
-        this.f47634a = context;
+        this.f48026a = context;
     }
 
     public final void f(String str) {
@@ -176,8 +176,8 @@ public class a {
     }
 
     public void g(d.b.g0.e.a.m.e eVar, d dVar, ResponseCallback<AdResponseInfo> responseCallback) {
-        if (SwanAppNetworkUtils.h(this.f47634a)) {
-            this.f47636c = true;
+        if (SwanAppNetworkUtils.h(this.f48026a)) {
+            this.f48028c = true;
             if (dVar instanceof e) {
                 e eVar2 = (e) dVar;
                 if (eVar == null || eVar2.j() == null) {
@@ -186,13 +186,13 @@ public class a {
                 eVar.a(eVar2.h(), eVar2.j(), responseCallback);
                 return;
             }
-            b.C0937b c0937b = new b.C0937b();
-            c0937b.l(d.b.g0.e.a.q.f.c());
-            c0937b.i(d.b.g0.e.a.q.f.d());
-            c0937b.m(dVar.i.f());
-            c0937b.k(h0.m(this.f47634a));
-            c0937b.h(h0.l(this.f47634a));
-            e eVar3 = new e(this.f47634a, c0937b.g(), 5, 5);
+            b.C0949b c0949b = new b.C0949b();
+            c0949b.l(d.b.g0.e.a.q.f.c());
+            c0949b.i(d.b.g0.e.a.q.f.d());
+            c0949b.m(dVar.i.f());
+            c0949b.k(h0.m(this.f48026a));
+            c0949b.h(h0.l(this.f48026a));
+            e eVar3 = new e(this.f48026a, c0949b.g(), 5, 5);
             if (eVar == null || eVar3.j() == null) {
                 return;
             }
@@ -203,15 +203,15 @@ public class a {
     }
 
     public void h(d dVar, d.b.g0.e.a.m.e eVar) {
-        p.k(new RunnableC0934a(dVar, eVar), "execAdRequest");
+        p.k(new RunnableC0946a(dVar, eVar), "execAdRequest");
     }
 
     public void i(d.b.g0.e.a.m.b bVar) {
-        this.f47635b = bVar;
+        this.f48027b = bVar;
     }
 
     public a(Context context, boolean z) {
         this(context);
-        this.f47636c = z;
+        this.f48028c = z;
     }
 }

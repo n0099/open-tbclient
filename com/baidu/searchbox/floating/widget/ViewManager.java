@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.floating.IFloating;
 import com.baidu.searchbox.floating.animator.FloatViewAnimator;
 import com.baidu.searchbox.floating.config.Config;
@@ -144,7 +145,7 @@ public final class ViewManager {
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            layoutParams2.flags = 552;
+            layoutParams2.flags = SDKLogTypeConstants.TYPE_ASL_DELAY_APO;
             enterAnim.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.floating.widget.ViewManager$enterAnim$$inlined$apply$lambda$1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator2) {
@@ -308,7 +309,7 @@ public final class ViewManager {
                     if (layoutParams2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mParam");
                     }
-                    layoutParams2.flags = 552;
+                    layoutParams2.flags = SDKLogTypeConstants.TYPE_ASL_DELAY_APO;
                     exitAnim.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.floating.widget.ViewManager$exitAnim$$inlined$apply$lambda$1
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationCancel(Animator animator2) {

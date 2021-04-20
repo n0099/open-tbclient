@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import d.b.h0.f0.f;
-import d.b.h0.f0.g;
+import d.b.h0.f0.h;
 import d.b.h0.j0.c;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.e;
@@ -26,7 +26,7 @@ public class a {
         AgreeEvent agreeEvent = new AgreeEvent();
         agreeEvent.agreeData = agreeData;
         agreeEvent.agreeExtra = str;
-        g.g(agreeEvent);
+        h.i(agreeEvent);
     }
 
     public void b(Context context, e eVar, AgreeData agreeData, a2 a2Var) {
@@ -34,7 +34,7 @@ public class a {
             return;
         }
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-        StatisticItem param = new StatisticItem("c13271").param("obj_type", eVar.f50768g).param("obj_locate", eVar.f50769h).param("obj_id", eVar.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", eVar.f51175g).param("obj_locate", eVar.f51176h).param("obj_id", eVar.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
         if (a2Var != null) {
             param.param("tid", a2Var.o0()).param("nid", a2Var.L0()).param("fid", a2Var.c0()).param("ab_tag", a2Var.T0).param("recom_source", a2Var.R0).param("weight", a2Var.S0).param("extra", a2Var.U0);
             if (a2Var.V() != null) {
@@ -117,8 +117,8 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void d(AgreeData agreeData, d.b.i0.c3.h0.e eVar) {
-        eVar.f53377b = agreeData;
+    public void d(AgreeData agreeData, d.b.i0.d3.h0.e eVar) {
+        eVar.f54819b = agreeData;
         if (agreeData.isInThread) {
             BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
             if (baijiahaoData != null) {

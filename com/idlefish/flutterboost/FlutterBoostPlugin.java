@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.flutter.util.OpenNative;
+import com.baidu.tieba.flutter.base.util.OpenNative;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.idlefish.flutterboost.FlutterViewContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;

@@ -51,7 +51,7 @@ public class a {
                         byte[] d2 = DH.d(a2, gVar.d().intValue(), gVar.f().intValue());
                         gVar.l(d2);
                         gVar.p(Integer.valueOf(a2));
-                        if (d.b.g0.g.d.a.f48028a) {
+                        if (d.b.g0.g.d.a.f48420a) {
                             Log.d("BDTLS", "GroupId=" + gVar.d());
                             Log.d("BDTLS", "client dh pubkey secret=" + gVar.f());
                             Log.d("BDTLS", "client dh pubkey=" + gVar.e());
@@ -71,7 +71,7 @@ public class a {
                     return null;
                 }
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
-                if (d.b.g0.g.d.a.f48028a) {
+                if (d.b.g0.g.d.a.f48420a) {
                     Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
                     Log.d("BDTLS", "expireTime=" + currentTimeMillis);
                 }
@@ -84,7 +84,7 @@ public class a {
             } catch (Exception e2) {
                 e = e2;
                 dVar = dVar2;
-                if (d.b.g0.g.d.a.f48028a) {
+                if (d.b.g0.g.d.a.f48420a) {
                     e.printStackTrace();
                     Log.d("BDTLS", "exception=" + e.getMessage());
                 }
@@ -135,7 +135,7 @@ public class a {
         newBuilder5.w(3);
         newBuilder5.v(ByteString.copyFrom(bytes));
         linkedList.offer(newBuilder5.build());
-        if (d.b.g0.g.d.a.f48028a) {
+        if (d.b.g0.g.d.a.f48420a) {
             Log.d("BDTLS", "groupId encode=" + a2);
             Log.d("BDTLS", "secretC encode=" + c2);
             Log.d("BDTLS", "pubKey encode=" + b2);
@@ -147,7 +147,7 @@ public class a {
             newBuilder6.n((Bdtls$Extension) it.next());
         }
         newBuilder6.C(build);
-        newBuilder6.m(ByteString.copyFrom(d.b.g0.g.d.b.f48029a));
+        newBuilder6.m(ByteString.copyFrom(d.b.g0.g.d.b.f48421a));
         byte[] byteArray = newBuilder6.build().toByteArray();
         ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
         allocate.put((byte) 1);

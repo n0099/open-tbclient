@@ -7,53 +7,53 @@ import com.fun.openid.sdk.FunOpenIDSdk;
 public class T1 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static T1 f39808b;
+    public static T1 f40097b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39809c;
+    public static String f40098c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39810d;
+    public static String f40099d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39811e;
+    public static String f40100e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39812a;
+    public Context f40101a;
 
     public T1(Context context) {
-        this.f39812a = context;
+        this.f40101a = context;
     }
 
     public static T1 a(Context context) {
-        if (f39808b == null) {
+        if (f40097b == null) {
             synchronized (T1.class) {
-                if (f39808b == null) {
-                    f39808b = new T1(context);
+                if (f40097b == null) {
+                    f40097b = new T1(context);
                 }
             }
         }
-        return f39808b;
+        return f40097b;
     }
 
     public String a() {
-        return f39810d;
+        return f40099d;
     }
 
     public String b() {
-        if (TextUtils.isEmpty(f39809c)) {
+        if (TextUtils.isEmpty(f40098c)) {
             try {
-                return V1.j(this.f39812a);
+                return V1.j(this.f40101a);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
             }
         }
-        return f39809c;
+        return f40098c;
     }
 
     public String c() {
-        return f39811e;
+        return f40100e;
     }
 
     public void d() {
@@ -67,7 +67,7 @@ public class T1 {
         }
         if (z) {
             try {
-                FunOpenIDSdk.getOaid(this.f39812a, new S1(this));
+                FunOpenIDSdk.getOaid(this.f40101a, new S1(this));
             } catch (Exception unused2) {
             }
         }

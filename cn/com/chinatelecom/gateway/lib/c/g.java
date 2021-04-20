@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1576a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+    public static final Pattern f1562a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
 
     public static String a() {
         String hostAddress;
@@ -34,7 +34,7 @@ public final class g {
                     Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
                     while (inetAddresses.hasMoreElements()) {
                         InetAddress nextElement2 = inetAddresses.nextElement();
-                        if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f1576a.matcher(hostAddress).matches()) {
+                        if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f1562a.matcher(hostAddress).matches()) {
                             if (stringBuffer.length() > 0) {
                                 stringBuffer.append(",");
                             }

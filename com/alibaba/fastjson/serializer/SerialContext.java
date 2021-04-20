@@ -1,4 +1,6 @@
 package com.alibaba.fastjson.serializer;
+
+import com.baidu.android.common.others.IStringUtil;
 /* loaded from: classes.dex */
 public class SerialContext {
     public final int features;
@@ -33,9 +35,64 @@ public class SerialContext {
         if (this.parent == null) {
             return "$";
         }
-        if (this.fieldName instanceof Integer) {
-            return this.parent.toString() + "[" + this.fieldName + "]";
+        StringBuilder sb = new StringBuilder();
+        toString(sb);
+        return sb.toString();
+    }
+
+    public void toString(StringBuilder sb) {
+        boolean z;
+        SerialContext serialContext = this.parent;
+        if (serialContext == null) {
+            sb.append('$');
+            return;
         }
-        return this.parent.toString() + "." + this.fieldName;
+        serialContext.toString(sb);
+        Object obj = this.fieldName;
+        if (obj == null) {
+            sb.append(".null");
+        } else if (obj instanceof Integer) {
+            sb.append('[');
+            sb.append(((Integer) this.fieldName).intValue());
+            sb.append(']');
+        } else {
+            sb.append(IStringUtil.EXTENSION_SEPARATOR);
+            String obj2 = this.fieldName.toString();
+            int i = 0;
+            while (true) {
+                if (i >= obj2.length()) {
+                    z = false;
+                    break;
+                }
+                char charAt = obj2.charAt(i);
+                if ((charAt < '0' || charAt > '9') && ((charAt < 'A' || charAt > 'Z') && ((charAt < 'a' || charAt > 'z') && charAt <= 128))) {
+                    z = true;
+                    break;
+                }
+                i++;
+            }
+            if (z) {
+                for (int i2 = 0; i2 < obj2.length(); i2++) {
+                    char charAt2 = obj2.charAt(i2);
+                    if (charAt2 == '\\') {
+                        sb.append('\\');
+                        sb.append('\\');
+                        sb.append('\\');
+                    } else if ((charAt2 >= '0' && charAt2 <= '9') || ((charAt2 >= 'A' && charAt2 <= 'Z') || ((charAt2 >= 'a' && charAt2 <= 'z') || charAt2 > 128))) {
+                        sb.append(charAt2);
+                    } else if (charAt2 == '\"') {
+                        sb.append('\\');
+                        sb.append('\\');
+                        sb.append('\\');
+                    } else {
+                        sb.append('\\');
+                        sb.append('\\');
+                    }
+                    sb.append(charAt2);
+                }
+                return;
+            }
+            sb.append(obj2);
+        }
     }
 }

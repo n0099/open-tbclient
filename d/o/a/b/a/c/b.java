@@ -1,5 +1,6 @@
 package d.o.a.b.a.c;
 
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import d.o.a.a.a.c.d;
 import d.o.a.b.a.a.a;
 import d.o.a.b.a.a.b;
@@ -7,7 +8,7 @@ import d.o.a.b.a.a.c;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements a {
     public int A;
     public String B;
@@ -37,30 +38,30 @@ public class b implements a {
     public boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66439a;
+    public long f67432a;
     public boolean a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f66440b;
+    public long f67433b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66441c;
+    public String f67434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66442d;
+    public int f67435d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66443e;
+    public String f67436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66444f;
+    public String f67437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66445g;
+    public String f67438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66446h;
+    public String f67439h;
     public int i;
     public int j;
     public int k;
@@ -81,7 +82,7 @@ public class b implements a {
     public int z;
 
     public b() {
-        this.f66442d = 1;
+        this.f67435d = 1;
         this.p = true;
         this.t = false;
         this.u = 0;
@@ -142,7 +143,7 @@ public class b implements a {
             bVar.O0(jSONObject.optBoolean("mIsPatchApplyHandled"));
             bVar.C0(jSONObject.optBoolean("installAfterCleanSpace"));
             bVar.L0(jSONObject.optInt("funnelType", 1));
-            bVar.x0(jSONObject.optString("webUrl"));
+            bVar.x0(jSONObject.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL));
             bVar.c1(jSONObject.optBoolean("enableShowComplianceDialog", true));
             bVar.d1(jSONObject.optBoolean("isAutoDownloadOnCardShow"));
             bVar.e1(jSONObject.optInt("enable_new_activity") == 1);
@@ -168,7 +169,7 @@ public class b implements a {
     }
 
     public int B() {
-        return this.f66442d;
+        return this.f67435d;
     }
 
     public void B0(String str) {
@@ -236,7 +237,7 @@ public class b implements a {
     }
 
     public void J0(String str) {
-        this.f66444f = str;
+        this.f67437f = str;
     }
 
     public String K() {
@@ -268,7 +269,7 @@ public class b implements a {
     }
 
     public void N0(String str) {
-        this.f66445g = str;
+        this.f67438g = str;
     }
 
     public long O() {
@@ -369,7 +370,7 @@ public class b implements a {
 
     @Override // d.o.a.b.a.c.a
     public String a() {
-        return this.f66444f;
+        return this.f67437f;
     }
 
     public void a0(boolean z) {
@@ -382,7 +383,7 @@ public class b implements a {
 
     @Override // d.o.a.b.a.c.a
     public long b() {
-        return this.f66439a;
+        return this.f67432a;
     }
 
     public boolean b0() {
@@ -408,7 +409,7 @@ public class b implements a {
 
     @Override // d.o.a.b.a.c.a
     public String d() {
-        return this.f66441c;
+        return this.f67434c;
     }
 
     public boolean d0() {
@@ -421,17 +422,17 @@ public class b implements a {
 
     @Override // d.o.a.b.a.c.a
     public String e() {
-        return this.f66443e;
+        return this.f67436e;
     }
 
     public JSONObject e0() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mId", this.f66439a);
-            jSONObject.put("mExtValue", this.f66440b);
-            jSONObject.put("mLogExtra", this.f66441c);
-            jSONObject.put("mDownloadStatus", this.f66442d);
-            jSONObject.put("mPackageName", this.f66443e);
+            jSONObject.put("mId", this.f67432a);
+            jSONObject.put("mExtValue", this.f67433b);
+            jSONObject.put("mLogExtra", this.f67434c);
+            jSONObject.put("mDownloadStatus", this.f67435d);
+            jSONObject.put("mPackageName", this.f67436e);
             jSONObject.put("mIsAd", this.p);
             jSONObject.put("mTimeStamp", this.q);
             jSONObject.put("mExtras", this.r);
@@ -442,13 +443,13 @@ public class b implements a {
             jSONObject.put("mScene", this.M);
             jSONObject.put("mEventTag", this.G);
             jSONObject.put("mEventRefer", this.H);
-            jSONObject.put("mDownloadUrl", this.f66444f);
+            jSONObject.put("mDownloadUrl", this.f67437f);
             jSONObject.put("mEnableBackDialog", this.t);
             jSONObject.put("hasSendInstallFinish", this.K.get());
             jSONObject.put("hasSendDownloadFailedFinally", this.L.get());
             jSONObject.put("mLastFailedErrCode", this.A);
             jSONObject.put("mLastFailedErrMsg", this.B);
-            jSONObject.put("mOpenUrl", this.f66445g);
+            jSONObject.put("mOpenUrl", this.f67438g);
             jSONObject.put("mLinkMode", this.j);
             jSONObject.put("mDownloadMode", this.k);
             jSONObject.put("mModelType", this.i);
@@ -468,7 +469,7 @@ public class b implements a {
             jSONObject.put("clickDownloadSize", this.P);
             jSONObject.put("installAfterCleanSpace", this.J);
             jSONObject.put("funnelType", this.N);
-            jSONObject.put("webUrl", this.f66446h);
+            jSONObject.put(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL, this.f67439h);
             jSONObject.put("enableShowComplianceDialog", this.Q);
             jSONObject.put("isAutoDownloadOnCardShow", this.R);
             jSONObject.put("enable_new_activity", this.F ? 1 : 0);
@@ -484,25 +485,25 @@ public class b implements a {
 
     @Override // d.o.a.b.a.c.a
     public String f() {
-        return this.f66445g;
+        return this.f67438g;
     }
 
     public c f0() {
         c.b bVar = new c.b();
-        bVar.k(this.f66439a);
-        bVar.s(this.f66440b);
-        bVar.m(this.f66441c);
-        bVar.t(this.f66443e);
+        bVar.k(this.f67432a);
+        bVar.s(this.f67433b);
+        bVar.m(this.f67434c);
+        bVar.t(this.f67436e);
         bVar.n(this.r);
         bVar.o(this.p);
         bVar.r(this.l);
         bVar.F(this.m);
-        bVar.z(this.f66444f);
+        bVar.z(this.f67437f);
         bVar.j(this.i);
         bVar.D(this.D);
         bVar.B(this.n);
         bVar.v(this.o);
-        bVar.l(new d.o.a.a.a.d.b(this.f66445g, this.f66446h, null));
+        bVar.l(new d.o.a.a.a.d.b(this.f67438g, this.f67439h, null));
         return bVar.p();
     }
 
@@ -516,11 +517,11 @@ public class b implements a {
     }
 
     public d.o.a.b.a.a.b g0() {
-        b.C1820b c1820b = new b.C1820b();
-        c1820b.b(this.G);
-        c1820b.v(this.H);
-        c1820b.j(this.I);
-        return c1820b.d();
+        b.C1855b c1855b = new b.C1855b();
+        c1855b.b(this.G);
+        c1855b.v(this.H);
+        c1855b.j(this.I);
+        return c1855b.d();
     }
 
     public synchronized void g1() {
@@ -574,11 +575,11 @@ public class b implements a {
 
     @Override // d.o.a.b.a.c.a
     public long l() {
-        return this.f66440b;
+        return this.f67433b;
     }
 
     public void l0(String str) {
-        this.f66443e = str;
+        this.f67436e = str;
     }
 
     @Override // d.o.a.b.a.c.a
@@ -614,7 +615,7 @@ public class b implements a {
     }
 
     public void p0(String str) {
-        this.f66441c = str;
+        this.f67434c = str;
     }
 
     @Override // d.o.a.b.a.c.a
@@ -641,7 +642,7 @@ public class b implements a {
     }
 
     public void s0(long j) {
-        this.f66439a = j;
+        this.f67432a = j;
     }
 
     @Override // d.o.a.b.a.c.a
@@ -667,7 +668,7 @@ public class b implements a {
     }
 
     public void v0(int i) {
-        this.f66442d = i;
+        this.f67435d = i;
     }
 
     public long w() {
@@ -676,7 +677,7 @@ public class b implements a {
     }
 
     public void w0(long j) {
-        this.f66440b = j;
+        this.f67433b = j;
     }
 
     public long x() {
@@ -684,7 +685,7 @@ public class b implements a {
     }
 
     public void x0(String str) {
-        this.f66446h = str;
+        this.f67439h = str;
     }
 
     public int y() {
@@ -708,7 +709,7 @@ public class b implements a {
     }
 
     public b(d dVar, d.o.a.a.a.c.c cVar, d.o.a.a.a.c.b bVar, int i) {
-        this.f66442d = 1;
+        this.f67435d = 1;
         this.p = true;
         this.t = false;
         this.u = 0;
@@ -721,18 +722,18 @@ public class b implements a {
         this.N = 1;
         this.Q = true;
         this.V = -1L;
-        this.f66439a = dVar.d();
-        this.f66440b = dVar.g();
-        this.f66441c = dVar.u();
-        this.f66443e = dVar.v();
+        this.f67432a = dVar.d();
+        this.f67433b = dVar.g();
+        this.f67434c = dVar.u();
+        this.f67436e = dVar.v();
         this.r = dVar.z();
         this.p = dVar.t();
         this.l = dVar.r();
         this.m = dVar.s();
-        this.f66444f = dVar.a();
+        this.f67437f = dVar.a();
         if (dVar.x() != null) {
-            this.f66445g = dVar.x().d();
-            this.f66446h = dVar.x().a();
+            this.f67438g = dVar.x().d();
+            this.f67439h = dVar.x().a();
         }
         this.i = dVar.A();
         this.n = dVar.h();

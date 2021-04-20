@@ -8,19 +8,19 @@ import com.baidu.sofire.j.a;
 public final class d implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f11827a;
+    public b f11488a;
 
     public d(b bVar) {
-        this.f11827a = bVar;
+        this.f11488a = bVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f11827a.f11819a = a.AbstractBinderC0158a.a(iBinder);
+        this.f11488a.f11480a = a.AbstractBinderC0159a.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f11827a.f11819a = null;
+        this.f11488a.f11480a = null;
     }
 }

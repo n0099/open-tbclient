@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-/* loaded from: classes5.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes4.dex */
 public class DynamicHeightListView extends BdListView {
     public int K;
 

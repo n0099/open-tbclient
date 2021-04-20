@@ -3,6 +3,7 @@ package com.baidu.wallet.qrcodescanner.entrance;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.utils.BaiduWalletUtils;
 import com.baidu.wallet.core.utils.LogUtil;
@@ -20,7 +21,7 @@ public class EnterQrcodeScannerAction implements RouterAction {
         if (z3) {
             LogUtil.d(BEAN_TAG, "context is activity!");
         } else {
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.setClass(context, QRScanCodeActivity.class);
         intent.putExtra("with_anim", z);

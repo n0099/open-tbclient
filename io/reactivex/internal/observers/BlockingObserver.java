@@ -1,7 +1,7 @@
 package io.reactivex.internal.observers;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.NotificationLite;
 import java.util.Queue;
@@ -16,34 +16,34 @@ public final class BlockingObserver<T> extends AtomicReference<b> implements o<T
         this.queue = queue;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (DisposableHelper.dispose(this)) {
             this.queue.offer(TERMINATED);
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.queue.offer(NotificationLite.complete());
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.queue.offer(NotificationLite.error(th));
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         this.queue.offer(NotificationLite.next(t));
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }

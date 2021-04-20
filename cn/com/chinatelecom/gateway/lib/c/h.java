@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1577a = "h";
+    public static final String f1563a = "h";
 
     public static String a(int i, String str) {
         try {
@@ -15,7 +15,7 @@ public class h {
             jSONObject.put("msg", str);
             return jSONObject.toString();
         } catch (Throwable th) {
-            CtAuth.warn(f1577a, "Json parse error", th);
+            CtAuth.warn(f1563a, "Json parse error", th);
             return "";
         }
     }

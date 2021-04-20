@@ -3,7 +3,7 @@ package com.facebook.imageformat;
 import com.facebook.common.internal.Preconditions;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageFormatCheckerUtils {
     public static byte[] asciiBytes(String str) {
         Preconditions.checkNotNull(str);

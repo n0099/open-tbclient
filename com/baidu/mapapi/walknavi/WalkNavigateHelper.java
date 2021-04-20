@@ -31,16 +31,16 @@ import java.util.ArrayList;
 public class WalkNavigateHelper {
 
     /* renamed from: d  reason: collision with root package name */
-    public static WalkNavigateHelper f7420d;
+    public static WalkNavigateHelper f7455d;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapapi.walknavi.controllers.a.a f7421a = new com.baidu.mapapi.walknavi.controllers.a.a();
+    public com.baidu.mapapi.walknavi.controllers.a.a f7456a = new com.baidu.mapapi.walknavi.controllers.a.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7422b;
+    public boolean f7457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f7423c;
+    public Activity f7458c;
 
     static {
         if (a.a().equals(VersionInfo.getApiVersion())) {
@@ -63,28 +63,28 @@ public class WalkNavigateHelper {
     }
 
     public static WalkNavigateHelper getInstance() {
-        if (f7420d == null) {
-            f7420d = new WalkNavigateHelper();
+        if (f7455d == null) {
+            f7455d = new WalkNavigateHelper();
         }
-        return f7420d;
+        return f7455d;
     }
 
     public void addMoreNPCModelOnClickListener(IWMoreNPCModelOnClickListener iWMoreNPCModelOnClickListener) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(iWMoreNPCModelOnClickListener);
         }
     }
 
     public void addNPCLoadAndInitListener(IWNPCLoadAndInitListener iWNPCLoadAndInitListener) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(iWNPCLoadAndInitListener);
         }
     }
 
     public ArrayList<BaseNpcModel> getWalkNpcModelInfoList() {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             return aVar.b();
         }
@@ -92,16 +92,16 @@ public class WalkNavigateHelper {
     }
 
     public void initNaviEngine(Activity activity, IWEngineInitListener iWEngineInitListener) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(activity, iWEngineInitListener);
         }
     }
 
     public View onCreate(Activity activity) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
-            this.f7423c = activity;
+            this.f7458c = activity;
             return aVar.a(activity);
         }
         return null;
@@ -109,7 +109,7 @@ public class WalkNavigateHelper {
 
     public void pause() {
         b.a().h();
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.c();
         }
@@ -122,32 +122,32 @@ public class WalkNavigateHelper {
         b.a().k();
         b.a().w();
         b.a().i();
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.e();
-            this.f7421a = null;
+            this.f7456a = null;
         }
-        this.f7422b = false;
-        this.f7423c = null;
-        if (f7420d != null) {
-            f7420d = null;
+        this.f7457b = false;
+        this.f7458c = null;
+        if (f7455d != null) {
+            f7455d = null;
         }
     }
 
     public void resume() {
-        Activity activity = this.f7423c;
+        Activity activity = this.f7458c;
         if (activity == null || activity.isFinishing()) {
             return;
         }
         b.a().g();
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.d();
         }
     }
 
     public void routePlanWithParams(WalkNaviLaunchParam walkNaviLaunchParam, IWRoutePlanListener iWRoutePlanListener) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             if (aVar.a()) {
                 if (walkNaviLaunchParam != null && walkNaviLaunchParam.getStartPt() != null && walkNaviLaunchParam.getEndPt() != null) {
@@ -177,7 +177,7 @@ public class WalkNavigateHelper {
                         create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
                         create.d(0);
                         create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
-                        this.f7421a.a(create, iWRoutePlanListener);
+                        this.f7456a.a(create, iWRoutePlanListener);
                         return;
                     }
                 }
@@ -189,19 +189,19 @@ public class WalkNavigateHelper {
 
     public void setRouteGuidanceListener(Activity activity, IWRouteGuidanceListener iWRouteGuidanceListener) {
         if (iWRouteGuidanceListener != null) {
-            this.f7421a.a(activity, iWRouteGuidanceListener);
+            this.f7456a.a(activity, iWRouteGuidanceListener);
         }
     }
 
     public void setTTsPlayer(IWTTSPlayer iWTTSPlayer) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(iWTTSPlayer);
         }
     }
 
     public void setWalkNaviDisplayOption(WalkNaviDisplayOption walkNaviDisplayOption) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(walkNaviDisplayOption);
         }
@@ -212,23 +212,23 @@ public class WalkNavigateHelper {
     }
 
     public void setWalkNpcModelInfoList(ArrayList<BaseNpcModel> arrayList) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(arrayList);
         }
     }
 
     public void startCameraAndSetMapView(Activity activity) {
-        this.f7421a.b(activity);
+        this.f7456a.b(activity);
     }
 
     public boolean startWalkNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f7422b) {
+            if (!this.f7457b) {
                 if (!b.a().p()) {
                     return false;
                 }
-                this.f7422b = true;
+                this.f7457b = true;
             }
             return true;
         }
@@ -236,21 +236,21 @@ public class WalkNavigateHelper {
     }
 
     public void switchNPCModel(BaseNpcModel baseNpcModel) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(baseNpcModel);
         }
     }
 
     public void switchWalkNaviMode(Activity activity, int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(activity, i, walkNaviModeSwitchListener);
         }
     }
 
     public void triggerLocation(WLocData wLocData) {
-        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7421a;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7456a;
         if (aVar != null) {
             aVar.a(wLocData);
         }

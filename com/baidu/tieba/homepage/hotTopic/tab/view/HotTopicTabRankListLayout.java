@@ -21,41 +21,41 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TagTextHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.m.f;
-import d.b.i0.z0.e.a.e.c;
-import d.b.i0.z0.e.a.e.d;
+import d.b.i0.a1.e.a.e.c;
+import d.b.i0.a1.e.a.e.d;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17178e;
+    public int f16851e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f17179f;
+    public a f16852f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends RecyclerView.Adapter<b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<c> f17180a;
+        public List<c> f16853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public f<c> f17181b;
+        public f<c> f16854b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: c */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<c> list = this.f17180a;
+            List<c> list = this.f16853a;
             if (list == null || list.size() <= i) {
                 return;
             }
             c cVar = list.get(i);
             bVar.b(cVar);
             bVar.c(TbadkCoreApplication.getInst().getSkinType());
-            f<c> fVar = this.f17181b;
+            f<c> fVar = this.f16854b;
             if (fVar != null) {
                 fVar.c(bVar.itemView, cVar, i, i);
             }
@@ -67,23 +67,23 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         /* renamed from: d */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_topic_tab_rank_list_item, viewGroup, false));
-            bVar.d(this.f17181b);
+            bVar.d(this.f16854b);
             bVar.c(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
 
         public void e(f<c> fVar) {
-            this.f17181b = fVar;
+            this.f16854b = fVar;
         }
 
         public void f(@NonNull List<c> list) {
-            this.f17180a = list;
+            this.f16853a = list;
             notifyDataSetChanged();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            List<c> list = this.f17180a;
+            List<c> list = this.f16853a;
             if (list == null) {
                 return 0;
             }
@@ -91,42 +91,42 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17182a;
+        public int f16855a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f17183b;
+        public View f16856b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f17184c;
+        public TextView f16857c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f17185d;
+        public TextView f16858d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f17186e;
+        public TextView f16859e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f17187f;
+        public View f16860f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f17188g;
+        public TextView f16861g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f17189h;
+        public ImageView f16862h;
         public f<c> i;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f17190e;
+            public final /* synthetic */ c f16863e;
 
             public a(c cVar) {
-                this.f17190e = cVar;
+                this.f16863e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -134,99 +134,99 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                 new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
                 if (b.this.i != null) {
                     int adapterPosition = b.this.getAdapterPosition();
-                    b.this.i.a(view, this.f17190e, adapterPosition, adapterPosition);
+                    b.this.i.a(view, this.f16863e, adapterPosition, adapterPosition);
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0192b implements View.OnClickListener {
+        /* loaded from: classes4.dex */
+        public class View$OnClickListenerC0194b implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f17192e;
+            public final /* synthetic */ c f16865e;
 
-            public View$OnClickListenerC0192b(c cVar) {
-                this.f17192e = cVar;
+            public View$OnClickListenerC0194b(c cVar) {
+                this.f16865e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(view.getContext());
-                hotTopicActivityConfig.createNormalConfig("" + this.f17192e.f62968a, null, "3").start();
+                hotTopicActivityConfig.createNormalConfig("" + this.f16865e.f52587a, null, "3").start();
                 if (b.this.i != null) {
                     int adapterPosition = b.this.getAdapterPosition();
-                    b.this.i.a(view, this.f17192e, adapterPosition, adapterPosition);
+                    b.this.i.a(view, this.f16865e, adapterPosition, adapterPosition);
                 }
             }
         }
 
         public b(View view) {
             super(view);
-            this.f17182a = 3;
-            this.f17183b = view.findViewById(R.id.itemLayout);
-            this.f17184c = (TextView) view.findViewById(R.id.indexView);
-            this.f17185d = (TextView) view.findViewById(R.id.titleView);
-            this.f17186e = (TextView) view.findViewById(R.id.tagView);
-            this.f17187f = view.findViewById(R.id.moreLayout);
-            this.f17188g = (TextView) view.findViewById(R.id.moreText);
-            this.f17189h = (ImageView) view.findViewById(R.id.moreIcon);
+            this.f16855a = 3;
+            this.f16856b = view.findViewById(R.id.itemLayout);
+            this.f16857c = (TextView) view.findViewById(R.id.indexView);
+            this.f16858d = (TextView) view.findViewById(R.id.titleView);
+            this.f16859e = (TextView) view.findViewById(R.id.tagView);
+            this.f16860f = view.findViewById(R.id.moreLayout);
+            this.f16861g = (TextView) view.findViewById(R.id.moreText);
+            this.f16862h = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         public void b(c cVar) {
             if (cVar != null) {
-                if (cVar.f62972e) {
-                    this.f17183b.setVisibility(8);
-                    this.f17187f.setVisibility(0);
-                    this.f17187f.setOnClickListener(new a(cVar));
+                if (cVar.f52591e) {
+                    this.f16856b.setVisibility(8);
+                    this.f16860f.setVisibility(0);
+                    this.f16860f.setOnClickListener(new a(cVar));
                     return;
                 }
-                this.f17183b.setVisibility(0);
-                this.f17183b.setOnClickListener(new View$OnClickListenerC0192b(cVar));
-                this.f17187f.setVisibility(8);
-                int i = cVar.f62971d;
+                this.f16856b.setVisibility(0);
+                this.f16856b.setOnClickListener(new View$OnClickListenerC0194b(cVar));
+                this.f16860f.setVisibility(8);
+                int i = cVar.f52590d;
                 if (i > 0) {
-                    this.f17184c.setText(String.valueOf(i));
-                    this.f17184c.setVisibility(0);
+                    this.f16857c.setText(String.valueOf(i));
+                    this.f16857c.setVisibility(0);
                 } else {
-                    this.f17184c.setVisibility(8);
+                    this.f16857c.setVisibility(8);
                 }
-                this.f17185d.setText(cVar.f62969b);
-                String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.f17186e.getContext(), cVar.f62970c);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f17185d.getLayoutParams();
+                this.f16858d.setText(cVar.f52588b);
+                String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.f16859e.getContext(), cVar.f52589c);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f16858d.getLayoutParams();
                 if (TextUtils.isEmpty(hotTopicTagStr)) {
-                    this.f17186e.setVisibility(8);
-                    marginLayoutParams.rightMargin = l.g(this.f17186e.getContext(), R.dimen.tbds22);
-                    this.f17185d.setLayoutParams(marginLayoutParams);
+                    this.f16859e.setVisibility(8);
+                    marginLayoutParams.rightMargin = l.g(this.f16859e.getContext(), R.dimen.tbds22);
+                    this.f16858d.setLayoutParams(marginLayoutParams);
                 } else {
-                    marginLayoutParams.rightMargin = l.g(this.f17186e.getContext(), R.dimen.tbds74);
-                    this.f17185d.setLayoutParams(marginLayoutParams);
-                    this.f17186e.setVisibility(0);
-                    this.f17186e.setText(hotTopicTagStr);
+                    marginLayoutParams.rightMargin = l.g(this.f16859e.getContext(), R.dimen.tbds74);
+                    this.f16858d.setLayoutParams(marginLayoutParams);
+                    this.f16859e.setVisibility(0);
+                    this.f16859e.setText(hotTopicTagStr);
                 }
-                SkinManager.setViewTextColor(this.f17184c, TagTextHelper.getIndexTextColorRes(cVar.f62971d));
-                int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(cVar.f62970c);
-                d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f17186e);
-                a2.h(R.string.J_X04);
-                a2.c(hotTopicTagColorRes);
+                SkinManager.setViewTextColor(this.f16857c, TagTextHelper.getIndexTextColorRes(cVar.f52590d));
+                int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(cVar.f52589c);
+                d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.f16859e);
+                d2.k(R.string.J_X04);
+                d2.f(hotTopicTagColorRes);
             }
         }
 
         public void c(int i) {
-            if (this.f17182a != i) {
+            if (this.f16855a != i) {
                 int i2 = R.color.CAM_X0204;
-                TBSelector.setViewBackgroundColorWithPressedState(this.f17183b, R.color.CAM_X0205, i2);
-                TBSelector.setViewBackgroundColorWithPressedState(this.f17187f, R.color.CAM_X0205, i2);
-                SkinManager.setViewTextColor(this.f17185d, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f17186e, R.color.CAM_X0101);
-                if (this.f17187f.getVisibility() == 0) {
-                    SkinManager.setViewTextColor(this.f17188g, R.color.CAM_X0304);
+                TBSelector.setViewBackgroundColorWithPressedState(this.f16856b, R.color.CAM_X0205, i2);
+                TBSelector.setViewBackgroundColorWithPressedState(this.f16860f, R.color.CAM_X0205, i2);
+                SkinManager.setViewTextColor(this.f16858d, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f16859e, R.color.CAM_X0101);
+                if (this.f16860f.getVisibility() == 0) {
+                    SkinManager.setViewTextColor(this.f16861g, R.color.CAM_X0304);
                     int color = SkinManager.getColor(R.color.CAM_X0304);
-                    Drawable drawable = this.f17189h.getDrawable();
+                    Drawable drawable = this.f16862h.getDrawable();
                     DrawableCompat.setTint(drawable, color);
-                    this.f17189h.setImageDrawable(drawable);
+                    this.f16862h.setImageDrawable(drawable);
                 }
-                this.f17182a = i;
+                this.f16855a = i;
             }
         }
 
@@ -237,7 +237,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
 
     public HotTopicTabRankListLayout(Context context) {
         super(context);
-        this.f17178e = 3;
+        this.f16851e = 3;
         c();
     }
 
@@ -245,37 +245,37 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         if (dVar == null || dVar.z() == null) {
             return;
         }
-        this.f17179f.f(dVar.z());
+        this.f16852f.f(dVar.z());
     }
 
     public final void c() {
         setLayoutManager(new GridLayoutManager(getContext(), 2));
         setOverScrollMode(2);
         a aVar = new a();
-        this.f17179f = aVar;
+        this.f16852f = aVar;
         setAdapter(aVar);
     }
 
     public void d(int i) {
-        if (this.f17178e != i) {
-            this.f17179f.notifyDataSetChanged();
-            this.f17178e = i;
+        if (this.f16851e != i) {
+            this.f16852f.notifyDataSetChanged();
+            this.f16851e = i;
         }
     }
 
     public void setOnItemCoverListener(f<c> fVar) {
-        this.f17179f.e(fVar);
+        this.f16852f.e(fVar);
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17178e = 3;
+        this.f16851e = 3;
         c();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17178e = 3;
+        this.f16851e = 3;
         c();
     }
 }

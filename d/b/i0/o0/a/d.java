@@ -1,30 +1,39 @@
 package d.b.i0.o0.a;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import d.b.c.e.d.l;
 /* loaded from: classes4.dex */
-public class d extends d.b.b.j.e.a<d.b.i0.o0.c.a, CardViewHolder<d.b.i0.o0.d.c>> {
-    public TbPageContext m;
+public class d {
 
-    public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.m = tbPageContext;
+    /* renamed from: a  reason: collision with root package name */
+    public l<byte[]> f58682a;
+
+    public d() {
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<d.b.i0.o0.d.c> R(ViewGroup viewGroup) {
-        return new CardViewHolder<>(new d.b.i0.o0.d.c(this.m));
+    public byte[] a(String str) {
+        byte[] bArr;
+        l<byte[]> lVar = this.f58682a;
+        l.b<byte[]> h2 = (lVar == null || str == null) ? null : lVar.h(str);
+        if (h2 == null || (bArr = h2.f42199b) == null) {
+            return null;
+        }
+        return bArr;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: i0 */
-    public View X(int i, View view, ViewGroup viewGroup, d.b.i0.o0.c.a aVar, CardViewHolder<d.b.i0.o0.d.c> cardViewHolder) {
-        return cardViewHolder.a();
+    public void b() {
+        if (this.f58682a == null) {
+            this.f58682a = d.b.h0.r.r.a.f().d("tb.bawu_team_info");
+        }
+    }
+
+    public void c(String str, byte[] bArr) {
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        b();
+        this.f58682a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

@@ -5,8 +5,8 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.tencent.open.SocialConstants;
-import d.b.i0.x1.f.a;
-import d.b.i0.x1.f.b;
+import d.b.i0.y1.f.a;
+import d.b.i0.y1.f.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -39,19 +39,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
         a aVar = new a();
         String optString = jSONObject.optString("id");
-        aVar.f62368a = optString;
+        aVar.f64053a = optString;
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        aVar.f62369b = jSONObject.optString("name");
+        aVar.f64054b = jSONObject.optString("name");
         jSONObject.optInt("type");
         jSONObject.optString("owner");
         jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
         jSONObject.optString("timestamp");
         jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-        aVar.f62370c = jSONObject.optString("covername");
-        aVar.f62371d = jSONObject.optString("url");
-        aVar.f62372e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+        aVar.f64055c = jSONObject.optString("covername");
+        aVar.f64056d = jSONObject.optString("url");
+        aVar.f64057e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
         return aVar;
     }
 
@@ -64,11 +64,11 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 b bVar = new b();
-                bVar.f62374f = jSONObject.optString("id");
+                bVar.f64059f = jSONObject.optString("id");
                 jSONObject.optString("url");
                 jSONObject.optString("thumbnail");
-                bVar.f62375g = jSONObject.optString("name");
-                bVar.f62376h = jSONObject.optString("thumbname");
+                bVar.f64060g = jSONObject.optString("name");
+                bVar.f64061h = jSONObject.optString("thumbname");
                 bVar.j = jSONObject.optInt("width");
                 bVar.i = jSONObject.optInt("height");
                 arrayList.add(bVar);

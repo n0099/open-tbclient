@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.b.e.p.j;
-import d.b.i0.r.a.e.b;
-import d.b.i0.r.a.i.a;
+import d.b.c.e.p.j;
+import d.b.i0.r.a.f.b;
+import d.b.i0.r.a.j.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
@@ -22,33 +22,33 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
 
     private void dealVideoAd() {
         if (FileHelper.checkSD()) {
-            b b2 = b.b(a.g());
+            b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f59667d;
-                a.j(adInfo);
+                adInfo.videoLocalPath = b2.f60917d;
+                a.f(adInfo);
             } else if (j.z() && j.H()) {
-                d.b.i0.r.a.h.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                d.b.i0.r.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                    a.j(this.adInfo);
-                    d.b.i0.r.a.h.a aVar = new d.b.i0.r.a.h.a();
+                    a.f(this.adInfo);
+                    d.b.i0.r.a.i.a aVar = new d.b.i0.r.a.i.a();
                     aVar.c(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
                 }
             } else {
-                a.j(this.adInfo);
+                a.f(this.adInfo);
             }
         }
     }
 
-    private d.b.i0.r.a.h.a searchTask(String str) {
+    private d.b.i0.r.a.i.a searchTask(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
-        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.b.i0.r.a.h.a)) {
+        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.b.i0.r.a.i.a)) {
             return null;
         }
         try {
-            return (d.b.i0.r.a.h.a) searchTask;
+            return (d.b.i0.r.a.i.a) searchTask;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
             return null;
@@ -76,7 +76,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
         AdInfo adInfo2 = this.adInfo;
         adInfo2.videoLocalPath = "";
-        a.j(adInfo2);
+        a.f(adInfo2);
     }
 
     public int getErrno() {

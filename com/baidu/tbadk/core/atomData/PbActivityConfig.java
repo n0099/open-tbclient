@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
@@ -183,7 +184,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("request_code", i);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -202,7 +203,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("is_from_interview_live_config", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str2)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         addMoreIntentExtraParam();
         return this;
@@ -214,8 +215,8 @@ public class PbActivityConfig extends IntentConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("thread_id", a2Var.w1());
-        if (a2Var.z1() != null && !StringUtils.isNull(a2Var.z1().D())) {
-            intent.putExtra(KEY_GOD_REPLY_ID, a2Var.z1().D());
+        if (a2Var.z1() != null && !StringUtils.isNull(a2Var.z1().E())) {
+            intent.putExtra(KEY_GOD_REPLY_ID, a2Var.z1().E());
         }
         intent.putExtra("is_good", a2Var.w0());
         intent.putExtra("is_top", a2Var.x0());
@@ -287,7 +288,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             intent.putExtra("key_manga_title", str4);
             intent.putExtra("key_manga_prev_chapter", i);
@@ -342,7 +343,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("op_type", str6);
         }
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -359,7 +360,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("st_type", str3);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -377,7 +378,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("is_sub_pb", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -395,7 +396,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("squence", z2);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -610,7 +611,7 @@ public class PbActivityConfig extends IntentConfig {
         if (intent != null && a2Var != null) {
             BaijiahaoData V = a2Var.V();
             if (V != null) {
-                intent.putExtra("key_is_from_dynamic", a2Var.x2());
+                intent.putExtra("key_is_from_dynamic", a2Var.y2());
                 intent.putExtra("key_ori_ugc_nid", V.oriUgcNid);
                 intent.putExtra("key_ori_ugc_tid", V.oriUgcTid);
                 intent.putExtra("key_ori_ugc_type", V.oriUgcType);
@@ -688,7 +689,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KEY_IS_FROM_BAR_VOTE, z);
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -708,7 +709,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_SHOULD_ADD_POST_ID, true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -727,7 +728,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("sort_type", 0);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str4)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
@@ -747,7 +748,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("query_word", str5);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();

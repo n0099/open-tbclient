@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.p;
-import f.a.t.b;
-import f.a.x.f.a;
+import f.b.o;
+import f.b.p;
+import f.b.t.b;
+import f.b.x.f.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -15,7 +15,7 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
     public final long count;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68073d;
+    public b f69079d;
     public final boolean delayError;
     public Throwable error;
     public final a<Object> queue;
@@ -33,13 +33,13 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
         this.delayError = z;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
         }
         this.cancelled = true;
-        this.f68073d.dispose();
+        this.f69079d.dispose();
         if (compareAndSet(false, true)) {
             this.queue.clear();
         }
@@ -77,23 +77,23 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.error = th;
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         a<Object> aVar = this.queue;
         long b2 = this.scheduler.b(this.unit);
@@ -110,10 +110,10 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68073d, bVar)) {
-            this.f68073d = bVar;
+        if (DisposableHelper.validate(this.f69079d, bVar)) {
+            this.f69079d = bVar;
             this.actual.onSubscribe(this);
         }
     }

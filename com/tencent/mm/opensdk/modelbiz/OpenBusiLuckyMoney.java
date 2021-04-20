@@ -2,10 +2,10 @@ package com.tencent.mm.opensdk.modelbiz;
 
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class OpenBusiLuckyMoney {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public static final int MAX_URL_LENGHT = 10240;
         public String appId;

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class c extends d.b.i0.x.b<d.b.i0.t.d.c.e.f> {
     public View m;
@@ -62,10 +62,10 @@ public class c extends d.b.i0.x.b<d.b.i0.t.d.c.e.f> {
     @Override // d.b.i0.x.b
     /* renamed from: v */
     public void n(d.b.i0.t.d.c.e.f fVar) {
-        if (fVar == null || fVar.f60332e == null) {
+        if (fVar == null || fVar.f61896e == null) {
             return;
         }
-        int k = l.k(this.f62182g);
+        int k = l.k(this.f63757g);
         if (k != this.o) {
             int[] a2 = d.b.i0.t.d.c.c.a(b());
             int i = a2[0];
@@ -76,7 +76,7 @@ public class c extends d.b.i0.x.b<d.b.i0.t.d.c.e.f> {
             this.n.setLayoutParams(layoutParams);
             this.o = k;
         }
-        this.n.setData(fVar.f60332e.f60333a, 101);
+        this.n.setData(fVar.f61896e.f61897a, 101);
         StatisticItem statisticItem = new StatisticItem("c13551");
         statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
         TiebaStatic.log(statisticItem);

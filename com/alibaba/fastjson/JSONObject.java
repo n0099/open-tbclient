@@ -1,9 +1,16 @@
 package com.alibaba.fastjson;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.util.TypeUtils;
+import java.io.IOException;
+import java.io.NotActiveException;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamClass;
 import java.io.Serializable;
+import java.io.StreamCorruptedException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -14,16 +21,110 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 /* loaded from: classes.dex */
 public class JSONObject extends JSON implements Map<String, Object>, Cloneable, Serializable, InvocationHandler {
     public static final int DEFAULT_INITIAL_CAPACITY = 16;
     public static final long serialVersionUID = 1;
     public final Map<String, Object> map;
 
+    /* loaded from: classes.dex */
+    public static class SecureObjectInputStream extends ObjectInputStream {
+        public static Field[] fields;
+        public static volatile boolean fields_error;
+
+        public SecureObjectInputStream(ObjectInputStream objectInputStream) throws IOException {
+            super(objectInputStream);
+            for (int i = 0; i < fields.length; i++) {
+                try {
+                    Field field = fields[i];
+                    field.set(this, field.get(objectInputStream));
+                } catch (IllegalAccessException unused) {
+                    fields_error = true;
+                    return;
+                }
+            }
+        }
+
+        public static void ensureFields() {
+            if (fields != null || fields_error) {
+                return;
+            }
+            try {
+                Field[] declaredFields = ObjectInputStream.class.getDeclaredFields();
+                String[] strArr = {"bin", "passHandle", "handles", "curContext"};
+                Field[] fieldArr = new Field[4];
+                for (int i = 0; i < 4; i++) {
+                    Field field = TypeUtils.getField(ObjectInputStream.class, strArr[i], declaredFields);
+                    field.setAccessible(true);
+                    fieldArr[i] = field;
+                }
+                fields = fieldArr;
+            } catch (Throwable unused) {
+                fields_error = true;
+            }
+        }
+
+        @Override // java.io.ObjectInputStream
+        public void readStreamHeader() throws IOException, StreamCorruptedException {
+        }
+
+        @Override // java.io.ObjectInputStream
+        public Class<?> resolveClass(ObjectStreamClass objectStreamClass) throws IOException, ClassNotFoundException {
+            String name = objectStreamClass.getName();
+            if (name.length() > 2) {
+                int lastIndexOf = name.lastIndexOf(91);
+                if (lastIndexOf != -1) {
+                    name = name.substring(lastIndexOf + 1);
+                }
+                if (name.length() > 2 && name.charAt(0) == 'L' && name.charAt(name.length() - 1) == ';') {
+                    name = name.substring(1, name.length() - 1);
+                }
+                if (TypeUtils.getClassFromMapping(name) == null) {
+                    ParserConfig.global.checkAutoType(name, null, Feature.SupportAutoType.mask);
+                }
+            }
+            return super.resolveClass(objectStreamClass);
+        }
+
+        @Override // java.io.ObjectInputStream
+        public Class<?> resolveProxyClass(String[] strArr) throws IOException, ClassNotFoundException {
+            for (String str : strArr) {
+                if (TypeUtils.getClassFromMapping(str) == null) {
+                    ParserConfig.global.checkAutoType(str, null);
+                }
+            }
+            return super.resolveProxyClass(strArr);
+        }
+    }
+
     public JSONObject() {
         this(16, false);
+    }
+
+    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+        SecureObjectInputStream.ensureFields();
+        if (SecureObjectInputStream.fields != null && !SecureObjectInputStream.fields_error) {
+            try {
+                new SecureObjectInputStream(objectInputStream).defaultReadObject();
+                return;
+            } catch (NotActiveException unused) {
+            }
+        }
+        objectInputStream.defaultReadObject();
+        for (Map.Entry<String, Object> entry : this.map.entrySet()) {
+            String key = entry.getKey();
+            if (key != null) {
+                ParserConfig.global.checkAutoType(key.getClass());
+            }
+            Object value = entry.getValue();
+            if (value != null) {
+                ParserConfig.global.checkAutoType(value.getClass());
+            }
+        }
     }
 
     @Override // java.util.Map
@@ -37,7 +138,8 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
 
     @Override // java.util.Map
     public boolean containsKey(Object obj) {
-        return this.map.containsKey(obj);
+        boolean containsKey = this.map.containsKey(obj);
+        return !containsKey ? ((obj instanceof Number) || (obj instanceof Character) || (obj instanceof Boolean) || (obj instanceof UUID)) ? this.map.containsKey(obj.toString()) : containsKey : containsKey;
     }
 
     @Override // java.util.Map
@@ -65,7 +167,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         return this;
     }
 
-    public JSONObject fluentPutAll(Map<? extends String, ? extends Object> map) {
+    public JSONObject fluentPutAll(Map<? extends String, ?> map) {
         this.map.putAll(map);
         return this;
     }
@@ -78,7 +180,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
     @Override // java.util.Map
     public Object get(Object obj) {
         Object obj2 = this.map.get(obj);
-        return (obj2 == null && (obj instanceof Number)) ? this.map.get(obj.toString()) : obj2;
+        return obj2 == null ? ((obj instanceof Number) || (obj instanceof Character) || (obj instanceof Boolean) || (obj instanceof UUID)) ? this.map.get(obj.toString()) : obj2 : obj2;
     }
 
     public BigDecimal getBigDecimal(String str) {
@@ -174,6 +276,9 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         if (obj instanceof JSONArray) {
             return (JSONArray) obj;
         }
+        if (obj instanceof List) {
+            return new JSONArray((List) obj);
+        }
         if (obj instanceof String) {
             return (JSONArray) JSON.parse((String) obj);
         }
@@ -184,6 +289,9 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         Object obj = this.map.get(str);
         if (obj instanceof JSONObject) {
             return (JSONObject) obj;
+        }
+        if (obj instanceof Map) {
+            return new JSONObject((Map) obj);
         }
         if (obj instanceof String) {
             return JSON.parseObject((String) obj);
@@ -252,7 +360,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
                 return Boolean.valueOf(equals(objArr[0]));
             }
             if (method.getReturnType() == Void.TYPE) {
-                JSONField jSONField = (JSONField) method.getAnnotation(JSONField.class);
+                JSONField jSONField = (JSONField) TypeUtils.getAnnotation(method, JSONField.class);
                 String name = (jSONField == null || jSONField.name().length() == 0) ? null : jSONField.name();
                 if (name == null) {
                     String name2 = method.getName();
@@ -272,7 +380,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
             throw new JSONException("illegal setter");
         } else if (parameterTypes.length == 0) {
             if (method.getReturnType() != Void.TYPE) {
-                JSONField jSONField2 = (JSONField) method.getAnnotation(JSONField.class);
+                JSONField jSONField2 = (JSONField) TypeUtils.getAnnotation(method, JSONField.class);
                 if (jSONField2 != null && jSONField2.name().length() != 0) {
                     str = jSONField2.name();
                 }
@@ -317,6 +425,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         return this.map.keySet();
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.Map<? extends java.lang.String, ?>] */
     @Override // java.util.Map
     public void putAll(Map<? extends String, ? extends Object> map) {
         this.map.putAll(map);
@@ -332,13 +441,24 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         return this.map.size();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.alibaba.fastjson.JSONObject */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.alibaba.fastjson.JSON
+    public <T> T toJavaObject(Class<T> cls) {
+        return (cls == Map.class || cls == JSONObject.class || cls == JSON.class) ? this : (cls != Object.class || containsKey(JSON.DEFAULT_TYPE_KEY)) ? (T) TypeUtils.castToJavaBean(this, cls, ParserConfig.getGlobalInstance()) : this;
+    }
+
     @Override // java.util.Map
     public Collection<Object> values() {
         return this.map.values();
     }
 
     public JSONObject(Map<String, Object> map) {
-        this.map = map;
+        if (map != null) {
+            this.map = map;
+            return;
+        }
+        throw new IllegalArgumentException("map is null.");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -351,17 +471,23 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         return (T) TypeUtils.cast(this.map.get(str), type, ParserConfig.getGlobalInstance());
     }
 
-    public JSONObject(boolean z) {
-        this(16, z);
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.alibaba.fastjson.JSONObject */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> T toJavaObject(Class<T> cls, ParserConfig parserConfig, int i) {
+        return cls == Map.class ? this : (cls != Object.class || containsKey(JSON.DEFAULT_TYPE_KEY)) ? (T) TypeUtils.castToJavaBean(this, cls, parserConfig) : this;
     }
 
-    public JSONObject(int i) {
-        this(i, false);
+    public JSONObject(boolean z) {
+        this(16, z);
     }
 
     public <T> T getObject(String str, TypeReference typeReference) {
         T t = (T) this.map.get(str);
         return typeReference == null ? t : (T) TypeUtils.cast(t, typeReference.getType(), ParserConfig.getGlobalInstance());
+    }
+
+    public JSONObject(int i) {
+        this(i, false);
     }
 
     public JSONObject(int i, boolean z) {

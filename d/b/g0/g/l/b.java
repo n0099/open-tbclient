@@ -5,11 +5,11 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f48338a;
+    public c f48730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48339b;
+    public String f48731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f48340c;
+    public Map<String, Object> f48732c;
 }

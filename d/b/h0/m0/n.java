@@ -17,13 +17,13 @@ import java.io.InputStreamReader;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f50355a = -1;
+    public long f50762a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f50356b = -1;
+    public long f50763b = -1;
 
     public void a() {
-        this.f50355a = SystemClock.elapsedRealtime();
+        this.f50762a = SystemClock.elapsedRealtime();
         Process.getElapsedCpuTime();
     }
 
@@ -104,14 +104,14 @@ public final class n {
         }
         Closeables.closeSafely(bufferedReader);
         if (j2 <= 0) {
-            this.f50356b = this.f50355a - j2;
+            this.f50763b = this.f50762a - j2;
         }
     }
 
     public long c() {
-        if (this.f50356b == -1) {
+        if (this.f50763b == -1) {
             b();
         }
-        return this.f50356b;
+        return this.f50763b;
     }
 }

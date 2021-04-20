@@ -7,22 +7,22 @@ import d.b.g0.a.k;
 public abstract class c implements a<d.b.g0.a.n1.a.b.a.b> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45351b = k.f45051a;
+    public static final boolean f45743b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45352a;
+    public String f45744a;
 
     @Override // d.b.g0.a.n1.a.b.c.a
     public String b() {
-        if (!TextUtils.isEmpty(this.f45352a)) {
-            return this.f45352a;
+        if (!TextUtils.isEmpty(this.f45744a)) {
+            return this.f45744a;
         }
         String str = System.currentTimeMillis() + "" + hashCode();
-        this.f45352a = str;
-        if (f45351b && d.b.g0.a.n1.a.b.d.a.a(str)) {
+        this.f45744a = str;
+        if (f45743b && d.b.g0.a.n1.a.b.d.a.a(str)) {
             throw new RuntimeException("illegal observer id");
         }
-        return this.f45352a;
+        return this.f45744a;
     }
 
     @Override // d.b.g0.a.n1.a.b.c.a

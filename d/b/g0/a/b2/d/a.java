@@ -8,11 +8,11 @@ import d.b.g0.p.d;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43571a = k.f45051a;
+    public static final boolean f43963a = k.f45443a;
 
     public static void a() {
         File c2 = c();
@@ -26,7 +26,7 @@ public final class a {
     }
 
     public static File c() {
-        return new File(d.b.g0.a.y0.c.a.d().get(0).f44686a, "/aiapps_debug_swan_core/");
+        return new File(d.b.g0.a.y0.c.a.d().get(0).f45078a, "/aiapps_debug_swan_core/");
     }
 
     public static File d() {
@@ -44,7 +44,7 @@ public final class a {
             try {
                 jSONObject = new JSONObject(d.r(file));
             } catch (JSONException e2) {
-                if (f43571a) {
+                if (f43963a) {
                     e2.printStackTrace();
                 }
             }

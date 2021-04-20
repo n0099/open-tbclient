@@ -5,24 +5,24 @@ import java.io.InputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f3002a;
+    public InputStream f3037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3003b;
+    public int f3038b;
 
     public InputStream a() {
-        return this.f3002a;
+        return this.f3037a;
     }
 
     public void a(int i) {
-        this.f3003b = i;
+        this.f3038b = i;
     }
 
     public void a(InputStream inputStream) {
-        this.f3002a = inputStream;
+        this.f3037a = inputStream;
     }
 
     public int b() {
-        return this.f3003b;
+        return this.f3038b;
     }
 }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.FrsTabItemData;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class TransmitForumData implements n, Parcelable {
@@ -46,7 +46,7 @@ public class TransmitForumData implements n, Parcelable {
         return 0;
     }
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         return ID_TRANSMIT_SELECT_DATA;
     }

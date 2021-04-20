@@ -7,10 +7,10 @@ import android.os.Message;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f35620a;
+    public boolean f35909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f35621b = new Handler(Looper.getMainLooper(), new a());
+    public final Handler f35910b = new Handler(Looper.getMainLooper(), new a());
 
     /* loaded from: classes6.dex */
     public static final class a implements Handler.Callback {
@@ -25,12 +25,12 @@ public class v {
     }
 
     public synchronized void a(s<?> sVar) {
-        if (this.f35620a) {
-            this.f35621b.obtainMessage(1, sVar).sendToTarget();
+        if (this.f35909a) {
+            this.f35910b.obtainMessage(1, sVar).sendToTarget();
         } else {
-            this.f35620a = true;
+            this.f35909a = true;
             sVar.d_();
-            this.f35620a = false;
+            this.f35909a = false;
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public TbImageView mClose;

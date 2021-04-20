@@ -11,8 +11,8 @@ public class g extends s0 {
     }
 
     @Override // d.b.i.s0
-    public d.b.i0.i2.q.a q() {
-        return new d.b.i0.i2.q.b(this.f51763f, this.m, this.C);
+    public d.b.i0.j2.q.a q() {
+        return new d.b.i0.j2.q.b(this.f52187f, this.m, this.C);
     }
 
     public g(Context context, boolean z) {

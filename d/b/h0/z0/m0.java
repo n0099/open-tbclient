@@ -9,23 +9,23 @@ import java.lang.ref.WeakReference;
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f51727a = false;
+    public static boolean f52151a = false;
 
     public static boolean a(int i) {
         if (i == 2) {
             int frsAutoPlay = TbadkCoreApplication.getInst().getFrsAutoPlay();
-            if ((frsAutoPlay == 1 || !d.b.b.e.p.j.H()) && (frsAutoPlay != 2 || !d.b.b.e.p.j.x())) {
+            if ((frsAutoPlay == 1 || !d.b.c.e.p.j.H()) && (frsAutoPlay != 2 || !d.b.c.e.p.j.x())) {
                 return false;
             }
         } else if (i == 3 || i == 4) {
-            return d.b.b.e.p.j.H();
+            return d.b.c.e.p.j.H();
         } else {
             if (i != 5) {
                 int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
-                if ((homePageAutoPlay == 1 || !d.b.b.e.p.j.H()) && (homePageAutoPlay != 2 || !d.b.b.e.p.j.x())) {
+                if ((homePageAutoPlay == 1 || !d.b.c.e.p.j.H()) && (homePageAutoPlay != 2 || !d.b.c.e.p.j.x())) {
                     return false;
                 }
-            } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !d.b.b.e.p.j.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 0)) {
+            } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !d.b.c.e.p.j.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 0)) {
                 return false;
             }
         }
@@ -37,12 +37,12 @@ public class m0 {
     }
 
     public static boolean c() {
-        return f51727a;
+        return f52151a;
     }
 
     public static boolean d() {
-        if (!d.b.b.e.p.j.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
-            return d.b.b.e.p.j.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
+        if (!d.b.c.e.p.j.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
+            return d.b.c.e.p.j.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }
         return true;
     }
@@ -66,6 +66,6 @@ public class m0 {
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        f51727a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+        f52151a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
     }
 }

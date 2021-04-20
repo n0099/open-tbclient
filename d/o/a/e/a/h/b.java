@@ -5,7 +5,7 @@ import android.util.Base64;
 import androidx.annotation.NonNull;
 import d.o.a.e.b.l.e;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {

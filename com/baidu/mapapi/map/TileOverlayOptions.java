@@ -9,63 +9,63 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 public final class TileOverlayOptions {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Bundle f7041c = null;
+    public static Bundle f7076c = null;
     public static final String j = "TileOverlayOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public TileProvider f7043b;
+    public TileProvider f7078b;
     public int datasource;
     public String urlString;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7042a = 209715200;
+    public int f7077a = 209715200;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7044d = 20;
+    public int f7079d = 20;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7045e = 3;
+    public int f7080e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7046f = 15786414;
+    public int f7081f = 15786414;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7047g = -20037726;
+    public int f7082g = -20037726;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7048h = -15786414;
+    public int f7083h = -15786414;
     public int i = 20037726;
 
     public TileOverlayOptions() {
         Bundle bundle = new Bundle();
-        f7041c = bundle;
-        bundle.putInt("rectr", this.f7046f);
-        f7041c.putInt("rectb", this.f7047g);
-        f7041c.putInt("rectl", this.f7048h);
-        f7041c.putInt("rectt", this.i);
+        f7076c = bundle;
+        bundle.putInt("rectr", this.f7081f);
+        f7076c.putInt("rectb", this.f7082g);
+        f7076c.putInt("rectl", this.f7083h);
+        f7076c.putInt("rectt", this.i);
     }
 
     private TileOverlayOptions a(int i, int i2) {
-        this.f7044d = i;
-        this.f7045e = i2;
+        this.f7079d = i;
+        this.f7080e = i2;
         return this;
     }
 
     public Bundle a() {
-        f7041c.putString("url", this.urlString);
-        f7041c.putInt("datasource", this.datasource);
-        f7041c.putInt("maxDisplay", this.f7044d);
-        f7041c.putInt("minDisplay", this.f7045e);
-        f7041c.putInt("sdktiletmpmax", this.f7042a);
-        return f7041c;
+        f7076c.putString("url", this.urlString);
+        f7076c.putInt("datasource", this.datasource);
+        f7076c.putInt("maxDisplay", this.f7079d);
+        f7076c.putInt("minDisplay", this.f7080e);
+        f7076c.putInt("sdktiletmpmax", this.f7077a);
+        return f7076c;
     }
 
     public TileOverlay a(BaiduMap baiduMap) {
-        return new TileOverlay(baiduMap, this.f7043b);
+        return new TileOverlay(baiduMap, this.f7078b);
     }
 
     public TileOverlayOptions setMaxTileTmp(int i) {
-        this.f7042a = i;
+        this.f7077a = i;
         return this;
     }
 
@@ -80,10 +80,10 @@ public final class TileOverlayOptions {
             if (latitudeE6 <= latitudeE62 || longitudeE62 <= longitudeE6) {
                 Log.e(j, "bounds is illegal, use default bounds");
             } else {
-                f7041c.putInt("rectr", (int) longitudeE62);
-                f7041c.putInt("rectb", (int) latitudeE62);
-                f7041c.putInt("rectl", (int) longitudeE6);
-                f7041c.putInt("rectt", (int) latitudeE6);
+                f7076c.putInt("rectr", (int) longitudeE62);
+                f7076c.putInt("rectb", (int) latitudeE62);
+                f7076c.putInt("rectl", (int) longitudeE6);
+                f7076c.putInt("rectt", (int) latitudeE6);
             }
             return this;
         }
@@ -105,7 +105,7 @@ public final class TileOverlayOptions {
                 return null;
             }
             this.datasource = 0;
-            this.f7043b = tileProvider;
+            this.f7078b = tileProvider;
             maxDisLevel = tileProvider.getMaxDisLevel();
             int minDisLevel = tileProvider.getMinDisLevel();
             if (maxDisLevel <= 21) {
@@ -122,7 +122,7 @@ public final class TileOverlayOptions {
             return null;
         }
         this.urlString = tileUrl;
-        this.f7043b = tileProvider;
+        this.f7078b = tileProvider;
         maxDisLevel = tileProvider.getMaxDisLevel();
         int minDisLevel2 = tileProvider.getMinDisLevel();
         if (maxDisLevel <= 21 || minDisLevel2 < 3) {

@@ -7,7 +7,7 @@ public final class g {
     public static a a(h hVar, d.b.g0.g.i.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         i b2 = b(hVar);
         a a2 = b2.a(hVar.a(), bVar, v8ThreadDelegatePolicy);
-        a2.C0(b2.b());
+        a2.D0(b2.b());
         return a2;
     }
 
@@ -26,8 +26,8 @@ public final class g {
     public static a c(h hVar, d.b.g0.g.i.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         a a2 = a(hVar, bVar, v8ThreadDelegatePolicy);
         a2.u(new d.b.g0.g.i.k.b(a2));
-        a2.A0(new d.b.g0.g.i.k.c(a2));
-        a2.l0();
+        a2.B0(new d.b.g0.g.i.k.c(a2));
+        a2.m0();
         return a2;
     }
 }

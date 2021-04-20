@@ -22,16 +22,16 @@ public class DuMediaExtractor {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<DuMediaExtractor> f7976a;
+        public final WeakReference<DuMediaExtractor> f8011a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f7976a = new WeakReference<>(duMediaExtractor);
+            this.f8011a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f7976a.get();
+            DuMediaExtractor duMediaExtractor = this.f8011a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {

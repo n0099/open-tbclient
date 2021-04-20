@@ -17,10 +17,10 @@ import com.baidu.tbadk.widget.LineCountNotifyTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import d.b.i0.c3.n0.d;
-import d.b.i0.i1.i;
-import d.b.i0.i1.o.f;
-/* loaded from: classes3.dex */
+import d.b.i0.d3.n0.d;
+import d.b.i0.j1.i;
+import d.b.i0.j1.o.f;
+/* loaded from: classes4.dex */
 public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public TbImageView A;
     public TextView B;
@@ -36,14 +36,14 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public TextView y;
     public LinearLayout z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements LineCountNotifyTextView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f18658a;
+        public final /* synthetic */ OnePicInfoCard f18335a;
 
         public a(OnePicInfoCard onePicInfoCard) {
-            this.f18658a = onePicInfoCard;
+            this.f18335a = onePicInfoCard;
         }
 
         @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
@@ -57,23 +57,23 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 }
             }
             OnePicInfoCardView.this.D = lineCount;
-            OnePicInfoCardView.this.u.setText(this.f18658a.getDesc());
+            OnePicInfoCardView.this.u.setText(this.f18335a.getDesc());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f18660e;
+        public final /* synthetic */ OnePicInfoCard f18337e;
 
         public b(OnePicInfoCard onePicInfoCard) {
-            this.f18660e = onePicInfoCard;
+            this.f18337e = onePicInfoCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            OnePicInfoCardView.this.q(this.f18660e);
+            OnePicInfoCardView.this.q(this.f18337e);
         }
     }
 
@@ -87,27 +87,27 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if (this.v == null) {
             return;
         }
-        if (onePicInfoCard != null && !d.b.i0.i1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.b.i0.i1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
+        if (onePicInfoCard != null && !d.b.i0.j1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.b.i0.j1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
             this.v.setBackgroundColor(w() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
         } else {
             SkinManager.setBackgroundResource(this.v, R.drawable.label_bg_tie_n);
         }
     }
 
-    public final void P(TextView textView, TbImageView tbImageView, d.b.i0.i1.o.j.b bVar) {
-        String str = w() ? bVar.f55939b : bVar.f55938a;
+    public final void P(TextView textView, TbImageView tbImageView, d.b.i0.j1.o.j.b bVar) {
+        String str = w() ? bVar.f57386b : bVar.f57385a;
         if (!TextUtils.isEmpty(str)) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             tbImageView.setVisibility(0);
             tbImageView.W(str, 10, false);
         } else {
             tbImageView.setVisibility(8);
-            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f55940c)), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f57387c)), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         try {
-            textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f55941d)));
+            textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f57388d)));
         } catch (NumberFormatException unused) {
-            textView.setText(bVar.f55941d);
+            textView.setText(bVar.f57388d);
         }
     }
 

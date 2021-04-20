@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.ViewCompat;
-import com.baidu.mapapi.map.WeightedLatLng;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Objects;
 /* loaded from: classes.dex */
@@ -207,7 +206,7 @@ public final class ColorUtils {
         throw new IllegalArgumentException("background can not be translucent: #" + Integer.toHexString(i2));
     }
 
-    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
+    @FloatRange(from = 0.0d, to = 1.0d)
     public static double calculateLuminance(@ColorInt int i) {
         double[] tempDouble3Array = getTempDouble3Array();
         colorToXYZ(i, tempDouble3Array);

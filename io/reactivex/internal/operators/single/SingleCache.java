@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.q;
-import f.a.r;
-import f.a.t.b;
+import f.b.q;
+import f.b.r;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class SingleCache<T> extends q<T> implements r<T> {
@@ -18,14 +18,14 @@ public final class SingleCache<T> extends q<T> implements r<T> {
             this.parent = singleCache;
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             if (compareAndSet(false, true)) {
                 this.parent.c(this);
             }
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get();
         }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.social.BaseSSOLoginActivity;
@@ -133,7 +134,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             intent.putExtra("extraJson", str);
         }
         if (!z2) {
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent);
             return;
         }

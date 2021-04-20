@@ -10,20 +10,20 @@ public abstract class ClockMark {
     public abstract double elapsedNow();
 
     public final boolean hasNotPassedNow() {
-        return Duration.m1571isNegativeimpl(elapsedNow());
+        return Duration.m1575isNegativeimpl(elapsedNow());
     }
 
     public final boolean hasPassedNow() {
-        return !Duration.m1571isNegativeimpl(elapsedNow());
+        return !Duration.m1575isNegativeimpl(elapsedNow());
     }
 
     /* renamed from: minus-LRDsOJo  reason: not valid java name */
-    public ClockMark m1547minusLRDsOJo(double d2) {
-        return mo1546plusLRDsOJo(Duration.m1591unaryMinusimpl(d2));
+    public ClockMark m1551minusLRDsOJo(double d2) {
+        return mo1550plusLRDsOJo(Duration.m1595unaryMinusimpl(d2));
     }
 
     /* renamed from: plus-LRDsOJo */
-    public ClockMark mo1546plusLRDsOJo(double d2) {
+    public ClockMark mo1550plusLRDsOJo(double d2) {
         return new AdjustedClockMark(this, d2, null);
     }
 }

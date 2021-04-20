@@ -25,38 +25,38 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47915b = k.f45051a;
+    public static final boolean f48307b = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f47916c = "";
+    public static String f48308c = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.e.d.c f47917a;
+    public d.b.g0.g.e.d.c f48309a;
 
     /* renamed from: d.b.g0.g.b0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0952a implements d.b.g0.a.m.a {
+    public class C0964a implements d.b.g0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.b0.b.c f47918e;
+        public final /* synthetic */ d.b.g0.g.b0.b.c f48310e;
 
-        public C0952a(d.b.g0.g.b0.b.c cVar) {
-            this.f47918e = cVar;
+        public C0964a(d.b.g0.g.b0.b.c cVar) {
+            this.f48310e = cVar;
         }
 
         @Override // d.b.g0.a.m.a
         public void onResult(int i) {
             if (i != 0) {
-                if (a.f47915b) {
+                if (a.f48307b) {
                     Log.d("ShareVideoApi", "login fail");
                 }
                 a.this.j("shareVideo: fail, no login in");
                 return;
             }
-            if (a.f47915b) {
+            if (a.f48307b) {
                 Log.d("ShareVideoApi", "login success");
             }
-            a.this.h(this.f47918e);
+            a.this.h(this.f48310e);
         }
     }
 
@@ -67,7 +67,7 @@ public class a {
 
         @Override // d.b.g0.g.b0.b.b
         public void a(d.b.g0.g.b0.b.c cVar, String str) {
-            if (a.f47915b) {
+            if (a.f48307b) {
                 Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", cVar, str));
             }
             a.this.j(str);
@@ -78,7 +78,7 @@ public class a {
     public static class c implements Callback {
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            if (a.f47915b) {
+            if (a.f48307b) {
                 iOException.printStackTrace();
             }
             a.g();
@@ -89,13 +89,13 @@ public class a {
             try {
                 JSONObject jSONObject = (JSONObject) new JSONObject(response.body().string()).opt("data");
                 if (jSONObject != null) {
-                    String unused = a.f47916c = jSONObject.optString("community_id");
+                    String unused = a.f48308c = jSONObject.optString("community_id");
                     a.f(jSONObject.optString("url"));
                 } else {
                     a.g();
                 }
             } catch (JSONException e2) {
-                if (a.f47915b) {
+                if (a.f48307b) {
                     e2.printStackTrace();
                 }
                 a.g();
@@ -104,7 +104,7 @@ public class a {
     }
 
     public a(JsObject jsObject) {
-        this.f47917a = d.b.g0.g.e.d.c.F(jsObject);
+        this.f48309a = d.b.g0.g.e.d.c.F(jsObject);
     }
 
     public static /* synthetic */ String f(String str) {
@@ -112,7 +112,7 @@ public class a {
     }
 
     public static void g() {
-        f47916c = "";
+        f48308c = "";
     }
 
     public static void l() {
@@ -120,9 +120,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_type", 0);
-            jSONObject.put(com.alipay.sdk.cons.b.f1858h, e.T());
+            jSONObject.put(com.alipay.sdk.cons.b.f1883h, e.T());
         } catch (JSONException e2) {
-            if (f47915b) {
+            if (f48307b) {
                 e2.printStackTrace();
             }
         }
@@ -137,30 +137,30 @@ public class a {
 
     public final void i() {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47252b = "shareVideo";
-        eVar.f47254d = "fail";
+        eVar.f47644b = "shareVideo";
+        eVar.f47646d = "fail";
         h.j(eVar);
     }
 
     public final void j(String str) {
-        if (this.f47917a == null) {
+        if (this.f48309a == null) {
             return;
         }
         d.b.g0.g.e.d.b bVar = new d.b.g0.g.e.d.b();
         bVar.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-        d.b.g0.g.i0.b.a(this.f47917a, false, bVar);
+        d.b.g0.g.i0.b.a(this.f48309a, false, bVar);
         i();
     }
 
     public final d.b.g0.g.b0.b.c k() {
-        if (this.f47917a == null) {
+        if (this.f48309a == null) {
             i();
             return null;
         } else if (e.y() == null) {
             j("shareVideo: fail, swanApp is null");
             return null;
         } else {
-            String B = this.f47917a.B(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+            String B = this.f48309a.B(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
             if (TextUtils.isEmpty(B)) {
                 j("shareVideo: videoPath is invalid");
                 return null;
@@ -171,46 +171,46 @@ public class a {
                 return null;
             }
             d.b.g0.g.b0.b.c cVar = new d.b.g0.g.b0.b.c();
-            cVar.f47921a = y;
-            cVar.f47923c = this.f47917a.B("title");
-            cVar.f47922b = this.f47917a.B("query");
+            cVar.f48313a = y;
+            cVar.f48315c = this.f48309a.B("title");
+            cVar.f48314b = this.f48309a.B("query");
             d dVar = new d();
-            dVar.f47926a = this.f47917a.y("clipMaxDuration", 30L);
-            dVar.f47927b = this.f47917a.y("clipMinDuration", 3L);
-            dVar.f47928c = this.f47917a.B("topicSource");
-            dVar.f47929d = this.f47917a.C("publishTitle", d.b.g0.a.w0.a.c().getResources().getString(d.b.g0.a.h.swangame_publish_video));
-            dVar.f47930e = this.f47917a.C("publishURL", "/searchbox?action=ugc&cmd=177");
-            dVar.i = this.f47917a.s("sourceType", 1);
-            dVar.j = this.f47917a.C("sourceFrom", "tiny");
-            dVar.f47932g = this.f47917a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-            dVar.f47931f = this.f47917a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-            dVar.f47933h = this.f47917a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
-            dVar.k = this.f47917a.C("publishType", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9);
+            dVar.f48318a = this.f48309a.y("clipMaxDuration", 30L);
+            dVar.f48319b = this.f48309a.y("clipMinDuration", 3L);
+            dVar.f48320c = this.f48309a.B("topicSource");
+            dVar.f48321d = this.f48309a.C("publishTitle", d.b.g0.a.w0.a.c().getResources().getString(d.b.g0.a.h.swangame_publish_video));
+            dVar.f48322e = this.f48309a.C("publishURL", "/searchbox?action=ugc&cmd=177");
+            dVar.i = this.f48309a.s("sourceType", 1);
+            dVar.j = this.f48309a.C("sourceFrom", "tiny");
+            dVar.f48324g = this.f48309a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+            dVar.f48323f = this.f48309a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+            dVar.f48325h = this.f48309a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
+            dVar.k = this.f48309a.C("publishType", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(com.alipay.sdk.cons.b.f1858h, e.T());
+                jSONObject.put(com.alipay.sdk.cons.b.f1883h, e.T());
                 jSONObject.put("frame_type", d.b.g0.a.r1.d.e().h());
-                jSONObject.put("query", cVar.f47922b);
+                jSONObject.put("query", cVar.f48314b);
                 if (e.y() != null && e.y().L() != null) {
                     jSONObject.put("title", e.y().L().J());
                 }
             } catch (JSONException e2) {
-                if (f47915b) {
+                if (f48307b) {
                     Log.d("ShareVideoApi", e2.toString());
                 }
             }
             jSONObject.toString();
-            if (!TextUtils.isEmpty(f47916c)) {
+            if (!TextUtils.isEmpty(f48308c)) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("id", f47916c);
+                    jSONObject2.put("id", f48308c);
                     if (e.y() != null && e.y().L() != null) {
                         jSONObject2.put("name", e.y().L().J());
                     }
                     jSONObject2.put("type", "interest");
                     jSONObject2.put("post_id", "");
                 } catch (JSONException e3) {
-                    if (f47915b) {
+                    if (f48307b) {
                         Log.d("ShareVideoApi", e3.toString());
                     }
                 }
@@ -220,7 +220,7 @@ public class a {
                 try {
                     jSONObject3.put("tag", jSONArray);
                 } catch (JSONException e4) {
-                    if (f47915b) {
+                    if (f48307b) {
                         Log.d("ShareVideoApi", e4.toString());
                     }
                 }
@@ -229,14 +229,14 @@ public class a {
             } else {
                 dVar.m = 0;
             }
-            cVar.f47925e = dVar;
+            cVar.f48317e = dVar;
             return cVar;
         }
     }
 
     public void m() {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47252b = "shareVideo";
+        eVar.f47644b = "shareVideo";
         h.j(eVar);
         d.b.g0.g.b0.b.c k = k();
         if (k == null) {
@@ -251,7 +251,7 @@ public class a {
         if (activity == null) {
             j("shareVideo: swanAppActivity is null");
         } else {
-            z.f(activity, null, new C0952a(k));
+            z.f(activity, null, new C0964a(k));
         }
     }
 }

@@ -8,16 +8,16 @@ import java.lang.reflect.Field;
 public class OkHttpInterceptor implements Interceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f22795a;
+    public static Field f22480a;
 
     static {
         try {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            f22795a = declaredField;
+            f22480a = declaredField;
             declaredField.setAccessible(true);
         } catch (NoSuchFieldException e2) {
             Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e2);
-            f22795a = null;
+            f22480a = null;
         }
     }
 }

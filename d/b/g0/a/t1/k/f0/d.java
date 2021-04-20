@@ -10,29 +10,29 @@ import d.b.g0.a.k;
 import d.b.g0.a.t1.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends b {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.m0.b.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46317a;
+        public final /* synthetic */ d.b.g0.a.r1.e f46709a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46318b;
+        public final /* synthetic */ CallbackHandler f46710b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46319c;
+        public final /* synthetic */ UnitedSchemeEntity f46711c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f46320d;
+        public final /* synthetic */ String f46712d;
 
         public a(d.b.g0.a.r1.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f46317a = eVar;
-            this.f46318b = callbackHandler;
-            this.f46319c = unitedSchemeEntity;
-            this.f46320d = str;
+            this.f46709a = eVar;
+            this.f46710b = callbackHandler;
+            this.f46711c = unitedSchemeEntity;
+            this.f46712d = str;
         }
 
         @Override // d.b.g0.a.m0.b.b
@@ -41,16 +41,16 @@ public class d extends b {
             try {
                 jSONObject.put("success", "0");
             } catch (JSONException e2) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     e2.printStackTrace();
                 }
             }
-            if (d.this.f46312d) {
-                d.b.g0.a.q1.b.f.d e3 = d.b.g0.a.q1.b.f.d.e(this.f46317a.getApplicationContext(), h.aiapps_cancel_fav_fail);
+            if (d.this.f46704d) {
+                d.b.g0.a.q1.b.f.d e3 = d.b.g0.a.q1.b.f.d.e(this.f46709a.getApplicationContext(), h.aiapps_cancel_fav_fail);
                 e3.k(2);
                 e3.C();
             }
-            UnitedSchemeUtility.safeCallback(this.f46318b, this.f46319c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f46320d);
+            UnitedSchemeUtility.safeCallback(this.f46710b, this.f46711c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f46712d);
         }
 
         @Override // d.b.g0.a.m0.b.b
@@ -59,16 +59,16 @@ public class d extends b {
             try {
                 jSONObject.put("success", "1");
             } catch (JSONException e2) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     e2.printStackTrace();
                 }
             }
-            if (d.this.f46312d) {
-                d.b.g0.a.q1.b.f.d e3 = d.b.g0.a.q1.b.f.d.e(this.f46317a.getApplicationContext(), h.aiapps_cancel_fav_success);
+            if (d.this.f46704d) {
+                d.b.g0.a.q1.b.f.d e3 = d.b.g0.a.q1.b.f.d.e(this.f46709a.getApplicationContext(), h.aiapps_cancel_fav_success);
                 e3.k(2);
                 e3.x();
             }
-            UnitedSchemeUtility.safeCallback(this.f46318b, this.f46319c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f46320d);
+            UnitedSchemeUtility.safeCallback(this.f46710b, this.f46711c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f46712d);
         }
     }
 
@@ -83,8 +83,8 @@ public class d extends b {
             return false;
         }
         try {
-            String appId = this.f46312d ? eVar.getAppId() : new JSONObject(param).optString("appid");
-            this.f46311c = appId;
+            String appId = this.f46704d ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            this.f46703c = appId;
             return !TextUtils.isEmpty(appId);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -95,7 +95,7 @@ public class d extends b {
     @Override // d.b.g0.a.t1.k.f0.b
     public void k(d.b.g0.a.r1.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         SwanFavorDataManager i = SwanFavorDataManager.i();
-        String str2 = this.f46311c;
+        String str2 = this.f46703c;
         a aVar = new a(eVar, callbackHandler, unitedSchemeEntity, str);
         d.b.g0.a.j0.j.c k = d.b.g0.a.j0.j.c.k();
         k.m(3);

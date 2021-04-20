@@ -7,19 +7,19 @@ import org.json.JSONObject;
 public class c extends d.b.g0.a.k0.b.b {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f48108c;
+    public String f48500c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48109d;
+    public String f48501d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48110e;
+    public String f48502e;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.f48108c = str2;
-        this.f48109d = str3;
-        this.f48110e = str4;
+        this.f48500c = str2;
+        this.f48501d = str3;
+        this.f48502e = str4;
     }
 
     public static d.b.g0.a.k0.b.b b(String str, String str2) {
@@ -37,7 +37,7 @@ public class c extends d.b.g0.a.k0.b.b {
     @Override // d.b.g0.a.k0.b.b, d.b.g0.a.k0.b.a
     public String a(String str) {
         char c2;
-        String str2 = this.f48108c;
+        String str2 = this.f48500c;
         int hashCode = str2.hashCode();
         if (hashCode == -2011830027) {
             if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
@@ -56,8 +56,8 @@ public class c extends d.b.g0.a.k0.b.b {
             c2 = 65535;
         }
         if (c2 != 0) {
-            return c2 != 1 ? c2 != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f48110e) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.f48109d, JSONObject.quote(this.f48110e));
+            return c2 != 1 ? c2 != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f48502e) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.f48501d, JSONObject.quote(this.f48502e));
         }
-        return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.f48109d, JSONObject.quote(j.b(j.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f48110e));
+        return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.f48501d, JSONObject.quote(j.b(j.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f48502e));
     }
 }

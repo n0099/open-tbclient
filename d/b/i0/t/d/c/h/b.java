@@ -17,7 +17,7 @@ import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerAdapter;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
     public AlaBannerRecyclerView m;
@@ -36,65 +36,65 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
 
         /* renamed from: d.b.i0.t.d.c.h.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1548a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C1601a extends AlaBannerViewHolder<SdkLiveInfoData> {
 
             /* renamed from: a  reason: collision with root package name */
-            public View f60447a;
+            public View f62011a;
 
             /* renamed from: b  reason: collision with root package name */
-            public View f60448b;
+            public View f62012b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TabLiveStageLiveView f60449c;
+            public TabLiveStageLiveView f62013c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f60450d;
+            public int f62014d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f60451e;
+            public int f62015e;
 
-            public C1548a(View view) {
+            public C1601a(View view) {
                 super(view);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void b(View view) {
-                this.f60449c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
-                this.f60447a = view.findViewById(R.id.recom_live_item_left_space);
-                this.f60448b = view.findViewById(R.id.recom_live_item_right_space);
+                this.f62013c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
+                this.f62011a = view.findViewById(R.id.recom_live_item_left_space);
+                this.f62012b = view.findViewById(R.id.recom_live_item_right_space);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void c(int i) {
-                this.f60449c.c();
+                this.f62013c.c();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
             public void a(int i, SdkLiveInfoData sdkLiveInfoData) {
-                this.f60449c.setData(sdkLiveInfoData, 102);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60447a.getLayoutParams();
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f60448b.getLayoutParams();
+                this.f62013c.setData(sdkLiveInfoData, 102);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62011a.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f62012b.getLayoutParams();
                 if (i == 0) {
                     if (b.this.u) {
-                        layoutParams.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                        layoutParams2.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                        this.f60448b.setVisibility(0);
+                        layoutParams.width = b.this.f63756f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        layoutParams2.width = b.this.f63756f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        this.f62012b.setVisibility(0);
                     } else {
-                        layoutParams.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                        this.f60448b.setVisibility(8);
+                        layoutParams.width = b.this.f63756f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        this.f62012b.setVisibility(8);
                     }
                 } else {
-                    layoutParams.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds12);
+                    layoutParams.width = b.this.f63756f.getResources().getDimensionPixelSize(R.dimen.tbds12);
                     if (b.this.n.getItemCount() - 1 == i) {
-                        this.f60448b.setVisibility(0);
+                        this.f62012b.setVisibility(0);
                     } else {
-                        this.f60448b.setVisibility(8);
+                        this.f62012b.setVisibility(8);
                     }
                 }
-                this.f60447a.setLayoutParams(layoutParams);
-                this.f60448b.setLayoutParams(layoutParams2);
+                this.f62011a.setLayoutParams(layoutParams);
+                this.f62012b.setLayoutParams(layoutParams2);
                 e();
                 StatisticItem statisticItem = new StatisticItem("c13558");
                 statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
@@ -102,17 +102,17 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
             }
 
             public final void e() {
-                this.f60450d = b.this.z();
-                this.f60451e = b.this.y();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60449c.getLayoutParams();
+                this.f62014d = b.this.z();
+                this.f62015e = b.this.y();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62013c.getLayoutParams();
                 if (layoutParams == null) {
-                    layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f60450d, this.f60451e);
+                    layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f62014d, this.f62015e);
                 } else {
-                    layoutParams.width = this.f60450d;
-                    layoutParams.height = this.f60451e;
+                    layoutParams.width = this.f62014d;
+                    layoutParams.height = this.f62015e;
                 }
                 layoutParams.gravity = 1;
-                this.f60449c.setLayoutParams(layoutParams);
+                this.f62013c.setLayoutParams(layoutParams);
             }
         }
 
@@ -121,7 +121,7 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
 
         @Override // d.b.i0.t.d.h.a.a
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
-            return new C1548a(LayoutInflater.from(b.this.b()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false));
+            return new C1601a(LayoutInflater.from(b.this.b()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false));
         }
     }
 
@@ -133,7 +133,7 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
         int k = (int) (l.k(b()) * 0.76d);
         this.r = k;
         this.s = (int) ((k * 9.0d) / 16.0d);
-        this.t = d.b.i0.t.d.c.c.a(this.f62182g);
+        this.t = d.b.i0.t.d.c.c.a(this.f63757g);
         A();
     }
 
@@ -154,12 +154,12 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
     /* renamed from: B */
     public void n(d.b.i0.t.d.c.e.c cVar) {
         d.b.i0.t.d.c.e.d dVar;
-        if (cVar == null || (dVar = cVar.f60326e) == null) {
+        if (cVar == null || (dVar = cVar.f61890e) == null) {
             return;
         }
-        this.u = ListUtils.getCount(dVar.f60327a) == 1;
+        this.u = ListUtils.getCount(dVar.f61891a) == 1;
         E();
-        this.n.setData(cVar.f60326e.f60327a);
+        this.n.setData(cVar.f61890e.f61891a);
         this.n.notifyDataSetChanged();
     }
 

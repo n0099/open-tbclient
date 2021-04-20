@@ -7,23 +7,23 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ba implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23077a;
+    public final /* synthetic */ FeedbackHotActivity f22762a;
 
     public ba(FeedbackHotActivity feedbackHotActivity) {
-        this.f23077a = feedbackHotActivity;
+        this.f22762a = feedbackHotActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        com.baidu.ufosdk.e.a.a(this.f23077a.getApplicationContext());
-        Context applicationContext = this.f23077a.getApplicationContext();
+        com.baidu.ufosdk.e.a.a(this.f22762a.getApplicationContext());
+        Context applicationContext = this.f22762a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c2 != null) {
-            handler = this.f23077a.r;
+            handler = this.f22762a.r;
             handler.obtainMessage(0, c2).sendToTarget();
         }
-        this.f23077a.a();
+        this.f22762a.a();
     }
 }

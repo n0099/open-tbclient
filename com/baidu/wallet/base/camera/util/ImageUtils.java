@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.apollon.imagemanager.ImageProcessor;
 import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.io.File;
@@ -37,7 +38,7 @@ public abstract class ImageUtils implements NoProguard {
             options.inJustDecodeBounds = true;
             ParcelFileDescriptor parcelFileDescriptor = null;
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7664a);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a);
                 if (openFileDescriptor != null) {
                     try {
                         BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
@@ -98,7 +99,7 @@ public abstract class ImageUtils implements NoProguard {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
-        options.inSampleSize = ImageProcessor.a(options, 361, -1);
+        options.inSampleSize = ImageProcessor.a(options, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED, -1);
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeFile(str, options);
     }
@@ -134,7 +135,7 @@ public abstract class ImageUtils implements NoProguard {
         try {
             try {
                 try {
-                    parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7664a);
+                    parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a);
                     if (parcelFileDescriptor != null) {
                         try {
                             bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);

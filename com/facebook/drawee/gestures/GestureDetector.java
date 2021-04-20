@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import com.facebook.common.internal.VisibleForTesting;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GestureDetector {
     @VisibleForTesting
     public long mActionDownTime;
@@ -23,7 +23,7 @@ public class GestureDetector {
     @VisibleForTesting
     public final float mSingleTapSlopPx;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ClickListener {
         boolean onClick();
     }

@@ -15,28 +15,28 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5315a = "cu";
+    public static final String f5350a = "cu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5316b = "cu2";
+    public static final String f5351b = "cu2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5317c = "ua";
+    public static final String f5352c = "ua";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5318d = "op";
+    public static final String f5353d = "op";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5319e = "bs";
+    public static final String f5354e = "bs";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5320f = "bk";
+    public static final String f5355f = "bk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5321g = "lc";
+    public static final String f5356g = "lc";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5322h = "sd";
+    public static final String f5357h = "sd";
     public static final String i = "j";
     public Pattern j;
 
@@ -44,11 +44,11 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f5323a = new j();
+        public static j f5358a = new j();
     }
 
     public static j c() {
-        return a.f5323a;
+        return a.f5358a;
     }
 
     private String d(Context context) {

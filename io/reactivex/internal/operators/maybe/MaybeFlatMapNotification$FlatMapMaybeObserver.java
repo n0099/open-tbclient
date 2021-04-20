@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.j;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.i;
+import f.b.j;
+import f.b.t.b;
+import f.b.w.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.Callable;
@@ -14,7 +14,7 @@ public final class MaybeFlatMapNotification$FlatMapMaybeObserver<T, R> extends A
     public final i<? super R> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68045d;
+    public b f69051d;
     public final Callable<? extends j<? extends R>> onCompleteSupplier;
     public final h<? super Throwable, ? extends j<? extends R>> onErrorMapper;
     public final h<? super T, ? extends j<? extends R>> onSuccessMapper;
@@ -24,22 +24,22 @@ public final class MaybeFlatMapNotification$FlatMapMaybeObserver<T, R> extends A
         public a() {
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onComplete() {
             MaybeFlatMapNotification$FlatMapMaybeObserver.this.actual.onComplete();
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onError(Throwable th) {
             MaybeFlatMapNotification$FlatMapMaybeObserver.this.actual.onError(th);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(MaybeFlatMapNotification$FlatMapMaybeObserver.this, bVar);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSuccess(R r) {
             MaybeFlatMapNotification$FlatMapMaybeObserver.this.actual.onSuccess(r);
         }
@@ -52,57 +52,57 @@ public final class MaybeFlatMapNotification$FlatMapMaybeObserver<T, R> extends A
         this.onCompleteSupplier = callable;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
-        this.f68045d.dispose();
+        this.f69051d.dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         try {
             j<? extends R> call = this.onCompleteSupplier.call();
-            f.a.x.b.a.b(call, "The onCompleteSupplier returned a null MaybeSource");
+            f.b.x.b.a.b(call, "The onCompleteSupplier returned a null MaybeSource");
             call.a(new a());
         } catch (Exception e2) {
-            f.a.u.a.a(e2);
+            f.b.u.a.a(e2);
             this.actual.onError(e2);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         try {
             j<? extends R> apply = this.onErrorMapper.apply(th);
-            f.a.x.b.a.b(apply, "The onErrorMapper returned a null MaybeSource");
+            f.b.x.b.a.b(apply, "The onErrorMapper returned a null MaybeSource");
             apply.a(new a());
         } catch (Exception e2) {
-            f.a.u.a.a(e2);
+            f.b.u.a.a(e2);
             this.actual.onError(new CompositeException(th, e2));
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68045d, bVar)) {
-            this.f68045d = bVar;
+        if (DisposableHelper.validate(this.f69051d, bVar)) {
+            this.f69051d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         try {
             j<? extends R> apply = this.onSuccessMapper.apply(t);
-            f.a.x.b.a.b(apply, "The onSuccessMapper returned a null MaybeSource");
+            f.b.x.b.a.b(apply, "The onSuccessMapper returned a null MaybeSource");
             apply.a(new a());
         } catch (Exception e2) {
-            f.a.u.a.a(e2);
+            f.b.u.a.a(e2);
             this.actual.onError(e2);
         }
     }

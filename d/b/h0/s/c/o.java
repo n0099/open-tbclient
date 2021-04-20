@@ -1,37 +1,33 @@
 package d.b.h0.s.c;
+
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51206a;
+    public int f51625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f51207b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f51208c;
+    public p f51626b;
 
     public int a() {
-        return this.f51208c;
+        return this.f51625a;
     }
 
-    public String b() {
-        return this.f51206a;
+    public p b() {
+        return this.f51626b;
     }
 
-    public long c() {
-        return this.f51207b;
-    }
-
-    public void d(int i) {
-        this.f51208c = i;
-    }
-
-    public void e(String str) {
-        this.f51206a = str;
-    }
-
-    public void f(long j) {
-        this.f51207b = j;
+    public void c(JSONObject jSONObject) {
+        JSONObject optJSONObject = jSONObject.optJSONObject("common");
+        if (optJSONObject != null) {
+            this.f51625a = optJSONObject.optInt("version");
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
+        if (optJSONObject2 != null) {
+            p pVar = new p();
+            this.f51626b = pVar;
+            pVar.f(optJSONObject2);
+        }
     }
 }

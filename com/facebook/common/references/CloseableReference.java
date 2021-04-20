@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CloseableReference<T> implements Cloneable, Closeable {
     @GuardedBy("this")
     public boolean mIsClosed = false;
@@ -36,7 +36,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference);
     }

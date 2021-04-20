@@ -3,41 +3,41 @@ package d.o.a.e.b.p;
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67264a;
+    public int f68257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67265b;
+    public long f68258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67266c;
+    public long f68259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67267d;
+    public String f68260d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67268e = 0;
+    public int f68261e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f67269f;
+    public long f68262f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67270g;
+    public int f68263g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67271h;
+    public boolean f68264h;
     public Notification i;
 
     public a(int i, String str) {
-        this.f67264a = i;
-        this.f67267d = str;
+        this.f68257a = i;
+        this.f68260d = str;
     }
 
     public int a() {
-        return this.f67264a;
+        return this.f68257a;
     }
 
     public void b(int i, BaseException baseException, boolean z) {
@@ -45,28 +45,28 @@ public abstract class a {
     }
 
     public void c(int i, BaseException baseException, boolean z, boolean z2) {
-        if (z2 || this.f67268e != i) {
-            this.f67268e = i;
+        if (z2 || this.f68261e != i) {
+            this.f68261e = i;
             g(baseException, z);
         }
     }
 
     public void d(long j) {
-        this.f67265b = j;
+        this.f68258b = j;
     }
 
     public void e(long j, long j2) {
-        this.f67265b = j;
-        this.f67266c = j2;
-        this.f67268e = 4;
+        this.f68258b = j;
+        this.f68259c = j2;
+        this.f68261e = 4;
         g(null, false);
     }
 
     public void f(Notification notification) {
-        if (this.f67264a == 0 || notification == null) {
+        if (this.f68257a == 0 || notification == null) {
             return;
         }
-        b.a().c(this.f67264a, this.f67268e, notification);
+        b.a().c(this.f68257a, this.f68261e, notification);
     }
 
     public abstract void g(BaseException baseException, boolean z);
@@ -75,50 +75,50 @@ public abstract class a {
         if (downloadInfo == null) {
             return;
         }
-        this.f67264a = downloadInfo.c0();
-        this.f67267d = downloadInfo.P0();
+        this.f68257a = downloadInfo.c0();
+        this.f68260d = downloadInfo.P0();
     }
 
     public void i(boolean z) {
-        this.f67271h = z;
+        this.f68264h = z;
     }
 
     public long j() {
-        return this.f67265b;
+        return this.f68258b;
     }
 
     public void k(long j) {
-        this.f67266c = j;
+        this.f68259c = j;
     }
 
     public long l() {
-        return this.f67266c;
+        return this.f68259c;
     }
 
     public String m() {
-        return this.f67267d;
+        return this.f68260d;
     }
 
     public int n() {
-        return this.f67268e;
+        return this.f68261e;
     }
 
     public long o() {
-        if (this.f67269f == 0) {
-            this.f67269f = System.currentTimeMillis();
+        if (this.f68262f == 0) {
+            this.f68262f = System.currentTimeMillis();
         }
-        return this.f67269f;
+        return this.f68262f;
     }
 
     public synchronized void p() {
-        this.f67270g++;
+        this.f68263g++;
     }
 
     public int q() {
-        return this.f67270g;
+        return this.f68263g;
     }
 
     public boolean r() {
-        return this.f67271h;
+        return this.f68264h;
     }
 }

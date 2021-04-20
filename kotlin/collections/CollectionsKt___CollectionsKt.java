@@ -1048,7 +1048,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.1")
     /* renamed from: max */
-    public static final Double m943max(Iterable<Double> iterable) {
+    public static final Double m947max(Iterable<Double> iterable) {
         Iterator<Double> it = iterable.iterator();
         if (it.hasNext()) {
             double doubleValue = it.next().doubleValue();
@@ -1117,7 +1117,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.1")
     /* renamed from: min */
-    public static final Double m945min(Iterable<Double> iterable) {
+    public static final Double m949min(Iterable<Double> iterable) {
         Iterator<Double> it = iterable.iterator();
         if (it.hasNext()) {
             double doubleValue = it.next().doubleValue();
@@ -2220,7 +2220,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.1")
     /* renamed from: max */
-    public static final Float m944max(Iterable<Float> iterable) {
+    public static final Float m948max(Iterable<Float> iterable) {
         Iterator<Float> it = iterable.iterator();
         if (it.hasNext()) {
             float floatValue = it.next().floatValue();
@@ -2243,7 +2243,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.1")
     /* renamed from: min */
-    public static final Float m946min(Iterable<Float> iterable) {
+    public static final Float m950min(Iterable<Float> iterable) {
         Iterator<Float> it = iterable.iterator();
         if (it.hasNext()) {
             float floatValue = it.next().floatValue();

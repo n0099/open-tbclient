@@ -5,28 +5,28 @@ import android.text.TextUtils;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63956a;
+    public String f64656a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63957b;
+    public String f64657b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63958c;
+    public String f64658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f63959d;
+    public int f64659d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63960e;
+    public String f64660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63961f;
+    public String f64661f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63962g;
+    public String f64662g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63963h;
+    public int f64663h;
     public String i;
     public int j;
     public int k;
@@ -39,16 +39,16 @@ public class k {
     public int r = 2;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
-        this.f63956a = str;
-        this.f63957b = str2;
-        this.f63958c = str3;
-        this.f63959d = i;
-        this.f63961f = str4;
-        this.f63962g = str5;
+        this.f64656a = str;
+        this.f64657b = str2;
+        this.f64658c = str3;
+        this.f64659d = i;
+        this.f64661f = str4;
+        this.f64662g = str5;
     }
 
     public void A(int i) {
-        this.f63963h = i;
+        this.f64663h = i;
     }
 
     public void B(String str) {
@@ -64,7 +64,7 @@ public class k {
     }
 
     public String a() {
-        return this.f63962g;
+        return this.f64662g;
     }
 
     public String b() {
@@ -76,7 +76,7 @@ public class k {
     }
 
     public String d() {
-        return this.f63956a;
+        return this.f64656a;
     }
 
     public String e() {
@@ -88,7 +88,7 @@ public class k {
     }
 
     public String g() {
-        return this.f63958c;
+        return this.f64658c;
     }
 
     public int h() {
@@ -104,11 +104,11 @@ public class k {
     }
 
     public String k() {
-        return this.f63960e;
+        return this.f64660e;
     }
 
     public int l() {
-        return this.f63963h;
+        return this.f64663h;
     }
 
     public String m() {
@@ -116,15 +116,15 @@ public class k {
     }
 
     public String n() {
-        return this.f63957b;
+        return this.f64657b;
     }
 
     public int o() {
-        return this.f63959d;
+        return this.f64659d;
     }
 
     public String p() {
-        return this.f63961f;
+        return this.f64661f;
     }
 
     public String q() {
@@ -164,6 +164,6 @@ public class k {
     }
 
     public void z(String str) {
-        this.f63960e = str;
+        this.f64660e = str;
     }
 }

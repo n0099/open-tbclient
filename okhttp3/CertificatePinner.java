@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -83,7 +82,7 @@ public final class CertificatePinner {
         }
 
         public int hashCode() {
-            return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.pattern.hashCode()) * 31) + this.hashAlgorithm.hashCode()) * 31) + this.hash.hashCode();
+            return ((((527 + this.pattern.hashCode()) * 31) + this.hashAlgorithm.hashCode()) * 31) + this.hash.hashCode();
         }
 
         public boolean matches(String str) {

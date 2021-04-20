@@ -5,33 +5,33 @@ import android.content.Context;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f9455a;
+    public static float f9013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f9456b;
+    public static float f9014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f9457c;
+    public static int f9015c;
 
     public static float a(Context context) {
-        if (f9455a == 0.0f) {
-            f9455a = context.getResources().getDisplayMetrics().density;
+        if (f9013a == 0.0f) {
+            f9013a = context.getResources().getDisplayMetrics().density;
         }
-        return f9455a;
+        return f9013a;
     }
 
     public static int b(Context context) {
-        if (f9457c == 0) {
-            f9457c = context.getResources().getDisplayMetrics().densityDpi;
+        if (f9015c == 0) {
+            f9015c = context.getResources().getDisplayMetrics().densityDpi;
         }
-        return f9457c;
+        return f9015c;
     }
 
     public static float c(Context context) {
-        if (f9456b == 0.0f) {
-            f9456b = context.getResources().getDisplayMetrics().scaledDensity;
+        if (f9014b == 0.0f) {
+            f9014b = context.getResources().getDisplayMetrics().scaledDensity;
         }
-        return f9456b;
+        return f9014b;
     }
 
     public static int a(int i, Context context) {

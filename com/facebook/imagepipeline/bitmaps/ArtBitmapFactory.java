@@ -10,7 +10,7 @@ import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ArtBitmapFactory extends PlatformBitmapFactory {
     public final BitmapPool mBitmapPool;
     public final CloseableReferenceFactory mCloseableReferenceFactory;

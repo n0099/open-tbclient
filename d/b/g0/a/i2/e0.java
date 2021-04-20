@@ -20,7 +20,7 @@ import javax.crypto.Cipher;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44683a = d.b.g0.a.k.f45051a;
+    public static final boolean f45075a = d.b.g0.a.k.f45443a;
 
     public static boolean a(File file, String str) {
         return b(file, str, null);
@@ -35,7 +35,7 @@ public class e0 {
                 sb.append(z);
                 sb.append("; exists=");
                 sb.append(z ? "" : Boolean.valueOf(file.exists()));
-                cVar.f44762a = sb.toString();
+                cVar.f45154a = sb.toString();
             }
             return false;
         }
@@ -44,7 +44,7 @@ public class e0 {
             readableByteChannel = Channels.newChannel(new FileInputStream(file));
             return d(readableByteChannel, str, cVar);
         } catch (IOException e2) {
-            if (f44683a) {
+            if (f45075a) {
                 e2.printStackTrace();
             }
             return false;
@@ -61,27 +61,27 @@ public class e0 {
         boolean z = readableByteChannel == null;
         if (z || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.f44762a = "zipSource isNullIs=" + z;
+                cVar.f45154a = "zipSource isNullIs=" + z;
             }
             return false;
         }
         String c2 = d.b.g0.p.e.c(readableByteChannel, false);
         if (cVar != null) {
-            cVar.f44762a = c2;
+            cVar.f45154a = c2;
         }
         try {
             String str2 = new String(e(Base64.decode(str.getBytes("utf-8"), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.f44763b = str2;
+                cVar.f45155b = str2;
             }
             return TextUtils.equals(str2, c2);
         } catch (Exception e2) {
-            if (f44683a) {
+            if (f45075a) {
                 Log.i("SwanAppSignChecker", e2.toString());
                 e2.printStackTrace();
             }
             if (cVar != null) {
-                cVar.f44763b = e2.getLocalizedMessage();
+                cVar.f45155b = e2.getLocalizedMessage();
             }
             return false;
         }

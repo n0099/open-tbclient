@@ -1,22 +1,16 @@
 package a.a.a.a;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.os.Process;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.mobads.AdView;
-import com.baidu.mobads.MobadsPermissionSettings;
 import com.bytedance.sdk.openadsdk.TTAdConfig;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.fun.ad.sdk.FunAdConfig;
@@ -142,9 +136,9 @@ public final class h {
             } catch (IOException e3) {
                 e = e3;
             }
-            if (a2 != null && a2.f1351a == 200) {
+            if (a2 != null && a2.f1337a == 200) {
                 try {
-                    JSONObject jSONObject2 = new JSONObject(a2.f1352b);
+                    JSONObject jSONObject2 = new JSONObject(a2.f1338b);
                     int i2 = jSONObject2.getInt(Constants.KEYS.RET);
                     a.a.a.a.v.d.a("Download online ad config response ret: " + i2, new Object[0]);
                     if (i2 == 200) {
@@ -155,18 +149,18 @@ public final class h {
                         } catch (Exception e4) {
                             e = e4;
                             a.a.a.a.v.d.a(e);
-                            a.a.a.a.v.b.f1359a.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                            a.a.a.a.v.b.f1345a.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
                             h.a();
                         }
                     }
                 } catch (JSONException e5) {
                     e = e5;
                 }
-                a.a.a.a.v.b.f1359a.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                a.a.a.a.v.b.f1345a.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
                 h.a();
             }
             a.a.a.a.v.d.b("Pull ad config failed.", new Object[0]);
-            a.a.a.a.v.b.f1359a.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+            a.a.a.a.v.b.f1345a.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
             h.a();
         }
     }
@@ -201,9 +195,9 @@ public final class h {
             a.a.a.a.v.d.a("No adConfig found now.", new Object[0]);
             return null;
         }
-        for (a.a.a.a.s.e eVar : aVar.f1304b) {
-            if (eVar.f1331c.equals(str)) {
-                return eVar.f1330b;
+        for (a.a.a.a.s.e eVar : aVar.f1290b) {
+            if (eVar.f1317c.equals(str)) {
+                return eVar.f1316b;
             }
         }
         a.a.a.a.v.d.a("No target ssp found for platform:%s", str);
@@ -227,11 +221,11 @@ public final class h {
     public static void a() {
         if (FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
             long j = 0;
-            long j2 = a.a.a.a.v.b.f1359a.getLong("key_lst_config_sync_time", 0L);
+            long j2 = a.a.a.a.v.b.f1345a.getLong("key_lst_config_sync_time", 0L);
             if (j2 > 0) {
                 long currentTimeMillis = System.currentTimeMillis() - j2;
                 if (currentTimeMillis >= 0) {
-                    long j3 = a.a.a.a.v.b.f1359a.getInt("key_config_interval", 15) * 60 * 1000;
+                    long j3 = a.a.a.a.v.b.f1345a.getInt("key_config_interval", 15) * 60 * 1000;
                     if (currentTimeMillis < j3) {
                         j = j3 - currentTimeMillis;
                     }
@@ -244,13 +238,13 @@ public final class h {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x01c7  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x0290  */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x021f  */
     /* JADX WARN: Removed duplicated region for block: B:13:0x0041  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0043  */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0055  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0063  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00d3 A[Catch: all -> 0x0386, TRY_LEAVE, TryCatch #0 {, blocks: (B:22:0x0066, B:24:0x006a, B:26:0x0070, B:27:0x0078, B:46:0x00d3, B:30:0x0089, B:31:0x0096, B:33:0x009c, B:34:0x00a6, B:36:0x00ac, B:38:0x00bc, B:40:0x00c6, B:49:0x00dd, B:50:0x00e5, B:52:0x00eb, B:53:0x00fe, B:54:0x0106, B:56:0x010c), top: B:139:0x0066 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00d3 A[Catch: all -> 0x0311, TRY_LEAVE, TryCatch #0 {, blocks: (B:22:0x0066, B:24:0x006a, B:26:0x0070, B:27:0x0078, B:46:0x00d3, B:30:0x0089, B:31:0x0096, B:33:0x009c, B:34:0x00a6, B:36:0x00ac, B:38:0x00bc, B:40:0x00c6, B:49:0x00dd, B:50:0x00e5, B:52:0x00eb, B:53:0x00fe, B:54:0x0106, B:56:0x010c), top: B:115:0x0066 }] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x01b7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -258,15 +252,13 @@ public final class h {
         a.a.a.a.s.a aVar;
         boolean z2;
         char c2;
-        String str;
-        ActivityManager activityManager;
         boolean z3;
         boolean z4;
         byte[] decode;
         a.a.a.a.v.d.c("tryInitialize", new Object[0]);
         a();
         FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-        String string = a.a.a.a.v.b.f1359a.getString("key_adcfg", null);
+        String string = a.a.a.a.v.b.f1345a.getString("key_adcfg", null);
         if (string != null && (decode = Base64.decode(string, 0)) != null) {
             try {
                 ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(decode));
@@ -293,9 +285,9 @@ public final class h {
                         a.a.a.a.v.d.a("New AdConfig equals old one, give up updating it", new Object[0]);
                     } else {
                         a.a.a.a.s.a aVar3 = cVar.f1044a;
-                        if (aVar3.f1304b.size() == aVar.f1304b.size()) {
-                            HashSet hashSet = new HashSet(aVar.f1304b);
-                            for (a.a.a.a.s.e eVar : aVar3.f1304b) {
+                        if (aVar3.f1290b.size() == aVar.f1290b.size()) {
+                            HashSet hashSet = new HashSet(aVar.f1290b);
+                            for (a.a.a.a.s.e eVar : aVar3.f1290b) {
                                 Iterator it = hashSet.iterator();
                                 while (true) {
                                     if (!it.hasNext()) {
@@ -304,7 +296,7 @@ public final class h {
                                         break;
                                     }
                                     a.a.a.a.s.e eVar2 = (a.a.a.a.s.e) it.next();
-                                    if (eVar.f1331c.equals(eVar2.f1331c) && eVar.f1330b.equals(eVar2.f1330b)) {
+                                    if (eVar.f1317c.equals(eVar2.f1317c) && eVar.f1316b.equals(eVar2.f1316b)) {
                                         it.remove();
                                         z4 = true;
                                         continue;
@@ -326,11 +318,11 @@ public final class h {
                     z2 = false;
                 }
                 cVar.f1044a = aVar;
-                for (a.a.a.a.s.d dVar : aVar.f1305c) {
-                    cVar.f1045b.put(dVar.f1320b, new q(dVar));
+                for (a.a.a.a.s.d dVar : aVar.f1291c) {
+                    cVar.f1045b.put(dVar.f1306b, new q(dVar));
                 }
-                for (a.a.a.a.s.c cVar2 : cVar.f1044a.f1306d) {
-                    cVar.f1045b.put(cVar2.f1313b, new q(cVar2));
+                for (a.a.a.a.s.c cVar2 : cVar.f1044a.f1292d) {
+                    cVar.f1045b.put(cVar2.f1299b, new q(cVar2));
                 }
                 z2 = true;
             }
@@ -343,121 +335,85 @@ public final class h {
                     long currentTimeMillis = System.currentTimeMillis();
                     Context context = funAdConfig.appContext;
                     j.b();
-                    for (a.a.a.a.s.e eVar3 : aVar.f1304b) {
-                        if (!TextUtils.isEmpty(eVar3.f1330b)) {
+                    for (a.a.a.a.s.e eVar3 : aVar.f1290b) {
+                        if (!TextUtils.isEmpty(eVar3.f1316b)) {
                             j.f1066d = System.currentTimeMillis();
                             j.f1070h = SystemClock.currentThreadTimeMillis();
                             long currentTimeMillis2 = System.currentTimeMillis();
-                            String str2 = eVar3.f1331c;
-                            int hashCode = str2.hashCode();
+                            String str = eVar3.f1317c;
+                            int hashCode = str.hashCode();
                             if (hashCode == 3407) {
-                                if (str2.equals(FunAdSdk.PLATFORM_JY)) {
-                                    c2 = 4;
+                                if (str.equals(FunAdSdk.PLATFORM_JY)) {
+                                    c2 = 3;
                                     if (c2 != 0) {
                                     }
-                                    j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                    j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
                                 }
                                 c2 = 65535;
                                 if (c2 != 0) {
                                 }
-                                j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
                             } else if (hashCode == 3432) {
-                                if (str2.equals(FunAdSdk.PLATFORM_KS)) {
+                                if (str.equals(FunAdSdk.PLATFORM_KS)) {
                                     c2 = 1;
                                     if (c2 != 0) {
                                     }
-                                    j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                    j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
                                 }
                                 c2 = 65535;
                                 if (c2 != 0) {
                                 }
-                                j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                            } else if (hashCode == 98810) {
-                                if (str2.equals(FunAdSdk.PLATFORM_CSJ)) {
+                                j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                            } else if (hashCode != 98810) {
+                                if (hashCode == 102199 && str.equals(FunAdSdk.PLATFORM_GDT)) {
+                                    c2 = 2;
+                                    if (c2 != 0) {
+                                        TTAdSdk.init(context, new TTAdConfig.Builder().appId(eVar3.f1316b).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(false).asyncInit(true).directDownloadNetworkType(4, 1).build());
+                                        hashMap.put(eVar3.f1317c, new a.a.a.a.r.a.a.a());
+                                    } else if (c2 == 1) {
+                                        KsAdSDK.init(context, new SdkConfig.Builder().appId(eVar3.f1316b).appName(funAdConfig.appName).showNotification(true).debug(false).canReadICCID(true).canReadNearbyWifiList(true).canReadMacAddress(true).build());
+                                        hashMap.put(eVar3.f1317c, new a.a.a.a.r.a.a.d());
+                                    } else if (c2 == 2) {
+                                        GDTADManager.getInstance().initWith(context, eVar3.f1316b);
+                                        GlobalSetting.setChannel(3);
+                                        hashMap.put(eVar3.f1317c, new a.a.a.a.r.a.a.b());
+                                    } else if (c2 == 3) {
+                                        PBInitialize.init(context, eVar3.f1316b);
+                                        hashMap.put(eVar3.f1317c, new a.a.a.a.r.a.a.c());
+                                    }
+                                    j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                }
+                                c2 = 65535;
+                                if (c2 != 0) {
+                                }
+                                j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                            } else {
+                                if (str.equals(FunAdSdk.PLATFORM_CSJ)) {
                                     c2 = 0;
                                     if (c2 != 0) {
                                     }
-                                    j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                    j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
                                 }
                                 c2 = 65535;
                                 if (c2 != 0) {
                                 }
-                                j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                            } else if (hashCode != 102199) {
-                                if (hashCode == 93498907 && str2.equals("baidu")) {
-                                    c2 = 3;
-                                    if (c2 != 0) {
-                                        TTAdSdk.init(context, new TTAdConfig.Builder().appId(eVar3.f1330b).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(false).asyncInit(true).directDownloadNetworkType(4, 1).build());
-                                        hashMap.put(eVar3.f1331c, new a.a.a.a.r.a.b.b());
-                                    } else if (c2 == 1) {
-                                        KsAdSDK.init(context, new SdkConfig.Builder().appId(eVar3.f1330b).appName(funAdConfig.appName).showNotification(true).debug(false).canReadICCID(true).canReadNearbyWifiList(true).canReadMacAddress(true).build());
-                                        hashMap.put(eVar3.f1331c, new a.a.a.a.r.a.b.e());
-                                    } else if (c2 == 2) {
-                                        GDTADManager.getInstance().initWith(context, eVar3.f1330b);
-                                        GlobalSetting.setChannel(3);
-                                        hashMap.put(eVar3.f1331c, new a.a.a.a.r.a.b.c());
-                                    } else if (c2 == 3) {
-                                        AdView.setAppSid(context, eVar3.f1330b);
-                                        MobadsPermissionSettings.setPermissionReadDeviceID(true);
-                                        MobadsPermissionSettings.setPermissionAppList(true);
-                                        MobadsPermissionSettings.setPermissionLocation(true);
-                                        MobadsPermissionSettings.setPermissionStorage(true);
-                                        if (Build.VERSION.SDK_INT >= 28) {
-                                            if (context != null && (activityManager = (ActivityManager) context.getSystemService("activity")) != null) {
-                                                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
-                                                    if (runningAppProcessInfo.pid == Process.myPid()) {
-                                                        str = runningAppProcessInfo.processName;
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                            str = null;
-                                            if (!context.getPackageName().equals(str)) {
-                                                WebView.setDataDirectorySuffix(str);
-                                            }
-                                        }
-                                        hashMap.put(eVar3.f1331c, new a.a.a.a.r.a.b.a());
-                                    } else if (c2 == 4) {
-                                        PBInitialize.init(context, eVar3.f1330b);
-                                        hashMap.put(eVar3.f1331c, new a.a.a.a.r.a.b.d());
-                                    }
-                                    j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                                }
-                                c2 = 65535;
-                                if (c2 != 0) {
-                                }
-                                j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                            } else {
-                                if (str2.equals(FunAdSdk.PLATFORM_GDT)) {
-                                    c2 = 2;
-                                    if (c2 != 0) {
-                                    }
-                                    j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                    j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                    a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                                }
-                                c2 = 65535;
-                                if (c2 != 0) {
-                                }
-                                j.f1063a.f1078h.put(eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
-                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1331c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
-                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1331c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                j.f1063a.f1078h.put(eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - j.f1066d));
+                                j.f1063a.i.put(ExifInterface.GPS_DIRECTION_TRUE + eVar3.f1317c, Long.valueOf(SystemClock.currentThreadTimeMillis() - j.f1070h));
+                                a.a.a.a.v.d.a("Ssp:%s initialized with %dms consumed.", eVar3.f1317c, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
                             }
                         }
                     }

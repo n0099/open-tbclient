@@ -6,14 +6,14 @@ public final class d {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45334a;
+    public String f45726a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45335b;
+    public String f45727b;
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.f45334a = str;
-        this.f45335b = str2;
+        this.f45726a = str;
+        this.f45727b = str2;
     }
 }

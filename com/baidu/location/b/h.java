@@ -16,27 +16,27 @@ import java.util.regex.Pattern;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ScanResult> f6644a;
+    public List<ScanResult> f6679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6645b;
+    public long f6680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f6646c;
+    public long f6681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6647d = false;
+    public boolean f6682d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6648e;
+    public boolean f6683e;
 
     public h(List<ScanResult> list, long j) {
-        this.f6644a = null;
-        this.f6645b = 0L;
-        this.f6646c = 0L;
-        this.f6645b = j;
-        this.f6644a = list;
-        this.f6646c = System.currentTimeMillis();
+        this.f6679a = null;
+        this.f6680b = 0L;
+        this.f6681c = 0L;
+        this.f6680b = j;
+        this.f6679a = list;
+        this.f6681c = System.currentTimeMillis();
         m();
     }
 
@@ -52,7 +52,7 @@ public class h {
     }
 
     private int l() {
-        List<ScanResult> list = this.f6644a;
+        List<ScanResult> list = this.f6679a;
         if (list == null) {
             return 0;
         }
@@ -73,7 +73,7 @@ public class h {
             if (r0 >= r1) goto L8
             return
         L8:
-            java.util.List<android.net.wifi.ScanResult> r0 = r7.f6644a
+            java.util.List<android.net.wifi.ScanResult> r0 = r7.f6679a
             int r0 = r0.size()
             int r0 = r0 - r1
             r2 = 1
@@ -84,23 +84,23 @@ public class h {
             r3 = 0
         L16:
             if (r2 >= r0) goto L49
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6644a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6679a
             java.lang.Object r4 = r4.get(r2)
             android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
             int r4 = r4.level
-            java.util.List<android.net.wifi.ScanResult> r5 = r7.f6644a
+            java.util.List<android.net.wifi.ScanResult> r5 = r7.f6679a
             int r6 = r2 + 1
             java.lang.Object r5 = r5.get(r6)
             android.net.wifi.ScanResult r5 = (android.net.wifi.ScanResult) r5
             int r5 = r5.level
             if (r4 >= r5) goto L47
-            java.util.List<android.net.wifi.ScanResult> r3 = r7.f6644a
+            java.util.List<android.net.wifi.ScanResult> r3 = r7.f6679a
             java.lang.Object r3 = r3.get(r6)
             android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6644a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6679a
             java.lang.Object r5 = r4.get(r2)
             r4.set(r6, r5)
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6644a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6679a
             r4.set(r2, r3)
             r3 = 1
         L47:
@@ -117,7 +117,7 @@ public class h {
     }
 
     public int a() {
-        List<ScanResult> list = this.f6644a;
+        List<ScanResult> list = this.f6679a;
         if (list == null) {
             return 0;
         }
@@ -195,7 +195,7 @@ public class h {
                             if (z3) {
                                 z3 = z3 && z;
                             }
-                            size = this.f6644a.size();
+                            size = this.f6679a.size();
                             if (size > i) {
                                 size = i;
                             }
@@ -207,7 +207,7 @@ public class h {
                             int i5 = 0;
                             char c3 = 0;
                             while (i3 < size) {
-                                if (this.f6644a.get(i3).level == 0) {
+                                if (this.f6679a.get(i3).level == 0) {
                                     str6 = str7;
                                     str4 = str2;
                                     j3 = j;
@@ -221,7 +221,7 @@ public class h {
                                             str4 = str2;
                                         }
                                         try {
-                                            j2 = (j - this.f6644a.get(i3).timestamp) / 1000000;
+                                            j2 = (j - this.f6679a.get(i3).timestamp) / 1000000;
                                         } catch (Exception unused3) {
                                             j2 = 0;
                                             arrayList.add(Long.valueOf(j2));
@@ -229,7 +229,7 @@ public class h {
                                             }
                                             if (z4) {
                                             }
-                                            str5 = this.f6644a.get(i3).BSSID;
+                                            str5 = this.f6679a.get(i3).BSSID;
                                             if (str5 == null) {
                                             }
                                             i3++;
@@ -249,22 +249,22 @@ public class h {
                                         stringBuffer.append(FieldBuilder.SE);
                                         if (z2 && stringBuffer2 != null) {
                                             stringBuffer2.append(FieldBuilder.SE);
-                                            stringBuffer2.append(b(this.f6644a.get(i3).frequency));
+                                            stringBuffer2.append(b(this.f6679a.get(i3).frequency));
                                         }
                                     } else {
                                         stringBuffer.append("&wf=");
                                         if (z2) {
                                             stringBuffer2 = new StringBuffer();
                                             stringBuffer2.append("&wf_ch=");
-                                            stringBuffer2.append(b(this.f6644a.get(i3).frequency));
+                                            stringBuffer2.append(b(this.f6679a.get(i3).frequency));
                                         }
                                         z4 = false;
                                     }
-                                    str5 = this.f6644a.get(i3).BSSID;
+                                    str5 = this.f6679a.get(i3).BSSID;
                                     if (str5 == null) {
                                         String replace = str5.replace(str7, "");
                                         stringBuffer.append(replace);
-                                        int i6 = this.f6644a.get(i3).level;
+                                        int i6 = this.f6679a.get(i3).level;
                                         if (i6 < 0) {
                                             i6 = -i6;
                                         }
@@ -275,26 +275,26 @@ public class h {
                                         if (str3 != null) {
                                             str = str3;
                                             if (str.equals(replace)) {
-                                                this.f6648e = a(this.f6644a.get(i3).capabilities);
+                                                this.f6683e = a(this.f6679a.get(i3).capabilities);
                                                 i4 = i5;
                                                 z5 = true;
                                                 if (z5) {
                                                     c2 = c3;
                                                     if (c2 == 0) {
                                                         try {
-                                                            if (random.nextInt(10) == 2 && this.f6644a.get(i3).SSID != null && this.f6644a.get(i3).SSID.length() < 30) {
-                                                                stringBuffer.append(b(this.f6644a.get(i3).SSID));
+                                                            if (random.nextInt(10) == 2 && this.f6679a.get(i3).SSID != null && this.f6679a.get(i3).SSID.length() < 30) {
+                                                                stringBuffer.append(b(this.f6679a.get(i3).SSID));
                                                                 c3 = 1;
                                                             }
                                                         } catch (Exception unused4) {
                                                         }
-                                                    } else if (c2 == 1 && random.nextInt(20) == 1 && this.f6644a.get(i3).SSID != null && this.f6644a.get(i3).SSID.length() < 30) {
-                                                        stringBuffer.append(b(this.f6644a.get(i3).SSID));
+                                                    } else if (c2 == 1 && random.nextInt(20) == 1 && this.f6679a.get(i3).SSID != null && this.f6679a.get(i3).SSID.length() < 30) {
+                                                        stringBuffer.append(b(this.f6679a.get(i3).SSID));
                                                         c3 = 2;
                                                     }
                                                 } else {
                                                     c2 = c3;
-                                                    stringBuffer.append(b(this.f6644a.get(i3).SSID));
+                                                    stringBuffer.append(b(this.f6679a.get(i3).SSID));
                                                 }
                                                 c3 = c2;
                                             }
@@ -346,15 +346,15 @@ public class h {
                                     stringBuffer.append(stringBuffer3.toString());
                                 }
                                 stringBuffer.append("&wf_st=");
-                                stringBuffer.append(this.f6645b);
+                                stringBuffer.append(this.f6680b);
                                 stringBuffer.append("&wf_et=");
-                                stringBuffer.append(this.f6646c);
+                                stringBuffer.append(this.f6681c);
                                 stringBuffer.append("&wf_vt=");
-                                stringBuffer.append(i.f6649a);
+                                stringBuffer.append(i.f6684a);
                                 if (i7 > 0) {
-                                    this.f6647d = true;
+                                    this.f6682d = true;
                                     stringBuffer.append("&wf_en=");
-                                    stringBuffer.append(this.f6648e ? 1 : 0);
+                                    stringBuffer.append(this.f6683e ? 1 : 0);
                                 }
                                 if (str8 != null) {
                                     stringBuffer.append("&wf_gw=");
@@ -373,7 +373,7 @@ public class h {
                 } else {
                     j = 0;
                 }
-                size = this.f6644a.size();
+                size = this.f6679a.size();
                 if (size > i) {
                 }
                 i3 = 0;
@@ -421,19 +421,19 @@ public class h {
             }
             if (j2 > 0) {
                 z = true;
-                if (z || (list = this.f6644a) == null || list.size() == 0) {
+                if (z || (list = this.f6679a) == null || list.size() == 0) {
                     return false;
                 }
-                size = this.f6644a.size();
+                size = this.f6679a.size();
                 if (size > 16) {
                     size = 16;
                 }
                 long j4 = 0;
                 long j5 = 0;
                 for (i = 0; i < size; i++) {
-                    if (this.f6644a.get(i).level != 0 && z) {
+                    if (this.f6679a.get(i).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.f6644a.get(i).timestamp) / 1000000;
+                            j3 = (j2 - this.f6679a.get(i).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j3 = 0;
                         }
@@ -452,7 +452,7 @@ public class h {
         if (z) {
             return false;
         }
-        size = this.f6644a.size();
+        size = this.f6679a.size();
         if (size > 16) {
         }
         long j42 = 0;
@@ -464,13 +464,13 @@ public class h {
     }
 
     public boolean a(h hVar) {
-        List<ScanResult> list = this.f6644a;
-        if (list == null || hVar == null || hVar.f6644a == null) {
+        List<ScanResult> list = this.f6679a;
+        if (list == null || hVar == null || hVar.f6679a == null) {
             return false;
         }
-        int size = (list.size() < hVar.f6644a.size() ? this.f6644a : hVar.f6644a).size();
+        int size = (list.size() < hVar.f6679a.size() ? this.f6679a : hVar.f6679a).size();
         for (int i = 0; i < size; i++) {
-            if (!this.f6644a.get(i).BSSID.equals(hVar.f6644a.get(i).BSSID)) {
+            if (!this.f6679a.get(i).BSSID.equals(hVar.f6679a.get(i).BSSID)) {
                 return false;
             }
         }
@@ -493,16 +493,16 @@ public class h {
     }
 
     public boolean b(h hVar) {
-        List<ScanResult> list = this.f6644a;
-        if (list == null || hVar == null || hVar.f6644a == null) {
+        List<ScanResult> list = this.f6679a;
+        if (list == null || hVar == null || hVar.f6679a == null) {
             return false;
         }
-        int size = (list.size() < hVar.f6644a.size() ? this.f6644a : hVar.f6644a).size();
+        int size = (list.size() < hVar.f6679a.size() ? this.f6679a : hVar.f6679a).size();
         for (int i = 0; i < size; i++) {
-            String str = this.f6644a.get(i).BSSID;
-            int i2 = this.f6644a.get(i).level;
-            String str2 = hVar.f6644a.get(i).BSSID;
-            int i3 = hVar.f6644a.get(i).level;
+            String str = this.f6679a.get(i).BSSID;
+            int i2 = this.f6679a.get(i).level;
+            String str2 = hVar.f6679a.get(i).BSSID;
+            int i3 = hVar.f6679a.get(i).level;
             if (!str.equals(str2) || i2 != i3) {
                 return false;
             }
@@ -525,18 +525,18 @@ public class h {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(256);
-            int size = this.f6644a.size();
+            int size = this.f6679a.size();
             int i3 = com.baidu.location.d.j.O;
             if (size > i3) {
                 size = i3;
             }
             int i4 = 0;
             for (int i5 = 0; i5 < size; i5++) {
-                if ((i2 & i) != 0 && this.f6644a.get(i5).BSSID != null) {
+                if ((i2 & i) != 0 && this.f6679a.get(i5).BSSID != null) {
                     stringBuffer.append(i4 == 0 ? "&ssid=" : FieldBuilder.SE);
-                    stringBuffer.append(this.f6644a.get(i5).BSSID.replace(":", ""));
+                    stringBuffer.append(this.f6679a.get(i5).BSSID.replace(":", ""));
                     stringBuffer.append(";");
-                    stringBuffer.append(b(this.f6644a.get(i5).SSID));
+                    stringBuffer.append(b(this.f6679a.get(i5).SSID));
                     i4++;
                 }
                 i2 <<= 1;
@@ -575,7 +575,7 @@ public class h {
         boolean z;
         int size;
         long j2;
-        List<ScanResult> list = this.f6644a;
+        List<ScanResult> list = this.f6679a;
         if (list == null || list.size() == 0) {
             return 0L;
         }
@@ -587,7 +587,7 @@ public class h {
             }
             if (j > 0) {
                 z = true;
-                size = this.f6644a.size();
+                size = this.f6679a.size();
                 if (size > 16) {
                     size = 16;
                 }
@@ -595,9 +595,9 @@ public class h {
                 long j4 = 0;
                 long j5 = 0;
                 for (int i = 0; i < size; i++) {
-                    if (this.f6644a.get(i).level != 0 && z) {
+                    if (this.f6679a.get(i).level != 0 && z) {
                         try {
-                            j2 = (j - this.f6644a.get(i).timestamp) / 1000000;
+                            j2 = (j - this.f6679a.get(i).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j2 = 0;
                         }
@@ -614,7 +614,7 @@ public class h {
             j = 0;
         }
         z = false;
-        size = this.f6644a.size();
+        size = this.f6679a.size();
         if (size > 16) {
         }
         long j32 = 0;
@@ -628,7 +628,7 @@ public class h {
 
     public int g() {
         for (int i = 0; i < a(); i++) {
-            int i2 = -this.f6644a.get(i).level;
+            int i2 = -this.f6679a.get(i).level;
             if (i2 > 0) {
                 return i2;
             }
@@ -637,18 +637,18 @@ public class h {
     }
 
     public boolean h() {
-        return this.f6647d;
+        return this.f6682d;
     }
 
     public boolean i() {
-        return System.currentTimeMillis() - this.f6646c > 0 && System.currentTimeMillis() - this.f6646c < 5000;
+        return System.currentTimeMillis() - this.f6681c > 0 && System.currentTimeMillis() - this.f6681c < 5000;
     }
 
     public boolean j() {
-        return System.currentTimeMillis() - this.f6646c > 0 && System.currentTimeMillis() - this.f6646c < 5000;
+        return System.currentTimeMillis() - this.f6681c > 0 && System.currentTimeMillis() - this.f6681c < 5000;
     }
 
     public boolean k() {
-        return System.currentTimeMillis() - this.f6646c > 0 && System.currentTimeMillis() - this.f6645b < 5000;
+        return System.currentTimeMillis() - this.f6681c > 0 && System.currentTimeMillis() - this.f6680b < 5000;
     }
 }

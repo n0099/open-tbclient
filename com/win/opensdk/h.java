@@ -7,14 +7,14 @@ import java.io.File;
 public class h extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39939a;
+    public final /* synthetic */ String f40228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f39940b;
+    public final /* synthetic */ PBSplash f40229b;
 
     public h(PBSplash pBSplash, String str) {
-        this.f39940b = pBSplash;
-        this.f39939a = str;
+        this.f40229b = pBSplash;
+        this.f40228a = str;
     }
 
     @Override // android.os.AsyncTask
@@ -35,34 +35,34 @@ public class h extends AsyncTask {
         Context context;
         byte[] bArr = (byte[]) obj;
         if (bArr == null) {
-            PBSplash pBSplash = this.f39940b;
-            PBSplashListener pBSplashListener = pBSplash.f39764e;
+            PBSplash pBSplash = this.f40229b;
+            PBSplashListener pBSplashListener = pBSplash.f40053e;
             if (pBSplashListener != null && !pBSplash.j) {
                 pBSplashListener.onFail(PBError.NO_RESUOURCE);
-                this.f39940b.i = true;
+                this.f40229b.i = true;
             }
         } else {
-            PBSplash pBSplash2 = this.f39940b;
-            PBSplashListener pBSplashListener2 = pBSplash2.f39764e;
+            PBSplash pBSplash2 = this.f40229b;
+            PBSplashListener pBSplashListener2 = pBSplash2.f40053e;
             if (pBSplashListener2 != null && !pBSplash2.j) {
                 pBSplash2.m = bArr;
                 pBSplashListener2.onLoaded();
-                this.f39940b.i = true;
+                this.f40229b.i = true;
             }
         }
         if (bArr != null) {
-            PBSplash pBSplash3 = this.f39940b;
+            PBSplash pBSplash3 = this.f40229b;
             if (pBSplash3.j) {
                 StringBuilder sb = new StringBuilder();
-                context = this.f39940b.f39760a;
+                context = this.f40229b.f40049a;
                 sb.append(G.a(context));
                 sb.append(File.separator);
                 sb.append("win");
                 sb.append(File.separator);
-                sb.append(G.c(this.f39939a));
+                sb.append(G.c(this.f40228a));
                 sb.append(".gif");
                 pBSplash3.p = new File(sb.toString());
-                new Thread(new C1(bArr, this.f39940b.p.getPath())).start();
+                new Thread(new C1(bArr, this.f40229b.p.getPath())).start();
             }
         }
     }

@@ -18,61 +18,61 @@ import java.io.InputStreamReader;
 public class c0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44673a = d.b.g0.a.k.f45051a;
+    public static final boolean f45065a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44674b;
+    public static String f45066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44675c;
+    public static String f45067c;
 
     public static boolean a(String str) {
-        String str2 = f44674b;
+        String str2 = f45066b;
         if (str2 != null) {
             return str2.equals(str);
         }
         String d2 = d("ro.miui.ui.version.name");
-        f44675c = d2;
+        f45067c = d2;
         if (!TextUtils.isEmpty(d2)) {
-            f44674b = "MIUI";
+            f45066b = "MIUI";
         } else {
             String d3 = d("ro.build.version.emui");
-            f44675c = d3;
+            f45067c = d3;
             if (!TextUtils.isEmpty(d3)) {
-                f44674b = "EMUI";
+                f45066b = "EMUI";
             } else {
                 String d4 = d("ro.build.version.opporom");
-                f44675c = d4;
+                f45067c = d4;
                 if (!TextUtils.isEmpty(d4)) {
-                    f44674b = "OPPO";
+                    f45066b = "OPPO";
                 } else {
                     String d5 = d("ro.vivo.os.version");
-                    f44675c = d5;
+                    f45067c = d5;
                     if (!TextUtils.isEmpty(d5)) {
-                        f44674b = "VIVO";
+                        f45066b = "VIVO";
                     } else {
                         String d6 = d("ro.smartisan.version");
-                        f44675c = d6;
+                        f45067c = d6;
                         if (!TextUtils.isEmpty(d6)) {
-                            f44674b = "SMARTISAN";
+                            f45066b = "SMARTISAN";
                         } else {
                             String d7 = d(RomUtils.KEY_VERSION_GIONEE);
-                            f44675c = d7;
+                            f45067c = d7;
                             if (!TextUtils.isEmpty(d7)) {
-                                f44674b = "SMARTISAN";
+                                f45066b = "SMARTISAN";
                             } else {
                                 String d8 = d(RomUtils.KEY_VERSION_NUBIA);
-                                f44675c = d8;
+                                f45067c = d8;
                                 if (!TextUtils.isEmpty(d8)) {
-                                    f44674b = RomUtils.ROM_NUBIA;
+                                    f45066b = RomUtils.ROM_NUBIA;
                                 } else {
                                     String str3 = Build.DISPLAY;
-                                    f44675c = str3;
+                                    f45067c = str3;
                                     if (str3.toUpperCase().contains("FLYME")) {
-                                        f44674b = "FLYME";
+                                        f45066b = "FLYME";
                                     } else {
-                                        f44675c = "unknown";
-                                        f44674b = Build.MANUFACTURER.toUpperCase();
+                                        f45067c = "unknown";
+                                        f45066b = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -81,7 +81,7 @@ public class c0 {
                 }
             }
         }
-        return f44674b.equals(str);
+        return f45066b.equals(str);
     }
 
     public static int b(Context context) {
@@ -134,11 +134,11 @@ public class c0 {
                     return 0;
                 }
                 i = displayCutout.getSafeInsetTop();
-                if (f44673a) {
+                if (f45065a) {
                     Log.d("SwanAppRomUtils", "刘海屏高度:" + i);
                 }
             } catch (Exception e2) {
-                if (f44673a) {
+                if (f45065a) {
                     Log.w("SwanAppRomUtils", e2);
                 }
             }
@@ -160,7 +160,7 @@ public class c0 {
                     return readLine;
                 } catch (IOException e2) {
                     e = e2;
-                    if (f44673a) {
+                    if (f45065a) {
                         Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
                     }
                     d.b.g0.p.d.a(bufferedReader);
@@ -207,7 +207,7 @@ public class c0 {
             Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
             return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
         } catch (Exception e2) {
-            if (f44673a) {
+            if (f45065a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -220,7 +220,7 @@ public class c0 {
             Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
             return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
         } catch (Exception e2) {
-            if (f44673a) {
+            if (f45065a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -237,7 +237,7 @@ public class c0 {
             Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
             return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
         } catch (Exception e2) {
-            if (f44673a) {
+            if (f45065a) {
                 e2.printStackTrace();
                 return false;
             }

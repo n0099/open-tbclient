@@ -5,18 +5,18 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<Integer, Integer> f56799a = new HashMap<>();
+    public HashMap<Integer, Integer> f58155a = new HashMap<>();
 
     public int a(int i) {
-        HashMap<Integer, Integer> hashMap = this.f56799a;
+        HashMap<Integer, Integer> hashMap = this.f58155a;
         if (hashMap != null && hashMap.containsKey(Integer.valueOf(i))) {
-            return this.f56799a.get(Integer.valueOf(i)).intValue();
+            return this.f58155a.get(Integer.valueOf(i)).intValue();
         }
         return 0;
     }
 
     public void b(int i, int i2) {
-        HashMap<Integer, Integer> hashMap = this.f56799a;
+        HashMap<Integer, Integer> hashMap = this.f58155a;
         if (hashMap == null) {
             return;
         }

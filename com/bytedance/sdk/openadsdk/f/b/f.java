@@ -8,18 +8,18 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.bytedance.sdk.openadsdk.core.x;
 import com.bytedance.sdk.openadsdk.f.a.q;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29394a;
+    public String f29079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public x f29395b;
+    public x f29080b;
 
     public f(String str, x xVar) {
-        this.f29395b = xVar;
-        this.f29394a = str;
+        this.f29080b = xVar;
+        this.f29079a = str;
     }
 
     public static void a(q qVar, x xVar) {
@@ -59,10 +59,10 @@ public class f extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
     @Nullable
     public JSONObject a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.openadsdk.f.a.f fVar) throws Exception {
         x.a aVar = new x.a();
-        aVar.f29050a = NotificationCompat.CATEGORY_CALL;
-        aVar.f29052c = this.f29394a;
-        aVar.f29053d = jSONObject;
-        JSONObject a2 = this.f29395b.a(aVar, 3);
+        aVar.f28735a = NotificationCompat.CATEGORY_CALL;
+        aVar.f28737c = this.f29079a;
+        aVar.f28738d = jSONObject;
+        JSONObject a2 = this.f29080b.a(aVar, 3);
         if (com.bytedance.sdk.openadsdk.core.i.d().w()) {
             Log.d("OldBridgeSyncMethod", "[JSB-RSP] version: 3 data=" + a2.toString());
         }

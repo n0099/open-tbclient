@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.b.a.e;
-import d.b.b.e.p.l;
-import d.b.i0.b1.a.j;
-import d.b.i0.b1.f.d;
+import d.b.c.a.e;
+import d.b.c.e.p.l;
+import d.b.i0.c1.a.j;
+import d.b.i0.c1.f.d;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
     public LikeModel likeModel;
     public d mHotTopicMoreView;
@@ -27,7 +27,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public CustomMessageListener unLikeForumListener = new b(2001336);
     public e mLikeModelCallback = new c();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -55,7 +55,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -83,12 +83,12 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends e {
         public c() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             if (AntiHelper.m(RelateTopicForumActivity.this.likeModel.getErrorCode(), RelateTopicForumActivity.this.likeModel.getErrorString())) {
                 AntiHelper.u(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.likeModel.getErrorString());

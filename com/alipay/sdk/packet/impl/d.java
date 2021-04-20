@@ -18,9 +18,9 @@ public class d extends com.alipay.sdk.packet.e {
     @Override // com.alipay.sdk.packet.e
     public Map<String, String> a(boolean z, String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put(com.alipay.sdk.packet.e.f1915a, String.valueOf(z));
+        hashMap.put(com.alipay.sdk.packet.e.f1940a, String.valueOf(z));
         hashMap.put("content-type", "application/octet-stream");
-        hashMap.put(com.alipay.sdk.packet.e.f1921g, "CBC");
+        hashMap.put(com.alipay.sdk.packet.e.f1946g, "CBC");
         return hashMap;
     }
 

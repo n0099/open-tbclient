@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.landingpage.XDetailPageJavaScript;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.j1.h;
@@ -15,26 +16,26 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45053a = k.f45051a;
+    public static final boolean f45445a = k.f45443a;
 
     /* renamed from: d.b.g0.a.k0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC0717a implements Runnable {
+    public static class RunnableC0729a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.k.a f45054e;
+        public final /* synthetic */ d.b.g0.a.e0.k.a f45446e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45055f;
+        public final /* synthetic */ String f45447f;
 
-        public RunnableC0717a(d.b.g0.a.e0.k.a aVar, String str) {
-            this.f45054e = aVar;
-            this.f45055f = str;
+        public RunnableC0729a(d.b.g0.a.e0.k.a aVar, String str) {
+            this.f45446e = aVar;
+            this.f45447f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.c(this.f45054e, this.f45055f);
+            a.c(this.f45446e, this.f45447f);
         }
     }
 
@@ -49,10 +50,10 @@ public final class a {
         String str2 = "";
         if (c.e()) {
             if (aVar.isWebView()) {
-                str = "var event = new Event('" + aVar2.f45056a + "');";
+                str = "var event = new Event('" + aVar2.f45448a + "');";
             } else {
                 str = "var event = new Object();";
-                str2 = e("event", "type", aVar2.f45056a);
+                str2 = e("event", "type", aVar2.f45448a);
             }
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("javascript:(function(){");
@@ -65,23 +66,23 @@ public final class a {
             stringBuffer.append(".dispatchEvent(");
             stringBuffer.append("event");
             stringBuffer.append(");");
-            stringBuffer.append("})();");
+            stringBuffer.append(XDetailPageJavaScript.STATIC_JAVASCRIPT_FUNC_OVER);
             format2 = stringBuffer.toString();
         } else {
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.f45056a);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.f45448a);
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", "event");
-                str2 = e("event", "type", aVar2.f45056a);
+                str2 = e("event", "type", aVar2.f45448a);
             }
             format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, str2 + aVar2.a("event"), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", g(aVar), "event"));
         }
         h.a("postMessage", "dispatchJSEvent buildEvent");
-        if (f45053a) {
+        if (f45445a) {
             Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
         }
         if (aVar.isWebView()) {
-            k0.X(new RunnableC0717a(aVar, format2));
+            k0.X(new RunnableC0729a(aVar, format2));
         } else {
             c(aVar, format2);
         }
@@ -89,7 +90,7 @@ public final class a {
 
     public static void c(d.b.g0.a.e0.k.a aVar, String str) {
         if (aVar.isDestroyed()) {
-            if (f45053a) {
+            if (f45445a) {
                 Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
                 return;
             }

@@ -10,7 +10,7 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import d.b.i0.c3.c;
+import d.b.i0.d3.c;
 /* loaded from: classes3.dex */
 public class SelectorHelper {
     public static int dip2px(float f2) {

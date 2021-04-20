@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
@@ -542,6 +542,7 @@ public class TbConfig {
     public static final String URL_POST_VIDEO_MONITOR_REPORT = "ala/sys/vtlog";
     public static final String URL_PROFESSION_PERMISSION = "c/f/frs/zoneRight";
     public static final String URL_RECOMMEND_FORUM_TEST_CLOSE = "c/f/recommend/testclose";
+    public static final String URL_RELATE_REC_THREAD = "c/f/forum/relateRecThread";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
     public static final String URL_SEARCH_MAJOR = "c/f/forum/searchMajor";
     public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
@@ -1051,7 +1052,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.j().r(i);
+            c.k().t(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

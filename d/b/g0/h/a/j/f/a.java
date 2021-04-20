@@ -13,30 +13,30 @@ import org.json.JSONObject;
 public class a extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.a> implements a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.a1.b f48792a;
+    public d.b.g0.a.a1.b f49184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.a1.c.a f48793b;
+    public d.b.g0.a.a1.c.a f49185b;
 
     /* renamed from: d.b.g0.h.a.j.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1010a implements d.c {
+    public class C1022a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a1.b f48794a;
+        public final /* synthetic */ d.b.g0.a.a1.b f49186a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f48795b;
+        public final /* synthetic */ String f49187b;
 
-        public C1010a(d.b.g0.a.a1.b bVar, String str) {
-            this.f48794a = bVar;
-            this.f48795b = str;
+        public C1022a(d.b.g0.a.a1.b bVar, String str) {
+            this.f49186a = bVar;
+            this.f49187b = str;
         }
 
         @Override // d.b.g0.h.a.f.f.d.c
         public void onFail() {
             c.l("map", "location permission fail");
-            this.f48794a.b(this.f48795b, 1003, "location permission fail");
+            this.f49186a.b(this.f49187b, 1003, "location permission fail");
         }
 
         @Override // d.b.g0.h.a.f.f.d.c
@@ -47,7 +47,7 @@ public class a extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.a> implements a.b {
     }
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public static a h() {
@@ -57,8 +57,8 @@ public class a extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.a> implements a.b {
     @Override // d.b.g0.h.a.j.a.b
     public void a(SelectedLocationInfo selectedLocationInfo) {
         d.b.g0.a.a1.c.a aVar;
-        d.b.g0.a.a1.b bVar = this.f48792a;
-        if (bVar == null || (aVar = this.f48793b) == null) {
+        d.b.g0.a.a1.b bVar = this.f49184a;
+        if (bVar == null || (aVar = this.f49185b) == null) {
             return;
         }
         bVar.c(aVar.D, selectedLocationInfo.a());
@@ -75,9 +75,9 @@ public class a extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.a> implements a.b {
             c.b("map", "cb is empty");
             return false;
         }
-        this.f48792a = bVar;
-        this.f48793b = aVar;
-        d.b(context, new C1010a(bVar, str));
+        this.f49184a = bVar;
+        this.f49185b = aVar;
+        d.b(context, new C1022a(bVar, str));
         c.g("map", "ChooseLocationAction end");
         return true;
     }
@@ -99,8 +99,8 @@ public class a extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.a> implements a.b {
     public void onCancel() {
         d.b.g0.a.a1.c.a aVar;
         c.g("map", "choose location cancel");
-        d.b.g0.a.a1.b bVar = this.f48792a;
-        if (bVar == null || (aVar = this.f48793b) == null) {
+        d.b.g0.a.a1.b bVar = this.f49184a;
+        if (bVar == null || (aVar = this.f49185b) == null) {
             return;
         }
         bVar.b(aVar.D, 1002, "choose location canceled");
@@ -110,8 +110,8 @@ public class a extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.a> implements a.b {
     public void onError() {
         d.b.g0.a.a1.c.a aVar;
         c.g("map", "choose location fail");
-        d.b.g0.a.a1.b bVar = this.f48792a;
-        if (bVar == null || (aVar = this.f48793b) == null) {
+        d.b.g0.a.a1.b bVar = this.f49184a;
+        if (bVar == null || (aVar = this.f49185b) == null) {
             return;
         }
         bVar.b(aVar.D, 1007, "choose location failed");

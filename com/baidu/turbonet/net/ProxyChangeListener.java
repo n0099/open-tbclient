@@ -21,25 +21,25 @@ import java.lang.reflect.Method;
 public class ProxyChangeListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f22801g = true;
+    public static boolean f22486g = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Looper f22802a = Looper.myLooper();
+    public final Looper f22487a = Looper.myLooper();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f22803b = new Handler(this.f22802a);
+    public final Handler f22488b = new Handler(this.f22487a);
 
     /* renamed from: c  reason: collision with root package name */
-    public long f22804c;
+    public long f22489c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f22805d;
+    public Context f22490d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f22806e;
+    public c f22491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Delegate f22807f;
+    public Delegate f22492f;
 
     /* loaded from: classes5.dex */
     public interface Delegate {
@@ -50,22 +50,22 @@ public class ProxyChangeListener {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f22808a;
+        public final String f22493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f22809b;
+        public final int f22494b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f22810c;
+        public final String f22495c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String[] f22811d;
+        public final String[] f22496d;
 
         public b(String str, int i, String str2, String[] strArr) {
-            this.f22808a = str;
-            this.f22809b = i;
-            this.f22810c = str2;
-            this.f22811d = strArr;
+            this.f22493a = str;
+            this.f22494b = i;
+            this.f22495c = str2;
+            this.f22496d = strArr;
         }
     }
 
@@ -76,16 +76,16 @@ public class ProxyChangeListener {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Intent f22812e;
+            public final /* synthetic */ Intent f22497e;
 
             public a(Intent intent) {
-                this.f22812e = intent;
+                this.f22497e = intent;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 c cVar = c.this;
-                ProxyChangeListener.this.e(cVar, cVar.extractNewProxy(this.f22812e));
+                ProxyChangeListener.this.e(cVar, cVar.extractNewProxy(this.f22497e));
             }
         }
 
@@ -159,7 +159,7 @@ public class ProxyChangeListener {
     }
 
     public ProxyChangeListener(Context context) {
-        this.f22805d = context;
+        this.f22490d = context;
     }
 
     @CalledByNative
@@ -185,21 +185,21 @@ public class ProxyChangeListener {
     }
 
     public final boolean d() {
-        return this.f22802a == Looper.myLooper();
+        return this.f22487a == Looper.myLooper();
     }
 
     public final void e(c cVar, b bVar) {
-        if (f22801g && cVar == this.f22806e) {
-            Delegate delegate = this.f22807f;
+        if (f22486g && cVar == this.f22491e) {
+            Delegate delegate = this.f22492f;
             if (delegate != null) {
                 delegate.a();
             }
-            long j = this.f22804c;
+            long j = this.f22489c;
             if (j == 0) {
                 return;
             }
             if (bVar != null) {
-                nativeProxySettingsChangedTo(j, bVar.f22808a, bVar.f22809b, bVar.f22810c, bVar.f22811d);
+                nativeProxySettingsChangedTo(j, bVar.f22493a, bVar.f22494b, bVar.f22495c, bVar.f22496d);
             } else {
                 nativeProxySettingsChanged(j);
             }
@@ -207,43 +207,43 @@ public class ProxyChangeListener {
     }
 
     public final void f() {
-        if (this.f22806e != null) {
+        if (this.f22491e != null) {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-        this.f22806e = new c();
-        this.f22805d.getApplicationContext().registerReceiver(this.f22806e, intentFilter);
+        this.f22491e = new c();
+        this.f22490d.getApplicationContext().registerReceiver(this.f22491e, intentFilter);
     }
 
     public final void g(Runnable runnable) {
         if (d()) {
             runnable.run();
         } else {
-            this.f22803b.post(runnable);
+            this.f22488b.post(runnable);
         }
     }
 
     public final void h() {
-        c cVar = this.f22806e;
+        c cVar = this.f22491e;
         if (cVar == null) {
             return;
         }
-        this.f22805d.unregisterReceiver(cVar);
-        this.f22806e = null;
+        this.f22490d.unregisterReceiver(cVar);
+        this.f22491e = null;
     }
 
     @CalledByNative
     public void start(long j) {
         c();
-        this.f22804c = j;
+        this.f22489c = j;
         f();
     }
 
     @CalledByNative
     public void stop() {
         c();
-        this.f22804c = 0L;
+        this.f22489c = 0L;
         h();
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Toast f10130a;
+    public static Toast f9688a;
 
     public static void a(Context context, String str) {
         if (context == null) {
@@ -24,12 +24,12 @@ public class c {
         if (list == null || list.get(0) == null || !context.getPackageName().equals(list.get(0).baseActivity.getPackageName())) {
             return;
         }
-        Toast toast = f10130a;
+        Toast toast = f9688a;
         if (toast != null) {
             toast.cancel();
         }
         Toast makeText = Toast.makeText(context, str, str.length() <= 15 ? 0 : 1);
-        f10130a = makeText;
+        f9688a = makeText;
         makeText.show();
     }
 }

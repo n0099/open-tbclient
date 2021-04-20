@@ -5,16 +5,16 @@ import com.bytedance.sdk.adnet.err.VAdError;
 public class g implements d.c.c.b.f.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65694a;
+    public int f66539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65695b;
+    public int f66540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65696c;
+    public int f66541c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f65697d;
+    public final float f66542d;
 
     public g() {
         this(2500, 1, 1.0f);
@@ -22,34 +22,34 @@ public class g implements d.c.c.b.f.e {
 
     @Override // d.c.c.b.f.e
     public int a() {
-        return this.f65694a;
+        return this.f66539a;
     }
 
     public g b(int i) {
-        this.f65694a = i;
+        this.f66539a = i;
         return this;
     }
 
     public g c(int i) {
-        this.f65696c = i;
+        this.f66541c = i;
         return this;
     }
 
     public boolean d() {
-        return this.f65695b <= this.f65696c;
+        return this.f66540b <= this.f66541c;
     }
 
     public g(int i, int i2, float f2) {
-        this.f65694a = i;
-        this.f65696c = i2;
-        this.f65697d = f2;
+        this.f66539a = i;
+        this.f66541c = i2;
+        this.f66542d = f2;
     }
 
     @Override // d.c.c.b.f.e
     public void a(VAdError vAdError) throws VAdError {
-        this.f65695b++;
-        int i = this.f65694a;
-        this.f65694a = i + ((int) (i * this.f65697d));
+        this.f66540b++;
+        int i = this.f66539a;
+        this.f66539a = i + ((int) (i * this.f66542d));
         if (!d()) {
             throw vAdError;
         }
@@ -57,6 +57,6 @@ public class g implements d.c.c.b.f.e {
 
     @Override // d.c.c.b.f.e
     public int b() {
-        return this.f65695b;
+        return this.f66540b;
     }
 }

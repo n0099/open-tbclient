@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.j;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.i;
+import f.b.j;
+import f.b.t.b;
+import f.b.w.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -12,7 +12,7 @@ public final class MaybeFlatten$FlatMapMaybeObserver<T, R> extends AtomicReferen
     public final i<? super R> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68047d;
+    public b f69053d;
     public final h<? super T, ? extends j<? extends R>> mapper;
 
     /* loaded from: classes7.dex */
@@ -20,22 +20,22 @@ public final class MaybeFlatten$FlatMapMaybeObserver<T, R> extends AtomicReferen
         public a() {
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onComplete() {
             MaybeFlatten$FlatMapMaybeObserver.this.actual.onComplete();
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onError(Throwable th) {
             MaybeFlatten$FlatMapMaybeObserver.this.actual.onError(th);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(MaybeFlatten$FlatMapMaybeObserver.this, bVar);
         }
 
-        @Override // f.a.i
+        @Override // f.b.i
         public void onSuccess(R r) {
             MaybeFlatten$FlatMapMaybeObserver.this.actual.onSuccess(r);
         }
@@ -46,47 +46,47 @@ public final class MaybeFlatten$FlatMapMaybeObserver<T, R> extends AtomicReferen
         this.mapper = hVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
-        this.f68047d.dispose();
+        this.f69053d.dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         this.actual.onComplete();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68047d, bVar)) {
-            this.f68047d = bVar;
+        if (DisposableHelper.validate(this.f69053d, bVar)) {
+            this.f69053d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         try {
             j<? extends R> apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The mapper returned a null MaybeSource");
+            f.b.x.b.a.b(apply, "The mapper returned a null MaybeSource");
             j<? extends R> jVar = apply;
             if (isDisposed()) {
                 return;
             }
             jVar.a(new a());
         } catch (Exception e2) {
-            f.a.u.a.a(e2);
+            f.b.u.a.a(e2);
             this.actual.onError(e2);
         }
     }

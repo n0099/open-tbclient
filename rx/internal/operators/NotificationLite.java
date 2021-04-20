@@ -6,7 +6,7 @@ import java.io.Serializable;
 public final class NotificationLite {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f68154a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    public static final Object f69160a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         public static final long serialVersionUID = 1;
 
         public String toString() {
@@ -15,7 +15,7 @@ public final class NotificationLite {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f68155b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    public static final Object f69161b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         public static final long serialVersionUID = 2;
 
         public String toString() {
@@ -28,27 +28,27 @@ public final class NotificationLite {
         public static final long serialVersionUID = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f68156e;
+        public final Throwable f69162e;
 
         public OnErrorSentinel(Throwable th) {
-            this.f68156e = th;
+            this.f69162e = th;
         }
 
         public String toString() {
-            return "Notification=>Error:" + this.f68156e;
+            return "Notification=>Error:" + this.f69162e;
         }
     }
 
     public static <T> boolean a(e<? super T> eVar, Object obj) {
-        if (obj == f68154a) {
+        if (obj == f69160a) {
             eVar.onCompleted();
             return true;
-        } else if (obj == f68155b) {
+        } else if (obj == f69161b) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
             if (obj.getClass() == OnErrorSentinel.class) {
-                eVar.onError(((OnErrorSentinel) obj).f68156e);
+                eVar.onError(((OnErrorSentinel) obj).f69162e);
                 return true;
             }
             eVar.onNext(obj);
@@ -59,7 +59,7 @@ public final class NotificationLite {
     }
 
     public static Object b() {
-        return f68154a;
+        return f69160a;
     }
 
     public static Object c(Throwable th) {
@@ -67,20 +67,20 @@ public final class NotificationLite {
     }
 
     public static Throwable d(Object obj) {
-        return ((OnErrorSentinel) obj).f68156e;
+        return ((OnErrorSentinel) obj).f69162e;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T e(Object obj) {
-        if (obj == f68155b) {
+        if (obj == f69161b) {
             return null;
         }
         return obj;
     }
 
     public static boolean f(Object obj) {
-        return obj == f68154a;
+        return obj == f69160a;
     }
 
     public static boolean g(Object obj) {
@@ -88,6 +88,6 @@ public final class NotificationLite {
     }
 
     public static <T> Object h(T t) {
-        return t == null ? f68155b : t;
+        return t == null ? f69161b : t;
     }
 }

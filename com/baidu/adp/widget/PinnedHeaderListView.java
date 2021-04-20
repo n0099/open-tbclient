@@ -62,7 +62,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     public static abstract class c implements ListAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final DataSetObservable f2368e = new DataSetObservable();
+        public final DataSetObservable f2403e = new DataSetObservable();
 
         public abstract View a();
 
@@ -92,12 +92,12 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
         @Override // android.widget.Adapter
         public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-            this.f2368e.registerObserver(dataSetObserver);
+            this.f2403e.registerObserver(dataSetObserver);
         }
 
         @Override // android.widget.Adapter
         public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-            this.f2368e.unregisterObserver(dataSetObserver);
+            this.f2403e.unregisterObserver(dataSetObserver);
         }
     }
 

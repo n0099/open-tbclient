@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bt;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.tencent.connect.common.Constants;
 import java.io.FileOutputStream;
@@ -16,13 +15,13 @@ import java.util.ArrayList;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f9089a;
+    public static volatile boolean f8663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f9090b;
+    public static volatile boolean f8664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f9091c;
+    public static volatile boolean f8665c;
 
     public static String a() {
         return "https://dxp.baidu.com/vizParser";
@@ -34,11 +33,11 @@ public class bg {
                 if (i != 2) {
                     return false;
                 }
-                return f9091c;
+                return f8665c;
             }
-            return f9090b;
+            return f8664b;
         }
-        return f9089a;
+        return f8663a;
     }
 
     public static String b(int i) {
@@ -47,12 +46,12 @@ public class bg {
 
     public static void a(int i, boolean z) {
         if (i == 0) {
-            f9089a = z;
+            f8663a = z;
         } else if (i == 1) {
-            f9090b = z;
+            f8664b = z;
         } else if (i != 2) {
         } else {
-            f9091c = z;
+            f8665c = z;
         }
     }
 
@@ -189,7 +188,7 @@ public class bg {
         ArrayList<Pair> arrayList = new ArrayList();
         arrayList.add(new Pair(CommandMessage.SDK_VERSION, StatService.getSdkVersion()));
         arrayList.add(new Pair("appKey", "" + str));
-        arrayList.add(new Pair(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, context.getPackageName()));
+        arrayList.add(new Pair("packageName", context.getPackageName()));
         arrayList.add(new Pair("appVersion", bw.g(context)));
         arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));
         arrayList.add(new Pair("imei", CooperService.instance().getDevicImei(context)));

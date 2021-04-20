@@ -20,7 +20,7 @@ public class l extends b implements IVideoData {
     public static String c0 = "";
 
     public l(a2 a2Var) {
-        this.f62197e = a2Var;
+        this.f63772e = a2Var;
     }
 
     public static boolean d0(a2 a2Var) {
@@ -30,20 +30,20 @@ public class l extends b implements IVideoData {
     @Override // d.b.i0.x.e0.b
     public StatisticItem A(String str) {
         StatisticItem statisticItem = new StatisticItem(str);
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var != null) {
             statisticItem.param("fid", a2Var.c0());
-            statisticItem.param("tid", this.f62197e.w1());
-            if (this.f62197e.R1()) {
+            statisticItem.param("tid", this.f63772e.w1());
+            if (this.f63772e.R1()) {
                 statisticItem.param("obj_type", 8);
-            } else if (this.f62197e.Q1()) {
+            } else if (this.f63772e.Q1()) {
                 statisticItem.param("obj_type", 9);
-            } else if (this.f62197e.y2()) {
+            } else if (this.f63772e.z2()) {
                 statisticItem.param("obj_type", 2);
             }
             statisticItem.param("obj_param1", P() ? 2 : 1);
-            if (this.f62197e.T() != null) {
-                statisticItem.param("obj_id", this.f62197e.T().getUserId());
+            if (this.f63772e.T() != null) {
+                statisticItem.param("obj_id", this.f63772e.T().getUserId());
             }
         }
         return statisticItem;
@@ -68,7 +68,7 @@ public class l extends b implements IVideoData {
         StatisticItem I = I(Y, true);
         if (I != null && n() != null) {
             a2 n = n();
-            I.param("obj_name", (n.z1() == null || (n.z1().J() == null && n.z1().U() == null)) ? 0 : 1);
+            I.param("obj_name", (n.z1() == null || (n.z1().K() == null && n.z1().V() == null)) ? 0 : 1);
             if (n.T() != null) {
                 I.param(TiebaStatic.Params.AB_TYPE, n.T().hadConcerned() ? 1 : 0);
             }
@@ -169,9 +169,9 @@ public class l extends b implements IVideoData {
         return (a2Var.O1() || a2Var.R1()) ? 3 : 1;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var == null) {
             return k.l0;
         }
@@ -213,22 +213,22 @@ public class l extends b implements IVideoData {
 
     @Override // com.baidu.tbadk.core.util.videoPreload.IVideoData
     public String getVideoUrl() {
-        a2 a2Var = this.f62197e;
-        if (a2Var == null || a2Var.u1() == null || this.f62197e.u1().video_url == null) {
+        a2 a2Var = this.f63772e;
+        if (a2Var == null || a2Var.u1() == null || this.f63772e.u1().video_url == null) {
             return null;
         }
-        return this.f62197e.u1().video_url;
+        return this.f63772e.u1().video_url;
     }
 
     @Override // d.b.i0.x.e0.b, d.b.h0.r.q.a
     public a2 n() {
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var == null) {
             return null;
         }
         if (a2Var.a1() != 5) {
-            this.f62197e.Z3(1);
+            this.f63772e.a4(1);
         }
-        return this.f62197e;
+        return this.f63772e;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.SmartBubbleAnimatedView;
 /* loaded from: classes3.dex */
-public class f extends d.b.b.j.e.c {
+public class f extends d.b.c.j.e.c {
     public boolean A;
     public View.OnClickListener B;
     public View.OnClickListener C;
@@ -24,7 +24,7 @@ public class f extends d.b.b.j.e.c {
     public LinearLayout l;
     public ImageView m;
     public g n;
-    public InterfaceC1075f o;
+    public InterfaceC1088f o;
     public h p;
     public e q;
     public AnimationDrawable r;
@@ -112,7 +112,7 @@ public class f extends d.b.b.j.e.c {
 
     /* renamed from: d.b.h0.r.f0.f$f  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1075f {
+    public interface InterfaceC1088f {
         void a(View view, boolean z);
     }
 
@@ -130,22 +130,22 @@ public class f extends d.b.b.j.e.c {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50509a;
+        public String f50916a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f50510b;
+        public int f50917b;
 
         public i(String str, int i) {
-            this.f50509a = str;
-            this.f50510b = i;
+            this.f50916a = str;
+            this.f50917b = i;
         }
 
         public int a() {
-            return this.f50510b;
+            return this.f50917b;
         }
 
         public String b() {
-            return this.f50509a;
+            return this.f50916a;
         }
     }
 
@@ -280,8 +280,8 @@ public class f extends d.b.b.j.e.c {
                 this.v = smartBubbleAnimatedView;
                 smartBubbleAnimatedView.setExtrusionRemind(true);
             }
-            this.v.f16110e = this.x.b();
-            this.v.f16111f = this.x.a();
+            this.v.f15771e = this.x.b();
+            this.v.f15772f = this.x.a();
             if (this.v.getParent() != null) {
                 this.l.removeView(this.v);
             }
@@ -333,7 +333,7 @@ public class f extends d.b.b.j.e.c {
         this.p = hVar;
     }
 
-    @Override // d.b.b.j.e.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    @Override // d.b.c.j.e.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void f(float f2, float f3) {
         super.f(f2, f3);
         if (L()) {
@@ -342,16 +342,16 @@ public class f extends d.b.b.j.e.c {
         }
     }
 
-    public void g(InterfaceC1075f interfaceC1075f) {
-        this.o = interfaceC1075f;
+    public void g(InterfaceC1088f interfaceC1088f) {
+        this.o = interfaceC1088f;
     }
 
-    @Override // d.b.b.j.e.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    @Override // d.b.c.j.e.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public long getCompleteAnimTime() {
         return 600L;
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public View n() {
         View inflate = LayoutInflater.from(p()).inflate(R.layout.tb_pull_view, (ViewGroup) null);
         this.k = inflate;
@@ -376,7 +376,7 @@ public class f extends d.b.b.j.e.c {
         return this.k;
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public void o(boolean z) {
         this.z = true;
         if (L() && this.s.isAnimating()) {
@@ -388,13 +388,13 @@ public class f extends d.b.b.j.e.c {
             }
         }
         N();
-        InterfaceC1075f interfaceC1075f = this.o;
-        if (interfaceC1075f != null) {
-            interfaceC1075f.a(this.k, z);
+        InterfaceC1088f interfaceC1088f = this.o;
+        if (interfaceC1088f != null) {
+            interfaceC1088f.a(this.k, z);
         }
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public void u() {
         if (s()) {
             return;
@@ -414,7 +414,7 @@ public class f extends d.b.b.j.e.c {
         this.s.cancelAnimation();
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public void v(boolean z) {
         if (s()) {
             return;
@@ -426,7 +426,7 @@ public class f extends d.b.b.j.e.c {
         this.z = true;
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public void x(boolean z) {
         AnimationDrawable animationDrawable;
         h hVar = this.p;
@@ -441,7 +441,7 @@ public class f extends d.b.b.j.e.c {
         this.m.setBackgroundDrawable(this.r.getFrame(0));
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public void y() {
         K();
         if (L()) {
@@ -460,7 +460,7 @@ public class f extends d.b.b.j.e.c {
         this.m.post(new b());
     }
 
-    @Override // d.b.b.j.e.c
+    @Override // d.b.c.j.e.c
     public void z() {
         AnimationDrawable animationDrawable;
         if (L() || (animationDrawable = this.r) == null || this.m == null) {

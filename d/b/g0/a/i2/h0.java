@@ -31,21 +31,21 @@ import java.io.File;
 public class h0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44687a = d.b.g0.a.k.f45051a;
+    public static final boolean f45079a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f44688b;
+    public static DisplayMetrics f45080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DisplayMetrics f44689c;
+    public static final DisplayMetrics f45081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float f44690d;
+    public static final float f45082d;
 
     static {
         DisplayMetrics displayMetrics = d.b.g0.a.w0.a.c().getResources().getDisplayMetrics();
-        f44689c = displayMetrics;
-        f44690d = displayMetrics.density;
+        f45081c = displayMetrics;
+        f45082d = displayMetrics.density;
     }
 
     public static boolean A(Context context) {
@@ -148,7 +148,7 @@ public class h0 {
                         i4 += appContext.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_bottom_tab_shadow_height);
                     } catch (Resources.NotFoundException e2) {
                         e = e2;
-                        if (f44687a) {
+                        if (f45079a) {
                             e.printStackTrace();
                         }
                         if (TextUtils.isEmpty(str)) {
@@ -161,14 +161,14 @@ public class h0 {
                         }
                         if (z2) {
                         }
-                        if (f44687a) {
+                        if (f45079a) {
                         }
                         return Math.max(r9, 0);
                     }
                 } catch (Resources.NotFoundException e3) {
                     e = e3;
                     i4 = 0;
-                    if (f44687a) {
+                    if (f45079a) {
                     }
                     if (TextUtils.isEmpty(str)) {
                     }
@@ -180,7 +180,7 @@ public class h0 {
                     }
                     if (z2) {
                     }
-                    if (f44687a) {
+                    if (f45079a) {
                     }
                     return Math.max(r9, 0);
                 }
@@ -188,7 +188,7 @@ public class h0 {
                 e = e4;
                 i3 = 0;
                 i4 = 0;
-                if (f44687a) {
+                if (f45079a) {
                 }
                 if (TextUtils.isEmpty(str)) {
                 }
@@ -200,7 +200,7 @@ public class h0 {
                 }
                 if (z2) {
                 }
-                if (f44687a) {
+                if (f45079a) {
                 }
                 return Math.max(r9, 0);
             }
@@ -221,7 +221,7 @@ public class h0 {
                 z4 = false;
             }
             z = k0.B(b2);
-            z2 = i5.f45776f;
+            z2 = i5.f46168f;
         } else {
             z = false;
             z2 = false;
@@ -238,7 +238,7 @@ public class h0 {
         if (z2) {
             i6 -= f(50.0f);
         }
-        if (f44687a) {
+        if (f45079a) {
             int b3 = c0.b(appContext);
             int c2 = d0.c();
             Log.d("SwanAppUIUtils", "screenHeight:" + i + ",notchHeight:" + b3 + ",navHeight:" + c2 + ",preGuessWebViewHeight:" + i6 + ",pageUrl:" + str + ",hasTab:" + z + ",bottomBarHeight:" + i4 + ",isTransparentBar:" + z3 + ",actionBarHeight:" + i3 + ",isOccupyStatusBar:" + z4 + ",statusBarHeight:" + i2 + ",canPullToRefresh:" + z2);
@@ -248,7 +248,7 @@ public class h0 {
 
     public static Pair<Integer, Integer> d(String str) {
         Pair<Integer, Integer> c2;
-        long currentTimeMillis = f44687a ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = f45079a ? System.currentTimeMillis() : 0L;
         if (d.b.g0.a.r1.d.e().n() == null) {
             c2 = d0.b();
         } else {
@@ -256,7 +256,7 @@ public class h0 {
         }
         int intValue = ((Integer) c2.first).intValue();
         int c3 = c(((Integer) c2.second).intValue(), str);
-        if (f44687a) {
+        if (f45079a) {
             Log.d("SwanAppUIUtils", "preGuessWebViewSize cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
         return new Pair<>(Integer.valueOf(intValue), Integer.valueOf(c3));
@@ -290,7 +290,7 @@ public class h0 {
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_bottom_tab_shadow_height);
             return dimensionPixelSize > 0 ? i + dimensionPixelSize : i;
         } catch (Resources.NotFoundException e2) {
-            if (f44687a) {
+            if (f45079a) {
                 e2.printStackTrace();
                 return i;
             }
@@ -300,7 +300,7 @@ public class h0 {
 
     public static float j(Context context) {
         z(d.b.g0.a.w0.a.c());
-        DisplayMetrics displayMetrics = f44688b;
+        DisplayMetrics displayMetrics = f45080b;
         if (displayMetrics != null) {
             return displayMetrics.density;
         }
@@ -309,7 +309,7 @@ public class h0 {
 
     public static int k(Context context) {
         z(d.b.g0.a.w0.a.c());
-        DisplayMetrics displayMetrics = f44688b;
+        DisplayMetrics displayMetrics = f45080b;
         if (displayMetrics != null) {
             return displayMetrics.densityDpi;
         }
@@ -318,7 +318,7 @@ public class h0 {
 
     public static int l(Context context) {
         z(d.b.g0.a.w0.a.c());
-        DisplayMetrics displayMetrics = f44688b;
+        DisplayMetrics displayMetrics = f45080b;
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;
         }
@@ -327,7 +327,7 @@ public class h0 {
 
     public static int m(@Nullable Context context) {
         z(d.b.g0.a.w0.a.c());
-        DisplayMetrics displayMetrics = f44688b;
+        DisplayMetrics displayMetrics = f45080b;
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
         }
@@ -353,7 +353,7 @@ public class h0 {
                 }
                 findViewById.setDrawingCacheEnabled(false);
             } catch (NullPointerException | OutOfMemoryError e2) {
-                if (f44687a) {
+                if (f45079a) {
                     e2.printStackTrace();
                 }
             }
@@ -395,7 +395,7 @@ public class h0 {
             } catch (Exception unused) {
             }
         }
-        return i == 0 ? (int) (f44690d * 25.0f) : i;
+        return i == 0 ? (int) (f45082d * 25.0f) : i;
     }
 
     public static int t(Context context) {
@@ -410,7 +410,7 @@ public class h0 {
         try {
             i = context.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_normal_base_action_bar_height);
         } catch (Resources.NotFoundException e2) {
-            if (f44687a) {
+            if (f45079a) {
                 e2.printStackTrace();
             }
             i = 0;
@@ -499,7 +499,7 @@ public class h0 {
     }
 
     public static void z(Context context) {
-        if (f44688b == null) {
+        if (f45080b == null) {
             Application c2 = d.b.g0.a.w0.a.c();
             if (c2 != null) {
                 context = c2;
@@ -507,7 +507,7 @@ public class h0 {
             if (context == null) {
                 return;
             }
-            f44688b = context.getResources().getDisplayMetrics();
+            f45080b = context.getResources().getDisplayMetrics();
         }
     }
 }

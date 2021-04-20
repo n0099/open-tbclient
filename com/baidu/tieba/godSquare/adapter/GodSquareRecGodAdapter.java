@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.i0.u0.d.b;
+import d.b.i0.v0.d.b;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.h;
 /* loaded from: classes4.dex */
-public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
+public class GodSquareRecGodAdapter extends d.b.c.j.e.a<h, ViewHolder> {
     public TbPageContext<?> m;
     public b n;
     public b0 o;
@@ -22,11 +22,11 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f16942a;
+        public b f16615a;
 
         public ViewHolder(GodSquareRecGodAdapter godSquareRecGodAdapter, b bVar) {
             super(bVar.m());
-            this.f16942a = bVar;
+            this.f16615a = bVar;
         }
     }
 
@@ -39,17 +39,17 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
-            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62211e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f63786e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             if (view.getId() != GodSquareRecGodAdapter.this.n.m.getId()) {
                 if (view.getId() == GodSquareRecGodAdapter.this.n.m().getId() || view.getId() == GodSquareRecGodAdapter.this.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62211e.getUserId()));
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f63786e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62211e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f63786e.getUserId()));
         }
     }
 
@@ -60,7 +60,7 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public ViewHolder R(ViewGroup viewGroup) {
         b bVar = new b(this.m);
@@ -71,11 +71,11 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         b bVar;
-        if (viewHolder == null || (bVar = viewHolder.f16942a) == null) {
+        if (viewHolder == null || (bVar = viewHolder.f16615a) == null) {
             return null;
         }
         bVar.n(hVar);

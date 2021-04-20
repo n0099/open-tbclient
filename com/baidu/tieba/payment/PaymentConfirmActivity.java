@@ -42,7 +42,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public long mNeedTbean;
     public boolean mPasswordFreeze;
     public PaymentConfirmModel<PaymentConfirmActivity> mPaymentConfirmModel;
-    public d.b.i0.b2.c mPaymentConfirmView;
+    public d.b.i0.c2.c mPaymentConfirmView;
     public String mReferPage;
     public PaymentConfirmRequestData mRequestData;
     public String mUserId;
@@ -71,20 +71,20 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f19437e;
+        public final /* synthetic */ int f19114e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19438f;
+        public final /* synthetic */ String f19115f;
 
         public b(int i, String str) {
-            this.f19437e = i;
-            this.f19438f = str;
+            this.f19114e = i;
+            this.f19115f = str;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            PaymentConfirmActivity.this.goToUEGValidate(this.f19437e, this.f19438f);
+            PaymentConfirmActivity.this.goToUEGValidate(this.f19114e, this.f19115f);
         }
     }
 
@@ -103,16 +103,16 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19441e;
+        public final /* synthetic */ String f19118e;
 
         public d(String str) {
-            this.f19441e = str;
+            this.f19118e = str;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PaymentConfirmActivity.this.getPageContext().getPageActivity(), PaymentConfirmActivity.this.getResources().getString(R.string.payment_dilaog_error_button), this.f19441e, true, true, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PaymentConfirmActivity.this.getPageContext().getPageActivity(), PaymentConfirmActivity.this.getResources().getString(R.string.payment_dilaog_error_button), this.f19118e, true, true, true)));
         }
     }
 
@@ -135,11 +135,11 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            d.b.h0.r.d0.b.i().s(PaymentConfirmActivity.this.generateSharedPkey("payment_confirm_show"), !z);
+            d.b.h0.r.d0.b.j().t(PaymentConfirmActivity.this.generateSharedPkey("payment_confirm_show"), !z);
             if (z) {
                 return;
             }
-            d.b.h0.r.d0.b.i().u(PaymentConfirmActivity.this.generateSharedPkey("payment_confirm_notshow_count"), 0);
+            d.b.h0.r.d0.b.j().v(PaymentConfirmActivity.this.generateSharedPkey("payment_confirm_notshow_count"), 0);
         }
     }
 
@@ -153,10 +153,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (PaymentConfirmActivity.this.mPasswordFreeze) {
                 PaymentConfirmActivity.this.showPasswordInputDialog(0, null);
             } else if (PaymentConfirmActivity.this.scoresEnough) {
-                d.b.i0.b2.d.a("c10292");
+                d.b.i0.c2.d.a("c10292");
                 PaymentConfirmActivity.this.goToPayment();
             } else {
-                d.b.i0.b2.d.a("c10293");
+                d.b.i0.c2.d.a("c10293");
                 PaymentConfirmActivity.this.goToBuyTdouActivity();
             }
         }
@@ -224,7 +224,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (!responsePaymentPayMessage.hasError()) {
                 int error = responsePaymentPayMessage.getError();
                 if (error == 0) {
-                    d.b.i0.b2.d.a("c10294");
+                    d.b.i0.c2.d.a("c10294");
                     PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                     if (payRequestDataData != null && payRequestDataData.getDescribe() != null && payRequestDataData.getDescribe().getWord() != null) {
                         string = payRequestDataData.getDescribe().getWord();
@@ -323,10 +323,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.g)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.d3.h0.g)) {
                 return;
             }
-            PaymentConfirmActivity.this.mNeedTbean -= d.b.b.e.m.b.d(((d.b.i0.c3.h0.g) customResponsedMessage.getData()).a(), 0);
+            PaymentConfirmActivity.this.mNeedTbean -= d.b.c.e.m.b.d(((d.b.i0.d3.h0.g) customResponsedMessage.getData()).a(), 0);
             if (PaymentConfirmActivity.this.mNeedTbean <= 0) {
                 PaymentConfirmActivity.this.scoresEnough = true;
                 PaymentConfirmInfoData.GoodsInfo goods_info = PaymentConfirmActivity.this.paymentConfirmInfoData.getGoods_info();
@@ -352,10 +352,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public class m implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19451e;
+        public final /* synthetic */ String f19128e;
 
         public m(String str) {
-            this.f19451e = str;
+            this.f19128e = str;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -365,7 +365,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (StringUtils.isNull(l)) {
                 return;
             }
-            PaymentConfirmActivity.this.goToPayment(this.f19451e, l, null, null, null, false);
+            PaymentConfirmActivity.this.goToPayment(this.f19128e, l, null, null, null, false);
         }
     }
 
@@ -373,15 +373,15 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public class n implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f19453e;
+        public final /* synthetic */ d.b.h0.r.s.a f19130e;
 
         public n(d.b.h0.r.s.a aVar) {
-            this.f19453e = aVar;
+            this.f19130e = aVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            this.f19453e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
+            this.f19130e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -436,7 +436,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         payRequestData.setOpenId(order_info.getOpen_id());
         payRequestData.setTbs(this.paymentConfirmInfoData.getTbs());
         if (!StringUtils.isNull(str2)) {
-            payRequestData.setPassword(URLEncoder.encode(d.b.i0.b2.e.a.a(str2, str)));
+            payRequestData.setPassword(URLEncoder.encode(d.b.i0.c2.e.a.a(str2, str)));
         }
         if (!StringUtils.isNull(str3)) {
             payRequestData.setCaptchaVcodeStr(str3);
@@ -477,17 +477,17 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 goToBuyTdouActivity();
                 return true;
             }
-            if (cpath.getTip_exist() == 1 && !d.b.h0.r.d0.b.i().g(generateSharedPkey("payment_confirm_show"), true)) {
-                int j2 = d.b.h0.r.d0.b.i().j(generateSharedPkey("payment_confirm_notshow_count"), 0);
-                if (j2 < cpath.getTip_days()) {
-                    d.b.h0.r.d0.b.i().u(generateSharedPkey("payment_confirm_notshow_count"), j2 + 1);
+            if (cpath.getTip_exist() == 1 && !d.b.h0.r.d0.b.j().g(generateSharedPkey("payment_confirm_show"), true)) {
+                int k2 = d.b.h0.r.d0.b.j().k(generateSharedPkey("payment_confirm_notshow_count"), 0);
+                if (k2 < cpath.getTip_days()) {
+                    d.b.h0.r.d0.b.j().v(generateSharedPkey("payment_confirm_notshow_count"), k2 + 1);
                     if (z) {
                         goToPayment();
                         return true;
                     }
                     goToBuyTdouActivity();
                     return true;
-                } else if (j2 != 0) {
+                } else if (k2 != 0) {
                     this.mPaymentConfirmView.m().setChecked(false);
                 }
             }
@@ -511,14 +511,14 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     }
 
     private void initUI() {
-        this.mPaymentConfirmView = new d.b.i0.b2.c(this, this.mBookType == 2);
-        this.mPaymentConfirmView.m().setChecked(!d.b.h0.r.d0.b.i().g(generateSharedPkey("payment_confirm_show"), true));
+        this.mPaymentConfirmView = new d.b.i0.c2.c(this, this.mBookType == 2);
+        this.mPaymentConfirmView.m().setChecked(!d.b.h0.r.d0.b.j().g(generateSharedPkey("payment_confirm_show"), true));
         this.mPaymentConfirmView.m().setOnCheckedChangeListener(new f());
         this.mPaymentConfirmView.r().setOnClickListener(new g());
     }
 
     private void loadPaymentConfirmData() {
-        if (d.b.b.e.p.l.C()) {
+        if (d.b.c.e.p.l.C()) {
             showLoadingView(this.mPaymentConfirmView.k(), false);
             this.mPaymentConfirmModel.v(this.mRequestData);
             return;
@@ -627,7 +627,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         initUI();
         register();
         loadPaymentConfirmData();
-        d.b.i0.b2.d.a("c10291");
+        d.b.i0.c2.d.a("c10291");
     }
 
     /* JADX INFO: Access modifiers changed from: private */

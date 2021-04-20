@@ -1,7 +1,7 @@
 package d.b.h0.r0;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import d.b.b.c.f.j;
+import d.b.c.c.f.j;
 import d.b.h0.z0.p;
 /* loaded from: classes3.dex */
 public class b extends j {
@@ -10,7 +10,7 @@ public class b extends j {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.c.f.g
+    @Override // d.b.c.c.f.g
     /* renamed from: c */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage == null) {

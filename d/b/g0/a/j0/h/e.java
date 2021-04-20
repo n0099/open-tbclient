@@ -10,10 +10,10 @@ import java.util.Set;
 public class e implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f44815b;
+    public Set<String> f45207b;
 
     public e(@Nullable Set<String> set) {
-        this.f44815b = set;
+        this.f45207b = set;
     }
 
     @Override // d.b.g0.a.j0.h.a
@@ -27,14 +27,14 @@ public class e implements a {
             String next = it.next();
             if (!TextUtils.isEmpty(next)) {
                 if (TextUtils.equals(next, "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-                    if (a.f44813a) {
+                    if (a.f45205a) {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
                 } else {
-                    Set<String> set = this.f44815b;
+                    Set<String> set = this.f45207b;
                     if (set != null && set.contains(next)) {
-                        if (a.f44813a) {
+                        if (a.f45205a) {
                             Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                         }
                         it.remove();

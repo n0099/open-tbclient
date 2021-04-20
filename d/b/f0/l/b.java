@@ -10,10 +10,10 @@ import androidx.core.app.NotificationCompat;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43013a = 60000;
+    public static long f43405a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f43014b = f43013a * 60;
+    public static long f43406b = f43405a * 60;
 
     public static void a(Context context, long j) {
         if (j <= 0) {

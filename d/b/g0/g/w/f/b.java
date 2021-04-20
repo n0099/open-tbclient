@@ -11,13 +11,13 @@ import okhttp3.HttpUrl;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48613b = k.f45051a;
+    public static final boolean f49005b = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f48614c;
+    public static volatile b f49006c;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, d.b.g0.g.w.a> f48615a = new HashMap<>();
+    public HashMap<String, d.b.g0.g.w.a> f49007a = new HashMap<>();
 
     public static void a(d.b.g0.g.i.b bVar, String str) {
         if (bVar == null || bVar.a0() == null || TextUtils.isEmpty(str)) {
@@ -27,14 +27,14 @@ public class b {
     }
 
     public static b b() {
-        if (f48614c == null) {
+        if (f49006c == null) {
             synchronized (b.class) {
-                if (f48614c == null) {
-                    f48614c = new b();
+                if (f49006c == null) {
+                    f49006c = new b();
                 }
             }
         }
-        return f48614c;
+        return f49006c;
     }
 
     public final String c(String str, int i) {
@@ -54,23 +54,23 @@ public class b {
         if (TextUtils.isEmpty(c2)) {
             return null;
         }
-        d.b.g0.g.w.a remove = this.f48615a.remove(c2);
+        d.b.g0.g.w.a remove = this.f49007a.remove(c2);
         if (remove != null) {
             a(bVar, "preload used, url = " + B);
         }
-        if (f48613b) {
+        if (f49005b) {
             Log.d("SwanGamePreloadManager", "obtainRequestTask requestType:" + i + ";url:" + B + ";task:" + remove);
         }
         return remove;
     }
 
     public synchronized void e() {
-        this.f48615a.clear();
+        this.f49007a.clear();
     }
 
     public void f(d.b.g0.g.i.b bVar, a.c cVar) {
         d.b.g0.g.z.a.a aVar;
-        if (bVar == null || cVar == null || (aVar = cVar.f48547c) == null || aVar.f48700g == null) {
+        if (bVar == null || cVar == null || (aVar = cVar.f48939c) == null || aVar.f49092g == null) {
             return;
         }
         e();

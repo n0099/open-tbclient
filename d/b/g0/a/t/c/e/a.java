@@ -19,42 +19,42 @@ public class a extends d {
 
     /* renamed from: d.b.g0.a.t.c.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0802a implements Runnable {
+    public class RunnableC0814a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f45985e;
+        public final /* synthetic */ File f46377e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f45986f;
+        public final /* synthetic */ int f46378f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45987g;
+        public final /* synthetic */ String f46379g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f45988h;
+        public final /* synthetic */ e f46380h;
 
-        public RunnableC0802a(File file, int i, String str, e eVar) {
-            this.f45985e = file;
-            this.f45986f = i;
-            this.f45987g = str;
-            this.f45988h = eVar;
+        public RunnableC0814a(File file, int i, String str, e eVar) {
+            this.f46377e = file;
+            this.f46378f = i;
+            this.f46379g = str;
+            this.f46380h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            File c2 = t.c(this.f45985e.getName());
-            if (!t.a(this.f45985e, c2, this.f45986f)) {
+            File c2 = t.c(this.f46377e.getName());
+            if (!t.a(this.f46377e, c2, this.f46378f)) {
                 c.b("Api-Image", "compress image failed");
-                a.this.c(this.f45987g, new b(1001, "compress image failed"));
+                a.this.c(this.f46379g, new b(1001, "compress image failed"));
                 return;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("tempFilePath", d.b.g0.a.a2.b.r(c2.getAbsolutePath(), this.f45988h.f45740f));
+                jSONObject.put("tempFilePath", d.b.g0.a.a2.b.r(c2.getAbsolutePath(), this.f46380h.f46132f));
             } catch (JSONException e2) {
                 c.b("Api-Image", e2.toString());
             }
-            a.this.c(this.f45987g, new b(0, jSONObject));
+            a.this.c(this.f46379g, new b(0, jSONObject));
         }
     }
 
@@ -91,7 +91,7 @@ public class a extends d {
         PathType c2 = d.b.g0.a.a2.b.c(str2);
         String str3 = null;
         if (c2 == PathType.BD_FILE) {
-            str3 = d.b.g0.a.a2.b.u(str2, y.f45740f);
+            str3 = d.b.g0.a.a2.b.u(str2, y.f46132f);
         } else if (c2 == PathType.RELATIVE) {
             str3 = d.b.g0.a.a2.b.t(str2, y, y.W());
         }
@@ -104,7 +104,7 @@ public class a extends d {
             c.b("Api-Image", "file does not exist");
             return new b(2001, "file does not exist");
         }
-        p.k(new RunnableC0802a(file, i2, str, y), "compressImage");
+        p.k(new RunnableC0814a(file, i2, str, y), "compressImage");
         return new b(0);
     }
 }

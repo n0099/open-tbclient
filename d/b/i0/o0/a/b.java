@@ -1,31 +1,56 @@
 package d.b.i0.o0.a;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import java.util.ArrayList;
+import tbclient.BawuRoleInfoPub;
 /* loaded from: classes4.dex */
-public class b extends d.b.b.j.e.a<d.b.i0.o0.c.a, CardViewHolder<d.b.i0.o0.d.b>> {
-    public TbPageContext m;
+public class b implements i {
 
-    public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.m = tbPageContext;
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<BawuRoleInfoPub> f58677a = new ArrayList<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f58678b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f58679c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f58680d;
+
+    @Override // d.b.i0.o0.a.i
+    public int a() {
+        return 1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<d.b.i0.o0.d.b> R(ViewGroup viewGroup) {
-        return new CardViewHolder<>(new d.b.i0.o0.d.b(this.m));
+    public boolean b() {
+        return this.f58679c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
-    /* renamed from: i0 */
-    public View X(int i, View view, ViewGroup viewGroup, d.b.i0.o0.c.a aVar, CardViewHolder<d.b.i0.o0.d.b> cardViewHolder) {
-        cardViewHolder.b().n(aVar);
-        return cardViewHolder.a();
+    public ArrayList<BawuRoleInfoPub> c() {
+        return this.f58677a;
+    }
+
+    public String d() {
+        return this.f58680d;
+    }
+
+    public boolean e() {
+        return this.f58678b;
+    }
+
+    public void f(boolean z) {
+        this.f58679c = z;
+    }
+
+    public void g(boolean z) {
+        this.f58678b = z;
+    }
+
+    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+        this.f58677a = arrayList;
+    }
+
+    public void i(String str) {
+        this.f58680d = str;
     }
 }

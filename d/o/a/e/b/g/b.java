@@ -4,32 +4,32 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f66964a;
+    public final Context f67957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f66965b;
+    public j f67958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f66966c;
+    public k f67959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f66967d;
+    public i f67960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.o.a.e.b.f.i f66968e;
+    public d.o.a.e.b.f.i f67961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.e.b.o.a f66969f;
+    public d.o.a.e.b.o.a f67962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.o.a.e.b.o.j f66970g;
+    public d.o.a.e.b.o.j f67963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.o.h f66971h;
+    public d.o.a.e.b.o.h f67964h;
     public l i;
     public h j;
     public p k;
@@ -51,7 +51,7 @@ public class b {
     public int A = 1056964607;
 
     public b(Context context) {
-        this.f66964a = context;
+        this.f67957a = context;
     }
 
     public p A() {
@@ -59,7 +59,7 @@ public class b {
     }
 
     public d.o.a.e.b.f.i B() {
-        return this.f66968e;
+        return this.f67961e;
     }
 
     public ExecutorService C() {
@@ -71,7 +71,7 @@ public class b {
     }
 
     public b E(d.o.a.e.b.o.a aVar) {
-        this.f66969f = aVar;
+        this.f67962f = aVar;
         return this;
     }
 
@@ -84,7 +84,7 @@ public class b {
     }
 
     public b H(d.o.a.e.b.f.i iVar) {
-        this.f66968e = iVar;
+        this.f67961e = iVar;
         return this;
     }
 
@@ -128,7 +128,7 @@ public class b {
     }
 
     public i h() {
-        return this.f66967d;
+        return this.f67960d;
     }
 
     public ExecutorService i() {
@@ -136,7 +136,7 @@ public class b {
     }
 
     public Context j() {
-        return this.f66964a;
+        return this.f67957a;
     }
 
     public ExecutorService k() {
@@ -144,7 +144,7 @@ public class b {
     }
 
     public j l() {
-        return this.f66965b;
+        return this.f67958b;
     }
 
     public List<d.o.a.e.b.f.p> m() {
@@ -152,7 +152,7 @@ public class b {
     }
 
     public d.o.a.e.b.o.h n() {
-        return this.f66971h;
+        return this.f67964h;
     }
 
     public int o() {
@@ -172,11 +172,11 @@ public class b {
     }
 
     public d.o.a.e.b.o.j s() {
-        return this.f66970g;
+        return this.f67963g;
     }
 
     public d.o.a.e.b.o.a t() {
-        return this.f66969f;
+        return this.f67962f;
     }
 
     public ExecutorService u() {
@@ -184,7 +184,7 @@ public class b {
     }
 
     public k v() {
-        return this.f66966c;
+        return this.f67959c;
     }
 
     public int w() {

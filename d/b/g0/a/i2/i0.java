@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public final class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44696a = d.b.g0.a.k.f45051a;
+    public static final boolean f45088a = d.b.g0.a.k.f45443a;
 
     public static String a(String str, String str2, String str3) {
         StringBuilder sb;
@@ -136,7 +136,7 @@ public final class i0 {
         try {
             str2 = new URL(str).getQuery();
         } catch (MalformedURLException e2) {
-            if (f44696a) {
+            if (f45088a) {
                 e2.printStackTrace();
             }
         }

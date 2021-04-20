@@ -24,24 +24,24 @@ import java.util.Set;
 public final class a implements d.b.g0.a.j0.j.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43900e = k.f45051a;
+    public static final boolean f44292e = k.f45443a;
 
     /* renamed from: d.b.g0.a.e0.h.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0648a extends d.b.g0.a.e0.p.a {
+    public static class C0660a extends d.b.g0.a.e0.p.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Map f43901a;
+        public final /* synthetic */ Map f44293a;
 
-        public C0648a(Map map) {
-            this.f43901a = map;
+        public C0660a(Map map) {
+            this.f44293a = map;
         }
 
         @Override // d.b.g0.a.e0.p.a
-        public void b(@NonNull a.C1020a c1020a) {
-            super.b(c1020a);
-            h(c1020a.f48978b);
-            d.b.g0.a.e0.p.p.a.c(c1020a.f48978b);
+        public void b(@NonNull a.C1032a c1032a) {
+            super.b(c1032a);
+            h(c1032a.f49370b);
+            d.b.g0.a.e0.p.p.a.c(c1032a.f49370b);
         }
 
         @Override // d.b.g0.a.e0.p.a
@@ -56,14 +56,14 @@ public final class a implements d.b.g0.a.j0.j.b {
         }
 
         public final void g() {
-            for (String str : this.f43901a.keySet()) {
+            for (String str : this.f44293a.keySet()) {
                 h(str);
             }
         }
 
         public final void h(@NonNull String str) {
-            if (this.f43901a.containsKey(str)) {
-                Set<String> set = (Set) this.f43901a.get(str);
+            if (this.f44293a.containsKey(str)) {
+                Set<String> set = (Set) this.f44293a.get(str);
                 if (set != null && !set.isEmpty()) {
                     for (String str2 : set) {
                         d.b.g0.a.e0.p.p.a.d(str, str2);
@@ -88,12 +88,12 @@ public final class a implements d.b.g0.a.j0.j.b {
         }
 
         @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-        public void D() {
+        public void C() {
             this.t = this.I;
         }
 
         @Override // d.b.g0.a.e0.p.f
-        public int h0() {
+        public int g0() {
             return this.J;
         }
 
@@ -120,7 +120,7 @@ public final class a implements d.b.g0.a.j0.j.b {
     public static void a(@NonNull List<e.b> list, @Nullable String str) {
         String[] h2;
         if (!c(h.a().getString("predownload_network_switch", "1"))) {
-            if (f43900e) {
+            if (f44292e) {
                 Log.e("SwanPreDownload", "pre download net invalid");
                 return;
             }
@@ -153,7 +153,7 @@ public final class a implements d.b.g0.a.j0.j.b {
             }
         }
         if (arrayList.isEmpty()) {
-            if (f43900e) {
+            if (f44292e) {
                 Log.i("SwanPreDownload", "preDownload list empty");
                 return;
             }
@@ -163,8 +163,8 @@ public final class a implements d.b.g0.a.j0.j.b {
         eVar.e(str);
         eVar.d("1");
         boolean equals = "1".equals(str);
-        d dVar = new d(new C0648a(hashMap));
-        dVar.L(equals ? 6 : 7);
+        d dVar = new d(new C0660a(hashMap));
+        dVar.K(equals ? 6 : 7);
         d.b.g0.l.c.b(eVar, dVar);
     }
 
@@ -198,14 +198,14 @@ public final class a implements d.b.g0.a.j0.j.b {
                 z = false;
             }
         }
-        if (f43900e) {
+        if (f44292e) {
             Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
         }
         return z;
     }
 
     public static void d(boolean z, String str, int i, c cVar, String str2, String str3) {
-        if (f43900e) {
+        if (f44292e) {
             Log.d("SwanPreDownload", "AppId: " + str + ", scene: " + str2);
         }
         if (TextUtils.isEmpty(str)) {

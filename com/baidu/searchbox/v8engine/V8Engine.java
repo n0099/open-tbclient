@@ -19,7 +19,7 @@ import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import d.b.e0.a.e.a;
+import d.b.d0.a.e.a;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

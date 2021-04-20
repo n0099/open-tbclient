@@ -2,7 +2,7 @@ package com.baidu.tieba.pluginCenter;
 
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import d.b.h0.g0.b.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;
     public static final int DOWNLOADED_NOT_FORBIDDEN = 2;

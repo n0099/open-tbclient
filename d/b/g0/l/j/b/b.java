@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class b extends d.b.g0.l.i.c.b<d.b.g0.l.j.a> {
         contentValues.put("size", Long.valueOf(aVar.f()));
         contentValues.put(PackageTable.MD5, aVar.d());
         contentValues.put("sign", aVar.e());
-        contentValues.put("downloadUrl", aVar.c());
+        contentValues.put(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL, aVar.c());
         return contentValues;
     }
 

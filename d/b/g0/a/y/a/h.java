@@ -21,32 +21,32 @@ public class h extends d.b.g0.a.y.a.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y.b.f f46964e;
+        public final /* synthetic */ d.b.g0.a.y.b.f f47356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f46965f;
+        public final /* synthetic */ CanvasView f47357f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46966g;
+        public final /* synthetic */ String f47358g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46967h;
+        public final /* synthetic */ UnitedSchemeEntity f47359h;
         public final /* synthetic */ d.b.g0.a.r1.e i;
         public final /* synthetic */ CallbackHandler j;
 
         public a(h hVar, d.b.g0.a.y.b.f fVar, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, d.b.g0.a.r1.e eVar, CallbackHandler callbackHandler) {
-            this.f46964e = fVar;
-            this.f46965f = canvasView;
-            this.f46966g = str;
-            this.f46967h = unitedSchemeEntity;
+            this.f47356e = fVar;
+            this.f47357f = canvasView;
+            this.f47358g = str;
+            this.f47359h = unitedSchemeEntity;
             this.i = eVar;
             this.j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            boolean i = this.f46964e.i(this.f46965f, this.f46966g);
-            HashMap<String, String> params = this.f46967h.getParams();
+            boolean i = this.f47356e.i(this.f47357f, this.f47358g);
+            HashMap<String, String> params = this.f47359h.getParams();
             if (params == null || params.isEmpty()) {
                 return;
             }
@@ -56,7 +56,7 @@ public class h extends d.b.g0.a.y.a.a {
             if (str != null) {
                 try {
                     str2 = new JSONObject(str).optString("cb");
-                    jSONObject.putOpt("tempFilePath", d.b.g0.a.a2.b.r(this.f46966g, this.i.f45740f));
+                    jSONObject.putOpt("tempFilePath", d.b.g0.a.a2.b.r(this.f47358g, this.i.f46132f));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -82,7 +82,7 @@ public class h extends d.b.g0.a.y.a.a {
             unitedSchemeEntity.result = l(201);
             return false;
         }
-        String h2 = d.b.g0.a.a2.b.h(eVar.f45740f);
+        String h2 = d.b.g0.a.a2.b.h(eVar.f46132f);
         if (TextUtils.isEmpty(h2)) {
             d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
             unitedSchemeEntity.result = l(201);
@@ -95,10 +95,10 @@ public class h extends d.b.g0.a.y.a.a {
             str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
         }
         String str3 = str;
-        if (TextUtils.isEmpty(m.f43114g) && (A = d.b.g0.a.z0.f.V().A()) != null) {
-            m.f43114g = A.X2();
+        if (TextUtils.isEmpty(m.f43506g) && (A = d.b.g0.a.z0.f.V().A()) != null) {
+            m.f43506g = A.X2();
         }
-        if (!TextUtils.isEmpty(m.f43114g) && !TextUtils.isEmpty(m.f43113f)) {
+        if (!TextUtils.isEmpty(m.f43506g) && !TextUtils.isEmpty(m.f43505f)) {
             CanvasView a2 = d.b.g0.a.a0.c.d.b.a.a(m);
             if (a2 == null) {
                 d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
@@ -109,7 +109,7 @@ public class h extends d.b.g0.a.y.a.a {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f43114g + " ; canvas id = " + m.f43113f);
+        d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f43506g + " ; canvas id = " + m.f43505f);
         unitedSchemeEntity.result = l(201);
         return false;
     }

@@ -11,26 +11,26 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements Thread.UncaughtExceptionHandler {
     public static a i;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f65822e;
+    public Thread.UncaughtExceptionHandler f66667e;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f65824g;
+    public b f66669g;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashSet<Thread.UncaughtExceptionHandler> f65823f = new HashSet<>();
+    public HashSet<Thread.UncaughtExceptionHandler> f66668f = new HashSet<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public long f65825h = -1;
+    public long f66670h = -1;
 
     /* renamed from: d.c.d.b.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1801a extends Thread {
-        public C1801a() {
+    /* loaded from: classes5.dex */
+    public class C1829a extends Thread {
+        public C1829a() {
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -59,7 +59,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     public void c(b bVar) {
-        this.f65824g = bVar;
+        this.f66669g = bVar;
     }
 
     public final boolean d(Thread thread, Throwable th) {
@@ -76,7 +76,7 @@ public class a implements Thread.UncaughtExceptionHandler {
 
     public final void e() {
         try {
-            new C1801a().start();
+            new C1829a().start();
         } catch (Throwable unused) {
         }
     }
@@ -97,24 +97,24 @@ public class a implements Thread.UncaughtExceptionHandler {
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         if (defaultUncaughtExceptionHandler != this) {
             Thread.setDefaultUncaughtExceptionHandler(this);
-            if (this.f65822e == null) {
-                this.f65822e = defaultUncaughtExceptionHandler;
+            if (this.f66667e == null) {
+                this.f66667e = defaultUncaughtExceptionHandler;
             } else {
-                this.f65823f.add(defaultUncaughtExceptionHandler);
+                this.f66668f.add(defaultUncaughtExceptionHandler);
             }
         }
     }
 
     public final void h(Thread thread, Throwable th) {
         try {
-            Iterator<Thread.UncaughtExceptionHandler> it = this.f65823f.iterator();
+            Iterator<Thread.UncaughtExceptionHandler> it = this.f66668f.iterator();
             while (it.hasNext()) {
                 try {
                     it.next().uncaughtException(thread, th);
                 } catch (Throwable unused) {
                 }
             }
-            this.f65822e.uncaughtException(thread, th);
+            this.f66667e.uncaughtException(thread, th);
         } catch (Throwable unused2) {
         }
     }
@@ -122,12 +122,12 @@ public class a implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         boolean d2;
-        if (SystemClock.uptimeMillis() - this.f65825h < 20000) {
+        if (SystemClock.uptimeMillis() - this.f66670h < 20000) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.f65825h = SystemClock.uptimeMillis();
+            this.f66670h = SystemClock.uptimeMillis();
             d2 = d(thread, th);
         } finally {
             try {
@@ -137,8 +137,8 @@ public class a implements Thread.UncaughtExceptionHandler {
         if (d2) {
             com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
             f(thread, th);
-            if (d2 && this.f65824g != null && this.f65824g.a(th)) {
-                this.f65824g.a(currentTimeMillis, thread, th);
+            if (d2 && this.f66669g != null && this.f66669g.a(th)) {
+                this.f66669g.a(currentTimeMillis, thread, th);
                 Log.i("crash_dispatcher", "end dispose " + th);
             }
         }

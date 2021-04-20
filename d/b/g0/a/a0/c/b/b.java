@@ -27,7 +27,7 @@ public class b extends d.b.g0.a.t1.k.b {
 
     @Override // d.b.g0.a.t1.k.b
     public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("Component-Action-Button", "insert");
         }
         c q = q(unitedSchemeEntity);
@@ -41,14 +41,14 @@ public class b extends d.b.g0.a.t1.k.b {
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f43117b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f43509b);
         }
         return a2;
     }
 
     @Override // d.b.g0.a.t1.k.b
     public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("Component-Action-Button", "remove");
         }
         c q = q(unitedSchemeEntity);
@@ -59,7 +59,7 @@ public class b extends d.b.g0.a.t1.k.b {
         }
         a aVar = (a) d.b.g0.a.a0.d.a.a(q);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + q.f43113f;
+            String str2 = "can't find button component:#" + q.f43505f;
             d.b.g0.a.c0.c.b("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -69,14 +69,14 @@ public class b extends d.b.g0.a.t1.k.b {
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f43117b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f43509b);
         }
         return a2;
     }
 
     @Override // d.b.g0.a.t1.k.b
     public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("Component-Action-Button", IMTrack.DbBuilder.ACTION_UPDATE);
         }
         c q = q(unitedSchemeEntity);
@@ -87,7 +87,7 @@ public class b extends d.b.g0.a.t1.k.b {
         }
         a aVar = (a) d.b.g0.a.a0.d.a.a(q);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + q.f43113f;
+            String str2 = "can't find button component:#" + q.f43505f;
             d.b.g0.a.c0.c.b("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -97,7 +97,7 @@ public class b extends d.b.g0.a.t1.k.b {
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f43117b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f43509b);
         }
         return a2;
     }

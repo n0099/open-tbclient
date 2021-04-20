@@ -5,9 +5,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.UrlManager;
-import d.b.b.e.m.e;
-import d.b.b.e.p.l;
-import d.b.i0.r2.j;
+import d.b.c.e.m.e;
+import d.b.i0.s2.l;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -16,98 +15,98 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public final class a implements j {
+public final class a implements l {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f57160d = Pattern.compile(UrlManager.patternText, 2);
+    public static final Pattern f58596d = Pattern.compile(UrlManager.patternText, 2);
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f57161e = new a();
+    public static a f58597e = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<j.a> f57162a = new LinkedList();
+    public final List<l.a> f58598a = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, j.b> f57163b = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, l.b> f58599b = new ConcurrentHashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public j.c f57164c = null;
+    public l.c f58600c = null;
 
     /* renamed from: d.b.i0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1361a implements Runnable {
+    public class RunnableC1408a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a f57165e;
+        public final /* synthetic */ l.a f58601e;
 
-        public RunnableC1361a(j.a aVar) {
-            this.f57165e = aVar;
+        public RunnableC1408a(l.a aVar) {
+            this.f58601e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f(this.f57165e);
+            a.this.f(this.f58601e);
         }
     }
 
     public static a l() {
-        return f57161e;
+        return f58597e;
     }
 
-    @Override // d.b.i0.r2.j
+    @Override // d.b.i0.s2.l
     public boolean a(String str) {
-        return f57160d.matcher(str).find();
+        return f58596d.matcher(str).find();
     }
 
-    @Override // d.b.i0.r2.j
+    @Override // d.b.i0.s2.l
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         h(context, strArr, false, null, z, bundle);
     }
 
-    @Override // d.b.i0.r2.j
+    @Override // d.b.i0.s2.l
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         return h(context, strArr, false, null, false, bundle);
     }
 
-    public void e(j.a aVar) {
-        if (l.B()) {
+    public void e(l.a aVar) {
+        if (d.b.c.e.p.l.B()) {
             f(aVar);
         } else {
-            e.a().post(new RunnableC1361a(aVar));
+            e.a().post(new RunnableC1408a(aVar));
         }
     }
 
-    public final void f(j.a aVar) {
-        if (this.f57162a.contains(aVar)) {
+    public final void f(l.a aVar) {
+        if (this.f58598a.contains(aVar)) {
             return;
         }
-        this.f57162a.add(aVar);
+        this.f58598a.add(aVar);
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, j.d dVar, boolean z2, Bundle bundle) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
         boolean z3;
         if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
             return false;
         }
         String str2 = strArr[0];
-        j.b bVar = this.f57163b.get(m(str2));
+        l.b bVar = this.f58599b.get(m(str2));
         if (bVar != null) {
             bVar.a(context, j(k(str2)));
             return true;
         }
-        Iterator<j.a> it = this.f57162a.iterator();
+        Iterator<l.a> it = this.f58598a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
                 break;
             }
-            j.a next = it.next();
+            l.a next = it.next();
             if (next != null && next.a(context, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.f57164c != null) {
+        if (!z3 && this.f58600c != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 return true;
             }
@@ -116,14 +115,14 @@ public final class a implements j {
         return z3;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, j.d dVar, boolean z2, Bundle bundle) {
+    public boolean h(Context context, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
         return g(context, "", strArr, z, dVar, z2, bundle);
     }
 
     public int i(Context context, String[] strArr) {
         int a2;
         if (strArr != null && strArr.length != 0) {
-            for (j.a aVar : this.f57162a) {
+            for (l.a aVar : this.f58598a) {
                 if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                     return a2;
                 }
@@ -166,13 +165,13 @@ public final class a implements j {
         return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, j.d dVar, boolean z2, Bundle bundle) {
-        if (f57160d.matcher(str2).find()) {
-            this.f57164c.a(context, str, str2, z, dVar, z2, bundle);
+    public final void n(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
+        if (f58596d.matcher(str2).find()) {
+            this.f58600c.a(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
-    public void o(j.c cVar) {
-        this.f57164c = cVar;
+    public void o(l.c cVar) {
+        this.f58600c = cVar;
     }
 }

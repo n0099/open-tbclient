@@ -1,5 +1,6 @@
 package com.ksad.lottie.network;
 
+import com.baidu.mobads.container.util.XAdSimpleImageLoader;
 import com.ksad.lottie.c;
 /* loaded from: classes6.dex */
 public enum FileExtension {
@@ -24,7 +25,7 @@ public enum FileExtension {
     }
 
     public String tempExtension() {
-        return ".temp" + this.extension;
+        return XAdSimpleImageLoader.TEMP_SUFFIX + this.extension;
     }
 
     @Override // java.lang.Enum

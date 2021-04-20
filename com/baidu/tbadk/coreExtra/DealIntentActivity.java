@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import d.b.b.a.a;
+import d.b.c.a.a;
 /* loaded from: classes3.dex */
 public class DealIntentActivity extends Activity {
     @Override // android.app.Activity, android.view.Window.Callback

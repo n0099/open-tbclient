@@ -7,9 +7,9 @@ public enum y {
     
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f7685d;
+    public final int f7720d;
 
     y(int i) {
-        this.f7685d = i;
+        this.f7720d = i;
     }
 }

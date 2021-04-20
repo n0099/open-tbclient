@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.core.b;
 import com.bytedance.sdk.openadsdk.core.d.d;
@@ -23,11 +23,11 @@ import com.tencent.connect.common.Constants;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29408a;
+    public static volatile a f29093a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean o(c cVar) {
@@ -163,14 +163,14 @@ public class a {
     }
 
     public static a a() {
-        if (f29408a == null) {
+        if (f29093a == null) {
             synchronized (a.class) {
-                if (f29408a == null) {
-                    f29408a = new a();
+                if (f29093a == null) {
+                    f29093a = new a();
                 }
             }
         }
-        return f29408a;
+        return f29093a;
     }
 
     public void b() {
@@ -243,15 +243,15 @@ public class a {
             jSONObject3.put("log_extra", lVar.ap());
             jSONObject3.put(PmsConstant.Statistic.STATISTIC_NETWORK, x.c(p.a()));
             jSONObject3.put("timestamp", System.currentTimeMillis() / 1000);
-            jSONObject3.put(IXAdRequestInfo.CELL_ID, lVar.am());
+            jSONObject3.put(IAdRequestParam.CELL_ID, lVar.am());
             jSONObject3.put(Constants.PARAM_PLATFORM, "Android");
             jSONObject3.put("app", i.d().i());
             jSONObject3.put(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, k.a(p.a()));
             com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
             JSONObject jSONObject4 = new JSONObject();
             if (a2 != null) {
-                jSONObject4.put("longitude", a2.f30398b);
-                jSONObject4.put("latitude", a2.f30397a);
+                jSONObject4.put("longitude", a2.f30083b);
+                jSONObject4.put("latitude", a2.f30082a);
             }
             jSONObject3.put("location", jSONObject4);
             JSONArray jSONArray = new JSONArray();

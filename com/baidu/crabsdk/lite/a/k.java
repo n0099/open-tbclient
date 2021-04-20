@@ -12,26 +12,26 @@ import java.io.IOException;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4733a;
+    public static Context f4768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4734b;
+    public static ActivityManager f4769b;
 
     public static void a(Context context) {
-        if (f4733a == null) {
-            f4733a = context;
-            f4734b = (ActivityManager) context.getSystemService("activity");
+        if (f4768a == null) {
+            f4768a = context;
+            f4769b = (ActivityManager) context.getSystemService("activity");
         }
     }
 
     public static String b() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (f4734b == null) {
+        if (f4769b == null) {
             return sb.toString();
         }
         ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-        f4734b.getMemoryInfo(memoryInfo2);
+        f4769b.getMemoryInfo(memoryInfo2);
         sb.append("isLowMem: ");
         sb.append(memoryInfo2.lowMemory ? "yes" : "no");
         sb.append("\navailMem: ");
@@ -39,7 +39,7 @@ public final class k {
         sb.append("\nthreshold: ");
         sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.threshold));
         sb.append("\n");
-        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4734b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4769b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
             sb.append("totalPrivateDirty: ");
             sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPrivateDirty() * 1024));
             sb.append("\ntotalPss: ");

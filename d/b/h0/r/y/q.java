@@ -26,22 +26,22 @@ public class q extends l implements i {
     public static final int[] m = {501, 502, 503};
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f51108c;
+    public final f f51518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.h0.r.y.c f51109d;
+    public final d.b.h0.r.y.c f51519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f51110e;
+    public final d f51520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, h> f51111f;
+    public final HashMap<String, h> f51521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, m> f51112g;
+    public final HashMap<String, m> f51522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51113h;
+    public String f51523h;
     public int i;
     public int j;
 
@@ -49,10 +49,10 @@ public class q extends l implements i {
     public class a implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f51114a;
+        public final /* synthetic */ int f51524a;
 
         public a(int i) {
-            this.f51114a = i;
+            this.f51524a = i;
         }
 
         @Override // d.b.h0.r.y.k
@@ -60,22 +60,22 @@ public class q extends l implements i {
             if (i != 1) {
                 return;
             }
-            if (this.f51114a < q.m.length) {
+            if (this.f51524a < q.m.length) {
                 q.this.v();
             }
-            int i2 = this.f51114a;
+            int i2 = this.f51524a;
             if (i2 >= 0 && i2 < q.m.length) {
-                q.this.y(String.valueOf(q.m[this.f51114a]), "");
+                q.this.y(String.valueOf(q.m[this.f51524a]), "");
                 return;
             }
-            BdLog.e("pingIndex " + this.f51114a + " out of bounds.");
+            BdLog.e("pingIndex " + this.f51524a + " out of bounds.");
             String t = q.this.t();
-            e.b(t, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.f51114a);
+            e.b(t, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.f51524a);
         }
 
         @Override // d.b.h0.r.y.k
         public void b(m mVar, JSONObject jSONObject) {
-            q.this.u(mVar, this.f51114a);
+            q.this.u(mVar, this.f51524a);
         }
     }
 
@@ -103,27 +103,27 @@ public class q extends l implements i {
     public static final class c implements h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final l f51116a;
+        public final l f51526a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f51117b;
+        public final String f51527b;
 
         public c(l lVar, String str) {
-            this.f51116a = lVar;
-            this.f51117b = str;
+            this.f51526a = lVar;
+            this.f51527b = str;
         }
 
         @Override // d.b.h0.r.y.h
         public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
             if (TextUtils.isEmpty(optString)) {
-                e.a("scope " + this.f51117b + " not found!");
+                e.a("scope " + this.f51527b + " not found!");
                 return;
             }
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
-            hashMap.put("errMsg", "cmd " + this.f51117b + " not found");
-            this.f51116a.c(m.k(optString, hashMap));
+            hashMap.put("errMsg", "cmd " + this.f51527b + " not found");
+            this.f51526a.c(m.k(optString, hashMap));
         }
     }
 
@@ -131,15 +131,15 @@ public class q extends l implements i {
     public static final class d extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<i> f51118a;
+        public final WeakReference<i> f51528a;
 
         public d(i iVar) {
-            this.f51118a = new WeakReference<>(iVar);
+            this.f51528a = new WeakReference<>(iVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            i iVar = this.f51118a.get();
+            i iVar = this.f51528a.get();
             if (iVar == null) {
                 e.a("TimeHandler got null bridge reference.");
                 return;
@@ -164,8 +164,8 @@ public class q extends l implements i {
             return new b(webView, null);
         }
         q qVar = new q(webView, bVar);
-        qVar.f51108c.b(webViewClient);
-        qVar.f51109d.d(webChromeClient);
+        qVar.f51518c.b(webViewClient);
+        qVar.f51519d.d(webChromeClient);
         return qVar;
     }
 
@@ -176,8 +176,8 @@ public class q extends l implements i {
         WebViewClient webViewClient = bridgeWebView.webViewClient;
         WebChromeClient webChromeClient = bridgeWebView.chromeClient;
         q qVar = new q(bridgeWebView, bVar);
-        qVar.f51108c.b(webViewClient);
-        qVar.f51109d.d(webChromeClient);
+        qVar.f51518c.b(webViewClient);
+        qVar.f51519d.d(webChromeClient);
         return qVar;
     }
 
@@ -187,9 +187,9 @@ public class q extends l implements i {
             e.a("invalid callbackId.");
             return;
         }
-        m remove = this.f51112g.remove(str);
+        m remove = this.f51522g.remove(str);
         if (remove != null) {
-            e.a("(" + remove.f51100a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.f51101b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+            e.a("(" + remove.f51510a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.f51511b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
             remove.g(1, null);
         }
     }
@@ -209,12 +209,12 @@ public class q extends l implements i {
 
     @Override // d.b.h0.r.y.l
     public void c(m mVar) {
-        m(mVar, mVar.f51104e == 3);
+        m(mVar, mVar.f51514e == 3);
     }
 
     @Override // d.b.h0.r.y.l
     public void e(String str, d.b.h0.r.y.d dVar) {
-        if (this.f51111f.put(str, dVar) == null) {
+        if (this.f51521f.put(str, dVar) == null) {
             return;
         }
         throw new IllegalArgumentException("handler " + str + " exists.");
@@ -235,33 +235,33 @@ public class q extends l implements i {
         if (!z) {
             if (this.i != 0) {
                 String t = t();
-                e.b(t, "101", "(" + mVar.f51100a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f51101b + ") is called before bridge ready");
+                e.b(t, "101", "(" + mVar.f51510a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f51511b + ") is called before bridge ready");
             }
-            if (TextUtils.isEmpty(mVar.f51100a) || TextUtils.isEmpty(mVar.f51101b)) {
+            if (TextUtils.isEmpty(mVar.f51510a) || TextUtils.isEmpty(mVar.f51511b)) {
                 e.b(t(), TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, "the alias class or method is empty");
                 mVar.g(3, new IllegalArgumentException("cmd or method is illegal."));
                 return;
             }
         }
-        if (!TextUtils.isEmpty(mVar.f51105f)) {
-            if (mVar.f51104e != 3) {
-                this.f51112g.put(mVar.f51105f, mVar);
-                if (mVar.f51106g > 0) {
-                    d dVar = this.f51110e;
-                    dVar.sendMessageDelayed(Message.obtain(dVar, 2, mVar.f51105f), mVar.f51106g);
-                } else if (mVar.f51100a != null || mVar.f51101b != null) {
-                    e.a("ignore timeout check for method call (" + mVar.f51100a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f51101b + ").");
+        if (!TextUtils.isEmpty(mVar.f51515f)) {
+            if (mVar.f51514e != 3) {
+                this.f51522g.put(mVar.f51515f, mVar);
+                if (mVar.f51516g > 0) {
+                    d dVar = this.f51520e;
+                    dVar.sendMessageDelayed(Message.obtain(dVar, 2, mVar.f51515f), mVar.f51516g);
+                } else if (mVar.f51510a != null || mVar.f51511b != null) {
+                    e.a("ignore timeout check for method call (" + mVar.f51510a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f51511b + ").");
                 }
             } else {
-                e.a("ignore timeout check for response method, callbackId " + mVar.f51105f);
+                e.a("ignore timeout check for response method, callbackId " + mVar.f51515f);
             }
         }
         try {
             String b2 = mVar.b();
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f51098a.evaluateJavascript(b2, null);
+                this.f51508a.evaluateJavascript(b2, null);
             } else {
-                this.f51098a.loadUrl(b2);
+                this.f51508a.loadUrl(b2);
             }
             e.a(b2);
         } catch (NullPointerException e2) {
@@ -307,12 +307,12 @@ public class q extends l implements i {
         }
         if (p.b(str) && p.a(str)) {
             e.a("current status " + this.i + ", constructing bridge for " + str);
-            d.b.h0.r.y.b bVar = this.f51099b;
+            d.b.h0.r.y.b bVar = this.f51509b;
             if (bVar != null) {
                 bVar.b();
             }
-            s(this.f51098a);
-            d.b.h0.r.y.b bVar2 = this.f51099b;
+            s(this.f51508a);
+            d.b.h0.r.y.b bVar2 = this.f51509b;
             if (bVar2 != null) {
                 bVar2.a();
             }
@@ -322,10 +322,10 @@ public class q extends l implements i {
     @SuppressLint({"SetJavaScriptEnabled"})
     public final void r() {
         if (this.i == -1) {
-            this.f51098a.getSettings().setJavaScriptEnabled(true);
-            this.f51098a.setWebViewClient(this.f51108c);
-            this.f51098a.setWebChromeClient(this.f51109d);
-            this.f51098a.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f51508a.getSettings().setJavaScriptEnabled(true);
+            this.f51508a.setWebViewClient(this.f51518c);
+            this.f51508a.setWebChromeClient(this.f51519d);
+            this.f51508a.removeJavascriptInterface("searchBoxJavaBridge_");
             this.i = 1;
             return;
         }
@@ -333,7 +333,7 @@ public class q extends l implements i {
     }
 
     public final void s(WebView webView) {
-        this.f51113h = String.valueOf(System.currentTimeMillis());
+        this.f51523h = String.valueOf(System.currentTimeMillis());
         try {
             InputStream open = webView.getContext().getAssets().open("bridge.dist.min.js");
             byte[] bArr = new byte[open.available()];
@@ -342,7 +342,7 @@ public class q extends l implements i {
             StringBuilder l2 = l();
             l2.append(new String(bArr));
             webView.loadUrl("javascript:" + l2.toString());
-            this.f51110e.sendEmptyMessageDelayed(1, 0L);
+            this.f51520e.sendEmptyMessageDelayed(1, 0L);
         } catch (Throwable th) {
             y(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, th.getMessage());
             e.a(th.toString());
@@ -350,7 +350,7 @@ public class q extends l implements i {
     }
 
     public final String t() {
-        return this.f51113h;
+        return this.f51523h;
     }
 
     public final void u(m mVar, int i) {
@@ -359,7 +359,7 @@ public class q extends l implements i {
         if (i >= 0) {
             int[] iArr = l;
             if (i < iArr.length) {
-                y(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - mVar.f51107h));
+                y(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - mVar.f51517h));
                 return;
             }
         }
@@ -368,7 +368,7 @@ public class q extends l implements i {
 
     public final void v() {
         e.a("reInject for pingIndex " + this.j);
-        s(this.f51098a);
+        s(this.f51508a);
     }
 
     public final void w(String str, JSONObject jSONObject) {
@@ -376,8 +376,8 @@ public class q extends l implements i {
             e.a("invalid callbackId.");
             return;
         }
-        this.f51110e.removeMessages(2, str);
-        m remove = this.f51112g.remove(str);
+        this.f51520e.removeMessages(2, str);
+        m remove = this.f51522g.remove(str);
         if (remove != null) {
             remove.h(jSONObject);
         }
@@ -387,7 +387,7 @@ public class q extends l implements i {
         if (this.i != 0) {
             e.b(t(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
         }
-        h hVar = this.f51111f.get(str);
+        h hVar = this.f51521f.get(str);
         if (hVar == null) {
             hVar = new c(this, str);
             String t = t();
@@ -402,16 +402,16 @@ public class q extends l implements i {
 
     public q(WebView webView, f fVar, d.b.h0.r.y.c cVar, d.b.h0.r.y.b bVar) {
         super(webView, bVar);
-        this.f51113h = String.valueOf(System.currentTimeMillis());
+        this.f51523h = String.valueOf(System.currentTimeMillis());
         this.i = -1;
         this.j = -1;
-        this.f51108c = fVar;
-        this.f51109d = cVar;
+        this.f51518c = fVar;
+        this.f51519d = cVar;
         cVar.c(this);
-        this.f51108c.a(this);
-        this.f51110e = new d(this);
-        this.f51111f = new HashMap<>(16);
-        this.f51112g = new HashMap<>(8);
+        this.f51518c.a(this);
+        this.f51520e = new d(this);
+        this.f51521f = new HashMap<>(16);
+        this.f51522g = new HashMap<>(8);
         r();
     }
 }

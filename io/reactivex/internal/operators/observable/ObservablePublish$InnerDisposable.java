@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.x.e.c.g;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.e.c.g;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservablePublish$InnerDisposable<T> extends AtomicReference<Object> implements b {
@@ -13,7 +13,7 @@ public final class ObservablePublish$InnerDisposable<T> extends AtomicReference<
         this.child = oVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         Object andSet = getAndSet(this);
         if (andSet == null || andSet == this) {
@@ -22,7 +22,7 @@ public final class ObservablePublish$InnerDisposable<T> extends AtomicReference<
         ((g) andSet).a(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == this;
     }

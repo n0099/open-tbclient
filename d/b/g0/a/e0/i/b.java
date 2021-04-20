@@ -2,7 +2,6 @@ package d.b.g0.a.e0.i;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.webkit.sdk.WebSettings;
 import d.b.g0.a.e0.i.a;
 import d.b.g0.a.k;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43914a = k.f45051a;
+    public static final boolean f44306a = k.f45443a;
 
     @NonNull
     public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
@@ -22,13 +21,13 @@ public final class b {
         arrayList.add(str2);
         if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
             codeCacheSetting.maxCount = 5;
-            codeCacheSetting.sizeLimit = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
+            codeCacheSetting.sizeLimit = 102400;
         } else {
-            a.C0649a b2 = a.b.b();
-            codeCacheSetting.maxCount = b2.f43907a;
-            codeCacheSetting.sizeLimit = b2.f43908b;
+            a.C0661a b2 = a.b.b();
+            codeCacheSetting.maxCount = b2.f44299a;
+            codeCacheSetting.sizeLimit = b2.f44300b;
         }
-        if (f43914a) {
+        if (f44306a) {
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);

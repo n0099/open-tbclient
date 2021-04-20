@@ -18,52 +18,52 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17297e;
+    public TextView f16974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17298f;
+    public ImageView f16975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f17299g;
+    public c f16976g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f17300h;
+    public b f16977h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageYoungsterTopView.this.f17300h != null) {
-                HomePageYoungsterTopView.this.f17300h.a();
+            if (HomePageYoungsterTopView.this.f16977h != null) {
+                HomePageYoungsterTopView.this.f16977h.a();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f17302e;
+        public WeakReference<Context> f16979e;
 
         public c(Context context) {
-            this.f17302e = new WeakReference<>(context);
+            this.f16979e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.f17302e.get();
+            Context context = this.f16979e.get();
             if (context == null || !d.b.h0.c1.b.c.d()) {
                 return;
             }
@@ -86,26 +86,26 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     public final void b() {
         RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.f17297e = (TextView) findViewById(R.id.youngster_top_text);
-        this.f17298f = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.f16974e = (TextView) findViewById(R.id.youngster_top_text);
+        this.f16975f = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
         c cVar = new c(getContext());
-        this.f17299g = cVar;
+        this.f16976g = cVar;
         spannableString.setSpan(cVar, 9, 13, 33);
-        this.f17297e.setText(spannableString);
-        this.f17297e.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f17298f.setOnClickListener(new a());
+        this.f16974e.setText(spannableString);
+        this.f16974e.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f16975f.setOnClickListener(new a());
         c();
     }
 
     public void c() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-        SkinManager.setViewTextColor(this.f17297e, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.f17298f, R.drawable.icon_home_card_delete);
+        SkinManager.setViewTextColor(this.f16974e, R.color.CAM_X0107);
+        SkinManager.setImageResource(this.f16975f, R.drawable.icon_home_card_delete);
     }
 
     public void setOnDeleteClick(b bVar) {
-        this.f17300h = bVar;
+        this.f16977h = bVar;
     }
 
     public HomePageYoungsterTopView(Context context) {

@@ -1,7 +1,7 @@
 package io.reactivex.internal.schedulers;
 
-import f.a.t.b;
-import f.a.x.a.a;
+import f.b.t.b;
+import f.b.x.a.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReferenceArray;
@@ -29,7 +29,7 @@ public final class ScheduledRunnable extends AtomicReferenceArray<Object> implem
         return null;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         Object obj;
         Object obj2;
@@ -54,7 +54,7 @@ public final class ScheduledRunnable extends AtomicReferenceArray<Object> implem
         ((a) obj).c(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         Object obj = get(0);
         return obj == PARENT_DISPOSED || obj == DONE;

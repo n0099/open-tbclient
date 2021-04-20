@@ -8,10 +8,10 @@ import java.util.Map;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ InnerPanoramaView f9484a;
+    public final /* synthetic */ InnerPanoramaView f9042a;
 
     public c(InnerPanoramaView innerPanoramaView) {
-        this.f9484a = innerPanoramaView;
+        this.f9042a = innerPanoramaView;
     }
 
     @Override // android.os.Handler
@@ -21,7 +21,7 @@ public class c extends Handler {
             return;
         }
         String str = (String) message.obj;
-        hashMap = this.f9484a.f9478d;
+        hashMap = this.f9042a.f9036d;
         for (Map.Entry entry : hashMap.entrySet()) {
             if (str.equals(entry.getKey()) && ((com.baidu.pano.platform.comapi.a.a) entry.getValue()).mListener != null) {
                 ((com.baidu.pano.platform.comapi.a.a) entry.getValue()).mListener.onTab();

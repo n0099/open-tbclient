@@ -129,7 +129,7 @@ public class EmotionIntefaceStatic {
     }
 
     static {
-        d.b.b.e.l.d.h().o(20, new d.b.i0.h0.a.a());
+        d.b.c.e.l.d.h().o(20, new d.b.i0.h0.a.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");

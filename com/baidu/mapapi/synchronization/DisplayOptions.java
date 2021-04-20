@@ -9,7 +9,7 @@ import java.util.List;
 public final class DisplayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7341a = "DisplayOptions";
+    public static final String f7376a = "DisplayOptions";
     public View A;
     public View B;
     public View C;
@@ -17,7 +17,7 @@ public final class DisplayOptions {
     public boolean l;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7345e = 6;
+    public int f7380e = 6;
     public int i = 7;
     public int m = 8;
     public int q = 10;
@@ -37,22 +37,22 @@ public final class DisplayOptions {
     public int P = 50;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f7342b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    public BitmapDescriptor f7377b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7343c = true;
+    public boolean f7378c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7344d = true;
+    public boolean f7379d = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public BitmapDescriptor f7346f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+    public BitmapDescriptor f7381f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7347g = true;
+    public boolean f7382g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f7348h = true;
+    public boolean f7383h = true;
     public BitmapDescriptor j = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
     public BitmapDescriptor n = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Passenger.png");
     public boolean o = true;
@@ -90,7 +90,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f7346f;
+        return this.f7381f;
     }
 
     public View getEndPositionInfoWindowView() {
@@ -138,7 +138,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f7342b;
+        return this.f7377b;
     }
 
     public View getStartPositionInfoWindowView() {
@@ -150,7 +150,7 @@ public final class DisplayOptions {
     }
 
     public int getStartPositionMarkerZIndex() {
-        return this.f7345e;
+        return this.f7380e;
     }
 
     public List<BitmapDescriptor> getTrafficTextureList() {
@@ -180,11 +180,11 @@ public final class DisplayOptions {
     }
 
     public boolean isShowEndPositionMarker() {
-        return this.f7347g;
+        return this.f7382g;
     }
 
     public boolean isShowEndPositionMarkerInSpan() {
-        return this.f7348h;
+        return this.f7383h;
     }
 
     public boolean isShowPassengerIcon() {
@@ -208,11 +208,11 @@ public final class DisplayOptions {
     }
 
     public boolean isShowStartPositionMarker() {
-        return this.f7343c;
+        return this.f7378c;
     }
 
     public boolean isShowStartPositionMarkerInSpan() {
-        return this.f7344d;
+        return this.f7379d;
     }
 
     public DisplayOptions setCarIcon(BitmapDescriptor bitmapDescriptor) {
@@ -254,7 +254,7 @@ public final class DisplayOptions {
 
     public DisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor != null) {
-            this.f7346f = bitmapDescriptor;
+            this.f7381f = bitmapDescriptor;
             return this;
         }
         throw new IllegalArgumentException("EndPositionIcon descriptor is null");
@@ -283,7 +283,7 @@ public final class DisplayOptions {
 
     public DisplayOptions setMapViewPadding(int i, int i2, int i3, int i4) {
         if (i < 0 || i3 < 0 || i2 < 0 || i4 < 0) {
-            String str = f7341a;
+            String str = f7376a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Padding param is invalid. paddingLeft = " + i + "; paddingRight = " + i3 + "; paddingTop = " + i2 + "; paddingBottom = " + i4);
         }
         if (i < 0) {
@@ -368,7 +368,7 @@ public final class DisplayOptions {
 
     public DisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor != null) {
-            this.f7342b = bitmapDescriptor;
+            this.f7377b = bitmapDescriptor;
             return this;
         }
         throw new IllegalArgumentException("StartPositionIcon descriptor is null");
@@ -391,7 +391,7 @@ public final class DisplayOptions {
         if (i <= 1) {
             i = 2;
         }
-        this.f7345e = i;
+        this.f7380e = i;
         return this;
     }
 
@@ -424,12 +424,12 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions showEndPositionIcon(boolean z) {
-        this.f7347g = z;
+        this.f7382g = z;
         return this;
     }
 
     public DisplayOptions showEndPositionIconInSpan(boolean z) {
-        this.f7348h = z;
+        this.f7383h = z;
         return this;
     }
 
@@ -464,12 +464,12 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions showStartPositionIcon(boolean z) {
-        this.f7343c = z;
+        this.f7378c = z;
         return this;
     }
 
     public DisplayOptions showStartPositionIconInSpan(boolean z) {
-        this.f7344d = z;
+        this.f7379d = z;
         return this;
     }
 

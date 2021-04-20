@@ -13,36 +13,36 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39298c;
+    public static String f39587c;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39299a;
+    public String f39588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f39300b;
+    public c f39589b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39301d;
+    public long f39590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f39302e;
+    public Handler f39591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f39303f = new Runnable() { // from class: com.tencent.open.utils.b.2
+    public Runnable f39592f = new Runnable() { // from class: com.tencent.open.utils.b.2
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
             com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:");
-            String str = "share_qq_" + j.f(b.this.f39299a) + ".jpg";
-            String str2 = b.f39298c + str;
+            String str = "share_qq_" + j.f(b.this.f39588a) + ".jpg";
+            String str2 = b.f39587c + str;
             File file = new File(str2);
-            Message obtainMessage = b.this.f39302e.obtainMessage();
+            Message obtainMessage = b.this.f39591e.obtainMessage();
             if (!file.exists()) {
-                Bitmap a2 = b.a(b.this.f39299a);
+                Bitmap a2 = b.a(b.this.f39588a);
                 if (a2 != null) {
                     z = b.this.a(a2, str);
                 } else {
@@ -55,25 +55,25 @@ public class b {
                 } else {
                     obtainMessage.arg1 = 1;
                 }
-                com.tencent.open.a.f.a("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - b.this.f39301d));
+                com.tencent.open.a.f.a("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - b.this.f39590d));
             } else {
                 obtainMessage.arg1 = 0;
                 obtainMessage.obj = str2;
-                com.tencent.open.a.f.a("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - b.this.f39301d));
+                com.tencent.open.a.f.a("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - b.this.f39590d));
             }
-            b.this.f39302e.sendMessage(obtainMessage);
+            b.this.f39591e.sendMessage(obtainMessage);
         }
     };
 
     public b(Activity activity) {
-        this.f39302e = new Handler(activity.getMainLooper()) { // from class: com.tencent.open.utils.b.1
+        this.f39591e = new Handler(activity.getMainLooper()) { // from class: com.tencent.open.utils.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 com.tencent.open.a.f.a("AsynLoadImg", "handleMessage:" + message.arg1);
                 if (message.arg1 == 0) {
-                    b.this.f39300b.a(message.arg1, (String) message.obj);
+                    b.this.f39589b.a(message.arg1, (String) message.obj);
                 } else {
-                    b.this.f39300b.a(message.arg1, (String) null);
+                    b.this.f39589b.a(message.arg1, (String) null);
                 }
             }
         };
@@ -86,11 +86,11 @@ public class b {
                 cVar.a(2, (String) null);
                 return;
             }
-            f39298c = Environment.getExternalStorageDirectory() + "/tmp/";
-            this.f39301d = System.currentTimeMillis();
-            this.f39299a = str;
-            this.f39300b = cVar;
-            new Thread(this.f39303f).start();
+            f39587c = Environment.getExternalStorageDirectory() + "/tmp/";
+            this.f39590d = System.currentTimeMillis();
+            this.f39588a = str;
+            this.f39589b = cVar;
+            new Thread(this.f39592f).start();
             return;
         }
         cVar.a(1, (String) null);
@@ -98,7 +98,7 @@ public class b {
 
     public boolean a(Bitmap bitmap, String str) {
         BufferedOutputStream bufferedOutputStream;
-        String str2 = f39298c;
+        String str2 = f39587c;
         BufferedOutputStream bufferedOutputStream2 = null;
         try {
             try {

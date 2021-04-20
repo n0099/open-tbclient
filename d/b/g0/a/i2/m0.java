@@ -9,11 +9,11 @@ public class m0 implements d.b.g0.l.r.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final m0 f44725a = new m0();
+        public static final m0 f45117a = new m0();
     }
 
     public static m0 b() {
-        return b.f44725a;
+        return b.f45117a;
     }
 
     @Override // d.b.g0.l.r.a

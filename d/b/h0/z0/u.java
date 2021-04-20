@@ -14,7 +14,7 @@ public class u {
         Object d2;
         Intent intent;
         ComponentName component;
-        Object d3 = d.b.b.e.b.a.a.d(Looper.myQueue(), "mMessages");
+        Object d3 = d.b.c.e.b.a.a.d(Looper.myQueue(), "mMessages");
         if (d3 != null && (d3 instanceof Message)) {
             Message message = (Message) d3;
             int i = 0;
@@ -24,7 +24,7 @@ public class u {
                     break;
                 }
                 i++;
-                if (obj != null && (d2 = d.b.b.e.b.a.a.d(obj, "intent")) != null && (d2 instanceof Intent) && (component = (intent = (Intent) d2).getComponent()) != null) {
+                if (obj != null && (d2 = d.b.c.e.b.a.a.d(obj, "intent")) != null && (d2 instanceof Intent) && (component = (intent = (Intent) d2).getComponent()) != null) {
                     try {
                         Class.forName(component.getClassName());
                     } catch (Throwable unused) {
@@ -39,7 +39,7 @@ public class u {
                         return false;
                     }
                 }
-                Object d4 = d.b.b.e.b.a.a.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                Object d4 = d.b.c.e.b.a.a.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                 message = (d4 == null || !(d4 instanceof Message)) ? null : (Message) d4;
             }
         }
@@ -47,7 +47,7 @@ public class u {
     }
 
     public static final boolean b() {
-        Object d2 = d.b.b.e.b.a.a.d(Looper.myQueue(), "mMessages");
+        Object d2 = d.b.c.e.b.a.a.d(Looper.myQueue(), "mMessages");
         boolean z = false;
         if (d2 != null && (d2 instanceof Message)) {
             Message message = (Message) d2;
@@ -55,7 +55,7 @@ public class u {
             while (message != null && message.obj != null && !z && i < 10) {
                 i++;
                 z = c(message);
-                Object d3 = d.b.b.e.b.a.a.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                Object d3 = d.b.c.e.b.a.a.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                 message = (d3 == null || !(d3 instanceof Message)) ? null : (Message) d3;
             }
         }
@@ -66,6 +66,6 @@ public class u {
         Object obj;
         Object d2;
         ComponentName component;
-        return (message == null || (obj = message.obj) == null || (d2 = d.b.b.e.b.a.a.d(obj, "intent")) == null || !(d2 instanceof Intent) || (component = ((Intent) d2).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
+        return (message == null || (obj = message.obj) == null || (d2 = d.b.c.e.b.a.a.d(obj, "intent")) == null || !(d2 instanceof Intent) || (component = ((Intent) d2).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

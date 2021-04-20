@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44878a = d.b.g0.a.k.f45051a;
+    public static final boolean f45270a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f44879b;
+    public static JSONObject f45271b;
 
     public static JSONObject a() {
         JSONObject jSONObject = new JSONObject();
@@ -19,27 +19,27 @@ public class e {
             JSONObject d2 = i.n().d();
             if (d2 != null && d2.has("events")) {
                 jSONObject = d2;
-            } else if (f44879b != null) {
-                jSONObject = f44879b;
+            } else if (f45271b != null) {
+                jSONObject = f45271b;
             }
         } catch (JSONException e2) {
-            if (f44878a) {
+            if (f45270a) {
                 Log.e("PerformanceUbcSnapshot", "JSONException:", e2);
             }
         }
-        f44879b = null;
+        f45271b = null;
         return jSONObject;
     }
 
     public static void b() {
         try {
             JSONObject d2 = i.n().d();
-            f44879b = d2;
+            f45271b = d2;
             if (d2 != null) {
                 d2.put("_ts", d.b.g0.a.i2.j.b(new Date(), "yyyy-MM-dd HH:mm:ss"));
             }
         } catch (JSONException e2) {
-            if (f44878a) {
+            if (f45270a) {
                 Log.e("PerformanceUbcSnapshot", "JSONException:", e2);
             }
         }

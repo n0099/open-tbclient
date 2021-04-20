@@ -20,13 +20,13 @@ import java.util.List;
 public class NHBannerGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public FocusImageViewGroup f24720a;
+    public FocusImageViewGroup f24405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f24721b;
+    public LinearLayout f24406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WalletBannerItem[] f24722c;
+    public WalletBannerItem[] f24407c;
 
     public NHBannerGroup(Context context) {
         super(context);
@@ -40,9 +40,9 @@ public class NHBannerGroup extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_banner_layout"), this);
-        this.f24720a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
-        this.f24721b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24720a.getLayoutParams();
+        this.f24405a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
+        this.f24406b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24405a.getLayoutParams();
         int displayWidth = DisplayUtils.getDisplayWidth(getContext()) - DisplayUtils.dip2px(getContext(), 30.0f);
         int i = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
         if (layoutParams == null) {
@@ -51,15 +51,15 @@ public class NHBannerGroup extends BaseItemLayout {
             layoutParams.width = displayWidth;
             layoutParams.height = i;
         }
-        this.f24720a.setChildLeft(DisplayUtils.dip2px(getContext(), 15.0f));
-        this.f24720a.setLayoutParams(layoutParams);
-        this.f24720a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.home.ui.widget.newhome.NHBannerGroup.1
+        this.f24405a.setChildLeft(DisplayUtils.dip2px(getContext(), 15.0f));
+        this.f24405a.setLayoutParams(layoutParams);
+        this.f24405a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.home.ui.widget.newhome.NHBannerGroup.1
             @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
             public void setCurrPos(int i2, int i3) {
                 int i4 = 0;
                 while (i4 < i3) {
-                    if (NHBannerGroup.this.f24721b.getChildAt(i4) != null) {
-                        NHBannerGroup.this.f24721b.getChildAt(i4).setSelected(i4 == i2);
+                    if (NHBannerGroup.this.f24406b.getChildAt(i4) != null) {
+                        NHBannerGroup.this.f24406b.getChildAt(i4).setSelected(i4 == i2);
                     }
                     i4++;
                 }
@@ -77,24 +77,24 @@ public class NHBannerGroup extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-        this.f24722c = dataItemArr;
-        this.f24720a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
+        this.f24407c = dataItemArr;
+        this.f24405a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
         int drawable = ResUtils.drawable(getContext(), "wallet_base_indicators");
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 8.5f), DisplayUtils.dip2px(getContext(), 2.0f));
-        if (this.f24722c.length > 1) {
+        if (this.f24407c.length > 1) {
             int i = 0;
-            while (i < this.f24722c.length) {
+            while (i < this.f24407c.length) {
                 View view = new View(getContext());
                 view.setBackgroundResource(drawable);
                 view.setSelected(i == 0);
-                this.f24721b.addView(view, layoutParams);
+                this.f24406b.addView(view, layoutParams);
                 layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                 i++;
             }
-            this.f24721b.setVisibility(0);
+            this.f24406b.setVisibility(0);
             return;
         }
-        this.f24721b.setVisibility(8);
+        this.f24406b.setVisibility(8);
     }
 
     public NHBannerGroup(Context context, AttributeSet attributeSet) {

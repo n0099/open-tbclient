@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.v0;
 import d.b.i0.h.b;
 import java.util.ArrayList;
@@ -47,19 +47,19 @@ public class i {
     public ClickableSpan G;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f55103a;
+    public Context f56416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f55104b;
+    public TbPageContext f56417b;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55108f;
+    public int f56421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55109g;
+    public int f56422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55110h;
+    public int f56423h;
     public PopupWindow j;
     public View k;
     public d.b.i0.h.b l;
@@ -77,13 +77,13 @@ public class i {
     public h y;
 
     /* renamed from: c  reason: collision with root package name */
-    public v0 f55105c = null;
+    public v0 f56418c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<String> f55106d = null;
+    public SparseArray<String> f56419d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.C1259b> f55107e = new ArrayList();
+    public List<b.C1314b> f56420e = new ArrayList();
     public NEGFeedBackView.b i = null;
     public PopupWindow o = null;
     public d.b.h0.r.f0.a z = null;
@@ -102,28 +102,28 @@ public class i {
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             if (i.this.i != null) {
-                i.this.i.onCheckedChanged(i.this.f55105c, compoundButton, z);
+                i.this.i.onCheckedChanged(i.this.f56418c, compoundButton, z);
             }
-            if (compoundButton.getTag() instanceof b.C1259b) {
-                b.C1259b c1259b = (b.C1259b) compoundButton.getTag();
+            if (compoundButton.getTag() instanceof b.C1314b) {
+                b.C1314b c1314b = (b.C1314b) compoundButton.getTag();
                 if (z) {
-                    if (i.this.f55107e.contains(c1259b)) {
+                    if (i.this.f56420e.contains(c1314b)) {
                         return;
                     }
-                    i.this.f55107e.add(c1259b);
+                    i.this.f56420e.add(c1314b);
                     if (!i.this.D || i.this.r == null) {
                         return;
                     }
                     i.this.r.setClickable(true);
-                    SkinManager.setViewTextColorSelector(i.this.r, R.color.CAM_X0302);
+                    d.b.h0.r.u.c.d(i.this.r).q(R.color.CAM_X0302);
                     return;
                 }
-                i.this.f55107e.remove(c1259b);
+                i.this.f56420e.remove(c1314b);
                 if (!i.this.D || i.this.r == null) {
                     return;
                 }
                 i.this.r.setClickable(false);
-                SkinManager.setViewTextColorSelector(i.this.r, R.color.CAM_X0108);
+                i.this.r.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -191,7 +191,7 @@ public class i {
                 i.this.t();
             } else if (u != null) {
                 i.this.E();
-                CustomMessage customMessage = new CustomMessage(2016489, i.this.f55104b.getUniqueId());
+                CustomMessage customMessage = new CustomMessage(2016489, i.this.f56417b.getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, u);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -206,7 +206,7 @@ public class i {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(i.this.f55103a, i.this.B.b(), i.this.B.c(), i.this.B.a(), i.this.B.g(), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(i.this.f56416a, i.this.B.b(), i.this.B.c(), i.this.B.a(), i.this.B.g(), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS)));
             if (i.this.j != null) {
                 i.this.j.dismiss();
                 i.this.j = null;
@@ -236,9 +236,9 @@ public class i {
     }
 
     public i(TbPageContext tbPageContext, View view, d.b.i0.h.h hVar, UserData userData) {
-        this.f55103a = null;
-        this.f55103a = tbPageContext.getPageActivity();
-        this.f55104b = tbPageContext;
+        this.f56416a = null;
+        this.f56416a = tbPageContext.getPageActivity();
+        this.f56417b = tbPageContext;
         this.k = view;
         this.B = hVar;
         this.C = userData;
@@ -250,12 +250,12 @@ public class i {
         if (v0Var == null) {
             return;
         }
-        this.f55105c = v0Var;
+        this.f56418c = v0Var;
         SparseArray<String> b2 = v0Var.b();
-        this.f55106d = b2;
+        this.f56419d = b2;
         if (b2 != null && b2.size() > 8) {
-            for (int size = this.f55106d.size() - 1; size >= 8; size--) {
-                this.f55106d.removeAt(size);
+            for (int size = this.f56419d.size() - 1; size >= 8; size--) {
+                this.f56419d.removeAt(size);
             }
         }
         this.l.j(v0Var);
@@ -270,7 +270,7 @@ public class i {
     }
 
     public void D(String str) {
-        if (this.f55103a == null) {
+        if (this.f56416a == null) {
             return;
         }
         this.w = str;
@@ -284,17 +284,17 @@ public class i {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0205));
-        gradientDrawable.setCornerRadius(l.g(this.f55103a, R.dimen.tbds31));
+        gradientDrawable.setCornerRadius(l.g(this.f56416a, R.dimen.tbds31));
         v.setBackgroundDrawable(gradientDrawable);
         s();
-        this.f55108f = w();
-        PopupWindow popupWindow = new PopupWindow(v, this.f55109g, this.f55108f);
+        this.f56421f = w();
+        PopupWindow popupWindow = new PopupWindow(v, this.f56422g, this.f56421f);
         this.o = popupWindow;
         popupWindow.setFocusable(true);
         this.o.setTouchable(true);
         this.o.setOnDismissListener(this.I);
         z();
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f55103a).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f56416a).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
         this.j = popupWindow2;
         if (Build.VERSION.SDK_INT >= 22) {
             popupWindow2.setAttachedInDecor(false);
@@ -303,7 +303,7 @@ public class i {
         this.o.showAtLocation(this.k, 17, 0, 0);
         NEGFeedBackView.b bVar = this.i;
         if (bVar != null) {
-            bVar.onNEGFeedbackWindowShow(this.f55105c);
+            bVar.onNEGFeedbackWindowShow(this.f56418c);
         }
         this.m = true;
         MessageManager.getInstance().registerListener(this.J);
@@ -311,7 +311,7 @@ public class i {
 
     public final void E() {
         if (this.z == null) {
-            this.z = new d.b.h0.r.f0.a(this.f55104b);
+            this.z = new d.b.h0.r.f0.a(this.f56417b);
         }
         this.z.i(R.string.loading);
         this.z.h(true);
@@ -323,10 +323,10 @@ public class i {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColorSelector(this.q, R.color.CAM_X0105);
             if (this.D) {
-                SkinManager.setViewTextColorSelector(this.r, R.color.CAM_X0108);
+                this.r.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 this.r.setClickable(false);
             } else {
-                SkinManager.setViewTextColorSelector(this.r, R.color.CAM_X0302);
+                d.b.h0.r.u.c.d(this.r).q(R.color.CAM_X0302);
             }
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0105, 1);
@@ -334,7 +334,7 @@ public class i {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0205));
-            gradientDrawable.setCornerRadius(l.g(this.f55103a, R.dimen.tbds31));
+            gradientDrawable.setCornerRadius(l.g(this.f56416a, R.dimen.tbds31));
             this.p.setBackgroundDrawable(gradientDrawable);
             this.A = skinType;
         }
@@ -355,18 +355,18 @@ public class i {
 
     public final JSONObject u() {
         JSONObject jSONObject = new JSONObject();
-        if (this.f55105c == null) {
+        if (this.f56418c == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
         int i = 0;
-        if (!ListUtils.isEmpty(this.f55107e)) {
+        if (!ListUtils.isEmpty(this.f56420e)) {
             int i2 = 0;
-            while (i < this.f55107e.size()) {
-                b.C1259b c1259b = this.f55107e.get(i);
-                if (c1259b != null) {
-                    jSONArray.put(String.valueOf(c1259b.f55055b));
-                    i2 = c1259b.f55054a + 1;
+            while (i < this.f56420e.size()) {
+                b.C1314b c1314b = this.f56420e.get(i);
+                if (c1314b != null) {
+                    jSONArray.put(String.valueOf(c1314b.f56368b));
+                    i2 = c1314b.f56367a + 1;
                 }
                 i++;
             }
@@ -379,9 +379,9 @@ public class i {
         }
         try {
             jSONObject.put("reason", jSONArray);
-            jSONObject.put("thread_ids", this.f55105c.f());
-            jSONObject.put("type", this.f55105c.a());
-            jSONObject.put("forum_id", this.f55105c.c());
+            jSONObject.put("thread_ids", this.f56418c.f());
+            jSONObject.put("type", this.f56418c.a());
+            jSONObject.put("forum_id", this.f56418c.c());
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -389,7 +389,7 @@ public class i {
     }
 
     public final View v() {
-        Context context = this.f55103a;
+        Context context = this.f56416a;
         if (context == null) {
             return null;
         }
@@ -398,12 +398,12 @@ public class i {
             this.p = viewGroup;
             EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.ueg_new_delete_thread_title_view);
             this.s = eMTextView;
-            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(eMTextView);
-            a2.s(R.string.F_X02);
-            a2.n(R.color.CAM_X0105);
+            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(eMTextView);
+            d2.v(R.string.F_X02);
+            d2.q(R.color.CAM_X0105);
             EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.ueg_new_delete_thread_describe_view);
             this.t = eMTextView2;
-            d.b.h0.r.u.c.a(eMTextView2).r(R.dimen.T_X08);
+            d.b.h0.r.u.c.d(eMTextView2).u(R.dimen.T_X08);
             EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.ueg_new_delete_thread_cancel_view);
             this.q = eMTextView3;
             eMTextView3.setOnClickListener(new d());
@@ -414,7 +414,7 @@ public class i {
         this.v = (LinearLayout) this.p.findViewById(R.id.ueg_new_delete_thread_reason_view_container);
         View g2 = this.l.g();
         if (g2 != null && g2.getParent() == null) {
-            int g3 = l.g(this.f55103a, R.dimen.M_W_X009);
+            int g3 = l.g(this.f56416a, R.dimen.M_W_X009);
             g2.setPadding(g3, 0, g3, 0);
             this.v.addView(g2);
         }
@@ -425,14 +425,14 @@ public class i {
             this.u.setVisibility(0);
             if (1 == this.F) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) this.f55103a.getString(R.string.set_forum_rule_tip_manager));
+                spannableStringBuilder.append((CharSequence) this.f56416a.getString(R.string.set_forum_rule_tip_manager));
                 f fVar = new f();
                 this.G = fVar;
                 spannableStringBuilder.setSpan(fVar, 13, 17, 18);
                 this.u.setText(spannableStringBuilder);
                 this.u.setMovementMethod(LinkMovementMethod.getInstance());
             } else {
-                this.u.setText(this.f55103a.getString(R.string.set_forum_rule_tip_assist));
+                this.u.setText(this.f56416a.getString(R.string.set_forum_rule_tip_assist));
             }
         } else {
             this.u.setVisibility(8);
@@ -450,14 +450,14 @@ public class i {
         }
         viewGroup.measure(0, 0);
         int measuredHeight = this.p.getMeasuredHeight();
-        this.f55110h = measuredHeight;
+        this.f56423h = measuredHeight;
         return measuredHeight;
     }
 
     public final void x() {
-        this.n = l.g(this.f55103a, R.dimen.M_W_X009);
-        this.f55109g = l.k(this.f55103a) - (this.n * 2);
-        d.b.i0.h.b bVar = new d.b.i0.h.b(this.f55104b);
+        this.n = l.g(this.f56416a, R.dimen.M_W_X009);
+        this.f56422g = l.k(this.f56416a) - (this.n * 2);
+        d.b.i0.h.b bVar = new d.b.i0.h.b(this.f56417b);
         this.l = bVar;
         bVar.o(this.H);
         this.l.n(true);
@@ -488,8 +488,8 @@ public class i {
     }
 
     public final void z() {
-        if (this.m && this.f55107e.size() != 0) {
-            this.f55107e.clear();
+        if (this.m && this.f56420e.size() != 0) {
+            this.f56420e.clear();
         }
     }
 }

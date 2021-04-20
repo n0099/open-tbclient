@@ -23,30 +23,30 @@ public class b extends d.b.g0.a.t1.k.b {
     public class a implements d.b.g0.a.a0.c.e.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.e.b.b f43122a;
+        public final /* synthetic */ d.b.g0.a.a0.c.e.b.b f43514a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43123b;
+        public final /* synthetic */ CallbackHandler f43515b;
 
         public a(d.b.g0.a.a0.c.e.b.b bVar, CallbackHandler callbackHandler) {
-            this.f43122a = bVar;
-            this.f43123b = callbackHandler;
+            this.f43514a = bVar;
+            this.f43515b = callbackHandler;
         }
 
         @Override // d.b.g0.a.a0.c.e.b.a
         public void a(int i, View view, @Nullable Object obj) {
-            c cVar = (c) this.f43122a.n();
+            c cVar = (c) this.f43514a.n();
             if (i == 0 || i == 1) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("type", "loadState");
-                    jSONObject.put("parentId", cVar.f43115h);
-                    jSONObject.put("viewId", cVar.f43113f);
+                    jSONObject.put("parentId", cVar.f43507h);
+                    jSONObject.put("viewId", cVar.f43505f);
                     jSONObject.put("loadState", i == 1 ? "finish" : "error");
                 } catch (JSONException e2) {
                     d.b.g0.a.c0.c.c("Component-Action-ImageCover", "loadState callback error", e2);
                 }
-                b.this.s(this.f43123b, jSONObject, cVar.i);
+                b.this.s(this.f43515b, jSONObject, cVar.i);
             }
         }
     }
@@ -63,7 +63,7 @@ public class b extends d.b.g0.a.t1.k.b {
 
     @Override // d.b.g0.a.t1.k.b
     public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("Component-Action-ImageCover", "insert");
         }
         c r = r(unitedSchemeEntity);
@@ -79,14 +79,14 @@ public class b extends d.b.g0.a.t1.k.b {
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f43117b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f43509b);
         }
         return a2;
     }
 
     @Override // d.b.g0.a.t1.k.b
     public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("Component-Action-ImageCover", "remove");
         }
         c r = r(unitedSchemeEntity);
@@ -97,7 +97,7 @@ public class b extends d.b.g0.a.t1.k.b {
         }
         d.b.g0.a.a0.c.e.b.b bVar = (d.b.g0.a.a0.c.e.b.b) d.b.g0.a.a0.d.a.a(r);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + r.f43113f;
+            String str2 = "can't find imageCoverView component:#" + r.f43505f;
             d.b.g0.a.c0.c.b("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -107,14 +107,14 @@ public class b extends d.b.g0.a.t1.k.b {
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f43117b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f43509b);
         }
         return a2;
     }
 
     @Override // d.b.g0.a.t1.k.b
     public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("Component-Action-ImageCover", IMTrack.DbBuilder.ACTION_UPDATE);
         }
         c r = r(unitedSchemeEntity);
@@ -125,7 +125,7 @@ public class b extends d.b.g0.a.t1.k.b {
         }
         d.b.g0.a.a0.c.e.b.b bVar = (d.b.g0.a.a0.c.e.b.b) d.b.g0.a.a0.d.a.a(r);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + r.f43113f;
+            String str2 = "can't find imageCoverView component:#" + r.f43505f;
             d.b.g0.a.c0.c.b("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -135,7 +135,7 @@ public class b extends d.b.g0.a.t1.k.b {
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f43117b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f43509b);
         }
         return a2;
     }

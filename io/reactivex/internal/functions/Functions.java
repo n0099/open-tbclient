@@ -1,6 +1,6 @@
 package io.reactivex.internal.functions;
 
-import f.a.w.g;
+import f.b.w.g;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -10,10 +10,10 @@ import java.util.concurrent.Callable;
 public final class Functions {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Runnable f68026a = new a();
+    public static final Runnable f69032a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g<Throwable> f68027b = new b();
+    public static final g<Throwable> f69033b = new b();
 
     /* loaded from: classes7.dex */
     public enum HashSetCallable implements Callable<Set<Object>> {
@@ -50,10 +50,10 @@ public final class Functions {
     /* loaded from: classes7.dex */
     public static final class b implements g<Throwable> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // f.a.w.g
+        @Override // f.b.w.g
         /* renamed from: a */
         public void accept(Throwable th) {
-            f.a.a0.a.f(new OnErrorNotImplementedException(th));
+            f.b.a0.a.f(new OnErrorNotImplementedException(th));
         }
     }
 }

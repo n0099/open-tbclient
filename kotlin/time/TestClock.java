@@ -16,25 +16,25 @@ public final class TestClock extends AbstractLongClock {
     }
 
     /* renamed from: overflow-LRDsOJo  reason: not valid java name */
-    private final void m1596overflowLRDsOJo(double d2) {
-        throw new IllegalStateException("TestClock will overflow if its reading " + this.reading + "ns is advanced by " + Duration.m1588toStringimpl(d2) + IStringUtil.EXTENSION_SEPARATOR);
+    private final void m1600overflowLRDsOJo(double d2) {
+        throw new IllegalStateException("TestClock will overflow if its reading " + this.reading + "ns is advanced by " + Duration.m1592toStringimpl(d2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     /* renamed from: plusAssign-LRDsOJo  reason: not valid java name */
-    public final void m1597plusAssignLRDsOJo(double d2) {
+    public final void m1601plusAssignLRDsOJo(double d2) {
         long j;
-        double m1582toDoubleimpl = Duration.m1582toDoubleimpl(d2, getUnit());
-        long j2 = (long) m1582toDoubleimpl;
+        double m1586toDoubleimpl = Duration.m1586toDoubleimpl(d2, getUnit());
+        long j2 = (long) m1586toDoubleimpl;
         if (j2 != Long.MIN_VALUE && j2 != Long.MAX_VALUE) {
             long j3 = this.reading;
             j = j3 + j2;
             if ((j2 ^ j3) >= 0 && (j3 ^ j) < 0) {
-                m1596overflowLRDsOJo(d2);
+                m1600overflowLRDsOJo(d2);
             }
         } else {
-            double d3 = this.reading + m1582toDoubleimpl;
+            double d3 = this.reading + m1586toDoubleimpl;
             if (d3 > Long.MAX_VALUE || d3 < Long.MIN_VALUE) {
-                m1596overflowLRDsOJo(d2);
+                m1600overflowLRDsOJo(d2);
             }
             j = (long) d3;
         }

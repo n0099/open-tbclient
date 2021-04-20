@@ -7,28 +7,28 @@ import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f51653c;
+    public static a f52071c;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.s.c.a f51654a;
+    public d.b.h0.s.c.a f52072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestExtraData f51655b;
+    public ABTestExtraData f52073b;
 
     public static a d() {
-        if (f51653c == null) {
+        if (f52071c == null) {
             synchronized (a.class) {
-                if (f51653c == null) {
-                    f51653c = new a();
+                if (f52071c == null) {
+                    f52071c = new a();
                 }
             }
         }
-        return f51653c;
+        return f52071c;
     }
 
     public final void a(d.b.h0.s.c.a aVar) {
-        boolean z = aVar == null || this.f51654a == null || aVar.a() != this.f51654a.a();
-        this.f51654a = aVar;
+        boolean z = aVar == null || this.f52072a == null || aVar.a() != this.f52072a.a();
+        this.f52072a = aVar;
         if (z) {
             b("zan_or_cai_smallflow");
         }
@@ -39,12 +39,12 @@ public class a {
     }
 
     public String c() {
-        if (this.f51655b == null) {
+        if (this.f52073b == null) {
             ABTestExtraData aBTestExtraData = new ABTestExtraData();
-            this.f51655b = aBTestExtraData;
+            this.f52073b = aBTestExtraData;
             aBTestExtraData.parserABTestExtraFormSharedPref();
         }
-        return this.f51655b.getABTestResult();
+        return this.f52073b.getABTestResult();
     }
 
     public void e(d.b.h0.s.c.a aVar) {
@@ -52,6 +52,6 @@ public class a {
     }
 
     public void f(ABTestExtraData aBTestExtraData) {
-        this.f51655b = aBTestExtraData;
+        this.f52073b = aBTestExtraData;
     }
 }

@@ -19,16 +19,16 @@ import java.util.Date;
 public class BdTimePicker extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12436e;
+    public int f12097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12437f;
+    public int f12098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WheelView3d f12438g;
+    public WheelView3d f12099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WheelView3d f12439h;
+    public WheelView3d f12100h;
     public LinearLayout i;
     public int j;
     public int k;
@@ -49,7 +49,7 @@ public class BdTimePicker extends LinearLayout {
         @Override // d.b.g0.a.q1.a.f.c.b
         public void a(WheelView3d wheelView3d, int i) {
             BdTimePicker bdTimePicker = BdTimePicker.this;
-            bdTimePicker.f12436e = i + bdTimePicker.j;
+            bdTimePicker.f12097e = i + bdTimePicker.j;
             BdTimePicker.this.i();
         }
     }
@@ -62,7 +62,7 @@ public class BdTimePicker extends LinearLayout {
         @Override // d.b.g0.a.q1.a.f.c.b
         public void a(WheelView3d wheelView3d, int i) {
             BdTimePicker bdTimePicker = BdTimePicker.this;
-            bdTimePicker.f12437f = i + bdTimePicker.l;
+            bdTimePicker.f12098f = i + bdTimePicker.l;
         }
     }
 
@@ -72,8 +72,8 @@ public class BdTimePicker extends LinearLayout {
 
     public BdTimePicker(Context context) {
         super(context);
-        this.f12436e = 0;
-        this.f12437f = 0;
+        this.f12097e = 0;
+        this.f12098f = 0;
         this.p = 15;
         f(context);
     }
@@ -81,7 +81,7 @@ public class BdTimePicker extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.f12438g.getCenterContentOffset() * 2.0f), this.s);
+        canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.f12099g.getCenterContentOffset() * 2.0f), this.s);
     }
 
     public final void f(Context context) {
@@ -93,47 +93,47 @@ public class BdTimePicker extends LinearLayout {
         j();
         this.i = (LinearLayout) findViewById(f.timepicker_root);
         WheelView3d wheelView3d = (WheelView3d) findViewById(f.wheel_hour);
-        this.f12438g = wheelView3d;
+        this.f12099g = wheelView3d;
         wheelView3d.setLineSpacingMultiplier(3.0f);
-        this.f12438g.setCenterTextSize(this.q);
-        this.f12438g.setOuterTextSize(this.r);
-        this.f12438g.setTextColorCenter(-16777216);
-        this.f12438g.setTextColorOut(-16777216);
-        this.f12438g.setVisibleItem(7);
-        this.f12438g.setGravityOffset(this.p);
-        this.f12438g.setGravity(5);
-        this.f12438g.setDividerType(WheelView3d.DividerType.FILL);
-        this.f12438g.setDividerColor(0);
-        this.f12438g.setOnItemSelectedListener(new a());
+        this.f12099g.setCenterTextSize(this.q);
+        this.f12099g.setOuterTextSize(this.r);
+        this.f12099g.setTextColorCenter(-16777216);
+        this.f12099g.setTextColorOut(-16777216);
+        this.f12099g.setVisibleItem(7);
+        this.f12099g.setGravityOffset(this.p);
+        this.f12099g.setGravity(5);
+        this.f12099g.setDividerType(WheelView3d.DividerType.FILL);
+        this.f12099g.setDividerColor(0);
+        this.f12099g.setOnItemSelectedListener(new a());
         WheelView3d wheelView3d2 = (WheelView3d) findViewById(f.wheel_minute);
-        this.f12439h = wheelView3d2;
+        this.f12100h = wheelView3d2;
         wheelView3d2.setLineSpacingMultiplier(3.0f);
-        this.f12439h.setCenterTextSize(this.q);
-        this.f12439h.setOuterTextSize(this.r);
-        this.f12439h.setTextColorCenter(-16777216);
-        this.f12439h.setTextColorOut(-16777216);
-        this.f12439h.setGravityOffset(this.p);
-        this.f12439h.setGravity(3);
-        this.f12439h.setDividerType(WheelView3d.DividerType.FILL);
-        this.f12439h.setDividerColor(0);
-        this.f12439h.setVisibleItem(7);
-        this.f12439h.setOnItemSelectedListener(new b());
+        this.f12100h.setCenterTextSize(this.q);
+        this.f12100h.setOuterTextSize(this.r);
+        this.f12100h.setTextColorCenter(-16777216);
+        this.f12100h.setTextColorOut(-16777216);
+        this.f12100h.setGravityOffset(this.p);
+        this.f12100h.setGravity(3);
+        this.f12100h.setDividerType(WheelView3d.DividerType.FILL);
+        this.f12100h.setDividerColor(0);
+        this.f12100h.setVisibleItem(7);
+        this.f12100h.setOnItemSelectedListener(new b());
         g();
     }
 
     public final void g() {
         Calendar calendar = Calendar.getInstance();
-        this.f12436e = calendar.get(11);
-        this.f12437f = calendar.get(12);
+        this.f12097e = calendar.get(11);
+        this.f12098f = calendar.get(12);
         l();
     }
 
     public int getHour() {
-        return this.f12436e;
+        return this.f12097e;
     }
 
     public int getMinute() {
-        return this.f12437f;
+        return this.f12098f;
     }
 
     public final void h() {
@@ -152,9 +152,9 @@ public class BdTimePicker extends LinearLayout {
         while (true) {
             int i2 = this.k;
             if (i > i2) {
-                this.f12438g.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.j, i2));
-                k(this.f12438g, this.j, this.k);
-                setHour(this.f12436e);
+                this.f12099g.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.j, i2));
+                k(this.f12099g, this.j, this.k);
+                setHour(this.f12097e);
                 return;
             }
             arrayList.add(String.format("%02d", Integer.valueOf(i)));
@@ -166,11 +166,11 @@ public class BdTimePicker extends LinearLayout {
         this.l = 0;
         this.m = 59;
         Date date = this.n;
-        if (date != null && this.f12436e == this.j) {
+        if (date != null && this.f12097e == this.j) {
             this.l = date.getMinutes();
         }
         Date date2 = this.o;
-        if (date2 != null && this.f12436e == this.k) {
+        if (date2 != null && this.f12097e == this.k) {
             this.m = date2.getMinutes();
         }
         ArrayList arrayList = new ArrayList((this.m - this.l) + 1);
@@ -178,9 +178,9 @@ public class BdTimePicker extends LinearLayout {
         while (true) {
             int i2 = this.m;
             if (i > i2) {
-                this.f12439h.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.l, i2));
-                k(this.f12439h, this.l, this.m);
-                setMinute(this.f12437f);
+                this.f12100h.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.l, i2));
+                k(this.f12100h, this.l, this.m);
+                setMinute(this.f12098f);
                 return;
             }
             arrayList.add(String.format("%02d", Integer.valueOf(i)));
@@ -208,8 +208,8 @@ public class BdTimePicker extends LinearLayout {
     }
 
     public void setDisabled(boolean z) {
-        this.f12438g.setIsOptions(z);
-        this.f12439h.setIsOptions(z);
+        this.f12099g.setIsOptions(z);
+        this.f12100h.setIsOptions(z);
     }
 
     public void setHour(int i) {
@@ -217,8 +217,8 @@ public class BdTimePicker extends LinearLayout {
         if (i < i2 || i > (i2 = this.k)) {
             i = i2;
         }
-        this.f12436e = i;
-        this.f12438g.setCurrentItem(i - this.j);
+        this.f12097e = i;
+        this.f12099g.setCurrentItem(i - this.j);
     }
 
     public void setMinute(int i) {
@@ -226,16 +226,16 @@ public class BdTimePicker extends LinearLayout {
         if (i < i2 || i > (i2 = this.m)) {
             i = i2;
         }
-        this.f12437f = i;
-        this.f12439h.setCurrentItem(i - this.l);
+        this.f12098f = i;
+        this.f12100h.setCurrentItem(i - this.l);
     }
 
     public void setOnTimeChangeListener(c cVar) {
     }
 
     public void setScrollCycle(boolean z) {
-        this.f12439h.setCyclic(z);
-        this.f12438g.setCyclic(z);
+        this.f12100h.setCyclic(z);
+        this.f12099g.setCyclic(z);
     }
 
     public void setStartDate(Date date) {
@@ -248,8 +248,8 @@ public class BdTimePicker extends LinearLayout {
 
     public BdTimePicker(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12436e = 0;
-        this.f12437f = 0;
+        this.f12097e = 0;
+        this.f12098f = 0;
         this.p = 15;
         f(context);
     }
@@ -258,8 +258,8 @@ public class BdTimePicker extends LinearLayout {
     @TargetApi(11)
     public BdTimePicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12436e = 0;
-        this.f12437f = 0;
+        this.f12097e = 0;
+        this.f12098f = 0;
         this.p = 15;
         f(context);
     }

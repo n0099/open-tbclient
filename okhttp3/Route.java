@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import javax.annotation.Nullable;
@@ -41,7 +40,7 @@ public final class Route {
     }
 
     public int hashCode() {
-        return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.address.hashCode()) * 31) + this.proxy.hashCode()) * 31) + this.inetSocketAddress.hashCode();
+        return ((((527 + this.address.hashCode()) * 31) + this.proxy.hashCode()) * 31) + this.inetSocketAddress.hashCode();
     }
 
     public Proxy proxy() {

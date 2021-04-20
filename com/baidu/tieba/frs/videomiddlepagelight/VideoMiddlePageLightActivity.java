@@ -27,8 +27,8 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import d.b.b.e.m.e;
-import d.b.b.e.p.j;
+import d.b.c.e.m.e;
+import d.b.c.e.p.j;
 import d.b.h0.d0.g;
 import java.io.Serializable;
 import java.util.List;
@@ -45,7 +45,7 @@ import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
 public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(VideoMiddlePageLightActivity.class), "viewModel", "getViewModel()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;"))};
-    public d.b.i0.p0.p2.a adapterManager;
+    public d.b.i0.q0.q2.a adapterManager;
     public DividerItemDecoration cardDividerLine;
     public boolean isForbidOnceListAutoScroll;
     public boolean isNeedTwiceScroll;
@@ -182,7 +182,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         public final void onChanged(List<BaseCardInfo> it) {
             if (it.size() > 0) {
                 VideoMiddlePageLightActivity.this.hideLoadingView();
-                d.b.i0.p0.p2.a access$getAdapterManager$p = VideoMiddlePageLightActivity.access$getAdapterManager$p(VideoMiddlePageLightActivity.this);
+                d.b.i0.q0.q2.a access$getAdapterManager$p = VideoMiddlePageLightActivity.access$getAdapterManager$p(VideoMiddlePageLightActivity.this);
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 access$getAdapterManager$p.d(it);
             }
@@ -235,8 +235,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         }
     }
 
-    public static final /* synthetic */ d.b.i0.p0.p2.a access$getAdapterManager$p(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
-        d.b.i0.p0.p2.a aVar = videoMiddlePageLightActivity.adapterManager;
+    public static final /* synthetic */ d.b.i0.q0.q2.a access$getAdapterManager$p(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
+        d.b.i0.q0.q2.a aVar = videoMiddlePageLightActivity.adapterManager;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adapterManager");
         }
@@ -422,7 +422,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             }
             VideoMiddlePageViewModel viewModel6 = getViewModel();
             Intrinsics.checkExpressionValueIsNotNull(viewModel6, "viewModel");
-            this.adapterManager = new d.b.i0.p0.p2.a(pageContext, bdTypeRecyclerView4, viewModel6);
+            this.adapterManager = new d.b.i0.q0.q2.a(pageContext, bdTypeRecyclerView4, viewModel6);
             getViewModel().l();
             showLoadingView();
             getViewModel().j().observe(this, new c());
@@ -443,7 +443,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
                     Window window = getWindow();
                     Intrinsics.checkExpressionValueIsNotNull(window, "window");
-                    d.b.i0.o3.c.b(1, window.getAttributes(), getWindow());
+                    d.b.i0.p3.c.b(1, window.getAttributes(), getWindow());
                     return;
                 }
                 return;
@@ -456,7 +456,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.p0.p2.a aVar = this.adapterManager;
+        d.b.i0.q0.q2.a aVar = this.adapterManager;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adapterManager");
         }
@@ -468,7 +468,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.b.i0.p0.p2.a aVar = this.adapterManager;
+        d.b.i0.q0.q2.a aVar = this.adapterManager;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adapterManager");
         }
@@ -574,7 +574,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload
     public boolean videoNeedPreload() {
         if (!j.H()) {
-            d.b.i0.p3.f d2 = d.b.i0.p3.f.d();
+            d.b.i0.q3.f d2 = d.b.i0.q3.f.d();
             Intrinsics.checkExpressionValueIsNotNull(d2, "VideoHolyCardManager.getInstance()");
             if (!d2.e()) {
                 return false;

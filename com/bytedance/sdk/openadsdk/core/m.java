@@ -8,7 +8,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.AdSlot;
@@ -28,26 +28,26 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f28459a = false;
+    public static volatile boolean f28144a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f28460b = null;
+    public static volatile TTCustomController f28145b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f28461c = false;
+    public static volatile boolean f28146c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28462d = -1;
+    public static int f28147d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f28463e;
+    public static HandlerThread f28148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f28464f;
+    public static Handler f28149f;
 
     public static void a() {
         Context a2;
@@ -84,13 +84,13 @@ public class m {
 
     public static Handler b() {
         HandlerThread handlerThread;
-        if (f28464f == null || ((handlerThread = f28463e) != null && !handlerThread.isAlive())) {
+        if (f28149f == null || ((handlerThread = f28148e) != null && !handlerThread.isAlive())) {
             HandlerThread handlerThread2 = new HandlerThread("tt_pangle_thread_init", 10);
-            f28463e = handlerThread2;
+            f28148e = handlerThread2;
             handlerThread2.start();
-            f28464f = new Handler(f28463e.getLooper());
+            f28149f = new Handler(f28148e.getLooper());
         }
-        return f28464f;
+        return f28149f;
     }
 
     public static void a(Context context) {
@@ -133,7 +133,7 @@ public class m {
                 }
                 hashMap.put("version_name", "3.4.5.5");
                 hashMap.put("device_platform", "android");
-                hashMap.put(IXAdRequestInfo.OS, "Android");
+                hashMap.put(IAdRequestParam.OS, "Android");
                 hashMap.put("device_type", Build.MODEL);
                 hashMap.put("device_mode", Build.MODEL);
                 hashMap.put(Config.ROM, ae.a());

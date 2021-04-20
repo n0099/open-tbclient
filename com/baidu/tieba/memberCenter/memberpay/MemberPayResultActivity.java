@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.memberpay;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.MemberPayResultActivityConfig;
-import d.b.i0.q1.f.g;
+import d.b.i0.r1.f.g;
 /* loaded from: classes3.dex */
 public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivity> {
     public g memberPayResultView;

@@ -18,7 +18,7 @@ public class c implements z0 {
 
     @Override // d.b.g0.a.p.c.z0
     public boolean c() {
-        return b() || d.b.g0.a.j0.i.c.f44832d.j(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        return b() || d.b.g0.a.j0.i.c.f45224d.j(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
     }
 
     @Override // d.b.g0.a.p.c.z0

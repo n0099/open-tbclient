@@ -1,7 +1,7 @@
 package io.reactivex.internal.subscribers;
 
-import f.a.g;
-import f.a.t.b;
+import f.b.g;
+import f.b.t.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -22,13 +22,13 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<b> imple
         dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         SubscriptionHelper.cancel(this.subscription);
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.subscription.get() == SubscriptionHelper.CANCELLED;
     }
@@ -50,7 +50,7 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<b> imple
         this.actual.onNext(t);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this.subscription, dVar)) {
             this.actual.onSubscribe(this);

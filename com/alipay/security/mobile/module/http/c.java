@@ -7,14 +7,14 @@ import com.alipay.tscenter.biz.rpc.report.general.model.DataReportResult;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ DataReportRequest f2090a;
+    public final /* synthetic */ DataReportRequest f2115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f2091b;
+    public final /* synthetic */ b f2116b;
 
     public c(b bVar, DataReportRequest dataReportRequest) {
-        this.f2091b = bVar;
-        this.f2090a = dataReportRequest;
+        this.f2116b = bVar;
+        this.f2115a = dataReportRequest;
     }
 
     @Override // java.lang.Runnable
@@ -23,13 +23,13 @@ public class c implements Runnable {
         DataReportResult dataReportResult2;
         DataReportService dataReportService;
         try {
-            dataReportService = this.f2091b.f2089c;
-            DataReportResult unused = b.f2086e = dataReportService.reportData(this.f2090a);
+            dataReportService = this.f2116b.f2114c;
+            DataReportResult unused = b.f2111e = dataReportService.reportData(this.f2115a);
         } catch (Throwable th) {
-            DataReportResult unused2 = b.f2086e = new DataReportResult();
-            dataReportResult = b.f2086e;
+            DataReportResult unused2 = b.f2111e = new DataReportResult();
+            dataReportResult = b.f2111e;
             dataReportResult.success = false;
-            dataReportResult2 = b.f2086e;
+            dataReportResult2 = b.f2111e;
             dataReportResult2.resultCode = "static data rpc upload error, " + com.alipay.security.mobile.module.a.a.a(th);
             new StringBuilder("rpc failed:").append(com.alipay.security.mobile.module.a.a.a(th));
         }

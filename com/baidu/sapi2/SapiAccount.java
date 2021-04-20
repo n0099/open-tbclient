@@ -24,30 +24,30 @@ public class SapiAccount implements Parcelable, Cloneable {
     public static final String SAPI_ACCOUNT_PORTRAIT = "portrait";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10600b = "uid";
+    public static final String f10184b = "uid";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10601c = "displayname";
+    public static final String f10185c = "displayname";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f10602d = "username";
+    public static final String f10186d = "username";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f10603e = "email";
+    public static final String f10187e = "email";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f10604f = "phone";
+    public static final String f10188f = "phone";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f10605g = "bduss";
+    public static final String f10189g = "bduss";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f10606h = "ptoken";
+    public static final String f10190h = "ptoken";
     public static final String i = "stoken";
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10607a;
+    public String f10191a;
     public String app;
     public String bduss;
     public String displayname;
@@ -101,54 +101,54 @@ public class SapiAccount implements Parcelable, Cloneable {
         public static final String EXTRA_TPL_STOKEN_LIST = "stoken_list";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10608a;
+        public String f10192a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10609b;
+        public String f10193b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10610c;
+        public String f10194c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10611d;
+        public String f10195d;
         public DispersionCertification dispersionCertification = new DispersionCertification();
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10612e;
+        public String f10196e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10613f;
+        public String f10197f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f10614g;
+        public String f10198g;
 
         public static ExtraProperty fromJSONObject(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return null;
             }
             ExtraProperty extraProperty = new ExtraProperty();
-            extraProperty.f10608a = jSONObject.optString("account_type");
-            extraProperty.f10609b = jSONObject.optString(EXTRA_IS_SOCIAL_ACCOUNT);
-            extraProperty.f10610c = jSONObject.optString("social_type");
-            extraProperty.f10611d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);
+            extraProperty.f10192a = jSONObject.optString("account_type");
+            extraProperty.f10193b = jSONObject.optString(EXTRA_IS_SOCIAL_ACCOUNT);
+            extraProperty.f10194c = jSONObject.optString("social_type");
+            extraProperty.f10195d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);
             extraProperty.dispersionCertification = DispersionCertification.fromJSONObject(jSONObject);
-            extraProperty.f10612e = jSONObject.optString(EXTRA_IS_GUEST_ACCOUNT);
-            extraProperty.f10613f = jSONObject.optString("tpl");
-            extraProperty.f10614g = jSONObject.optString("pkg");
+            extraProperty.f10196e = jSONObject.optString(EXTRA_IS_GUEST_ACCOUNT);
+            extraProperty.f10197f = jSONObject.optString("tpl");
+            extraProperty.f10198g = jSONObject.optString("pkg");
             return extraProperty;
         }
 
         public JSONObject toJSONObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("account_type", this.f10608a);
-                jSONObject.put(EXTRA_IS_SOCIAL_ACCOUNT, this.f10609b);
-                jSONObject.put("social_type", this.f10610c);
-                jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.f10611d);
+                jSONObject.put("account_type", this.f10192a);
+                jSONObject.put(EXTRA_IS_SOCIAL_ACCOUNT, this.f10193b);
+                jSONObject.put("social_type", this.f10194c);
+                jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.f10195d);
                 jSONObject.put("stoken_list", new JSONObject(this.dispersionCertification.tplStokenMap));
-                jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.f10612e);
-                jSONObject.put("tpl", this.f10613f);
-                jSONObject.put("pkg", this.f10614g);
+                jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.f10196e);
+                jSONObject.put("tpl", this.f10197f);
+                jSONObject.put("pkg", this.f10198g);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -225,7 +225,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         sapiAccount.phone = jSONObject.optString("phone");
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.app = jSONObject.optString("app");
-        sapiAccount.ptoken = jSONObject.optString(f10606h);
+        sapiAccount.ptoken = jSONObject.optString(f10190h);
         sapiAccount.stoken = jSONObject.optString("stoken");
         sapiAccount.extra = jSONObject.optString("extra");
         sapiAccount.portrait = jSONObject.optString("portrait");
@@ -420,7 +420,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             jSONObject.put("phone", this.phone);
             jSONObject.put("bduss", this.bduss);
             jSONObject.put("app", this.app);
-            jSONObject.put(f10606h, this.ptoken);
+            jSONObject.put(f10190h, this.ptoken);
             jSONObject.put("stoken", this.stoken);
             jSONObject.put("extra", this.extra);
             jSONObject.put("portrait", this.portrait);
@@ -451,9 +451,9 @@ public class SapiAccount implements Parcelable, Cloneable {
                 }
                 ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(sapiAccount.extra));
                 extraProperty.dispersionCertification.tplStokenMap = fromJSONObject.dispersionCertification.tplStokenMap;
-                extraProperty.f10611d = fromJSONObject.f10611d;
-                extraProperty.f10608a = fromJSONObject.f10608a;
-                extraProperty.f10612e = fromJSONObject.f10612e;
+                extraProperty.f10195d = fromJSONObject.f10195d;
+                extraProperty.f10192a = fromJSONObject.f10192a;
+                extraProperty.f10196e = fromJSONObject.f10196e;
                 this.extra = extraProperty.toJSONObject().toString();
             } catch (JSONException e2) {
                 Log.e(e2);
@@ -472,7 +472,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         parcel.writeString(this.app);
         parcel.writeString(this.ptoken);
         parcel.writeString(this.stoken);
-        parcel.writeString(this.f10607a);
+        parcel.writeString(this.f10191a);
         parcel.writeString(this.extra);
         parcel.writeString(this.portrait);
     }
@@ -487,7 +487,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         this.app = parcel.readString();
         this.ptoken = parcel.readString();
         this.stoken = parcel.readString();
-        this.f10607a = parcel.readString();
+        this.f10191a = parcel.readString();
         this.extra = parcel.readString();
         this.portrait = parcel.readString();
     }

@@ -11,31 +11,31 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public abstract class b<T extends BaseCardInfo> implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62180e;
+    public int f63755e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f62181f;
+    public TbPageContext<?> f63756f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f62182g;
+    public Context f63757g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f62183h;
+    public View f63758h;
     public b0<T> i;
     public BdUniqueId j;
     public String k;
     public int l;
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f62180e = 3;
+        this.f63755e = 3;
         this.j = null;
-        this.f62181f = tbPageContext;
-        this.f62182g = tbPageContext.getPageActivity();
-        this.f62183h = LayoutInflater.from(b()).inflate(h(), (ViewGroup) null, false);
+        this.f63756f = tbPageContext;
+        this.f63757g = tbPageContext.getPageActivity();
+        this.f63758h = LayoutInflater.from(b()).inflate(h(), (ViewGroup) null, false);
     }
 
     public Context b() {
-        return this.f62182g;
+        return this.f63757g;
     }
 
     public String f() {
@@ -53,11 +53,11 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     }
 
     public TbPageContext<?> l() {
-        return this.f62181f;
+        return this.f63756f;
     }
 
     public View m() {
-        return this.f62183h;
+        return this.f63758h;
     }
 
     public abstract void n(T t);
@@ -73,7 +73,7 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     }
 
     public void s(int i) {
-        View view = this.f62183h;
+        View view = this.f63758h;
         if (view != null) {
             view.setVisibility(i);
         }
@@ -84,10 +84,10 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     }
 
     public b(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        this.f62180e = 3;
+        this.f63755e = 3;
         this.j = null;
-        this.f62181f = tbPageContext;
-        this.f62182g = tbPageContext.getPageActivity();
-        this.f62183h = LayoutInflater.from(b()).inflate(h(), viewGroup, false);
+        this.f63756f = tbPageContext;
+        this.f63757g = tbPageContext.getPageActivity();
+        this.f63758h = LayoutInflater.from(b()).inflate(h(), viewGroup, false);
     }
 }

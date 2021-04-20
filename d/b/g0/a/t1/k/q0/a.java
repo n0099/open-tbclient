@@ -25,56 +25,56 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46544c;
+    public String f46936c;
 
     /* renamed from: d.b.g0.a.t1.k.q0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class RunnableC0845a implements Runnable {
+    /* loaded from: classes3.dex */
+    public class RunnableC0857a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46545e;
+        public final /* synthetic */ UnitedSchemeEntity f46937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46546f;
+        public final /* synthetic */ CallbackHandler f46938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f46547g;
+        public final /* synthetic */ e f46939g;
 
         /* renamed from: d.b.g0.a.t1.k.q0.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0846a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0858a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f46549e;
+            public final /* synthetic */ Bitmap f46941e;
 
-            public RunnableC0846a(Bitmap bitmap) {
-                this.f46549e = bitmap;
+            public RunnableC0858a(Bitmap bitmap) {
+                this.f46941e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                RunnableC0845a runnableC0845a = RunnableC0845a.this;
-                a.this.o(this.f46549e, runnableC0845a.f46545e, runnableC0845a.f46546f, runnableC0845a.f46547g);
+                RunnableC0857a runnableC0857a = RunnableC0857a.this;
+                a.this.o(this.f46941e, runnableC0857a.f46937e, runnableC0857a.f46938f, runnableC0857a.f46939g);
             }
         }
 
-        public RunnableC0845a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-            this.f46545e = unitedSchemeEntity;
-            this.f46546f = callbackHandler;
-            this.f46547g = eVar;
+        public RunnableC0857a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+            this.f46937e = unitedSchemeEntity;
+            this.f46938f = callbackHandler;
+            this.f46939g = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Bitmap x = h0.x();
             if (x == null) {
-                a.this.n(this.f46545e, this.f46546f, "can't get screenshot");
+                a.this.n(this.f46937e, this.f46938f, "can't get screenshot");
             } else {
-                p.k(new RunnableC0846a(x), "savescreenshot");
+                p.k(new RunnableC0858a(x), "savescreenshot");
             }
         }
     }
@@ -91,7 +91,7 @@ public class a extends a0 {
             return false;
         }
         String optString = v.b(unitedSchemeEntity.getParam("params")).optString("name");
-        this.f46544c = optString;
+        this.f46936c = optString;
         if (TextUtils.isEmpty(optString)) {
             c.b("Screenshot", "invalid params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -104,7 +104,7 @@ public class a extends a0 {
     public final JSONObject l(boolean z, String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", this.f46544c);
+            jSONObject.put("name", this.f46936c);
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("message", str2);
             }
@@ -118,7 +118,7 @@ public class a extends a0 {
     }
 
     public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
-        k0.X(new RunnableC0845a(unitedSchemeEntity, callbackHandler, eVar));
+        k0.X(new RunnableC0857a(unitedSchemeEntity, callbackHandler, eVar));
     }
 
     public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
@@ -126,14 +126,14 @@ public class a extends a0 {
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(false, null, str), 0));
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x00b1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x00b3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x00b0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x00b2 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0070 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x00c1 -> B:37:0x00d6). Please submit an issue!!! */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x006f */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x00c0 -> B:37:0x00d5). Please submit an issue!!! */
     public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String h2 = b.h(eVar.f45740f);
+        String h2 = b.h(eVar.f46132f);
         if (h2 != null) {
             String str = h2 + File.separator + "screenshot";
             File file = new File(str);
@@ -145,7 +145,7 @@ public class a extends a0 {
                 }
             }
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.f46544c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.f46936c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
             FileOutputStream fileOutputStream2 = null;
             FileOutputStream fileOutputStream3 = null;
             fileOutputStream2 = null;
@@ -168,7 +168,7 @@ public class a extends a0 {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                 String str3 = "save screenshot to " + str2;
                 c.g("Screenshot", str3);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, b.r(str2, eVar.f45740f), "success"), 0));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, b.r(str2, eVar.f46132f), "success"), 0));
                 fileOutputStream.close();
                 fileOutputStream2 = str3;
             } catch (FileNotFoundException e4) {

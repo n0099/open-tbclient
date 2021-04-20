@@ -4,29 +4,29 @@ import com.bytedance.sdk.openadsdk.preload.a.d.c;
 import com.bytedance.sdk.openadsdk.preload.a.p;
 import com.bytedance.sdk.openadsdk.preload.a.v;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends v<Boolean> {
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.c.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30246a;
+        public static final /* synthetic */ int[] f29931a;
 
         static {
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f30246a = iArr;
+            f29931a = iArr;
             try {
                 iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30246a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 2;
+                f29931a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30246a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 3;
+                f29931a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -47,7 +47,7 @@ public class a extends v<Boolean> {
     /* renamed from: a */
     public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
         com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-        int i = AnonymousClass1.f30246a[f2.ordinal()];
+        int i = AnonymousClass1.f29931a[f2.ordinal()];
         if (i != 1) {
             if (i == 2) {
                 aVar.j();

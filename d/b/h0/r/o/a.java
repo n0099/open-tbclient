@@ -11,53 +11,53 @@ import android.view.WindowManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.m.g;
-import d.b.b.e.p.l;
+import d.b.c.e.m.g;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f50667a;
+    public final Activity f51074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.a.b0.a f50668b;
+    public d.b.h0.a.b0.a f51075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AlertDialog f50669c;
+    public AlertDialog f51076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f50670d;
+    public ViewGroup f51077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50671e;
+    public View f51078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f50672f;
+    public EMTextView f51079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f50673g;
+    public EMTextView f51080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f50674h;
+    public EMTextView f51081h;
     public EMTextView i;
     public c l;
     public boolean j = false;
     public boolean k = true;
     public int m = -1;
-    public View.OnClickListener n = new View$OnClickListenerC1085a();
+    public View.OnClickListener n = new View$OnClickListenerC1098a();
     public View.OnClickListener o = new b();
 
     /* renamed from: d.b.h0.r.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1085a implements View.OnClickListener {
-        public View$OnClickListenerC1085a() {
+    public class View$OnClickListenerC1098a implements View.OnClickListener {
+        public View$OnClickListenerC1098a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.l != null) {
                 a.this.l.onCancel();
-                a.this.f50669c.dismiss();
+                a.this.f51076c.dismiss();
             }
         }
     }
@@ -71,7 +71,7 @@ public class a {
         public void onClick(View view) {
             if (a.this.l != null) {
                 a.this.l.a();
-                a.this.f50669c.dismiss();
+                a.this.f51076c.dismiss();
             }
         }
     }
@@ -84,19 +84,19 @@ public class a {
     }
 
     public a(Activity activity) {
-        this.f50667a = activity;
-        this.f50670d = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.business_alert_dialog, (ViewGroup) null);
+        this.f51074a = activity;
+        this.f51077d = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.business_alert_dialog, (ViewGroup) null);
     }
 
     public final void c() {
-        d.b.h0.a.b0.a aVar = this.f50668b;
+        d.b.h0.a.b0.a aVar = this.f51075b;
         if (aVar == null) {
             return;
         }
-        this.f50672f.setText(aVar.y);
-        this.f50673g.setText(this.f50668b.z);
-        this.f50674h.setText(this.f50668b.A);
-        this.i.setText(this.f50668b.B);
+        this.f51079f.setText(aVar.y);
+        this.f51080g.setText(this.f51075b.z);
+        this.f51081h.setText(this.f51075b.A);
+        this.i.setText(this.f51075b.B);
     }
 
     public a d() {
@@ -104,44 +104,44 @@ public class a {
             return this;
         }
         this.j = true;
-        this.f50671e = this.f50670d.findViewById(R.id.root_dialog_view);
-        this.f50672f = (EMTextView) this.f50670d.findViewById(R.id.title);
-        this.f50673g = (EMTextView) this.f50670d.findViewById(R.id.content);
-        this.f50674h = (EMTextView) this.f50670d.findViewById(R.id.cancel);
-        this.i = (EMTextView) this.f50670d.findViewById(R.id.confirm);
-        this.f50674h.setClickable(true);
+        this.f51078e = this.f51077d.findViewById(R.id.root_dialog_view);
+        this.f51079f = (EMTextView) this.f51077d.findViewById(R.id.title);
+        this.f51080g = (EMTextView) this.f51077d.findViewById(R.id.content);
+        this.f51081h = (EMTextView) this.f51077d.findViewById(R.id.cancel);
+        this.i = (EMTextView) this.f51077d.findViewById(R.id.confirm);
+        this.f51081h.setClickable(true);
         this.i.setClickable(true);
-        this.f50674h.setOnClickListener(this.n);
+        this.f51081h.setOnClickListener(this.n);
         this.i.setOnClickListener(this.o);
         return this;
     }
 
     public final void e() {
-        if (this.f50668b == null) {
+        if (this.f51075b == null) {
             return;
         }
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f50671e);
-        a2.h(R.string.J_X06);
-        a2.c(R.color.CAM_X0201);
-        d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.f50672f);
-        a3.s(R.string.F_X02);
-        a3.n(R.color.CAM_X0105);
-        d.b.h0.r.u.c.a(this.f50673g).n(R.color.CAM_X0107);
-        d.b.h0.r.u.c a4 = d.b.h0.r.u.c.a(this.f50674h);
-        a4.n(R.color.CAM_X0105);
-        a4.h(R.string.J_X07);
-        a4.f(R.dimen.L_X02);
-        a4.e(R.color.CAM_X0902);
-        d.b.h0.r.u.c a5 = d.b.h0.r.u.c.a(this.i);
-        a5.n(R.color.CAM_X0304);
-        a5.h(R.string.J_X07);
-        a5.b(R.string.A_X07);
-        a5.f(R.dimen.L_X02);
-        a5.e(R.color.CAM_X0304);
+        d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.f51078e);
+        d2.k(R.string.J_X06);
+        d2.f(R.color.CAM_X0201);
+        d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.f51079f);
+        d3.v(R.string.F_X02);
+        d3.q(R.color.CAM_X0105);
+        d.b.h0.r.u.c.d(this.f51080g).q(R.color.CAM_X0107);
+        d.b.h0.r.u.c d4 = d.b.h0.r.u.c.d(this.f51081h);
+        d4.q(R.color.CAM_X0105);
+        d4.k(R.string.J_X07);
+        d4.i(R.dimen.L_X02);
+        d4.h(R.color.CAM_X0902);
+        d.b.h0.r.u.c d5 = d.b.h0.r.u.c.d(this.i);
+        d5.q(R.color.CAM_X0304);
+        d5.k(R.string.J_X07);
+        d5.e(R.string.A_X07);
+        d5.i(R.dimen.L_X02);
+        d5.h(R.color.CAM_X0304);
     }
 
     public void f(d.b.h0.a.b0.a aVar) {
-        this.f50668b = aVar;
+        this.f51075b = aVar;
     }
 
     public void g(c cVar) {
@@ -150,13 +150,13 @@ public class a {
 
     public a h() {
         if (this.j) {
-            AlertDialog create = new AlertDialog.Builder(this.f50667a).create();
-            this.f50669c = create;
+            AlertDialog create = new AlertDialog.Builder(this.f51074a).create();
+            this.f51076c = create;
             create.setCanceledOnTouchOutside(this.k);
-            g.i(this.f50669c, this.f50667a);
+            g.i(this.f51076c, this.f51074a);
             c();
             e();
-            Window window = this.f50669c.getWindow();
+            Window window = this.f51076c.getWindow();
             if (this.m == -1) {
                 this.m = 17;
             }
@@ -165,10 +165,10 @@ public class a {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics q = l.q(this.f50667a);
+            DisplayMetrics q = l.q(this.f51074a);
             if (q != null) {
-                int g2 = l.g(this.f50667a, R.dimen.M_W_X009);
-                if (UtilHelper.getRealScreenOrientation(this.f50667a) == 2) {
+                int g2 = l.g(this.f51074a, R.dimen.M_W_X009);
+                if (UtilHelper.getRealScreenOrientation(this.f51074a) == 2) {
                     attributes.width = q.heightPixels - (g2 * 2);
                 } else {
                     attributes.width = q.widthPixels - (g2 * 2);
@@ -176,7 +176,7 @@ public class a {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.f50670d);
+            window.setContentView(this.f51077d);
             return this;
         }
         throw new RuntimeException("Dialog must be created by function create()!");

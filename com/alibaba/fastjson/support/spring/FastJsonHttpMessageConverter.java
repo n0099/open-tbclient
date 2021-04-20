@@ -26,7 +26,6 @@ import org.springframework.util.StringUtils;
 /* loaded from: classes.dex */
 public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> implements GenericHttpMessageConverter<Object> {
     public static final MediaType APPLICATION_JAVASCRIPT = new MediaType("application", "javascript");
-    public Charset charset;
     @Deprecated
     public String dateFormat;
     public FastJsonConfig fastJsonConfig;
@@ -109,15 +108,14 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
 
     public FastJsonHttpMessageConverter() {
         super(MediaType.ALL);
-        this.charset = Charset.forName("UTF-8");
         this.features = new SerializerFeature[0];
         this.filters = new SerializeFilter[0];
         this.fastJsonConfig = new FastJsonConfig();
     }
 
-    private Object readType(Type type, HttpInputMessage httpInputMessage) throws IOException {
+    private Object readType(Type type, HttpInputMessage httpInputMessage) {
         try {
-            return JSON.parseObject(httpInputMessage.getBody(), this.fastJsonConfig.getCharset(), type, this.fastJsonConfig.getFeatures());
+            return JSON.parseObject(httpInputMessage.getBody(), this.fastJsonConfig.getCharset(), type, this.fastJsonConfig.getParserConfig(), this.fastJsonConfig.getParseProcess(), JSON.DEFAULT_PARSER_FEATURE, this.fastJsonConfig.getFeatures());
         } catch (JSONException e2) {
             throw new HttpMessageNotReadableException("JSON parse error: " + e2.getMessage(), e2);
         } catch (IOException e3) {
@@ -182,7 +180,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
         return readType(getType(type, cls), httpInputMessage);
     }
 
-    public Object readInternal(Class<? extends Object> cls, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
+    public Object readInternal(Class<?> cls, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
         return readType(getType(cls, null), httpInputMessage);
     }
 
@@ -241,12 +239,12 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
                 if (obj2 instanceof MappingFastJsonValue) {
                     z = StringUtils.isEmpty(((MappingFastJsonValue) obj2).getJsonpFunction()) ? false : true;
                 }
-                int writeJSONString = JSON.writeJSONString(byteArrayOutputStream, this.fastJsonConfig.getCharset(), obj2, this.fastJsonConfig.getSerializeConfig(), (SerializeFilter[]) arrayList.toArray(new SerializeFilter[arrayList.size()]), this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, this.fastJsonConfig.getSerializerFeatures());
+                int writeJSONStringWithFastJsonConfig = JSON.writeJSONStringWithFastJsonConfig(byteArrayOutputStream, this.fastJsonConfig.getCharset(), obj2, this.fastJsonConfig.getSerializeConfig(), (SerializeFilter[]) arrayList.toArray(new SerializeFilter[arrayList.size()]), this.fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, this.fastJsonConfig.getSerializerFeatures());
                 if (z) {
                     headers.setContentType(APPLICATION_JAVASCRIPT);
                 }
                 if (this.fastJsonConfig.isWriteContentLength()) {
-                    headers.setContentLength(writeJSONString);
+                    headers.setContentLength(writeJSONStringWithFastJsonConfig);
                 }
                 byteArrayOutputStream.writeTo(httpOutputMessage.getBody());
             } catch (JSONException e2) {

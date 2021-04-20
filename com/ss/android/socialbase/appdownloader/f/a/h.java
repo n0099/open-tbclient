@@ -2,17 +2,17 @@ package com.ss.android.socialbase.appdownloader.f.a;
 
 import d.o.a.e.a.h.a;
 import java.io.PrintStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f38694a;
+    public Throwable f38983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38695b;
+    public int f38984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38696c;
+    public int f38985c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -40,25 +40,25 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f38695b = -1;
-        this.f38696c = -1;
+        this.f38984b = -1;
+        this.f38985c = -1;
         if (gVar != null) {
-            this.f38695b = gVar.c();
-            this.f38696c = gVar.f();
+            this.f38984b = gVar.c();
+            this.f38985c = gVar.f();
         }
-        this.f38694a = th;
+        this.f38983a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        if (this.f38694a == null) {
+        if (this.f38983a == null) {
             super.printStackTrace();
             return;
         }
         synchronized (System.err) {
             PrintStream printStream = System.err;
             printStream.println(super.getMessage() + "; nested exception is:");
-            this.f38694a.printStackTrace();
+            this.f38983a.printStackTrace();
         }
     }
 }

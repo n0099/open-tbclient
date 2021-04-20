@@ -23,29 +23,29 @@ public class HeatMap {
     public static final int DEFAULT_RADIUS = 12;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6870b = "HeatMap";
+    public static final String f6905b = "HeatMap";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseIntArray f6871c;
+    public static final SparseIntArray f6906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f6872d;
+    public static final int[] f6907d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float[] f6873e;
+    public static final float[] f6908e;
     public static int r;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaiduMap f6874a;
+    public BaiduMap f6909a;
 
     /* renamed from: f  reason: collision with root package name */
-    public n<WeightedLatLng> f6875f;
+    public n<WeightedLatLng> f6910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Collection<WeightedLatLng> f6876g;
+    public Collection<WeightedLatLng> f6911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6877h;
+    public int f6912h;
     public Gradient i;
     public double j;
     public g k;
@@ -60,19 +60,19 @@ public class HeatMap {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public Collection<WeightedLatLng> f6878a;
+        public Collection<WeightedLatLng> f6913a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6879b = 12;
+        public int f6914b = 12;
 
         /* renamed from: c  reason: collision with root package name */
-        public Gradient f6880c = HeatMap.DEFAULT_GRADIENT;
+        public Gradient f6915c = HeatMap.DEFAULT_GRADIENT;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f6881d = 0.6d;
+        public double f6916d = 0.6d;
 
         public HeatMap build() {
-            if (this.f6878a != null) {
+            if (this.f6913a != null) {
                 return new HeatMap(this, null);
             }
             throw new IllegalStateException("No input data: you must use either .data or .weightedData before building");
@@ -90,14 +90,14 @@ public class HeatMap {
 
         public Builder gradient(Gradient gradient) {
             if (gradient != null) {
-                this.f6880c = gradient;
+                this.f6915c = gradient;
                 return this;
             }
             throw new IllegalArgumentException("gradient can not be null");
         }
 
         public Builder opacity(double d2) {
-            this.f6881d = d2;
+            this.f6916d = d2;
             if (d2 < 0.0d || d2 > 1.0d) {
                 throw new IllegalArgumentException("Opacity must be in range [0, 1]");
             }
@@ -105,7 +105,7 @@ public class HeatMap {
         }
 
         public Builder radius(int i) {
-            this.f6879b = i;
+            this.f6914b = i;
             if (i < 10 || i > 50) {
                 throw new IllegalArgumentException("Radius not within bounds.");
             }
@@ -131,36 +131,36 @@ public class HeatMap {
                 arrayList.add(weightedLatLng);
             }
             collection.removeAll(arrayList);
-            this.f6878a = collection;
+            this.f6913a = collection;
             return this;
         }
     }
 
     static {
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f6871c = sparseIntArray;
+        f6906c = sparseIntArray;
         sparseIntArray.put(3, 8388608);
-        f6871c.put(4, 4194304);
-        f6871c.put(5, 2097152);
-        f6871c.put(6, 1048576);
-        f6871c.put(7, 524288);
-        f6871c.put(8, 262144);
-        f6871c.put(9, 131072);
-        f6871c.put(10, 65536);
-        f6871c.put(11, 32768);
-        f6871c.put(12, 16384);
-        f6871c.put(13, 8192);
-        f6871c.put(14, 4096);
-        f6871c.put(15, 2048);
-        f6871c.put(16, 1024);
-        f6871c.put(17, 512);
-        f6871c.put(18, 256);
-        f6871c.put(19, 128);
-        f6871c.put(20, 64);
+        f6906c.put(4, 4194304);
+        f6906c.put(5, 2097152);
+        f6906c.put(6, 1048576);
+        f6906c.put(7, 524288);
+        f6906c.put(8, 262144);
+        f6906c.put(9, 131072);
+        f6906c.put(10, 65536);
+        f6906c.put(11, 32768);
+        f6906c.put(12, 16384);
+        f6906c.put(13, 8192);
+        f6906c.put(14, 4096);
+        f6906c.put(15, 2048);
+        f6906c.put(16, 1024);
+        f6906c.put(17, 512);
+        f6906c.put(18, 256);
+        f6906c.put(19, 128);
+        f6906c.put(20, 64);
         int[] iArr = {Color.rgb(0, 0, 200), Color.rgb(0, 225, 0), Color.rgb(255, 0, 0)};
-        f6872d = iArr;
+        f6907d = iArr;
         float[] fArr = {0.08f, 0.4f, 1.0f};
-        f6873e = fArr;
+        f6908e = fArr;
         DEFAULT_GRADIENT = new Gradient(iArr, fArr);
         r = 0;
     }
@@ -169,14 +169,14 @@ public class HeatMap {
         this.o = new HashMap<>();
         this.p = Executors.newFixedThreadPool(1);
         this.q = new HashSet<>();
-        this.f6876g = builder.f6878a;
-        this.f6877h = builder.f6879b;
-        this.i = builder.f6880c;
-        this.j = builder.f6881d;
-        int i = this.f6877h;
+        this.f6911g = builder.f6913a;
+        this.f6912h = builder.f6914b;
+        this.i = builder.f6915c;
+        this.j = builder.f6916d;
+        int i = this.f6912h;
         this.m = a(i, i / 3.0d);
         a(this.i);
-        b(this.f6876g);
+        b(this.f6911g);
     }
 
     public /* synthetic */ HeatMap(Builder builder, i iVar) {
@@ -184,11 +184,11 @@ public class HeatMap {
     }
 
     public static double a(Collection<WeightedLatLng> collection, g gVar, int i, int i2) {
-        double d2 = gVar.f7069a;
-        double d3 = gVar.f7071c;
-        double d4 = gVar.f7070b;
+        double d2 = gVar.f7104a;
+        double d3 = gVar.f7106c;
+        double d4 = gVar.f7105b;
         double d5 = d3 - d2;
-        double d6 = gVar.f7072d - d4;
+        double d6 = gVar.f7107d - d4;
         if (d5 <= d6) {
             d5 = d6;
         }
@@ -272,7 +272,7 @@ public class HeatMap {
             if (i3 >= 11) {
                 break;
             }
-            dArr[i3] = a(this.f6876g, this.k, i, (int) (Math.pow(2.0d, i3 - 3) * 1280.0d));
+            dArr[i3] = a(this.f6911g, this.k, i, (int) (Math.pow(2.0d, i3 - 3) * 1280.0d));
             if (i3 == 5) {
                 for (int i4 = 0; i4 < i3; i4++) {
                     dArr[i4] = dArr[i3];
@@ -358,8 +358,8 @@ public class HeatMap {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, int i2, int i3) {
         int i4;
-        double d2 = f6871c.get(i3);
-        double d3 = (this.f6877h * d2) / 256.0d;
+        double d2 = f6906c.get(i3);
+        double d3 = (this.f6912h * d2) / 256.0d;
         double d4 = ((2.0d * d3) + d2) / ((i4 * 2) + 256);
         if (i < 0 || i2 < 0) {
             return;
@@ -370,22 +370,22 @@ public class HeatMap {
         double d8 = ((i2 + 1) * d2) + d3;
         g gVar = new g(d5, d6, d7, d8);
         g gVar2 = this.k;
-        if (gVar.a(new g(gVar2.f7069a - d3, gVar2.f7071c + d3, gVar2.f7070b - d3, gVar2.f7072d + d3))) {
-            Collection<WeightedLatLng> a2 = this.f6875f.a(gVar);
+        if (gVar.a(new g(gVar2.f7104a - d3, gVar2.f7106c + d3, gVar2.f7105b - d3, gVar2.f7107d + d3))) {
+            Collection<WeightedLatLng> a2 = this.f6910f.a(gVar);
             if (a2.isEmpty()) {
                 return;
             }
-            int i5 = this.f6877h;
+            int i5 = this.f6912h;
             double[][] dArr = (double[][]) Array.newInstance(double.class, (i5 * 2) + 256, (i5 * 2) + 256);
             for (WeightedLatLng weightedLatLng : a2) {
                 Point a3 = weightedLatLng.a();
                 int i6 = (int) ((a3.x - d5) / d4);
                 int i7 = (int) ((d8 - a3.y) / d4);
-                int i8 = this.f6877h;
+                int i8 = this.f6912h;
                 if (i6 >= (i8 * 2) + 256) {
                     i6 = ((i8 * 2) + 256) - 1;
                 }
-                int i9 = this.f6877h;
+                int i9 = this.f6912h;
                 if (i7 >= (i9 * 2) + 256) {
                     i7 = ((i9 * 2) + 256) - 1;
                 }
@@ -400,7 +400,7 @@ public class HeatMap {
             if (this.o.size() > r) {
                 a();
             }
-            BaiduMap baiduMap = this.f6874a;
+            BaiduMap baiduMap = this.f6909a;
             if (baiduMap != null) {
                 baiduMap.a();
             }
@@ -412,17 +412,17 @@ public class HeatMap {
     }
 
     private void b(Collection<WeightedLatLng> collection) {
-        this.f6876g = collection;
+        this.f6911g = collection;
         if (collection.isEmpty()) {
             throw new IllegalArgumentException("No input points.");
         }
-        g d2 = d(this.f6876g);
+        g d2 = d(this.f6911g);
         this.k = d2;
-        this.f6875f = new n<>(d2);
-        for (WeightedLatLng weightedLatLng : this.f6876g) {
-            this.f6875f.a((n<WeightedLatLng>) weightedLatLng);
+        this.f6910f = new n<>(d2);
+        for (WeightedLatLng weightedLatLng : this.f6911g) {
+            this.f6910f.a((n<WeightedLatLng>) weightedLatLng);
         }
-        this.n = a(this.f6877h);
+        this.n = a(this.f6912h);
     }
 
     private synchronized Tile c(String str) {
@@ -482,9 +482,9 @@ public class HeatMap {
         if (a(str)) {
             return null;
         }
-        BaiduMap baiduMap = this.f6874a;
+        BaiduMap baiduMap = this.f6909a;
         if (baiduMap != null && r == 0) {
-            WinRound winRound = baiduMap.getMapStatus().f6901a.j;
+            WinRound winRound = baiduMap.getMapStatus().f6936a.j;
             r = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2) * 4;
         }
         if (this.o.size() > r) {
@@ -517,7 +517,7 @@ public class HeatMap {
     }
 
     public void removeHeatMap() {
-        BaiduMap baiduMap = this.f6874a;
+        BaiduMap baiduMap = this.f6909a;
         if (baiduMap != null) {
             baiduMap.a(this);
         }

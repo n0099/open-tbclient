@@ -1,0 +1,345 @@
+package d.b.c.e.r;
+
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.webSocket.WebSocketException;
+import com.baidu.android.common.others.lang.StringUtil;
+import d.b.c.e.r.e;
+import java.io.IOException;
+import java.net.SocketException;
+import java.util.List;
+import java.util.Random;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okhttp3.internal.ws.WebSocketProtocol;
+import org.apache.http.message.BasicNameValuePair;
+/* loaded from: classes.dex */
+public class g0 extends Handler {
+
+    /* renamed from: g  reason: collision with root package name */
+    public static long f42593g;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final Random f42594a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Handler f42595b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Looper f42596c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final e.a f42597d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final d0 f42598e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final a f42599f;
+
+    public g0(Looper looper, Handler handler, e.a aVar, d0 d0Var) {
+        super(looper);
+        this.f42594a = new Random();
+        this.f42596c = looper;
+        this.f42595b = handler;
+        this.f42597d = aVar;
+        this.f42598e = d0Var;
+        this.f42599f = new a(d0Var.b() + 14, 262144);
+    }
+
+    public void a() {
+        synchronized (g0.class) {
+            f42593g = 0L;
+        }
+    }
+
+    public boolean b(Object obj) {
+        Message obtainMessage = obtainMessage();
+        obtainMessage.obj = obj;
+        return sendMessage(obtainMessage);
+    }
+
+    public long c() {
+        long j;
+        synchronized (g0.class) {
+            j = f42593g;
+        }
+        return j;
+    }
+
+    public final boolean d() {
+        return BdBaseApplication.getInst().isDebugMode();
+    }
+
+    public final String e() {
+        byte[] bArr = new byte[16];
+        this.f42594a.nextBytes(bArr);
+        return d.b.c.e.p.c.j(bArr);
+    }
+
+    public final void f(Object obj) {
+        Message obtainMessage = this.f42595b.obtainMessage();
+        obtainMessage.obj = obj;
+        this.f42595b.sendMessage(obtainMessage);
+    }
+
+    public void g(Object obj) throws WebSocketException, IOException {
+        throw new WebSocketException("unknown message received by WebSocketWriter");
+    }
+
+    public boolean h(Object obj) throws IOException, WebSocketException {
+        if (obj instanceof s) {
+            return o((s) obj);
+        }
+        if (obj instanceof c0) {
+            s((c0) obj);
+            return true;
+        } else if (obj instanceof w) {
+            r((w) obj);
+            return true;
+        } else if (obj instanceof k) {
+            j((k) obj);
+            return true;
+        } else if (obj instanceof t) {
+            p((t) obj);
+            return true;
+        } else if (obj instanceof u) {
+            q((u) obj);
+            return true;
+        } else if (obj instanceof m) {
+            l((m) obj);
+            return true;
+        } else if (obj instanceof l) {
+            k((l) obj);
+            return true;
+        } else {
+            g(obj);
+            throw null;
+        }
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        try {
+            if (message.obj == null) {
+                return;
+            }
+            c cVar = message.obj instanceof s ? ((s) message.obj).f42633a : null;
+            this.f42599f.n();
+            if (!h(message.obj)) {
+                f(new x(cVar));
+                return;
+            }
+            this.f42599f.q();
+            if (cVar != null) {
+                f(new b0(cVar));
+            }
+            while (this.f42599f.s() > 0) {
+                if (this.f42597d == null) {
+                    f(new n(new SocketException("write socket = null")));
+                    return;
+                }
+                int write = this.f42597d.write(this.f42599f.r());
+                if (write > 0) {
+                    synchronized (g0.class) {
+                        f42593g += write;
+                    }
+                }
+            }
+            if (cVar != null) {
+                f(new q(cVar));
+            }
+        } catch (SocketException e2) {
+            f(new n(e2));
+        } catch (Exception e3) {
+            if (d()) {
+                e3.printStackTrace();
+            }
+            f(new p(e3));
+        }
+    }
+
+    public void i() {
+        try {
+            this.f42596c.quit();
+        } catch (Exception unused) {
+        }
+        try {
+            this.f42597d.close();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public final void j(k kVar) throws IOException, WebSocketException {
+        if (kVar.f42619a.length <= this.f42598e.c()) {
+            m(2, true, kVar.f42619a);
+            return;
+        }
+        throw new WebSocketException("message payload exceeds payload limit");
+    }
+
+    public final void k(l lVar) throws IOException {
+        this.f42599f.t("GET " + (lVar.f42624c != null ? lVar.f42623b + "?" + lVar.f42624c : lVar.f42623b) + " HTTP/1.1");
+        this.f42599f.o();
+        this.f42599f.t("Host: " + lVar.f42622a);
+        this.f42599f.o();
+        this.f42599f.t("Upgrade: WebSocket");
+        this.f42599f.o();
+        this.f42599f.t("Connection: Upgrade");
+        this.f42599f.o();
+        this.f42599f.t("Sec-WebSocket-Key: " + e());
+        this.f42599f.o();
+        d0 d0Var = this.f42598e;
+        if (d0Var != null && d0Var.i() != null && this.f42598e.i().length() > 0) {
+            this.f42599f.t("Sec-WebSocket-Extensions: " + this.f42598e.i());
+            this.f42599f.o();
+        }
+        String str = lVar.f42625d;
+        if (str != null && !str.equals("")) {
+            this.f42599f.t("Origin: " + lVar.f42625d);
+            this.f42599f.o();
+        }
+        String[] strArr = lVar.f42626e;
+        if (strArr != null && strArr.length > 0) {
+            this.f42599f.t("Sec-WebSocket-Protocol: ");
+            int i = 0;
+            while (true) {
+                String[] strArr2 = lVar.f42626e;
+                if (i >= strArr2.length) {
+                    break;
+                }
+                this.f42599f.t(strArr2[i]);
+                this.f42599f.t(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                i++;
+            }
+            this.f42599f.o();
+        }
+        this.f42599f.t("Sec-WebSocket-Version: 13");
+        this.f42599f.o();
+        List<BasicNameValuePair> list = lVar.f42627f;
+        if (list != null) {
+            for (BasicNameValuePair basicNameValuePair : list) {
+                this.f42599f.t(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
+                this.f42599f.o();
+            }
+        }
+        this.f42599f.o();
+    }
+
+    public final void l(m mVar) throws IOException, WebSocketException {
+        byte[] bArr;
+        if (mVar.f42628a > 0) {
+            String str = mVar.f42629b;
+            if (str == null || str.equals("")) {
+                bArr = new byte[2];
+            } else {
+                byte[] bytes = mVar.f42629b.getBytes("UTF-8");
+                bArr = new byte[bytes.length + 2];
+                for (int i = 0; i < bytes.length; i++) {
+                    bArr[i + 2] = bytes[i];
+                }
+            }
+            if (bArr.length <= 125) {
+                int i2 = mVar.f42628a;
+                bArr[0] = (byte) ((i2 >> 8) & 255);
+                bArr[1] = (byte) (i2 & 255);
+                m(8, true, bArr);
+                return;
+            }
+            throw new WebSocketException("close payload exceeds 125 octets");
+        }
+        m(8, true, null);
+    }
+
+    public void m(int i, boolean z, byte[] bArr) throws IOException {
+        if (bArr != null) {
+            n(i, z, bArr, 0, bArr.length);
+        } else {
+            n(i, z, null, 0, 0);
+        }
+    }
+
+    public void n(int i, boolean z, byte[] bArr, int i2, int i3) throws IOException {
+        int i4;
+        byte b2;
+        byte b3 = ByteCompanionObject.MIN_VALUE;
+        if (z) {
+            b2 = (byte) com.alipay.sdk.encrypt.a.f1921g;
+            i4 = i;
+        } else {
+            i4 = i;
+            b2 = 0;
+        }
+        this.f42599f.write((byte) (b2 | ((byte) i4)));
+        if (!this.f42598e.a()) {
+            b3 = 0;
+        }
+        long j = i3;
+        if (j <= 125) {
+            this.f42599f.write((byte) (b3 | ((byte) j)));
+        } else if (j <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {
+            this.f42599f.write((byte) (b3 | 126));
+            this.f42599f.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (j & 255)});
+        } else {
+            this.f42599f.write((byte) (b3 | ByteCompanionObject.MAX_VALUE));
+            this.f42599f.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (j & 255)});
+        }
+        if (this.f42598e.a()) {
+            this.f42599f.write(0);
+            this.f42599f.write(0);
+            this.f42599f.write(0);
+            this.f42599f.write(0);
+        }
+        if (j > 0) {
+            this.f42598e.a();
+            this.f42599f.write(bArr, i2, i3);
+        }
+    }
+
+    public final boolean o(s sVar) throws IOException, WebSocketException {
+        byte[] e2 = sVar.f42633a.e();
+        if (e2 == null) {
+            return false;
+        }
+        if (e2.length <= this.f42598e.c()) {
+            m(2, true, e2);
+            return true;
+        }
+        throw new WebSocketException("message payload exceeds payload limit");
+    }
+
+    public final void p(t tVar) throws IOException, WebSocketException {
+        byte[] bArr = tVar.f42634a;
+        if (bArr != null && bArr.length > 125) {
+            throw new WebSocketException("ping payload exceeds 125 octets");
+        }
+        m(9, true, tVar.f42634a);
+    }
+
+    public final void q(u uVar) throws IOException, WebSocketException {
+        byte[] bArr = uVar.f42635a;
+        if (bArr != null && bArr.length > 125) {
+            throw new WebSocketException("pong payload exceeds 125 octets");
+        }
+        m(10, true, uVar.f42635a);
+    }
+
+    public final void r(w wVar) throws IOException, WebSocketException {
+        if (wVar.f42637a.length <= this.f42598e.c()) {
+            m(1, true, wVar.f42637a);
+            return;
+        }
+        throw new WebSocketException("message payload exceeds payload limit");
+    }
+
+    public final void s(c0 c0Var) throws IOException, WebSocketException {
+        byte[] bytes = c0Var.f42558a.getBytes("UTF-8");
+        if (bytes.length <= this.f42598e.c()) {
+            m(1, true, bytes);
+            return;
+        }
+        throw new WebSocketException("message payload exceeds payload limit");
+    }
+}

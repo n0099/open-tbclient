@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -15,16 +16,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.flutter.util.OpenFlutter;
-import com.baidu.tieba.flutter.view.FlutterDelegateStatic;
-import com.baidu.tieba.flutter.view.FlutterEnterForumDelegateStatic;
-import com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic;
-import com.baidu.tieba.flutter.view.PageRouter;
+import com.baidu.tieba.flutter.base.util.OpenFlutter;
+import com.baidu.tieba.flutter.base.view.FlutterDelegateStatic;
+import com.baidu.tieba.flutter.base.view.FlutterEnterForumDelegateStatic;
+import com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic;
+import com.baidu.tieba.flutter.base.view.PageRouter;
+import com.baidu.tieba.flutter.plugin.FlutterPluginInit;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import d.b.b.c.f.b;
-import d.b.i0.c3.h0.m;
+import d.b.c.c.f.b;
+import d.b.i0.d3.h0.m;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +57,7 @@ public class FlutterStatic {
 
             @Override // com.idlefish.flutterboost.FlutterBoost.BoostLifecycleListener
             public void onEngineCreated() {
+                FlutterPluginInit.init(FlutterBoost.instance().engineProvider());
             }
 
             public void onEngineDestroy() {
@@ -82,7 +85,7 @@ public class FlutterStatic {
     public static void registerFlutterRule() {
         MessageManager.getInstance().addMessageRule(new b(0) { // from class: com.baidu.tieba.flutter.FlutterStatic.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.b.c.f.f
+            @Override // d.b.c.c.f.f
             public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 return (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof IntentConfig)) ? customMessage : OpenFlutter.goToFlutter(customMessage);
             }
@@ -106,6 +109,7 @@ public class FlutterStatic {
         }));
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
             @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+            @RequiresApi(api = 11)
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr != null && strArr[0] != null) {
                     String str = strArr[0];

@@ -7,14 +7,13 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class v {
     public static void a(Uri uri) {
         if (uri != null) {
             String b2 = b(uri);
             String queryParameter = uri.getQueryParameter("obj_source");
-            if ("shoubai".equals(queryParameter) || com.baidu.sapi2.utils.l.f11528a.equals(queryParameter) || "tbShareH5".equals(queryParameter) || "wise".equals(queryParameter) || "zhongjianye".equals(queryParameter) || "PC".equals(queryParameter)) {
+            if ("shoubai".equals(queryParameter) || com.baidu.sapi2.utils.l.f11112a.equals(queryParameter) || "tbShareH5".equals(queryParameter) || "wise".equals(queryParameter) || "zhongjianye".equals(queryParameter) || "PC".equals(queryParameter)) {
                 String queryParameter2 = uri.getQueryParameter("obj_locate");
                 uri.getQueryParameter("obj_type");
                 String queryParameter3 = uri.getQueryParameter("obj_param1");
@@ -59,7 +58,7 @@ public class v {
             return "";
         }
         String uri2 = uri.toString();
-        return TextUtils.isEmpty(uri2) ? "" : (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) ? "5" : (uri2.contains("tbpb") || uri2.contains("unidispatch/pb")) ? "tbpb://tieba.baidu.com".equals(uri2) ? "5" : !TextUtils.isEmpty(uri.getQueryParameter(f.p)) ? "6" : "1" : (uri2.contains("invoke_frs") || uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) ? "2" : uri2.contains("tbwebview") ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : (uri2.contains("tbusercenter") || uri2.contains("unidispatch/usercenter") || uri2.contains("usercenter")) ? "4" : (uri2.contains("tbtopicdetail") || uri2.contains("unidispatch/topicdetail")) ? "3" : uri2.contains("unidispatch/hotuserrank") ? "7" : f.f49577c.equals(uri.getPath()) ? "5" : Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
+        return TextUtils.isEmpty(uri2) ? "" : (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) ? "5" : (uri2.contains("tbpb") || uri2.contains("unidispatch/pb")) ? "tbpb://tieba.baidu.com".equals(uri2) ? "5" : !TextUtils.isEmpty(uri.getQueryParameter(f.p)) ? "6" : "1" : (uri2.contains("invoke_frs") || uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) ? "2" : uri2.contains("tbwebview") ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : (uri2.contains("tbusercenter") || uri2.contains("unidispatch/usercenter") || uri2.contains("usercenter")) ? "4" : (uri2.contains("tbtopicdetail") || uri2.contains("unidispatch/topicdetail")) ? "3" : uri2.contains("unidispatch/hotuserrank") ? "7" : f.f49969c.equals(uri.getPath()) ? "5" : "10";
     }
 
     public static void c(Uri uri) {

@@ -3,7 +3,7 @@ package com.ksad.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import androidx.appcompat.widget.SearchView;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.PolystarShape;
 /* loaded from: classes6.dex */
@@ -30,7 +30,7 @@ public class z {
                                 if (hashCode != 3369) {
                                     if (hashCode != 3370) {
                                         if (hashCode != 3555) {
-                                            if (hashCode == 3556 && nextName.equals(IXAdRequestInfo.OS)) {
+                                            if (hashCode == 3556 && nextName.equals(IAdRequestParam.OS)) {
                                                 c2 = 6;
                                             }
                                         } else if (nextName.equals("or")) {
@@ -51,7 +51,7 @@ public class z {
                     } else if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
                         c2 = 0;
                     }
-                } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7664a)) {
+                } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7699a)) {
                     c2 = 4;
                 }
             } else if (nextName.equals("p")) {

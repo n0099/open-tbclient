@@ -8,17 +8,17 @@ public class e extends m {
     public void b(h hVar) {
         int i;
         if (k.d().g()) {
-            d.b.b.e.n.a a2 = j.a();
+            d.b.c.e.n.a a2 = j.a();
             a2.b("action", "time_t");
             f(a2, hVar);
             a2.b("ishttp", hVar.s ? "1" : "0");
-            a2.b("issuccess", hVar.f50322b ? "1" : "0");
+            a2.b("issuccess", hVar.f50729b ? "1" : "0");
             a2.b("nettype", k.d().f());
-            a2.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.f50325e));
+            a2.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.f50732e));
             a2.b("wt", String.valueOf(hVar.p));
-            a2.b("qt", String.valueOf(hVar.f50326f));
-            a2.b("connt", String.valueOf(hVar.f50327g));
-            a2.b("rwt", String.valueOf(hVar.f50328h));
+            a2.b("qt", String.valueOf(hVar.f50733f));
+            a2.b("connt", String.valueOf(hVar.f50734g));
+            a2.b("rwt", String.valueOf(hVar.f50735h));
             a2.b("dect", String.valueOf(hVar.k));
             a2.b("parset", String.valueOf(hVar.l));
             a2.b("rendert", String.valueOf(hVar.o));
@@ -40,14 +40,14 @@ public class e extends m {
             } else {
                 a2.b("seq_id", String.valueOf(hVar.z & 4294967295L));
             }
-            BdStatisticsManager.getInstance().performance(this.f50341a, a2);
+            BdStatisticsManager.getInstance().performance(this.f50748a, a2);
         }
     }
 
     @Override // d.b.h0.m0.m
     public void c(h hVar, int i) {
         if (k.d().g() && hVar.D > 0) {
-            d.b.b.e.n.a a2 = j.a();
+            d.b.c.e.n.a a2 = j.a();
             a2.b("action", "time_t");
             f(a2, hVar);
             a2.b("pct", String.valueOf(hVar.D));
@@ -58,7 +58,7 @@ public class e extends m {
             } else {
                 a2.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.f50341a, a2);
+            BdStatisticsManager.getInstance().performance(this.f50748a, a2);
         }
     }
 
@@ -68,7 +68,7 @@ public class e extends m {
         if (k.d().g()) {
             if (!z || hVar.B > 0) {
                 if (z || hVar.C > 0) {
-                    d.b.b.e.n.a a2 = j.a();
+                    d.b.c.e.n.a a2 = j.a();
                     a2.b("action", "time_t");
                     f(a2, hVar);
                     if (z) {
@@ -77,11 +77,11 @@ public class e extends m {
                         a2.b("pdt", String.valueOf(hVar.C));
                     }
                     a2.b("ishttp", hVar.s ? "1" : "0");
-                    a2.b("issuccess", hVar.f50322b ? "1" : "0");
+                    a2.b("issuccess", hVar.f50729b ? "1" : "0");
                     a2.b("nettype", k.d().f());
-                    a2.b("qt", String.valueOf(hVar.f50326f));
-                    a2.b("connt", String.valueOf(hVar.f50327g));
-                    a2.b("rwt", String.valueOf(hVar.f50328h));
+                    a2.b("qt", String.valueOf(hVar.f50733f));
+                    a2.b("connt", String.valueOf(hVar.f50734g));
+                    a2.b("rwt", String.valueOf(hVar.f50735h));
                     a2.b("dect", String.valueOf(hVar.k));
                     a2.b("parset", String.valueOf(hVar.l));
                     a2.b("rendert", String.valueOf(hVar.o));
@@ -98,13 +98,13 @@ public class e extends m {
                     if (i2 != 0) {
                         a2.c("errcode", Integer.valueOf(i2));
                     }
-                    BdStatisticsManager.getInstance().performance(this.f50341a, a2);
+                    BdStatisticsManager.getInstance().performance(this.f50748a, a2);
                 }
             }
         }
     }
 
-    public final void f(d.b.b.e.n.a aVar, h hVar) {
+    public final void f(d.b.c.e.n.a aVar, h hVar) {
         if (hVar instanceof d) {
             aVar.c("ptype", Integer.valueOf(((d) hVar).F));
         }

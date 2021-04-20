@@ -17,9 +17,9 @@ public interface a {
 
     void e(String str, HttpRequestBuilder httpRequestBuilder);
 
-    Context f();
+    int f();
 
-    int g();
+    Context getAppContext();
 
     int getReadTimeout();
 

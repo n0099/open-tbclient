@@ -14,44 +14,44 @@ import d.b.g0.a.k;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44426a = k.f45051a;
+    public static final boolean f44818a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f44427b = "";
+    public static volatile String f44819b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f44428c = true;
+    public static volatile boolean f44820c = true;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44429e;
+        public final /* synthetic */ String f44821e;
 
         /* renamed from: d.b.g0.a.f1.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0690a implements Runnable {
+        public class RunnableC0702a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f44430e;
+            public final /* synthetic */ int f44822e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f44431f;
+            public final /* synthetic */ Bitmap f44823f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Rect f44432g;
+            public final /* synthetic */ Rect f44824g;
 
-            public RunnableC0690a(a aVar, int i, Bitmap bitmap, Rect rect) {
-                this.f44430e = i;
-                this.f44431f = bitmap;
-                this.f44432g = rect;
+            public RunnableC0702a(a aVar, int i, Bitmap bitmap, Rect rect) {
+                this.f44822e = i;
+                this.f44823f = bitmap;
+                this.f44824g = rect;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.a.f1.h.a a2 = a.C0691a.a("simple_parser");
-                a2.c(this.f44430e);
-                if (a2.a(this.f44431f, this.f44432g)) {
+                d.b.g0.a.f1.h.a a2 = a.C0703a.a("simple_parser");
+                a2.c(this.f44822e);
+                if (a2.a(this.f44823f, this.f44824g)) {
                     return;
                 }
                 e.h();
@@ -59,7 +59,7 @@ public final class e {
         }
 
         public a(String str) {
-            this.f44429e = str;
+            this.f44821e = str;
         }
 
         @Override // java.lang.Runnable
@@ -71,7 +71,7 @@ public final class e {
                 return;
             }
             Bitmap n = h0.n();
-            p.f().execute(new RunnableC0690a(this, c.d(o), n, c.b(n, o, d.b.g0.a.z0.f.V().m(this.f44429e))), "SwanNAArrivalCheck");
+            p.f().execute(new RunnableC0702a(this, c.d(o), n, c.b(n, o, d.b.g0.a.z0.f.V().m(this.f44821e))), "SwanNAArrivalCheck");
         }
     }
 
@@ -81,7 +81,7 @@ public final class e {
 
     public static void c() {
         d.b.g0.a.e0.l.f W;
-        if (f44426a) {
+        if (f44818a) {
             Log.d("SwanArrivalMonitor", "start handle arrival report");
         }
         if (d.b.g0.a.z1.e.e() || (W = d.b.g0.a.z0.f.V().W()) == null) {
@@ -101,7 +101,7 @@ public final class e {
                 dVar = T2.z();
             }
         }
-        if (dVar == null || dVar.f45453b <= 0) {
+        if (dVar == null || dVar.f45845b <= 0) {
             return;
         }
         d.b.g0.a.z1.e.a(dVar);
@@ -113,16 +113,16 @@ public final class e {
         }
         d.b.g0.a.e0.l.e A = d.b.g0.a.z0.f.V().A();
         if (A == null) {
-            if (f44426a) {
+            if (f44818a) {
                 Log.d("SwanArrivalMonitor", "NAArrival：top fragment is null");
             }
         } else if (!f(A)) {
-            if (f44426a) {
+            if (f44818a) {
                 Log.d("SwanArrivalMonitor", "start na report");
             }
             h();
         } else {
-            if (f44426a) {
+            if (f44818a) {
                 Log.d("SwanArrivalMonitor", "start check for na arrival");
             }
             b(A.X2());
@@ -130,22 +130,22 @@ public final class e {
     }
 
     public static void e(String str) {
-        f44427b = str;
+        f44819b = str;
     }
 
     public static boolean f(d.b.g0.a.e0.l.e eVar) {
         if (eVar == null) {
             return false;
         }
-        boolean equals = TextUtils.equals(f44427b, eVar.X2());
-        if (f44426a) {
+        boolean equals = TextUtils.equals(f44819b, eVar.X2());
+        if (f44818a) {
             Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
         }
         return equals;
     }
 
     public static boolean g() {
-        return f44428c;
+        return f44820c;
     }
 
     public static void h() {
@@ -156,18 +156,18 @@ public final class e {
     }
 
     public static void j(boolean z) {
-        if (f44426a) {
+        if (f44818a) {
             Log.d("SwanArrivalMonitor", "on swan page change, isFromRoute : " + z);
         }
         if (z && d.b.g0.a.z1.e.h()) {
-            if (f44426a) {
+            if (f44818a) {
                 Log.d("SwanArrivalMonitor", "end handle swan page change");
                 return;
             }
             return;
         }
         if (z) {
-            f44428c = false;
+            f44820c = false;
         }
         if (!z) {
             d();
@@ -182,7 +182,7 @@ public final class e {
     }
 
     public static void k() {
-        f44427b = "";
-        f44428c = true;
+        f44819b = "";
+        f44820c = true;
     }
 }

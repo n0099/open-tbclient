@@ -14,110 +14,110 @@ import java.util.TimerTask;
 public class e {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47159e = k.f45051a;
+    public static final boolean f47551e = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f47162c;
+    public boolean f47554c;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f47160a = new c(this);
+    public c f47552a = new c(this);
 
     /* renamed from: b  reason: collision with root package name */
-    public a f47161b = new a();
+    public a f47553b = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.g0.a.z0.j.a f47163d = d.b.g0.a.z0.j.c.f();
+    public final d.b.g0.a.z0.j.a f47555d = d.b.g0.a.z0.j.c.f();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f47164a;
+        public b f47556a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Timer f47165b;
+        public Timer f47557b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f47166c = 300;
+        public long f47558c = 300;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f47167d = 0;
+        public int f47559d = 0;
 
         /* renamed from: d.b.g0.a.z0.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0892a extends TimerTask {
-            public C0892a() {
+        public class C0904a extends TimerTask {
+            public C0904a() {
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                if (e.f47159e) {
-                    Log.d("SwanAppCollectionPolicy", "task run: " + a.this.f47166c);
+                if (e.f47551e) {
+                    Log.d("SwanAppCollectionPolicy", "task run: " + a.this.f47558c);
                 }
-                a.this.f47166c -= 10;
-                if (a.this.f47166c > 0 || a.this.f47164a == null) {
+                a.this.f47558c -= 10;
+                if (a.this.f47558c > 0 || a.this.f47556a == null) {
                     return;
                 }
-                a.this.f47164a.n(1);
+                a.this.f47556a.n(1);
                 a.this.l();
             }
         }
 
         public final synchronized void d() {
-            if (this.f47165b != null) {
-                this.f47165b.cancel();
-                this.f47165b.purge();
-                this.f47165b = null;
+            if (this.f47557b != null) {
+                this.f47557b.cancel();
+                this.f47557b.purge();
+                this.f47557b = null;
             }
         }
 
         public final TimerTask e() {
-            return new C0892a();
+            return new C0904a();
         }
 
         public void f() {
-            if (this.f47167d == 2) {
+            if (this.f47559d == 2) {
                 return;
             }
-            this.f47167d = 4;
+            this.f47559d = 4;
             d();
         }
 
         public final void g() {
-            this.f47166c = d.b.g0.a.j1.m.d.a();
-            if (e.f47159e && d.b.g0.a.m1.a.a.r().getBoolean("swan_5min_back_optimize", false)) {
-                this.f47166c = 30L;
+            this.f47558c = d.b.g0.a.j1.m.d.a();
+            if (e.f47551e && d.b.g0.a.m1.a.a.r().getBoolean("swan_5min_back_optimize", false)) {
+                this.f47558c = 30L;
             }
         }
 
         public void h() {
-            if (this.f47167d != 4) {
+            if (this.f47559d != 4) {
                 return;
             }
-            this.f47167d = 3;
+            this.f47559d = 3;
             d();
             i();
         }
 
         public final void i() {
             Timer timer = new Timer();
-            this.f47165b = timer;
+            this.f47557b = timer;
             timer.schedule(e(), 0L, 10000L);
         }
 
         public void j(b bVar) {
-            this.f47164a = bVar;
+            this.f47556a = bVar;
         }
 
         public void k() {
-            this.f47167d = 1;
+            this.f47559d = 1;
             g();
             d();
             i();
         }
 
         public void l() {
-            this.f47167d = 2;
+            this.f47559d = 2;
             d();
             g();
         }
@@ -169,15 +169,15 @@ public class e {
     }
 
     public void c(Context context) {
-        if (this.f47162c) {
+        if (this.f47554c) {
             return;
         }
-        this.f47162c = true;
-        context.registerReceiver(this.f47160a, c.getIntentFilter());
+        this.f47554c = true;
+        context.registerReceiver(this.f47552a, c.getIntentFilter());
     }
 
     public final void d(boolean z) {
-        if (f47159e) {
+        if (f47551e) {
             Log.d("SwanAppCollectionPolicy", "onScreenStatusChanged isOn: " + z);
         }
         if (z) {
@@ -188,16 +188,16 @@ public class e {
     }
 
     public final void e() {
-        this.f47161b.f();
+        this.f47553b.f();
     }
 
     public void f(Context context) {
-        if (this.f47162c) {
-            this.f47162c = false;
+        if (this.f47554c) {
+            this.f47554c = false;
             try {
-                context.unregisterReceiver(this.f47160a);
+                context.unregisterReceiver(this.f47552a);
             } catch (IllegalArgumentException e2) {
-                if (f47159e) {
+                if (f47551e) {
                     e2.printStackTrace();
                 }
             }
@@ -205,26 +205,26 @@ public class e {
     }
 
     public final void g() {
-        this.f47161b.h();
+        this.f47553b.h();
     }
 
     public void h(b bVar) {
-        this.f47161b.j(bVar);
+        this.f47553b.j(bVar);
     }
 
     public void i() {
-        if (f47159e) {
+        if (f47551e) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
-        this.f47163d.onPause();
-        this.f47161b.k();
+        this.f47555d.onPause();
+        this.f47553b.k();
     }
 
     public void j() {
-        if (f47159e) {
+        if (f47551e) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
-        this.f47163d.onResume();
-        this.f47161b.l();
+        this.f47555d.onResume();
+        this.f47553b.l();
     }
 }

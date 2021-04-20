@@ -29,7 +29,7 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class UploadBean extends NetworkBean {
     public static final int COMET_BEAN = 1;
     public static final String TAG = "UploadBean";
@@ -41,7 +41,7 @@ public abstract class UploadBean extends NetworkBean {
     public String mTskKey;
     public Class<?> rspClass;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class UploadFileModel {
         public String contentType;
         public String fileName;

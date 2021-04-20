@@ -11,12 +11,11 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.nps.utils.Constant;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import d.b.b.e.m.b;
-import d.b.b.e.p.f;
-import d.b.b.e.p.m;
-import d.b.b.e.p.q;
+import d.b.c.e.m.b;
+import d.b.c.e.p.f;
+import d.b.c.e.p.m;
+import d.b.c.e.p.q;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,13 +37,13 @@ public final class Util {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2238a = false;
+        public boolean f2273a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2239b = null;
+        public String f2274b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2240c = 0;
+        public int f2275c = 0;
     }
 
     public static void a(File file) {
@@ -147,24 +146,24 @@ public final class Util {
                 }
                 fileOutputStream.flush();
                 fileOutputStream.close();
-                aVar.f2238a = true;
+                aVar.f2273a = true;
             } catch (Exception e3) {
                 e = e3;
                 fileOutputStream2 = fileOutputStream;
-                aVar.f2238a = false;
-                aVar.f2239b = e.toString();
-                d.b.b.e.m.a.d(fileOutputStream2);
+                aVar.f2273a = false;
+                aVar.f2274b = e.toString();
+                d.b.c.e.m.a.d(fileOutputStream2);
                 return aVar;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                d.b.b.e.m.a.d(fileOutputStream2);
+                d.b.c.e.m.a.d(fileOutputStream2);
                 throw th;
             }
-            d.b.b.e.m.a.d(fileOutputStream2);
+            d.b.c.e.m.a.d(fileOutputStream2);
             return aVar;
         }
-        aVar.f2239b = "illegal_param";
+        aVar.f2274b = "illegal_param";
         return aVar;
     }
 
@@ -248,7 +247,7 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return pluginSetting.packageName + Constant.FILE.SUFFIX.BUNDLE_SUFFIX + "_" + pluginSetting.tempVersionCode;
+        return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
     public static String k(String str) {
@@ -364,7 +363,7 @@ public final class Util {
         return ((short) ((bArr[i] & 255) | (bArr[i + 1] << 8))) & UShort.MAX_VALUE;
     }
 
-    public static d.b.b.h.k.f x(InputStream inputStream) throws IOException {
+    public static d.b.c.h.k.f x(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -374,7 +373,7 @@ public final class Util {
         }
         int w = w(bArr, 6);
         int w2 = w(bArr, 8);
-        d.b.b.h.k.f fVar = new d.b.b.h.k.f();
+        d.b.c.h.k.f fVar = new d.b.c.h.k.f();
         fVar.b(((w2 >> 9) & 127) + 1980, (w2 >> 5) & 15, w2 & 31, (w >> 11) & 31, (w >> 5) & 63, (w & 31) << 1);
         return fVar;
     }

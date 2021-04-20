@@ -6,27 +6,27 @@ import org.json.JSONArray;
 public class x extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f47060a;
+    public i f47452a;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
-        i iVar = this.f47060a;
+        i iVar = this.f47452a;
         if (iVar == null || !iVar.d()) {
             return;
         }
-        if (this.f47060a.c()) {
-            bVar.f46970f.setShader(this.f47060a.b());
+        if (this.f47452a.c()) {
+            bVar.f47362f.setShader(this.f47452a.b());
             return;
         }
-        bVar.i.setColor(this.f47060a.a());
-        bVar.f46970f.setColor(this.f47060a.a());
-        bVar.f46970f.setShader(null);
+        bVar.i.setColor(this.f47452a.a());
+        bVar.f47362f.setColor(this.f47452a.a());
+        bVar.f47362f.setShader(null);
     }
 
     @Override // d.b.g0.a.y.a.j.a
     public void b(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.f47060a = new i(jSONArray);
+            this.f47452a = new i(jSONArray);
         }
     }
 }

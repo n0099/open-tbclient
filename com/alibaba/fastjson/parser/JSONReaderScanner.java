@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.math.BigDecimal;
+import java.math.MathContext;
 /* loaded from: classes.dex */
 public final class JSONReaderScanner extends JSONLexerBase {
     public static final ThreadLocal<char[]> BUF_LOCAL = new ThreadLocal<>();
@@ -122,7 +123,10 @@ public final class JSONReaderScanner extends JSONLexerBase {
         if (charAt == 'L' || charAt == 'S' || charAt == 'B' || charAt == 'F' || charAt == 'D') {
             i2--;
         }
-        return new BigDecimal(this.buf, i, i2);
+        if (i2 <= 65535) {
+            return new BigDecimal(this.buf, i, i2, MathContext.UNLIMITED);
+        }
+        throw new JSONException("decimal overflow");
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
@@ -162,7 +166,7 @@ public final class JSONReaderScanner extends JSONLexerBase {
             int i = this.bp;
             char[] cArr = this.buf;
             if (i != cArr.length) {
-                return this.ch == 26 && i + 1 == cArr.length;
+                return this.ch == 26 && i + 1 >= cArr.length;
             }
             return true;
         }

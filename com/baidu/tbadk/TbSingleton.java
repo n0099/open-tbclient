@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
-import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
 import d.b.h0.r.q.e1;
-import d.b.h0.s.c.b0;
-import d.b.h0.s.c.c0;
+import d.b.h0.s.c.d0;
+import d.b.h0.s.c.e0;
+import d.b.h0.s.c.f;
+import d.b.h0.s.c.g;
 import d.b.h0.s.e.b;
 import d.b.h0.s.e.e;
-import d.b.i0.i2.p.a;
+import d.b.i0.j2.p.a;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -44,6 +44,7 @@ public final class TbSingleton {
     public static final int HOME_PAGE_STYLE_AB_TEST_100 = 4;
     public static final int PB_SUB_COMMENT_NUMBER = 4;
     public static TbSingleton mInstance;
+    public f adFloatViewData;
     public String baiduIdForAnti;
     public Calendar calendar;
     public boolean hasPerformedFirstLoginTest;
@@ -52,6 +53,7 @@ public final class TbSingleton {
     public boolean isShowBackLabel;
     public String isSwitchActivity;
     public String mActivityId;
+    public g mAdVertiSementConfigData;
     public String mBannerText;
     public String mCallFansTid;
     public boolean mCanCallFans;
@@ -76,13 +78,13 @@ public final class TbSingleton {
     public String mProfileGameCenterKey;
     public String mPubEnvValue;
     public String mSampleId;
-    public c0 mSharePanelConfData;
+    public e0 mSharePanelConfData;
     public String mSharePanelText;
     public boolean mShowCallFans;
     public boolean mShowHomeFloatRefreshButton;
     public boolean mShowShoubaiDynamicGuide;
     public boolean mShowVivoBadge;
-    public d.b.i0.p2.d.b mUploadAndClearModule;
+    public d.b.i0.q2.d.b mUploadAndClearModule;
     public LinkedList<d.b.h0.g.a> mVideoWatchTimeRecord;
     public String mWalletSignLink;
     public String schemaForStartOtherAppAfterSwanApp;
@@ -97,11 +99,10 @@ public final class TbSingleton {
     public boolean hasShowPermDlg = false;
     public boolean isNewUser = false;
     public boolean mHasAgreeToPlay = false;
-    public b0 mShakeData = null;
+    public d0 mShakeData = null;
     public String invokeSource = "";
     public boolean mFrsRootViewLoadingShow = false;
     public boolean mFrsContentViewLoadingShow = false;
-    public boolean isVideoEnterMiddlePage = true;
     public boolean mIsVideoCardMute = true;
     public boolean mEnableBenchmark = false;
     public int mCpuFlopsDur = -1;
@@ -114,6 +115,7 @@ public final class TbSingleton {
     public boolean hasDownloadEmotion = false;
     public int mHomePageStyleAbTest = 0;
     public HashMap<Long, String> liveForumMap = new HashMap<>();
+    public boolean mShowaRightFloatView = true;
     public boolean mCanWebViewActivityShowProgress = true;
     public boolean mDistanceAccuracy = true;
     public boolean mDistanceAccuracyChecked = false;
@@ -143,33 +145,33 @@ public final class TbSingleton {
         this.mShowVivoBadge = false;
         this.isNewUserRedPackageShowed = false;
         this.hasPerformedFirstLoginTest = false;
-        setIsOpenTrack(d.b.h0.r.d0.b.i().g("key_is_open_track", false));
-        setProfileGameCenterKey(d.b.h0.r.d0.b.i().o("profile_swan_app_key", ""));
-        setHomePageStyleAbTest(d.b.h0.r.d0.b.i().j("index_activity_abtest_switch_json", 0));
-        setMissionEntranceIcon(d.b.h0.r.d0.b.i().o("index_activity_abtest_icon_url", ""));
-        setMissionEntranceUrl(d.b.h0.r.d0.b.i().o("index_activity_abtest_url", ""));
-        setMissionEntranceObjSource(d.b.h0.r.d0.b.i().o("index_activity_abtest_obj_source", ""));
-        setShowPersonCenterLiteGame(d.b.h0.r.d0.b.i().g("person_center_show_lite_game", true));
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        setUbsSampleId(i.o("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
-        setShowShoubaiDynamicGuide(d.b.h0.r.d0.b.i().j("key_is_show_shoubai_dynamic_guide", 0) == 1);
-        this.mShowHomeFloatRefreshButton = d.b.h0.r.d0.b.i().j("key_home_refresh_button_test", 0) == 1;
-        setClipboardDelayTime(d.b.h0.r.d0.b.i().g("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
+        setIsOpenTrack(d.b.h0.r.d0.b.j().g("key_is_open_track", false));
+        setProfileGameCenterKey(d.b.h0.r.d0.b.j().p("profile_swan_app_key", ""));
+        setHomePageStyleAbTest(d.b.h0.r.d0.b.j().k("index_activity_abtest_switch_json", 0));
+        setMissionEntranceIcon(d.b.h0.r.d0.b.j().p("index_activity_abtest_icon_url", ""));
+        setMissionEntranceUrl(d.b.h0.r.d0.b.j().p("index_activity_abtest_url", ""));
+        setMissionEntranceObjSource(d.b.h0.r.d0.b.j().p("index_activity_abtest_obj_source", ""));
+        setShowPersonCenterLiteGame(d.b.h0.r.d0.b.j().g("person_center_show_lite_game", true));
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        setUbsSampleId(j.p("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
+        setShowShoubaiDynamicGuide(d.b.h0.r.d0.b.j().k("key_is_show_shoubai_dynamic_guide", 0) == 1);
+        this.mShowHomeFloatRefreshButton = d.b.h0.r.d0.b.j().k("key_home_refresh_button_test", 0) == 1;
+        setClipboardDelayTime(d.b.h0.r.d0.b.j().g("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
         initBenchmarkData();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         TbadkCoreApplication.getInst().registerReceiver(this.mHeadSetStateReceiver, intentFilter);
-        d.b.b.e.m.e.a().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.1
+        d.b.c.e.m.e.a().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.1
             @Override // java.lang.Runnable
             public void run() {
                 TbSingleton.this.registerScreenSizeChangeTask();
             }
         });
-        this.mShowVivoBadge = d.b.h0.r.d0.b.i().g("key_show_vivo_badge", false);
+        this.mShowVivoBadge = d.b.h0.r.d0.b.j().g("key_show_vivo_badge", false);
         this.mChannelConfigModel = new b();
         this.calendar = Calendar.getInstance();
-        this.isNewUserRedPackageShowed = d.b.h0.r.d0.b.i().g("key_task_system_new_user_popup_show_number", false);
-        this.hasPerformedFirstLoginTest = d.b.h0.r.d0.b.i().g("has_performed_first_login_test", false);
+        this.isNewUserRedPackageShowed = d.b.h0.r.d0.b.j().g("key_task_system_new_user_popup_show_number", false);
+        this.hasPerformedFirstLoginTest = d.b.h0.r.d0.b.j().g("has_performed_first_login_test", false);
     }
 
     private void getAppInstallUpdateTime() {
@@ -209,9 +211,9 @@ public final class TbSingleton {
             setAnimAvgFpsCount("anim_switch_slide", 0);
             return;
         }
-        this.mEnableBenchmark = d.b.h0.r.d0.b.i().g("enable_benchmark", true);
-        this.mCpuThreshold = d.b.h0.r.d0.b.i().j("cpu_flops_dura_threshold", Integer.MAX_VALUE);
-        this.mAnimFpsSyncThreshold = d.b.h0.r.d0.b.i().j("anim_avg_fps_threshold", 0);
+        this.mEnableBenchmark = d.b.h0.r.d0.b.j().g("enable_benchmark", true);
+        this.mCpuThreshold = d.b.h0.r.d0.b.j().k("cpu_flops_dura_threshold", Integer.MAX_VALUE);
+        this.mAnimFpsSyncThreshold = d.b.h0.r.d0.b.j().k("anim_avg_fps_threshold", 0);
     }
 
     private void setUbsSampleId(String str) {
@@ -219,15 +221,7 @@ public final class TbSingleton {
     }
 
     public boolean canShowPermDialog() {
-        return this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - d.b.h0.r.d0.b.i().k("key_first_enter_app_timestamp", 0L) > 259200000;
-    }
-
-    public boolean checkDistanceAccuracy(Context context) {
-        if (!this.mDistanceAccuracyChecked) {
-            this.mDistanceAccuracy = Math.abs(l.k(context) - l.g(context, R.dimen.tbds1080)) < 50;
-            this.mDistanceAccuracyChecked = true;
-        }
-        return this.mDistanceAccuracy;
+        return this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - d.b.h0.r.d0.b.j().l("key_first_enter_app_timestamp", 0L) > 259200000;
     }
 
     public boolean checkLiveForumByFid(long j) {
@@ -243,7 +237,7 @@ public final class TbSingleton {
 
     public long getActiveTimeStamp() {
         if (this.activeTimeStamp == 0) {
-            this.activeTimeStamp = d.b.h0.r.d0.b.i().k("key_active_timestamp", 0L);
+            this.activeTimeStamp = d.b.h0.r.d0.b.j().l("key_active_timestamp", 0L);
         }
         return this.activeTimeStamp;
     }
@@ -252,27 +246,40 @@ public final class TbSingleton {
         return this.mActivityId;
     }
 
+    public f getAdFloatViewData() {
+        return this.adFloatViewData;
+    }
+
+    public String getAdVertiComment() {
+        g gVar = this.mAdVertiSementConfigData;
+        return gVar != null ? gVar.c() : "";
+    }
+
+    public g getAdVertiSementData() {
+        return this.mAdVertiSementConfigData;
+    }
+
     public Integer getAnimAvgFps(String str) {
         if (k.isEmpty(str)) {
             return 0;
         }
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        return Integer.valueOf(i.j(str + "_anim_benchmark_avg_suffix", 0));
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        return Integer.valueOf(j.k(str + "_anim_benchmark_avg_suffix", 0));
     }
 
     public Integer getAnimAvgFpsCount(String str) {
         if (k.isEmpty(str)) {
             return 0;
         }
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        return Integer.valueOf(i.j(str + "_anim_benchmark_times_suffix", 0));
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        return Integer.valueOf(j.k(str + "_anim_benchmark_times_suffix", 0));
     }
 
     public int getAnimComputedFps(String str) {
         if (k.isEmpty(str)) {
             return -1;
         }
-        return d.b.h0.r.d0.b.i().j(str, -1);
+        return d.b.h0.r.d0.b.j().k(str, -1);
     }
 
     public int getAnimFpsSyncThreshold() {
@@ -295,7 +302,7 @@ public final class TbSingleton {
 
     public String getBaiduIdForAnti() {
         if (this.baiduIdForAnti == null) {
-            this.baiduIdForAnti = d.b.h0.r.d0.b.i().o("key_baiduid_for_anti", null);
+            this.baiduIdForAnti = d.b.h0.r.d0.b.j().p("key_baiduid_for_anti", null);
         }
         return this.baiduIdForAnti;
     }
@@ -314,7 +321,7 @@ public final class TbSingleton {
 
     public int getCpuFlopsDuration() {
         if (this.mCpuFlopsDur < 0) {
-            this.mCpuFlopsDur = d.b.h0.r.d0.b.i().j("cpu_flops_dura", 0);
+            this.mCpuFlopsDur = d.b.h0.r.d0.b.j().k("cpu_flops_dura", 0);
         }
         return this.mCpuFlopsDur;
     }
@@ -367,7 +374,7 @@ public final class TbSingleton {
 
     public long getLastResumeTime() {
         if (this.lastResumeTime == 0) {
-            this.lastResumeTime = d.b.h0.r.d0.b.i().k("last_resume_time", 0L);
+            this.lastResumeTime = d.b.h0.r.d0.b.j().l("last_resume_time", 0L);
         }
         return this.lastResumeTime;
     }
@@ -389,7 +396,7 @@ public final class TbSingleton {
     }
 
     public String getModName() {
-        d.b.i0.p2.d.b bVar = this.mUploadAndClearModule;
+        d.b.i0.q2.d.b bVar = this.mUploadAndClearModule;
         if (bVar == null) {
             return null;
         }
@@ -436,11 +443,11 @@ public final class TbSingleton {
         return this.schemaForStartOtherAppAfterSwanApp;
     }
 
-    public b0 getShakeData() {
+    public d0 getShakeData() {
         return this.mShakeData;
     }
 
-    public c0 getSharePanelConfData() {
+    public e0 getSharePanelConfData() {
         return this.mSharePanelConfData;
     }
 
@@ -495,7 +502,7 @@ public final class TbSingleton {
     }
 
     public boolean isClearOffPack() {
-        d.b.i0.p2.d.b bVar = this.mUploadAndClearModule;
+        d.b.i0.q2.d.b bVar = this.mUploadAndClearModule;
         if (bVar == null) {
             return false;
         }
@@ -556,6 +563,21 @@ public final class TbSingleton {
         return this.mIsShowPersonCenterLiteGame;
     }
 
+    public boolean isShowRightFloatView(int i) {
+        f fVar = this.adFloatViewData;
+        if (fVar == null) {
+            return false;
+        }
+        if (i != 0) {
+            if (i != 1 || StringUtils.isNull(fVar.c()) || StringUtils.isNull(this.adFloatViewData.d())) {
+                return false;
+            }
+        } else if (StringUtils.isNull(fVar.a()) || StringUtils.isNull(this.adFloatViewData.b())) {
+            return false;
+        }
+        return true;
+    }
+
     public boolean isShowShoubaiDynamicGuide() {
         return this.mShowShoubaiDynamicGuide;
     }
@@ -565,24 +587,24 @@ public final class TbSingleton {
     }
 
     public boolean isSlideAnimEnable() {
-        boolean z = d.b.h0.r.d0.b.i().j("slide_local_switch_is_clicked", 0) == 1;
-        boolean z2 = d.b.h0.r.d0.b.i().j("sync_slide_animation__switch", 0) == 1;
+        boolean z = d.b.h0.r.d0.b.j().k("slide_local_switch_is_clicked", 0) == 1;
+        boolean z2 = d.b.h0.r.d0.b.j().k("sync_slide_animation__switch", 0) == 1;
         boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
         if (z) {
             return isSlideAnimLocalSwitchOn;
         }
         if (z2 != isSlideAnimLocalSwitchOn) {
-            d.b.h0.r.d0.b.i().s("local_slide_animation__switch", z2);
+            d.b.h0.r.d0.b.j().t("local_slide_animation__switch", z2);
         }
         return z2;
     }
 
     public boolean isSlideAnimLocalSwitchOn() {
-        return d.b.h0.r.d0.b.i().g("local_slide_animation__switch", false);
+        return d.b.h0.r.d0.b.j().g("local_slide_animation__switch", false);
     }
 
     public boolean isUploadOffPack() {
-        d.b.i0.p2.d.b bVar = this.mUploadAndClearModule;
+        d.b.i0.q2.d.b bVar = this.mUploadAndClearModule;
         if (bVar == null) {
             return false;
         }
@@ -591,10 +613,6 @@ public final class TbSingleton {
 
     public boolean isVideoCardMute() {
         return this.mIsVideoCardMute;
-    }
-
-    public boolean isVideoEnterMiddlePage() {
-        return true;
     }
 
     public boolean isVisitPreviewServer() {
@@ -649,7 +667,7 @@ public final class TbSingleton {
     }
 
     public void registerScreenSizeChangeTask() {
-        d.b.b.e.m.e.a().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.3
+        d.b.c.e.m.e.a().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.3
             @Override // java.lang.Runnable
             public void run() {
                 CustomMessageTask customMessageTask = new CustomMessageTask(2921414, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tbadk.TbSingleton.3.1
@@ -666,7 +684,7 @@ public final class TbSingleton {
 
     public void setActiveTimeStamp() {
         if (getActiveTimeStamp() == 0) {
-            d.b.h0.r.d0.b.i().v("key_active_timestamp", System.currentTimeMillis());
+            d.b.h0.r.d0.b.j().w("key_active_timestamp", System.currentTimeMillis());
         }
     }
 
@@ -674,32 +692,40 @@ public final class TbSingleton {
         this.mActivityId = str;
     }
 
+    public void setAdFloatViewData(f fVar) {
+        this.adFloatViewData = fVar;
+    }
+
+    public void setAdVertiSementData(g gVar) {
+        this.mAdVertiSementConfigData = gVar;
+    }
+
     public void setAnimAverageFpsThreshold(int i) {
         this.mAnimFpsSyncThreshold = i;
-        d.b.h0.r.d0.b.i().u("anim_avg_fps_threshold", i);
+        d.b.h0.r.d0.b.j().v("anim_avg_fps_threshold", i);
     }
 
     public void setAnimAvgFps(String str, int i) {
         if (k.isEmpty(str) || i < 0) {
             return;
         }
-        d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-        i2.u(str + "_anim_benchmark_avg_suffix", i);
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        j.v(str + "_anim_benchmark_avg_suffix", i);
     }
 
     public void setAnimAvgFpsCount(String str, int i) {
         if (k.isEmpty(str) || i < 0) {
             return;
         }
-        d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-        i2.u(str + "_anim_benchmark_times_suffix", i);
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        j.v(str + "_anim_benchmark_times_suffix", i);
     }
 
     public void setAnimComputedFps(String str, int i) {
         if (k.isEmpty(str)) {
             return;
         }
-        d.b.h0.r.d0.b.i().u(str, i);
+        d.b.h0.r.d0.b.j().v(str, i);
         if (!"anim_switch_slide".equals(str) || isAnimEnable(str)) {
             return;
         }
@@ -707,8 +733,8 @@ public final class TbSingleton {
     }
 
     public void setBaiduIdForAnti(String str) {
-        if (d.b.h0.r.d0.b.i().o("key_baiduid_for_anti", null) == null) {
-            d.b.h0.r.d0.b.i().w("key_baiduid_for_anti", str);
+        if (d.b.h0.r.d0.b.j().p("key_baiduid_for_anti", null) == null) {
+            d.b.h0.r.d0.b.j().x("key_baiduid_for_anti", str);
             this.baiduIdForAnti = str;
         }
     }
@@ -738,17 +764,17 @@ public final class TbSingleton {
             return;
         }
         this.mCpuFlopsDur = i;
-        d.b.h0.r.d0.b.i().u("cpu_flops_dura", i);
+        d.b.h0.r.d0.b.j().v("cpu_flops_dura", i);
     }
 
     public void setCpuThreshold(int i) {
         this.mCpuThreshold = i;
-        d.b.h0.r.d0.b.i().u("cpu_flops_dura_threshold", i);
+        d.b.h0.r.d0.b.j().v("cpu_flops_dura_threshold", i);
     }
 
     public void setEnableBenchmark(boolean z) {
         this.mEnableBenchmark = z;
-        d.b.h0.r.d0.b.i().s("enable_benchmark", z);
+        d.b.h0.r.d0.b.j().t("enable_benchmark", z);
     }
 
     public void setForceRefreshHomeRecommend(boolean z) {
@@ -777,7 +803,7 @@ public final class TbSingleton {
 
     public void setHasPerformedFirstLoginTest(boolean z) {
         this.hasPerformedFirstLoginTest = z;
-        d.b.h0.r.d0.b.i().s("has_performed_first_login_test", z);
+        d.b.h0.r.d0.b.j().t("has_performed_first_login_test", z);
     }
 
     public void setHasShowPermDlg(boolean z) {
@@ -854,7 +880,7 @@ public final class TbSingleton {
 
     public void setNewUserRedPackageShowed(boolean z) {
         this.isNewUserRedPackageShowed = z;
-        d.b.h0.r.d0.b.i().s("key_task_system_new_user_popup_show_number", z);
+        d.b.h0.r.d0.b.j().t("key_task_system_new_user_popup_show_number", z);
     }
 
     public void setPbToHomeUpdateData(e1 e1Var) {
@@ -892,12 +918,12 @@ public final class TbSingleton {
         this.schemaForStartOtherAppAfterSwanApp = str;
     }
 
-    public void setShakeData(b0 b0Var) {
-        this.mShakeData = b0Var;
+    public void setShakeData(d0 d0Var) {
+        this.mShakeData = d0Var;
     }
 
-    public void setSharePanelConfData(c0 c0Var) {
-        this.mSharePanelConfData = c0Var;
+    public void setSharePanelConfData(e0 e0Var) {
+        this.mSharePanelConfData = e0Var;
     }
 
     public void setSharePanelText(String str) {
@@ -913,7 +939,7 @@ public final class TbSingleton {
     }
 
     public void setSlideAnimLocalSwitch(boolean z) {
-        d.b.h0.r.d0.b.i().s("local_slide_animation__switch", z);
+        d.b.h0.r.d0.b.j().t("local_slide_animation__switch", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
     }
 
@@ -921,7 +947,7 @@ public final class TbSingleton {
         this.syncModel = eVar;
     }
 
-    public void setUploadAndClearModule(d.b.i0.p2.d.b bVar) {
+    public void setUploadAndClearModule(d.b.i0.q2.d.b bVar) {
         this.mUploadAndClearModule = bVar;
     }
 

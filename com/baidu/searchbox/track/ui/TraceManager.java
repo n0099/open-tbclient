@@ -14,7 +14,6 @@ import com.baidu.searchbox.appframework.BdBoxActivityManager;
 import com.baidu.searchbox.appframework.GlobalActivityLifecycle;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class TraceManager {
@@ -93,7 +92,7 @@ public class TraceManager {
             if (traceActivityCallbacks2 != null) {
                 traceActivityCallbacks2.registerTraceFragment(activity);
             }
-            saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
+            saveTraceInfo(activity, null, null, "register");
             return;
         }
         this.mIsRegistered = true;

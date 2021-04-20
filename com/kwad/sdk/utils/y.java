@@ -9,6 +9,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
@@ -122,7 +123,7 @@ public class y {
             try {
                 File file = new File(str);
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 intent.addFlags(3);
                 Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
                 intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");

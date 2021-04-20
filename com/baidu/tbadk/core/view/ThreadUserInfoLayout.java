@@ -33,7 +33,7 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import d.b.b.a.j;
+import d.b.c.a.j;
 import d.b.h0.r.q.a2;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -42,16 +42,16 @@ public class ThreadUserInfoLayout extends LinearLayout {
     public View.OnClickListener B;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClickableHeaderImageView f13540e;
+    public ClickableHeaderImageView f13201e;
 
     /* renamed from: f  reason: collision with root package name */
-    public UserIconBox f13541f;
+    public UserIconBox f13202f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f13542g;
+    public TextView f13203g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f13543h;
+    public TextView f13204h;
     public UserIconBox i;
     public TextView j;
     public TextView k;
@@ -147,8 +147,8 @@ public class ThreadUserInfoLayout extends LinearLayout {
             AlaUserInfoData alaUserData = a2Var.T().getAlaUserData();
             if (this.o != null) {
                 d.b.h0.d.a aVar = new d.b.h0.d.a();
-                aVar.f50086a = alaUserData;
-                aVar.f50087b = 1;
+                aVar.f50479a = alaUserData;
+                aVar.f50480b = 1;
                 this.o.setTag(aVar);
                 if (alaUserData.anchor_live == 0) {
                     this.o.setVisibility(8);
@@ -169,10 +169,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
     public final void f(Context context) {
         this.u = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_user_info_layout, (ViewGroup) this, true);
-        this.f13540e = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
-        this.f13541f = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_tshow_icon);
-        this.f13542g = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_user_name);
-        this.f13543h = (TextView) inflate.findViewById(R.id.identity_view);
+        this.f13201e = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
+        this.f13202f = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_tshow_icon);
+        this.f13203g = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_user_name);
+        this.f13204h = (TextView) inflate.findViewById(R.id.identity_view);
         this.i = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_user_icon);
         this.j = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
         this.k = (TextView) inflate.findViewById(R.id.thread_info_address);
@@ -190,24 +190,24 @@ public class ThreadUserInfoLayout extends LinearLayout {
         }
         setGravity(16);
         g();
-        this.f13541f.setOnClickListener(this.z);
-        this.f13542g.setOnClickListener(this.A);
+        this.f13202f.setOnClickListener(this.z);
+        this.f13203g.setOnClickListener(this.A);
         this.i.setOnClickListener(this.B);
     }
 
     public final void g() {
-        ClickableHeaderImageView clickableHeaderImageView = this.f13540e;
+        ClickableHeaderImageView clickableHeaderImageView = this.f13201e;
         if (clickableHeaderImageView == null) {
             return;
         }
         clickableHeaderImageView.setDefaultResource(17170445);
-        this.f13540e.setPlaceHolder(1);
-        this.f13540e.setIsRound(true);
-        this.f13540e.setAfterClickListener(this.v);
+        this.f13201e.setPlaceHolder(1);
+        this.f13201e.setIsRound(true);
+        this.f13201e.setAfterClickListener(this.v);
     }
 
     public ClickableHeaderImageView getHeaderImg() {
-        return this.f13540e;
+        return this.f13201e;
     }
 
     public boolean getIsSimpleThread() {
@@ -215,7 +215,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     public TextView getUserName() {
-        return this.f13542g;
+        return this.f13203g;
     }
 
     public void h() {
@@ -247,15 +247,15 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 }
                 this.t.T().setName_show(getContext().getString(R.string.perfect_selection_video));
             }
-            this.f13541f.setOnClickListener(null);
-            this.f13542g.setOnClickListener(null);
+            this.f13202f.setOnClickListener(null);
+            this.f13203g.setOnClickListener(null);
             this.i.setOnClickListener(null);
-            this.f13540e.setClickable(false);
+            this.f13201e.setClickable(false);
         } else {
-            this.f13541f.setOnClickListener(this.z);
-            this.f13542g.setOnClickListener(this.A);
+            this.f13202f.setOnClickListener(this.z);
+            this.f13203g.setOnClickListener(this.A);
             this.i.setOnClickListener(this.B);
-            this.f13540e.setClickable(true);
+            this.f13201e.setClickable(true);
         }
         t(a2Var);
         v(a2Var);
@@ -279,11 +279,11 @@ public class ThreadUserInfoLayout extends LinearLayout {
         }
         a2 a2Var2 = this.t;
         if (a2Var2.p1 > 0 && a2Var2.q1 == 0) {
-            SkinManager.setViewTextColor(this.f13542g, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f13203g, R.color.CAM_X0106);
         } else if (ListUtils.isEmpty(this.t.T().getTShowInfoNew()) && !this.t.T().isBigV()) {
-            SkinManager.setViewTextColor(this.f13542g, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f13203g, R.color.CAM_X0106);
         } else {
-            SkinManager.setViewTextColor(this.f13542g, R.color.CAM_X0301);
+            SkinManager.setViewTextColor(this.f13203g, R.color.CAM_X0301);
         }
     }
 
@@ -330,7 +330,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         this.t.i0();
         int i = this.w;
         String str2 = (i == 3 || i == 4) ? null : null;
-        if (a2Var.w2()) {
+        if (a2Var.x2()) {
             str2 = a2Var.C1.ori_fname;
         }
         if (StringUtils.isNull(str2)) {
@@ -350,53 +350,53 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     public final void p(a2 a2Var) {
-        if (this.f13540e == null || a2Var == null || this.t.T() == null) {
+        if (this.f13201e == null || a2Var == null || this.t.T() == null) {
             return;
         }
         a2 a2Var2 = this.t;
         if (a2Var2.p1 > 0 && a2Var2.q1 == 0) {
-            this.f13540e.setShowV(false);
+            this.f13201e.setShowV(false);
         } else {
-            this.f13540e.setShowV(this.t.T().isBigV());
+            this.f13201e.setShowV(this.t.T().isBigV());
         }
     }
 
     public final void q(a2 a2Var) {
-        if (this.f13543h == null || a2Var == null || a2Var.T() == null) {
+        if (this.f13204h == null || a2Var == null || a2Var.T() == null) {
             return;
         }
         MetaData T = a2Var.T();
         if (T.getIs_bawu() == 1) {
             int i = a2Var.D1 ? R.drawable.brand_official_btn : R.drawable.user_identity_btn;
             int i2 = a2Var.D1 ? R.color.CAM_X0101 : R.color.CAM_X0107;
-            SkinManager.setBackgroundResource(this.f13543h, i);
-            SkinManager.setViewTextColor(this.f13543h, i2);
+            SkinManager.setBackgroundResource(this.f13204h, i);
+            SkinManager.setViewTextColor(this.f13204h, i2);
             if (a2Var.D1) {
-                this.f13543h.setVisibility(0);
-                this.f13543h.setText(R.string.brand_official);
+                this.f13204h.setVisibility(0);
+                this.f13204h.setText(R.string.brand_official);
                 return;
             } else if ("manager".equals(T.getBawu_type())) {
-                this.f13543h.setVisibility(0);
-                this.f13543h.setText(R.string.bawu_member_bazhu_tip);
+                this.f13204h.setVisibility(0);
+                this.f13204h.setText(R.string.bawu_member_bazhu_tip);
                 return;
             } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(T.getBawu_type())) {
-                this.f13543h.setText(R.string.bawu_member_xbazhu_tip);
-                this.f13543h.setVisibility(0);
+                this.f13204h.setText(R.string.bawu_member_xbazhu_tip);
+                this.f13204h.setVisibility(0);
                 return;
             } else if ("pri_content_assist".equals(T.getBawu_type())) {
-                this.f13543h.setText(R.string.bawu_content_assist_tip);
-                this.f13543h.setVisibility(0);
+                this.f13204h.setText(R.string.bawu_content_assist_tip);
+                this.f13204h.setVisibility(0);
                 return;
             } else if ("pri_manage_assist".equals(T.getBawu_type())) {
-                this.f13543h.setText(R.string.bawu_manage_assist_tip);
-                this.f13543h.setVisibility(0);
+                this.f13204h.setText(R.string.bawu_manage_assist_tip);
+                this.f13204h.setVisibility(0);
                 return;
             } else {
-                this.f13543h.setVisibility(8);
+                this.f13204h.setVisibility(8);
                 return;
             }
         }
-        this.f13543h.setVisibility(8);
+        this.f13204h.setVisibility(8);
     }
 
     public final void r(a2 a2Var) {
@@ -411,7 +411,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         this.j.setVisibility(0);
         if (this.w == 2) {
             formatTime = StringHelper.getPostTimeInterval(a2Var.B0());
-        } else if (a2Var.h2()) {
+        } else if (a2Var.i2()) {
             formatTime = StringHelper.getFormatTime(a2Var.Z());
         } else {
             formatTime = StringHelper.getFormatTime(a2Var.B0() * 1000);
@@ -435,7 +435,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 this.m.setVisibility(0);
                 return;
             }
-            if (this.t.q1() != null && this.t.q1().share_info != null && this.t.q1().share_info.share_user_count > 0 && this.t.p2()) {
+            if (this.t.q1() != null && this.t.q1().share_info != null && this.t.q1().share_info.share_user_count > 0 && this.t.q2()) {
                 a2 a2Var2 = this.t;
                 if (a2Var2.p1 <= 0 || a2Var2.q1 != 0) {
                     this.m.setVisibility(0);
@@ -468,7 +468,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        ClickableHeaderImageView clickableHeaderImageView = this.f13540e;
+        ClickableHeaderImageView clickableHeaderImageView = this.f13201e;
         if (clickableHeaderImageView != null) {
             clickableHeaderImageView.setPageId(bdUniqueId);
         }
@@ -480,23 +480,23 @@ public class ThreadUserInfoLayout extends LinearLayout {
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
         this.v = onClickListener;
-        ClickableHeaderImageView clickableHeaderImageView = this.f13540e;
+        ClickableHeaderImageView clickableHeaderImageView = this.f13201e;
         if (clickableHeaderImageView != null) {
             clickableHeaderImageView.setAfterClickListener(onClickListener);
         }
     }
 
     public final void t(a2 a2Var) {
-        if (this.f13541f == null || a2Var == null || a2Var.T() == null) {
+        if (this.f13202f == null || a2Var == null || a2Var.T() == null) {
             return;
         }
         ArrayList<IconData> tShowInfoNew = a2Var.T().getTShowInfoNew();
         if (ListUtils.getCount(tShowInfoNew) != 0) {
-            this.f13541f.setVisibility(0);
-            this.f13541f.h(tShowInfoNew, 2, this.u.getResources().getDimensionPixelSize(R.dimen.tbds48), this.u.getResources().getDimensionPixelSize(R.dimen.tbds48), this.u.getResources().getDimensionPixelSize(R.dimen.ds8), true);
+            this.f13202f.setVisibility(0);
+            this.f13202f.h(tShowInfoNew, 2, this.u.getResources().getDimensionPixelSize(R.dimen.tbds48), this.u.getResources().getDimensionPixelSize(R.dimen.tbds48), this.u.getResources().getDimensionPixelSize(R.dimen.ds8), true);
             return;
         }
-        this.f13541f.setVisibility(8);
+        this.f13202f.setVisibility(8);
     }
 
     public final void u(a2 a2Var) {
@@ -520,11 +520,11 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     public final void v(a2 a2Var) {
-        if (this.f13542g == null || a2Var == null) {
+        if (this.f13203g == null || a2Var == null) {
             return;
         }
         if (!StringUtils.isNull(this.t.T().getName_show())) {
-            this.f13542g.setText(i(this.t.T().getName_show()));
+            this.f13203g.setText(i(this.t.T().getName_show()));
         }
         k();
         int i = this.w;
@@ -534,10 +534,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!NickNameActivitySwitch.isOn() || name_show == null || name_show.equals(userName)) {
                 return;
             }
-            this.f13542g.setText(d.b.i0.c2.c.b(this.u, this.f13542g.getText().toString()));
-            this.f13542g.setGravity(16);
-            this.f13542g.setTag(R.id.tag_nick_name_activity, d.b.i0.c2.c.a());
-            SkinManager.setViewTextColor(this.f13542g, R.color.CAM_X0312, 1);
+            this.f13203g.setText(d.b.i0.d2.c.b(this.u, this.f13203g.getText().toString()));
+            this.f13203g.setGravity(16);
+            this.f13203g.setTag(R.id.tag_nick_name_activity, d.b.i0.d2.c.a());
+            SkinManager.setViewTextColor(this.f13203g, R.color.CAM_X0312, 1);
         }
     }
 

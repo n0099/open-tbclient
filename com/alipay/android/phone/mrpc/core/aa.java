@@ -6,27 +6,27 @@ import org.apache.http.Header;
 public final class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1641a;
+    public String f1666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Header> f1642b;
+    public List<Header> f1667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1643c;
+    public boolean f1668c;
 
     public final String a() {
-        return this.f1641a;
+        return this.f1666a;
     }
 
     public final void a(String str) {
-        this.f1641a = str;
+        this.f1666a = str;
     }
 
     public final List<Header> b() {
-        return this.f1642b;
+        return this.f1667b;
     }
 
     public final boolean c() {
-        return this.f1643c;
+        return this.f1668c;
     }
 }

@@ -24,7 +24,7 @@ public class a {
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Accept", "application/json");
             httpURLConnection.setRequestProperty("User-Agent", k.a());
-            cVar.f33866a = httpURLConnection.getResponseCode();
+            cVar.f34155a = httpURLConnection.getResponseCode();
             InputStream inputStream = httpURLConnection.getInputStream();
             byte[] bArr = new byte[1024];
             while (true) {
@@ -37,7 +37,7 @@ public class a {
         } catch (MalformedURLException | IOException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
-        cVar.f33867b = sb.toString();
+        cVar.f34156b = sb.toString();
         return cVar;
     }
 
@@ -85,9 +85,9 @@ public class a {
                 outputStream2.flush();
             }
             int responseCode = httpURLConnection.getResponseCode();
-            cVar.f33866a = responseCode;
+            cVar.f34155a = responseCode;
             if (responseCode == 200) {
-                cVar.f33867b = a(httpURLConnection.getInputStream());
+                cVar.f34156b = a(httpURLConnection.getInputStream());
             }
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();

@@ -82,8 +82,8 @@ public class a {
 
     /* renamed from: d.b.h0.r.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1088a implements View.OnClickListener {
-        public View$OnClickListenerC1088a() {
+    public class View$OnClickListenerC1101a implements View.OnClickListener {
+        public View$OnClickListenerC1101a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -101,16 +101,16 @@ public class a {
     public class b implements ViewHelper.ViewCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f50964a;
+        public final /* synthetic */ AtomicBoolean f51371a;
 
         public b(a aVar, AtomicBoolean atomicBoolean) {
-            this.f50964a = atomicBoolean;
+            this.f51371a = atomicBoolean;
         }
 
         @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
         public boolean onViewFound(View view) {
             if (view instanceof EditText) {
-                this.f50964a.set(true);
+                this.f51371a.set(true);
                 return true;
             }
             return false;
@@ -132,21 +132,21 @@ public class a {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f50966e;
+        public final a f51373e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f50967f;
+        public final e f51374f;
 
         public d(a aVar, a aVar2, e eVar) {
-            this.f50966e = aVar2;
-            this.f50967f = eVar;
+            this.f51373e = aVar2;
+            this.f51374f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e eVar = this.f50967f;
+            e eVar = this.f51374f;
             if (eVar != null) {
-                eVar.onClick(this.f50966e);
+                eVar.onClick(this.f51373e);
             }
         }
     }
@@ -178,17 +178,17 @@ public class a {
     private void initButtonStyle() {
         TextView textView = this.noButton;
         if (textView != null) {
-            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(textView);
-            a2.p(R.color.CAM_X0302);
-            a2.h(R.string.J_X06);
-            a2.c(R.color.CAM_X0211);
+            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(textView);
+            d2.s(R.color.CAM_X0302);
+            d2.k(R.string.J_X06);
+            d2.f(R.color.CAM_X0211);
         }
         TextView textView2 = this.yesButton;
         if (textView2 != null) {
-            d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(textView2);
-            a3.p(R.color.CAM_X0302);
-            a3.h(R.string.J_X06);
-            a3.c(R.color.CAM_X0211);
+            d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(textView2);
+            d3.s(R.color.CAM_X0302);
+            d3.k(R.string.J_X06);
+            d3.f(R.color.CAM_X0211);
         }
     }
 
@@ -225,9 +225,9 @@ public class a {
             this.dividerWithButton.setVisibility(8);
             this.bdDialog_divider_line.setVisibility(8);
         } else if (z) {
-            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.yesButton);
-            a2.h(R.string.J_X06);
-            a2.c(R.color.CAM_X0211);
+            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.yesButton);
+            d2.k(R.string.J_X06);
+            d2.f(R.color.CAM_X0211);
             if (this.noButton == null || this.dividerWithButton == null || (view3 = this.bdDialog_divider_line) == null) {
                 return;
             }
@@ -235,9 +235,9 @@ public class a {
             this.yesButton.setVisibility(0);
             this.noButton.setVisibility(8);
         } else if (z2) {
-            d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.noButton);
-            a3.h(R.string.J_X06);
-            a3.c(R.color.CAM_X0211);
+            d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.noButton);
+            d3.k(R.string.J_X06);
+            d3.f(R.color.CAM_X0211);
             if (this.yesButton == null || this.dividerWithButton == null || (view2 = this.bdDialog_divider_line) == null) {
                 return;
             }
@@ -273,7 +273,7 @@ public class a {
             AlertDialog alertDialog = this.mDialog;
             if (alertDialog != null) {
                 if (z) {
-                    d.b.b.e.m.g.i(alertDialog, this.mActivity);
+                    d.b.c.e.m.g.i(alertDialog, this.mActivity);
                 } else {
                     alertDialog.show();
                 }
@@ -293,7 +293,7 @@ public class a {
                 this.mDialog.setOnDismissListener(onDismissListener);
             }
             if (z) {
-                d.b.b.e.m.g.i(this.mDialog, this.mActivity);
+                d.b.c.e.m.g.i(this.mDialog, this.mActivity);
             } else {
                 this.mDialog.show();
             }
@@ -309,7 +309,7 @@ public class a {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics q = d.b.b.e.p.l.q(this.mActivity);
+            DisplayMetrics q = d.b.c.e.p.l.q(this.mActivity);
             if (q != null) {
                 int dialogMargin = getDialogMargin();
                 if (UtilHelper.getRealScreenOrientation(this.mActivity) == 2) {
@@ -335,13 +335,13 @@ public class a {
         throw new RuntimeException("Dialog must be created by function create()!");
     }
 
-    public void autoChangeSkinType(@Nullable d.b.b.a.f<?> fVar) {
+    public void autoChangeSkinType(@Nullable d.b.c.a.f<?> fVar) {
         int i;
         int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
         if (fVar instanceof TbPageContext) {
             TbPageContext tbPageContext = (TbPageContext) fVar;
             tbPageContext.getLayoutMode().k(skinType == 1);
-            tbPageContext.getLayoutMode().f50434e = !isAutoNight();
+            tbPageContext.getLayoutMode().f50841e = !isAutoNight();
             tbPageContext.getLayoutMode().j(this.mRootView);
             if (this.mContentView != null) {
                 tbPageContext.getLayoutMode().j(this.mContentView);
@@ -359,7 +359,7 @@ public class a {
         changeContentWithNoTipAgainSkinType();
     }
 
-    public a create(@Nullable d.b.b.a.f<?> fVar) {
+    public a create(@Nullable d.b.c.a.f<?> fVar) {
         boolean z;
         TextView textView;
         TextView textView2;
@@ -409,15 +409,15 @@ public class a {
         if (this.mButtonTextColorId != -1) {
             TextView textView4 = this.yesButton;
             if (textView4 != null) {
-                d.b.h0.r.u.c.a(textView4).p(this.mButtonTextColorId);
+                d.b.h0.r.u.c.d(textView4).s(this.mButtonTextColorId);
             }
             TextView textView5 = this.noButton;
             if (textView5 != null) {
-                d.b.h0.r.u.c.a(textView5).p(this.mButtonTextColorId);
+                d.b.h0.r.u.c.d(textView5).s(this.mButtonTextColorId);
             }
         }
         if (this.mNegativeTextColorId != -1 && (textView3 = this.noButton) != null) {
-            d.b.h0.r.u.c.a(textView3).p(this.mNegativeTextColorId);
+            d.b.h0.r.u.c.d(textView3).s(this.mNegativeTextColorId);
         }
         if (TextUtils.isEmpty(this.mPositiveButtonTip) || (textView2 = this.yesButton) == null) {
             z = false;
@@ -454,14 +454,14 @@ public class a {
         this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
         this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
         setCheckBoxDrawable();
-        this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC1088a());
+        this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC1101a());
         return inflate;
     }
 
     public void dismiss() {
         AlertDialog alertDialog = this.mDialog;
         if (alertDialog != null) {
-            d.b.b.e.m.g.a(alertDialog, this.mActivity);
+            d.b.c.e.m.g.a(alertDialog, this.mActivity);
         }
     }
 
@@ -485,7 +485,7 @@ public class a {
         } else if (i2 == 7) {
             i = R.dimen.tbds206;
         }
-        return d.b.b.e.p.l.g(this.mActivity, i);
+        return d.b.c.e.p.l.g(this.mActivity, i);
     }
 
     public DialogInterface.OnKeyListener getOnKeyListener() {

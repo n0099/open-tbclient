@@ -1,6 +1,6 @@
 package d.b.i0.x.e0;
 /* loaded from: classes4.dex */
-public interface p extends d.b.b.j.e.n {
+public interface p extends d.b.c.j.e.n {
     void b(boolean z);
 
     int getPosition();

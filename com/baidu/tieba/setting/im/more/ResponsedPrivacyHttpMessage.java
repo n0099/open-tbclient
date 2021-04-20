@@ -2,12 +2,12 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.u2.b.a.a;
+import d.b.i0.v2.b.a.a;
 import tbclient.Error;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 import tbclient.GetPrivateInfo.ResData;
 import tbclient.SimpleUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
     public a privacyData;
 

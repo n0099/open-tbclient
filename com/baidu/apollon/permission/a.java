@@ -7,21 +7,21 @@ import androidx.annotation.NonNull;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3702a = 0;
+    public static final int f3737a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3703b = 1;
+    public static final int f3738b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3704c = 3;
+    public static final int f3739c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f3705d;
+    public static final b f3740d;
 
     /* renamed from: com.baidu.apollon.permission.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0063a extends b {
-        public C0063a() {
+    public static class C0062a extends b {
+        public C0062a() {
             super();
         }
 
@@ -61,21 +61,21 @@ public final class a {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            f3705d = new C0063a();
+            f3740d = new C0062a();
         } else {
-            f3705d = new b();
+            f3740d = new b();
         }
     }
 
     public static String a(@NonNull String str) {
-        return f3705d.a(str);
+        return f3740d.a(str);
     }
 
     public static int a(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
-        return f3705d.a(context, str, i, str2);
+        return f3740d.a(context, str, i, str2);
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        return f3705d.a(context, str, str2);
+        return f3740d.a(context, str, str2);
     }
 }

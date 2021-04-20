@@ -10,19 +10,19 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.j.e.b;
-import d.b.i0.c3.t;
+import d.b.c.j.e.b;
+import d.b.i0.d3.t;
 /* loaded from: classes3.dex */
 public class a extends b implements t {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContextSupport f50220f;
+    public TbPageContextSupport f50627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50221g;
+    public TextView f50628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f50222h;
+    public ProgressBar f50629h;
     public View.OnClickListener i;
     public View j;
     public View k;
@@ -31,21 +31,21 @@ public class a extends b implements t {
     public int n;
 
     public a(TbPageContextSupport tbPageContextSupport) {
-        this.f50220f = null;
-        this.f50221g = null;
-        this.f50222h = null;
+        this.f50627f = null;
+        this.f50628g = null;
+        this.f50629h = null;
         this.i = null;
         this.j = null;
-        this.f50220f = tbPageContextSupport;
+        this.f50627f = tbPageContextSupport;
         this.l = tbPageContextSupport.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
-    @Override // d.b.b.j.e.b
+    @Override // d.b.c.j.e.b
     public View a() {
         if (this.m == null) {
-            this.j = LayoutInflater.from(this.f50220f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.j = LayoutInflater.from(this.f50627f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.j = LayoutInflater.from(this.f50220f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
+            this.j = LayoutInflater.from(this.f50627f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
         }
         View view = this.j;
         int i = this.l;
@@ -55,17 +55,17 @@ public class a extends b implements t {
             layoutParams.height = this.n;
             this.j.setLayoutParams(layoutParams);
         }
-        this.f50221g = (TextView) this.j.findViewById(R.id.pb_more_text);
+        this.f50628g = (TextView) this.j.findViewById(R.id.pb_more_text);
         View findViewById = this.j.findViewById(R.id.pb_more_view);
         this.k = findViewById;
         findViewById.setVisibility(8);
-        this.f50222h = (ProgressBar) this.j.findViewById(R.id.progress);
-        onChangeSkinType(this.f50220f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.f50629h = (ProgressBar) this.j.findViewById(R.id.progress);
+        onChangeSkinType(this.f50627f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.k.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.j;
     }
 
-    @Override // d.b.b.j.e.b
+    @Override // d.b.c.j.e.b
     public void c() {
         View.OnClickListener onClickListener = this.i;
         if (onClickListener != null) {
@@ -86,23 +86,23 @@ public class a extends b implements t {
     }
 
     public void f(int i) {
-        this.f50222h.setVisibility(0);
-        this.f50221g.setText(i);
+        this.f50629h.setVisibility(0);
+        this.f50628g.setText(i);
         this.k.setVisibility(0);
     }
 
     public void g(int i) {
-        this.f50222h.setVisibility(8);
-        this.f50221g.setText(i);
+        this.f50629h.setVisibility(8);
+        this.f50628g.setText(i);
     }
 
     public void h(int i) {
         this.n = i;
     }
 
-    @Override // d.b.i0.c3.t
+    @Override // d.b.i0.d3.t
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.f50220f.getPageContext().getLayoutMode().j(this.k);
+        this.f50627f.getPageContext().getLayoutMode().j(this.k);
         return true;
     }
 

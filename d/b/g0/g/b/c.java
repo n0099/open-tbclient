@@ -8,43 +8,43 @@ import d.b.g0.a.q1.b.b.g;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.q1.b.b.g f47883a;
+    public d.b.g0.a.q1.b.b.g f48275a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f47884e;
+        public final /* synthetic */ Activity f48276e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47885f;
+        public final /* synthetic */ String f48277f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47886g;
+        public final /* synthetic */ String f48278g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f47887h;
+        public final /* synthetic */ boolean f48279h;
         public final /* synthetic */ DialogInterface.OnClickListener i;
 
         public a(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-            this.f47884e = activity;
-            this.f47885f = str;
-            this.f47886g = str2;
-            this.f47887h = z;
+            this.f48276e = activity;
+            this.f48277f = str;
+            this.f48278g = str2;
+            this.f48279h = z;
             this.i = onClickListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.f47883a != null && c.this.f47883a.isShowing()) {
-                c.this.f47883a.dismiss();
+            if (c.this.f48275a != null && c.this.f48275a.isShowing()) {
+                c.this.f48275a.dismiss();
             }
-            Activity activity = this.f47884e;
+            Activity activity = this.f48276e;
             if (activity == null || activity.isFinishing()) {
                 return;
             }
-            g.a d2 = c.this.d(this.f47884e, this.f47885f, this.f47886g, this.f47887h, this.i);
-            c.this.f47883a = d2.X();
+            g.a d2 = c.this.d(this.f48276e, this.f48277f, this.f48278g, this.f48279h, this.i);
+            c.this.f48275a = d2.X();
         }
     }
 
@@ -61,12 +61,12 @@ public class c {
     }
 
     public void e() {
-        d.b.g0.a.q1.b.b.g gVar = this.f47883a;
+        d.b.g0.a.q1.b.b.g gVar = this.f48275a;
         if (gVar != null) {
             if (gVar.isShowing()) {
-                this.f47883a.dismiss();
+                this.f48275a.dismiss();
             }
-            this.f47883a = null;
+            this.f48275a = null;
         }
     }
 

@@ -11,14 +11,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f46322e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String f46714e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f46323f = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String f46715f = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -57,9 +57,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(f46323f, swanFavorItemData.getAppKey());
+                str = String.format(f46715f, swanFavorItemData.getAppKey());
             } else {
-                str = f46322e + swanFavorItemData.getAppKey() + "\"}";
+                str = f46714e + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put("scheme", str);
         } catch (JSONException e2) {

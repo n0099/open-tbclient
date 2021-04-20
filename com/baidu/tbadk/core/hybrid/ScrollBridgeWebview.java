@@ -7,10 +7,10 @@ import android.view.MotionEvent;
 public class ScrollBridgeWebview extends BridgeWebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13292e;
+    public a f12953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13293f;
+    public boolean f12954f;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -23,19 +23,19 @@ public class ScrollBridgeWebview extends BridgeWebView {
 
     public ScrollBridgeWebview(Context context) {
         super(context);
-        this.f13293f = false;
+        this.f12954f = false;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.f13292e != null) {
+        if (this.f12953e != null) {
             if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                this.f13292e.b(i, i2, i3, i4);
+                this.f12953e.b(i, i2, i3, i4);
             } else if (getScrollY() == 0) {
-                this.f13292e.a(i, i2, i3, i4);
+                this.f12953e.a(i, i2, i3, i4);
             } else {
-                this.f13292e.onScrollChanged(i, i2, i3, i4);
+                this.f12953e.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
@@ -43,7 +43,7 @@ public class ScrollBridgeWebview extends BridgeWebView {
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
-        if (this.f13293f) {
+        if (this.f12954f) {
             if (motionEvent.getAction() == 0) {
                 requestDisallowInterceptTouchEvent(false);
             } else {
@@ -54,15 +54,15 @@ public class ScrollBridgeWebview extends BridgeWebView {
     }
 
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
-        this.f13293f = z;
+        this.f12954f = z;
     }
 
     public void setOnScrollChangeListener(a aVar) {
-        this.f13292e = aVar;
+        this.f12953e = aVar;
     }
 
     public ScrollBridgeWebview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13293f = false;
+        this.f12954f = false;
     }
 }

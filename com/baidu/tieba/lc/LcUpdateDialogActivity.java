@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.clientupdate.ClientUpdater;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.download.Download;
@@ -25,7 +26,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
     public static final String LC_UPDATE_FAIL = "com.baidu.clientupdate.RSA.STATUS_FAIL";
     public static final String LC_UPDATE_MERGE = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -48,7 +49,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     public long mClientId = -1;
     public BroadcastReceiver mReceiver = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
         public a() {
         }
@@ -142,11 +143,11 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
         this.mPermissionJudgement.clearRequestPermissionList();
         this.mPermissionJudgement.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
+        if (this.mPermissionJudgement.startRequestPermission(pageActivity) || this.mClientUpdateInfo == null) {
             return false;
         }
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaLcUpdateService.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, this.mClientUpdateInfo);
         getPageContext().getPageActivity().startService(intent);
         return true;

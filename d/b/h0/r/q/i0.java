@@ -3,28 +3,28 @@ package d.b.h0.r.q;
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50809a;
+    public int f51216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50810b;
+    public String f51217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f50811c;
+    public long f51218c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50812d;
+    public String f51219d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50813e;
+    public String f51220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50814f;
+    public int f51221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50815g;
+    public String f51222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f50816h;
+    public long f51223h;
     public long i;
     public long j;
     public int k;

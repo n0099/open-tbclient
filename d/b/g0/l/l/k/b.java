@@ -14,27 +14,27 @@ import java.util.Set;
 public class b extends g {
 
     /* renamed from: d  reason: collision with root package name */
-    public Set<a> f48993d;
+    public Set<a> f49385d;
 
     public b(List<? extends a> list, @Nullable d.b.g0.l.r.a aVar) {
         super(-1);
         if (list == null || list.isEmpty()) {
             return;
         }
-        this.f48993d = new LinkedHashSet();
+        this.f49385d = new LinkedHashSet();
         Map<String, PMSAppInfo> s = d.b.g0.l.i.a.h().s();
         Map<String, d.b.g0.l.k.f> o = d.b.g0.l.i.a.h().o();
         for (a aVar2 : list) {
             if (aVar2 != null && !TextUtils.isEmpty(aVar2.b())) {
                 g(s, o, aVar2, aVar);
-                this.f48993d.add(aVar2);
+                this.f49385d.add(aVar2);
             }
         }
     }
 
     @Nullable
     public Set<a> f() {
-        return this.f48993d;
+        return this.f49385d;
     }
 
     public void g(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, d.b.g0.l.k.f> map2, @NonNull a aVar, @Nullable d.b.g0.l.r.a aVar2) {
@@ -68,42 +68,42 @@ public class b extends g {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48994a;
+        public String f49386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48995b;
+        public int f49387b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f48996c;
+        public long f49388c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f48997d;
+        public long f49389d;
 
         public a(String str) {
-            this.f48995b = -1;
-            this.f48996c = 0L;
-            this.f48997d = 0L;
-            this.f48994a = str;
+            this.f49387b = -1;
+            this.f49388c = 0L;
+            this.f49389d = 0L;
+            this.f49386a = str;
         }
 
         public long a() {
-            return this.f48997d;
+            return this.f49389d;
         }
 
         public String b() {
-            return this.f48994a;
+            return this.f49386a;
         }
 
         public int c() {
-            return this.f48995b;
+            return this.f49387b;
         }
 
         public long d() {
-            return this.f48996c;
+            return this.f49388c;
         }
 
         public void e(long j) {
-            this.f48997d = j;
+            this.f49389d = j;
         }
 
         public boolean equals(Object obj) {
@@ -112,29 +112,29 @@ public class b extends g {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.b(), this.f48994a) && aVar.c() == this.f48995b;
+                return TextUtils.equals(aVar.b(), this.f49386a) && aVar.c() == this.f49387b;
             }
             return false;
         }
 
         public void f(int i) {
-            this.f48995b = i;
+            this.f49387b = i;
         }
 
         public void g(long j) {
-            this.f48996c = j;
+            this.f49388c = j;
         }
 
         public int hashCode() {
-            return Objects.hash(this.f48994a, Integer.valueOf(this.f48995b));
+            return Objects.hash(this.f49386a, Integer.valueOf(this.f49387b));
         }
 
         public a(String str, int i) {
-            this.f48995b = -1;
-            this.f48996c = 0L;
-            this.f48997d = 0L;
-            this.f48994a = str;
-            this.f48995b = i;
+            this.f49387b = -1;
+            this.f49388c = 0L;
+            this.f49389d = 0L;
+            this.f49386a = str;
+            this.f49387b = i;
         }
     }
 
@@ -143,14 +143,14 @@ public class b extends g {
         if (collection == null || collection.isEmpty()) {
             return;
         }
-        this.f48993d = new LinkedHashSet();
+        this.f49385d = new LinkedHashSet();
         Map<String, PMSAppInfo> s = d.b.g0.l.i.a.h().s();
         Map<String, d.b.g0.l.k.f> o = d.b.g0.l.i.a.h().o();
         for (String str : collection) {
             if (!TextUtils.isEmpty(str)) {
                 a aVar2 = new a(str);
                 g(s, o, aVar2, aVar);
-                this.f48993d.add(aVar2);
+                this.f49385d.add(aVar2);
             }
         }
     }

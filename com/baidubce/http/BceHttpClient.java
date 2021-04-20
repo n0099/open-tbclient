@@ -113,14 +113,15 @@ public class BceHttpClient {
         this.signer = signer;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:67:0x014b  */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0185 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x014c  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0186 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <T extends AbstractBceResponse, M extends AbstractBceRequest> T execute(InternalRequest<M> internalRequest, Class<T> cls, HttpResponseHandler[] httpResponseHandlerArr, BceProgressCallback<M> bceProgressCallback) {
         BceServiceException bceServiceException;
         long delayBeforeNextRetryInMillis;
+        OkHttpClient okHttpClient;
         internalRequest.addHeader("User-Agent", this.config.getUserAgent());
         internalRequest.addHeader("Accept-Encoding", this.config.getAcceptEncoding());
         BceCredentials credentials = this.config.getCredentials();
@@ -143,84 +144,84 @@ public class BceHttpClient {
                 if (bceCredentials != null) {
                     this.signer.sign(internalRequest, bceCredentials);
                 }
-                OkHttpClient okHttpClient = this.httpClient;
-                try {
-                    Request createHttpRequest = createHttpRequest(internalRequest, bceProgressCallback);
-                    if (internalRequest.getRequest() instanceof GetObjectRequest) {
-                        okHttpClient = addResponseProgressCallback(internalRequest.getRequest(), ((GetObjectRequest) internalRequest.getRequest()).getProgressCallback());
-                        BLog.debug("getObject");
-                    }
-                    Call newCall = okHttpClient.newCall(createHttpRequest);
-                    if (internalRequest.getRequest() != null) {
-                        internalRequest.getRequest().setCall(newCall);
-                        if (internalRequest.getRequest().getCanceled()) {
-                            throw new BceClientException("Request is canceled!");
-                        }
-                    }
-                    BceHttpResponse bceHttpResponse = new BceHttpResponse(newCall.execute());
-                    bceHttpResponse.getHeader("Date");
-                    T newInstance = cls.newInstance();
-                    int length = httpResponseHandlerArr.length;
-                    for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, newInstance); i2++) {
-                    }
-                    return newInstance;
-                } catch (BceServiceException e2) {
-                    e = e2;
-                    BceServiceException bceServiceException2 = e;
-                    boolean equals = ErrorCode.REQUEST_TIME_TOO_SKEWED.equals(bceServiceException2.getErrorCode());
-                    bceServiceException = bceServiceException2;
-                    if (equals) {
-                        Date parseRfc822Date = DateUtils.parseRfc822Date("");
-                        bceServiceException = bceServiceException2;
-                        bceServiceException = bceServiceException2;
-                        if (!"".equals("") && parseRfc822Date != null) {
-                            synchronized (this) {
-                                this.diffMillis = parseRfc822Date.getTime() - j;
-                            }
-                            bceServiceException = bceServiceException2;
-                        }
-                    }
-                    BLog.warn("Unable to execute HTTP request");
-                    delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                    if (delayBeforeNextRetryInMillis >= 0) {
-                        BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
-                        try {
-                            Thread.sleep(delayBeforeNextRetryInMillis);
-                            if (internalRequest.getContent() != null) {
-                                internalRequest.getContent().restart();
-                            }
-                            i++;
-                        } catch (InterruptedException e3) {
-                            throw new BceClientException("Delay interrupted", e3);
-                        }
-                    } else {
-                        throw bceServiceException;
-                    }
-                } catch (BceClientException e4) {
-                    e = e4;
-                    bceServiceException = e;
-                    BLog.warn("Unable to execute HTTP request");
-                    delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                    if (delayBeforeNextRetryInMillis >= 0) {
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    if (internalRequest.getRequest() != null && internalRequest.getRequest().isCanceled()) {
-                        bceServiceException = new BceClientException("Request is canceled!", e);
-                    } else {
-                        bceServiceException = new BceClientException("Unable to execute HTTP request", e);
-                    }
-                    BLog.warn("Unable to execute HTTP request");
-                    delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                    if (delayBeforeNextRetryInMillis >= 0) {
+                okHttpClient = this.httpClient;
+            } catch (BceServiceException e2) {
+                e = e2;
+            } catch (BceClientException e3) {
+                e = e3;
+            } catch (Exception e4) {
+                e = e4;
+            }
+            try {
+                Request createHttpRequest = createHttpRequest(internalRequest, bceProgressCallback);
+                if (internalRequest.getRequest() instanceof GetObjectRequest) {
+                    okHttpClient = addResponseProgressCallback(internalRequest.getRequest(), ((GetObjectRequest) internalRequest.getRequest()).getProgressCallback());
+                    BLog.debug("getObject");
+                }
+                Call newCall = okHttpClient.newCall(createHttpRequest);
+                if (internalRequest.getRequest() != null) {
+                    internalRequest.getRequest().setCall(newCall);
+                    if (internalRequest.getRequest().getCanceled()) {
+                        throw new BceClientException("Request is canceled!");
                     }
                 }
-            } catch (BceServiceException e6) {
-                e = e6;
+                BceHttpResponse bceHttpResponse = new BceHttpResponse(newCall.execute());
+                bceHttpResponse.getHeader("Date");
+                T newInstance = cls.newInstance();
+                int length = httpResponseHandlerArr.length;
+                for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, newInstance); i2++) {
+                }
+                return newInstance;
+            } catch (BceServiceException e5) {
+                e = e5;
+                BceServiceException bceServiceException2 = e;
+                boolean equals = ErrorCode.REQUEST_TIME_TOO_SKEWED.equals(bceServiceException2.getErrorCode());
+                bceServiceException = bceServiceException2;
+                if (equals) {
+                    Date parseRfc822Date = DateUtils.parseRfc822Date("");
+                    bceServiceException = bceServiceException2;
+                    bceServiceException = bceServiceException2;
+                    if (!"".equals("") && parseRfc822Date != null) {
+                        synchronized (this) {
+                            this.diffMillis = parseRfc822Date.getTime() - j;
+                        }
+                        bceServiceException = bceServiceException2;
+                    }
+                }
+                BLog.warn("Unable to execute HTTP request");
+                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                if (delayBeforeNextRetryInMillis >= 0) {
+                    BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
+                    try {
+                        Thread.sleep(delayBeforeNextRetryInMillis);
+                        if (internalRequest.getContent() != null) {
+                            internalRequest.getContent().restart();
+                        }
+                        i++;
+                    } catch (InterruptedException e6) {
+                        throw new BceClientException("Delay interrupted", e6);
+                    }
+                } else {
+                    throw bceServiceException;
+                }
             } catch (BceClientException e7) {
                 e = e7;
+                bceServiceException = e;
+                BLog.warn("Unable to execute HTTP request");
+                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                if (delayBeforeNextRetryInMillis >= 0) {
+                }
             } catch (Exception e8) {
                 e = e8;
+                if (internalRequest.getRequest() != null && internalRequest.getRequest().isCanceled()) {
+                    bceServiceException = new BceClientException("Request is canceled!", e);
+                } else {
+                    bceServiceException = new BceClientException("Unable to execute HTTP request", e);
+                }
+                BLog.warn("Unable to execute HTTP request");
+                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                if (delayBeforeNextRetryInMillis >= 0) {
+                }
             }
             i++;
         }

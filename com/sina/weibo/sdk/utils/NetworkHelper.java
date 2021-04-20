@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.utils;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NetworkHelper {
     public static String generateUA(Context context) {
         StringBuilder sb = new StringBuilder();

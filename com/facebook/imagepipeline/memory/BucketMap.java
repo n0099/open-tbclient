@@ -7,7 +7,7 @@ import com.facebook.infer.annotation.ThreadSafe;
 import java.util.LinkedList;
 import javax.annotation.Nullable;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BucketMap<T> {
     @VisibleForTesting
     @Nullable
@@ -18,7 +18,7 @@ public class BucketMap<T> {
     public LinkedEntry<T> mTail;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LinkedEntry<I> {
         public int key;
         @Nullable

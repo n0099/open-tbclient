@@ -7,18 +7,18 @@ import androidx.annotation.NonNull;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, af> f30373a = new HashMap();
+    public static Map<String, af> f30058a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f30374b;
+    public SharedPreferences f30059b;
 
     public af(String str, Context context) {
         if (context != null) {
-            this.f30374b = context.getApplicationContext().getSharedPreferences(str, 0);
+            this.f30059b = context.getApplicationContext().getSharedPreferences(str, 0);
         }
     }
 
@@ -26,10 +26,10 @@ public class af {
         if (TextUtils.isEmpty(str)) {
             str = "tt_ad_sdk_sp";
         }
-        af afVar = f30373a.get(str);
+        af afVar = f30058a.get(str);
         if (afVar == null) {
             af afVar2 = new af(str, context);
-            f30373a.put(str, afVar2);
+            f30058a.put(str, afVar2);
             return afVar2;
         }
         return afVar;
@@ -37,7 +37,7 @@ public class af {
 
     public String b(@NonNull String str, @NonNull String str2) {
         try {
-            return this.f30374b.getString(str, str2);
+            return this.f30059b.getString(str, str2);
         } catch (Throwable unused) {
             return str2;
         }
@@ -45,7 +45,7 @@ public class af {
 
     public int b(@NonNull String str, int i) {
         try {
-            return this.f30374b.getInt(str, i);
+            return this.f30059b.getInt(str, i);
         } catch (Throwable unused) {
             return i;
         }
@@ -53,7 +53,7 @@ public class af {
 
     public long b(@NonNull String str, long j) {
         try {
-            return this.f30374b.getLong(str, j);
+            return this.f30059b.getLong(str, j);
         } catch (Throwable unused) {
             return j;
         }
@@ -61,7 +61,7 @@ public class af {
 
     public boolean b(@NonNull String str, boolean z) {
         try {
-            return this.f30374b.getBoolean(str, z);
+            return this.f30059b.getBoolean(str, z);
         } catch (Throwable unused) {
             return z;
         }
@@ -69,14 +69,14 @@ public class af {
 
     public void a(@NonNull String str, @NonNull String str2) {
         try {
-            this.f30374b.edit().putString(str, str2).apply();
+            this.f30059b.edit().putString(str, str2).apply();
         } catch (Throwable unused) {
         }
     }
 
     public Set<String> b(@NonNull String str, @NonNull Set<String> set) {
         try {
-            return this.f30374b.getStringSet(str, set);
+            return this.f30059b.getStringSet(str, set);
         } catch (Throwable unused) {
             return set;
         }
@@ -92,35 +92,35 @@ public class af {
 
     public void b(@NonNull String str) {
         try {
-            this.f30374b.edit().remove(str).apply();
+            this.f30059b.edit().remove(str).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, int i) {
         try {
-            this.f30374b.edit().putInt(str, i).apply();
+            this.f30059b.edit().putInt(str, i).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, long j) {
         try {
-            this.f30374b.edit().putLong(str, j).apply();
+            this.f30059b.edit().putLong(str, j).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, boolean z) {
         try {
-            this.f30374b.edit().putBoolean(str, z).apply();
+            this.f30059b.edit().putBoolean(str, z).apply();
         } catch (Throwable unused) {
         }
     }
 
     public void a(@NonNull String str, @NonNull Set<String> set) {
         try {
-            this.f30374b.edit().putStringSet(str, set).apply();
+            this.f30059b.edit().putStringSet(str, set).apply();
         } catch (Throwable unused) {
         }
     }

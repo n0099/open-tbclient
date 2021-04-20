@@ -1,7 +1,7 @@
 package io.reactivex.internal.subscriptions;
 
-import f.a.a0.a;
-import f.a.x.i.b;
+import f.b.a0.a;
+import f.b.x.i.b;
 import g.d.d;
 import io.reactivex.exceptions.ProtocolViolationException;
 import java.util.concurrent.atomic.AtomicLong;
@@ -99,7 +99,7 @@ public enum SubscriptionHelper implements d {
     }
 
     public static boolean setOnce(AtomicReference<d> atomicReference, d dVar) {
-        f.a.x.b.a.b(dVar, "s is null");
+        f.b.x.b.a.b(dVar, "s is null");
         if (atomicReference.compareAndSet(null, dVar)) {
             return true;
         }

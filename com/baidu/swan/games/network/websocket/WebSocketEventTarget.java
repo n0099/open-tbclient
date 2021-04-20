@@ -19,10 +19,10 @@ import org.json.JSONObject;
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f12867f = k.f45051a;
+    public static final boolean f12528f = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public SocketTaskState f12868e;
+    public SocketTaskState f12529e;
 
     /* loaded from: classes3.dex */
     public enum SocketTaskState {
@@ -33,11 +33,11 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.f12868e = SocketTaskState.IDLE;
+        this.f12529e = SocketTaskState.IDLE;
     }
 
     public final void A(String str, Object obj) {
-        if (f12867f) {
+        if (f12528f) {
             Log.i("WebSocket", "dispatchEvent:" + str);
         }
         dispatchEvent(new JSEvent(str, obj));
@@ -45,13 +45,13 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.f12868e = SocketTaskState.CLOSE;
+        this.f12529e = SocketTaskState.CLOSE;
         A(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.f12868e == SocketTaskState.IDLE) {
+        if (this.f12529e == SocketTaskState.IDLE) {
             A("error", new f(th.getMessage()));
         }
     }
@@ -63,7 +63,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.f12868e = SocketTaskState.OPEN;
+        this.f12529e = SocketTaskState.OPEN;
         A("open", new i(new JSONObject(map)));
     }
 

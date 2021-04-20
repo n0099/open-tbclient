@@ -12,26 +12,26 @@ import org.json.JSONObject;
 public class e extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f1372b;
+    public final Handler f1358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1373c;
+    public final String f1359c;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1374a;
+        public final String f1360a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JSONObject f1375b;
+        public final JSONObject f1361b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f1376c = System.currentTimeMillis();
+        public final long f1362c = System.currentTimeMillis();
 
         public a(String str, JSONObject jSONObject) {
-            this.f1374a = str;
-            this.f1375b = jSONObject;
+            this.f1360a = str;
+            this.f1361b = jSONObject;
         }
     }
 
@@ -42,11 +42,11 @@ public class e extends d {
         }
 
         public final void a(JSONObject jSONObject) {
-            a.a.a.a.t.f a2 = new a.a.a.a.t.c(e.this.f1373c, new a.a.a.a.t.e(jSONObject)).a();
+            a.a.a.a.t.f a2 = new a.a.a.a.t.c(e.this.f1359c, new a.a.a.a.t.e(jSONObject)).a();
             if (a2 == null) {
                 throw new IOException("no response received");
             }
-            String str = a2.f1352b;
+            String str = a2.f1338b;
             try {
                 if (new JSONObject(str).getJSONObject("responseHeader").optInt("status", -1) != 200) {
                     a.a.a.a.v.d.b("failed report with content:" + str, new Object[0]);
@@ -62,10 +62,10 @@ public class e extends d {
                 return;
             }
             a aVar = (a) message.obj;
-            a.a.a.a.v.d.c("report key:" + aVar.f1374a + " content:" + aVar.f1375b, new Object[0]);
-            String str = aVar.f1374a;
-            JSONObject jSONObject = aVar.f1375b;
-            long j = aVar.f1376c;
+            a.a.a.a.v.d.c("report key:" + aVar.f1360a + " content:" + aVar.f1361b, new Object[0]);
+            String str = aVar.f1360a;
+            JSONObject jSONObject = aVar.f1361b;
+            long j = aVar.f1362c;
             JSONObject jSONObject2 = new JSONObject();
             try {
                 c.a(jSONObject2);
@@ -85,7 +85,7 @@ public class e extends d {
     public e(String str) {
         HandlerThread handlerThread = new HandlerThread("rep");
         handlerThread.start();
-        this.f1372b = new b(handlerThread.getLooper());
-        this.f1373c = str;
+        this.f1358b = new b(handlerThread.getLooper());
+        this.f1359c = str;
     }
 }

@@ -45,13 +45,13 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import d.b.b.a.f;
-import d.b.b.a.g;
-import d.b.b.a.h;
-import d.b.b.a.i;
-import d.b.b.h.f.a;
-import d.b.b.h.k.d;
-import d.b.b.j.e.q;
+import d.b.c.a.f;
+import d.b.c.a.g;
+import d.b.c.a.h;
+import d.b.c.a.i;
+import d.b.c.h.f.a;
+import d.b.c.h.k.d;
+import d.b.c.j.e.q;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -213,7 +213,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public Activity getActivity() {
         return this;
     }
@@ -327,7 +327,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return super.getPackageManager();
     }
 
-    @Override // d.b.b.a.g
+    @Override // d.b.c.a.g
     public f getPageContext() {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
         if (pluginBaseActivity == null || !(pluginBaseActivity instanceof g)) {
@@ -388,7 +388,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return super.getSystemService(str);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public PluginBaseActivity getTarget() {
         return this.mEntity;
     }
@@ -411,7 +411,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return super.getTheme();
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public BdUniqueId getUniqueId() {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
         if (pluginBaseActivity != null) {
@@ -483,7 +483,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return super.isFinishing();
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public boolean isScroll() {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
         if (pluginBaseActivity != null) {
@@ -643,7 +643,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle, @Nullable PersistableBundle persistableBundle) {
-        d.b.b.a.a.b(this);
+        d.b.c.a.a.b(this);
         super.onCreate(bundle, persistableBundle);
     }
 
@@ -861,7 +861,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public void onPreLoad(q qVar) {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
         if (pluginBaseActivity != null) {
@@ -1059,112 +1059,112 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.addContentView(view, layoutParams);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         return super.bindService(intent, serviceConnection, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyCloseContextMenu() {
         super.closeContextMenu();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyCloseOptionsMenu() {
         super.closeOptionsMenu();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2) {
         return super.createPendingResult(i, intent, i2);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
         return super.dispatchGenericMotionEvent(motionEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyDispatchKeyEvent(KeyEvent keyEvent) {
         return super.dispatchKeyEvent(keyEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
         return super.dispatchKeyShortcutEvent(keyEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         return super.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyDispatchTouchEvent(MotionEvent motionEvent) {
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyDispatchTrackballEvent(MotionEvent motionEvent) {
         return super.dispatchTrackballEvent(motionEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public View proxyFindViewById(int i) {
         return super.findViewById(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyFinish() {
         super.finish();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyFinishActivity(int i) {
         super.finishActivity(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyFinishActivityFromChild(Activity activity, int i) {
         super.finishActivityFromChild(activity, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyFinishFromChild(Activity activity) {
         super.finishFromChild(activity);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public Context proxyGetApplicationContext() {
         return super.getApplicationContext();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public ComponentName proxyGetCallingActivity() {
         return null;
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public String proxyGetCallingPackage() {
         return super.getCallingPackage();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public int proxyGetChangingConfigurations() {
         return super.getChangingConfigurations();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public View proxyGetCurrentFocus() {
         return super.getCurrentFocus();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public Intent proxyGetIntent() {
         return super.getIntent();
     }
@@ -1173,397 +1173,397 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return super.getLastNonConfigurationInstance();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public LayoutInflater proxyGetLayoutInflater() {
         return super.getLayoutInflater();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public String proxyGetLocalClassName() {
         return super.getLocalClassName();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public MenuInflater proxyGetMenuInflater() {
         return super.getMenuInflater();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public PackageManager proxyGetPackageManager() {
         return super.getPackageManager();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public SharedPreferences proxyGetPreferences(int i) {
         return super.getPreferences(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public int proxyGetRequestedOrientation() {
         return super.getRequestedOrientation();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public SharedPreferences proxyGetSharedPreferences(String str, int i) {
         return super.getSharedPreferences(str, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public Object proxyGetSystemService(String str) {
         return super.getSystemService(str);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public int proxyGetTaskId() {
         return super.getTaskId();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public int proxyGetWallpaperDesiredMinimumHeight() {
         return super.getWallpaperDesiredMinimumHeight();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public int proxyGetWallpaperDesiredMinimumWidth() {
         return super.getWallpaperDesiredMinimumWidth();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public Window proxyGetWindow() {
         return super.getWindow();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public WindowManager proxyGetWindowManager() {
         return super.getWindowManager();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyHasWindowFocus() {
         return super.hasWindowFocus();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyIsFinishing() {
         return super.isFinishing();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyIsTaskRoot() {
         return super.isTaskRoot();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyMoveTaskToBack(boolean z) {
         return super.moveTaskToBack(z);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         super.onApplyThemeResource(theme, i, z);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnAttachedToWindow() {
         super.onAttachedToWindow();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnBackPressed() {
         super.onBackPressed();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence) {
         super.onChildTitleChanged(activity, charSequence);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnContentChanged() {
         super.onContentChanged();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnContextItemSelected(MenuItem menuItem) {
         return super.onContextItemSelected(menuItem);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnContextMenuClosed(Menu menu) {
         super.onContextMenuClosed(menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnCreatePanelMenu(int i, Menu menu) {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         return super.onCreateThumbnail(bitmap, canvas);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(str, context, attributeSet);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnDestroy() {
         super.onDestroy();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnDetachedFromWindow() {
         super.onDetachedFromWindow();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnKeyDown(int i, KeyEvent keyEvent) {
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent) {
         return super.onKeyLongPress(i, keyEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         return super.onKeyMultiple(i, i2, keyEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnKeyUp(int i, KeyEvent keyEvent) {
         return super.onKeyUp(i, keyEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnLowMemory() {
         super.onLowMemory();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnMenuItemSelected(int i, MenuItem menuItem) {
         return super.onMenuItemSelected(i, menuItem);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnMenuOpened(int i, Menu menu) {
         return super.onMenuOpened(i, menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnOptionsItemSelected(MenuItem menuItem) {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnOptionsMenuClosed(Menu menu) {
         super.onOptionsMenuClosed(menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnPanelClosed(int i, Menu menu) {
         super.onPanelClosed(i, menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnPause() {
         super.onPause();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnPostResume() {
         super.onPostResume();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnPrepareDialog(int i, Dialog dialog) {
         super.onPrepareDialog(i, dialog);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnPrepareOptionsMenu(Menu menu) {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnPreparePanel(int i, View view, Menu menu) {
         return super.onPreparePanel(i, view, menu);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnRestart() {
         super.onRestart();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnResume() {
         super.onResume();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public Object proxyOnRetainNonConfigurationInstance() {
         return super.onRetainNonConfigurationInstance();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnSearchRequested() {
         return super.onSearchRequested();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnStart() {
         super.onStart();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnStop() {
         super.onStop();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnTitleChanged(CharSequence charSequence, int i) {
         super.onTitleChanged(charSequence, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnTouchEvent(MotionEvent motionEvent) {
         return super.onTouchEvent(motionEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyOnTrackballEvent(MotionEvent motionEvent) {
         return super.onTrackballEvent(motionEvent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnUserInteraction() {
         super.onUserInteraction();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         super.onWindowAttributesChanged(layoutParams);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOnWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOpenContextMenu(View view) {
         super.openContextMenu(view);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOpenOptionsMenu() {
         super.openOptionsMenu();
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyOverridePendingTransition(int i, int i2) {
         super.overridePendingTransition(i, i2);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyRegisterForContextMenu(View view) {
         super.registerForContextMenu(view);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetContentView(int i) {
         super.setContentView(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetIntent(Intent intent) {
         super.setIntent(intent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetRequestedOrientation(int i) {
         super.setRequestedOrientation(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetTitle(int i) {
         super.setTitle(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetTitleColor(int i) {
         super.setTitleColor(i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetVisible(boolean z) {
         super.setVisible(z);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartActivity(Intent intent) {
         super.startActivity(intent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartActivityForResult(Intent intent, int i) {
         super.startActivityForResult(intent, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartActivityFromChild(Activity activity, Intent intent, int i) {
         super.startActivityFromChild(activity, intent, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyStartActivityIfNeeded(Intent intent, int i) {
         return super.startActivityIfNeeded(intent, i);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         super.startIntentSender(intentSender, intent, i, i2, i3);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
@@ -1572,42 +1572,42 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartManagingCursor(Cursor cursor) {
         super.startManagingCursor(cursor);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyStartNextMatchingActivity(Intent intent) {
         return super.startNextMatchingActivity(intent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2) {
         super.startSearch(str, z, bundle, z2);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public ComponentName proxyStartService(Intent intent) {
         return super.startService(intent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyStopManagingCursor(Cursor cursor) {
         super.stopManagingCursor(cursor);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public boolean proxyStopService(Intent intent) {
         return super.stopService(intent);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyTakeKeyEvents(boolean z) {
         super.takeKeyEvents(z);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxyUnregisterForContextMenu(View view) {
         super.unregisterForContextMenu(view);
     }
@@ -1626,7 +1626,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context, d.b.b.h.f.a
+    @Override // android.content.ContextWrapper, android.content.Context, d.b.c.h.f.a
     public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
         return super.registerReceiver(broadcastReceiver, intentFilter);
     }
@@ -1651,7 +1651,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public void setIsScroll(boolean z) {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
         if (pluginBaseActivity != null) {
@@ -1845,22 +1845,22 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context, d.b.b.h.f.a
+    @Override // android.content.ContextWrapper, android.content.Context, d.b.c.h.f.a
     public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
         super.unregisterReceiver(broadcastReceiver);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(view, str, context, attributeSet);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetContentView(View view) {
         super.setContentView(view);
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetTitle(CharSequence charSequence) {
         super.setTitle(charSequence);
     }
@@ -1878,7 +1878,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // d.b.b.h.f.a
+    @Override // d.b.c.h.f.a
     public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.setContentView(view, layoutParams);
     }

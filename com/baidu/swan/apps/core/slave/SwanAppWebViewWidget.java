@@ -40,7 +40,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.a.p.d.e<NgWebView> {
-    public static final boolean Y = k.f45051a;
+    public static final boolean Y = k.f45443a;
     public static final String[] Z = {"http", "https"};
     public e O;
     public d P;
@@ -72,7 +72,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onHideCustomView(BdSailorWebView bdSailorWebView) {
-            SwanAppWebViewWidget.this.z1();
+            SwanAppWebViewWidget.this.A1();
             return true;
         }
 
@@ -101,7 +101,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
             if (SwanAppWebViewWidget.this.S == null) {
-                SwanAppWebViewWidget.this.S = new d.b.g0.a.e0.m.e(SwanAppWebViewWidget.this.f12153e.getBaseContext());
+                SwanAppWebViewWidget.this.S = new d.b.g0.a.e0.m.e(SwanAppWebViewWidget.this.f11814e.getBaseContext());
             }
             SwanAppWebViewWidget.this.S.c(view, i, new a(this));
             return true;
@@ -115,39 +115,39 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ long f12188e;
+            public final /* synthetic */ long f11849e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ HybridUbcFlow f12189f;
+            public final /* synthetic */ HybridUbcFlow f11850f;
 
             public a(long j, HybridUbcFlow hybridUbcFlow) {
-                this.f12188e = j;
-                this.f12189f = hybridUbcFlow;
+                this.f11849e = j;
+                this.f11850f = hybridUbcFlow;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 long j;
-                if (i.f44884b) {
+                if (i.f45276b) {
                     if (SwanAppWebViewWidget.Y) {
                         Log.d("SwanAppWebViewWidget", "-> onCalibrateFmp: from fcp delay");
                     }
-                    SwanAppWebViewWidget.this.c1(true);
+                    SwanAppWebViewWidget.this.d1(true);
                     return;
                 }
-                if (SwanAppWebViewWidget.this.L.f45454c <= 0) {
-                    j = this.f12188e;
+                if (SwanAppWebViewWidget.this.L.f45846c <= 0) {
+                    j = this.f11849e;
                 } else {
-                    j = SwanAppWebViewWidget.this.L.f45454c;
+                    j = SwanAppWebViewWidget.this.L.f45846c;
                 }
-                this.f12189f.y("fmp_type", SwanAppWebViewWidget.this.L.f45458g);
-                HybridUbcFlow hybridUbcFlow = this.f12189f;
+                this.f11850f.y("fmp_type", SwanAppWebViewWidget.this.L.f45850g);
+                HybridUbcFlow hybridUbcFlow = this.f11850f;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
                 ubcFlowEvent.h(j);
                 hybridUbcFlow.A(ubcFlowEvent);
                 hybridUbcFlow.N();
                 if (SwanAppWebViewWidget.Y) {
-                    Log.d("SwanAppWebViewWidget", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=" + j + " , fmpType" + SwanAppWebViewWidget.this.L.f45458g + " , fmpTypeName=" + SwanAppWebViewWidget.this.L.a());
+                    Log.d("SwanAppWebViewWidget", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=" + j + " , fmpType" + SwanAppWebViewWidget.this.L.f45850g + " , fmpTypeName=" + SwanAppWebViewWidget.this.L.a());
                 }
             }
         }
@@ -163,23 +163,23 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
             if (SwanAppWebViewWidget.Y) {
                 Log.d("SwanAppWebViewWidget", "on fcp: real fcp = " + currentTimeMillis);
             }
-            SwanAppWebViewWidget.this.L.f45453b = currentTimeMillis;
-            f.h().l().a(SwanAppWebViewWidget.this.L.f45453b);
-            long b2 = i.f44884b ? currentTimeMillis : SwanAppWebViewWidget.this.L.b();
+            SwanAppWebViewWidget.this.L.f45845b = currentTimeMillis;
+            f.h().l().a(SwanAppWebViewWidget.this.L.f45845b);
+            long b2 = i.f45276b ? currentTimeMillis : SwanAppWebViewWidget.this.L.b();
             if (SwanAppWebViewWidget.Y) {
-                Log.d("SwanAppWebViewWidget", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime" + b2 + " , aligned search=" + i.f44884b);
+                Log.d("SwanAppWebViewWidget", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime" + b2 + " , aligned search=" + i.f45276b);
             }
             HybridUbcFlow o = i.o("startup");
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_paint");
             ubcFlowEvent.h(b2);
             o.A(ubcFlowEvent);
-            if (SwanAppWebViewWidget.this.L.f45454c == 0) {
-                SwanAppWebViewWidget.this.L.f45454c = b2;
+            if (SwanAppWebViewWidget.this.L.f45846c == 0) {
+                SwanAppWebViewWidget.this.L.f45846c = b2;
                 d.b.g0.a.p.d.j.d dVar = SwanAppWebViewWidget.this.L;
-                dVar.f45458g = dVar.c(b2);
+                dVar.f45850g = dVar.c(b2);
                 o.y("fmp_type", "1");
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_first_meaningful_paint");
-                ubcFlowEvent2.h(SwanAppWebViewWidget.this.L.f45453b);
+                ubcFlowEvent2.h(SwanAppWebViewWidget.this.L.f45845b);
                 o.A(ubcFlowEvent2);
             }
             long I = d.b.g0.a.w0.a.N().I();
@@ -193,21 +193,21 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
             d.b.g0.a.c0.c.h("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstImagePaintExt");
             super.onFirstImagePaintExt(bdSailorWebView, str);
-            SwanAppWebViewWidget.this.L.f45456e = System.currentTimeMillis();
-            f.h().l().d(SwanAppWebViewWidget.this.L.f45456e);
+            SwanAppWebViewWidget.this.L.f45848e = System.currentTimeMillis();
+            f.h().l().d(SwanAppWebViewWidget.this.L.f45848e);
             if (SwanAppWebViewWidget.Y) {
-                Log.d("SwanAppWebViewWidget", "on fip: real fip = " + SwanAppWebViewWidget.this.L.f45456e);
+                Log.d("SwanAppWebViewWidget", "on fip: real fip = " + SwanAppWebViewWidget.this.L.f45848e);
             }
-            if (i.f44884b) {
+            if (i.f45276b) {
                 if (SwanAppWebViewWidget.Y) {
                     Log.d("SwanAppWebViewWidget", "-> onCalibrateFmp: from fip");
                 }
-                SwanAppWebViewWidget.this.c1(false);
-            } else if (SwanAppWebViewWidget.this.L.f45454c == 0) {
+                SwanAppWebViewWidget.this.d1(false);
+            } else if (SwanAppWebViewWidget.this.L.f45846c == 0) {
                 HybridUbcFlow o = i.o("startup");
                 o.y("fmp_type", "3");
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                ubcFlowEvent.h(SwanAppWebViewWidget.this.L.f45456e);
+                ubcFlowEvent.h(SwanAppWebViewWidget.this.L.f45848e);
                 o.A(ubcFlowEvent);
             }
         }
@@ -224,7 +224,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstPaintDidExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstPaintDidExt(bdSailorWebView, str);
-            SwanAppWebViewWidget.this.L.f45452a = System.currentTimeMillis();
+            SwanAppWebViewWidget.this.L.f45844a = System.currentTimeMillis();
             if (TextUtils.isEmpty(SwanAppWebViewWidget.this.K)) {
                 return;
             }
@@ -235,11 +235,11 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
             d.b.g0.a.c0.c.h("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstScreenPaintFinishedEx");
             super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-            SwanAppWebViewWidget.this.L.f45454c = System.currentTimeMillis();
-            SwanAppWebViewWidget.this.L.f45458g = "0";
-            f.h().l().g(SwanAppWebViewWidget.this.L.f45454c);
+            SwanAppWebViewWidget.this.L.f45846c = System.currentTimeMillis();
+            SwanAppWebViewWidget.this.L.f45850g = "0";
+            f.h().l().g(SwanAppWebViewWidget.this.L.f45846c);
             if (SwanAppWebViewWidget.Y) {
-                Log.d("SwanAppWebViewWidget", "on fmp: real fmp = " + SwanAppWebViewWidget.this.L.f45454c);
+                Log.d("SwanAppWebViewWidget", "on fmp: real fmp = " + SwanAppWebViewWidget.this.L.f45846c);
             }
             HybridUbcFlow d2 = i.d("startup");
             if (d2 != null) {
@@ -249,13 +249,13 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
                 d2.y("webviewComponent", str);
                 d2.y("fmp_type", "0");
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                ubcFlowEvent.h(SwanAppWebViewWidget.this.L.f45454c);
+                ubcFlowEvent.h(SwanAppWebViewWidget.this.L.f45846c);
                 ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE);
                 d2.A(ubcFlowEvent);
                 d2.N();
                 d2.z("value", "arrive_success");
                 d.b.g0.a.p.d.j.d dVar = SwanAppWebViewWidget.this.L;
-                d.b.g0.a.c0.c.a("SwanAppWebViewWidget", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(SwanAppWebViewWidget.this.L.f45454c), " , fmpType=", dVar.f45458g, " , fmpTypeName=", dVar.a());
+                d.b.g0.a.c0.c.a("SwanAppWebViewWidget", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(SwanAppWebViewWidget.this.L.f45846c), " , fmpType=", dVar.f45850g, " , fmpTypeName=", dVar.a());
                 i.s();
             }
             if (TextUtils.isEmpty(SwanAppWebViewWidget.this.K)) {
@@ -269,28 +269,28 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
             d.b.g0.a.c0.c.h("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstTextPaintExt");
             super.onFirstTextPaintExt(bdSailorWebView, str);
-            SwanAppWebViewWidget.this.L.f45455d = System.currentTimeMillis();
-            f.h().l().c(SwanAppWebViewWidget.this.L.f45455d);
+            SwanAppWebViewWidget.this.L.f45847d = System.currentTimeMillis();
+            f.h().l().c(SwanAppWebViewWidget.this.L.f45847d);
             if (SwanAppWebViewWidget.Y) {
-                Log.d("SwanAppWebViewWidget", "on ftp: real ftp = " + SwanAppWebViewWidget.this.L.f45455d);
+                Log.d("SwanAppWebViewWidget", "on ftp: real ftp = " + SwanAppWebViewWidget.this.L.f45847d);
             }
-            if (i.f44884b) {
+            if (i.f45276b) {
                 if (SwanAppWebViewWidget.Y) {
                     Log.d("SwanAppWebViewWidget", "-> onCalibrateFmp: from ftp");
                 }
-                SwanAppWebViewWidget.this.c1(false);
-            } else if (SwanAppWebViewWidget.this.L.f45454c == 0) {
+                SwanAppWebViewWidget.this.d1(false);
+            } else if (SwanAppWebViewWidget.this.L.f45846c == 0) {
                 HybridUbcFlow o = i.o("startup");
                 o.y("fmp_type", "2");
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                ubcFlowEvent.h(SwanAppWebViewWidget.this.L.f45455d);
+                ubcFlowEvent.h(SwanAppWebViewWidget.this.L.f45847d);
                 o.A(ubcFlowEvent);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public boolean onSubFrameBeforeRequest(BdSailorWebView bdSailorWebView, String str) {
-            if (d.b.g0.a.w0.a.N().o() && SwanAppWebViewWidget.this.G1() && !d.b.g0.a.s1.a.b.h(str)) {
+            if (d.b.g0.a.w0.a.N().o() && SwanAppWebViewWidget.this.H1() && !d.b.g0.a.s1.a.b.h(str)) {
                 if (SwanAppWebViewWidget.Y) {
                     Log.d("SwanAppWebViewWidget", "WebSafeCheckers.checkWebDomain() failed url: " + str);
                     return true;
@@ -314,14 +314,14 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
             }
 
             @Override // d.b.g0.a.e0.k.c
-            public boolean M(boolean z) {
+            public boolean N(boolean z) {
                 return z;
             }
 
             @Override // d.b.g0.a.e0.k.c
             public boolean u() {
-                SwanAppWebViewWidget.this.v1().a();
-                SwanAppWebViewWidget.this.getWebView().setOnWebViewHookHandler(null);
+                SwanAppWebViewWidget.this.w1().a();
+                SwanAppWebViewWidget.this.F().setOnWebViewHookHandler(null);
                 return true;
             }
         }
@@ -337,8 +337,8 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
                 URL url = new URL(str);
                 for (String str2 : SwanAppWebViewWidget.Z) {
                     if (TextUtils.equals(url.getProtocol(), str2)) {
-                        SwanAppWebViewWidget.this.v1().b(str);
-                        SwanAppWebViewWidget.this.getWebView().setOnWebViewHookHandler(new a());
+                        SwanAppWebViewWidget.this.w1().b(str);
+                        SwanAppWebViewWidget.this.F().setOnWebViewHookHandler(new a());
                         return;
                     }
                 }
@@ -351,13 +351,13 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
-            SwanAppWebViewWidget.this.x1().b();
+            SwanAppWebViewWidget.this.y1().b();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageStarted(BdSailorWebView bdSailorWebView, String str, Bitmap bitmap) {
-            SwanAppWebViewWidget.this.x1().c();
-            SwanAppWebViewWidget.this.u1();
+            SwanAppWebViewWidget.this.y1().c();
+            SwanAppWebViewWidget.this.v1();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
@@ -366,7 +366,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
             if (i == -10) {
                 return;
             }
-            SwanAppWebViewWidget.this.w1().c();
+            SwanAppWebViewWidget.this.x1().c();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
@@ -376,7 +376,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
             }
             Uri w = k0.w(str);
             if (w != null) {
-                d.b.g0.a.i2.e.f(SwanAppWebViewWidget.this.f12153e, new Intent("android.intent.action.DIAL", w));
+                d.b.g0.a.i2.e.f(SwanAppWebViewWidget.this.f11814e, new Intent("android.intent.action.DIAL", w));
                 return true;
             }
             SwanAppWebViewWidget swanAppWebViewWidget = SwanAppWebViewWidget.this;
@@ -384,7 +384,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
             if (dVar != null) {
                 return dVar.b(str);
             }
-            if (!swanAppWebViewWidget.G1() || d.b.g0.a.s1.a.b.h(str)) {
+            if (!swanAppWebViewWidget.H1() || d.b.g0.a.s1.a.b.h(str)) {
                 return false;
             }
             showDomainErrorView(str);
@@ -399,9 +399,9 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SwanAppNetworkUtils.h(SwanAppWebViewWidget.this.getWebView().getContext())) {
-                if (!SwanAppWebViewWidget.this.G1() || d.b.g0.a.s1.a.b.h(SwanAppWebViewWidget.this.getWebView().getUrl())) {
-                    SwanAppWebViewWidget.this.getWebView().reload();
+            if (SwanAppNetworkUtils.h(SwanAppWebViewWidget.this.F().getContext())) {
+                if (!SwanAppWebViewWidget.this.H1() || d.b.g0.a.s1.a.b.h(SwanAppWebViewWidget.this.F().getUrl())) {
+                    SwanAppWebViewWidget.this.F().reload();
                     SwanAppWebViewWidget.this.P.a();
                 }
             }
@@ -412,14 +412,14 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f12193e;
+        public final /* synthetic */ View f11854e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.c f12194f;
+        public final /* synthetic */ d.b.g0.a.e0.l.c f11855f;
 
         public b(View view, d.b.g0.a.e0.l.c cVar) {
-            this.f12193e = view;
-            this.f12194f = cVar;
+            this.f11854e = view;
+            this.f11855f = cVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -427,7 +427,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
             if (SwanAppWebViewWidget.Y) {
                 Log.d("SwanAppWebViewWidget", "onGlobalLayout");
             }
-            SwanAppWebViewWidget.this.B1(this.f12193e, this.f12194f);
+            SwanAppWebViewWidget.this.C1(this.f11854e, this.f11855f);
         }
     }
 
@@ -435,27 +435,27 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public DomainErrorView f12196a;
+        public DomainErrorView f11857a;
 
         public c(Context context, ViewGroup viewGroup) {
             if (context != null && viewGroup != null) {
                 DomainErrorView domainErrorView = new DomainErrorView(context);
-                this.f12196a = domainErrorView;
+                this.f11857a = domainErrorView;
                 domainErrorView.setBackgroundColor(context.getResources().getColor(d.b.g0.a.c.aiapps_white));
-                viewGroup.addView(this.f12196a, new FrameLayout.LayoutParams(-1, -1));
-                this.f12196a.setVisibility(8);
+                viewGroup.addView(this.f11857a, new FrameLayout.LayoutParams(-1, -1));
+                this.f11857a.setVisibility(8);
                 return;
             }
             throw new IllegalArgumentException("context and viewGroup must not be null.");
         }
 
         public void a() {
-            this.f12196a.setVisibility(8);
+            this.f11857a.setVisibility(8);
         }
 
         public void b(String str) {
-            this.f12196a.b(str);
-            this.f12196a.setVisibility(0);
+            this.f11857a.b(str);
+            this.f11857a.setVisibility(0);
         }
     }
 
@@ -463,31 +463,31 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetworkErrorView f12197a;
+        public NetworkErrorView f11858a;
 
         public d(Context context, ViewGroup viewGroup) {
             if (context != null && viewGroup != null) {
                 NetworkErrorView networkErrorView = new NetworkErrorView(context);
-                this.f12197a = networkErrorView;
+                this.f11858a = networkErrorView;
                 networkErrorView.setBackgroundColor(context.getResources().getColor(d.b.g0.a.c.aiapps_white));
-                viewGroup.addView(this.f12197a, new FrameLayout.LayoutParams(-1, -1));
-                this.f12197a.setVisibility(8);
+                viewGroup.addView(this.f11858a, new FrameLayout.LayoutParams(-1, -1));
+                this.f11858a.setVisibility(8);
                 return;
             }
             throw new IllegalArgumentException("context and viewGroup must not be null.");
         }
 
         public void a() {
-            this.f12197a.setVisibility(8);
+            this.f11858a.setVisibility(8);
         }
 
         public void b(View.OnClickListener onClickListener) {
-            this.f12197a.setOnClickListener(onClickListener);
-            this.f12197a.setReloadClickListener(onClickListener);
+            this.f11858a.setOnClickListener(onClickListener);
+            this.f11858a.setReloadClickListener(onClickListener);
         }
 
         public void c() {
-            this.f12197a.setVisibility(0);
+            this.f11858a.setVisibility(0);
         }
     }
 
@@ -495,35 +495,35 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public EfficientProgressBar f12198a;
+        public EfficientProgressBar f11859a;
 
         public e(Context context, ViewGroup viewGroup) {
-            this.f12198a = null;
+            this.f11859a = null;
             if (context != null && viewGroup != null) {
                 EfficientProgressBar efficientProgressBar = new EfficientProgressBar(context);
-                this.f12198a = efficientProgressBar;
+                this.f11859a = efficientProgressBar;
                 efficientProgressBar.setProgressDrawable(context.getResources().getDrawable(d.b.g0.a.e.aiapps_progress_thumb));
-                this.f12198a.setId(d.b.g0.a.f.aiapps_nbsearch_web_loading_progress_bar);
-                this.f12198a.setVisibility(4);
-                this.f12198a.setFocusable(false);
-                this.f12198a.setClickable(false);
-                viewGroup.addView(this.f12198a);
+                this.f11859a.setId(d.b.g0.a.f.aiapps_nbsearch_web_loading_progress_bar);
+                this.f11859a.setVisibility(4);
+                this.f11859a.setFocusable(false);
+                this.f11859a.setClickable(false);
+                viewGroup.addView(this.f11859a);
                 return;
             }
             throw new IllegalArgumentException("context and viewGroup must not be null.");
         }
 
         public void b() {
-            this.f12198a.setProgress(100, true);
+            this.f11859a.setProgress(100, true);
         }
 
         public void c() {
-            this.f12198a.f();
+            this.f11859a.f();
             d(0);
         }
 
         public void d(int i) {
-            this.f12198a.setProgress(i, true);
+            this.f11859a.setProgress(i, true);
         }
     }
 
@@ -531,22 +531,29 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         super(context);
         this.W = true;
         this.X = 200;
-        R0(new WebViewWidgetClient());
-        Q0(new SwanAppWebChromeClient(this, null));
-        S0(new SwanAppWebViewWidgetClientExt(this, null));
+        S0(new WebViewWidgetClient());
+        R0(new SwanAppWebChromeClient(this, null));
+        T0(new SwanAppWebViewWidgetClientExt(this, null));
         VideoPlayerFactory c2 = d.b.g0.a.w0.a.f().c();
         if (c2 != null) {
-            this.f12154f.getCurrentWebView().setVideoPlayerFactory(c2);
+            this.f11815f.getCurrentWebView().setVideoPlayerFactory(c2);
         }
-        F1();
-        H1(context);
+        G1();
+        I1(context);
     }
 
     public final void A1() {
-        K0("document.querySelector('video').pause();");
+        d.b.g0.a.e0.m.e eVar = this.S;
+        if (eVar != null) {
+            eVar.a();
+        }
     }
 
-    public final void B1(View view, d.b.g0.a.e0.l.c cVar) {
+    public final void B1() {
+        L0("document.querySelector('video').pause();");
+    }
+
+    public final void C1(View view, d.b.g0.a.e0.l.c cVar) {
         if (cVar == null || cVar.j0()) {
             return;
         }
@@ -573,34 +580,34 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         this.T = i;
     }
 
-    public void C1(boolean z) {
+    public void D1(boolean z) {
         this.W = z;
     }
 
-    public void D1(@Nullable d.b.g0.a.t1.k.r0.d dVar) {
+    public void E1(@Nullable d.b.g0.a.t1.k.r0.d dVar) {
         this.R = dVar;
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void E0() {
+    public void F0() {
     }
 
-    public void E1(String str) {
+    public void F1(String str) {
     }
 
-    public final void F1() {
-        this.f12154f.getSettings().setLoadWithOverviewMode(true);
-        this.f12154f.getSettings().setUseWideViewPort(true);
-        this.f12154f.getSettings().setSupportZoom(true);
-        this.f12154f.getSettings().setBuiltInZoomControls(true);
-        this.f12154f.getSettings().setDisplayZoomControls(false);
+    public final void G1() {
+        this.f11815f.getSettings().setLoadWithOverviewMode(true);
+        this.f11815f.getSettings().setUseWideViewPort(true);
+        this.f11815f.getSettings().setSupportZoom(true);
+        this.f11815f.getSettings().setBuiltInZoomControls(true);
+        this.f11815f.getSettings().setDisplayZoomControls(false);
     }
 
-    public boolean G1() {
+    public boolean H1() {
         return this.W;
     }
 
-    public final void H1(Context context) {
+    public final void I1(Context context) {
         d.b.g0.a.p.c.b b2 = d.b.g0.a.r1.d.e().o().a().b();
         if (b2 != null) {
             b2.a(context);
@@ -608,22 +615,14 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void J0(SwanAppWebViewManager swanAppWebViewManager) {
-        super.J0(swanAppWebViewManager);
+    public void K0(SwanAppWebViewManager swanAppWebViewManager) {
+        super.K0(swanAppWebViewManager);
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void N0(SwanAppWebViewManager.d dVar) {
-        super.N0(dVar);
-        dVar.f12181a = false;
-    }
-
-    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void O0() {
-        super.O0();
-        d.b.g0.a.t1.k.r0.f fVar = new d.b.g0.a.t1.k.r0.f(this.l);
-        fVar.j(this);
-        this.l.b(fVar);
+    public void O0(SwanAppWebViewManager.d dVar) {
+        super.O0(dVar);
+        dVar.f11842a = false;
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, d.b.g0.a.p.d.b
@@ -631,14 +630,22 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         this.U = dVar;
     }
 
+    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void P0() {
+        super.P0();
+        d.b.g0.a.t1.k.r0.f fVar = new d.b.g0.a.t1.k.r0.f(this.l);
+        fVar.j(this);
+        this.l.b(fVar);
+    }
+
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
-    public String S() {
+    public String T() {
         return "ai_apps_widget";
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
-    public void W() {
-        super.W();
+    public void X() {
+        super.X();
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
@@ -655,8 +662,8 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
     public void loadUrl(String str) {
-        if (G1() && !d.b.g0.a.s1.a.b.h(str)) {
-            v1().b(str);
+        if (H1() && !d.b.g0.a.s1.a.b.h(str)) {
+            w1().b(str);
         } else {
             super.loadUrl(str);
         }
@@ -665,10 +672,10 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
     public void onPause() {
         super.onPause();
-        A1();
+        B1();
     }
 
-    public void u1() {
+    public void v1() {
         d.b.g0.a.e0.l.c m;
         d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
         if (W == null || (m = W.m()) == null || m.W() == null) {
@@ -692,42 +699,35 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements d.b.g0.
         view.getViewTreeObserver().addOnGlobalLayoutListener(new b(view, m));
     }
 
-    public final c v1() {
+    public final c w1() {
         if (this.Q == null) {
-            this.Q = new c(getWebView().getContext(), getWebView());
+            this.Q = new c(F().getContext(), F());
         }
         return this.Q;
     }
 
-    public final d w1() {
+    public final d x1() {
         if (this.P == null) {
-            d dVar = new d(getWebView().getContext(), getWebView());
+            d dVar = new d(F().getContext(), F());
             this.P = dVar;
             dVar.b(new a());
         }
         return this.P;
     }
 
-    public final e x1() {
+    public final e y1() {
         if (this.O == null) {
-            this.O = new e(getWebView().getContext(), getWebView());
+            this.O = new e(F().getContext(), F());
         }
         return this.O;
     }
 
-    public int y1() {
+    public int z1() {
         EfficientProgressBar efficientProgressBar;
         e eVar = this.O;
-        if (eVar == null || (efficientProgressBar = eVar.f12198a) == null) {
+        if (eVar == null || (efficientProgressBar = eVar.f11859a) == null) {
             return 0;
         }
         return efficientProgressBar.getHeight();
-    }
-
-    public final void z1() {
-        d.b.g0.a.e0.m.e eVar = this.S;
-        if (eVar != null) {
-            eVar.a();
-        }
     }
 }

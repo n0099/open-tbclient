@@ -11,16 +11,16 @@ import androidx.customview.widget.ViewDragHelper;
 public class DragView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewDragHelper f12676e;
+    public ViewDragHelper f12337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12677f;
+    public View f12338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12678g;
+    public int f12339g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12679h;
+    public int f12340h;
     public int i;
     public int j;
     public b k;
@@ -48,22 +48,22 @@ public class DragView extends FrameLayout {
         public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
             super.onViewPositionChanged(view, i, i2, i3, i4);
             if (DragView.this.k != null) {
-                DragView.this.k.onClosing(i2 - DragView.this.f12679h);
+                DragView.this.k.onClosing(i2 - DragView.this.f12340h);
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewReleased(View view, float f2, float f3) {
-            if (DragView.this.f12677f == null) {
+            if (DragView.this.f12338f == null) {
                 return;
             }
-            int top = DragView.this.f12677f.getTop() - DragView.this.f12679h;
+            int top = DragView.this.f12338f.getTop() - DragView.this.f12340h;
             if (Math.abs(top) <= DragView.this.l) {
-                DragView.this.f12676e.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.f12678g, DragView.this.f12679h);
+                DragView.this.f12337e.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.f12339g, DragView.this.f12340h);
             } else if (top < 0) {
-                DragView.this.f12676e.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.f12677f.getMeasuredHeight());
+                DragView.this.f12337e.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.f12338f.getMeasuredHeight());
             } else {
-                DragView.this.f12676e.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.f12677f.getMeasuredHeight());
+                DragView.this.f12337e.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.f12338f.getMeasuredHeight());
             }
             DragView.this.postInvalidate();
         }
@@ -95,31 +95,31 @@ public class DragView extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        this.f12677f = view;
+        this.f12338f = view;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         b bVar;
-        if (this.f12676e.continueSettling(true)) {
+        if (this.f12337e.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
             return;
         }
-        View view = this.f12677f;
-        if (view == null || Math.abs(view.getTop() - this.f12679h) < this.l || (bVar = this.k) == null) {
+        View view = this.f12338f;
+        if (view == null || Math.abs(view.getTop() - this.f12340h) < this.l || (bVar = this.k) == null) {
             return;
         }
         bVar.onClose();
     }
 
     public final void i() {
-        this.f12676e = ViewDragHelper.create(this, this.m, new a());
+        this.f12337e = ViewDragHelper.create(this, this.m, new a());
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f12677f = getChildAt(0);
+        this.f12338f = getChildAt(0);
     }
 
     @Override // android.view.ViewGroup
@@ -142,7 +142,7 @@ public class DragView extends FrameLayout {
             this.j = y;
         }
         try {
-            return this.f12676e.shouldInterceptTouchEvent(motionEvent);
+            return this.f12337e.shouldInterceptTouchEvent(motionEvent);
         } catch (ArrayIndexOutOfBoundsException e2) {
             e2.printStackTrace();
             return false;
@@ -152,14 +152,14 @@ public class DragView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.f12678g = getLeft();
-        this.f12679h = getTop();
+        this.f12339g = getLeft();
+        this.f12340h = getTop();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.n) {
-            this.f12676e.processTouchEvent(motionEvent);
+            this.f12337e.processTouchEvent(motionEvent);
             b bVar = this.k;
             if (bVar != null) {
                 bVar.onDragViewTouchEvent(motionEvent);

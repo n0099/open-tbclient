@@ -1,5 +1,5 @@
 package com.facebook.common.logging;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FLog {
     public static final int ASSERT = 7;
     public static final int DEBUG = 3;

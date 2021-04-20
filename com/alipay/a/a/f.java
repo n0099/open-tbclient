@@ -8,18 +8,18 @@ import java.util.Map;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<j> f1626a;
+    public static List<j> f1651a;
 
     static {
         ArrayList arrayList = new ArrayList();
-        f1626a = arrayList;
+        f1651a = arrayList;
         arrayList.add(new l());
-        f1626a.add(new d());
-        f1626a.add(new c());
-        f1626a.add(new h());
-        f1626a.add(new b());
-        f1626a.add(new a());
-        f1626a.add(new g());
+        f1651a.add(new d());
+        f1651a.add(new c());
+        f1651a.add(new h());
+        f1651a.add(new b());
+        f1651a.add(new a());
+        f1651a.add(new g());
     }
 
     public static String a(Object obj) {
@@ -44,7 +44,7 @@ public final class f {
         if (obj == null) {
             return null;
         }
-        for (j jVar : f1626a) {
+        for (j jVar : f1651a) {
             if (jVar.a(obj.getClass()) && (a2 = jVar.a(obj)) != null) {
                 return a2;
             }

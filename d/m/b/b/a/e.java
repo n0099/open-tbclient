@@ -1,7 +1,7 @@
 package d.m.b.b.a;
 
 import android.content.Context;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -22,7 +22,7 @@ public class e {
         String str;
         synchronized (e.class) {
             try {
-                String str2 = context.getFilesDir().getAbsolutePath() + "/" + IXAdRequestInfo.CELL_ID;
+                String str2 = context.getFilesDir().getAbsolutePath() + "/" + IAdRequestParam.CELL_ID;
                 if (new File(str2).exists()) {
                     c("chmod 777 " + str2);
                     String c2 = c(str2);
@@ -31,7 +31,7 @@ public class e {
                         return c2;
                     }
                 }
-                InputStream open = context.getResources().getAssets().open(IXAdRequestInfo.CELL_ID);
+                InputStream open = context.getResources().getAssets().open(IAdRequestParam.CELL_ID);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 byte[] bArr = new byte[4096];
                 while (true) {
@@ -126,7 +126,7 @@ public class e {
         String str2 = null;
         bufferedOutputStream2 = null;
         try {
-            process = Runtime.getRuntime().exec(IXAdRequestInfo.SCREEN_HEIGHT);
+            process = Runtime.getRuntime().exec(IAdRequestParam.SCREEN_HEIGHT);
             try {
                 bufferedOutputStream = new BufferedOutputStream(process.getOutputStream());
             } catch (Exception e2) {

@@ -6,28 +6,28 @@ import com.alipay.sdk.widget.j;
 public class m extends j.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2042a;
+    public final /* synthetic */ WebViewWindow f2067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f2043b;
+    public final /* synthetic */ String f2068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ j f2044c;
+    public final /* synthetic */ j f2069c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(j jVar, WebViewWindow webViewWindow, String str) {
         super(jVar, null);
-        this.f2044c = jVar;
-        this.f2042a = webViewWindow;
-        this.f2043b = str;
+        this.f2069c = jVar;
+        this.f2067a = webViewWindow;
+        this.f2068b = str;
     }
 
     @Override // com.alipay.sdk.widget.j.a, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         WebViewWindow webViewWindow;
-        this.f2044c.removeView(this.f2042a);
-        webViewWindow = this.f2044c.x;
-        webViewWindow.a(this.f2043b);
-        this.f2044c.v = false;
+        this.f2069c.removeView(this.f2067a);
+        webViewWindow = this.f2069c.x;
+        webViewWindow.a(this.f2068b);
+        this.f2069c.v = false;
     }
 }

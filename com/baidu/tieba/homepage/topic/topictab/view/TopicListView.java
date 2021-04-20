@@ -12,29 +12,29 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.b.j.e.n;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
+import d.b.c.j.e.n;
 import d.b.h0.d0.h;
 import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TopicListView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17430e;
+    public int f17107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f17431f;
+    public TbPageContext<?> f17108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.z0.j.b.a f17432g;
+    public d.b.i0.a1.j.b.a f17109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f17433h;
+    public BdSwipeRefreshLayout f17110h;
     public BdTypeRecyclerView i;
-    public d.b.i0.z0.j.b.b.a j;
+    public d.b.i0.a1.j.b.b.a j;
     public g k;
     public d.b.h0.d0.g l;
     public h m;
@@ -43,18 +43,18 @@ public class TopicListView extends FrameLayout {
     public RecyclerView.OnScrollListener p;
     public ScrollFragmentTabHost.q q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || TopicListView.this.f17432g == null) {
+            if (!j.A() || TopicListView.this.f17109g == null) {
                 return;
             }
             TopicListView.this.i.setVisibility(0);
-            TopicListView.this.f17432g.loadData();
+            TopicListView.this.f17109g.loadData();
         }
     }
 
@@ -108,10 +108,10 @@ public class TopicListView extends FrameLayout {
 
     public void i() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f17430e) {
+        if (skinType == this.f17107e) {
             return;
         }
-        this.f17430e = skinType;
+        this.f17107e = skinType;
         g gVar = this.k;
         if (gVar != null) {
             gVar.I(skinType);
@@ -124,7 +124,7 @@ public class TopicListView extends FrameLayout {
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        d.b.i0.z0.j.b.b.a aVar = this.j;
+        d.b.i0.a1.j.b.b.a aVar = this.j;
         if (aVar != null) {
             aVar.a();
         }
@@ -181,12 +181,12 @@ public class TopicListView extends FrameLayout {
         this.i.setNextPage(this.o);
         this.o.f();
         this.o.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.o.r(l.g(this.f17431f.getPageActivity(), R.dimen.tbds150));
+        this.o.r(l.g(this.f17108f.getPageActivity(), R.dimen.tbds150));
         this.o.A(getResources().getString(R.string.really_great));
     }
 
     public void o() {
-        this.f17433h.setRefreshing(true);
+        this.f17110h.setRefreshing(true);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -196,7 +196,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void p() {
-        this.f17433h.setRefreshing(false);
+        this.f17110h.setRefreshing(false);
     }
 
     public void setData(List<n> list) {
@@ -214,7 +214,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        d.b.i0.z0.j.b.b.a aVar = this.j;
+        d.b.i0.a1.j.b.b.a aVar = this.j;
         if (aVar != null) {
             aVar.c(bdUniqueId);
         }
@@ -224,8 +224,8 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setPresenter(d.b.i0.z0.j.b.a aVar) {
-        this.f17432g = aVar;
+    public void setPresenter(d.b.i0.a1.j.b.a aVar) {
+        this.f17109g = aVar;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {

@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n extends a0 {
     public n(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/openApp4Ad");
@@ -39,11 +40,11 @@ public class n extends a0 {
         intent.addCategory("android.intent.category.LAUNCHER");
         ActivityInfo activityInfo = resolveInfo.activityInfo;
         intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         try {
             context.startActivity(intent);
         } catch (Exception e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
         }

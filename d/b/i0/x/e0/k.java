@@ -70,34 +70,34 @@ public class k extends b {
     public StatisticItem A(String str) {
         int i;
         StatisticItem statisticItem = new StatisticItem(str);
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var != null) {
             if (a2Var.V() == null) {
-                statisticItem.param("fid", this.f62197e.c0());
-                statisticItem.param("tid", this.f62197e.w1());
+                statisticItem.param("fid", this.f63772e.c0());
+                statisticItem.param("tid", this.f63772e.w1());
             } else {
-                statisticItem.param("tid", this.f62197e.V().oriUgcNid);
+                statisticItem.param("tid", this.f63772e.V().oriUgcNid);
             }
-            if (this.f62197e.y2()) {
+            if (this.f63772e.z2()) {
                 i = 2;
-            } else if (this.f62197e.e2()) {
+            } else if (this.f63772e.f2()) {
                 i = 4;
             } else {
-                a2 a2Var2 = this.f62197e;
+                a2 a2Var2 = this.f63772e;
                 if (a2Var2.s1) {
                     i = 5;
                 } else if (a2Var2.O1()) {
                     i = 6;
-                } else if (this.f62197e.P1()) {
+                } else if (this.f63772e.P1()) {
                     i = 7;
-                } else if (this.f62197e.R1()) {
+                } else if (this.f63772e.R1()) {
                     i = 8;
                 } else {
-                    i = this.f62197e.Q1() ? 9 : 1;
+                    i = this.f63772e.Q1() ? 9 : 1;
                 }
             }
             statisticItem.param("obj_type", i);
-            statisticItem.param("obj_id", this.f62197e.T().getUserId());
+            statisticItem.param("obj_id", this.f63772e.T().getUserId());
             statisticItem.param("obj_param1", P() ? 2 : 1);
         }
         return statisticItem;
@@ -108,7 +108,7 @@ public class k extends b {
         if (h0()) {
             return G(b0);
         }
-        if (l.d0(this.f62197e)) {
+        if (l.d0(this.f63772e)) {
             StatisticItem I = I(j0, true);
             if (I != null && n() != null) {
                 a2 n = n();
@@ -163,7 +163,7 @@ public class k extends b {
             }
         }
         if (G != null && n() != null) {
-            G.param(TiebaStatic.Params.IS_FULL, n().q2() ? 1 : 0);
+            G.param(TiebaStatic.Params.IS_FULL, n().r2() ? 1 : 0);
         }
         return G;
     }
@@ -178,14 +178,14 @@ public class k extends b {
                 G.setPosition(this.position);
                 if (n() != null) {
                     a2 n = n();
-                    if (n.z1() != null && (n.z1().J() != null || n.z1().U() != null)) {
+                    if (n.z1() != null && (n.z1().K() != null || n.z1().V() != null)) {
                         i = 1;
                     }
                     G.param("obj_name", i);
                     if (n.T() != null) {
                         G.param(TiebaStatic.Params.AB_TYPE, n.T().hadConcerned() ? 1 : 0);
                     }
-                    G.param(TiebaStatic.Params.IS_FULL, n.q2() ? 1 : 0);
+                    G.param(TiebaStatic.Params.IS_FULL, n.r2() ? 1 : 0);
                 }
             }
             return G;
@@ -209,15 +209,15 @@ public class k extends b {
                 G3.param(TiebaStatic.Params.AB_ACTION, "show");
                 if (n() != null) {
                     a2 n2 = n();
-                    int i2 = (n2.z1() == null || (n2.z1().J() == null && n2.z1().U() == null)) ? 0 : 1;
+                    int i2 = (n2.z1() == null || (n2.z1().K() == null && n2.z1().V() == null)) ? 0 : 1;
                     G3.param("obj_name", i2);
-                    if (i2 != 0 && n2.z1().J() != null && n2.z1().J().u() != null && n2.z1().J().u().size() > 0) {
+                    if (i2 != 0 && n2.z1().K() != null && n2.z1().K().u() != null && n2.z1().K().u().size() > 0) {
                         G3.param(TiebaStatic.Params.OBJ_TO, n2.z1().N ? 2 : 1);
                     }
                     if (n2.T() != null) {
                         G3.param(TiebaStatic.Params.AB_TYPE, n2.T().hadConcerned() ? 1 : 0);
                     }
-                    G3.param(TiebaStatic.Params.IS_FULL, n2.q2() ? 1 : 0);
+                    G3.param(TiebaStatic.Params.IS_FULL, n2.r2() ? 1 : 0);
                     if (n2.V() != null) {
                         G3.param(TiebaStatic.Params.OBJ_PARAM4, n2.V().oriUgcNid);
                     }
@@ -227,7 +227,7 @@ public class k extends b {
                     } else {
                         G3.param(TiebaStatic.Params.OBJ_PARAM6, 1);
                     }
-                    if (n2.a2()) {
+                    if (n2.b2()) {
                         G3.param(TiebaStatic.Params.GUA_TYPE, 1);
                     } else if (n2.y0() != null) {
                         G3.param(TiebaStatic.Params.GUA_TYPE, 2);
@@ -256,8 +256,8 @@ public class k extends b {
 
     @Override // d.b.i0.x.e0.b
     public boolean Q() {
-        a2 a2Var = this.f62197e;
-        return a2Var != null && a2Var.y2();
+        a2 a2Var = this.f63772e;
+        return a2Var != null && a2Var.z2();
     }
 
     public int Z(a2 a2Var) {
@@ -267,7 +267,7 @@ public class k extends b {
         if (a2Var.O1()) {
             return 1;
         }
-        if (a2Var.y2()) {
+        if (a2Var.z2()) {
             return 2;
         }
         if (a2Var.P1()) {
@@ -282,9 +282,9 @@ public class k extends b {
             G.param("ab_tag", z()).param(TiebaStatic.Params.AB_ACTION, "show");
             if (n() != null) {
                 a2 n = n();
-                int i = (n.z1() == null || (n.z1().J() == null && n.z1().U() == null)) ? 0 : 1;
+                int i = (n.z1() == null || (n.z1().K() == null && n.z1().V() == null)) ? 0 : 1;
                 G.param("obj_name", i);
-                if (i != 0 && n.z1().J() != null && n.z1().J().u() != null && n.z1().J().u().size() > 0) {
+                if (i != 0 && n.z1().K() != null && n.z1().K().u() != null && n.z1().K().u().size() > 0) {
                     G.param(TiebaStatic.Params.OBJ_TO, n.z1().N ? 2 : 1);
                 }
             }
@@ -316,15 +316,15 @@ public class k extends b {
 
     public StatisticItem d0(String str) {
         StatisticItem G = G(str);
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var != null && a2Var.T() != null) {
-            G.param(TiebaStatic.Params.AB_TYPE, this.f62197e.T().hadConcerned() ? 1 : 0);
+            G.param(TiebaStatic.Params.AB_TYPE, this.f63772e.T().hadConcerned() ? 1 : 0);
         }
         return G;
     }
 
     public StatisticItem e0() {
-        if (l.d0(this.f62197e)) {
+        if (l.d0(this.f63772e)) {
             StatisticItem I = I(i0, true);
             if (I != null && n() != null) {
                 a2 n = n();
@@ -334,9 +334,9 @@ public class k extends b {
                 }
                 I.param(TiebaStatic.Params.OBJ_PARAM5, k0(n));
                 if (n.M1()) {
-                    I.param(TiebaStatic.Params.OBJ_PARAM2, 2);
+                    I.addParam(TiebaStatic.Params.OBJ_PARAM2, 2);
                 } else {
-                    I.param(TiebaStatic.Params.OBJ_PARAM2, 1);
+                    I.addParam(TiebaStatic.Params.OBJ_PARAM2, 1);
                 }
             }
             return I;
@@ -369,16 +369,16 @@ public class k extends b {
     }
 
     public boolean g0() {
-        a2 a2Var = this.f62197e;
-        return a2Var == null || a2Var.r2();
+        a2 a2Var = this.f63772e;
+        return a2Var == null || a2Var.s2();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         OriginalThreadInfo originalThreadInfo;
         int indexOf;
         int indexOf2;
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var == null) {
             return l0;
         }
@@ -407,7 +407,7 @@ public class k extends b {
             }
             return type;
         }
-        a2 a2Var2 = this.f62197e;
+        a2 a2Var2 = this.f63772e;
         int i = a2Var2.Z;
         if (i == 63) {
             return s0;
@@ -467,7 +467,7 @@ public class k extends b {
     }
 
     public boolean h0() {
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         return (a2Var == null || ListUtils.getCount(a2Var.H1()) == 0) ? false : true;
     }
 
@@ -483,14 +483,14 @@ public class k extends b {
 
     @Override // d.b.i0.x.e0.b, d.b.h0.r.q.a
     public a2 n() {
-        a2 a2Var = this.f62197e;
+        a2 a2Var = this.f63772e;
         if (a2Var == null) {
             return null;
         }
         if (a2Var.a1() == 5) {
-            return this.f62197e;
+            return this.f63772e;
         }
-        this.f62197e.Z3(1);
-        return this.f62197e;
+        this.f63772e.a4(1);
+        return this.f63772e;
     }
 }

@@ -6,7 +6,7 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SettableCacheEvent implements CacheEvent {
     public static final int MAX_RECYCLED = 5;
     public static final Object RECYCLER_LOCK = new Object();

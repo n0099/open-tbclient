@@ -52,11 +52,11 @@ public class e extends b<d.b.i0.d0.b> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
-            d.b.i0.c3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            d.b.i0.d3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(this.w.g().o0())) {
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
             } else {
@@ -65,7 +65,7 @@ public class e extends b<d.b.i0.d0.b> {
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
         }
-        this.f62180e = i;
+        this.f63755e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -87,7 +87,7 @@ public class e extends b<d.b.i0.d0.b> {
         this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
         this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
         this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-        int dimensionPixelSize = this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+        int dimensionPixelSize = this.f63757g.getResources().getDimensionPixelSize(R.dimen.tbds326);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -97,7 +97,7 @@ public class e extends b<d.b.i0.d0.b> {
         this.s.setIsRound(true);
         this.s.setDrawBorder(true);
         this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.s.setBorderWidth(this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.s.setBorderWidth(this.f63757g.getResources().getDimensionPixelSize(R.dimen.tbds1));
         m().setOnClickListener(this);
     }
 
@@ -110,7 +110,7 @@ public class e extends b<d.b.i0.d0.b> {
         }
         this.w = bVar;
         String str = null;
-        if (bVar.g().y2()) {
+        if (bVar.g().z2()) {
             this.p.setVisibility(0);
             this.q.setVisibility(0);
             if (bVar.g().u1() != null) {
@@ -126,7 +126,7 @@ public class e extends b<d.b.i0.d0.b> {
         }
         this.o.W(str, 10, false);
         this.r.setText(bVar.g().x1());
-        d.b.i0.c3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        d.b.i0.d3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(bVar.g().o0())) {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
         } else {
@@ -136,7 +136,7 @@ public class e extends b<d.b.i0.d0.b> {
         this.u.setText(StringHelper.getFormatTimeShort(bVar.g().S()));
         if ("news".equals(bVar.g().k0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f62181f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.g().G1())));
+            this.t.setText(this.f63756f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.g().G1())));
             return;
         }
         this.s.setVisibility(0);

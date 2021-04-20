@@ -3,27 +3,27 @@ package com.baidu.mapsdkplatform.comjni.map.commonmemcache;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f7903a = 0;
+    public long f7938a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public JNICommonMemCache f7904b;
+    public JNICommonMemCache f7939b;
 
     public a() {
-        this.f7904b = null;
-        this.f7904b = new JNICommonMemCache();
+        this.f7939b = null;
+        this.f7939b = new JNICommonMemCache();
     }
 
     public long a() {
-        if (this.f7903a == 0) {
-            this.f7903a = this.f7904b.Create();
+        if (this.f7938a == 0) {
+            this.f7938a = this.f7939b.Create();
         }
-        return this.f7903a;
+        return this.f7938a;
     }
 
     public void b() {
-        long j = this.f7903a;
+        long j = this.f7938a;
         if (j != 0) {
-            this.f7904b.Init(j);
+            this.f7939b.Init(j);
         }
     }
 }

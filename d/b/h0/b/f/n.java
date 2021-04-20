@@ -6,39 +6,39 @@ import java.util.ArrayList;
 public class n extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f49729c = BdUniqueId.gen();
+    public static final BdUniqueId f50122c = BdUniqueId.gen();
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f49730a;
+    public final ArrayList<String> f50123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.b.e f49731b;
+    public d.b.h0.b.e f50124b;
 
     public n() {
         ArrayList<String> arrayList = new ArrayList<>();
-        this.f49730a = arrayList;
+        this.f50123a = arrayList;
         arrayList.add("12_4_pb_a");
-        this.f49730a.add("12_4_pb_b");
-        this.f49730a.add("12_4_pb_c");
+        this.f50123a.add("12_4_pb_b");
+        this.f50123a.add("12_4_pb_c");
     }
 
     @Override // d.b.h0.b.f.a
     public ArrayList<String> a() {
-        return this.f49730a;
+        return this.f50123a;
     }
 
     @Override // d.b.h0.b.f.a
     public d.b.h0.b.e b() {
-        return this.f49731b;
+        return this.f50124b;
     }
 
     @Override // d.b.h0.b.f.a
     public BdUniqueId c() {
-        return f49729c;
+        return f50122c;
     }
 
     @Override // d.b.h0.b.f.a
     public void f(d.b.h0.b.e eVar) {
-        this.f49731b = eVar;
+        this.f50124b = eVar;
     }
 }

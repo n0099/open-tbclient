@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.i0.u2.d.a;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
+import d.b.i0.v2.d.a;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {
     public static final int ACCEPT_MSG = 0;
     public static final int MASK_TYPE = 6;

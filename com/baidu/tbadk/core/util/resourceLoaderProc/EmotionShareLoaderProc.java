@@ -4,10 +4,10 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
-import d.b.b.e.a.d;
-import d.b.b.e.l.b;
-import d.b.b.e.l.e;
-import d.b.b.j.d.a;
+import d.b.c.e.a.d;
+import d.b.c.e.l.b;
+import d.b.c.e.l.e;
+import d.b.c.j.d.a;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class EmotionShareLoaderProc implements e<EmotionShare> {
@@ -25,12 +25,12 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
     }
 
     /* loaded from: classes3.dex */
-    public static class ForceDeleteFileOperate extends DiskFileOperate implements d.b.b.e.a.a {
+    public static class ForceDeleteFileOperate extends DiskFileOperate implements d.b.c.e.a.a {
         public ForceDeleteFileOperate(String str, String str2, DiskFileOperate.Action action) {
             super(str, str2, action);
         }
 
-        @Override // d.b.b.e.a.a
+        @Override // d.b.c.e.a.a
         public boolean compare(File file) {
             return true;
         }
@@ -67,24 +67,24 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return this.impl.getAsyncTaskParallel();
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public int getAsyncTaskPriority() {
         return this.impl.getAsyncTaskPriority();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public EmotionShare getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
@@ -92,14 +92,14 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         this.impl.updateMemory(str, obj, i, i2, objArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public EmotionShare getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         clearShareHub();
         a fromLocal = this.impl.getFromLocal(str, str2, i, i2, bVar, objArr);
@@ -115,7 +115,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public EmotionShare getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         clearShareHub();
         a fromRemote = this.impl.getFromRemote(str, str2, i, i2, bVar, objArr);

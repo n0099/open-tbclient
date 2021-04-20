@@ -18,22 +18,22 @@ import com.baidu.wallet.home.ui.widget.b;
 public class CHFinanceUserItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f24669a;
+    public RelativeLayout f24354a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f24670b;
+    public NetImageView f24355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24671c;
+    public MaskTextView f24356c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24672d;
+    public MaskTextView f24357d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24673e;
+    public MaskTextView f24358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f24674f;
+    public ImageView f24359f;
 
     public CHFinanceUserItem(Context context) {
         super(context);
@@ -46,24 +46,24 @@ public class CHFinanceUserItem extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_finance_user_item"), this);
-        this.f24670b = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_bg"));
-        this.f24669a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "ch_fu_item_panel"));
-        this.f24671c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_income"));
-        this.f24672d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_total_value"));
-        this.f24673e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_asset_value"));
-        this.f24674f = (ImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_eye"));
+        this.f24355b = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_bg"));
+        this.f24354a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "ch_fu_item_panel"));
+        this.f24356c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_income"));
+        this.f24357d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_total_value"));
+        this.f24358e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fu_item_asset_value"));
+        this.f24359f = (ImageView) findViewById(ResUtils.id(getContext(), "ch_fu_item_eye"));
         setOnClickListener(null);
-        this.f24669a.setOnClickListener(this);
+        this.f24354a.setOnClickListener(this);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void onEyeMaskChanged() {
         super.onEyeMaskChanged();
-        this.f24671c.resetMaskText();
-        this.f24672d.resetMaskText();
-        this.f24673e.resetMaskText();
-        if (this.f24674f != null) {
-            this.f24674f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+        this.f24356c.resetMaskText();
+        this.f24357d.resetMaskText();
+        this.f24358e.resetMaskText();
+        if (this.f24359f != null) {
+            this.f24359f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
         }
     }
 
@@ -71,12 +71,12 @@ public class CHFinanceUserItem extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f24670b, getData().logo);
-        this.f24671c.setMaskText(getData().value1);
-        this.f24672d.setMaskText(getData().value2);
-        this.f24673e.setMaskText(getData().value3);
-        this.f24674f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
-        this.f24674f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.credithome.CHFinanceUserItem.1
+        setNetImageViewUrl(this.f24355b, getData().logo);
+        this.f24356c.setMaskText(getData().value1);
+        this.f24357d.setMaskText(getData().value2);
+        this.f24358e.setMaskText(getData().value3);
+        this.f24359f.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+        this.f24359f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.credithome.CHFinanceUserItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (CheckUtils.isFastDoubleClick()) {

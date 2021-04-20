@@ -1,12 +1,12 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.i0.i1.o.b;
+import d.b.i0.j1.o.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CardGroup extends BaseCardInfo {
     public final List<BaseCardInfo> mCards;
     public final int showSep;

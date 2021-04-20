@@ -5,16 +5,16 @@ import android.os.Handler;
 public final class by implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bx f23105a;
+    public final /* synthetic */ bx f22790a;
 
     public by(bx bxVar) {
-        this.f23105a = bxVar;
+        this.f22790a = bxVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        handler = this.f23105a.f23104a.aK;
+        handler = this.f22790a.f22789a.aK;
         com.baidu.ufosdk.e.a.a(handler);
     }
 }

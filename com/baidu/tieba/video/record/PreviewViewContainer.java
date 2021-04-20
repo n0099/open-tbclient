@@ -8,29 +8,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-import d.b.i0.p3.m.b;
+import d.b.i0.q3.m.b;
 /* loaded from: classes5.dex */
 public class PreviewViewContainer extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21822e;
+    public b f21507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21823f;
+    public View f21508f;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21823f = null;
+        this.f21508f = null;
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.f21823f == null) {
-            this.f21823f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+        if (this.f21508f == null) {
+            this.f21508f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.f21823f, layoutParams);
+            addView(this.f21508f, layoutParams);
         }
-        this.f21823f.setVisibility(z ? 0 : 8);
+        this.f21508f.setVisibility(z ? 0 : 8);
     }
 
     public void a() {
@@ -43,7 +43,7 @@ public class PreviewViewContainer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        b bVar = this.f21822e;
+        b bVar = this.f21507e;
         if (bVar != null) {
             bVar.b(motionEvent);
         }
@@ -52,12 +52,12 @@ public class PreviewViewContainer extends FrameLayout {
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.f21822e = bVar;
+            this.f21507e = bVar;
         }
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21823f = null;
+        this.f21508f = null;
     }
 }

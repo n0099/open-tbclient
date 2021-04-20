@@ -20,13 +20,13 @@ import java.util.List;
 public class CrabLite {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4712a = null;
+    public static Context f4747a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4713b = "-1";
+    public static String f4748b = "-1";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4714c = "/sdcard";
+    public static String f4749c = "/sdcard";
 
     public static void a(String str) {
         l.c(str);
@@ -42,14 +42,14 @@ public class CrabLite {
         hashMap.put("sdk_pkgname", str2);
         hashMap.put("sdk_appvn", str3);
         hashMap.put("sdk_appvc", str4);
-        a.f4715a.put(str2, hashMap);
+        a.f4750a.put(str2, hashMap);
         if (context == null) {
             str5 = "crab init error caused by applcation null value";
         } else {
-            f4712a = context;
-            f4714c = context.getFilesDir().getAbsolutePath();
-            com.baidu.crabsdk.lite.b.a.c(str2, "FILE_PATH IS : " + f4714c);
-            e(str2, f4712a);
+            f4747a = context;
+            f4749c = context.getFilesDir().getAbsolutePath();
+            com.baidu.crabsdk.lite.b.a.c(str2, "FILE_PATH IS : " + f4749c);
+            e(str2, f4747a);
             long currentTimeMillis2 = System.currentTimeMillis();
             a.k = false;
             str5 = "crab init end: " + currentTimeMillis2 + ", cost: " + (currentTimeMillis2 - currentTimeMillis) + "ms";
@@ -75,7 +75,7 @@ public class CrabLite {
     public static void e(String str, Context context) {
         boolean z;
         int myPid = Process.myPid();
-        com.baidu.crabsdk.lite.b.a.f(str, "CrabSDK.init from " + f4712a.getPackageName() + " with pid " + myPid);
+        com.baidu.crabsdk.lite.b.a.f(str, "CrabSDK.init from " + f4747a.getPackageName() + " with pid " + myPid);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
             com.baidu.crabsdk.lite.b.a.f(str, "getRunningAppProcesses error!!");
@@ -115,7 +115,7 @@ public class CrabLite {
     }
 
     public static void g(String str, String str2) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_channel", str2);
         } else {
@@ -124,7 +124,7 @@ public class CrabLite {
     }
 
     public static void h(String str, boolean z) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_screenshot", Boolean.valueOf(z));
         } else {
@@ -133,7 +133,7 @@ public class CrabLite {
     }
 
     public static void i(String str, boolean z) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_debug", Boolean.valueOf(z));
         } else {
@@ -142,7 +142,7 @@ public class CrabLite {
     }
 
     public static void j(String str, boolean z) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_privacy", Boolean.valueOf(z));
         } else {
@@ -151,7 +151,7 @@ public class CrabLite {
     }
 
     public static void k(String str, boolean z) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_upload_immediate", Boolean.valueOf(z));
         } else {
@@ -160,7 +160,7 @@ public class CrabLite {
     }
 
     public static void l(String str, int i) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_all_crash_limit", Integer.valueOf(i));
         } else {
@@ -169,7 +169,7 @@ public class CrabLite {
     }
 
     public static void m(String str, int i) {
-        HashMap<String, Object> hashMap = a.f4715a.get(str);
+        HashMap<String, Object> hashMap = a.f4750a.get(str);
         if (hashMap != null) {
             hashMap.put("sdk_same_crash_limit", Integer.valueOf(i));
         } else {

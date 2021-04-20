@@ -26,7 +26,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> {
     @Nullable
     public ImmutableList<DrawableFactory> mCustomDrawableFactories;
@@ -38,7 +38,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
     /* renamed from: com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel;
 

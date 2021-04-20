@@ -6,8 +6,8 @@ import android.os.HandlerThread;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
-import d.b.r.a;
-import d.b.s.a.b.d.b;
+import d.b.q.a;
+import d.b.r.a.b.d.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,18 +52,18 @@ public class AckHandlerThread extends HandlerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(final Context context, final NewAckMessage newAckMessage) {
-        if (!a.f64552e || newAckMessage == null) {
+        if (!a.f65246e || newAckMessage == null) {
             return;
         }
         BLCPRequest bLCPRequest = new BLCPRequest();
-        bLCPRequest.f6378a = 2L;
-        bLCPRequest.f6379b = 95L;
-        bLCPRequest.f6380c = newAckMessage.getBody().getBytes();
-        bLCPRequest.f6381d = System.nanoTime();
+        bLCPRequest.f6413a = 2L;
+        bLCPRequest.f6414b = 95L;
+        bLCPRequest.f6415c = newAckMessage.getBody().getBytes();
+        bLCPRequest.f6416d = System.nanoTime();
         String str = TAG;
-        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6381d);
-        d.b.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
-            @Override // d.b.s.a.b.d.b
+        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6416d);
+        d.b.r.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            @Override // d.b.r.a.b.d.b
             public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {
                 if (j2 == 95) {
                     try {

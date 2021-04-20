@@ -6,22 +6,22 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.UserBfbInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f16944e;
+    public b f16617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.c.g.a f16945f;
+    public d.b.c.c.g.a f16618f;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -30,8 +30,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             if (z || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                 UserBfbInfo userBfbInfo = null;
                 if (responsedMessage.getError() != 0) {
-                    if (BfbInfoModel.this.f16944e != null) {
-                        BfbInfoModel.this.f16944e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                    if (BfbInfoModel.this.f16617e != null) {
+                        BfbInfoModel.this.f16617e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                         return;
                     }
                     return;
@@ -41,21 +41,21 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                     userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                 }
-                if (BfbInfoModel.this.f16944e != null) {
-                    BfbInfoModel.this.f16944e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                if (BfbInfoModel.this.f16617e != null) {
+                    BfbInfoModel.this.f16617e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i, String str, UserBfbInfo userBfbInfo);
     }
 
     public BfbInfoModel(CreateBarGuideActivity createBarGuideActivity) {
         super(createBarGuideActivity.getPageContext());
-        this.f16945f = new a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
+        this.f16618f = new a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
         v();
         u();
     }
@@ -72,21 +72,21 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void s() {
-        MessageManager.getInstance().unRegisterListener(this.f16945f);
+        MessageManager.getInstance().unRegisterListener(this.f16618f);
         MessageManager.getInstance().unRegisterTask(309366);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
     }
 
     public final void u() {
-        registerListener(this.f16945f);
+        registerListener(this.f16618f);
     }
 
     public final void v() {
-        d.b.i0.c3.d0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
     }
 
     public void w(b bVar) {
-        this.f16944e = bVar;
+        this.f16617e = bVar;
     }
 }

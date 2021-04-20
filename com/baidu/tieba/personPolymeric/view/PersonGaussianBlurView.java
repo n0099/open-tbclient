@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import d.b.h0.z0.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
     public a i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
         public a() {
         }

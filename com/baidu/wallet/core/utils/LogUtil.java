@@ -6,25 +6,25 @@ public final class LogUtil {
     public static final boolean DEBUG = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24290a = "LogUtil";
+    public static final String f23975a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f24291b = false;
+    public static final boolean f23976b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f24292c = false;
+    public static final boolean f23977c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f24293d = false;
+    public static final boolean f23978d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f24294e = false;
+    public static final boolean f23979e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f24295f = false;
+    public static final boolean f23980f = false;
 
     public static void d(String str) {
-        d(f24290a, str);
+        d(f23975a, str);
     }
 
     public static void d(String str, String str2) {

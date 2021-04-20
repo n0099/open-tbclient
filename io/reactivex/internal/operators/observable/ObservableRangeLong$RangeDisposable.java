@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
+import f.b.o;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 /* loaded from: classes7.dex */
 public final class ObservableRangeLong$RangeDisposable extends BasicIntQueueDisposable<Long> {
@@ -16,28 +16,28 @@ public final class ObservableRangeLong$RangeDisposable extends BasicIntQueueDisp
         this.end = j2;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public void clear() {
         this.index = this.end;
         lazySet(1);
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public void dispose() {
         set(1);
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public boolean isDisposed() {
         return get() != 0;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public boolean isEmpty() {
         return this.index == this.end;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.c
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.c
     public int requestFusion(int i) {
         if ((i & 1) != 0) {
             this.fused = true;
@@ -62,7 +62,7 @@ public final class ObservableRangeLong$RangeDisposable extends BasicIntQueueDisp
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public Long poll() throws Exception {
         long j = this.index;
         if (j != this.end) {

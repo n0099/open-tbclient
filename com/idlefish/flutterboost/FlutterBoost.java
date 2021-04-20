@@ -11,14 +11,14 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
-import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterCrashRepairEnableSwitch;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import d.b.b.h.j.g.d;
-import d.b.i0.h3.a;
+import d.b.c.h.j.g.d;
+import d.b.i0.i3.a;
 import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.android.FlutterView;
@@ -157,12 +157,12 @@ public class FlutterBoost {
             a.getInstance().setFlutterPath("createEngine1");
         }
         if (this.mEngine == null) {
-            synchronized (d.b.b.h.k.a.f42311a) {
+            synchronized (d.b.c.h.k.a.f42808a) {
                 PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {
-                        Object i = d.b.b.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                        Object h3 = d.b.b.h.k.a.h(i);
+                        Object i = d.b.c.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                        Object h3 = d.b.c.h.k.a.h(i);
                         if (h3 instanceof File[]) {
                             File[] fileArr = (File[]) h3;
                             z = false;
@@ -183,9 +183,9 @@ public class FlutterBoost {
                             z = false;
                         }
                         if (!z) {
-                            String replace = h2.apkPath.replace(Constant.FILE.SUFFIX.BUNDLE_SUFFIX, "/lib");
+                            String replace = h2.apkPath.replace(".apk", "/lib");
                             if (h3 instanceof File[]) {
-                                list = d.b.b.h.k.a.c(h3, new File(replace));
+                                list = d.b.c.h.k.a.c(h3, new File(replace));
                             } else {
                                 boolean z2 = h3 instanceof List;
                                 list = h3;
@@ -195,19 +195,19 @@ public class FlutterBoost {
                                     list = list3;
                                 }
                             }
-                            d.b.b.h.k.a.p(i, i.getClass(), "nativeLibraryDirectories", list);
+                            d.b.c.h.k.a.p(i, i.getClass(), "nativeLibraryDirectories", list);
                             if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.t())) {
                                 if (Build.VERSION.SDK_INT >= 23) {
                                     Method declaredMethod = i.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                                     declaredMethod.setAccessible(true);
-                                    d.b.b.h.k.a.p(i, i.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i.getClass(), (List) list, null, new ArrayList()));
+                                    d.b.c.h.k.a.p(i, i.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i.getClass(), (List) list, null, new ArrayList()));
                                 } else {
-                                    d.b.b.h.k.a.p(i, i.getClass(), "nativeLibraryDirectories", list);
+                                    d.b.c.h.k.a.p(i, i.getClass(), "nativeLibraryDirectories", list);
                                 }
                             }
                             Method declaredMethod2 = i.getClass().getDeclaredMethod("makePathElements", List.class);
                             declaredMethod2.setAccessible(true);
-                            d.b.b.h.k.a.p(i, i.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i.getClass(), (List) list));
+                            d.b.c.h.k.a.p(i, i.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i.getClass(), (List) list));
                         }
                     }
                 } catch (Exception e2) {
@@ -220,7 +220,7 @@ public class FlutterBoost {
                 }
                 String[] strArr = new String[0];
                 if (h2 != null && h2.apkPath != null) {
-                    String replace2 = h2.apkPath.replace(Constant.FILE.SUFFIX.BUNDLE_SUFFIX, "");
+                    String replace2 = h2.apkPath.replace(".apk", "");
                     strArr = new String[]{"--aot-shared-library-name=" + replace2 + "/lib/libapp.so"};
                 }
                 FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(strArr).toArray());
@@ -334,7 +334,7 @@ public class FlutterBoost {
                         FlutterBoostPlugin channel = FlutterBoost.this.channel();
                         if (FlutterBoost.this.mEngine != null && channel != null) {
                             HashMap hashMap = new HashMap();
-                            hashMap.put("type", com.baidu.searchbox.logsystem.basic.upload.Constant.FOREGROUND);
+                            hashMap.put("type", Constant.FOREGROUND);
                             channel.sendEvent("lifecycle", hashMap);
                         }
                     }

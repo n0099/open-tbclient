@@ -6,7 +6,6 @@ import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.a.l;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
@@ -77,7 +76,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                 String command = miPushCommandMessage.getCommand();
                 List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                 String str = (commandArguments == null || commandArguments.size() <= 0) ? null : commandArguments.get(0);
-                if (MiPushClient.COMMAND_REGISTER.equals(command)) {
+                if ("register".equals(command)) {
                     Intent intent = new Intent("com.xiaomi.mipush.REGISTER");
                     intent.putExtra(REGID, str);
                     intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());

@@ -23,29 +23,29 @@ import org.json.JSONObject;
 public class e extends d.b.g0.a.t.b.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.q1.b.b.h f46018d;
+    public d.b.g0.a.q1.b.b.h f46410d;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46019e;
+        public final /* synthetic */ String f46411e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Date f46020f;
+        public final /* synthetic */ Date f46412f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Date f46021g;
+        public final /* synthetic */ Date f46413g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Date f46022h;
+        public final /* synthetic */ Date f46414h;
         public final /* synthetic */ boolean i;
         public final /* synthetic */ String j;
 
         /* renamed from: d.b.g0.a.t.c.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnCancelListenerC0810a implements DialogInterface.OnCancelListener {
-            public DialogInterface$OnCancelListenerC0810a() {
+        public class DialogInterface$OnCancelListenerC0822a implements DialogInterface.OnCancelListener {
+            public DialogInterface$OnCancelListenerC0822a() {
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
@@ -82,12 +82,12 @@ public class e extends d.b.g0.a.t.b.d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("value", format);
-                    if (d.b.g0.a.t.b.d.f45929c) {
+                    if (d.b.g0.a.t.b.d.f46321c) {
                         Log.d("Api-Base", "handleShowDatePicker params = " + jSONObject.toString());
                     }
                     e.this.c(a.this.j, new d.b.g0.a.t.e.b(0, jSONObject));
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.t.b.d.f45929c) {
+                    if (d.b.g0.a.t.b.d.f46321c) {
                         e2.printStackTrace();
                     }
                 }
@@ -95,10 +95,10 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         public a(String str, Date date, Date date2, Date date3, boolean z, String str2) {
-            this.f46019e = str;
-            this.f46020f = date;
-            this.f46021g = date2;
-            this.f46022h = date3;
+            this.f46411e = str;
+            this.f46412f = date;
+            this.f46413g = date2;
+            this.f46414h = date3;
             this.i = z;
             this.j = str2;
         }
@@ -106,17 +106,17 @@ public class e extends d.b.g0.a.t.b.d {
         @Override // java.lang.Runnable
         public void run() {
             i.a aVar = new i.a(e.this.h());
-            if (!TextUtils.isEmpty(this.f46019e)) {
-                aVar.m(this.f46019e);
+            if (!TextUtils.isEmpty(this.f46411e)) {
+                aVar.m(this.f46411e);
             }
-            aVar.o(this.f46020f);
-            aVar.l(this.f46021g);
-            aVar.n(this.f46022h);
+            aVar.o(this.f46412f);
+            aVar.l(this.f46413g);
+            aVar.n(this.f46414h);
             aVar.k(this.i);
             aVar.c(true);
             aVar.g(d.b.g0.a.h.aiapps_ok, new c());
             aVar.d(d.b.g0.a.h.aiapps_cancel, new b());
-            aVar.f(new DialogInterface$OnCancelListenerC0810a());
+            aVar.f(new DialogInterface$OnCancelListenerC0822a());
             aVar.j();
         }
     }
@@ -125,16 +125,16 @@ public class e extends d.b.g0.a.t.b.d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46026e;
+        public final /* synthetic */ String f46418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Date f46027f;
+        public final /* synthetic */ Date f46419f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Date f46028g;
+        public final /* synthetic */ Date f46420g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Date f46029h;
+        public final /* synthetic */ Date f46421h;
         public final /* synthetic */ boolean i;
         public final /* synthetic */ String j;
 
@@ -153,8 +153,8 @@ public class e extends d.b.g0.a.t.b.d {
 
         /* renamed from: d.b.g0.a.t.c.f.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0811b implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0811b() {
+        public class DialogInterface$OnClickListenerC0823b implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0823b() {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -178,12 +178,12 @@ public class e extends d.b.g0.a.t.b.d {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("value", h2);
-                        if (d.b.g0.a.t.b.d.f45929c) {
+                        if (d.b.g0.a.t.b.d.f46321c) {
                             Log.d("Api-Base", "handleShowDatePicker params = " + jSONObject.toString());
                         }
                         e.this.c(b.this.j, new d.b.g0.a.t.e.b(0, jSONObject));
                     } catch (JSONException e2) {
-                        if (d.b.g0.a.t.b.d.f45929c) {
+                        if (d.b.g0.a.t.b.d.f46321c) {
                             e2.printStackTrace();
                         }
                         b bVar = b.this;
@@ -194,10 +194,10 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         public b(String str, Date date, Date date2, Date date3, boolean z, String str2) {
-            this.f46026e = str;
-            this.f46027f = date;
-            this.f46028g = date2;
-            this.f46029h = date3;
+            this.f46418e = str;
+            this.f46419f = date;
+            this.f46420g = date2;
+            this.f46421h = date3;
             this.i = z;
             this.j = str2;
         }
@@ -205,16 +205,16 @@ public class e extends d.b.g0.a.t.b.d {
         @Override // java.lang.Runnable
         public void run() {
             d.a aVar = new d.a(e.this.h());
-            if (!TextUtils.isEmpty(this.f46026e)) {
-                aVar.m(this.f46026e);
+            if (!TextUtils.isEmpty(this.f46418e)) {
+                aVar.m(this.f46418e);
             }
-            aVar.o(this.f46027f);
-            aVar.l(this.f46028g);
-            aVar.n(this.f46029h);
+            aVar.o(this.f46419f);
+            aVar.l(this.f46420g);
+            aVar.n(this.f46421h);
             aVar.k(this.i);
             aVar.c(true);
             aVar.g(d.b.g0.a.h.aiapps_ok, new c());
-            aVar.d(d.b.g0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0811b());
+            aVar.d(d.b.g0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0823b());
             aVar.f(new a());
             aVar.j();
         }
@@ -224,24 +224,24 @@ public class e extends d.b.g0.a.t.b.d {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f46033e;
+        public final /* synthetic */ int f46425e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46034f;
+        public final /* synthetic */ JSONArray f46426f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46035g;
+        public final /* synthetic */ int f46427g;
 
         public c(int i, JSONArray jSONArray, int i2) {
-            this.f46033e = i;
-            this.f46034f = jSONArray;
-            this.f46035g = i2;
+            this.f46425e = i;
+            this.f46426f = jSONArray;
+            this.f46427g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f46018d != null) {
-                ((d.b.g0.a.q1.b.b.e) e.this.f46018d).k(this.f46033e, this.f46034f, this.f46035g);
+            if (e.this.f46410d != null) {
+                ((d.b.g0.a.q1.b.b.e) e.this.f46410d).k(this.f46425e, this.f46426f, this.f46427g);
             }
         }
     }
@@ -250,16 +250,16 @@ public class e extends d.b.g0.a.t.b.d {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46037e;
+        public final /* synthetic */ JSONArray f46429e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46038f;
+        public final /* synthetic */ JSONArray f46430f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f46039g;
+        public final /* synthetic */ boolean f46431g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46040h;
+        public final /* synthetic */ JSONObject f46432h;
         public final /* synthetic */ String i;
 
         /* loaded from: classes2.dex */
@@ -270,7 +270,7 @@ public class e extends d.b.g0.a.t.b.d {
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 d dVar = d.this;
-                e.this.D(dialogInterface, dVar.f46039g, dVar.i);
+                e.this.D(dialogInterface, dVar.f46431g, dVar.i);
             }
         }
 
@@ -282,7 +282,7 @@ public class e extends d.b.g0.a.t.b.d {
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 d dVar = d.this;
-                e.this.D(dialogInterface, dVar.f46039g, dVar.i);
+                e.this.D(dialogInterface, dVar.f46431g, dVar.i);
             }
         }
 
@@ -294,12 +294,12 @@ public class e extends d.b.g0.a.t.b.d {
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                e.this.f46018d = null;
+                e.this.f46410d = null;
                 try {
                     JSONArray f2 = ((d.b.g0.a.q1.b.b.e) dialogInterface).f();
                     JSONObject jSONObject = new JSONObject();
                     if (f2 != null && f2.length() > 0) {
-                        if (d.this.f46039g) {
+                        if (d.this.f46431g) {
                             jSONObject.put("value", f2.optInt(0));
                         } else {
                             jSONObject.put("value", f2);
@@ -307,11 +307,11 @@ public class e extends d.b.g0.a.t.b.d {
                         }
                     }
                     e.this.c(d.this.i, new d.b.g0.a.t.e.b(0, jSONObject));
-                    if (d.b.g0.a.t.b.d.f45929c) {
+                    if (d.b.g0.a.t.b.d.f46321c) {
                         Log.i("Api-Base", "handleOpenMultiPicker: output params = " + jSONObject.toString());
                     }
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.t.b.d.f45929c) {
+                    if (d.b.g0.a.t.b.d.f46321c) {
                         e2.printStackTrace();
                     }
                 }
@@ -320,21 +320,21 @@ public class e extends d.b.g0.a.t.b.d {
 
         /* renamed from: d.b.g0.a.t.c.f.e$d$d  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0812d implements BdMultiPicker.b {
-            public C0812d() {
+        public class C0824d implements BdMultiPicker.b {
+            public C0824d() {
             }
 
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
             public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
-                if (d.b.g0.a.t.b.d.f45929c) {
-                    Log.i("Api-Base", "onMultiSelectedChanged: params=" + d.this.f46040h);
+                if (d.b.g0.a.t.b.d.f46321c) {
+                    Log.i("Api-Base", "onMultiSelectedChanged: params=" + d.this.f46432h);
                 }
                 try {
                     JSONObject jSONObject2 = new JSONObject(jSONObject.toString());
                     jSONObject2.put("type", "columnChange");
                     e.this.c(d.this.i, new d.b.g0.a.t.e.b(0, jSONObject2));
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.t.b.d.f45929c) {
+                    if (d.b.g0.a.t.b.d.f46321c) {
                         e2.printStackTrace();
                     }
                     d dVar = d.this;
@@ -344,10 +344,10 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         public d(JSONArray jSONArray, JSONArray jSONArray2, boolean z, JSONObject jSONObject, String str) {
-            this.f46037e = jSONArray;
-            this.f46038f = jSONArray2;
-            this.f46039g = z;
-            this.f46040h = jSONObject;
+            this.f46429e = jSONArray;
+            this.f46430f = jSONArray2;
+            this.f46431g = z;
+            this.f46432h = jSONObject;
             this.i = str;
         }
 
@@ -355,15 +355,15 @@ public class e extends d.b.g0.a.t.b.d {
         public void run() {
             e.a aVar = new e.a(e.this.h());
             e eVar = e.this;
-            aVar.k(this.f46037e);
-            aVar.l(this.f46038f);
-            aVar.n(this.f46039g);
-            aVar.m(new C0812d());
+            aVar.k(this.f46429e);
+            aVar.l(this.f46430f);
+            aVar.n(this.f46431g);
+            aVar.m(new C0824d());
             aVar.c(true);
             aVar.g(d.b.g0.a.h.aiapps_ok, new c());
             aVar.d(d.b.g0.a.h.aiapps_cancel, new b());
             aVar.f(new a());
-            eVar.f46018d = aVar.j();
+            eVar.f46410d = aVar.j();
         }
     }
 
@@ -432,7 +432,7 @@ public class e extends d.b.g0.a.t.b.d {
             } catch (NumberFormatException e2) {
                 e = e2;
                 date = date2;
-                if (d.b.g0.a.t.b.d.f45929c) {
+                if (d.b.g0.a.t.b.d.f46321c) {
                     e.printStackTrace();
                     return date;
                 }
@@ -445,7 +445,7 @@ public class e extends d.b.g0.a.t.b.d {
 
     public final void D(DialogInterface dialogInterface, boolean z, String str) {
         dialogInterface.dismiss();
-        this.f46018d = null;
+        this.f46410d = null;
         if (z) {
             c(str, new d.b.g0.a.t.e.b(0));
             return;
@@ -455,7 +455,7 @@ public class e extends d.b.g0.a.t.b.d {
             jSONObject.put("type", QueryResponse.Options.CANCEL);
             c(str, new d.b.g0.a.t.e.b(0, jSONObject));
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 e2.printStackTrace();
             }
             c(str, new d.b.g0.a.t.e.b(202));
@@ -503,7 +503,7 @@ public class e extends d.b.g0.a.t.b.d {
         if (TextUtils.isEmpty(str)) {
             return new d.b.g0.a.t.e.b(202);
         }
-        if (this.f46018d == null) {
+        if (this.f46410d == null) {
             return new d.b.g0.a.t.e.b(1001);
         }
         try {
@@ -522,7 +522,7 @@ public class e extends d.b.g0.a.t.b.d {
             }
             return new d.b.g0.a.t.e.b(0);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 e2.printStackTrace();
             }
             return new d.b.g0.a.t.e.b(202);
@@ -561,10 +561,10 @@ public class e extends d.b.g0.a.t.b.d {
     }
 
     public final d.b.g0.a.t.e.b x(JSONObject jSONObject, boolean z) {
-        if (this.f46018d != null) {
+        if (this.f46410d != null) {
             return new d.b.g0.a.t.e.b(1001);
         }
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.i("Api-Base", "handleOpenMultiPicker: input params=" + jSONObject);
         }
         JSONArray jSONArray = new JSONArray();

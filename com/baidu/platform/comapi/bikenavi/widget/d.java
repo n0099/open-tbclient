@@ -6,10 +6,10 @@ import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
 public class d implements CustomScrollView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9874a;
+    public final /* synthetic */ a f9432a;
 
     public d(a aVar) {
-        this.f9874a = aVar;
+        this.f9432a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
@@ -25,20 +25,20 @@ public class d implements CustomScrollView.b {
         if (bVar == bVar2) {
             return;
         }
-        int i = e.f9875a[bVar2.ordinal()];
+        int i = e.f9433a[bVar2.ordinal()];
         if (i == 1) {
-            imageView = this.f9874a.t;
+            imageView = this.f9432a.t;
             imageView.setVisibility(8);
-            imageView2 = this.f9874a.u;
+            imageView2 = this.f9432a.u;
             imageView2.setVisibility(0);
-            this.f9874a.b(true);
+            this.f9432a.b(true);
         } else if (i != 2) {
         } else {
-            imageView3 = this.f9874a.t;
+            imageView3 = this.f9432a.t;
             imageView3.setVisibility(0);
-            imageView4 = this.f9874a.u;
+            imageView4 = this.f9432a.u;
             imageView4.setVisibility(8);
-            this.f9874a.b(false);
+            this.f9432a.b(false);
         }
     }
 }

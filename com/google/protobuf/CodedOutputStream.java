@@ -1,5 +1,6 @@
 package com.google.protobuf;
 
+import com.alibaba.fastjson.asm.Label;
 import com.alipay.sdk.encrypt.a;
 import java.io.IOException;
 import java.io.InputStream;
@@ -152,7 +153,7 @@ public final class CodedOutputStream {
     }
 
     public static int computeRawVarint32Size(int i) {
-        if ((i & a.f1896g) == 0) {
+        if ((i & a.f1921g) == 0) {
             return 1;
         }
         if ((i & (-16384)) == 0) {
@@ -161,7 +162,7 @@ public final class CodedOutputStream {
         if (((-2097152) & i) == 0) {
             return 3;
         }
-        return (i & (-268435456)) == 0 ? 4 : 5;
+        return (i & Label.FORWARD_REFERENCE_TYPE_MASK) == 0 ? 4 : 5;
     }
 
     public static int computeRawVarint64Size(long j) {
@@ -461,7 +462,7 @@ public final class CodedOutputStream {
     }
 
     public void writeRawVarint32(int i) throws IOException {
-        while ((i & a.f1896g) != 0) {
+        while ((i & a.f1921g) != 0) {
             writeRawByte((i & 127) | 128);
             i >>>= 7;
         }

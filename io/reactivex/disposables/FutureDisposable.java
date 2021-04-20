@@ -1,6 +1,6 @@
 package io.reactivex.disposables;
 
-import f.a.t.b;
+import f.b.t.b;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -13,7 +13,7 @@ public final class FutureDisposable extends AtomicReference<Future<?>> implement
         this.allowInterrupt = z;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         Future<?> andSet = getAndSet(null);
         if (andSet != null) {
@@ -21,7 +21,7 @@ public final class FutureDisposable extends AtomicReference<Future<?>> implement
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         Future<?> future = get();
         return future == null || future.isDone();

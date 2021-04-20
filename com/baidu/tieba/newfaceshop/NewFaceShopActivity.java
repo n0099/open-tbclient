@@ -18,6 +18,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
@@ -40,7 +41,7 @@ import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import d.b.h0.r.s.a;
-import d.b.i0.c3.w;
+import d.b.i0.d3.w;
 import d.b.i0.l0.u;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -88,7 +89,7 @@ public class NewFaceShopActivity extends BaseActivity {
 
         @Override // java.lang.Runnable
         public void run() {
-            List<MyEmotionGroupData> f2 = d.b.i0.x1.c.i().f();
+            List<MyEmotionGroupData> f2 = d.b.i0.y1.c.i().f();
             if (f2 == null || f2.isEmpty()) {
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_has_action()");
                 return;
@@ -109,16 +110,16 @@ public class NewFaceShopActivity extends BaseActivity {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19196e;
+        public final /* synthetic */ String f18873e;
 
         public c(String str) {
-            this.f19196e = str;
+            this.f18873e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (NewFaceShopActivity.this.mWebView != null) {
-                NewFaceShopActivity.this.mWebView.loadUrl(this.f19196e);
+                NewFaceShopActivity.this.mWebView.loadUrl(this.f18873e);
             }
         }
     }
@@ -127,30 +128,30 @@ public class NewFaceShopActivity extends BaseActivity {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f19198e;
+        public final /* synthetic */ JSONObject f18875e;
 
         public d(JSONObject jSONObject) {
-            this.f19198e = jSONObject;
+            this.f18875e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.i0.x1.c.i().j(new ArrayList(Arrays.asList(this.f19198e.optString("id").split(","))), true);
+            d.b.i0.y1.c.i().j(new ArrayList(Arrays.asList(this.f18875e.optString("id").split(","))), true);
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements d.b.i0.x1.e.b {
+    public class e implements d.b.i0.y1.e.b {
         public e() {
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onFail(String str) {
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onProgress(int i) {
             if (i <= 0 || i >= 100) {
                 return;
@@ -159,7 +160,7 @@ public class NewFaceShopActivity extends BaseActivity {
             newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_down_process_action(" + i + SmallTailInfo.EMOTION_SUFFIX);
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onSuccess(String str) {
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_down_process_action(100)");
         }
@@ -169,16 +170,16 @@ public class NewFaceShopActivity extends BaseActivity {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f19201e;
+        public final /* synthetic */ JSONObject f18878e;
 
         public f(JSONObject jSONObject) {
-            this.f19201e = jSONObject;
+            this.f18878e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f19201e.optString("id").split(",")));
-            boolean c2 = d.b.i0.x1.c.i().c(arrayList, true);
+            ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f18878e.optString("id").split(",")));
+            boolean c2 = d.b.i0.y1.c.i().c(arrayList, true);
             for (String str : arrayList) {
                 d.b.i0.l0.g.k().h(str);
             }
@@ -194,16 +195,16 @@ public class NewFaceShopActivity extends BaseActivity {
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f19203e;
+        public final /* synthetic */ ShareItem f18880e;
 
         public g(ShareItem shareItem) {
-            this.f19203e = shareItem;
+            this.f18880e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.p.a.a(this.f19203e.t);
-            d.b.b.e.p.l.L(NewFaceShopActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+            d.b.c.e.p.a.a(this.f18880e.t);
+            d.b.c.e.p.l.L(NewFaceShopActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
@@ -315,34 +316,34 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class n extends d.b.b.a.e {
+    public class n extends d.b.c.a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LikeModel f19211a;
+        public final /* synthetic */ LikeModel f18888a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19212b;
+        public final /* synthetic */ String f18889b;
 
         public n(LikeModel likeModel, String str) {
-            this.f19211a = likeModel;
-            this.f19212b = str;
+            this.f18888a = likeModel;
+            this.f18889b = str;
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
-            if (this.f19211a.getErrorCode() == 22) {
+            if (this.f18888a.getErrorCode() == 22) {
                 NewFaceShopActivity.this.showToast(R.string.unfollow_title);
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
-            } else if (AntiHelper.m(this.f19211a.getErrorCode(), this.f19211a.getErrorString())) {
-                AntiHelper.u(NewFaceShopActivity.this.getPageContext().getPageActivity(), this.f19211a.getErrorString());
-            } else if (this.f19211a.getErrorCode() != 0) {
-                NewFaceShopActivity.this.showToast(this.f19211a.getErrorString());
+            } else if (AntiHelper.m(this.f18888a.getErrorCode(), this.f18888a.getErrorString())) {
+                AntiHelper.u(NewFaceShopActivity.this.getPageContext().getPageActivity(), this.f18888a.getErrorString());
+            } else if (this.f18888a.getErrorCode() != 0) {
+                NewFaceShopActivity.this.showToast(this.f18888a.getErrorString());
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
             } else {
                 w wVar = (w) obj;
                 if (wVar != null) {
                     NewFaceShopActivity.this.showToast(R.string.attention_success);
-                    TbadkApplication.getInst().addLikeForum(this.f19212b);
+                    TbadkApplication.getInst().addLikeForum(this.f18889b);
                     wVar.v(1);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
                     NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
@@ -356,20 +357,20 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class o implements d.b.i0.x1.e.b {
+    public class o implements d.b.i0.y1.e.b {
         public o() {
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onFail(String str) {
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_save_action(0)");
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onProgress(int i) {
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onSuccess(String str) {
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_save_action(1)");
         }
@@ -408,7 +409,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             NewFaceShopActivity.this.hideLoadingView();
-            if (d.b.b.e.p.j.z()) {
+            if (d.b.c.e.p.j.z()) {
                 NewFaceShopActivity.this.showNormalView();
                 NewFaceShopActivity.this.mLoadSuccess = true;
             }
@@ -468,12 +469,12 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     private void checkIsUploadingFaceGroup() {
-        if (d.b.i0.x1.g.e.l().r()) {
+        if (d.b.i0.y1.g.e.l().r()) {
             loadCheckUploadStatusUrl(1, null);
-        } else if (d.b.i0.x1.g.e.l().k() == null) {
+        } else if (d.b.i0.y1.g.e.l().k() == null) {
             loadCheckUploadStatusUrl(0, null);
         } else {
-            FaceGroupDraft k2 = d.b.i0.x1.g.e.l().k();
+            FaceGroupDraft k2 = d.b.i0.y1.g.e.l().k();
             if (!TextUtils.isEmpty(k2.getFailMsg())) {
                 loadCheckUploadStatusUrl(2, k2.getFailMsg());
             } else {
@@ -495,20 +496,20 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     private void deleteEmotion(JSONObject jSONObject) {
-        if (d.b.i0.x1.d.m().o()) {
+        if (d.b.i0.y1.d.m().o()) {
             loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
-            d.b.b.e.p.l.K(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+            d.b.c.e.p.l.K(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
             return;
         }
         TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
-        d.b.i0.x1.a.b().a(new f(jSONObject));
+        d.b.i0.y1.a.b().a(new f(jSONObject));
     }
 
     private void downloadEmotion(JSONObject jSONObject) {
         if (ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (d.b.i0.x1.d.m().o()) {
+            if (d.b.i0.y1.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
-                d.b.b.e.p.l.K(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+                d.b.c.e.p.l.K(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
@@ -521,7 +522,7 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     private void getHasDownedEmotionGroupIds() {
-        d.b.i0.x1.a.b().a(new b());
+        d.b.i0.y1.a.b().a(new b());
     }
 
     private JSONObject getJSData(String str) {
@@ -547,7 +548,7 @@ public class NewFaceShopActivity extends BaseActivity {
         baseWebView.setWebViewClient(new r(this, null));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         if (isUseStyleImmersiveSticky()) {
-            layoutParams.topMargin = d.b.b.e.p.l.r(getPageContext().getPageActivity());
+            layoutParams.topMargin = d.b.c.e.p.l.r(getPageContext().getPageActivity());
         }
         this.mWebViewContainer.addView(this.mWebView, layoutParams);
     }
@@ -653,13 +654,13 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     private void reOrderGroup(JSONObject jSONObject) {
-        if (d.b.i0.x1.d.m().o()) {
+        if (d.b.i0.y1.d.m().o()) {
             loadUrl("javascript:__js_bridge_emoticon_sort_action()");
-            d.b.b.e.p.l.K(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+            d.b.c.e.p.l.K(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
             return;
         }
         TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);
-        d.b.i0.x1.a.b().a(new d(jSONObject));
+        d.b.i0.y1.a.b().a(new d(jSONObject));
     }
 
     private void saveEmotion(JSONObject jSONObject) {
@@ -667,7 +668,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (TextUtils.isEmpty(optString)) {
             return;
         }
-        d.b.i0.x1.c.i().d(optString, new o());
+        d.b.i0.y1.c.i().d(optString, new o());
     }
 
     private void shareEmotion(JSONObject jSONObject) {
@@ -686,7 +687,7 @@ public class NewFaceShopActivity extends BaseActivity {
 
     private void showDialog(JSONObject jSONObject) {
         String optString = jSONObject.optString("title");
-        String optString2 = jSONObject.optString("pos");
+        String optString2 = jSONObject.optString(IAdRequestParam.POS);
         String optString3 = jSONObject.optString("neg");
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
             loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");

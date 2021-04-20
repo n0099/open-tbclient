@@ -1,20 +1,20 @@
 package d.o.a.e.b.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f67022a;
+    public final byte[] f68015a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f67023b;
+    public e f68016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67024c;
+    public int f68017c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f67025d;
+    public a f68018d;
 
     public a(int i) {
-        this.f67022a = new byte[i];
+        this.f68015a = new byte[i];
     }
 }

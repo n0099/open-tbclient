@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
-import d.b.b.e.m.b;
-import d.b.b.j.e.n;
+import d.b.c.e.m.b;
+import d.b.c.j.e.n;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -43,7 +43,7 @@ public class AlaEnterEffectData implements Serializable, n {
     public int type;
     public int use_status;
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         return TYPE_ENTER_EFFECT_DATA;
     }

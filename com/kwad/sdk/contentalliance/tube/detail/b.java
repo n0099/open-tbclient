@@ -16,13 +16,13 @@ import java.io.Serializable;
 public class b extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public TubeDetailParam f33166a;
+    public TubeDetailParam f33455a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f33167b;
+    public SceneImpl f33456b;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f33166a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f33455a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, TubeDetailParam tubeDetailParam) {
@@ -38,19 +38,19 @@ public class b extends IFragmentActivityProxy {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_DETAIL_PARAM");
         if (serializableExtra instanceof TubeDetailParam) {
             TubeDetailParam tubeDetailParam = (TubeDetailParam) serializableExtra;
-            this.f33166a = tubeDetailParam;
-            this.f33167b = new SceneImpl(tubeDetailParam.mEntryScene);
+            this.f33455a = tubeDetailParam;
+            this.f33456b = new SceneImpl(tubeDetailParam.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 6);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33166a.getTubeId());
-            this.f33167b.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33455a.getTubeId());
+            this.f33456b.setUrlPackage(uRLPackage);
         }
-        return this.f33166a != null;
+        return this.f33455a != null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        e.d(this.f33167b);
+        e.d(this.f33456b);
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy

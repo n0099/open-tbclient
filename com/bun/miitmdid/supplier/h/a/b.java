@@ -12,28 +12,28 @@ import android.os.SystemClock;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f27126a = null;
+    public static Context f26811a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27127b = false;
+    public static boolean f26812b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f27128c;
+    public static b f26813c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f27129d;
+    public static a f26814d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f27130e;
+    public static c f26815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f27131f;
+    public static c f26816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f27132g;
+    public static c f26817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Object f27133h = new Object();
+    public static Object f26818h = new Object();
     public static HandlerThread i;
     public static Handler j;
     public static String k;
@@ -42,14 +42,14 @@ public class b {
     public static String n;
 
     public static b a(Context context) {
-        if (f27128c == null) {
-            f27128c = new b();
-            f27126a = context;
+        if (f26813c == null) {
+            f26813c = new b();
+            f26811a = context;
             f();
-            f27129d = new a(f27126a);
+            f26814d = new a(f26811a);
             c();
         }
-        return f27128c;
+        return f26813c;
     }
 
     public static String a(String str, String str2) {
@@ -71,22 +71,22 @@ public class b {
         Uri parse;
         c cVar;
         if (i2 == 0) {
-            f27130e = new c(f27128c, 0, null);
-            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f27130e);
+            f26815e = new c(f26813c, 0, null);
+            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f26815e);
             return;
         }
         if (i2 == 1) {
-            f27131f = new c(f27128c, 1, str);
+            f26816f = new c(f26813c, 1, str);
             contentResolver = context.getContentResolver();
             parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str);
-            cVar = f27131f;
+            cVar = f26816f;
         } else if (i2 != 2) {
             return;
         } else {
-            f27132g = new c(f27128c, 2, str);
+            f26817g = new c(f26813c, 2, str);
             contentResolver = context.getContentResolver();
             parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str);
-            cVar = f27132g;
+            cVar = f26817g;
         }
         contentResolver.registerContentObserver(parse, false, cVar);
     }
@@ -104,7 +104,7 @@ public class b {
     }
 
     public static void c() {
-        f27127b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        f26812b = "1".equals(a("persist.sys.identifierid.supported", "0"));
     }
 
     public static void f() {
@@ -119,13 +119,13 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.f27129d.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.f26814d.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e2) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e2);
                 }
-                synchronized (b.f27133h) {
-                    b.f27133h.notify();
+                synchronized (b.f26818h) {
+                    b.f26818h.notify();
                 }
             }
         };
@@ -138,8 +138,8 @@ public class b {
                 return str2;
             }
             a(1, str);
-            if (f27131f == null && m != null) {
-                a(f27126a, 1, str);
+            if (f26816f == null && m != null) {
+                a(f26811a, 1, str);
             }
             return m;
         }
@@ -149,11 +149,11 @@ public class b {
     public void a(int i2, String str) {
         String str2;
         String str3;
-        synchronized (f27133h) {
+        synchronized (f26818h) {
             b(i2, str);
             long uptimeMillis = SystemClock.uptimeMillis();
             try {
-                f27133h.wait(2000L);
+                f26818h.wait(2000L);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
@@ -185,7 +185,7 @@ public class b {
     }
 
     public boolean a() {
-        return f27127b;
+        return f26812b;
     }
 
     public String b() {
@@ -195,8 +195,8 @@ public class b {
                 return str;
             }
             a(0, (String) null);
-            if (f27130e == null) {
-                a(f27126a, 0, null);
+            if (f26815e == null) {
+                a(f26811a, 0, null);
             }
             return l;
         }
@@ -210,8 +210,8 @@ public class b {
                 return str2;
             }
             a(2, str);
-            if (f27132g == null && n != null) {
-                a(f27126a, 2, str);
+            if (f26817g == null && n != null) {
+                a(f26811a, 2, str);
             }
             return n;
         }

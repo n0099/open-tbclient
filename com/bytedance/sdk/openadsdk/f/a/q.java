@@ -8,50 +8,50 @@ import androidx.annotation.UiThread;
 import com.bytedance.sdk.openadsdk.f.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static v f29343a;
+    public static v f29028a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f29344b;
+    public final a f29029b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final WebView f29345c;
+    public final WebView f29030c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f29346d;
+    public final j f29031d;
 
     /* renamed from: f  reason: collision with root package name */
-    public o f29348f;
+    public o f29033f;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<n> f29347e = new ArrayList();
+    public final List<n> f29032e = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f29349g = false;
+    public volatile boolean f29034g = false;
 
     public q(j jVar) {
         v vVar;
-        this.f29346d = jVar;
-        u a2 = (!jVar.f29327h || (vVar = f29343a) == null) ? null : vVar.a(jVar.k);
-        if (jVar.f29320a != null) {
+        this.f29031d = jVar;
+        u a2 = (!jVar.f29012h || (vVar = f29028a) == null) ? null : vVar.a(jVar.k);
+        if (jVar.f29005a != null) {
             y yVar = new y();
-            this.f29344b = yVar;
+            this.f29029b = yVar;
             yVar.a(jVar, a2);
         } else {
-            a aVar = jVar.f29321b;
-            this.f29344b = aVar;
+            a aVar = jVar.f29006b;
+            this.f29029b = aVar;
             aVar.a(jVar, a2);
         }
-        this.f29345c = jVar.f29320a;
-        this.f29347e.add(jVar.j);
-        i.a(jVar.f29325f);
-        x.a(jVar.f29326g);
+        this.f29030c = jVar.f29005a;
+        this.f29032e.add(jVar.j);
+        i.a(jVar.f29010f);
+        x.a(jVar.f29011g);
     }
 
     public static j a(@NonNull WebView webView) {
@@ -61,7 +61,7 @@ public class q {
     @AnyThread
     public <T> void a(@NonNull String str, @Nullable T t) {
         a();
-        this.f29344b.a(str, (String) t);
+        this.f29029b.a(str, (String) t);
     }
 
     public q a(String str, @NonNull e<?, ?> eVar) {
@@ -72,8 +72,8 @@ public class q {
     @UiThread
     public q a(@NonNull String str, @Nullable String str2, @NonNull e<?, ?> eVar) {
         a();
-        this.f29344b.f29290g.a(str, eVar);
-        o oVar = this.f29348f;
+        this.f29029b.f28975g.a(str, eVar);
+        o oVar = this.f29033f;
         if (oVar != null) {
             oVar.a(str);
         }
@@ -88,8 +88,8 @@ public class q {
     @UiThread
     public q a(@NonNull String str, @Nullable String str2, @NonNull d.b bVar) {
         a();
-        this.f29344b.f29290g.a(str, bVar);
-        o oVar = this.f29348f;
+        this.f29029b.f28975g.a(str, bVar);
+        o oVar = this.f29033f;
         if (oVar != null) {
             oVar.a(str);
         }
@@ -97,7 +97,7 @@ public class q {
     }
 
     private void a() {
-        if (this.f29349g) {
+        if (this.f29034g) {
             i.a(new IllegalStateException("JsBridge2 is already released!!!"));
         }
     }

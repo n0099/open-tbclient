@@ -6,11 +6,11 @@ import rx.internal.subscriptions.SequentialSubscription;
 public final class d implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f68018e = new SequentialSubscription();
+    public final SequentialSubscription f69028e = new SequentialSubscription();
 
     public void a(k kVar) {
         if (kVar != null) {
-            this.f68018e.update(kVar);
+            this.f69028e.update(kVar);
             return;
         }
         throw new IllegalArgumentException("Subscription can not be null");
@@ -18,11 +18,11 @@ public final class d implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68018e.isUnsubscribed();
+        return this.f69028e.isUnsubscribed();
     }
 
     @Override // h.k
     public void unsubscribe() {
-        this.f68018e.unsubscribe();
+        this.f69028e.unsubscribe();
     }
 }

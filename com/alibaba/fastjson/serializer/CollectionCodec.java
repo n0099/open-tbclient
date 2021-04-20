@@ -54,7 +54,7 @@ public class CollectionCodec implements ObjectSerializer, ObjectDeserializer {
         int i2 = 0;
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
         if (serializeWriter.isEnabled(SerializerFeature.WriteClassName)) {
-            if (HashSet.class == collection.getClass()) {
+            if (HashSet.class.isAssignableFrom(collection.getClass())) {
                 serializeWriter.append((CharSequence) "Set");
             } else if (TreeSet.class == collection.getClass()) {
                 serializeWriter.append((CharSequence) "TreeSet");

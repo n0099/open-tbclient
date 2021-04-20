@@ -7,23 +7,23 @@ import com.squareup.wire2.Message.a;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.a<M, B>> extends Message<M, B> implements Parcelable {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a<M> implements Parcelable.Creator<M> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ProtoAdapter<M> f38607a;
+        public final ProtoAdapter<M> f38896a;
 
         public a(ProtoAdapter<M> protoAdapter) {
-            this.f38607a = protoAdapter;
+            this.f38896a = protoAdapter;
         }
 
         @Override // android.os.Parcelable.Creator
         public M createFromParcel(Parcel parcel) {
             try {
-                return this.f38607a.decode(parcel.createByteArray());
+                return this.f38896a.decode(parcel.createByteArray());
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -31,7 +31,7 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
 
         @Override // android.os.Parcelable.Creator
         public M[] newArray(int i) {
-            return (M[]) ((Object[]) Array.newInstance(this.f38607a.javaType, i));
+            return (M[]) ((Object[]) Array.newInstance(this.f38896a.javaType, i));
         }
     }
 

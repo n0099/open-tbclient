@@ -38,12 +38,12 @@ import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.media.duplayer.DuplayerCore;
 import com.baidu.media.duplayer.Keep;
 import com.baidu.media.duplayer.Utils;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-import com.baidubce.auth.NTLMEngineImpl;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import java.io.FileDescriptor;
@@ -66,28 +66,28 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static volatile boolean t = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public SurfaceHolder f68664a;
+    public SurfaceHolder f69672a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f68665b;
+    public b f69673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PowerManager.WakeLock f68666c = null;
+    public PowerManager.WakeLock f69674c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f68667d;
+    public boolean f69675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f68668e;
+    public boolean f69676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68669f;
+    public int f69677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68670g;
+    public int f69678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68671h;
+    public int f69679h;
     public int i;
     public long j;
     public long k;
@@ -115,12 +115,12 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f68672a = new a();
+        public static final a f69680a = new a();
 
         @Override // tv.danmaku.ijk.media.player.IjkMediaPlayer.d
         @TargetApi(16)
         public String a(tv.danmaku.ijk.media.player.b bVar, String str, int i, int i2) {
-            return d.b.w.a.d.b(str);
+            return d.b.v.a.d.b(str);
         }
     }
 
@@ -128,11 +128,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IjkMediaPlayer> f68673a;
+        public final WeakReference<IjkMediaPlayer> f69681a;
 
         public b(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
-            this.f68673a = new WeakReference<>(ijkMediaPlayer);
+            this.f69681a = new WeakReference<>(ijkMediaPlayer);
         }
 
         private String a(String str) {
@@ -148,7 +148,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 hashMap.put("init_audio", "7");
                 hashMap.put("init_video", "8");
                 hashMap.put(DpStatConstants.KEY_PREPARED, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9);
-                hashMap.put("start_play", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+                hashMap.put("start_play", "10");
                 hashMap.put("frame_decoded", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
                 hashMap.put("render_pic", Constants.VIA_REPORT_TYPE_SET_AVATAR);
                 hashMap.put(DpStatConstants.KEY_FIRST_DISPLAY, Constants.VIA_REPORT_TYPE_JOININ_GROUP);
@@ -174,7 +174,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         public void handleMessage(Message message) {
             int i;
             String str;
-            IjkMediaPlayer ijkMediaPlayer = this.f68673a.get();
+            IjkMediaPlayer ijkMediaPlayer = this.f69681a.get();
             if (ijkMediaPlayer != null) {
                 if (ijkMediaPlayer.mNativeMediaPlayer != 0) {
                     int i2 = message.what;
@@ -201,9 +201,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                             ijkMediaPlayer.d();
                             return;
                         } else if (i2 == 5) {
-                            ijkMediaPlayer.f68669f = message.arg1;
-                            ijkMediaPlayer.f68670g = message.arg2;
-                            ijkMediaPlayer.a(ijkMediaPlayer.f68669f, ijkMediaPlayer.f68670g, ijkMediaPlayer.f68671h, ijkMediaPlayer.i);
+                            ijkMediaPlayer.f69677f = message.arg1;
+                            ijkMediaPlayer.f69678g = message.arg2;
+                            ijkMediaPlayer.a(ijkMediaPlayer.f69677f, ijkMediaPlayer.f69678g, ijkMediaPlayer.f69679h, ijkMediaPlayer.i);
                             ijkMediaPlayer.b(10006, 0, (Object) null);
                             return;
                         } else if (i2 == 99) {
@@ -232,9 +232,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                             } else if (i2 != 953) {
                                 switch (i2) {
                                     case 60001:
-                                        ijkMediaPlayer.f68671h = message.arg1;
+                                        ijkMediaPlayer.f69679h = message.arg1;
                                         ijkMediaPlayer.i = message.arg2;
-                                        ijkMediaPlayer.a(ijkMediaPlayer.f68669f, ijkMediaPlayer.f68670g, ijkMediaPlayer.f68671h, ijkMediaPlayer.i);
+                                        ijkMediaPlayer.a(ijkMediaPlayer.f69677f, ijkMediaPlayer.f69678g, ijkMediaPlayer.f69679h, ijkMediaPlayer.i);
                                         return;
                                     case IMConstants.ERROR_GROUP_NAME_NOT_VALID /* 60002 */:
                                         ijkMediaPlayer.c(message.arg1 | (message.arg2 << 32));
@@ -315,16 +315,16 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class f extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IjkMediaPlayer> f68674a;
+        public final WeakReference<IjkMediaPlayer> f69682a;
 
         public f(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
-            this.f68674a = new WeakReference<>(ijkMediaPlayer);
+            this.f69682a = new WeakReference<>(ijkMediaPlayer);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            IjkMediaPlayer ijkMediaPlayer = this.f68674a.get();
+            IjkMediaPlayer ijkMediaPlayer = this.f69682a.get();
             if (ijkMediaPlayer == null || (ijkMediaPlayer.mNativeMediaPlayer == 0 && message.what != 12)) {
                 CyberLog.w("IjkMediaPlayer", "IjkMediaPlayer went away with unhandled events msg.what:" + message.what);
                 return;
@@ -590,7 +590,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private boolean b(Context context, Uri uri) {
         try {
-            AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7664a);
+            AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7699a);
             if (openAssetFileDescriptor == null) {
                 if (openAssetFileDescriptor != null) {
                     openAssetFileDescriptor.close();
@@ -611,7 +611,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public void c(Context context, Uri uri) {
         AssetFileDescriptor assetFileDescriptor = null;
         try {
-            AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7664a);
+            AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7699a);
             if (openAssetFileDescriptor == null) {
                 if (openAssetFileDescriptor != null) {
                     openAssetFileDescriptor.close();
@@ -666,15 +666,15 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"Wakelock"})
     public void e(boolean z) {
-        PowerManager.WakeLock wakeLock = this.f68666c;
+        PowerManager.WakeLock wakeLock = this.f69674c;
         if (wakeLock != null) {
             if (z && !wakeLock.isHeld()) {
-                this.f68666c.acquire();
-            } else if (!z && this.f68666c.isHeld()) {
-                this.f68666c.release();
+                this.f69674c.acquire();
+            } else if (!z && this.f69674c.isHeld()) {
+                this.f69674c.release();
             }
         }
-        this.f68668e = z;
+        this.f69676e = z;
         x();
     }
 
@@ -684,7 +684,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 Context applicationContext = CyberPlayerManager.getApplicationContext();
                 PackageManager packageManager = applicationContext.getPackageManager();
                 String packageName = applicationContext.getPackageName();
-                String str = "0.0";
+                String str = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
                 String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(applicationContext);
                 String sDKVersion = CyberPlayerManager.getSDKVersion();
                 String j = Utils.j(applicationContext);
@@ -861,7 +861,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         d dVar = ijkMediaPlayer.w;
         if (dVar == null) {
-            dVar = a.f68672a;
+            dVar = a.f69680a;
         }
         return dVar.a(ijkMediaPlayer, str, i, i2);
     }
@@ -896,9 +896,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         if (i == 200 && i2 == 2) {
             ijkMediaPlayer.h();
         }
-        b bVar = ijkMediaPlayer.f68665b;
+        b bVar = ijkMediaPlayer.f69673b;
         if (bVar != null) {
-            ijkMediaPlayer.f68665b.sendMessage(bVar.obtainMessage(i, i2, i3, obj2));
+            ijkMediaPlayer.f69673b.sendMessage(bVar.obtainMessage(i, i2, i3, obj2));
             return 0;
         }
         return 0;
@@ -918,7 +918,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         } else {
             Looper mainLooper = Looper.getMainLooper();
             if (mainLooper == null) {
-                this.f68665b = null;
+                this.f69673b = null;
                 this.p = false;
                 if (Utils.n(CyberPlayerManager.getApplicationContext()) || Thread.currentThread() == Looper.getMainLooper().getThread()) {
                     this.n = DuplayerHandlerThreadPool.getInstance().obtain();
@@ -940,7 +940,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             }
             bVar = new b(this, mainLooper);
         }
-        this.f68665b = bVar;
+        this.f69673b = bVar;
         this.p = false;
         if (Utils.n(CyberPlayerManager.getApplicationContext())) {
         }
@@ -955,9 +955,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     private void w() {
-        this.f68669f = 0;
-        this.f68670g = 0;
-        this.f68671h = 1;
+        this.f69677f = 0;
+        this.f69678g = 0;
+        this.f69679h = 1;
         this.i = 1;
         this.j = 0L;
         this.k = 0L;
@@ -968,9 +968,9 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     private void x() {
-        SurfaceHolder surfaceHolder = this.f68664a;
+        SurfaceHolder surfaceHolder = this.f69672a;
         if (surfaceHolder != null) {
-            surfaceHolder.setKeepScreenOn(this.f68667d && this.f68668e);
+            surfaceHolder.setKeepScreenOn(this.f69675d && this.f69676e);
         }
     }
 
@@ -1047,23 +1047,23 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     @SuppressLint({"Wakelock"})
     public void a(Context context, int i) {
         boolean z;
-        PowerManager.WakeLock wakeLock = this.f68666c;
+        PowerManager.WakeLock wakeLock = this.f69674c;
         if (wakeLock != null) {
             if (wakeLock.isHeld()) {
                 z = true;
-                this.f68666c.release();
+                this.f69674c.release();
             } else {
                 z = false;
             }
-            this.f68666c = null;
+            this.f69674c = null;
         } else {
             z = false;
         }
-        PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(i | NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, "duplayer");
-        this.f68666c = newWakeLock;
+        PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(i | 536870912, "duplayer");
+        this.f69674c = newWakeLock;
         newWakeLock.setReferenceCounted(false);
         if (z) {
-            this.f68666c.acquire();
+            this.f69674c.acquire();
         }
     }
 
@@ -1092,10 +1092,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(Surface surface) {
-        if (this.f68667d && surface != null) {
+        if (this.f69675d && surface != null) {
             CyberLog.w("IjkMediaPlayer", "setScreenOnWhilePlaying(true) is ineffective for Surface");
         }
-        this.f68664a = null;
+        this.f69672a = null;
         if (!a(14, 0, 0, surface)) {
             _setVideoSurface(surface);
         }
@@ -1103,7 +1103,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(SurfaceHolder surfaceHolder) {
-        this.f68664a = surfaceHolder;
+        this.f69672a = surfaceHolder;
         Surface surface = surfaceHolder != null ? surfaceHolder.getSurface() : null;
         if (!a(14, 0, 0, surface)) {
             _setVideoSurface(surface);
@@ -1188,11 +1188,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(boolean z) {
-        if (this.f68667d != z) {
-            if (z && this.f68664a == null) {
+        if (this.f69675d != z) {
+            if (z && this.f69672a == null) {
                 CyberLog.i("IjkMediaPlayer", "setScreenOnWhilePlaying(true) is ineffective without a SurfaceHolder");
             }
-            this.f68667d = z;
+            this.f69675d = z;
             x();
         }
     }
@@ -1227,7 +1227,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     public void b(String str) {
         this.l = str;
-        d.b.w.a.b.c(SocialConstants.PARAM_PLAY_URL, str);
+        d.b.v.a.b.c(SocialConstants.PARAM_PLAY_URL, str);
         if (a(8, 0, 0, str)) {
             return;
         }
@@ -1335,11 +1335,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public int k() {
-        return this.f68669f;
+        return this.f69677f;
     }
 
     public int l() {
-        return this.f68670g;
+        return this.f69678g;
     }
 
     public long m() {
@@ -1362,7 +1362,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             if (this.o != null) {
                 this.o.removeCallbacksAndMessages(null);
             }
-            this.f68665b.removeCallbacksAndMessages(null);
+            this.f69673b.removeCallbacksAndMessages(null);
             if (d(2)) {
                 this.o = null;
             } else {
@@ -1380,7 +1380,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         if (!d(3)) {
             _reset();
         }
-        this.f68665b.removeCallbacksAndMessages(null);
+        this.f69673b.removeCallbacksAndMessages(null);
         w();
     }
 

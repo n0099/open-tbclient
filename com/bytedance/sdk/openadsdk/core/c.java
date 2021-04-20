@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     @Nullable
     public static com.bytedance.sdk.openadsdk.core.d.a a(JSONObject jSONObject, AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar) {
@@ -78,7 +78,7 @@ public class c {
         lVar.g(jSONObject.optInt("video_adaptation", 0));
         lVar.f(jSONObject.optInt("feed_video_opentype", 0));
         lVar.b(jSONObject.optJSONObject("session_params"));
-        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.f28197e : 1));
+        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.f27882e : 1));
         if (optJSONObject != null) {
             com.bytedance.sdk.openadsdk.core.d.k kVar = new com.bytedance.sdk.openadsdk.core.d.k();
             kVar.a(optJSONObject.optString("url"));
@@ -126,12 +126,12 @@ public class c {
         JSONObject optJSONObject5 = jSONObject.optJSONObject("click_area");
         if (optJSONObject5 != null) {
             com.bytedance.sdk.openadsdk.core.d.e eVar = new com.bytedance.sdk.openadsdk.core.d.e();
-            eVar.f28123a = optJSONObject5.optBoolean("click_upper_content_area", true);
-            eVar.f28124b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
-            eVar.f28125c = optJSONObject5.optBoolean("click_lower_content_area", true);
-            eVar.f28126d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
-            eVar.f28127e = optJSONObject5.optBoolean("click_button_area", true);
-            eVar.f28128f = optJSONObject5.optBoolean("click_video_area", true);
+            eVar.f27808a = optJSONObject5.optBoolean("click_upper_content_area", true);
+            eVar.f27809b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
+            eVar.f27810c = optJSONObject5.optBoolean("click_lower_content_area", true);
+            eVar.f27811d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
+            eVar.f27812e = optJSONObject5.optBoolean("click_button_area", true);
+            eVar.f27813f = optJSONObject5.optBoolean("click_video_area", true);
             lVar.a(eVar);
         }
         JSONObject optJSONObject6 = jSONObject.optJSONObject("adslot");

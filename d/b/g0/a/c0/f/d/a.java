@@ -21,29 +21,29 @@ import org.apache.http.protocol.HTTP;
 public class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f43719g = k.f45051a;
+    public static final boolean f44111g = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f43721b;
+    public InputStream f44113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OutputStream f43722c;
+    public OutputStream f44114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC0629a f43723d;
+    public InterfaceC0641a f44115d;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43720a = 1;
+    public int f44112a = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebSocketFrame.OpCode f43724e = null;
+    public WebSocketFrame.OpCode f44116e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<WebSocketFrame> f43725f = new LinkedList();
+    public final List<WebSocketFrame> f44117f = new LinkedList();
 
     /* renamed from: d.b.g0.a.c0.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0629a {
+    public interface InterfaceC0641a {
         void a(WebSocketFrame webSocketFrame);
 
         void b(IOException iOException);
@@ -66,8 +66,8 @@ public class a {
     }
 
     public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
-        int i = this.f43720a;
-        this.f43720a = 3;
+        int i = this.f44112a;
+        this.f44112a = 3;
         if (i == 2) {
             j(new WebSocketFrame.b(closeCode, str));
         } else {
@@ -76,13 +76,13 @@ public class a {
     }
 
     public final void b() {
-        if (this.f43720a == 4) {
+        if (this.f44112a == 4) {
             return;
         }
-        d.a(this.f43721b);
-        d.a(this.f43722c);
-        this.f43720a = 4;
-        this.f43723d.onClose();
+        d.a(this.f44113b);
+        d.a(this.f44114c);
+        this.f44112a = 4;
+        this.f44115d.onClose();
     }
 
     public final void c(WebSocketFrame webSocketFrame) throws IOException {
@@ -95,7 +95,7 @@ public class a {
         } else {
             str = "";
         }
-        if (this.f43720a == 3) {
+        if (this.f44112a == 3) {
             b();
         } else {
             a(closeCode, str);
@@ -104,23 +104,23 @@ public class a {
 
     public final void d(WebSocketFrame webSocketFrame) throws IOException {
         if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-            if (this.f43724e != null && f43719g) {
+            if (this.f44116e != null && f44111g) {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
             }
-            this.f43724e = webSocketFrame.f();
-            this.f43725f.clear();
-            this.f43725f.add(webSocketFrame);
+            this.f44116e = webSocketFrame.f();
+            this.f44117f.clear();
+            this.f44117f.add(webSocketFrame);
         } else if (webSocketFrame.h()) {
-            if (this.f43724e != null) {
-                this.f43725f.add(webSocketFrame);
-                this.f43723d.a(new WebSocketFrame(this.f43724e, this.f43725f));
-                this.f43724e = null;
-                this.f43725f.clear();
+            if (this.f44116e != null) {
+                this.f44117f.add(webSocketFrame);
+                this.f44115d.a(new WebSocketFrame(this.f44116e, this.f44117f));
+                this.f44116e = null;
+                this.f44117f.clear();
                 return;
             }
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
-        } else if (this.f43724e != null) {
-            this.f43725f.add(webSocketFrame);
+        } else if (this.f44116e != null) {
+            this.f44117f.add(webSocketFrame);
         } else {
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
         }
@@ -132,15 +132,15 @@ public class a {
         } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
             j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
         } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
-            if (f43719g) {
+            if (f44111g) {
                 Log.i("V8WebSocket", "A pong request has received.");
             }
         } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-            if (this.f43724e == null) {
+            if (this.f44116e == null) {
                 if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
                     throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
                 }
-                this.f43723d.a(webSocketFrame);
+                this.f44115d.a(webSocketFrame);
                 return;
             }
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
@@ -150,24 +150,24 @@ public class a {
     }
 
     public void h(InputStream inputStream, OutputStream outputStream) {
-        this.f43721b = inputStream;
-        this.f43722c = outputStream;
-        this.f43720a = 2;
-        InterfaceC0629a interfaceC0629a = this.f43723d;
-        if (interfaceC0629a != null) {
-            interfaceC0629a.c();
+        this.f44113b = inputStream;
+        this.f44114c = outputStream;
+        this.f44112a = 2;
+        InterfaceC0641a interfaceC0641a = this.f44115d;
+        if (interfaceC0641a != null) {
+            interfaceC0641a.c();
         }
         i();
     }
 
     public final void i() {
-        while (this.f43720a == 2) {
+        while (this.f44112a == 2) {
             try {
                 try {
-                    e(WebSocketFrame.k(this.f43721b));
+                    e(WebSocketFrame.k(this.f44113b));
                 } catch (IOException e2) {
-                    if (this.f43723d != null) {
-                        this.f43723d.b(e2);
+                    if (this.f44115d != null) {
+                        this.f44115d.b(e2);
                     }
                     c.c("V8WebSocket", "parse web socket frame fail", e2);
                 }
@@ -178,10 +178,10 @@ public class a {
     }
 
     public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
-        webSocketFrame.t(this.f43722c);
+        webSocketFrame.t(this.f44114c);
     }
 
-    public void k(InterfaceC0629a interfaceC0629a) {
-        this.f43723d = interfaceC0629a;
+    public void k(InterfaceC0641a interfaceC0641a) {
+        this.f44115d = interfaceC0641a;
     }
 }

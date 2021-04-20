@@ -26,25 +26,25 @@ import java.util.regex.Pattern;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37021a = 65536;
+    public static int f37310a = 65536;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f37022b = 2000;
+    public static long f37311b = 2000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37023c;
+    public static String f37312c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Boolean f37024d;
+    public static Boolean f37313d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f37025e;
+    public static Boolean f37314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f37026f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    public static final Pattern f37315f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
 
     public static int a() {
-        return f37021a;
+        return f37310a;
     }
 
     public static int a(String str, String str2, boolean z) {
@@ -54,7 +54,7 @@ public class f {
     public static String a(int i, com.kwai.filedownloader.a.b bVar) {
         if (bVar != null) {
             String a2 = bVar.a(Util.ETAG);
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "etag find %s for task(%d)", a2, Integer.valueOf(i));
             }
             return a2;
@@ -101,14 +101,14 @@ public class f {
         if (!a(c.a())) {
             throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-step'.");
         }
-        f37021a = i;
+        f37310a = i;
     }
 
     public static void a(long j) {
         if (!a(c.a())) {
             throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-time'.");
         }
-        f37022b = j;
+        f37311b = j;
     }
 
     public static boolean a(int i, com.kwai.filedownloader.d.c cVar) {
@@ -117,12 +117,12 @@ public class f {
 
     public static boolean a(int i, com.kwai.filedownloader.d.c cVar, Boolean bool) {
         if (cVar == null) {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d model == null", Integer.valueOf(i));
             }
             return false;
         } else if (cVar.e() == null) {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d temp path == null", Integer.valueOf(i));
             }
             return false;
@@ -133,7 +133,7 @@ public class f {
 
     public static boolean a(int i, com.kwai.filedownloader.d.c cVar, String str, Boolean bool) {
         if (str == null) {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d path = null", Integer.valueOf(i));
                 return false;
             }
@@ -143,7 +143,7 @@ public class f {
         boolean exists = file.exists();
         boolean isDirectory = file.isDirectory();
         if (!exists || isDirectory) {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d file not suit, exists[%B], directory[%B]", Integer.valueOf(i), Boolean.valueOf(exists), Boolean.valueOf(isDirectory));
                 return false;
             }
@@ -152,7 +152,7 @@ public class f {
         long length = file.length();
         long g2 = cVar.g();
         if (cVar.n() <= 1 && g2 == 0) {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d the downloaded-record is zero.", Integer.valueOf(i));
                 return false;
             }
@@ -160,7 +160,7 @@ public class f {
         }
         long h2 = cVar.h();
         if (length < g2 || (h2 != -1 && (length > h2 || g2 >= h2))) {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d dirty data fileLength[%d] sofar[%d] total[%d]", Integer.valueOf(i), Long.valueOf(length), Long.valueOf(g2), Long.valueOf(h2));
                 return false;
             }
@@ -168,7 +168,7 @@ public class f {
         } else if (bool == null || bool.booleanValue() || h2 != length) {
             return true;
         } else {
-            if (d.f37012a) {
+            if (d.f37301a) {
                 d.c(f.class, "can't continue %d, because of the output stream doesn't support seek, but the task has already pre-allocated, so we only can download it from the very beginning.", Integer.valueOf(i));
                 return false;
             }
@@ -181,12 +181,12 @@ public class f {
     }
 
     public static boolean a(Context context) {
-        Boolean bool = f37024d;
+        Boolean bool = f37313d;
         if (bool != null) {
             return bool.booleanValue();
         }
         boolean z = false;
-        if (!e.a().f37016d) {
+        if (!e.a().f37305d) {
             int myPid = Process.myPid();
             ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
             if (activityManager != null) {
@@ -215,7 +215,7 @@ public class f {
             z = true;
         }
         Boolean valueOf = Boolean.valueOf(z);
-        f37024d = valueOf;
+        f37313d = valueOf;
         return valueOf.booleanValue();
     }
 
@@ -228,7 +228,7 @@ public class f {
     }
 
     public static long b() {
-        return f37022b;
+        return f37311b;
     }
 
     public static long b(int i, com.kwai.filedownloader.a.b bVar) {
@@ -236,10 +236,10 @@ public class f {
         String a2 = bVar.a("Transfer-Encoding");
         if (k < 0) {
             if (!(a2 != null && a2.equals("chunked"))) {
-                if (!e.a().f37015c) {
+                if (!e.a().f37304c) {
                     throw new FileDownloadGiveUpRetryException("can't know the size of the download file, and its Transfer-Encoding is not Chunked either.\nyou can ignore such exception by add http.lenient=true to the filedownloader.properties");
                 }
-                if (d.f37012a) {
+                if (d.f37301a) {
                     d.c(f.class, "%d response header is not legal but HTTP lenient is true, so handle as the case of transfer encoding chunk", Integer.valueOf(i));
                 }
             }
@@ -267,10 +267,10 @@ public class f {
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f37023c)) {
+        if (TextUtils.isEmpty(f37312c)) {
             return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
         }
-        return f37023c;
+        return f37312c;
     }
 
     public static String c(String str) {
@@ -329,7 +329,7 @@ public class f {
             return null;
         }
         try {
-            Matcher matcher = f37026f.matcher(str);
+            Matcher matcher = f37315f.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

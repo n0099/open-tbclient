@@ -6,18 +6,18 @@ import android.view.animation.Interpolator;
 public class d implements Interpolator {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48854a = 0;
+    public int f49246a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public final PointF f48855b = new PointF();
+    public final PointF f49247b = new PointF();
 
     /* renamed from: c  reason: collision with root package name */
-    public final PointF f48856c;
+    public final PointF f49248c;
 
     public d(float f2, float f3, float f4, float f5) {
         PointF pointF = new PointF();
-        this.f48856c = pointF;
-        PointF pointF2 = this.f48855b;
+        this.f49248c = pointF;
+        PointF pointF2 = this.f49247b;
         pointF2.x = f2;
         pointF2.y = f3;
         pointF.x = f4;
@@ -33,23 +33,23 @@ public class d implements Interpolator {
 
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f2) {
-        int i = this.f48854a;
+        int i = this.f49246a;
         float f3 = f2;
         while (true) {
             if (i >= 4096) {
                 break;
             }
             f3 = (i * 1.0f) / 4096.0f;
-            if (a(f3, 0.0d, this.f48855b.x, this.f48856c.x, 1.0d) >= f2) {
-                this.f48854a = i;
+            if (a(f3, 0.0d, this.f49247b.x, this.f49248c.x, 1.0d) >= f2) {
+                this.f49246a = i;
                 break;
             }
             i++;
         }
-        double a2 = a(f3, 0.0d, this.f48855b.y, this.f48856c.y, 1.0d);
+        double a2 = a(f3, 0.0d, this.f49247b.y, this.f49248c.y, 1.0d);
         if (a2 > 0.999d) {
             a2 = 1.0d;
-            this.f48854a = 0;
+            this.f49246a = 0;
         }
         return (float) a2;
     }

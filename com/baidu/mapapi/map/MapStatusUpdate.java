@@ -11,28 +11,28 @@ public final class MapStatusUpdate {
     public static final String p = "MapStatusUpdate";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6912a;
+    public int f6947a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MapStatus f6913b;
+    public MapStatus f6948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6914c;
+    public LatLng f6949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLngBounds f6915d;
+    public LatLngBounds f6950d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6916e;
+    public int f6951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6917f;
+    public int f6952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f6918g;
+    public float f6953g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6919h;
+    public int f6954h;
     public int i;
     public float j;
     public Point k;
@@ -45,7 +45,7 @@ public final class MapStatusUpdate {
     }
 
     public MapStatusUpdate(int i) {
-        this.f6912a = i;
+        this.f6947a = i;
     }
 
     private float a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.e eVar, int i, int i2) {
@@ -111,29 +111,29 @@ public final class MapStatusUpdate {
         if (eVar == null || mapStatus == null) {
             return null;
         }
-        switch (this.f6912a) {
+        switch (this.f6947a) {
             case 1:
-                return this.f6913b;
+                return this.f6948b;
             case 2:
-                return new MapStatus(mapStatus.rotate, this.f6914c, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
+                return new MapStatus(mapStatus.rotate, this.f6949c, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
             case 3:
-                LatLngBounds latLngBounds = this.f6915d;
+                LatLngBounds latLngBounds = this.f6950d;
                 if (latLngBounds == null) {
                     return null;
                 }
                 GeoPoint ll2mc = CoordUtil.ll2mc(latLngBounds.southwest);
-                GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f6915d.northeast);
+                GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f6950d.northeast);
                 double longitudeE6 = ll2mc.getLongitudeE6();
                 double latitudeE6 = ll2mc2.getLatitudeE6();
                 double longitudeE62 = ll2mc2.getLongitudeE6();
                 int latitudeE62 = (int) ll2mc.getLatitudeE6();
-                WinRound winRound = mapStatus.f6901a.j;
+                WinRound winRound = mapStatus.f6936a.j;
                 float a2 = eVar.a((int) longitudeE6, (int) latitudeE6, (int) longitudeE62, latitudeE62, winRound.right - winRound.left, winRound.bottom - winRound.top);
-                return new MapStatus(mapStatus.rotate, this.f6915d.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
+                return new MapStatus(mapStatus.rotate, this.f6950d.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
             case 4:
-                return new MapStatus(mapStatus.rotate, this.f6914c, mapStatus.overlook, this.f6918g, mapStatus.targetScreen, null);
+                return new MapStatus(mapStatus.rotate, this.f6949c, mapStatus.overlook, this.f6953g, mapStatus.targetScreen, null);
             case 5:
-                GeoPoint b2 = eVar.b((eVar.G() / 2) + this.f6919h, (eVar.H() / 2) + this.i);
+                GeoPoint b2 = eVar.b((eVar.G() / 2) + this.f6954h, (eVar.H() / 2) + this.i);
                 return new MapStatus(mapStatus.rotate, CoordUtil.mc2ll(b2), mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, b2.getLongitudeE6(), b2.getLatitudeE6(), null);
             case 6:
                 return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, mapStatus.zoom + this.j, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
@@ -142,18 +142,18 @@ public final class MapStatusUpdate {
                 LatLng mc2ll = CoordUtil.mc2ll(eVar.b(point.x, point.y));
                 return new MapStatus(mapStatus.rotate, mc2ll, mapStatus.overlook, this.j + mapStatus.zoom, this.k, null);
             case 8:
-                return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, this.f6918g, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
+                return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, this.f6953g, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
             case 9:
-                LatLngBounds latLngBounds2 = this.f6915d;
+                LatLngBounds latLngBounds2 = this.f6950d;
                 if (latLngBounds2 == null) {
                     return null;
                 }
                 GeoPoint ll2mc3 = CoordUtil.ll2mc(latLngBounds2.southwest);
-                GeoPoint ll2mc4 = CoordUtil.ll2mc(this.f6915d.northeast);
-                float a3 = eVar.a((int) ll2mc3.getLongitudeE6(), (int) ll2mc4.getLatitudeE6(), (int) ll2mc4.getLongitudeE6(), (int) ll2mc3.getLatitudeE6(), this.f6916e, this.f6917f);
-                return new MapStatus(mapStatus.rotate, this.f6915d.getCenter(), mapStatus.overlook, a3, mapStatus.targetScreen, null);
+                GeoPoint ll2mc4 = CoordUtil.ll2mc(this.f6950d.northeast);
+                float a3 = eVar.a((int) ll2mc3.getLongitudeE6(), (int) ll2mc4.getLatitudeE6(), (int) ll2mc4.getLongitudeE6(), (int) ll2mc3.getLatitudeE6(), this.f6951e, this.f6952f);
+                return new MapStatus(mapStatus.rotate, this.f6950d.getCenter(), mapStatus.overlook, a3, mapStatus.targetScreen, null);
             case 10:
-                if (this.f6915d == null) {
+                if (this.f6950d == null) {
                     return null;
                 }
                 int G = (eVar.G() - this.l) - this.n;
@@ -166,16 +166,16 @@ public final class MapStatusUpdate {
                     H = eVar.H();
                     Log.e(p, "Bound paddingTop or paddingBottom too larger, please check");
                 }
-                LatLng b3 = b(this.f6915d, eVar);
+                LatLng b3 = b(this.f6950d, eVar);
                 if (b3 == null) {
                     Log.e(p, "Bound center error");
                     return null;
                 }
-                float a4 = a(this.f6915d, eVar, G, H);
-                if (a(this.f6915d, eVar)) {
+                float a4 = a(this.f6950d, eVar, G, H);
+                if (a(this.f6950d, eVar)) {
                     MapStatus mapStatus2 = new MapStatus(mapStatus.rotate, b3, mapStatus.overlook, a4, mapStatus.targetScreen, null);
                     eVar.r = mapStatus2;
-                    eVar.q = this.f6915d;
+                    eVar.q = this.f6950d;
                     return mapStatus2;
                 }
                 return eVar.r;

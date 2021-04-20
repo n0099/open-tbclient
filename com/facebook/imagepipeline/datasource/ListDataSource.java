@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ListDataSource<T> extends AbstractDataSource<List<CloseableReference<T>>> {
     public final DataSource<CloseableReference<T>>[] mDataSources;
     @GuardedBy("this")
     public int mFinishedDataSources = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class InternalDataSubscriber implements DataSubscriber<CloseableReference<T>> {
         @GuardedBy("InternalDataSubscriber.this")
         public boolean mFinished;

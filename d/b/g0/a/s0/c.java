@@ -11,37 +11,37 @@ import java.util.HashMap;
 public final class c<W extends d> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45792b = k.f45051a;
+    public static final boolean f46184b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, a<W>> f45793a = new HashMap<>();
+    public final HashMap<String, a<W>> f46185a = new HashMap<>();
 
     public void a(a<W> aVar) {
-        if (f45792b) {
+        if (f46184b) {
             Log.v("CommandDispatcher", aVar.b() + " command added to supported command list");
         }
-        this.f45793a.put(aVar.b(), aVar);
+        this.f46185a.put(aVar.b(), aVar);
     }
 
     public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
         if (command == null || TextUtils.isEmpty(command.what)) {
-            if (f45792b) {
+            if (f46184b) {
                 Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
             }
         } else if (w == null) {
-            if (f45792b) {
+            if (f46184b) {
                 Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
             }
         } else {
-            a<W> aVar = this.f45793a.get(command.what);
+            a<W> aVar = this.f46185a.get(command.what);
             if (aVar == null) {
-                if (f45792b) {
+                if (f46184b) {
                     Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
                     return;
                 }
                 return;
             }
-            if (f45792b) {
+            if (f46184b) {
                 Log.d("CommandDispatcher", command.what + " command dispatched");
             }
             aVar.a(command, w);
@@ -50,19 +50,19 @@ public final class c<W extends d> {
 
     public void c(@Nullable ZeusPlugin.Command command) {
         if (command != null && !TextUtils.isEmpty(command.what)) {
-            a<W> aVar = this.f45793a.get(command.what);
+            a<W> aVar = this.f46185a.get(command.what);
             if (aVar == null) {
-                if (f45792b) {
+                if (f46184b) {
                     Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
                     return;
                 }
                 return;
             }
-            if (f45792b) {
+            if (f46184b) {
                 Log.d("CommandDispatcher", command.what + " cached command return value processed");
             }
             aVar.c(command);
-        } else if (f45792b) {
+        } else if (f46184b) {
             Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
         }
     }

@@ -17,19 +17,19 @@ import java.util.ListIterator;
 public class d extends PayBaseBean<CardAddResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25508a;
+    public String f25193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BindFastRequest f25509b;
+    public BindFastRequest f25194b;
 
     public d(Context context) {
         super(context);
-        this.f25508a = null;
-        this.f25509b = null;
+        this.f25193a = null;
+        this.f25194b = null;
     }
 
     public void a(String str) {
-        this.f25508a = str;
+        this.f25193a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -40,11 +40,11 @@ public class d extends PayBaseBean<CardAddResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         List<RestNameValuePair> json2KeyValuePairs;
-        if (this.f25509b != null) {
-            if (TextUtils.isEmpty(this.f25508a)) {
+        if (this.f25194b != null) {
+            if (TextUtils.isEmpty(this.f25193a)) {
                 json2KeyValuePairs = new ArrayList<>();
             } else {
-                json2KeyValuePairs = JsonUtil.json2KeyValuePairs(this.f25508a);
+                json2KeyValuePairs = JsonUtil.json2KeyValuePairs(this.f25193a);
                 if (json2KeyValuePairs == null) {
                     json2KeyValuePairs = new ArrayList<>();
                 }
@@ -74,7 +74,7 @@ public class d extends PayBaseBean<CardAddResponse> {
 
     @Override // com.baidu.wallet.core.beans.BaseBean
     public void handleSession(BeanResponseBase.Session session) {
-        BindFastRequest bindFastRequest = this.f25509b;
+        BindFastRequest bindFastRequest = this.f25194b;
         if (bindFastRequest != null) {
             bindFastRequest.saveSession(session);
         } else {
@@ -83,10 +83,10 @@ public class d extends PayBaseBean<CardAddResponse> {
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        this.f25509b = bindFastRequest;
+        this.f25194b = bindFastRequest;
     }
 
     public BindFastRequest a() {
-        return this.f25509b;
+        return this.f25194b;
     }
 }

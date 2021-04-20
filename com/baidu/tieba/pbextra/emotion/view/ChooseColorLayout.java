@@ -5,28 +5,28 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-/* loaded from: classes5.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes3.dex */
 public class ChooseColorLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f20192e;
+    public int[] f19884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20193f;
+    public int f19885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20194g;
+    public int f19886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20195h;
+    public int f19887h;
     public int i;
     public int j;
     public int k;
     public b l;
     public View.OnClickListener m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,7 +52,7 @@ public class ChooseColorLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
     }
@@ -63,29 +63,29 @@ public class ChooseColorLayout extends LinearLayout {
 
     public final void f() {
         this.k = l.k(getContext());
-        this.f20192e = getResources().getIntArray(R.array.choose_colors);
+        this.f19884e = getResources().getIntArray(R.array.choose_colors);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.f20195h = dimensionPixelSize;
+        this.f19887h = dimensionPixelSize;
         int i = (this.k - (dimensionPixelSize * 2)) / 8;
-        this.f20193f = i;
-        this.f20194g = (i - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-        int i2 = this.f20193f;
+        this.f19885f = i;
+        this.f19886g = (i - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+        int i2 = this.f19885f;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
         layoutParams.gravity = 17;
-        for (int i3 = 0; i3 < this.f20192e.length; i3++) {
+        for (int i3 = 0; i3 < this.f19884e.length; i3++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.f20192e[i3]);
+            chooseColorView.setChooseColor(this.f19884e[i3]);
             chooseColorView.setTag(Integer.valueOf(i3));
-            chooseColorView.setRadius(this.f20194g);
+            chooseColorView.setRadius(this.f19886g);
             if (i3 == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.i = this.f20192e[i3];
+                this.i = this.f19884e[i3];
                 this.j = i3;
             }
             chooseColorView.setOnClickListener(this.m);
             addView(chooseColorView, layoutParams);
         }
-        int i4 = this.f20195h;
+        int i4 = this.f19887h;
         setPadding(i4, 0, i4, getResources().getDimensionPixelSize(R.dimen.ds20));
     }
 

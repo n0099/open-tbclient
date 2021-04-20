@@ -1,0 +1,192 @@
+package com.baidu.mobads.container.util.oaid;
+
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.dex.SkyReflectionUtil;
+import com.baidu.mobads.container.download.activate.XSharedPreferences;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
+import com.baidu.mobads.container.util.SendLogUtil;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+/* loaded from: classes2.dex */
+public class UniqueIdUtils {
+    public static final String SPFILE_NAME = "mobads_uniqueidentifier";
+    public static final String SPKEY_OAID = "oaid";
+    public static final String SPKEY_OAID_VALID_PERIOD = "oaid_period";
+    public static final String SPVAL_OAID_EMPTY = "";
+    public static final long SPVAL_OAID_PERIOD = 604800000;
+    public static final long SPVAL_RETRY_OAID_PERIOD = 86400000;
+    public static Context mContext = null;
+    public static String mMdidSdkHelper = "com.bun.miitmdid.core.MdidSdkHelper";
+    public static String mMdidSdkListener = "com.bun.supplier.IIdentifierListener";
+    public static String mMdidSdkMethodInit = "InitSdk";
+    public static String mMdidSdkMethodOnSupport = "OnSupport";
+    public static String mMdidSdkSupplier = "com.bun.supplier.IdSupplier";
+    public static String mNewMdidSdkListener = "com.bun.miitmdid.interfaces.IIdentifierListener";
+    public static String mNewMdidSdkSupplier = "com.bun.miitmdid.interfaces.IdSupplier";
+    public static long mPeriod = 0;
+    public static long mRetryCount = 0;
+    public static XSharedPreferences mSPOAID = null;
+    public static String miitOAID = "";
+
+    /* loaded from: classes2.dex */
+    public static class InvocationHandlerImp implements InvocationHandler {
+        public String mClassName;
+        public String mMethodName;
+
+        public InvocationHandlerImp(String str, String str2) {
+            this.mClassName = str;
+            this.mMethodName = str2;
+        }
+
+        @Override // java.lang.reflect.InvocationHandler
+        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+            try {
+                String name = method.getName();
+                if (!TextUtils.isEmpty(name) && name.equals(this.mMethodName)) {
+                    Object obj2 = objArr[1];
+                    Class<?> cls = Class.forName(this.mClassName);
+                    if (obj2 != null && cls != null) {
+                        String str = (String) SkyReflectionUtil.invoke(cls, obj2, "getOAID", new Class[0], new Object[0]);
+                        if (TextUtils.isEmpty(str)) {
+                            UniqueIdUtils.sendSDKTypeLog(UniqueIdUtils.mContext, "msa-empty", "");
+                        } else {
+                            UniqueIdUtils.miitOAID = str;
+                            UniqueIdUtils.sendSDKTypeLog(UniqueIdUtils.mContext, "msa-vaild", str);
+                            UniqueIdUtils.update(604800000L, str);
+                        }
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                Context context = UniqueIdUtils.mContext;
+                UniqueIdUtils.sendSDKTypeLog(context, "msa-error2" + th.getMessage(), "");
+                return null;
+            }
+        }
+    }
+
+    public static void brandOAID(Context context) {
+        if (MiOAID.isXiaomiBrand()) {
+            update(604800000L, MiOAID.getMIOAID(context.getApplicationContext()));
+        }
+        if (HuaWeiOAID.isHuaweiBrand()) {
+            HuaWeiOAID.hwBindService(context.getApplicationContext());
+        }
+        if (OppoOAID.isOppoBrand()) {
+            OppoOAID.getOppoOaid(context);
+        }
+        if (VivoOAID.isVivoBrand()) {
+            VivoOAID.getVivoOaid(context);
+        }
+    }
+
+    public static boolean checkMdidSdk() {
+        Class cls;
+        try {
+            cls = SkyReflectionUtil.getClassForName(mMdidSdkHelper);
+        } catch (Throwable unused) {
+            cls = null;
+        }
+        return cls != null;
+    }
+
+    public static String getMiidOAID(Context context) throws UnsupportedEncodingException {
+        if (Build.VERSION.SDK_INT >= 26 && context != null) {
+            try {
+                if (mSPOAID == null) {
+                    mSPOAID = new XSharedPreferences(context.getApplicationContext(), SPFILE_NAME);
+                }
+                if (0 == mPeriod) {
+                    mPeriod = mSPOAID.getLongValue(SPKEY_OAID_VALID_PERIOD).longValue();
+                }
+                if (System.currentTimeMillis() > mPeriod) {
+                    getOAIDs(context);
+                }
+                if (TextUtils.isEmpty(miitOAID)) {
+                    miitOAID = mSPOAID.getValue("oaid");
+                }
+                if (TextUtils.equals("invalid", miitOAID)) {
+                    miitOAID = "";
+                }
+                return miitOAID;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    public static void getOAIDs(Context context) {
+        try {
+            if (mRetryCount >= 2) {
+                update(86400000L, "");
+                return;
+            }
+            if (checkMdidSdk() && mRetryCount == 0) {
+                initMdidSdk(context.getApplicationContext());
+            } else {
+                brandOAID(context);
+            }
+            mRetryCount++;
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void initMdidSdk(Context context) {
+        sendSDKTypeLog(context, "msa-start", "");
+        if (context == null) {
+            return;
+        }
+        mContext = context;
+        try {
+            Class classForName = SkyReflectionUtil.getClassForName(mNewMdidSdkListener);
+            if (classForName != null) {
+                Object proxyInstance = SkyReflectionUtil.getProxyInstance(mNewMdidSdkListener, new InvocationHandlerImp(mNewMdidSdkSupplier, mMdidSdkMethodOnSupport));
+                if (proxyInstance != null) {
+                    SkyReflectionUtil.invokeMethod(mMdidSdkHelper, null, mMdidSdkMethodInit, new Class[]{Context.class, Boolean.TYPE, classForName}, context, Boolean.TRUE, proxyInstance);
+                }
+            } else {
+                Class classForName2 = SkyReflectionUtil.getClassForName(mMdidSdkListener);
+                Object proxyInstance2 = SkyReflectionUtil.getProxyInstance(mMdidSdkListener, new InvocationHandlerImp(mMdidSdkSupplier, mMdidSdkMethodOnSupport));
+                if (proxyInstance2 != null) {
+                    SkyReflectionUtil.invokeMethod(mMdidSdkHelper, null, mMdidSdkMethodInit, new Class[]{Context.class, Boolean.TYPE, classForName2}, context, Boolean.TRUE, proxyInstance2);
+                }
+            }
+        } catch (Throwable th) {
+            sendSDKTypeLog(context, "msa-error" + th.getMessage(), "");
+        }
+    }
+
+    public static void sendSDKTypeLog(Context context, String str, String str2) {
+        if (str != null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_OAID_STATUS).append("msg", str).append(IAdRequestParam.MSA, checkMdidSdk()).append("uid", str2).send();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void update(long j, String str) {
+        XSharedPreferences xSharedPreferences = mSPOAID;
+        if (xSharedPreferences == null) {
+            return;
+        }
+        String value = xSharedPreferences.getValue("oaid");
+        if ((TextUtils.isEmpty(str) || TextUtils.equals("invalid", str)) && !TextUtils.isEmpty(value) && !TextUtils.equals("invalid", value)) {
+            str = value;
+        }
+        mSPOAID.putString("oaid", str);
+        long currentTimeMillis = System.currentTimeMillis() + j;
+        mSPOAID.putLong(SPKEY_OAID_VALID_PERIOD, Long.valueOf(currentTimeMillis));
+        mPeriod = currentTimeMillis;
+        miitOAID = str;
+        mRetryCount = 0L;
+    }
+}

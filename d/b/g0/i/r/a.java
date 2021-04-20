@@ -16,10 +16,10 @@ public class a extends PointPageIndicator {
     }
 
     public a g(Drawable drawable, Drawable drawable2) {
-        this.f13014e = drawable;
-        this.f13015f = drawable2;
-        this.f13016g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        this.f13017h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+        this.f12675e = drawable;
+        this.f12676f = drawable2;
+        this.f12677g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        this.f12678h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         return this;
     }
 }

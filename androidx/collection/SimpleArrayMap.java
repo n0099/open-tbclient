@@ -463,7 +463,7 @@ public class SimpleArrayMap<K, V> {
             } else {
                 sb.append("(this Map)");
             }
-            sb.append(a.f1897h);
+            sb.append(a.f1922h);
             V valueAt = valueAt(i);
             if (valueAt != this) {
                 sb.append(valueAt);

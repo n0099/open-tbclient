@@ -1,8 +1,8 @@
 package io.reactivex.processors;
 
-import f.a.b0.a;
-import f.a.x.i.a;
-import f.a.x.i.b;
+import f.b.b0.a;
+import f.b.x.i.a;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -15,16 +15,16 @@ import java.util.concurrent.locks.Lock;
 public final class BehaviorProcessor<T> extends a<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lock f68100f;
+    public final Lock f69106f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<Object> f68101g;
+    public final AtomicReference<Object> f69107g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f68102h;
+    public long f69108h;
 
     /* loaded from: classes7.dex */
-    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1858a<Object> {
+    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1893a<Object> {
         public static final long serialVersionUID = 3293175281126227086L;
         public final c<? super T> actual;
         public volatile boolean cancelled;
@@ -32,7 +32,7 @@ public final class BehaviorProcessor<T> extends a<T> {
         public boolean fastPath;
         public long index;
         public boolean next;
-        public f.a.x.i.a<Object> queue;
+        public f.b.x.i.a<Object> queue;
         public final BehaviorProcessor<T> state;
 
         public BehaviorSubscription(c<? super T> cVar, BehaviorProcessor<T> behaviorProcessor) {
@@ -61,10 +61,10 @@ public final class BehaviorProcessor<T> extends a<T> {
                     return;
                 }
                 BehaviorProcessor<T> behaviorProcessor = this.state;
-                Lock lock = behaviorProcessor.f68100f;
+                Lock lock = behaviorProcessor.f69106f;
                 lock.lock();
-                this.index = behaviorProcessor.f68102h;
-                Object obj = behaviorProcessor.f68101g.get();
+                this.index = behaviorProcessor.f69108h;
+                Object obj = behaviorProcessor.f69107g.get();
                 lock.unlock();
                 this.emitting = obj != null;
                 this.next = true;
@@ -76,7 +76,7 @@ public final class BehaviorProcessor<T> extends a<T> {
         }
 
         public void emitLoop() {
-            f.a.x.i.a<Object> aVar;
+            f.b.x.i.a<Object> aVar;
             while (!this.cancelled) {
                 synchronized (this) {
                     aVar = this.queue;
@@ -103,9 +103,9 @@ public final class BehaviorProcessor<T> extends a<T> {
                         return;
                     }
                     if (this.emitting) {
-                        f.a.x.i.a<Object> aVar = this.queue;
+                        f.b.x.i.a<Object> aVar = this.queue;
                         if (aVar == null) {
-                            aVar = new f.a.x.i.a<>(4);
+                            aVar = new f.b.x.i.a<>(4);
                             this.queue = aVar;
                         }
                         aVar.a(obj);
@@ -129,7 +129,7 @@ public final class BehaviorProcessor<T> extends a<T> {
             }
         }
 
-        @Override // f.a.x.i.a.InterfaceC1858a, f.a.w.i
+        @Override // f.b.x.i.a.InterfaceC1893a, f.b.w.i
         public boolean test(Object obj) {
             if (this.cancelled) {
                 return true;

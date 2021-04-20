@@ -7,44 +7,44 @@ import java.util.List;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f50120f = String.valueOf(Integer.MAX_VALUE);
+    public static final String f50513f = String.valueOf(Integer.MAX_VALUE);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f50121g = String.valueOf(2147483646);
+    public static final String f50514g = String.valueOf(2147483646);
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50122a;
+    public String f50515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50123b;
+    public String f50516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50124c;
+    public int f50517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaFileInfo f50125d;
+    public MediaFileInfo f50518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MediaFileInfo> f50126e;
+    public List<MediaFileInfo> f50519e;
 
     public void a() {
-        this.f50124c++;
+        this.f50517c++;
     }
 
     public String b() {
-        return this.f50122a;
+        return this.f50515a;
     }
 
     public int c() {
-        return this.f50124c;
+        return this.f50517c;
     }
 
     public List<MediaFileInfo> d() {
-        return this.f50126e;
+        return this.f50519e;
     }
 
     public ImageFileInfo e() {
-        MediaFileInfo mediaFileInfo = this.f50125d;
+        MediaFileInfo mediaFileInfo = this.f50518d;
         if (mediaFileInfo instanceof ImageFileInfo) {
             return (ImageFileInfo) mediaFileInfo;
         }
@@ -52,30 +52,30 @@ public class a {
     }
 
     public MediaFileInfo f() {
-        return this.f50125d;
+        return this.f50518d;
     }
 
     public String g() {
-        return this.f50123b;
+        return this.f50516b;
     }
 
     public void h(String str) {
-        this.f50122a = str;
+        this.f50515a = str;
     }
 
     public void i(String str) {
-        this.f50124c = d.b.b.e.m.b.d(str, 0);
+        this.f50517c = d.b.c.e.m.b.d(str, 0);
     }
 
     public void j(List<MediaFileInfo> list) {
-        this.f50126e = list;
+        this.f50519e = list;
     }
 
     public void k(MediaFileInfo mediaFileInfo) {
-        this.f50125d = mediaFileInfo;
+        this.f50518d = mediaFileInfo;
     }
 
     public void l(String str) {
-        this.f50123b = str;
+        this.f50516b = str;
     }
 }

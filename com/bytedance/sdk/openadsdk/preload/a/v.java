@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class v<T> {
     public final v<T> a() {
         return new v<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.v.1

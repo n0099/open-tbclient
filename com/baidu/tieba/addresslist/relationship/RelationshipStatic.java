@@ -15,7 +15,7 @@ import d.b.i0.q.f.i;
 public class RelationshipStatic {
 
     /* loaded from: classes4.dex */
-    public static class a extends d.b.b.c.g.c {
+    public static class a extends d.b.c.c.g.c {
         public a(int i) {
             super(i);
         }
@@ -26,15 +26,15 @@ public class RelationshipStatic {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 1001 || socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseOnlineMessage) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-            if (i.g("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
+            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            if (j.g("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends d.b.b.c.g.c {
+    public static class b extends d.b.c.c.g.c {
         public b(int i) {
             super(i);
         }
@@ -46,8 +46,8 @@ public class RelationshipStatic {
                 return;
             }
             d.b.i0.q.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-            i.s("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
+            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            j.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
             new i(addressListData).execute(new Void[0]);
         }
     }
@@ -109,10 +109,10 @@ public class RelationshipStatic {
     }
 
     public static void a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        d.b.i0.d1.c.a(i, cls);
+        d.b.i0.e1.c.a(i, cls);
     }
 
     public static void b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        d.b.i0.d1.c.b(i, cls, z);
+        d.b.i0.e1.c.b(i, cls, z);
     }
 }

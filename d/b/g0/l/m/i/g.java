@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile g f49035b;
+    public static volatile g f49427b;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f49036a = new b();
+    public b f49428a = new b();
 
     /* loaded from: classes3.dex */
     public static class b extends i {
@@ -19,23 +19,23 @@ public class g {
     }
 
     public static g a() {
-        if (f49035b == null) {
+        if (f49427b == null) {
             synchronized (g.class) {
-                if (f49035b == null) {
-                    f49035b = new g();
+                if (f49427b == null) {
+                    f49427b = new g();
                 }
             }
         }
-        return f49035b;
+        return f49427b;
     }
 
     public String b() {
-        return this.f49036a.getString("version", "0");
+        return this.f49428a.getString("version", "0");
     }
 
     public void c(f fVar) {
         if (fVar != null) {
-            this.f49036a.edit().putString("version", fVar.c()).apply();
+            this.f49428a.edit().putString("version", fVar.c()).apply();
         }
     }
 

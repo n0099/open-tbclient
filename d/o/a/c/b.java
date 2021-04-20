@@ -1,7 +1,7 @@
 package d.o.a.c;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface b {
     int a(byte[] bArr, int i, int i2) throws IOException;
 

@@ -10,13 +10,13 @@ import java.util.HashMap;
 public final class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f49448b;
+    public static g f49840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, d.b.h.a.k.e<String, Integer>> f49449c = new HashMap<>();
+    public static HashMap<String, d.b.h.a.k.e<String, Integer>> f49841c = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49450a;
+    public Context f49842a;
 
     public g() {
         new LongSparseArray();
@@ -28,10 +28,10 @@ public final class g {
     public static synchronized g c() {
         g gVar;
         synchronized (g.class) {
-            if (f49448b == null) {
-                f49448b = new g();
+            if (f49840b == null) {
+                f49840b = new g();
             }
-            gVar = f49448b;
+            gVar = f49840b;
         }
         return gVar;
     }
@@ -39,10 +39,10 @@ public final class g {
     @Deprecated
     public static int d(String str, String str2) {
         a(str2, str);
-        d.b.h.a.k.e<String, Integer> eVar = f49449c.get(str);
+        d.b.h.a.k.e<String, Integer> eVar = f49841c.get(str);
         if (eVar == null) {
             eVar = new d.b.h.a.k.e<>(100);
-            f49449c.put(str, eVar);
+            f49841c.put(str, eVar);
         }
         Integer c2 = eVar.c(str2);
         if (c2 == null) {
@@ -62,10 +62,10 @@ public final class g {
     }
 
     public final Context b() {
-        if (this.f49450a == null) {
-            this.f49450a = BdCore.b().a();
+        if (this.f49842a == null) {
+            this.f49842a = BdCore.b().a();
         }
-        Context context = this.f49450a;
+        Context context = this.f49842a;
         if (context != null) {
             return context;
         }

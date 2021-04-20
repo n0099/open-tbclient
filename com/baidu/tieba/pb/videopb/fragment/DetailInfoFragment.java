@@ -25,26 +25,27 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbViewModel;
-import d.b.b.e.p.l;
-import d.b.i0.c2.h.e;
-import d.b.i0.c3.h0.o;
+import d.b.c.e.p.l;
+import d.b.i0.d2.h.e;
+import d.b.i0.d2.o.h;
+import d.b.i0.d3.h0.o;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
+/* loaded from: classes3.dex */
+public class DetailInfoFragment extends BaseFragment implements h {
 
     /* renamed from: e  reason: collision with root package name */
-    public PbActivity f20083e;
+    public PbActivity f19771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoPbFragment f20084f;
+    public VideoPbFragment f19772f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdTypeRecyclerView f20085g;
+    public BdTypeRecyclerView f19773g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbListView f20086h;
+    public PbListView f19774h;
     public VideoPbViewModel i;
-    public d.b.i0.c2.o.f.a j;
+    public d.b.i0.d2.o.m.a j;
     public String l;
     public String m;
     public int k = 0;
@@ -52,7 +53,7 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
     public CustomMessageListener o = new b(2016488);
     public CustomMessageListener p = new c(2016331);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.OnScrollListener {
         public a() {
         }
@@ -60,10 +61,10 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
-            if (i == 1 && DetailInfoFragment.this.f20084f != null) {
-                DetailInfoFragment.this.f20084f.V3();
+            if (i == 1 && DetailInfoFragment.this.f19772f != null) {
+                DetailInfoFragment.this.f19772f.j4();
             }
-            if (i != 0 || recyclerView.canScrollVertically(-1) || DetailInfoFragment.this.f20084f == null || DetailInfoFragment.this.f20084f.z3()) {
+            if (i != 0 || recyclerView.canScrollVertically(-1) || DetailInfoFragment.this.f19772f == null || DetailInfoFragment.this.f19772f.E3()) {
                 return;
             }
             DetailInfoFragment.this.i.t(true);
@@ -74,24 +75,24 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
             MutableLiveData<Boolean> e2;
             super.onScrolled(recyclerView, i, i2);
             boolean canScrollVertically = recyclerView.canScrollVertically(-1);
-            if (canScrollVertically && i2 > 0 && DetailInfoFragment.this.f20084f != null && !DetailInfoFragment.this.f20084f.z3() && ((e2 = DetailInfoFragment.this.i.e()) == null || e2.getValue() == null || e2.getValue().booleanValue())) {
+            if (canScrollVertically && i2 > 0 && DetailInfoFragment.this.f19772f != null && !DetailInfoFragment.this.f19772f.E3() && ((e2 = DetailInfoFragment.this.i.e()) == null || e2.getValue() == null || e2.getValue().booleanValue())) {
                 DetailInfoFragment.this.i.t(false);
             }
             if (!canScrollVertically) {
-                if (Math.abs(i2) > 0 && DetailInfoFragment.this.k != 0 && DetailInfoFragment.this.f20084f != null) {
-                    DetailInfoFragment.this.f20084f.l4(8);
+                if (Math.abs(i2) > 0 && DetailInfoFragment.this.k != 0 && DetailInfoFragment.this.f19772f != null) {
+                    DetailInfoFragment.this.f19772f.z4(8);
                 }
                 DetailInfoFragment.this.k = 0;
                 return;
             }
-            if (Math.abs(i2) > 0 && DetailInfoFragment.this.f20084f != null && DetailInfoFragment.this.k == 0) {
-                DetailInfoFragment.this.f20084f.l4(0);
+            if (Math.abs(i2) > 0 && DetailInfoFragment.this.f19772f != null && DetailInfoFragment.this.k == 0) {
+                DetailInfoFragment.this.f19772f.z4(0);
             }
             DetailInfoFragment.this.k = 2;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -110,7 +111,7 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -132,19 +133,19 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
         Bundle bundle = new Bundle();
         DetailInfoFragment detailInfoFragment = new DetailInfoFragment();
         detailInfoFragment.setArguments(bundle);
-        detailInfoFragment.f20084f = videoPbFragment;
+        detailInfoFragment.f19772f = videoPbFragment;
         return detailInfoFragment;
     }
 
     public VideoPbFragment I() {
         PbActivity pbActivity;
-        if (this.f20084f == null && (pbActivity = this.f20083e) != null) {
+        if (this.f19772f == null && (pbActivity = this.f19771e) != null) {
             Fragment findFragment = pbActivity.findFragment();
             if (findFragment instanceof VideoPbFragment) {
-                this.f20084f = (VideoPbFragment) findFragment;
+                this.f19772f = (VideoPbFragment) findFragment;
             }
         }
-        return this.f20084f;
+        return this.f19772f;
     }
 
     public final void K0(e eVar) {
@@ -164,10 +165,10 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        List<o> U = L().y0().U();
-        for (o oVar : U) {
-            if (TextUtils.equals(str, oVar.A0())) {
-                U.remove(oVar);
+        List<o> V = L().y0().V();
+        for (o oVar : V) {
+            if (TextUtils.equals(str, oVar.C0())) {
+                V.remove(oVar);
                 return;
             }
         }
@@ -178,7 +179,7 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
     }
 
     public final void N0() {
-        PbListView pbListView = this.f20086h;
+        PbListView pbListView = this.f19774h;
         if (pbListView != null) {
             pbListView.j();
         }
@@ -186,29 +187,32 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
 
     public final void O0(View view) {
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view.findViewById(R.id.pb_detail_info_list);
-        this.f20085g = bdTypeRecyclerView;
+        this.f19773g = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.f20085g.addOnScrollListener(this.n);
-        this.f20085g.setOnTouchListener(I().Y2());
+        this.f19773g.addOnScrollListener(this.n);
+        this.f19773g.setOnTouchListener(I().a3());
         PbListView pbListView = new PbListView(getContext());
-        this.f20086h = pbListView;
+        this.f19774h = pbListView;
         pbListView.b();
-        this.f20086h.A("");
-        this.f20086h.o(R.color.CAM_X0205);
-        this.f20086h.v();
-        this.f20086h.C(SkinManager.getColor(R.color.CAM_X0107));
-        this.f20086h.E(R.dimen.tbfontsize33);
-        this.f20086h.y(R.color.CAM_X0110);
-        this.f20086h.r(l.g(getContext(), R.dimen.tbds182));
-        this.f20086h.q();
-        this.f20085g.setNextPage(this.f20086h);
-        this.j = new d.b.i0.c2.o.f.a(this, this.f20085g);
-        this.f20084f.b4(8);
+        this.f19774h.A("");
+        this.f19774h.o(R.color.CAM_X0205);
+        this.f19774h.v();
+        this.f19774h.C(SkinManager.getColor(R.color.CAM_X0107));
+        this.f19774h.E(R.dimen.tbfontsize33);
+        this.f19774h.y(R.color.CAM_X0110);
+        this.f19774h.r(l.g(getContext(), R.dimen.tbds182));
+        this.f19774h.q();
+        this.f19773g.setNextPage(this.f19774h);
+        this.j = new d.b.i0.d2.o.m.a(this, this.f19773g);
+        if (L() == null || L().Y0()) {
+            return;
+        }
+        this.f19772f.p4(8);
     }
 
     public PbActivity P() {
-        PbActivity pbActivity = this.f20083e;
-        return pbActivity != null ? pbActivity : this.f20084f.P();
+        PbActivity pbActivity = this.f19771e;
+        return pbActivity != null ? pbActivity : this.f19772f.P();
     }
 
     public void P0() {
@@ -229,7 +233,7 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
             return;
         }
         N0();
-        this.f20086h.A(getString(R.string.recommend_no_more_data));
+        this.f19774h.A(getString(R.string.recommend_no_more_data));
     }
 
     public final void S0() {
@@ -260,21 +264,21 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
     }
 
     public void U0(boolean z) {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f20085g;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f19773g;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.setCanFling(z);
         }
     }
 
     public void V0() {
-        d.b.i0.c2.o.f.a aVar = this.j;
+        d.b.i0.d2.o.m.a aVar = this.j;
         if (aVar != null) {
             aVar.m();
         }
     }
 
     public final void W0() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f20085g;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f19773g;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.scrollToPosition(0);
         }
@@ -282,7 +286,7 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
     }
 
     public final void X0() {
-        PbListView pbListView = this.f20086h;
+        PbListView pbListView = this.f19774h;
         if (pbListView != null) {
             pbListView.G(getString(R.string.no_relevant_content), R.drawable.new_pic_emotion_08, l.g(TbadkApplication.getInst(), R.dimen.tbds256));
         }
@@ -301,18 +305,18 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof PbActivity) {
-            this.f20083e = (PbActivity) context;
+            this.f19771e = (PbActivity) context;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.c2.o.f.a aVar = this.j;
+        d.b.i0.d2.o.m.a aVar = this.j;
         if (aVar != null) {
             aVar.l();
         }
-        PbListView pbListView = this.f20086h;
+        PbListView pbListView = this.f19774h;
         if (pbListView != null) {
             pbListView.d(i);
         }
@@ -347,7 +351,7 @@ public class DetailInfoFragment extends BaseFragment implements d.b.i0.c2.o.a {
         super.onDestroy();
     }
 
-    @Override // d.b.i0.c2.o.a
+    @Override // d.b.i0.d2.o.h
     public void t0(boolean z, int i, int i2, int i3, e eVar, String str, int i4) {
         if (eVar == null || getActivity() == null) {
             return;

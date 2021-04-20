@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.AppData;
-import d.b.b.e.p.a;
-import d.b.i0.r2.b0.g;
-import d.b.i0.r2.s;
+import d.b.c.e.p.a;
+import d.b.i0.s2.f0.g;
+import d.b.i0.s2.v;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
     public static final String KEY_GOODS = "goods";
     public static final String KEY_LEGO = "lego_card";
@@ -68,7 +68,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str2 = g.f59771a.get(Integer.valueOf(appData.mDiscardReason));
+                    String str2 = g.f61690a.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "未知原因";
                     }
@@ -113,7 +113,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
         this.mContent.setMovementMethod(new ScrollingMovementMethod());
         this.mContent.setText("没刷到广告~ 换个姿势试试！");
-        this.mAdDatas = s.o().n();
+        this.mAdDatas = v.p().o();
         initLayout();
     }
 }

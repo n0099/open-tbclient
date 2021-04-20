@@ -14,22 +14,22 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import d.b.b.e.p.k;
-import d.b.i0.i3.d.c;
+import d.b.c.e.p.k;
+import d.b.i0.j3.d.c;
 /* loaded from: classes5.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21584e;
+    public Context f21269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21585f;
+    public View f21270f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadPendantView f21586g;
+    public HeadPendantView f21271g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f21587h;
+    public TbImageView f21272h;
     public ImageView i;
     public TextView j;
     public DressItemData k;
@@ -54,7 +54,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
 
     public AvatarPendantPerItemView(Context context) {
         super(context);
-        this.f21584e = context;
+        this.f21269e = context;
         d();
     }
 
@@ -66,11 +66,11 @@ public class AvatarPendantPerItemView extends LinearLayout {
         this.k = dressItemData;
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
-            if (this.f21586g.getHeadView() != null) {
-                this.f21586g.getHeadView().W(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+            if (this.f21271g.getHeadView() != null) {
+                this.f21271g.getHeadView().W(String.valueOf(R.drawable.pic_shop_woman), 24, false);
             }
-        } else if (this.f21586g.getHeadView() != null) {
-            this.f21586g.getHeadView().W(String.valueOf(R.drawable.pic_shop_man), 24, false);
+        } else if (this.f21271g.getHeadView() != null) {
+            this.f21271g.getHeadView().W(String.valueOf(R.drawable.pic_shop_man), 24, false);
         }
         if (k.byteLength(dressItemData.getTitle()) > 8) {
             this.j.setText(k.cutString(dressItemData.getTitle(), 8));
@@ -83,30 +83,30 @@ public class AvatarPendantPerItemView extends LinearLayout {
         } else {
             this.i.setVisibility(8);
         }
-        this.f21587h.W(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f21586g.l(dressItemData.getExampleImgUrl());
-        this.f21586g.setOnClickListener(new a());
-        SkinManager.setBackgroundColor(this.f21585f, R.color.CAM_X0201);
+        this.f21272h.W(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f21271g.l(dressItemData.getExampleImgUrl());
+        this.f21271g.setOnClickListener(new a());
+        SkinManager.setBackgroundColor(this.f21270f, R.color.CAM_X0201);
     }
 
     public final void d() {
-        View inflate = LayoutInflater.from(this.f21584e).inflate(R.layout.avatar_pendant_per_item, this);
-        this.f21585f = inflate;
-        this.f21586g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
-        TbImageView tbImageView = (TbImageView) this.f21585f.findViewById(R.id.permission_icon);
-        this.f21587h = tbImageView;
+        View inflate = LayoutInflater.from(this.f21269e).inflate(R.layout.avatar_pendant_per_item, this);
+        this.f21270f = inflate;
+        this.f21271g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
+        TbImageView tbImageView = (TbImageView) this.f21270f.findViewById(R.id.permission_icon);
+        this.f21272h = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
-        this.f21587h.setDefaultBgResource(R.drawable.transparent_bg);
-        this.i = (ImageView) this.f21585f.findViewById(R.id.choosed_icon);
-        this.j = (TextView) this.f21585f.findViewById(R.id.text_pendant_name);
-        this.f21586g.setHasPendantStyle();
-        if (this.f21586g.getHeadView() != null) {
-            this.f21586g.getHeadView().setIsRound(true);
-            this.f21586g.getHeadView().setDrawBorder(false);
+        this.f21272h.setDefaultBgResource(R.drawable.transparent_bg);
+        this.i = (ImageView) this.f21270f.findViewById(R.id.choosed_icon);
+        this.j = (TextView) this.f21270f.findViewById(R.id.text_pendant_name);
+        this.f21271g.setHasPendantStyle();
+        if (this.f21271g.getHeadView() != null) {
+            this.f21271g.getHeadView().setIsRound(true);
+            this.f21271g.getHeadView().setDrawBorder(false);
         }
-        if (this.f21586g.getPendantView() != null) {
-            this.f21586g.getPendantView().setIsRound(true);
-            this.f21586g.getPendantView().setDrawBorder(false);
+        if (this.f21271g.getPendantView() != null) {
+            this.f21271g.getPendantView().setIsRound(true);
+            this.f21271g.getPendantView().setDrawBorder(false);
         }
     }
 
@@ -116,13 +116,13 @@ public class AvatarPendantPerItemView extends LinearLayout {
 
     public AvatarPendantPerItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21584e = context;
+        this.f21269e = context;
         d();
     }
 
     public AvatarPendantPerItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.f21584e = context;
+        this.f21269e = context;
         d();
     }
 }

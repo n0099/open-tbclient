@@ -1,12 +1,12 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.e;
-import f.a.g;
-import f.a.r;
-import f.a.s;
-import f.a.t.a;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.e;
+import f.b.g;
+import f.b.r;
+import f.b.s;
+import f.b.t.a;
+import f.b.t.b;
+import f.b.w.h;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -28,7 +28,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
     public final a set = new a();
     public final AtomicThrowable errors = new AtomicThrowable();
     public final AtomicInteger active = new AtomicInteger(1);
-    public final AtomicReference<f.a.x.f.a<R>> queue = new AtomicReference<>();
+    public final AtomicReference<f.b.x.f.a<R>> queue = new AtomicReference<>();
 
     /* loaded from: classes7.dex */
     public final class InnerObserver extends AtomicReference<b> implements r<R>, b {
@@ -37,27 +37,27 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
         public InnerObserver() {
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             DisposableHelper.dispose(this);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
         }
 
-        @Override // f.a.r
+        @Override // f.b.r
         public void onError(Throwable th) {
             FlowableFlatMapSingle$FlatMapSingleSubscriber.this.innerError(this, th);
         }
 
-        @Override // f.a.r
+        @Override // f.b.r
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
 
-        @Override // f.a.r
+        @Override // f.b.r
         public void onSuccess(R r) {
             FlowableFlatMapSingle$FlatMapSingleSubscriber.this.innerSuccess(this, r);
         }
@@ -78,7 +78,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
     }
 
     public void clear() {
-        f.a.x.f.a<R> aVar = this.queue.get();
+        f.b.x.f.a<R> aVar = this.queue.get();
         if (aVar != null) {
             aVar.clear();
         }
@@ -162,7 +162,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
         if (r10 == 0) goto L71;
      */
     /* JADX WARN: Code restructure failed: missing block: B:66:0x00cc, code lost:
-        f.a.x.i.b.e(r17.requested, r10);
+        f.b.x.i.b.e(r17.requested, r10);
      */
     /* JADX WARN: Code restructure failed: missing block: B:67:0x00d6, code lost:
         if (r17.maxConcurrency == Integer.MAX_VALUE) goto L71;
@@ -182,7 +182,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
     public void drainLoop() {
         c<? super R> cVar = this.actual;
         AtomicInteger atomicInteger = this.active;
-        AtomicReference<f.a.x.f.a<R>> atomicReference = this.queue;
+        AtomicReference<f.b.x.f.a<R>> atomicReference = this.queue;
         int i = 1;
         do {
             long j = this.requested.get();
@@ -202,7 +202,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
                     return;
                 } else {
                     boolean z2 = atomicInteger.get() == 0;
-                    f.a.x.f.a<R> aVar = atomicReference.get();
+                    f.b.x.f.a<R> aVar = atomicReference.get();
                     R poll = aVar != null ? aVar.poll() : (Object) null;
                     boolean z3 = poll == null;
                     if (z2 && z3) {
@@ -225,14 +225,14 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
         } while (i != 0);
     }
 
-    public f.a.x.f.a<R> getOrCreateQueue() {
-        f.a.x.f.a<R> aVar;
+    public f.b.x.f.a<R> getOrCreateQueue() {
+        f.b.x.f.a<R> aVar;
         do {
-            f.a.x.f.a<R> aVar2 = this.queue.get();
+            f.b.x.f.a<R> aVar2 = this.queue.get();
             if (aVar2 != null) {
                 return aVar2;
             }
-            aVar = new f.a.x.f.a<>(e.a());
+            aVar = new f.b.x.f.a<>(e.a());
         } while (!this.queue.compareAndSet(null, aVar));
         return aVar;
     }
@@ -250,7 +250,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     public void innerSuccess(FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R>.InnerObserver innerObserver, R r) {
@@ -260,7 +260,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
                 boolean z = this.active.decrementAndGet() == 0;
                 if (this.requested.get() != 0) {
                     this.actual.onNext(r);
-                    f.a.x.f.a<R> aVar = this.queue.get();
+                    f.b.x.f.a<R> aVar = this.queue.get();
                     if (z && (aVar == null || aVar.isEmpty())) {
                         Throwable terminate = this.errors.terminate();
                         if (terminate != null) {
@@ -271,12 +271,12 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
                             return;
                         }
                     }
-                    f.a.x.i.b.e(this.requested, 1L);
+                    f.b.x.i.b.e(this.requested, 1L);
                     if (this.maxConcurrency != Integer.MAX_VALUE) {
                         this.s.request(1L);
                     }
                 } else {
-                    f.a.x.f.a<R> orCreateQueue = getOrCreateQueue();
+                    f.b.x.f.a<R> orCreateQueue = getOrCreateQueue();
                     synchronized (orCreateQueue) {
                         orCreateQueue.offer(r);
                     }
@@ -287,7 +287,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
                 drainLoop();
             }
         }
-        f.a.x.f.a<R> orCreateQueue2 = getOrCreateQueue();
+        f.b.x.f.a<R> orCreateQueue2 = getOrCreateQueue();
         synchronized (orCreateQueue2) {
             orCreateQueue2.offer(r);
         }
@@ -314,14 +314,14 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     @Override // g.d.c
     public void onNext(T t) {
         try {
             s<? extends R> apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The mapper returned a null SingleSource");
+            f.b.x.b.a.b(apply, "The mapper returned a null SingleSource");
             s<? extends R> sVar = apply;
             this.active.getAndIncrement();
             InnerObserver innerObserver = new InnerObserver();
@@ -330,13 +330,13 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
             }
             sVar.a(innerObserver);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.s.cancel();
             onError(th);
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
@@ -353,7 +353,7 @@ public final class FlowableFlatMapSingle$FlatMapSingleSubscriber<T, R> extends A
     @Override // g.d.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
-            f.a.x.i.b.a(this.requested, j);
+            f.b.x.i.b.a(this.requested, j);
             drain();
         }
     }

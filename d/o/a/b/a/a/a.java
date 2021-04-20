@@ -1,77 +1,77 @@
 package d.o.a.b.a.a;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements d.o.a.a.a.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f66391a;
+    public int f67384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66392b;
+    public int f67385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f66393c;
+    public boolean f67386c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66394d;
+    public boolean f67387d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f66395e;
+    public boolean f67388e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f66396f;
+    public boolean f67389f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f66397g;
+    public boolean f67390g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f66398h;
+    public Object f67391h;
     public Object i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66399a;
+        public int f67392a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66400b;
+        public int f67393b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f66401c;
+        public boolean f67394c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f66402d;
+        public boolean f67395d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f66403e;
+        public Object f67396e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f66404f;
+        public boolean f67397f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f66405g;
+        public int f67398g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f66406h;
+        public JSONObject f67399h;
         public Object i;
         public boolean k;
         public boolean j = true;
         public boolean l = true;
 
         public b b(int i) {
-            this.f66399a = i;
+            this.f67392a = i;
             return this;
         }
 
         public b c(Object obj) {
-            this.f66403e = obj;
+            this.f67396e = obj;
             return this;
         }
 
         public b d(boolean z) {
-            this.f66401c = z;
+            this.f67394c = z;
             return this;
         }
 
@@ -80,12 +80,12 @@ public class a implements d.o.a.a.a.c.b {
         }
 
         public b g(int i) {
-            this.f66400b = i;
+            this.f67393b = i;
             return this;
         }
 
         public b h(boolean z) {
-            this.f66402d = z;
+            this.f67395d = z;
             return this;
         }
 
@@ -95,7 +95,7 @@ public class a implements d.o.a.a.a.c.b {
         }
 
         public b k(boolean z) {
-            this.f66404f = z;
+            this.f67397f = z;
             return this;
         }
 
@@ -107,68 +107,68 @@ public class a implements d.o.a.a.a.c.b {
 
     @Override // d.o.a.a.a.c.b
     public int a() {
-        return this.f66391a;
+        return this.f67384a;
     }
 
     @Override // d.o.a.a.a.c.b
     public int b() {
-        return this.f66392b;
+        return this.f67385b;
     }
 
     @Override // d.o.a.a.a.c.b
     public boolean c() {
-        return this.f66393c;
+        return this.f67386c;
     }
 
     @Override // d.o.a.a.a.c.b
     public boolean d() {
-        return this.f66394d;
+        return this.f67387d;
     }
 
     @Override // d.o.a.a.a.c.b
     public boolean e() {
-        return this.f66395e;
+        return this.f67388e;
     }
 
     @Override // d.o.a.a.a.c.b
     public boolean f() {
-        return this.f66396f;
+        return this.f67389f;
     }
 
     @Override // d.o.a.a.a.c.b
     public boolean g() {
-        return this.f66397g;
+        return this.f67390g;
     }
 
     public a(b bVar) {
-        this.f66395e = true;
-        this.f66397g = true;
-        this.f66391a = bVar.f66399a;
-        this.f66392b = bVar.f66400b;
-        this.f66393c = bVar.f66401c;
-        this.f66394d = bVar.f66402d;
-        this.f66398h = bVar.f66403e;
-        boolean unused = bVar.f66404f;
-        int unused2 = bVar.f66405g;
-        JSONObject unused3 = bVar.f66406h;
+        this.f67388e = true;
+        this.f67390g = true;
+        this.f67384a = bVar.f67392a;
+        this.f67385b = bVar.f67393b;
+        this.f67386c = bVar.f67394c;
+        this.f67387d = bVar.f67395d;
+        this.f67391h = bVar.f67396e;
+        boolean unused = bVar.f67397f;
+        int unused2 = bVar.f67398g;
+        JSONObject unused3 = bVar.f67399h;
         this.i = bVar.i;
-        this.f66395e = bVar.j;
-        this.f66396f = bVar.k;
-        this.f66397g = bVar.l;
+        this.f67388e = bVar.j;
+        this.f67389f = bVar.k;
+        this.f67390g = bVar.l;
     }
 
     @Override // d.o.a.a.a.c.b
     public void a(int i) {
-        this.f66392b = i;
+        this.f67385b = i;
     }
 
     @Override // d.o.a.a.a.c.b
     public void b(int i) {
-        this.f66391a = i;
+        this.f67384a = i;
     }
 
     @Override // d.o.a.a.a.c.b
     public void a(boolean z) {
-        this.f66397g = z;
+        this.f67390g = z;
     }
 }

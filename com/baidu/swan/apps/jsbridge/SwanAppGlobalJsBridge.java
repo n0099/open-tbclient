@@ -21,16 +21,16 @@ public class SwanAppGlobalJsBridge extends d.b.g0.a.x0.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12229e;
+        public final /* synthetic */ String f11890e;
 
         public a(String str) {
-            this.f12229e = str;
+            this.f11890e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
-            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f12229e);
+            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f11890e);
         }
     }
 

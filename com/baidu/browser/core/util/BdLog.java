@@ -2,6 +2,7 @@ package com.baidu.browser.core.util;
 
 import android.os.Environment;
 import android.util.Log;
+import com.baidu.android.util.io.PathUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.io.File;
@@ -10,19 +11,19 @@ import java.io.FileOutputStream;
 public final class BdLog {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4307a = true;
+    public static boolean f4342a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f4308b = null;
+    public static FileOutputStream f4343b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4309c = false;
+    public static boolean f4344c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4310d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    public static String f4345d = Environment.getExternalStorageDirectory() + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f4311e;
+    public static String f4346e;
 
     /* loaded from: classes.dex */
     public enum LogLevel {
@@ -37,29 +38,29 @@ public final class BdLog {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4312a;
+        public static final /* synthetic */ int[] f4347a;
 
         static {
             int[] iArr = new int[LogLevel.values().length];
-            f4312a = iArr;
+            f4347a = iArr;
             try {
                 iArr[LogLevel.DEBUG.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f4312a[LogLevel.ERROR.ordinal()] = 2;
+                f4347a[LogLevel.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f4312a[LogLevel.INFO.ordinal()] = 3;
+                f4347a[LogLevel.INFO.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f4312a[LogLevel.VERBOSE.ordinal()] = 4;
+                f4347a[LogLevel.VERBOSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f4312a[LogLevel.WARN.ordinal()] = 5;
+                f4347a[LogLevel.WARN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -67,11 +68,11 @@ public final class BdLog {
 
     static {
         StringBuilder sb = new StringBuilder();
-        sb.append(f4310d);
+        sb.append(f4345d);
         sb.append("baiduliulanqi_log.txt");
-        f4311e = sb.toString();
+        f4346e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f4310d);
+        sb2.append(f4345d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -83,7 +84,7 @@ public final class BdLog {
         if (str2 == null) {
             str2 = "";
         }
-        int i = a.f4312a[logLevel.ordinal()];
+        int i = a.f4347a[logLevel.ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
@@ -115,7 +116,7 @@ public final class BdLog {
         } else {
             Log.d(str, str2, th);
         }
-        if (f4309c) {
+        if (f4344c) {
             d(str, str2);
         }
     }
@@ -127,15 +128,15 @@ public final class BdLog {
     public static void d(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f4310d);
+                File file = new File(f4345d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f4308b == null) {
-                    f4308b = new FileOutputStream(f4311e);
+                if (f4343b == null) {
+                    f4343b = new FileOutputStream(f4346e);
                 }
-                f4308b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f4308b.write("\n".getBytes());
+                f4343b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                f4343b.write("\n".getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -143,10 +144,10 @@ public final class BdLog {
     }
 
     public static boolean e() {
-        return f4307a;
+        return f4342a;
     }
 
     public static void f(boolean z) {
-        f4307a = z;
+        f4342a = z;
     }
 }

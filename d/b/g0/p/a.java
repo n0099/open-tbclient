@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes3.dex */
 public class a {
@@ -67,7 +68,7 @@ public class a {
                 case 12:
                 case 14:
                 case 15:
-                    return com.baidu.apollon.statistics.g.f3874b;
+                    return com.baidu.apollon.statistics.g.f3909b;
                 case 13:
                     return "4G";
                 default:
@@ -83,6 +84,6 @@ public class a {
 
     public static String g() {
         String str = Build.VERSION.RELEASE;
-        return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+        return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
     }
 }

@@ -98,7 +98,7 @@ public class VodClient extends AbstractBceClient {
 
     public ProcessMediaResponse processMedia(ProcessMediaRequest processMediaRequest) {
         InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, PATH_MEDIA, processMediaRequest.getMediaId());
-        createRequest.addParameter(PARA_PROCESS, null);
+        createRequest.addParameter("process", null);
         return (ProcessMediaResponse) invokeHttpClient(createRequest, ProcessMediaResponse.class);
     }
 

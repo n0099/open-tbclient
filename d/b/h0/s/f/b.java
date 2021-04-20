@@ -3,29 +3,29 @@ package d.b.h0.s.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51352a;
+    public String f51769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f51353b;
+    public long f51770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51354c;
+    public int f51771c;
 
     public b(String str, long j, int i) {
-        this.f51352a = str;
-        this.f51353b = j;
-        this.f51354c = i;
+        this.f51769a = str;
+        this.f51770b = j;
+        this.f51771c = i;
     }
 
     public String a() {
-        return this.f51352a;
+        return this.f51769a;
     }
 
     public int b() {
-        return this.f51354c;
+        return this.f51771c;
     }
 
     public long c() {
-        return this.f51353b;
+        return this.f51770b;
     }
 }

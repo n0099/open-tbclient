@@ -6,39 +6,39 @@ import android.os.Looper;
 public class m extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f6348a;
+    public Handler f6383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f6349b;
+    public Object f6384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6350c;
+    public boolean f6385c;
 
     public m() {
-        this.f6348a = null;
-        this.f6349b = new Object();
-        this.f6350c = false;
+        this.f6383a = null;
+        this.f6384b = new Object();
+        this.f6385c = false;
     }
 
     public m(String str) {
         super(str);
-        this.f6348a = null;
-        this.f6349b = new Object();
-        this.f6350c = false;
+        this.f6383a = null;
+        this.f6384b = new Object();
+        this.f6385c = false;
     }
 
     public void a() {
-        if (a.f6322a) {
+        if (a.f6357a) {
             a.a("Looper thread quit()");
         }
-        this.f6348a.getLooper().quit();
+        this.f6383a.getLooper().quit();
     }
 
     public void b() {
-        synchronized (this.f6349b) {
+        synchronized (this.f6384b) {
             try {
-                if (!this.f6350c) {
-                    this.f6349b.wait();
+                if (!this.f6385c) {
+                    this.f6384b.wait();
                 }
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
@@ -47,21 +47,21 @@ public class m extends Thread {
     }
 
     public void c() {
-        synchronized (this.f6349b) {
-            this.f6350c = true;
-            this.f6349b.notifyAll();
+        synchronized (this.f6384b) {
+            this.f6385c = true;
+            this.f6384b.notifyAll();
         }
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Looper.prepare();
-        this.f6348a = new Handler();
-        if (a.f6322a) {
+        this.f6383a = new Handler();
+        if (a.f6357a) {
             a.a("new Handler() finish!!");
         }
         Looper.loop();
-        if (a.f6322a) {
+        if (a.f6357a) {
             a.a("LooperThread run() thread id:" + String.valueOf(Thread.currentThread().getId()));
         }
     }

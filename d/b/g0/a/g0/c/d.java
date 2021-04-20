@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Uri f44494a;
+    public static Uri f44886a;
 
     public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -21,10 +21,10 @@ public class d {
     public static synchronized Uri b() {
         Uri uri;
         synchronized (d.class) {
-            if (f44494a == null) {
-                f44494a = b.f44492c.buildUpon().appendPath("user_behavior").build();
+            if (f44886a == null) {
+                f44886a = b.f44884c.buildUpon().appendPath("user_behavior").build();
             }
-            uri = f44494a;
+            uri = f44886a;
         }
         return uri;
     }

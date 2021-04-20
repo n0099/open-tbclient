@@ -19,7 +19,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static final boolean DEBUG = LLog.sDebug;
     public static boolean sInit = false;
     public static Context sContext = null;
-    public static d.b.o.a.b sNativeCrashHandler = null;
+    public static d.b.n.a.b sNativeCrashHandler = null;
 
     /* loaded from: classes.dex */
     public static class a extends Thread {
@@ -35,7 +35,7 @@ public class NativeCrashCapture implements NoProGuard {
 
     public static void beginNativeCrash() {
         if (Build.VERSION.SDK_INT > 19) {
-            d.b.o.a.b bVar = sNativeCrashHandler;
+            d.b.n.a.b bVar = sNativeCrashHandler;
             if (bVar != null) {
                 bVar.d();
                 return;
@@ -45,13 +45,13 @@ public class NativeCrashCapture implements NoProGuard {
         if (DEBUG) {
             Log.d(TAG, "beginNativeCrash");
         }
-        d.b.o.a.b bVar2 = sNativeCrashHandler;
+        d.b.n.a.b bVar2 = sNativeCrashHandler;
         if (bVar2 != null) {
             bVar2.d();
         }
     }
 
-    public static void init(@NonNull Context context, @NonNull d.b.o.a.b bVar, boolean z) {
+    public static void init(@NonNull Context context, @NonNull d.b.n.a.b bVar, boolean z) {
         if (sInit || bVar == null || context == null) {
             return;
         }
@@ -69,7 +69,7 @@ public class NativeCrashCapture implements NoProGuard {
             }
             nativeInit(Build.VERSION.SDK_INT);
             if (z) {
-                d.b.o.a.a.a();
+                d.b.n.a.a.a();
             }
             file.delete();
             if (DEBUG) {
@@ -128,7 +128,7 @@ public class NativeCrashCapture implements NoProGuard {
 
     public static void uncaughtNativeCrash(String str, int i, int i2) {
         if (Build.VERSION.SDK_INT > 19) {
-            d.b.o.a.b bVar = sNativeCrashHandler;
+            d.b.n.a.b bVar = sNativeCrashHandler;
             if (bVar != null) {
                 bVar.i(str, i, i2);
                 return;
@@ -138,7 +138,7 @@ public class NativeCrashCapture implements NoProGuard {
         if (DEBUG) {
             Log.d(TAG, "uncaughtNativeCrash");
         }
-        d.b.o.a.b bVar2 = sNativeCrashHandler;
+        d.b.n.a.b bVar2 = sNativeCrashHandler;
         if (bVar2 != null) {
             bVar2.i(str, i, i2);
         }

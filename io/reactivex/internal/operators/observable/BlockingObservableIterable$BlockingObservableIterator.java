@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.x.f.a;
-import f.a.x.i.c;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.f.a;
+import f.b.x.i.c;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.Iterator;
@@ -28,7 +28,7 @@ public final class BlockingObservableIterable$BlockingObservableIterator<T> exte
         this.condition = reentrantLock.newCondition();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
@@ -65,7 +65,7 @@ public final class BlockingObservableIterable$BlockingObservableIterator<T> exte
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
@@ -78,26 +78,26 @@ public final class BlockingObservableIterable$BlockingObservableIterator<T> exte
         throw new NoSuchElementException();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.done = true;
         signalConsumer();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         signalConsumer();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         this.queue.offer(t);
         signalConsumer();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }

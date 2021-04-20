@@ -14,31 +14,31 @@ import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.x0.a f46949a;
+    public d.b.g0.a.x0.a f47341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.x0.a f46950b;
+    public d.b.g0.a.x0.a f47342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppUtilsJavaScriptInterface f46951c;
+    public SwanAppUtilsJavaScriptInterface f47343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.t.a f46952d;
+    public d.b.g0.a.t.a f47344d;
 
     public void a(Activity activity) {
-        d.b.g0.a.x0.a aVar = this.f46949a;
+        d.b.g0.a.x0.a aVar = this.f47341a;
         if (aVar != null) {
             aVar.setActivityRef(activity);
         }
-        d.b.g0.a.x0.a aVar2 = this.f46950b;
+        d.b.g0.a.x0.a aVar2 = this.f47342b;
         if (aVar2 != null) {
             aVar2.setActivityRef(activity);
         }
-        SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.f46951c;
+        SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.f47343c;
         if (swanAppUtilsJavaScriptInterface != null) {
             swanAppUtilsJavaScriptInterface.setActivity(activity);
         }
-        d.b.g0.a.t.a aVar3 = this.f46952d;
+        d.b.g0.a.t.a aVar3 = this.f47344d;
         if (aVar3 != null) {
             aVar3.i(activity);
         }
@@ -46,10 +46,10 @@ public class a {
 
     public final void b(d.b.g0.a.e0.k.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, @NonNull d.b.g0.a.t.a aVar2) {
         SwanAppGlobalJsBridge swanAppGlobalJsBridge = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        this.f46949a = swanAppGlobalJsBridge;
+        this.f47341a = swanAppGlobalJsBridge;
         aVar.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
         SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        this.f46950b = swanAppJsBridge;
+        this.f47342b = swanAppJsBridge;
         aVar.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
         aVar.addJavascriptInterface(new SwanAppPreloadJsBridge(aVar), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
         aVar2.b(aVar);
@@ -57,9 +57,9 @@ public class a {
 
     public final void c(@NonNull d.b.g0.a.e0.k.a aVar, Context context, @NonNull d.b.g0.a.t.a aVar2) {
         SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.f46951c = swanAppUtilsJavaScriptInterface;
+        this.f47343c = swanAppUtilsJavaScriptInterface;
         swanAppUtilsJavaScriptInterface.setSource("swan_");
-        aVar.addJavascriptInterface(this.f46951c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        aVar.addJavascriptInterface(this.f47343c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
         aVar2.a(aVar);
     }
 
@@ -72,10 +72,10 @@ public class a {
             return;
         }
         d.b.g0.a.t.a aVar2 = new d.b.g0.a.t.a(context, callbackHandler, aVar);
-        this.f46952d = aVar2;
+        this.f47344d = aVar2;
         b(aVar, context, callbackHandler, unitedSchemeMainDispatcher, aVar2);
         if (aVar instanceof d.b.g0.g.i.b) {
-            c(aVar, context, this.f46952d);
+            c(aVar, context, this.f47344d);
         } else {
             d(aVar);
         }
@@ -83,9 +83,9 @@ public class a {
 
     public void f(Context context, d.b.g0.a.e0.k.a aVar) {
         SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.f46951c = swanAppUtilsJavaScriptInterface;
+        this.f47343c = swanAppUtilsJavaScriptInterface;
         swanAppUtilsJavaScriptInterface.setSource("swan_");
-        aVar.addJavascriptInterface(this.f46951c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-        this.f46951c.setForceShareLight(true);
+        aVar.addJavascriptInterface(this.f47343c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.f47343c.setForceShareLight(true);
     }
 }

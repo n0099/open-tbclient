@@ -2,25 +2,25 @@ package d.d.a.a.b;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DisplayMetrics f65942a;
+    public static DisplayMetrics f66787a;
 
     public static int a(Context context) {
         c(context);
-        return f65942a.heightPixels;
+        return f66787a.heightPixels;
     }
 
     public static int b(Context context) {
         c(context);
-        return f65942a.widthPixels;
+        return f66787a.widthPixels;
     }
 
     public static void c(Context context) {
-        if (f65942a == null) {
-            f65942a = context.getResources().getDisplayMetrics();
+        if (f66787a == null) {
+            f66787a = context.getResources().getDisplayMetrics();
         }
     }
 }

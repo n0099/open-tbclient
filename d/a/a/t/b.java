@@ -1,152 +1,131 @@
 package d.a.a.t;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.view.View;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.core.util.Pair;
-import com.airbnb.lottie.network.FileExtension;
-import d.a.a.c;
-import d.a.a.d;
-import d.a.a.e;
-import d.a.a.k;
-import d.a.a.l;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import d.a.a.g;
+import d.a.a.x.d;
+import d.a.a.x.h;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.concurrent.Callable;
-import java.util.zip.ZipInputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
 
+    /* renamed from: e  reason: collision with root package name */
+    public static final Object f41626e = new Object();
+
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41422a;
+    public final Context f41627a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41423b;
+    public String f41628b;
+    @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.t.a f41424c;
+    public d.a.a.b f41629c;
 
-    /* loaded from: classes.dex */
-    public class a implements Callable<k<d>> {
-        public a() {
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<String, g> f41630d;
+
+    public b(Drawable.Callback callback, String str, d.a.a.b bVar, Map<String, g> map) {
+        String str2;
+        this.f41628b = str;
+        if (!TextUtils.isEmpty(str)) {
+            if (this.f41628b.charAt(str2.length() - 1) != '/') {
+                this.f41628b += '/';
+            }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public k<d> call() throws Exception {
-            return b.this.f();
+        if (!(callback instanceof View)) {
+            d.c("LottieDrawable must be inside of a view for images to work.");
+            this.f41630d = new HashMap();
+            this.f41627a = null;
+            return;
         }
-    }
-
-    public b(Context context, String str) {
-        Context applicationContext = context.getApplicationContext();
-        this.f41422a = applicationContext;
-        this.f41423b = str;
-        this.f41424c = new d.a.a.t.a(applicationContext, str);
-    }
-
-    public static l<d> b(Context context, String str) {
-        return new b(context, str).a();
-    }
-
-    public final l<d> a() {
-        return new l<>(new a());
+        this.f41627a = ((View) callback).getContext();
+        this.f41630d = map;
+        d(bVar);
     }
 
     @Nullable
-    @WorkerThread
-    public final d c() {
-        k<d> g2;
-        Pair<FileExtension, InputStream> a2 = this.f41424c.a();
-        if (a2 == null) {
+    public Bitmap a(String str) {
+        g gVar = this.f41630d.get(str);
+        if (gVar == null) {
             return null;
         }
-        FileExtension fileExtension = a2.first;
-        InputStream inputStream = a2.second;
-        if (fileExtension == FileExtension.Zip) {
-            g2 = e.n(new ZipInputStream(inputStream), this.f41423b);
-        } else {
-            g2 = e.g(inputStream, this.f41423b);
+        Bitmap a2 = gVar.a();
+        if (a2 != null) {
+            return a2;
         }
-        if (g2.b() != null) {
-            return g2.b();
+        d.a.a.b bVar = this.f41629c;
+        if (bVar != null) {
+            Bitmap a3 = bVar.a(gVar);
+            if (a3 != null) {
+                c(str, a3);
+            }
+            return a3;
         }
-        return null;
-    }
-
-    @WorkerThread
-    public final k<d> d() {
+        String c2 = gVar.c();
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = true;
+        options.inDensity = 160;
+        if (c2.startsWith(WebGLImageLoader.DATA_URL) && c2.indexOf("base64,") > 0) {
+            try {
+                byte[] decode = Base64.decode(c2.substring(c2.indexOf(44) + 1), 0);
+                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
+                c(str, decodeByteArray);
+                return decodeByteArray;
+            } catch (IllegalArgumentException e2) {
+                d.d("data URL did not have correct base64 format.", e2);
+                return null;
+            }
+        }
         try {
-            return e();
-        } catch (IOException e2) {
-            return new k<>(e2);
+            if (!TextUtils.isEmpty(this.f41628b)) {
+                AssetManager assets = this.f41627a.getAssets();
+                Bitmap l = h.l(BitmapFactory.decodeStream(assets.open(this.f41628b + c2), null, options), gVar.f(), gVar.d());
+                c(str, l);
+                return l;
+            }
+            throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
+        } catch (IOException e3) {
+            d.d("Unable to open asset.", e3);
+            return null;
         }
     }
 
-    @WorkerThread
-    public final k e() throws IOException {
-        FileExtension fileExtension;
-        k<d> n;
-        c.b("Fetching " + this.f41423b);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f41423b).openConnection();
-        httpURLConnection.setRequestMethod("GET");
-        httpURLConnection.connect();
-        if (httpURLConnection.getErrorStream() == null && httpURLConnection.getResponseCode() == 200) {
-            String contentType = httpURLConnection.getContentType();
-            char c2 = 65535;
-            int hashCode = contentType.hashCode();
-            if (hashCode != -1248325150) {
-                if (hashCode == -43840953 && contentType.equals("application/json")) {
-                    c2 = 1;
-                }
-            } else if (contentType.equals("application/zip")) {
-                c2 = 0;
-            }
-            if (c2 != 0) {
-                c.b("Received json response.");
-                fileExtension = FileExtension.Json;
-                n = e.g(new FileInputStream(new File(this.f41424c.e(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f41423b);
-            } else {
-                c.b("Handling zip response.");
-                fileExtension = FileExtension.Zip;
-                n = e.n(new ZipInputStream(new FileInputStream(this.f41424c.e(httpURLConnection.getInputStream(), fileExtension))), this.f41423b);
-            }
-            if (n.b() != null) {
-                this.f41424c.d(fileExtension);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("Completed fetch from network. Success: ");
-            sb.append(n.b() != null);
-            c.b(sb.toString());
-            return n;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
-        StringBuilder sb2 = new StringBuilder();
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                sb2.append(readLine);
-                sb2.append('\n');
-            } else {
-                return new k((Throwable) new IllegalArgumentException("Unable to fetch " + this.f41423b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb2)));
-            }
-        }
+    public boolean b(Context context) {
+        return (context == null && this.f41627a == null) || this.f41627a.equals(context);
     }
 
-    @WorkerThread
-    public k<d> f() {
-        d c2 = c();
-        if (c2 != null) {
-            return new k<>(c2);
+    public final Bitmap c(String str, @Nullable Bitmap bitmap) {
+        synchronized (f41626e) {
+            this.f41630d.get(str).g(bitmap);
         }
-        c.b("Animation for " + this.f41423b + " not found in cache. Fetching from network.");
-        return d();
+        return bitmap;
+    }
+
+    public void d(@Nullable d.a.a.b bVar) {
+        this.f41629c = bVar;
+    }
+
+    @Nullable
+    public Bitmap e(String str, @Nullable Bitmap bitmap) {
+        if (bitmap == null) {
+            g gVar = this.f41630d.get(str);
+            Bitmap a2 = gVar.a();
+            gVar.g(null);
+            return a2;
+        }
+        Bitmap a3 = this.f41630d.get(str).a();
+        c(str, bitmap);
+        return a3;
     }
 }

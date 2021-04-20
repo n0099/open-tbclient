@@ -32,13 +32,13 @@ public class LocationProvidersStatic {
             EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
             int indexOf = editorTools.getCollectTools().indexOf(7);
             if (indexOf != -1) {
-                editorTools.d(new d.b.i0.m1.d.b(editorTools.getContext(), indexOf + 1));
+                editorTools.d(new d.b.i0.n1.d.b(editorTools.getContext(), indexOf + 1));
             }
             if (editorTools.getCollectTools().indexOf(8) != -1) {
                 if (editorTools.t()) {
-                    editorTools.d(new d.b.i0.m1.d.a(editorTools.getContext(), true));
+                    editorTools.d(new d.b.i0.n1.d.a(editorTools.getContext(), true));
                 } else {
-                    editorTools.d(new d.b.i0.m1.d.a(editorTools.getContext()));
+                    editorTools.d(new d.b.i0.n1.d.a(editorTools.getContext()));
                 }
             }
         }
@@ -48,7 +48,7 @@ public class LocationProvidersStatic {
     public static class b implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
-            return new CustomResponsedMessage<>(2016556, new d.b.i0.m1.d.b(customMessage.getData(), 0));
+            return new CustomResponsedMessage<>(2016556, new d.b.i0.n1.d.b(customMessage.getData(), 0));
         }
     }
 
@@ -81,13 +81,13 @@ public class LocationProvidersStatic {
     }
 
     static {
-        d.b.b.e.i.a.l().p(d.b.i0.m1.b.t());
+        d.b.c.e.i.a.l().p(d.b.i0.n1.b.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            d.b.b.e.i.a.l().p(d.b.i0.m1.a.j());
+            d.b.c.e.i.a.l().p(d.b.i0.n1.a.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

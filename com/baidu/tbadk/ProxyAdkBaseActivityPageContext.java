@@ -10,7 +10,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.b.c.g.a;
+import d.b.c.c.g.a;
 import d.b.h0.r.c;
 /* loaded from: classes3.dex */
 public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
@@ -20,7 +20,7 @@ public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
         this.activity = proxyAdkBaseActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Context getContext() {
         return this.activity.getActivity();
     }
@@ -31,27 +31,27 @@ public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.tbadk.ProxyAdkBaseActivity<T>, T] */
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public T getOrignalPage() {
         return this.activity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Activity getPageActivity() {
         return this.activity.getActivity();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public Resources getResources() {
         return this.activity.getResources();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public String getString(int i) {
         return getResources().getString(i);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public BdUniqueId getUniqueId() {
         return this.activity.getUniqueId();
     }
@@ -61,7 +61,7 @@ public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
         this.activity.registerListener(aVar);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public void sendMessage(Message<?> message) {
         this.activity.sendMessage(message);
     }
@@ -96,7 +96,7 @@ public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
         this.activity.showToast(str, z);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.b.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
     public void registerListener(MessageListener<?> messageListener) {
         this.activity.registerListener(messageListener);
     }

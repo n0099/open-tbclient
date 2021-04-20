@@ -17,9 +17,9 @@ public final class UnsignedKt {
             }
             double d3 = Integer.MAX_VALUE;
             if (d2 <= d3) {
-                return UInt.m713constructorimpl((int) d2);
+                return UInt.m717constructorimpl((int) d2);
             }
-            return UInt.m713constructorimpl(UInt.m713constructorimpl((int) (d2 - d3)) + UInt.m713constructorimpl(Integer.MAX_VALUE));
+            return UInt.m717constructorimpl(UInt.m717constructorimpl((int) (d2 - d3)) + UInt.m717constructorimpl(Integer.MAX_VALUE));
         }
         return 0;
     }
@@ -31,9 +31,9 @@ public final class UnsignedKt {
                 return -1L;
             }
             if (d2 < Long.MAX_VALUE) {
-                return ULong.m782constructorimpl((long) d2);
+                return ULong.m786constructorimpl((long) d2);
             }
-            return ULong.m782constructorimpl(ULong.m782constructorimpl((long) (d2 - 9.223372036854776E18d)) - Long.MIN_VALUE);
+            return ULong.m786constructorimpl(ULong.m786constructorimpl((long) (d2 - 9.223372036854776E18d)) - Long.MIN_VALUE);
         }
         return 0L;
     }
@@ -45,14 +45,14 @@ public final class UnsignedKt {
 
     @PublishedApi
     /* renamed from: uintDivide-J1ME1BU  reason: not valid java name */
-    public static final int m939uintDivideJ1ME1BU(int i, int i2) {
-        return UInt.m713constructorimpl((int) ((i & 4294967295L) / (i2 & 4294967295L)));
+    public static final int m943uintDivideJ1ME1BU(int i, int i2) {
+        return UInt.m717constructorimpl((int) ((i & 4294967295L) / (i2 & 4294967295L)));
     }
 
     @PublishedApi
     /* renamed from: uintRemainder-J1ME1BU  reason: not valid java name */
-    public static final int m940uintRemainderJ1ME1BU(int i, int i2) {
-        return UInt.m713constructorimpl((int) ((i & 4294967295L) % (i2 & 4294967295L)));
+    public static final int m944uintRemainderJ1ME1BU(int i, int i2) {
+        return UInt.m717constructorimpl((int) ((i & 4294967295L) % (i2 & 4294967295L)));
     }
 
     @PublishedApi
@@ -67,30 +67,30 @@ public final class UnsignedKt {
 
     @PublishedApi
     /* renamed from: ulongDivide-eb3DHEI  reason: not valid java name */
-    public static final long m941ulongDivideeb3DHEI(long j, long j2) {
+    public static final long m945ulongDivideeb3DHEI(long j, long j2) {
         if (j2 < 0) {
-            return ulongCompare(j, j2) < 0 ? ULong.m782constructorimpl(0L) : ULong.m782constructorimpl(1L);
+            return ulongCompare(j, j2) < 0 ? ULong.m786constructorimpl(0L) : ULong.m786constructorimpl(1L);
         } else if (j >= 0) {
-            return ULong.m782constructorimpl(j / j2);
+            return ULong.m786constructorimpl(j / j2);
         } else {
             long j3 = ((j >>> 1) / j2) << 1;
-            return ULong.m782constructorimpl(j3 + (ulongCompare(ULong.m782constructorimpl(j - (j3 * j2)), ULong.m782constructorimpl(j2)) < 0 ? 0 : 1));
+            return ULong.m786constructorimpl(j3 + (ulongCompare(ULong.m786constructorimpl(j - (j3 * j2)), ULong.m786constructorimpl(j2)) < 0 ? 0 : 1));
         }
     }
 
     @PublishedApi
     /* renamed from: ulongRemainder-eb3DHEI  reason: not valid java name */
-    public static final long m942ulongRemaindereb3DHEI(long j, long j2) {
+    public static final long m946ulongRemaindereb3DHEI(long j, long j2) {
         if (j2 < 0) {
-            return ulongCompare(j, j2) < 0 ? j : ULong.m782constructorimpl(j - j2);
+            return ulongCompare(j, j2) < 0 ? j : ULong.m786constructorimpl(j - j2);
         } else if (j >= 0) {
-            return ULong.m782constructorimpl(j % j2);
+            return ULong.m786constructorimpl(j % j2);
         } else {
             long j3 = j - ((((j >>> 1) / j2) << 1) * j2);
-            if (ulongCompare(ULong.m782constructorimpl(j3), ULong.m782constructorimpl(j2)) < 0) {
+            if (ulongCompare(ULong.m786constructorimpl(j3), ULong.m786constructorimpl(j2)) < 0) {
                 j2 = 0;
             }
-            return ULong.m782constructorimpl(j3 - j2);
+            return ULong.m786constructorimpl(j3 - j2);
         }
     }
 

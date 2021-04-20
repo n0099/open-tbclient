@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f30312common;
+    public Common f29997common;
     @c(a = "custom")
     public Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -23,7 +23,7 @@ public class CheckRequestBodyModel {
     public Map<String, Map<String, LocalChannel>> local;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Channel {
         @c(a = "c")
         public String channelName;
@@ -36,7 +36,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ChannelInfo {
         @c(a = "channel")
         public String channel;
@@ -50,14 +50,14 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Channels {
         @c(a = "channels")
         public List<Channel> channels = new ArrayList();
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Group {
         @c(a = "group_name")
         public String groupName;
@@ -66,7 +66,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum GroupType {
         NORMAL("normal"),
         HIGHPRIORITY("high_priority");
@@ -83,21 +83,21 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LocalChannel {
         @c(a = "l_v")
         public Long localVersion;
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ProcessorParams {
         @c(a = "domain")
         public String domain;
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TargetChannel {
         @c(a = "c")
         public String channelName;
@@ -125,7 +125,7 @@ public class CheckRequestBodyModel {
     }
 
     public void setCommon(Common common2) {
-        this.f30312common = common2;
+        this.f29997common = common2;
     }
 
     public void setCustom(Map<String, Map<String, Object>> map) {

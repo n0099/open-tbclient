@@ -765,7 +765,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.1")
     /* renamed from: max */
-    public static final Double m1538max(Sequence<Double> sequence) {
+    public static final Double m1542max(Sequence<Double> sequence) {
         Iterator<Double> it = sequence.iterator();
         if (it.hasNext()) {
             double doubleValue = it.next().doubleValue();
@@ -834,7 +834,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.1")
     /* renamed from: min */
-    public static final Double m1540min(Sequence<Double> sequence) {
+    public static final Double m1544min(Sequence<Double> sequence) {
         Iterator<Double> it = sequence.iterator();
         if (it.hasNext()) {
             double doubleValue = it.next().doubleValue();
@@ -1449,7 +1449,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.1")
     /* renamed from: max */
-    public static final Float m1539max(Sequence<Float> sequence) {
+    public static final Float m1543max(Sequence<Float> sequence) {
         Iterator<Float> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = it.next().floatValue();
@@ -1472,7 +1472,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.1")
     /* renamed from: min */
-    public static final Float m1541min(Sequence<Float> sequence) {
+    public static final Float m1545min(Sequence<Float> sequence) {
         Iterator<Float> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = it.next().floatValue();

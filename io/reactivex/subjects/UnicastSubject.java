@@ -1,10 +1,10 @@
 package io.reactivex.subjects;
 
-import f.a.d0.a;
-import f.a.l;
-import f.a.o;
-import f.a.t.b;
-import f.a.x.c.f;
+import f.b.d0.a;
+import f.b.l;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.c.f;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,16 +13,16 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class UnicastSubject<T> extends a<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final f.a.x.f.a<T> f68119e;
+    public final f.b.x.f.a<T> f69125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<o<? super T>> f68120f;
+    public final AtomicReference<o<? super T>> f69126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<Runnable> f68121g;
+    public final AtomicReference<Runnable> f69127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f68122h;
+    public final boolean f69128h;
     public volatile boolean i;
     public volatile boolean j;
     public Throwable k;
@@ -37,41 +37,41 @@ public final class UnicastSubject<T> extends a<T> {
         public UnicastQueueDisposable() {
         }
 
-        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
         public void clear() {
-            UnicastSubject.this.f68119e.clear();
+            UnicastSubject.this.f69125e.clear();
         }
 
-        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
         public void dispose() {
             if (UnicastSubject.this.i) {
                 return;
             }
             UnicastSubject.this.i = true;
             UnicastSubject.this.e();
-            UnicastSubject.this.f68120f.lazySet(null);
+            UnicastSubject.this.f69126f.lazySet(null);
             if (UnicastSubject.this.m.getAndIncrement() == 0) {
-                UnicastSubject.this.f68120f.lazySet(null);
-                UnicastSubject.this.f68119e.clear();
+                UnicastSubject.this.f69126f.lazySet(null);
+                UnicastSubject.this.f69125e.clear();
             }
         }
 
-        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
         public boolean isDisposed() {
             return UnicastSubject.this.i;
         }
 
-        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
         public boolean isEmpty() {
-            return UnicastSubject.this.f68119e.isEmpty();
+            return UnicastSubject.this.f69125e.isEmpty();
         }
 
-        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
         public T poll() throws Exception {
-            return UnicastSubject.this.f68119e.poll();
+            return UnicastSubject.this.f69125e.poll();
         }
 
-        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.c
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.c
         public int requestFusion(int i) {
             if ((i & 2) != 0) {
                 UnicastSubject.this.n = true;
@@ -82,11 +82,11 @@ public final class UnicastSubject<T> extends a<T> {
     }
 
     public UnicastSubject(int i, boolean z) {
-        f.a.x.b.a.c(i, "capacityHint");
-        this.f68119e = new f.a.x.f.a<>(i);
-        this.f68121g = new AtomicReference<>();
-        this.f68122h = z;
-        this.f68120f = new AtomicReference<>();
+        f.b.x.b.a.c(i, "capacityHint");
+        this.f69125e = new f.b.x.f.a<>(i);
+        this.f69127g = new AtomicReference<>();
+        this.f69128h = z;
+        this.f69126f = new AtomicReference<>();
         this.l = new AtomicBoolean();
         this.m = new UnicastQueueDisposable();
     }
@@ -99,13 +99,13 @@ public final class UnicastSubject<T> extends a<T> {
         return new UnicastSubject<>(i, runnable, true);
     }
 
-    @Override // f.a.l
+    @Override // f.b.l
     public void b(o<? super T> oVar) {
         if (!this.l.get() && this.l.compareAndSet(false, true)) {
             oVar.onSubscribe(this.m);
-            this.f68120f.lazySet(oVar);
+            this.f69126f.lazySet(oVar);
             if (this.i) {
-                this.f68120f.lazySet(null);
+                this.f69126f.lazySet(null);
                 return;
             } else {
                 f();
@@ -116,8 +116,8 @@ public final class UnicastSubject<T> extends a<T> {
     }
 
     public void e() {
-        Runnable runnable = this.f68121g.get();
-        if (runnable == null || !this.f68121g.compareAndSet(runnable, null)) {
+        Runnable runnable = this.f69127g.get();
+        if (runnable == null || !this.f69127g.compareAndSet(runnable, null)) {
             return;
         }
         runnable.run();
@@ -127,14 +127,14 @@ public final class UnicastSubject<T> extends a<T> {
         if (this.m.getAndIncrement() != 0) {
             return;
         }
-        o<? super T> oVar = this.f68120f.get();
+        o<? super T> oVar = this.f69126f.get();
         int i = 1;
         while (oVar == null) {
             i = this.m.addAndGet(-i);
             if (i == 0) {
                 return;
             }
-            oVar = this.f68120f.get();
+            oVar = this.f69126f.get();
         }
         if (this.n) {
             g(oVar);
@@ -144,9 +144,9 @@ public final class UnicastSubject<T> extends a<T> {
     }
 
     public void g(o<? super T> oVar) {
-        f.a.x.f.a<T> aVar = this.f68119e;
+        f.b.x.f.a<T> aVar = this.f69125e;
         int i = 1;
-        boolean z = !this.f68122h;
+        boolean z = !this.f69128h;
         while (!this.i) {
             boolean z2 = this.j;
             if (z && z2 && j(aVar, oVar)) {
@@ -162,18 +162,18 @@ public final class UnicastSubject<T> extends a<T> {
                 return;
             }
         }
-        this.f68120f.lazySet(null);
+        this.f69126f.lazySet(null);
         aVar.clear();
     }
 
     public void h(o<? super T> oVar) {
-        f.a.x.f.a<T> aVar = this.f68119e;
-        boolean z = !this.f68122h;
+        f.b.x.f.a<T> aVar = this.f69125e;
+        boolean z = !this.f69128h;
         boolean z2 = true;
         int i = 1;
         while (!this.i) {
             boolean z3 = this.j;
-            Object obj = (T) this.f68119e.poll();
+            Object obj = (T) this.f69125e.poll();
             boolean z4 = obj == null;
             if (z3) {
                 if (z && z2) {
@@ -196,12 +196,12 @@ public final class UnicastSubject<T> extends a<T> {
                 oVar.onNext(obj);
             }
         }
-        this.f68120f.lazySet(null);
+        this.f69126f.lazySet(null);
         aVar.clear();
     }
 
     public void i(o<? super T> oVar) {
-        this.f68120f.lazySet(null);
+        this.f69126f.lazySet(null);
         Throwable th = this.k;
         if (th != null) {
             oVar.onError(th);
@@ -213,7 +213,7 @@ public final class UnicastSubject<T> extends a<T> {
     public boolean j(f<T> fVar, o<? super T> oVar) {
         Throwable th = this.k;
         if (th != null) {
-            this.f68120f.lazySet(null);
+            this.f69126f.lazySet(null);
             fVar.clear();
             oVar.onError(th);
             return true;
@@ -221,7 +221,7 @@ public final class UnicastSubject<T> extends a<T> {
         return false;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.j || this.i) {
             return;
@@ -231,9 +231,9 @@ public final class UnicastSubject<T> extends a<T> {
         f();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
-        f.a.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        f.b.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.j && !this.i) {
             this.k = th;
             this.j = true;
@@ -241,20 +241,20 @@ public final class UnicastSubject<T> extends a<T> {
             f();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
-        f.a.x.b.a.b(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        f.b.x.b.a.b(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.j || this.i) {
             return;
         }
-        this.f68119e.offer(t);
+        this.f69125e.offer(t);
         f();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (this.j || this.i) {
             bVar.dispose();
@@ -262,12 +262,12 @@ public final class UnicastSubject<T> extends a<T> {
     }
 
     public UnicastSubject(int i, Runnable runnable, boolean z) {
-        f.a.x.b.a.c(i, "capacityHint");
-        this.f68119e = new f.a.x.f.a<>(i);
-        f.a.x.b.a.b(runnable, "onTerminate");
-        this.f68121g = new AtomicReference<>(runnable);
-        this.f68122h = z;
-        this.f68120f = new AtomicReference<>();
+        f.b.x.b.a.c(i, "capacityHint");
+        this.f69125e = new f.b.x.f.a<>(i);
+        f.b.x.b.a.b(runnable, "onTerminate");
+        this.f69127g = new AtomicReference<>(runnable);
+        this.f69128h = z;
+        this.f69126f = new AtomicReference<>();
         this.l = new AtomicBoolean();
         this.m = new UnicastQueueDisposable();
     }

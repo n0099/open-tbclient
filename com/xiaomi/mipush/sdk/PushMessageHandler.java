@@ -24,10 +24,10 @@ import java.util.concurrent.TimeUnit;
 public class PushMessageHandler extends BaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<MiPushClient.ICallbackResult> f40146a = new ArrayList();
+    public static List<MiPushClient.ICallbackResult> f40435a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<MiPushClient.MiPushClientCallback> f40147b = new ArrayList();
+    public static List<MiPushClient.MiPushClientCallback> f40436b = new ArrayList();
 
     /* renamed from: a  reason: collision with other field name */
     public static ThreadPoolExecutor f55a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
@@ -37,14 +37,14 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a() {
-        synchronized (f40147b) {
-            f40147b.clear();
+        synchronized (f40436b) {
+            f40436b.clear();
         }
     }
 
     public static void a(long j, String str, String str2) {
-        synchronized (f40147b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40147b) {
+        synchronized (f40436b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40436b) {
                 miPushClientCallback.onInitializeResult(j, str, str2);
             }
         }
@@ -56,7 +56,7 @@ public class PushMessageHandler extends BaseService {
         try {
             context.startService(intent);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a(e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a(e2.getMessage());
         }
     }
 
@@ -83,8 +83,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, MiPushCommandMessage miPushCommandMessage) {
-        synchronized (f40146a) {
-            for (MiPushClient.ICallbackResult iCallbackResult : f40146a) {
+        synchronized (f40435a) {
+            for (MiPushClient.ICallbackResult iCallbackResult : f40435a) {
                 if (iCallbackResult instanceof MiPushClient.UPSRegisterCallBack) {
                     MiPushClient.TokenResult tokenResult = new MiPushClient.TokenResult();
                     if (miPushCommandMessage != null && miPushCommandMessage.getCommandArguments() != null && miPushCommandMessage.getCommandArguments().size() > 0) {
@@ -98,8 +98,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, MiPushMessage miPushMessage) {
-        synchronized (f40147b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40147b) {
+        synchronized (f40436b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40436b) {
                 if (a(miPushMessage.getCategory(), miPushClientCallback.getCategory())) {
                     miPushClientCallback.onReceiveMessage(miPushMessage.getContent(), miPushMessage.getAlias(), miPushMessage.getTopic(), miPushMessage.isNotified());
                     miPushClientCallback.onReceiveMessage(miPushMessage);
@@ -140,8 +140,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, String str, long j, String str2, String str3) {
-        synchronized (f40147b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40147b) {
+        synchronized (f40436b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40436b) {
                 if (a(str, miPushClientCallback.getCategory())) {
                     miPushClientCallback.onSubscribeResult(j, str2, str3);
                 }
@@ -150,8 +150,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, String str, String str2, long j, String str3, List<String> list) {
-        synchronized (f40147b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40147b) {
+        synchronized (f40436b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40436b) {
                 if (a(str, miPushClientCallback.getCategory())) {
                     miPushClientCallback.onCommandResult(str2, j, str3, list);
                 }
@@ -160,17 +160,17 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(MiPushClient.ICallbackResult iCallbackResult) {
-        synchronized (f40146a) {
-            if (!f40146a.contains(iCallbackResult)) {
-                f40146a.add(iCallbackResult);
+        synchronized (f40435a) {
+            if (!f40435a.contains(iCallbackResult)) {
+                f40435a.add(iCallbackResult);
             }
         }
     }
 
     public static void a(MiPushClient.MiPushClientCallback miPushClientCallback) {
-        synchronized (f40147b) {
-            if (!f40147b.contains(miPushClientCallback)) {
-                f40147b.add(miPushClientCallback);
+        synchronized (f40436b) {
+            if (!f40436b.contains(miPushClientCallback)) {
+                f40436b.add(miPushClientCallback);
             }
         }
     }
@@ -180,8 +180,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void b() {
-        synchronized (f40146a) {
-            f40146a.clear();
+        synchronized (f40435a) {
+            f40435a.clear();
         }
     }
 
@@ -192,7 +192,7 @@ public class PushMessageHandler extends BaseService {
             intent.setAction("action_clicked_activity_finish");
             context.sendBroadcast(intent, d.a(context));
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("callback sync error" + e2);
+            com.xiaomi.channel.commonutils.logger.b.m55a("callback sync error" + e2);
         }
     }
 
@@ -212,7 +212,7 @@ public class PushMessageHandler extends BaseService {
                 com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hjVar.d());
                 MiTinyDataClient.upload(context, hjVar);
             } else if (1 == PushMessageHelper.getPushMode(context)) {
-                if (m69b()) {
+                if (m73b()) {
                     com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                     if (z) {
                         b(context);
@@ -257,7 +257,7 @@ public class PushMessageHandler extends BaseService {
         } catch (Throwable th) {
             try {
                 com.xiaomi.channel.commonutils.logger.b.a(th);
-                el.a(context).a(context.getPackageName(), intent, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+                el.a(context).a(context.getPackageName(), intent, "10");
                 if (!z) {
                 }
             } finally {
@@ -269,8 +269,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void b(Context context, String str, long j, String str2, String str3) {
-        synchronized (f40147b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40147b) {
+        synchronized (f40436b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f40436b) {
                 if (a(str, miPushClientCallback.getCategory())) {
                     miPushClientCallback.onUnsubscribeResult(j, str2, str3);
                 }
@@ -279,8 +279,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m69b() {
-        return f40147b.isEmpty();
+    public static boolean m73b() {
+        return f40436b.isEmpty();
     }
 
     public static void c(Context context, Intent intent) {
@@ -292,7 +292,7 @@ public class PushMessageHandler extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo70a() {
+    public boolean mo74a() {
         ThreadPoolExecutor threadPoolExecutor = f55a;
         return (threadPoolExecutor == null || threadPoolExecutor.getQueue() == null || f55a.getQueue().size() <= 0) ? false : true;
     }

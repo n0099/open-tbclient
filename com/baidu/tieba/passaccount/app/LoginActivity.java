@@ -35,9 +35,9 @@ import com.baidu.tbadk.switchs.LoginDefaultTypeSmsSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import d.b.b.e.m.g;
-import d.b.b.e.m.h;
-import d.b.b.e.p.k;
+import d.b.c.e.m.g;
+import d.b.c.e.m.h;
+import d.b.c.e.p.k;
 import d.b.h0.r.l.a;
 import d.b.h0.s.i.b;
 import java.lang.reflect.Field;
@@ -62,7 +62,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public boolean mClose = false;
     public int jumpTo = -1;
     public int mTab = -1;
-    public final a.InterfaceC1082a mReLoginCallback = new c();
+    public final a.InterfaceC1095a mReLoginCallback = new c();
 
     /* loaded from: classes3.dex */
     public class a extends WebAuthListener {
@@ -129,7 +129,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements a.InterfaceC1082a {
+    public class c implements a.InterfaceC1095a {
 
         /* loaded from: classes3.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -145,7 +145,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public c() {
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1082a
+        @Override // d.b.h0.r.l.a.InterfaceC1095a
         public void a(String str, int i, String str2) {
             d.b.h0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
@@ -156,7 +156,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             LoginActivity.this.finishForResult(0);
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1082a
+        @Override // d.b.h0.r.l.a.InterfaceC1095a
         public void b(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().c()) {
                 LoginActivity loginActivity = LoginActivity.this;
@@ -164,7 +164,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1082a
+        @Override // d.b.h0.r.l.a.InterfaceC1095a
         public void c(AccountData accountData) {
             d.b.h0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new StatisticItem("c12948").param("obj_type", LoginActivity.this.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, LoginActivity.this.mFromUrl));
@@ -185,15 +185,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f19404e;
+        public final /* synthetic */ AccountData f19081e;
 
         public d(AccountData accountData) {
-            this.f19404e = accountData;
+            this.f19081e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.h0.r.l.c.g(this.f19404e);
+            d.b.h0.r.l.c.g(this.f19081e);
             d.b.h0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
@@ -258,11 +258,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         int intExtra = getIntent().getIntExtra("locate_type", -1);
         this.mTab = intExtra;
         if (intExtra == -1) {
-            d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-            if (i.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 this.mTab = 2;
-                d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-                i2.s("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+                j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             } else {
                 this.mTab = 2;
             }

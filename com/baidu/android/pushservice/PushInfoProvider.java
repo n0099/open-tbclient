@@ -14,10 +14,10 @@ import com.baidu.android.pushservice.j.m;
 public class PushInfoProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f2631a;
+    public Context f2666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UriMatcher f2632b = new UriMatcher(-1);
+    public UriMatcher f2667b = new UriMatcher(-1);
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
@@ -37,22 +37,22 @@ public class PushInfoProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         Context context = getContext();
-        this.f2631a = context;
+        this.f2666a = context;
         String str = m.o(context) ? "pushinfo_v3" : "pushinfo";
-        if (this.f2632b == null) {
-            this.f2632b = new UriMatcher(-1);
+        if (this.f2667b == null) {
+            this.f2667b = new UriMatcher(-1);
         }
         try {
-            UriMatcher uriMatcher = this.f2632b;
-            uriMatcher.addURI(this.f2631a.getPackageName() + ".bdpush", str, 1);
-            UriMatcher uriMatcher2 = this.f2632b;
-            uriMatcher2.addURI(this.f2631a.getPackageName() + ".bdpush", "verif", 2);
-            UriMatcher uriMatcher3 = this.f2632b;
-            uriMatcher3.addURI(this.f2631a.getPackageName() + ".bdpush", "msgInfo", 3);
-            UriMatcher uriMatcher4 = this.f2632b;
-            uriMatcher4.addURI(this.f2631a.getPackageName() + ".bdpush", "appstatus", 4);
+            UriMatcher uriMatcher = this.f2667b;
+            uriMatcher.addURI(this.f2666a.getPackageName() + ".bdpush", str, 1);
+            UriMatcher uriMatcher2 = this.f2667b;
+            uriMatcher2.addURI(this.f2666a.getPackageName() + ".bdpush", "verif", 2);
+            UriMatcher uriMatcher3 = this.f2667b;
+            uriMatcher3.addURI(this.f2666a.getPackageName() + ".bdpush", "msgInfo", 3);
+            UriMatcher uriMatcher4 = this.f2667b;
+            uriMatcher4.addURI(this.f2666a.getPackageName() + ".bdpush", "appstatus", 4);
         } catch (Throwable th) {
-            new b.c(this.f2631a).a(Log.getStackTraceString(th)).a();
+            new b.c(this.f2666a).a(Log.getStackTraceString(th)).a();
         }
         return true;
     }
@@ -66,26 +66,26 @@ public class PushInfoProvider extends ContentProvider {
         synchronized (com.baidu.android.pushservice.c.c.a()) {
             cursor = null;
             try {
-                match = this.f2632b.match(uri);
+                match = this.f2667b.match(uri);
             } catch (Exception e2) {
-                new b.c(this.f2631a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f2666a).a(Log.getStackTraceString(e2)).a();
             }
             if (match == 1) {
-                SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f2631a);
+                SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f2666a);
                 if (a3 != null) {
                     query = a3.query("PushShareInfo", null, null, null, null, null, null);
                 }
             } else if (match == 2) {
-                SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f2631a);
+                SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f2666a);
                 if (a4 != null) {
                     query = a4.query("PushVerifInfo", strArr, str, strArr2, null, null, str2);
                 }
             } else if (match == 3) {
-                SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f2631a);
+                SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f2666a);
                 if (a5 != null) {
                     query = a5.query("PushMsgInfos", strArr, str, strArr2, null, null, str2);
                 }
-            } else if (match == 4 && (a2 = com.baidu.android.pushservice.c.c.a(this.f2631a)) != null) {
+            } else if (match == 4 && (a2 = com.baidu.android.pushservice.c.c.a(this.f2666a)) != null) {
                 query = a2.query("PushAppStatus", strArr, str, strArr2, null, null, str2);
             }
             cursor = query;
@@ -124,10 +124,10 @@ public class PushInfoProvider extends ContentProvider {
             try {
                 try {
                     try {
-                        if (this.f2632b.match(uri) != 1) {
+                        if (this.f2667b.match(uri) != 1) {
                             uri = 0;
                         } else {
-                            uri = com.baidu.android.pushservice.c.c.a(this.f2631a);
+                            uri = com.baidu.android.pushservice.c.c.a(this.f2666a);
                             uri = uri;
                             if (uri != 0) {
                                 try {
@@ -143,7 +143,7 @@ public class PushInfoProvider extends ContentProvider {
                                         } catch (Exception e2) {
                                             e = e2;
                                             cursor = query;
-                                            new b.c(this.f2631a).a(Log.getStackTraceString(e)).a();
+                                            new b.c(this.f2666a).a(Log.getStackTraceString(e)).a();
                                             if (cursor != null) {
                                                 cursor.close();
                                             }

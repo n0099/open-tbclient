@@ -13,37 +13,37 @@ import org.json.JSONObject;
 public final class e extends a.a.a.a.s.f.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1330b;
+    public final String f1316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1331c;
+    public final String f1317c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<a> f1332d;
+    public final Set<a> f1318d;
 
     /* loaded from: classes.dex */
     public static class a extends a.a.a.a.s.f.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f1333b;
+        public final long f1319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f1334c;
+        public final String f1320c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f1335d;
+        public final String f1321d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f1336e;
+        public final int f1322e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final float f1337f;
+        public final float f1323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f1338g;
+        public final int f1324g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f1339h;
+        public final int f1325h;
         public final int i;
         public final boolean j;
         public final e k;
@@ -51,13 +51,13 @@ public final class e extends a.a.a.a.s.f.a {
         public a(int i, ObjectInput objectInput, e eVar) {
             super(i);
             this.k = eVar;
-            this.f1333b = objectInput.readLong();
-            this.f1334c = objectInput.readUTF();
-            this.f1335d = objectInput.readUTF();
-            this.f1336e = objectInput.readInt();
-            this.f1337f = objectInput.readFloat();
-            this.f1338g = objectInput.readInt();
-            this.f1339h = objectInput.readInt();
+            this.f1319b = objectInput.readLong();
+            this.f1320c = objectInput.readUTF();
+            this.f1321d = objectInput.readUTF();
+            this.f1322e = objectInput.readInt();
+            this.f1323f = objectInput.readFloat();
+            this.f1324g = objectInput.readInt();
+            this.f1325h = objectInput.readInt();
             this.i = objectInput.readInt();
             if (i == 0) {
                 objectInput.readInt();
@@ -69,13 +69,13 @@ public final class e extends a.a.a.a.s.f.a {
         public a(JSONObject jSONObject, e eVar) {
             super(1);
             this.k = eVar;
-            this.f1333b = b.a(jSONObject.getLong("id"), 0L);
-            this.f1334c = jSONObject.getString("pid");
-            this.f1335d = jSONObject.getString("type");
-            this.f1336e = jSONObject.getInt("tmout");
-            this.f1337f = b.a((float) jSONObject.optDouble("sample", 0.0d), 0.0f, 1.0f);
-            this.f1338g = b.a(jSONObject.optInt("width", 0), 0);
-            this.f1339h = b.a(jSONObject.optInt("height", 0), 0);
+            this.f1319b = b.a(jSONObject.getLong("id"), 0L);
+            this.f1320c = jSONObject.getString("pid");
+            this.f1321d = jSONObject.getString("type");
+            this.f1322e = jSONObject.getInt("tmout");
+            this.f1323f = b.a((float) jSONObject.optDouble("sample", 0.0d), 0.0f, 1.0f);
+            this.f1324g = b.a(jSONObject.optInt("width", 0), 0);
+            this.f1325h = b.a(jSONObject.optInt("height", 0), 0);
             this.i = b.a(jSONObject.optInt("interval", 30), 30);
             int optInt = jSONObject.optInt("orientation", 0);
             if (optInt != 0 && optInt != 1) {
@@ -86,13 +86,13 @@ public final class e extends a.a.a.a.s.f.a {
 
         @Override // a.a.a.a.s.f.a
         public void a(ObjectOutput objectOutput) {
-            objectOutput.writeLong(this.f1333b);
-            objectOutput.writeUTF(this.f1334c);
-            objectOutput.writeUTF(this.f1335d);
-            objectOutput.writeInt(this.f1336e);
-            objectOutput.writeFloat(this.f1337f);
-            objectOutput.writeInt(this.f1338g);
-            objectOutput.writeInt(this.f1339h);
+            objectOutput.writeLong(this.f1319b);
+            objectOutput.writeUTF(this.f1320c);
+            objectOutput.writeUTF(this.f1321d);
+            objectOutput.writeInt(this.f1322e);
+            objectOutput.writeFloat(this.f1323f);
+            objectOutput.writeInt(this.f1324g);
+            objectOutput.writeInt(this.f1325h);
             objectOutput.writeInt(this.i);
             objectOutput.writeBoolean(this.j);
         }
@@ -105,50 +105,50 @@ public final class e extends a.a.a.a.s.f.a {
                 return false;
             }
             a aVar = (a) obj;
-            return this.f1333b == aVar.f1333b && this.f1336e == aVar.f1336e && Float.compare(aVar.f1337f, this.f1337f) == 0 && this.f1338g == aVar.f1338g && this.f1339h == aVar.f1339h && this.i == aVar.i && this.j == aVar.j && Objects.equals(this.f1334c, aVar.f1334c) && Objects.equals(this.f1335d, aVar.f1335d);
+            return this.f1319b == aVar.f1319b && this.f1322e == aVar.f1322e && Float.compare(aVar.f1323f, this.f1323f) == 0 && this.f1324g == aVar.f1324g && this.f1325h == aVar.f1325h && this.i == aVar.i && this.j == aVar.j && Objects.equals(this.f1320c, aVar.f1320c) && Objects.equals(this.f1321d, aVar.f1321d);
         }
 
         public int hashCode() {
-            return Objects.hash(Long.valueOf(this.f1333b), this.f1334c, this.f1335d, Integer.valueOf(this.f1336e), Float.valueOf(this.f1337f), Integer.valueOf(this.f1338g), Integer.valueOf(this.f1339h), Integer.valueOf(this.i), Boolean.valueOf(this.j));
+            return Objects.hash(Long.valueOf(this.f1319b), this.f1320c, this.f1321d, Integer.valueOf(this.f1322e), Float.valueOf(this.f1323f), Integer.valueOf(this.f1324g), Integer.valueOf(this.f1325h), Integer.valueOf(this.i), Boolean.valueOf(this.j));
         }
 
         public String toString() {
-            return "Pid{id=" + this.f1333b + ", pid='" + this.f1334c + "', type='" + this.f1335d + "', tmout='" + this.f1336e + "', sample='" + this.f1337f + "', width='" + this.f1338g + "', height='" + this.f1339h + "', interval='" + this.i + "', isHorizontal='" + this.j + "'}";
+            return "Pid{id=" + this.f1319b + ", pid='" + this.f1320c + "', type='" + this.f1321d + "', tmout='" + this.f1322e + "', sample='" + this.f1323f + "', width='" + this.f1324g + "', height='" + this.f1325h + "', interval='" + this.i + "', isHorizontal='" + this.j + "'}";
         }
     }
 
     public e(int i, ObjectInput objectInput) {
         super(i);
-        this.f1330b = objectInput.readUTF();
-        this.f1331c = objectInput.readUTF();
+        this.f1316b = objectInput.readUTF();
+        this.f1317c = objectInput.readUTF();
         int readInt = objectInput.readInt();
         HashSet hashSet = new HashSet();
         for (int i2 = 0; i2 < readInt; i2++) {
             hashSet.add(new a(objectInput.readInt(), objectInput, this));
         }
-        this.f1332d = Collections.unmodifiableSet(hashSet);
+        this.f1318d = Collections.unmodifiableSet(hashSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(JSONObject jSONObject) {
         super(0);
-        this.f1330b = jSONObject.getString("sspId");
-        this.f1331c = jSONObject.getString("type");
+        this.f1316b = jSONObject.getString("sspId");
+        this.f1317c = jSONObject.getString("type");
         HashSet hashSet = new HashSet();
         JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
         for (int i = 0; i < jSONArray.length(); i++) {
             hashSet.add(new a(jSONArray.getJSONObject(i), this));
         }
-        this.f1332d = Collections.unmodifiableSet(hashSet);
+        this.f1318d = Collections.unmodifiableSet(hashSet);
     }
 
     @Override // a.a.a.a.s.f.a
     public void a(ObjectOutput objectOutput) {
-        objectOutput.writeUTF(this.f1330b);
-        objectOutput.writeUTF(this.f1331c);
-        objectOutput.writeInt(this.f1332d.size());
-        for (a aVar : this.f1332d) {
-            objectOutput.writeInt(aVar.f1340a);
+        objectOutput.writeUTF(this.f1316b);
+        objectOutput.writeUTF(this.f1317c);
+        objectOutput.writeInt(this.f1318d.size());
+        for (a aVar : this.f1318d) {
+            objectOutput.writeInt(aVar.f1326a);
             aVar.a(objectOutput);
         }
     }
@@ -161,10 +161,10 @@ public final class e extends a.a.a.a.s.f.a {
             return false;
         }
         e eVar = (e) obj;
-        return Objects.equals(this.f1330b, eVar.f1330b) && Objects.equals(this.f1331c, eVar.f1331c) && Objects.equals(this.f1332d, eVar.f1332d);
+        return Objects.equals(this.f1316b, eVar.f1316b) && Objects.equals(this.f1317c, eVar.f1317c) && Objects.equals(this.f1318d, eVar.f1318d);
     }
 
     public int hashCode() {
-        return Objects.hash(this.f1330b, this.f1331c, this.f1332d);
+        return Objects.hash(this.f1316b, this.f1317c, this.f1318d);
     }
 }

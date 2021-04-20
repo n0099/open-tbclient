@@ -128,7 +128,7 @@ public class MessageV3 implements Parcelable {
             if ("is".equals(key)) {
                 messageV3.setmAppIconSetting(AppIconSetting.parse(value));
             }
-            if (TimeDisplaySetting.TIME_DISPLAY_SETTING.equals(key)) {
+            if ("ts".equals(key)) {
                 messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(value));
             }
         }
@@ -173,8 +173,8 @@ public class MessageV3 implements Parcelable {
                 if (!jSONObject2.isNull("as")) {
                     messageV3.setmAdvanceSetting(AdvanceSetting.parse(jSONObject2.getJSONObject("as")));
                 }
-                if (!jSONObject2.isNull(TimeDisplaySetting.TIME_DISPLAY_SETTING)) {
-                    messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject(TimeDisplaySetting.TIME_DISPLAY_SETTING)));
+                if (!jSONObject2.isNull("ts")) {
+                    messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject("ts")));
                 }
                 if (!jSONObject2.isNull("activity")) {
                     messageV3.setActivity(jSONObject2.getString("activity"));

@@ -12,17 +12,17 @@ import d.b.g0.a.k;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44246b = k.f45051a;
+    public static final boolean f44638b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f44247a = c.f44248a;
+    public c f44639a = c.f44640a;
 
     public void a(@NonNull PrefetchEvent prefetchEvent) {
         d.b.g0.a.n1.c.f.c c2 = a.c(prefetchEvent);
         if (c2 == null) {
             return;
         }
-        if ((c2.x() && TextUtils.equals(c2.f45392g, prefetchEvent.appId)) || c2.C()) {
+        if ((c2.x() && TextUtils.equals(c2.f45784g, prefetchEvent.appId)) || c2.C()) {
             b(c2, prefetchEvent, null);
         }
     }
@@ -38,10 +38,10 @@ public final class b {
             return;
         }
         bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-        if (this.f44247a.a(prefetchEvent, pMSAppInfo, bundle)) {
+        if (this.f44639a.a(prefetchEvent, pMSAppInfo, bundle)) {
             d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
             d.b.g0.a.n1.c.c cVar2 = new d.b.g0.a.n1.c.c(120, bundle);
-            cVar2.b(cVar.f45391f);
+            cVar2.b(cVar.f45783f);
             cVar2.p(true);
             e2.h(cVar2);
         }
@@ -50,9 +50,9 @@ public final class b {
     public void c(@NonNull PrefetchEvent prefetchEvent, @NonNull d.b.g0.a.n1.c.f.c cVar, @Nullable PMSAppInfo pMSAppInfo) {
         b(cVar, prefetchEvent, pMSAppInfo);
         cVar.S(prefetchEvent);
-        if (f44246b) {
+        if (f44638b) {
             Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.f45391f.index);
+            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.f45783f.index);
         }
     }
 }

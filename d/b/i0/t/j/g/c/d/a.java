@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.l.d;
+import d.b.c.e.l.d;
 import d.b.i0.t.j.g.c.b;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,28 +30,28 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60935a;
+    public View f62499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f60936b;
+    public TbPageContext<BaseFragmentActivity> f62500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f60937c;
+    public BdListView f62501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.t.j.g.c.b f60938d;
+    public d.b.i0.t.j.g.c.b f62502d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f60939e;
+    public HeadImageView f62503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f60940f;
+    public TextView f62504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60941g;
+    public TextView f62505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f60942h;
+    public TbImageView f62506h;
     public RelativeLayout i;
     public ImageView j;
     public TextView k;
@@ -66,19 +66,19 @@ public class a {
 
     /* renamed from: d.b.i0.t.j.g.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1573a extends d.b.b.e.l.c<d.b.b.j.d.a> {
-        public C1573a() {
+    public class C1626a extends d.b.c.e.l.c<d.b.c.j.d.a> {
+        public C1626a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
-            super.onLoaded((C1573a) aVar, str, i);
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
+            super.onLoaded((C1626a) aVar, str, i);
             if (aVar == null || aVar.p() == null) {
                 return;
             }
-            a.this.f60942h.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            a.this.f60942h.setImageBitmap(BitmapHelper.fastblur(aVar.p(), 15, 0.75f));
+            a.this.f62506h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            a.this.f62506h.setImageBitmap(BitmapHelper.fastblur(aVar.p(), 15, 0.75f));
         }
     }
 
@@ -101,13 +101,13 @@ public class a {
     }
 
     public a(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar) {
-        this.f60936b = tbPageContext;
+        this.f62500b = tbPageContext;
         this.q = cVar;
         e();
     }
 
     public View c() {
-        return this.f60935a;
+        return this.f62499a;
     }
 
     public void d() {
@@ -118,51 +118,51 @@ public class a {
     }
 
     public final void e() {
-        View inflate = LayoutInflater.from(this.f60936b.getPageActivity()).inflate(R.layout.ala_achievement_mark_fragment_layout, (ViewGroup) null);
-        this.f60935a = inflate;
-        inflate.setPadding(0, (int) this.f60936b.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.f60939e = (HeadImageView) this.f60935a.findViewById(R.id.ala_person_center_privilege_header_iv);
-        this.f60940f = (TextView) this.f60935a.findViewById(R.id.ala_person_center_privilege_header_name_tv);
-        this.f60941g = (TextView) this.f60935a.findViewById(R.id.ala_person_center_privilege_header_desc_tv);
-        this.f60942h = (TbImageView) this.f60935a.findViewById(R.id.ala_person_center_privilege_header_container_bg);
-        this.n = (RelativeLayout) this.f60935a.findViewById(R.id.ala_person_center_privilege_mark_list_container);
-        this.l = (LinearLayout) this.f60935a.findViewById(R.id.ala_person_center_privilege_header_has_wears);
-        this.o = (TextView) this.f60935a.findViewById(R.id.ala_person_center_privilege_jump_rule_text);
-        this.j = (ImageView) this.f60935a.findViewById(R.id.empty_image);
-        this.k = (TextView) this.f60935a.findViewById(R.id.empty_text);
-        this.p = this.f60935a.findViewById(R.id.ala_person_center_privilege_mask);
-        this.f60937c = (BdListView) this.f60935a.findViewById(R.id.ala_person_center_privilege_mark_list);
-        d.b.i0.t.j.g.c.b bVar = new d.b.i0.t.j.g.c.b(this.f60936b, this.s);
-        this.f60938d = bVar;
-        this.f60937c.setAdapter((ListAdapter) bVar);
-        RelativeLayout relativeLayout = (RelativeLayout) this.f60935a.findViewById(R.id.emptyview);
+        View inflate = LayoutInflater.from(this.f62500b.getPageActivity()).inflate(R.layout.ala_achievement_mark_fragment_layout, (ViewGroup) null);
+        this.f62499a = inflate;
+        inflate.setPadding(0, (int) this.f62500b.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.f62503e = (HeadImageView) this.f62499a.findViewById(R.id.ala_person_center_privilege_header_iv);
+        this.f62504f = (TextView) this.f62499a.findViewById(R.id.ala_person_center_privilege_header_name_tv);
+        this.f62505g = (TextView) this.f62499a.findViewById(R.id.ala_person_center_privilege_header_desc_tv);
+        this.f62506h = (TbImageView) this.f62499a.findViewById(R.id.ala_person_center_privilege_header_container_bg);
+        this.n = (RelativeLayout) this.f62499a.findViewById(R.id.ala_person_center_privilege_mark_list_container);
+        this.l = (LinearLayout) this.f62499a.findViewById(R.id.ala_person_center_privilege_header_has_wears);
+        this.o = (TextView) this.f62499a.findViewById(R.id.ala_person_center_privilege_jump_rule_text);
+        this.j = (ImageView) this.f62499a.findViewById(R.id.empty_image);
+        this.k = (TextView) this.f62499a.findViewById(R.id.empty_text);
+        this.p = this.f62499a.findViewById(R.id.ala_person_center_privilege_mask);
+        this.f62501c = (BdListView) this.f62499a.findViewById(R.id.ala_person_center_privilege_mark_list);
+        d.b.i0.t.j.g.c.b bVar = new d.b.i0.t.j.g.c.b(this.f62500b, this.s);
+        this.f62502d = bVar;
+        this.f62501c.setAdapter((ListAdapter) bVar);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f62499a.findViewById(R.id.emptyview);
         this.i = relativeLayout;
-        this.f60937c.setEmptyView(relativeLayout);
-        this.f60939e.setIsRound(true);
-        this.f60939e.setDefaultBgResource(R.color.transparent);
-        this.f60939e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f60942h.setDefaultBgResource(R.color.transparent);
-        this.f60942h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f62501c.setEmptyView(relativeLayout);
+        this.f62503e.setIsRound(true);
+        this.f62503e.setDefaultBgResource(R.color.transparent);
+        this.f62503e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f62506h.setDefaultBgResource(R.color.transparent);
+        this.f62506h.setScaleType(ImageView.ScaleType.CENTER_CROP);
         f();
     }
 
     public final void f() {
-        SkinManager.setBackgroundColor(this.f60935a, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f60940f, R.color.common_color_10310);
-        SkinManager.setViewTextColor(this.f60941g, R.color.white_alpha70);
+        SkinManager.setBackgroundColor(this.f62499a, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f62504f, R.color.common_color_10310);
+        SkinManager.setViewTextColor(this.f62505g, R.color.white_alpha70);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0106);
         if (TbadkApplication.getInst().getSkinType() == 1) {
             this.j.setAlpha(0.4f);
-            this.p.setBackgroundColor(this.f60936b.getResources().getColor(R.color.black_alpha60));
+            this.p.setBackgroundColor(this.f62500b.getResources().getColor(R.color.black_alpha60));
             return;
         }
         this.j.setAlpha(1.0f);
-        this.p.setBackgroundColor(this.f60936b.getResources().getColor(R.color.black_alpha30));
+        this.p.setBackgroundColor(this.f62500b.getResources().getColor(R.color.black_alpha30));
     }
 
     public void g(AlaUserInfoData alaUserInfoData, List<d.b.i0.t.j.g.c.c.c> list) {
-        d.b.i0.t.j.g.c.b bVar = this.f60938d;
+        d.b.i0.t.j.g.c.b bVar = this.f62502d;
         if (bVar != null && list != null) {
             bVar.d(list);
         }
@@ -170,7 +170,7 @@ public class a {
     }
 
     public void h(int i, int i2, boolean z, View.OnClickListener onClickListener) {
-        TbPageContext<BaseFragmentActivity> tbPageContext = this.f60936b;
+        TbPageContext<BaseFragmentActivity> tbPageContext = this.f62500b;
         if (tbPageContext == null) {
             return;
         }
@@ -178,7 +178,7 @@ public class a {
             this.m = new AlaNetRefreshView(tbPageContext.getPageActivity());
         }
         this.m.setImageResource(i);
-        this.m.setNetFailTipText(this.f60936b.getString(i2));
+        this.m.setNetFailTipText(this.f62500b.getString(i2));
         this.m.onChangeSkinType();
         this.m.setIsShowRefreshButton(z);
         if (z) {
@@ -200,12 +200,12 @@ public class a {
                 str3 = TbadkCoreApplication.getCurrentPortrait();
             }
             if (alaUserInfoData.mark_count == null) {
-                format = String.format(this.f60936b.getString(R.string.ala_achievement_mark_get_text), 0);
+                format = String.format(this.f62500b.getString(R.string.ala_achievement_mark_get_text), 0);
             } else {
-                format = String.format(this.f60936b.getString(R.string.ala_achievement_mark_get_text), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
+                format = String.format(this.f62500b.getString(R.string.ala_achievement_mark_get_text), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
             }
             j(str3, str, format);
-            int dimension = (int) this.f60936b.getResources().getDimension(R.dimen.ds32);
+            int dimension = (int) this.f62500b.getResources().getDimension(R.dimen.ds32);
             List<AlaLiveMarkData> list = this.r;
             if (list != null && list.size() > 0) {
                 this.r.clear();
@@ -217,12 +217,12 @@ public class a {
                 this.r = list2;
                 if (list2 != null) {
                     for (int i = 0; i < this.r.size(); i++) {
-                        TbImageView tbImageView = new TbImageView(this.f60936b.getPageActivity());
+                        TbImageView tbImageView = new TbImageView(this.f62500b.getPageActivity());
                         tbImageView.setDefaultBgResource(R.color.transparent);
                         tbImageView.W(this.r.get(i).mark_pic, 21, false);
                         tbImageView.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
                         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                        ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.f60936b.getResources().getDimension(R.dimen.ds12);
+                        ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.f62500b.getResources().getDimension(R.dimen.ds12);
                         this.l.addView(tbImageView);
                     }
                     return;
@@ -231,7 +231,7 @@ public class a {
             }
             return;
         }
-        j(TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountNameShow(), String.format(this.f60936b.getString(R.string.ala_achievement_mark_get_text), 0));
+        j(TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountNameShow(), String.format(this.f62500b.getString(R.string.ala_achievement_mark_get_text), 0));
         List<AlaLiveMarkData> list3 = this.r;
         if (list3 != null && list3.size() > 0) {
             this.r.clear();
@@ -244,21 +244,21 @@ public class a {
 
     public final void j(String str, String str2, String str3) {
         if (!StringUtils.isNull(str)) {
-            this.f60939e.W(str, 25, false);
-            d.h().m(str, 25, new C1573a(), null);
+            this.f62503e.W(str, 25, false);
+            d.h().m(str, 25, new C1626a(), null);
         } else {
-            this.f60939e.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
-            this.f60942h.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+            this.f62503e.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+            this.f62506h.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
         }
         if (!StringUtils.isNull(str2)) {
-            this.f60940f.setText(str2);
+            this.f62504f.setText(str2);
         } else {
-            this.f60940f.setText("");
+            this.f62504f.setText("");
         }
         if (!StringUtils.isNull(str3)) {
-            this.f60941g.setText(str3);
+            this.f62505g.setText(str3);
         } else {
-            this.f60941g.setText("");
+            this.f62505g.setText("");
         }
     }
 }

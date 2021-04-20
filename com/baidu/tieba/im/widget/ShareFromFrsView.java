@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-/* loaded from: classes3.dex */
+import d.b.c.e.p.k;
+/* loaded from: classes4.dex */
 public class ShareFromFrsView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18128e;
+    public TextView f17805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f18129f;
+    public HeadImageView f17806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18130g;
+    public TextView f17807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18131h;
+    public TextView f17808h;
     public TextView i;
     public TextView j;
     public Context k;
@@ -41,20 +41,20 @@ public class ShareFromFrsView extends LinearLayout {
 
     public final void b() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-        this.f18128e = (TextView) findViewById(R.id.frs_name);
-        this.f18129f = (HeadImageView) findViewById(R.id.frs_img);
-        this.f18131h = (TextView) findViewById(R.id.frs_member_num);
+        this.f17805e = (TextView) findViewById(R.id.frs_name);
+        this.f17806f = (HeadImageView) findViewById(R.id.frs_img);
+        this.f17808h = (TextView) findViewById(R.id.frs_member_num);
         this.j = (TextView) findViewById(R.id.frs_post_num);
-        this.f18130g = (TextView) findViewById(R.id.frs_member_num_label);
+        this.f17807g = (TextView) findViewById(R.id.frs_member_num_label);
         this.i = (TextView) findViewById(R.id.frs_post_num_label);
     }
 
     public final void c() {
-        this.f18128e.setText(a(this.l.getName()));
-        this.f18129f.setPlaceHolder(1);
-        this.f18129f.setAutoChangeStyle(false);
-        this.f18129f.W(this.l.getImageUrl(), 10, false);
-        this.f18131h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
+        this.f17805e.setText(a(this.l.getName()));
+        this.f17806f.setPlaceHolder(1);
+        this.f17806f.setAutoChangeStyle(false);
+        this.f17806f.W(this.l.getImageUrl(), 10, false);
+        this.f17808h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
         this.j.setText(StringHelper.numFormatOver10000(this.l.getPostNum()));
     }
 
@@ -65,17 +65,17 @@ public class ShareFromFrsView extends LinearLayout {
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.f18128e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-            this.f18131h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.f17805e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+            this.f17808h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-            this.f18130g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.f17807g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             this.i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             return;
         }
-        this.f18128e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.f18131h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f17805e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f17808h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.f18130g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f17807g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         this.i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
     }
 

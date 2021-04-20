@@ -9,16 +9,16 @@ import d.b.g0.a.k;
 public class b implements ZeusPluginFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45854a;
+    public String f46246a;
 
     public b(@NonNull String str) {
-        this.f45854a = str;
+        this.f46246a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        c cVar = new c(invoker, this.f45854a);
-        if (k.f45051a) {
+        c cVar = new c(invoker, this.f46246a);
+        if (k.f45443a) {
             Log.i(" [[InlineTextAreaFactory]] ", "Factory 「Hash:" + hashCode() + "」 is creating inline textArea「Hash:" + cVar.hashCode() + "」");
         }
         return new a(cVar);

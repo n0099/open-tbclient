@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.n;
+import com.baidu.mobads.container.components.downloader.OAdRemoteApkDownloader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -78,12 +79,12 @@ public class b {
                             i3 = i;
                             i2 = 0;
                         }
-                        CyberLog.d("Downloader", "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
+                        CyberLog.d(OAdRemoteApkDownloader.TAG, "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
                         if (inputStream2 != null) {
                             try {
                                 inputStream2.close();
                             } catch (Exception e2) {
-                                CyberLog.d("Downloader", "disconnect Exception:" + e2.toString());
+                                CyberLog.d(OAdRemoteApkDownloader.TAG, "disconnect Exception:" + e2.toString());
                             }
                         }
                         if (httpURLConnection != null) {
@@ -97,7 +98,7 @@ public class b {
                             try {
                                 inputStream.close();
                             } catch (Exception e3) {
-                                CyberLog.d("Downloader", "disconnect Exception:" + e3.toString());
+                                CyberLog.d(OAdRemoteApkDownloader.TAG, "disconnect Exception:" + e3.toString());
                                 throw th;
                             }
                         }
@@ -165,7 +166,7 @@ public class b {
                 bArr = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
             } catch (Exception unused) {
-                CyberLog.w("Downloader", "download failed. IOException");
+                CyberLog.w(OAdRemoteApkDownloader.TAG, "download failed. IOException");
                 if (byteArrayOutputStream != null) {
                     byteArrayOutputStream.close();
                 }

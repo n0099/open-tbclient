@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public abstract class AbstractService implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10510a = "3";
+    public static final String f10094a = "3";
     public SapiConfiguration configuration;
     public String versionName;
 
@@ -67,7 +67,7 @@ public abstract class AbstractService implements NoProguard {
         sapiAccount.displayname = jSONObject.optString("displayname");
         sapiAccount.username = jSONObject.optString("uname");
         sapiAccount.stoken = jSONObject.optString("stoken");
-        sapiAccount.ptoken = jSONObject.optString(SapiAccount.f10606h);
+        sapiAccount.ptoken = jSONObject.optString(SapiAccount.f10190h);
         sapiAccount.extra = jSONObject.toString();
         sapiAccount.app = SapiUtils.getAppName(this.configuration.context);
         return sapiAccount;

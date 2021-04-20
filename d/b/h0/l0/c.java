@@ -11,20 +11,20 @@ import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f50296a;
+    public static c f50703a;
 
     public static synchronized c c() {
         c cVar;
         synchronized (c.class) {
-            if (f50296a == null) {
-                f50296a = new c();
+            if (f50703a == null) {
+                f50703a = new c();
             }
-            cVar = f50296a;
+            cVar = f50703a;
         }
         return cVar;
     }

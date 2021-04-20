@@ -16,11 +16,11 @@ import java.util.Map;
 public class i extends BaseBean<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f25516a;
+    public PwdRequest f25201a;
 
     public i(Context context) {
         super(context);
-        this.f25516a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f25201a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -31,14 +31,14 @@ public class i extends BaseBean<Void> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (this.f25516a == null) {
+        if (this.f25201a == null) {
             return arrayList;
         }
         String seed = PasswordController.getSeed();
-        arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25516a.mPayPass, seed)));
+        arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25201a.mPayPass, seed)));
         arrayList.add(new RestNameValuePair("seed", SafePay.getInstance().encryptProxy(seed)));
         arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
-        Map<String, String> map = this.f25516a.mExtData;
+        Map<String, String> map = this.f25201a.mExtData;
         if (map == null) {
             return arrayList;
         }
@@ -58,7 +58,7 @@ public class i extends BaseBean<Void> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return PayBeanFactory.BEAN_ID_CHECK_PWD;
+        return 529;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean

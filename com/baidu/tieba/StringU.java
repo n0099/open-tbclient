@@ -3,17 +3,17 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.pms.constants.PmsConstant;
-import d.b.b.e.p.h;
+import d.b.c.e.p.h;
 /* loaded from: classes4.dex */
 public class StringU {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14449a;
+    public static boolean f14126a;
 
     static {
         try {
             boolean j = h.f().j("stringu", 2);
-            f14449a = j;
+            f14126a = j;
             if (j) {
                 a("stringu_so_load_success", null);
             } else {
@@ -39,7 +39,7 @@ public class StringU {
     */
     public static String b(String str) {
         String str2;
-        if (!f14449a || TextUtils.isEmpty(str)) {
+        if (!f14126a || TextUtils.isEmpty(str)) {
             str2 = "";
         } else {
             try {

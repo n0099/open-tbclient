@@ -15,7 +15,7 @@ import java.security.SecureRandom;
 import java.util.Calendar;
 import javax.crypto.Cipher;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static boolean a(Context context, boolean z) {
         try {

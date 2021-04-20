@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import android.widget.Toast;
+import com.alibaba.fastjson.asm.Label;
 import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
@@ -41,7 +42,7 @@ public class R1 {
         } else if (a(context, Uri.parse(str), info)) {
         } else {
             if (info.getOpent() == 1) {
-                if (H.f39674d.f39677c) {
+                if (H.f39963d.f39966c) {
                     Toast.makeText(context, context.getString(R.string.wdownload_loading), 1).show();
                     a1.a(context).b(new b1(info), 5).a();
                     return;
@@ -54,29 +55,29 @@ public class R1 {
                 b1 b1Var = new b1(info);
                 String open = info.getOpen();
                 try {
-                    a2.f39850b = a1.a("wdtr", b1Var);
+                    a2.f40139b = a1.a("wdtr", b1Var);
                     a2.a("msg", a1.a(open));
                 } catch (JSONException unused2) {
                 }
                 a2.a();
                 if (h2Var != null) {
-                    h2Var.f39944c = info;
-                    WebView webView2 = h2Var.f39943b;
+                    h2Var.f40233c = info;
+                    WebView webView2 = h2Var.f40232b;
                     if (webView2 == null) {
                         return;
                     }
                     webView2.loadUrl(info.getOpen());
-                    webView = h2Var.f39943b;
+                    webView = h2Var.f40232b;
                     g2Var = new g2(h2Var);
                 } else {
                     h2 h2Var2 = new h2(context);
-                    h2Var2.f39944c = info;
-                    WebView webView3 = h2Var2.f39943b;
+                    h2Var2.f40233c = info;
+                    WebView webView3 = h2Var2.f40232b;
                     if (webView3 == null) {
                         return;
                     }
                     webView3.loadUrl(info.getOpen());
-                    webView = h2Var2.f39943b;
+                    webView = h2Var2.f40232b;
                     g2Var = new g2(h2Var2);
                 }
                 webView.setDownloadListener(g2Var);
@@ -86,7 +87,7 @@ public class R1 {
                 Intent intent = new Intent(context, H5OpenActivity.class);
                 info.setOph5Url(str);
                 intent.putExtra("Key_H5OpenActData", info);
-                intent.setFlags(268435456);
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 context.startActivity(intent);
                 return;
             }

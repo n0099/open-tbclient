@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.n0.a.d;
+import d.b.i0.o0.a.d;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.DataRes;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;

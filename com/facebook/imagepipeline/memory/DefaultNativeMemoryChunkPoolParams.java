@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultNativeMemoryChunkPoolParams {
     public static final int LARGE_BUCKET_LENGTH = 2;
     public static final int SMALL_BUCKET_LENGTH = 5;

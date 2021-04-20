@@ -48,28 +48,28 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     public static final Interpolator z;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Runnable> f49102a;
+    public ArrayList<Runnable> f49494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable[] f49103b;
+    public Runnable[] f49495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49104c;
+    public boolean f49496c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<Fragment> f49105d;
+    public ArrayList<Fragment> f49497d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Fragment> f49106e;
+    public ArrayList<Fragment> f49498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Integer> f49107f;
+    public ArrayList<Integer> f49499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f49108g;
+    public ArrayList<e> f49500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<Fragment> f49109h;
+    public ArrayList<Fragment> f49501h;
     public ArrayList<e> i;
     public ArrayList<Integer> j;
     public ArrayList<k.a> k;
@@ -101,21 +101,21 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     public class b extends c {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Fragment f49111c;
+        public final /* synthetic */ Fragment f49503c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(View view, Animation animation, Fragment fragment) {
             super(view, animation);
-            this.f49111c = fragment;
+            this.f49503c = fragment;
         }
 
         @Override // d.b.g0.m.a.a.l.c, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             super.onAnimationEnd(animation);
-            Fragment fragment = this.f49111c;
-            if (fragment.f13032f != null) {
-                fragment.f13032f = null;
-                l.this.T(fragment, fragment.f13033g, 0, 0, false);
+            Fragment fragment = this.f49503c;
+            if (fragment.f12693f != null) {
+                fragment.f12693f = null;
+                l.this.T(fragment, fragment.f12694g, 0, 0, false);
             }
         }
     }
@@ -124,10 +124,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     public static class c implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f49113a = false;
+        public boolean f49505a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f49114b;
+        public View f49506b;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -136,7 +136,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.m.a.d.f.d(c.this.f49114b, 2, null);
+                d.b.g0.m.a.d.f.d(c.this.f49506b, 2, null);
             }
         }
 
@@ -147,7 +147,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.m.a.d.f.d(c.this.f49114b, 0, null);
+                d.b.g0.m.a.d.f.d(c.this.f49506b, 0, null);
             }
         }
 
@@ -155,14 +155,14 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             if (view == null || animation == null) {
                 return;
             }
-            this.f49114b = view;
+            this.f49506b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         @CallSuper
         public void onAnimationEnd(Animation animation) {
-            if (this.f49113a) {
-                this.f49114b.post(new b());
+            if (this.f49505a) {
+                this.f49506b.post(new b());
             }
         }
 
@@ -173,10 +173,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         @Override // android.view.animation.Animation.AnimationListener
         @CallSuper
         public void onAnimationStart(Animation animation) {
-            boolean i0 = l.i0(this.f49114b, animation);
-            this.f49113a = i0;
+            boolean i0 = l.i0(this.f49506b, animation);
+            this.f49505a = i0;
             if (i0) {
-                this.f49114b.post(new a());
+                this.f49506b.post(new a());
             }
         }
     }
@@ -185,7 +185,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int[] f49117a = {16842755, 16842960, 16842961};
+        public static final int[] f49509a = {16842755, 16842960, 16842961};
     }
 
     static {
@@ -273,11 +273,11 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         }
         synchronized (this) {
             if (!this.r && this.m != null) {
-                if (this.f49102a == null) {
-                    this.f49102a = new ArrayList<>();
+                if (this.f49494a == null) {
+                    this.f49494a = new ArrayList<>();
                 }
-                this.f49102a.add(runnable);
-                if (this.f49102a.size() == 1) {
+                this.f49494a.add(runnable);
+                if (this.f49494a.size() == 1) {
                     this.m.j().removeCallbacks(this.w);
                     this.m.j().post(this.w);
                 }
@@ -288,15 +288,15 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0050, code lost:
-        r6.f49104c = true;
+        r6.f49496c = true;
         r3 = 0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0053, code lost:
         if (r3 >= r2) goto L21;
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0055, code lost:
-        r6.f49103b[r3].run();
-        r6.f49103b[r3] = null;
+        r6.f49495b[r3].run();
+        r6.f49495b[r3] = null;
         r3 = r3 + 1;
      */
     /*
@@ -304,29 +304,29 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     */
     public boolean D() {
         p pVar;
-        if (!this.f49104c) {
+        if (!this.f49496c) {
             if (Looper.myLooper() == this.m.j().getLooper()) {
                 boolean z2 = false;
                 while (true) {
                     synchronized (this) {
-                        if (this.f49102a == null || this.f49102a.size() == 0) {
+                        if (this.f49494a == null || this.f49494a.size() == 0) {
                             break;
                         }
-                        int size = this.f49102a.size();
-                        if (this.f49103b == null || this.f49103b.length < size) {
-                            this.f49103b = new Runnable[size];
+                        int size = this.f49494a.size();
+                        if (this.f49495b == null || this.f49495b.length < size) {
+                            this.f49495b = new Runnable[size];
                         }
-                        this.f49102a.toArray(this.f49103b);
-                        this.f49102a.clear();
+                        this.f49494a.toArray(this.f49495b);
+                        this.f49494a.clear();
                         this.m.j().removeCallbacks(this.w);
                     }
-                    this.f49104c = false;
+                    this.f49496c = false;
                     z2 = true;
                 }
                 if (this.t) {
                     boolean z3 = false;
-                    for (int i = 0; i < this.f49105d.size(); i++) {
-                        Fragment fragment = this.f49105d.get(i);
+                    for (int i = 0; i < this.f49497d.size(); i++) {
+                        Fragment fragment = this.f49497d.get(i);
                         if (fragment != null && (pVar = fragment.Q) != null) {
                             z3 |= pVar.j();
                         }
@@ -344,19 +344,19 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public Fragment E(int i) {
-        ArrayList<Fragment> arrayList = this.f49106e;
+        ArrayList<Fragment> arrayList = this.f49498e;
         if (arrayList != null) {
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                Fragment fragment = this.f49106e.get(size);
+                Fragment fragment = this.f49498e.get(size);
                 if (fragment != null && fragment.A == i) {
                     return fragment;
                 }
             }
         }
-        ArrayList<Fragment> arrayList2 = this.f49105d;
+        ArrayList<Fragment> arrayList2 = this.f49497d;
         if (arrayList2 != null) {
             for (int size2 = arrayList2.size() - 1; size2 >= 0; size2--) {
-                Fragment fragment2 = this.f49105d.get(size2);
+                Fragment fragment2 = this.f49497d.get(size2);
                 if (fragment2 != null && fragment2.A == i) {
                     return fragment2;
                 }
@@ -367,21 +367,21 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public Fragment F(String str) {
-        ArrayList<Fragment> arrayList = this.f49106e;
+        ArrayList<Fragment> arrayList = this.f49498e;
         if (arrayList != null && str != null) {
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                Fragment fragment = this.f49106e.get(size);
+                Fragment fragment = this.f49498e.get(size);
                 if (fragment != null && str.equals(fragment.C)) {
                     return fragment;
                 }
             }
         }
-        ArrayList<Fragment> arrayList2 = this.f49105d;
+        ArrayList<Fragment> arrayList2 = this.f49497d;
         if (arrayList2 == null || str == null) {
             return null;
         }
         for (int size2 = arrayList2.size() - 1; size2 >= 0; size2--) {
-            Fragment fragment2 = this.f49105d.get(size2);
+            Fragment fragment2 = this.f49497d.get(size2);
             if (fragment2 != null && str.equals(fragment2.C)) {
                 return fragment2;
             }
@@ -407,8 +407,8 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         if (i == -1) {
             return null;
         }
-        if (i < this.f49105d.size()) {
-            Fragment fragment = this.f49105d.get(i);
+        if (i < this.f49497d.size()) {
+            Fragment fragment = this.f49497d.get(i);
             if (fragment != null) {
                 return fragment;
             }
@@ -485,17 +485,17 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         if (fragment.j >= 0) {
             return;
         }
-        ArrayList<Integer> arrayList = this.f49107f;
+        ArrayList<Integer> arrayList = this.f49499f;
         if (arrayList != null && arrayList.size() > 0) {
-            ArrayList<Integer> arrayList2 = this.f49107f;
+            ArrayList<Integer> arrayList2 = this.f49499f;
             fragment.e1(arrayList2.remove(arrayList2.size() - 1).intValue(), this.o);
-            this.f49105d.set(fragment.j, fragment);
+            this.f49497d.set(fragment.j, fragment);
         } else {
-            if (this.f49105d == null) {
-                this.f49105d = new ArrayList<>();
+            if (this.f49497d == null) {
+                this.f49497d = new ArrayList<>();
             }
-            fragment.e1(this.f49105d.size(), this.o);
-            this.f49105d.add(fragment);
+            fragment.e1(this.f49497d.size(), this.o);
+            this.f49497d.add(fragment);
         }
         if (x) {
             Log.v("FragmentManager", "Allocated fragment index " + fragment);
@@ -509,11 +509,11 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         if (x) {
             Log.v("FragmentManager", "Freeing fragment index " + fragment);
         }
-        this.f49105d.set(fragment.j, null);
-        if (this.f49107f == null) {
-            this.f49107f = new ArrayList<>();
+        this.f49497d.set(fragment.j, null);
+        if (this.f49499f == null) {
+            this.f49499f = new ArrayList<>();
         }
-        this.f49107f.add(Integer.valueOf(fragment.j));
+        this.f49499f.add(Integer.valueOf(fragment.j));
         this.m.m(fragment.k);
         fragment.X();
     }
@@ -525,10 +525,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         }
         if (z2 || this.l != i) {
             this.l = i;
-            if (this.f49105d != null) {
+            if (this.f49497d != null) {
                 boolean z3 = false;
-                for (int i4 = 0; i4 < this.f49105d.size(); i4++) {
-                    Fragment fragment = this.f49105d.get(i4);
+                for (int i4 = 0; i4 < this.f49497d.size(); i4++) {
+                    Fragment fragment = this.f49497d.get(i4);
                     if (fragment != null) {
                         T(fragment, i, i2, i3, false);
                         p pVar = fragment.Q;
@@ -591,23 +591,23 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         } else {
             i4 = i;
         }
-        if (fragment.q && i4 > (i6 = fragment.f13031e)) {
+        if (fragment.q && i4 > (i6 = fragment.f12692e)) {
             i4 = i6;
         }
-        int i8 = (!fragment.O || fragment.f13031e >= 4 || i4 <= 3) ? i4 : 3;
-        int i9 = fragment.f13031e;
+        int i8 = (!fragment.O || fragment.f12692e >= 4 || i4 <= 3) ? i4 : 3;
+        int i9 = fragment.f12692e;
         if (i9 < i8) {
             if (fragment.s && !fragment.t) {
                 return;
             }
-            if (fragment.f13032f != null) {
-                fragment.f13032f = null;
+            if (fragment.f12693f != null) {
+                fragment.f12693f = null;
                 str = "FragmentManager";
-                T(fragment, fragment.f13033g, 0, 0, true);
+                T(fragment, fragment.f12694g, 0, 0, true);
             } else {
                 str = "FragmentManager";
             }
-            int i10 = fragment.f13031e;
+            int i10 = fragment.f12692e;
             if (i10 == 0) {
                 if (x) {
                     str2 = str;
@@ -615,19 +615,19 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 } else {
                     str2 = str;
                 }
-                Bundle bundle = fragment.f13034h;
+                Bundle bundle = fragment.f12695h;
                 if (bundle != null) {
                     bundle.setClassLoader(this.m.h().getClassLoader());
-                    fragment.i = fragment.f13034h.getSparseParcelableArray(FragmentManagerImpl.VIEW_STATE_TAG);
-                    Fragment H = H(fragment.f13034h, FragmentManagerImpl.TARGET_STATE_TAG);
+                    fragment.i = fragment.f12695h.getSparseParcelableArray(FragmentManagerImpl.VIEW_STATE_TAG);
+                    Fragment H = H(fragment.f12695h, FragmentManagerImpl.TARGET_STATE_TAG);
                     fragment.m = H;
                     if (H != null) {
                         z3 = false;
-                        fragment.o = fragment.f13034h.getInt(FragmentManagerImpl.TARGET_REQUEST_CODE_STATE_TAG, 0);
+                        fragment.o = fragment.f12695h.getInt(FragmentManagerImpl.TARGET_REQUEST_CODE_STATE_TAG, 0);
                     } else {
                         z3 = false;
                     }
-                    boolean z4 = fragment.f13034h.getBoolean(FragmentManagerImpl.USER_VISIBLE_HINT_TAG, true);
+                    boolean z4 = fragment.f12695h.getBoolean(FragmentManagerImpl.USER_VISIBLE_HINT_TAG, true);
                     fragment.P = z4;
                     if (!z4) {
                         fragment.O = true;
@@ -655,13 +655,13 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                         this.m.n(fragment);
                     }
                     if (!fragment.G) {
-                        fragment.M0(fragment.f13034h);
+                        fragment.M0(fragment.f12695h);
                     }
                     fragment.G = z3;
                     if (fragment.s) {
                         r14 = 0;
                         r14 = 0;
-                        View O0 = fragment.O0(fragment.q(fragment.f13034h), null, fragment.f13034h);
+                        View O0 = fragment.O0(fragment.q(fragment.f12695h), null, fragment.f12695h);
                         fragment.M = O0;
                         if (O0 != null) {
                             fragment.N = O0;
@@ -673,7 +673,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                             if (fragment.D) {
                                 fragment.M.setVisibility(8);
                             }
-                            fragment.H0(fragment.M, fragment.f13034h);
+                            fragment.H0(fragment.M, fragment.f12695h);
                         } else {
                             fragment.N = null;
                         }
@@ -693,7 +693,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                                     viewGroup = r14;
                                 }
                                 fragment.L = viewGroup;
-                                View O02 = fragment.O0(fragment.q(fragment.f13034h), viewGroup, fragment.f13034h);
+                                View O02 = fragment.O0(fragment.q(fragment.f12695h), viewGroup, fragment.f12695h);
                                 fragment.M = O02;
                                 if (O02 != null) {
                                     fragment.N = O02;
@@ -713,16 +713,16 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                                     if (fragment.D) {
                                         fragment.M.setVisibility(8);
                                     }
-                                    fragment.H0(fragment.M, fragment.f13034h);
+                                    fragment.H0(fragment.M, fragment.f12695h);
                                 } else {
                                     fragment.N = r14;
                                 }
                             }
-                            fragment.J0(fragment.f13034h);
+                            fragment.J0(fragment.f12695h);
                             if (fragment.M != null) {
-                                fragment.c1(fragment.f13034h);
+                                fragment.c1(fragment.f12695h);
                             }
-                            fragment.f13034h = r14;
+                            fragment.f12695h = r14;
                         }
                         if (i8 > 3) {
                         }
@@ -750,7 +750,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                     }
                     fragment.r = true;
                     fragment.X0();
-                    fragment.f13034h = r14;
+                    fragment.f12695h = r14;
                     fragment.i = r14;
                 }
             } else if (i10 == 4) {
@@ -807,8 +807,8 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                         Animation K2 = (this.l <= 0 || this.r) ? null : K(fragment, i2, false, i3);
                         if (K2 != null) {
                             View view2 = fragment.M;
-                            fragment.f13032f = view2;
-                            fragment.f13033g = i8;
+                            fragment.f12693f = view2;
+                            fragment.f12694g = i8;
                             K2.setAnimationListener(new b(view2, K2, fragment));
                             fragment.M.startAnimation(K2);
                         }
@@ -820,13 +820,13 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 }
             }
             if (i8 < 1) {
-                if (this.r && (view = fragment.f13032f) != null) {
-                    fragment.f13032f = null;
+                if (this.r && (view = fragment.f12693f) != null) {
+                    fragment.f12693f = null;
                     view.clearAnimation();
                 }
-                if (fragment.f13032f != null) {
-                    fragment.f13033g = i8;
-                    fragment.f13031e = i7;
+                if (fragment.f12693f != null) {
+                    fragment.f12694g = i8;
+                    fragment.f12692e = i7;
                 }
                 if (x) {
                     Log.v("FragmentManager", "movefrom CREATED: " + fragment);
@@ -851,7 +851,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             }
         }
         i7 = i8;
-        fragment.f13031e = i7;
+        fragment.f12692e = i7;
     }
 
     public void U() {
@@ -860,7 +860,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
 
     public void V(Fragment fragment) {
         if (fragment.O) {
-            if (this.f49104c) {
+            if (this.f49496c) {
                 this.t = true;
                 return;
             }
@@ -871,17 +871,17 @@ public final class l extends k implements d.b.g0.m.a.d.e {
 
     public boolean W(Handler handler, String str, int i, int i2) {
         int size;
-        ArrayList<e> arrayList = this.f49108g;
+        ArrayList<e> arrayList = this.f49500g;
         if (arrayList == null) {
             return false;
         }
-        e.C1025e c1025e = null;
+        e.C1037e c1037e = null;
         if (str == null && i < 0 && (i2 & 1) == 0) {
             int size2 = arrayList.size() - 1;
             if (size2 < 0) {
                 return false;
             }
-            e remove = this.f49108g.remove(size2);
+            e remove = this.f49500g.remove(size2);
             SparseArray<Fragment> sparseArray = new SparseArray<>();
             SparseArray<Fragment> sparseArray2 = new SparseArray<>();
             remove.p(sparseArray, sparseArray2);
@@ -889,9 +889,9 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             Z();
         } else {
             if (str != null || i >= 0) {
-                size = this.f49108g.size() - 1;
+                size = this.f49500g.size() - 1;
                 while (size >= 0) {
-                    e eVar = this.f49108g.get(size);
+                    e eVar = this.f49500g.get(size);
                     if ((str != null && str.equals(eVar.D())) || (i >= 0 && i == eVar.r)) {
                         break;
                     }
@@ -906,7 +906,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                         if (size < 0) {
                             break;
                         }
-                        e eVar2 = this.f49108g.get(size);
+                        e eVar2 = this.f49500g.get(size);
                         if (str == null || !str.equals(eVar2.D())) {
                             if (i < 0 || i != eVar2.r) {
                                 break;
@@ -917,12 +917,12 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             } else {
                 size = -1;
             }
-            if (size == this.f49108g.size() - 1) {
+            if (size == this.f49500g.size() - 1) {
                 return false;
             }
             ArrayList arrayList2 = new ArrayList();
-            for (int size3 = this.f49108g.size() - 1; size3 > size; size3--) {
-                arrayList2.add(this.f49108g.remove(size3));
+            for (int size3 = this.f49500g.size() - 1; size3 > size; size3--) {
+                arrayList2.add(this.f49500g.remove(size3));
             }
             int size4 = arrayList2.size() - 1;
             SparseArray<Fragment> sparseArray3 = new SparseArray<>();
@@ -935,7 +935,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 if (x) {
                     Log.v("FragmentManager", "Popping back stack state: " + arrayList2.get(i4));
                 }
-                c1025e = ((e) arrayList2.get(i4)).H(i4 == size4, c1025e, sparseArray3, sparseArray4);
+                c1037e = ((e) arrayList2.get(i4)).H(i4 == size4, c1037e, sparseArray3, sparseArray4);
                 i4++;
             }
             Z();
@@ -961,7 +961,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         if (fragment.E && i3 == 0) {
             return;
         }
-        ArrayList<Fragment> arrayList = this.f49106e;
+        ArrayList<Fragment> arrayList = this.f49498e;
         if (arrayList != null) {
             arrayList.remove(fragment);
         }
@@ -991,7 +991,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             return;
         }
         FragmentManagerState fragmentManagerState = (FragmentManagerState) parcelable;
-        if (fragmentManagerState.f13041e == null) {
+        if (fragmentManagerState.f12702e == null) {
             return;
         }
         if (list != null) {
@@ -1000,7 +1000,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 if (x) {
                     Log.v("FragmentManager", "restoreAllState: re-attaching retained " + fragment);
                 }
-                FragmentState fragmentState = fragmentManagerState.f13041e[fragment.j];
+                FragmentState fragmentState = fragmentManagerState.f12702e[fragment.j];
                 fragmentState.o = fragment;
                 fragment.i = null;
                 fragment.v = 0;
@@ -1011,18 +1011,18 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 if (bundle != null) {
                     bundle.setClassLoader(this.m.h().getClassLoader());
                     fragment.i = fragmentState.n.getSparseParcelableArray(FragmentManagerImpl.VIEW_STATE_TAG);
-                    fragment.f13034h = fragmentState.n;
+                    fragment.f12695h = fragmentState.n;
                 }
             }
         }
-        this.f49105d = new ArrayList<>(fragmentManagerState.f13041e.length);
-        ArrayList<Integer> arrayList = this.f49107f;
+        this.f49497d = new ArrayList<>(fragmentManagerState.f12702e.length);
+        ArrayList<Integer> arrayList = this.f49499f;
         if (arrayList != null) {
             arrayList.clear();
         }
         int i2 = 0;
         while (true) {
-            FragmentState[] fragmentStateArr = fragmentManagerState.f13041e;
+            FragmentState[] fragmentStateArr = fragmentManagerState.f12702e;
             if (i2 >= fragmentStateArr.length) {
                 break;
             }
@@ -1032,17 +1032,17 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 if (x) {
                     Log.v("FragmentManager", "restoreAllState: active #" + i2 + ": " + a2);
                 }
-                this.f49105d.add(a2);
+                this.f49497d.add(a2);
                 fragmentState2.o = null;
             } else {
-                this.f49105d.add(null);
-                if (this.f49107f == null) {
-                    this.f49107f = new ArrayList<>();
+                this.f49497d.add(null);
+                if (this.f49499f == null) {
+                    this.f49499f = new ArrayList<>();
                 }
                 if (x) {
                     Log.v("FragmentManager", "restoreAllState: avail #" + i2);
                 }
-                this.f49107f.add(Integer.valueOf(i2));
+                this.f49499f.add(Integer.valueOf(i2));
             }
             i2++;
         }
@@ -1051,8 +1051,8 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 Fragment fragment2 = list.get(i3);
                 int i4 = fragment2.n;
                 if (i4 >= 0) {
-                    if (i4 < this.f49105d.size()) {
-                        fragment2.m = this.f49105d.get(fragment2.n);
+                    if (i4 < this.f49497d.size()) {
+                        fragment2.m = this.f49497d.get(fragment2.n);
                     } else {
                         Log.w("FragmentManager", "Re-attaching retained fragment " + fragment2 + " target no longer exists: " + fragment2.n);
                         fragment2.m = null;
@@ -1060,39 +1060,39 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 }
             }
         }
-        if (fragmentManagerState.f13042f != null) {
-            this.f49106e = new ArrayList<>(fragmentManagerState.f13042f.length);
+        if (fragmentManagerState.f12703f != null) {
+            this.f49498e = new ArrayList<>(fragmentManagerState.f12703f.length);
             int i5 = 0;
             while (true) {
-                int[] iArr = fragmentManagerState.f13042f;
+                int[] iArr = fragmentManagerState.f12703f;
                 if (i5 >= iArr.length) {
                     break;
                 }
-                Fragment fragment3 = this.f49105d.get(iArr[i5]);
+                Fragment fragment3 = this.f49497d.get(iArr[i5]);
                 if (fragment3 != null) {
                     fragment3.p = true;
                     if (x) {
                         Log.v("FragmentManager", "restoreAllState: added #" + i5 + ": " + fragment3);
                     }
-                    if (!this.f49106e.contains(fragment3)) {
-                        this.f49106e.add(fragment3);
+                    if (!this.f49498e.contains(fragment3)) {
+                        this.f49498e.add(fragment3);
                         i5++;
                     } else {
                         throw new IllegalStateException("Already added!");
                     }
                 } else {
-                    l0(new IllegalStateException("No instantiated fragment for index #" + fragmentManagerState.f13042f[i5]));
+                    l0(new IllegalStateException("No instantiated fragment for index #" + fragmentManagerState.f12703f[i5]));
                     throw null;
                 }
             }
         } else {
-            this.f49106e = null;
+            this.f49498e = null;
         }
-        if (fragmentManagerState.f13043g != null) {
-            this.f49108g = new ArrayList<>(fragmentManagerState.f13043g.length);
+        if (fragmentManagerState.f12704g != null) {
+            this.f49500g = new ArrayList<>(fragmentManagerState.f12704g.length);
             int i6 = 0;
             while (true) {
-                BackStackState[] backStackStateArr = fragmentManagerState.f13043g;
+                BackStackState[] backStackStateArr = fragmentManagerState.f12704g;
                 if (i6 >= backStackStateArr.length) {
                     return;
                 }
@@ -1101,7 +1101,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                     Log.v("FragmentManager", "restoreAllState: back stack #" + i6 + " (index " + a3.r + "): " + a3);
                     a3.y(GlideException.IndentedAppendable.INDENT, new PrintWriter(new d.b.g0.m.a.c.d("FragmentManager")), false);
                 }
-                this.f49108g.add(a3);
+                this.f49500g.add(a3);
                 int i7 = a3.r;
                 if (i7 >= 0) {
                     g0(i7, a3);
@@ -1109,7 +1109,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 i6++;
             }
         } else {
-            this.f49108g = null;
+            this.f49500g = null;
         }
     }
 
@@ -1122,14 +1122,14 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         int size5;
         int size6;
         String str2 = str + "    ";
-        ArrayList<Fragment> arrayList = this.f49105d;
+        ArrayList<Fragment> arrayList = this.f49497d;
         if (arrayList != null && (size6 = arrayList.size()) > 0) {
             printWriter.print(str);
             printWriter.print("Active Fragments in ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this)));
             printWriter.println(":");
             for (int i = 0; i < size6; i++) {
-                Fragment fragment = this.f49105d.get(i);
+                Fragment fragment = this.f49497d.get(i);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(i);
@@ -1140,7 +1140,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 }
             }
         }
-        ArrayList<Fragment> arrayList2 = this.f49106e;
+        ArrayList<Fragment> arrayList2 = this.f49498e;
         if (arrayList2 != null && (size5 = arrayList2.size()) > 0) {
             printWriter.print(str);
             printWriter.println("Added Fragments:");
@@ -1149,10 +1149,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 printWriter.print("  #");
                 printWriter.print(i2);
                 printWriter.print(": ");
-                printWriter.println(this.f49106e.get(i2).toString());
+                printWriter.println(this.f49498e.get(i2).toString());
             }
         }
-        ArrayList<Fragment> arrayList3 = this.f49109h;
+        ArrayList<Fragment> arrayList3 = this.f49501h;
         if (arrayList3 != null && (size4 = arrayList3.size()) > 0) {
             printWriter.print(str);
             printWriter.println("Fragments Created Menus:");
@@ -1161,15 +1161,15 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 printWriter.print("  #");
                 printWriter.print(i3);
                 printWriter.print(": ");
-                printWriter.println(this.f49109h.get(i3).toString());
+                printWriter.println(this.f49501h.get(i3).toString());
             }
         }
-        ArrayList<e> arrayList4 = this.f49108g;
+        ArrayList<e> arrayList4 = this.f49500g;
         if (arrayList4 != null && (size3 = arrayList4.size()) > 0) {
             printWriter.print(str);
             printWriter.println("Back Stack:");
             for (int i4 = 0; i4 < size3; i4++) {
-                e eVar = this.f49108g.get(i4);
+                e eVar = this.f49500g.get(i4);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(i4);
@@ -1196,7 +1196,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 printWriter.println(Arrays.toString(this.j.toArray()));
             }
         }
-        ArrayList<Runnable> arrayList5 = this.f49102a;
+        ArrayList<Runnable> arrayList5 = this.f49494a;
         if (arrayList5 != null && (size = arrayList5.size()) > 0) {
             printWriter.print(str);
             printWriter.println("Pending Actions:");
@@ -1205,7 +1205,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                 printWriter.print("  #");
                 printWriter.print(i6);
                 printWriter.print(": ");
-                printWriter.println((Runnable) this.f49102a.get(i6));
+                printWriter.println((Runnable) this.f49494a.get(i6));
             }
         }
         printWriter.print(str);
@@ -1238,20 +1238,20 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             printWriter.print("  mNoTransactionsBecause=");
             printWriter.println(this.s);
         }
-        ArrayList<Integer> arrayList6 = this.f49107f;
+        ArrayList<Integer> arrayList6 = this.f49499f;
         if (arrayList6 == null || arrayList6.size() <= 0) {
             return;
         }
         printWriter.print(str);
         printWriter.print("  mAvailIndices: ");
-        printWriter.println(Arrays.toString(this.f49107f.toArray()));
+        printWriter.println(Arrays.toString(this.f49499f.toArray()));
     }
 
     public ArrayList<Fragment> b0() {
         ArrayList<Fragment> arrayList = null;
-        if (this.f49105d != null) {
-            for (int i = 0; i < this.f49105d.size(); i++) {
-                Fragment fragment = this.f49105d.get(i);
+        if (this.f49497d != null) {
+            for (int i = 0; i < this.f49497d.size(); i++) {
+                Fragment fragment = this.f49497d.get(i);
                 if (fragment != null && fragment.F) {
                     if (arrayList == null) {
                         arrayList = new ArrayList<>();
@@ -1276,7 +1276,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
 
     @Override // d.b.g0.m.a.a.k
     public List<Fragment> d() {
-        return this.f49105d;
+        return this.f49497d;
     }
 
     public Parcelable d0() {
@@ -1287,21 +1287,21 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         if (y) {
             this.q = true;
         }
-        ArrayList<Fragment> arrayList = this.f49105d;
+        ArrayList<Fragment> arrayList = this.f49497d;
         BackStackState[] backStackStateArr = null;
         if (arrayList == null || arrayList.size() <= 0) {
             return null;
         }
-        int size3 = this.f49105d.size();
+        int size3 = this.f49497d.size();
         FragmentState[] fragmentStateArr = new FragmentState[size3];
         boolean z2 = false;
         for (int i = 0; i < size3; i++) {
-            Fragment fragment = this.f49105d.get(i);
+            Fragment fragment = this.f49497d.get(i);
             if (fragment != null) {
                 if (fragment.j >= 0) {
                     FragmentState fragmentState = new FragmentState(fragment);
                     fragmentStateArr[i] = fragmentState;
-                    if (fragment.f13031e > 0 && fragmentState.n == null) {
+                    if (fragment.f12692e > 0 && fragmentState.n == null) {
                         Bundle e0 = e0(fragment);
                         fragmentState.n = e0;
                         Fragment fragment2 = fragment.m;
@@ -1321,7 +1321,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                             }
                         }
                     } else {
-                        fragmentState.n = fragment.f13034h;
+                        fragmentState.n = fragment.f12695h;
                     }
                     if (x) {
                         Log.v("FragmentManager", "Saved state of " + fragment + ": " + fragmentState.n);
@@ -1339,37 +1339,37 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             }
             return null;
         }
-        ArrayList<Fragment> arrayList2 = this.f49106e;
+        ArrayList<Fragment> arrayList2 = this.f49498e;
         if (arrayList2 == null || (size2 = arrayList2.size()) <= 0) {
             iArr = null;
         } else {
             iArr = new int[size2];
             for (int i3 = 0; i3 < size2; i3++) {
-                iArr[i3] = this.f49106e.get(i3).j;
+                iArr[i3] = this.f49498e.get(i3).j;
                 if (iArr[i3] >= 0) {
                     if (x) {
-                        Log.v("FragmentManager", "saveAllState: adding fragment #" + i3 + ": " + this.f49106e.get(i3));
+                        Log.v("FragmentManager", "saveAllState: adding fragment #" + i3 + ": " + this.f49498e.get(i3));
                     }
                 } else {
-                    l0(new IllegalStateException("Failure saving state: active " + this.f49106e.get(i3) + " has cleared index: " + iArr[i3]));
+                    l0(new IllegalStateException("Failure saving state: active " + this.f49498e.get(i3) + " has cleared index: " + iArr[i3]));
                     throw null;
                 }
             }
         }
-        ArrayList<e> arrayList3 = this.f49108g;
+        ArrayList<e> arrayList3 = this.f49500g;
         if (arrayList3 != null && (size = arrayList3.size()) > 0) {
             backStackStateArr = new BackStackState[size];
             for (int i4 = 0; i4 < size; i4++) {
-                backStackStateArr[i4] = new BackStackState(this.f49108g.get(i4));
+                backStackStateArr[i4] = new BackStackState(this.f49500g.get(i4));
                 if (x) {
-                    Log.v("FragmentManager", "saveAllState: adding back stack #" + i4 + ": " + this.f49108g.get(i4));
+                    Log.v("FragmentManager", "saveAllState: adding back stack #" + i4 + ": " + this.f49500g.get(i4));
                 }
             }
         }
         FragmentManagerState fragmentManagerState = new FragmentManagerState();
-        fragmentManagerState.f13041e = fragmentStateArr;
-        fragmentManagerState.f13042f = iArr;
-        fragmentManagerState.f13043g = backStackStateArr;
+        fragmentManagerState.f12702e = fragmentStateArr;
+        fragmentManagerState.f12703f = iArr;
+        fragmentManagerState.f12704g = backStackStateArr;
         return fragmentManagerState;
     }
 
@@ -1410,10 +1410,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public void f(e eVar) {
-        if (this.f49108g == null) {
-            this.f49108g = new ArrayList<>();
+        if (this.f49500g == null) {
+            this.f49500g = new ArrayList<>();
         }
-        this.f49108g.add(eVar);
+        this.f49500g.add(eVar);
         Z();
     }
 
@@ -1435,8 +1435,8 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public void g(Fragment fragment, boolean z2) {
-        if (this.f49106e == null) {
-            this.f49106e = new ArrayList<>();
+        if (this.f49498e == null) {
+            this.f49498e = new ArrayList<>();
         }
         if (x) {
             Log.v("FragmentManager", "add: " + fragment);
@@ -1445,8 +1445,8 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         if (fragment.E) {
             return;
         }
-        if (!this.f49106e.contains(fragment)) {
-            this.f49106e.add(fragment);
+        if (!this.f49498e.contains(fragment)) {
+            this.f49498e.add(fragment);
             fragment.p = true;
             fragment.q = false;
             if (fragment.H && fragment.I) {
@@ -1540,14 +1540,14 @@ public final class l extends k implements d.b.g0.m.a.d.e {
             if (fragment.p) {
                 return;
             }
-            if (this.f49106e == null) {
-                this.f49106e = new ArrayList<>();
+            if (this.f49498e == null) {
+                this.f49498e = new ArrayList<>();
             }
-            if (!this.f49106e.contains(fragment)) {
+            if (!this.f49498e.contains(fragment)) {
                 if (x) {
                     Log.v("FragmentManager", "add from attach: " + fragment);
                 }
-                this.f49106e.add(fragment);
+                this.f49498e.add(fragment);
                 fragment.p = true;
                 if (fragment.H && fragment.I) {
                     this.p = true;
@@ -1591,11 +1591,11 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public void k0() {
-        if (this.f49105d == null) {
+        if (this.f49497d == null) {
             return;
         }
-        for (int i = 0; i < this.f49105d.size(); i++) {
-            Fragment fragment = this.f49105d.get(i);
+        for (int i = 0; i < this.f49497d.size(); i++) {
+            Fragment fragment = this.f49497d.get(i);
             if (fragment != null) {
                 V(fragment);
             }
@@ -1611,11 +1611,11 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         }
         fragment.E = true;
         if (fragment.p) {
-            if (this.f49106e != null) {
+            if (this.f49498e != null) {
                 if (x) {
                     Log.v("FragmentManager", "remove from detach: " + fragment);
                 }
-                this.f49106e.remove(fragment);
+                this.f49498e.remove(fragment);
             }
             if (fragment.H && fragment.I) {
                 this.p = true;
@@ -1659,9 +1659,9 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public void n(Configuration configuration) {
-        if (this.f49106e != null) {
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+        if (this.f49498e != null) {
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null) {
                     fragment.K0(configuration);
                 }
@@ -1670,9 +1670,9 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public boolean o(MenuItem menuItem) {
-        if (this.f49106e != null) {
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+        if (this.f49498e != null) {
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null && fragment.L0(menuItem)) {
                     return true;
                 }
@@ -1685,7 +1685,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         if ("fragment".equals(str)) {
             String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.f49117a);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.f49509a);
             if (attributeValue == null) {
                 attributeValue = obtainStyledAttributes.getString(0);
             }
@@ -1709,7 +1709,7 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                     Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + str2 + " existing=" + E);
                 }
                 if (E == null) {
-                    E = Fragment.d0(context, str2);
+                    E = Fragment.Y(context, str2);
                     E.s = true;
                     E.A = resourceId != 0 ? resourceId : id;
                     E.B = id;
@@ -1718,12 +1718,12 @@ public final class l extends k implements d.b.g0.m.a.d.e {
                     E.w = this;
                     j jVar = this.m;
                     E.x = jVar;
-                    E.B0(jVar.h(), attributeSet, E.f13034h);
+                    E.B0(jVar.h(), attributeSet, E.f12695h);
                     g(E, true);
                 } else if (!E.t) {
                     E.t = true;
                     if (!E.G) {
-                        E.B0(this.m.h(), attributeSet, E.f13034h);
+                        E.B0(this.m.h(), attributeSet, E.f12695h);
                     }
                 } else {
                     throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + str2);
@@ -1759,10 +1759,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     public boolean q(Menu menu, MenuInflater menuInflater) {
         boolean z2;
         ArrayList<Fragment> arrayList = null;
-        if (this.f49106e != null) {
+        if (this.f49498e != null) {
             z2 = false;
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null && fragment.N0(menu, menuInflater)) {
                     if (arrayList == null) {
                         arrayList = new ArrayList<>();
@@ -1774,15 +1774,15 @@ public final class l extends k implements d.b.g0.m.a.d.e {
         } else {
             z2 = false;
         }
-        if (this.f49109h != null) {
-            for (int i2 = 0; i2 < this.f49109h.size(); i2++) {
-                Fragment fragment2 = this.f49109h.get(i2);
+        if (this.f49501h != null) {
+            for (int i2 = 0; i2 < this.f49501h.size(); i2++) {
+                Fragment fragment2 = this.f49501h.get(i2);
                 if (arrayList == null || !arrayList.contains(fragment2)) {
                     fragment2.w0();
                 }
             }
         }
-        this.f49109h = arrayList;
+        this.f49501h = arrayList;
         return z2;
     }
 
@@ -1800,9 +1800,9 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public void t() {
-        if (this.f49106e != null) {
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+        if (this.f49498e != null) {
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null) {
                     fragment.R0();
                 }
@@ -1826,9 +1826,9 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public boolean u(MenuItem menuItem) {
-        if (this.f49106e != null) {
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+        if (this.f49498e != null) {
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null && fragment.S0(menuItem)) {
                     return true;
                 }
@@ -1838,9 +1838,9 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public void v(Menu menu) {
-        if (this.f49106e != null) {
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+        if (this.f49498e != null) {
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null) {
                     fragment.T0(menu);
                 }
@@ -1853,10 +1853,10 @@ public final class l extends k implements d.b.g0.m.a.d.e {
     }
 
     public boolean x(Menu menu) {
-        if (this.f49106e != null) {
+        if (this.f49498e != null) {
             boolean z2 = false;
-            for (int i = 0; i < this.f49106e.size(); i++) {
-                Fragment fragment = this.f49106e.get(i);
+            for (int i = 0; i < this.f49498e.size(); i++) {
+                Fragment fragment = this.f49498e.get(i);
                 if (fragment != null && fragment.V0(menu)) {
                     z2 = true;
                 }

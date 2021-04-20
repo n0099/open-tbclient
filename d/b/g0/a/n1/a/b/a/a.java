@@ -6,14 +6,14 @@ public class a<T> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public T f45342a;
+    public T f45734a;
 
     @Nullable
     public T a() {
-        return this.f45342a;
+        return this.f45734a;
     }
 
     public void b(T t) {
-        this.f45342a = t;
+        this.f45734a = t;
     }
 }

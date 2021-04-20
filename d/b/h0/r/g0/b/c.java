@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
 import com.baidu.tieba.R;
-import d.b.b.e.l.e;
-import d.b.b.e.q.h;
+import d.b.c.e.l.e;
+import d.b.c.e.q.h;
 /* loaded from: classes3.dex */
 public class c implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     /* renamed from: a */
-    public a getFromLocal(String str, String str2, int i, int i2, d.b.b.e.l.b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i, int i2, d.b.c.e.l.b bVar, Object... objArr) {
         DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
         diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
         diskFileOperate.setSubFolder(false);
@@ -23,37 +23,37 @@ public class c implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(diskFileOperate);
-            bVar.f41848a = diskCancelWorker;
+            bVar.f42345a = diskCancelWorker;
         }
         diskFileOperate.call();
         if (diskFileOperate.isSuccess()) {
             String desPath = diskFileOperate.getDesPath();
             a aVar = new a();
-            aVar.f50587a = str;
-            aVar.f50588b = desPath;
+            aVar.f50994a = str;
+            aVar.f50995b = desPath;
             return aVar;
         }
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     /* renamed from: b */
     public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     /* renamed from: c */
-    public a getFromRemote(String str, String str2, int i, int i2, d.b.b.e.l.b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i, int i2, d.b.c.e.l.b bVar, Object... objArr) {
         int i3 = 1;
         String str3 = null;
         String valueOf = objArr.length == 1 ? String.valueOf(objArr[0]) : null;
         a aVar = new a();
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f41848a = webClient;
+            bVar.f42345a = webClient;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
         if (!TextUtils.isEmpty(valueOf)) {
@@ -61,12 +61,12 @@ public class c implements e<a> {
         }
         byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
         if (!webClient.IsRequestSuccess()) {
-            aVar.f50589c = 3;
-            aVar.f50590d = h.a(R.string.neterror);
+            aVar.f50996c = 3;
+            aVar.f50997d = h.a(R.string.neterror);
             return aVar;
         } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
-            aVar.f50589c = 4;
-            aVar.f50590d = h.a(R.string.voice_cache_error_no_file);
+            aVar.f50996c = 4;
+            aVar.f50997d = h.a(R.string.voice_cache_error_no_file);
             return aVar;
         } else {
             if (str == null) {
@@ -81,7 +81,7 @@ public class c implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(diskFileOperate);
-                    bVar.f41848a = diskCancelWorker;
+                    bVar.f42345a = diskCancelWorker;
                 }
                 diskFileOperate.call();
                 if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
@@ -92,32 +92,32 @@ public class c implements e<a> {
                 }
             }
             if (i3 == 0) {
-                aVar.f50588b = str3;
-                aVar.f50587a = str;
+                aVar.f50995b = str3;
+                aVar.f50994a = str;
             } else {
-                aVar.f50589c = i3;
-                aVar.f50590d = a.a(i3);
+                aVar.f50996c = i3;
+                aVar.f50997d = a.a(i3);
             }
             return aVar;
         }
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public int getAsyncTaskPriority() {
         return 2;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
     }
 }

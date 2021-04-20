@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.a0.a;
-import f.a.g;
-import f.a.p;
-import f.a.x.i.b;
+import f.b.a0.a;
+import f.b.g;
+import f.b.p;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -66,7 +66,7 @@ public final class FlowableThrottleFirstTimed$DebounceTimedSubscriber<T> extends
         if (get() != 0) {
             this.actual.onNext(t);
             b.e(this, 1L);
-            f.a.t.b bVar = this.timer.get();
+            f.b.t.b bVar = this.timer.get();
             if (bVar != null) {
                 bVar.dispose();
             }
@@ -78,7 +78,7 @@ public final class FlowableThrottleFirstTimed$DebounceTimedSubscriber<T> extends
         this.actual.onError(new MissingBackpressureException("Could not deliver value due to lack of requests"));
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

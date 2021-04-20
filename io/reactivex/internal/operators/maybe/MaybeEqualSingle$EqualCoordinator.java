@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.j;
-import f.a.r;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.w.d;
+import f.b.j;
+import f.b.r;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.w.d;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -22,7 +22,7 @@ public final class MaybeEqualSingle$EqualCoordinator<T> extends AtomicInteger im
         this.observer2 = new MaybeEqualSingle$EqualObserver<>(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.observer1.dispose();
         this.observer2.dispose();
@@ -57,10 +57,10 @@ public final class MaybeEqualSingle$EqualCoordinator<T> extends AtomicInteger im
             this.actual.onError(th);
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(this.observer1.get());
     }

@@ -51,8 +51,8 @@ public final class k {
     public static final int aiapp_menu_text_night_mode = 2131689724;
     public static final int aiapp_menu_text_share = 2131689725;
     public static final int app_name = 2131690159;
-    public static final int search_menu_title = 2131693808;
-    public static final int status_bar_notification_info_overflow = 2131694068;
-    public static final int swan_app_menu_setting = 2131694122;
-    public static final int swanapp_menu_font_setting = 2131694213;
+    public static final int search_menu_title = 2131693821;
+    public static final int status_bar_notification_info_overflow = 2131694081;
+    public static final int swan_app_menu_setting = 2131694135;
+    public static final int swanapp_menu_font_setting = 2131694226;
 }

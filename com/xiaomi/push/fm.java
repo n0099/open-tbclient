@@ -5,13 +5,13 @@ import java.util.Map;
 public class fm implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40514a = "wcc-ml-test10.bj";
+    public static String f40803a = "wcc-ml-test10.bj";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f40515b = ae.f40222a;
+    public static final String f40804b = ae.f40511a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40516c = null;
+    public static String f40805c = null;
 
     /* renamed from: a  reason: collision with other field name */
     public int f403a;
@@ -26,35 +26,35 @@ public class fm implements Cloneable {
     public boolean f406b = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40517d;
+    public String f40806d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40518e;
+    public String f40807e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40519f;
+    public String f40808f;
 
     public fm(Map<String, Integer> map, int i, String str, fp fpVar) {
         a(map, i, str, fpVar);
     }
 
     public static final String a() {
-        String str = f40516c;
-        return str != null ? str : ab.m120a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f40515b : "app.chat.xiaomi.net";
+        String str = f40805c;
+        return str != null ? str : ab.m124a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f40804b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
-        f40516c = str;
+        f40805c = str;
     }
 
     private void a(Map<String, Integer> map, int i, String str, fp fpVar) {
         this.f403a = i;
-        this.f40517d = str;
+        this.f40806d = str;
         this.f404a = fpVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo309a() {
+    public int mo313a() {
         return this.f403a;
     }
 
@@ -63,31 +63,31 @@ public class fm implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m310a() {
+    public boolean m314a() {
         return this.f405a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m311a() {
+    public byte[] m315a() {
         return null;
     }
 
     public String b() {
-        return this.f40519f;
+        return this.f40808f;
     }
 
     public void b(String str) {
-        this.f40519f = str;
+        this.f40808f = str;
     }
 
     public String c() {
-        if (this.f40518e == null) {
-            this.f40518e = a();
+        if (this.f40807e == null) {
+            this.f40807e = a();
         }
-        return this.f40518e;
+        return this.f40807e;
     }
 
     public void c(String str) {
-        this.f40518e = str;
+        this.f40807e = str;
     }
 }

@@ -29,9 +29,9 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
     }
 
     public void call(j<? super T> jVar) {
-        this.source.J(f.c(jVar));
+        this.source.L(f.c(jVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.K(this.connection);
+            this.source.M(this.connection);
         }
     }
 }

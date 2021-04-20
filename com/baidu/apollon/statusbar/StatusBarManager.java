@@ -16,28 +16,28 @@ public class StatusBarManager {
     public final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3884a;
+        public int f3919a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3885b;
+        public int f3920b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f3886c;
+        public float f3921c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f3887d;
+        public View f3922d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f3888e;
+        public boolean f3923e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f3889f;
+        public int f3924f;
 
         public a() {
-            this.f3884a = 0;
-            this.f3885b = -16777216;
-            this.f3886c = 0.0f;
-            this.f3888e = false;
+            this.f3919a = 0;
+            this.f3920b = -16777216;
+            this.f3921c = 0.0f;
+            this.f3923e = false;
         }
     }
 
@@ -47,20 +47,20 @@ public class StatusBarManager {
 
     private void setupStatusBarView(Activity activity) {
         a aVar = this.mBarParams;
-        if (aVar.f3887d == null) {
-            aVar.f3887d = new View(activity);
+        if (aVar.f3922d == null) {
+            aVar.f3922d = new View(activity);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(activity));
         layoutParams.gravity = 48;
-        this.mBarParams.f3887d.setLayoutParams(layoutParams);
+        this.mBarParams.f3922d.setLayoutParams(layoutParams);
         a aVar2 = this.mBarParams;
-        aVar2.f3887d.setBackgroundColor(StatusBarUtils.blendARGB(aVar2.f3884a, aVar2.f3885b, aVar2.f3886c));
-        this.mBarParams.f3887d.setVisibility(0);
-        ViewGroup viewGroup = (ViewGroup) this.mBarParams.f3887d.getParent();
+        aVar2.f3922d.setBackgroundColor(StatusBarUtils.blendARGB(aVar2.f3919a, aVar2.f3920b, aVar2.f3921c));
+        this.mBarParams.f3922d.setVisibility(0);
+        ViewGroup viewGroup = (ViewGroup) this.mBarParams.f3922d.getParent();
         if (viewGroup != null) {
-            viewGroup.removeView(this.mBarParams.f3887d);
+            viewGroup.removeView(this.mBarParams.f3922d);
         }
-        ((ViewGroup) activity.getWindow().getDecorView()).addView(this.mBarParams.f3887d);
+        ((ViewGroup) activity.getWindow().getDecorView()).addView(this.mBarParams.f3922d);
     }
 
     public void apply(Activity activity) {
@@ -71,20 +71,20 @@ public class StatusBarManager {
         if (i >= 27) {
             activity.getWindow().clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             activity.getWindow().addFlags(Integer.MIN_VALUE);
-            r2 = this.mBarParams.f3888e ? 9472 : 1280;
+            r2 = this.mBarParams.f3923e ? 9472 : 1280;
             Window window = activity.getWindow();
             a aVar = this.mBarParams;
-            window.setStatusBarColor(StatusBarUtils.blendARGB(aVar.f3884a, aVar.f3885b, aVar.f3886c));
+            window.setStatusBarColor(StatusBarUtils.blendARGB(aVar.f3919a, aVar.f3920b, aVar.f3921c));
             activity.getWindow().getDecorView().setSystemUiVisibility(r2);
         } else if (i >= 19) {
             int i2 = 256;
             if (i >= 21 && !ImmersiveOSUtils.isEMUI3_1()) {
                 activity.getWindow().clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 activity.getWindow().addFlags(Integer.MIN_VALUE);
-                r2 = (Build.VERSION.SDK_INT < 23 || !this.mBarParams.f3888e) ? 1280 : 1280;
+                r2 = (Build.VERSION.SDK_INT < 23 || !this.mBarParams.f3923e) ? 1280 : 1280;
                 Window window2 = activity.getWindow();
                 a aVar2 = this.mBarParams;
-                window2.setStatusBarColor(StatusBarUtils.blendARGB(aVar2.f3884a, aVar2.f3885b, aVar2.f3886c));
+                window2.setStatusBarColor(StatusBarUtils.blendARGB(aVar2.f3919a, aVar2.f3920b, aVar2.f3921c));
                 i2 = r2;
             } else {
                 activity.getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
@@ -92,15 +92,15 @@ public class StatusBarManager {
             }
             activity.getWindow().getDecorView().setSystemUiVisibility(i2);
             if (ImmersiveOSUtils.isMIUI6Plus()) {
-                StatusBarUtils.setMIUIStatusBarDarkFont(activity.getWindow(), this.mBarParams.f3888e);
+                StatusBarUtils.setMIUIStatusBarDarkFont(activity.getWindow(), this.mBarParams.f3923e);
             }
             if (ImmersiveOSUtils.isFlymeOS4Plus()) {
                 a aVar3 = this.mBarParams;
-                int i3 = aVar3.f3889f;
+                int i3 = aVar3.f3924f;
                 if (i3 != 0) {
                     FlymeStatusBarFontUtils.setStatusBarDarkIcon(activity, i3);
                 } else if (Build.VERSION.SDK_INT < 23) {
-                    FlymeStatusBarFontUtils.setStatusBarDarkIcon(activity, aVar3.f3888e);
+                    FlymeStatusBarFontUtils.setStatusBarDarkIcon(activity, aVar3.f3923e);
                 }
             }
         }
@@ -115,7 +115,7 @@ public class StatusBarManager {
     }
 
     public void setFlymeStatusBarFontColor(Context context, int i) {
-        this.mBarParams.f3889f = context.getResources().getColor(i);
+        this.mBarParams.f3924f = context.getResources().getColor(i);
     }
 
     public void setTitleAlpha(View view, int i, float f2) {
@@ -125,7 +125,7 @@ public class StatusBarManager {
     }
 
     public void statusBarAlpha(float f2) {
-        this.mBarParams.f3886c = f2;
+        this.mBarParams.f3921c = f2;
     }
 
     public void statusBarColor(Context context, int i) {
@@ -133,25 +133,25 @@ public class StatusBarManager {
     }
 
     public void statusBarColorInt(int i) {
-        this.mBarParams.f3884a = i;
+        this.mBarParams.f3919a = i;
     }
 
     public void statusBarDarkFont(boolean z, float f2) {
         if (!z) {
-            this.mBarParams.f3889f = 0;
+            this.mBarParams.f3924f = 0;
         }
         if (ImmersiveOSUtils.isSupportStatusBarDarkFont()) {
             if (ImmersiveOSUtils.isSpecialOS() && z) {
                 a aVar = this.mBarParams;
-                aVar.f3886c = f2;
-                aVar.f3888e = false;
+                aVar.f3921c = f2;
+                aVar.f3923e = false;
                 return;
             }
             a aVar2 = this.mBarParams;
-            aVar2.f3888e = z;
-            aVar2.f3886c = 0.0f;
+            aVar2.f3923e = z;
+            aVar2.f3921c = 0.0f;
             return;
         }
-        this.mBarParams.f3886c = f2;
+        this.mBarParams.f3921c = f2;
     }
 }

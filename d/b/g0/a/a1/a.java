@@ -22,7 +22,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("MapAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -33,7 +33,7 @@ public class a extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
         boolean c2;
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("MapAction", "handleSubAction subAction: " + str);
         }
         c.g("map", "handleSubAction " + str);
@@ -258,16 +258,16 @@ public class a extends a0 {
             bVar.d(202);
             return true;
         }
-        if (TextUtils.isEmpty(cVar.f43114g)) {
+        if (TextUtils.isEmpty(cVar.f43506g)) {
             String x = k0.x();
             if (!TextUtils.isEmpty(x)) {
-                cVar.f43114g = x;
+                cVar.f43506g = x;
             }
             c.l("map", "webView id is empty, use current webView");
         }
-        if (k0.m(cVar.f43114g) == null) {
+        if (k0.m(cVar.f43506g) == null) {
             bVar.d(202);
-            c.b("map", "can not find weiView by id " + cVar.f43114g);
+            c.b("map", "can not find weiView by id " + cVar.f43506g);
             return true;
         }
         return false;

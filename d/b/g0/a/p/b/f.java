@@ -64,17 +64,17 @@ public class f extends d.b.g0.a.w0.c.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43275d.entrySet()) {
+        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43667d.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a();
-        aVar.f48880b = "POST";
-        aVar.f48879a = d.b.g0.a.b0.c.u(build.toString());
-        aVar.f48882d = d.b.g0.a.v1.c.c.b(map);
-        aVar.f48884f = true;
-        aVar.f48885g = true;
-        aVar.f48886h = false;
+        aVar.f49272b = "POST";
+        aVar.f49271a = d.b.g0.a.b0.c.u(build.toString());
+        aVar.f49274d = d.b.g0.a.v1.c.c.b(map);
+        aVar.f49276f = true;
+        aVar.f49277g = true;
+        aVar.f49278h = false;
         HttpRequestBuilder a2 = d.b.g0.k.e.b.a(aVar);
         d.b.g0.k.e.a.f().s(a2, aVar);
         return a2.build();

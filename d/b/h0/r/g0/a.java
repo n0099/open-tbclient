@@ -5,8 +5,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.b.e.p.f;
-import d.b.b.e.p.o;
+import d.b.c.e.p.f;
+import d.b.c.e.p.o;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class a {

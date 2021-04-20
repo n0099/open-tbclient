@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f48859g;
+    public Context f49251g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48860h;
+    public int f49252h;
     public p i;
     public List<o> j;
     public e m;
@@ -25,10 +25,10 @@ public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
     public d.b.g0.i.b q;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48857e = false;
+    public boolean f49249e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48858f = 0;
+    public int f49250f = 0;
     public List<o> k = new ArrayList();
     public List<List<o>> l = new ArrayList();
     public int r = -1;
@@ -56,21 +56,21 @@ public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
         if (i < 0) {
             return;
         }
-        this.f48859g = context;
-        this.f48860h = i;
+        this.f49251g = context;
+        this.f49252h = i;
         this.q = bVar;
         List<o> b2 = q.b(i);
         this.j = b2;
-        this.q.c(this.f48860h, b2);
-        this.q.d(this.f48860h, this.j);
-        p pVar = new p(this.f48859g, view, aVar);
+        this.q.c(this.f49252h, b2);
+        this.q.d(this.f49252h, this.j);
+        p pVar = new p(this.f49251g, view, aVar);
         this.i = pVar;
         pVar.G(new a());
     }
 
     @Override // d.b.g0.i.r.b
     public boolean a(o oVar) {
-        if (o(oVar) && !this.f48857e) {
+        if (o(oVar) && !this.f49249e) {
             f(true);
         }
         d.b.g0.i.r.b bVar = this.n;
@@ -183,7 +183,7 @@ public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
     }
 
     public void n(int i) {
-        this.f48858f = i;
+        this.f49250f = i;
     }
 
     public final boolean o(o oVar) {
@@ -214,11 +214,11 @@ public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
         }
         d.b.g0.i.b bVar = this.q;
         if (bVar != null) {
-            bVar.a(this.f48860h, this.j);
+            bVar.a(this.f49252h, this.j);
         }
         u(z, i);
         s();
-        this.i.f0(this.l, view, z2, this.f48858f);
+        this.i.f0(this.l, view, z2, this.f49250f);
         b bVar2 = this.p;
         if (bVar2 != null) {
             bVar2.a(this, true);
@@ -231,11 +231,11 @@ public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
         if (size > 0 && size <= 5) {
             this.l.add(this.k);
         } else if (size > 5 && size <= 10) {
-            int i = this.f48857e ? 5 : this.r;
+            int i = this.f49249e ? 5 : this.r;
             this.l.add(this.k.subList(0, i));
             this.l.add(this.k.subList(i, size));
         } else if (size > 10) {
-            int ceil = this.f48857e ? (int) Math.ceil(size / 2.0f) : this.r;
+            int ceil = this.f49249e ? (int) Math.ceil(size / 2.0f) : this.r;
             this.l.add(this.k.subList(0, ceil));
             this.l.add(this.k.subList(ceil, size));
         }
@@ -281,7 +281,7 @@ public class n implements e, d.b.g0.i.r.b, View.OnKeyListener {
         j(39);
         j(42);
         j(9);
-        if (!this.f48857e) {
+        if (!this.f49249e) {
             this.r = this.k.size() - 1;
         }
         j(37);

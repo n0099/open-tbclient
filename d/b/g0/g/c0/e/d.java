@@ -6,12 +6,12 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48027a;
+    public String f48419a;
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("errMsg", this.f48027a);
+            jSONObject.put("errMsg", this.f48419a);
         } catch (JSONException unused) {
         }
         return jSONObject;

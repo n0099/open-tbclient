@@ -6,7 +6,7 @@ import tbclient.RecommendForumInfo;
 public class n1 extends w implements d.b.h0.g0.b.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public long f50853h;
+    public long f51260h;
     public String i;
     public String j;
     public boolean k;
@@ -23,7 +23,7 @@ public class n1 extends w implements d.b.h0.g0.b.a {
     }
 
     public long C() {
-        return this.f50853h;
+        return this.f51260h;
     }
 
     public String D() {
@@ -51,7 +51,7 @@ public class n1 extends w implements d.b.h0.g0.b.a {
             return;
         }
         try {
-            this.f50853h = recommendForumInfo.forum_id.longValue();
+            this.f51260h = recommendForumInfo.forum_id.longValue();
             this.i = recommendForumInfo.avatar;
             this.j = recommendForumInfo.forum_name;
             boolean z = true;
@@ -88,7 +88,7 @@ public class n1 extends w implements d.b.h0.g0.b.a {
     }
 
     public void O(long j) {
-        this.f50853h = j;
+        this.f51260h = j;
     }
 
     public void P(String str) {

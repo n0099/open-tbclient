@@ -12,28 +12,28 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1934a = "\"&";
+    public static final String f1959a = "\"&";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1935b = "&";
+    public static final String f1960b = "&";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1936c = "bizcontext=\"";
+    public static final String f1961c = "bizcontext=\"";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1937d = "bizcontext=";
+    public static final String f1962d = "bizcontext=";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1938e = "\"";
+    public static final String f1963e = "\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1939f = "appkey";
+    public static final String f1964f = "appkey";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1940g = "ty";
+    public static final String f1965g = "ty";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1941h = "sv";
+    public static final String f1966h = "sv";
     public static final String i = "an";
     public static final String j = "setting";
     public static final String k = "av";
@@ -57,17 +57,17 @@ public class a {
     }
 
     private boolean b(String str) {
-        return !str.contains(f1934a);
+        return !str.contains(f1959a);
     }
 
     private String c(String str) {
         try {
-            String a2 = a(str, "&", f1937d);
+            String a2 = a(str, "&", f1962d);
             if (TextUtils.isEmpty(a2)) {
-                str = str + "&" + b(f1937d, "");
+                str = str + "&" + b(f1962d, "");
             } else {
                 int indexOf = str.indexOf(a2);
-                str = str.substring(0, indexOf) + a(a2, f1937d, "", true) + str.substring(indexOf + a2.length());
+                str = str.substring(0, indexOf) + a(a2, f1962d, "", true) + str.substring(indexOf + a2.length());
             }
         } catch (Throwable unused) {
         }
@@ -76,15 +76,15 @@ public class a {
 
     private String d(String str) {
         try {
-            String a2 = a(str, f1934a, f1936c);
+            String a2 = a(str, f1959a, f1961c);
             if (TextUtils.isEmpty(a2)) {
-                return str + "&" + b(f1936c, "\"");
+                return str + "&" + b(f1961c, "\"");
             }
             if (!a2.endsWith("\"")) {
                 a2 = a2 + "\"";
             }
             int indexOf = str.indexOf(a2);
-            return str.substring(0, indexOf) + a(a2, f1936c, "\"", false) + str.substring(indexOf + a2.length());
+            return str.substring(0, indexOf) + a(a2, f1961c, "\"", false) + str.substring(indexOf + a2.length());
         } catch (Throwable unused) {
             return str;
         }
@@ -121,7 +121,7 @@ public class a {
     public String a(String str, String str2) {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1846d);
+            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1871d);
             jSONObject.put("ty", "and_lite");
             jSONObject.put("sv", "h.a.3.6.5");
             if (!this.o.contains(j) || !n.b(this.p)) {
@@ -151,7 +151,7 @@ public class a {
             jSONObject = new JSONObject(substring2);
         }
         if (!jSONObject.has("appkey")) {
-            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1846d);
+            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1871d);
         }
         if (!jSONObject.has("ty")) {
             jSONObject.put("ty", "and_lite");

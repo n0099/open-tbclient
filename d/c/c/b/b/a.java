@@ -11,12 +11,12 @@ import d.c.c.b.d.q;
 public class a implements d.h {
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Pair<Bitmap, byte[]>> f65598a = new C1795a(this, Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16);
+    public LruCache<String, Pair<Bitmap, byte[]>> f66443a = new C1823a(this, Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16);
 
     /* renamed from: d.c.c.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1795a extends LruCache<String, Pair<Bitmap, byte[]>> {
-        public C1795a(a aVar, int i) {
+    public class C1823a extends LruCache<String, Pair<Bitmap, byte[]>> {
+        public C1823a(a aVar, int i) {
             super(i);
         }
 
@@ -39,7 +39,7 @@ public class a implements d.h {
     @Override // d.c.c.b.b.d.h
     public byte[] a(String str) {
         try {
-            Pair<Bitmap, byte[]> pair = this.f65598a.get(str);
+            Pair<Bitmap, byte[]> pair = this.f66443a.get(str);
             byte[] bArr = pair != null ? (byte[]) pair.second : new byte[0];
             return bArr == null ? new byte[0] : bArr;
         } catch (Throwable th) {
@@ -51,7 +51,7 @@ public class a implements d.h {
     @Override // d.c.c.b.b.d.h
     public Bitmap b(String str) {
         try {
-            Pair<Bitmap, byte[]> pair = this.f65598a.get(str);
+            Pair<Bitmap, byte[]> pair = this.f66443a.get(str);
             if (pair != null) {
                 return (Bitmap) pair.first;
             }
@@ -68,7 +68,7 @@ public class a implements d.h {
             return;
         }
         try {
-            this.f65598a.put(str, new Pair<>(bitmap, bArr));
+            this.f66443a.put(str, new Pair<>(bitmap, bArr));
         } catch (Throwable th) {
             q.b(th, "DefaultImageCache put bitmap error", new Object[0]);
         }

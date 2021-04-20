@@ -1,6 +1,7 @@
 package d.b.g0.p;
 
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -11,7 +12,7 @@ public class c {
 
     public static JSONObject b(String str, JSONObject jSONObject, String str2) {
         if (TextUtils.isEmpty(str)) {
-            str = "NA";
+            str = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
         }
         if (jSONObject == null) {
             jSONObject = new JSONObject();

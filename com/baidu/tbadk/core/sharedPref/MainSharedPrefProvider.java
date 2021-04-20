@@ -6,31 +6,71 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.b.h0.r.d0.a;
+import java.lang.ref.SoftReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class MainSharedPrefProvider extends ContentProvider {
+    public SoftReference<Map<String, String>> sCacheMap;
+
+    private void cleanCachedValued() {
+        Map<String, String> map;
+        SoftReference<Map<String, String>> softReference = this.sCacheMap;
+        if (softReference == null || (map = softReference.get()) == null) {
+            return;
+        }
+        map.clear();
+    }
+
+    private boolean containsKey(String str) {
+        Map<String, String> map;
+        SoftReference<Map<String, String>> softReference = this.sCacheMap;
+        if (softReference == null || (map = softReference.get()) == null) {
+            return false;
+        }
+        return map.containsKey(str);
+    }
+
+    private String getCachedValue(String str) {
+        Map<String, String> map;
+        SoftReference<Map<String, String>> softReference = this.sCacheMap;
+        if (softReference == null || (map = softReference.get()) == null) {
+            return null;
+        }
+        return map.get(str);
+    }
+
     private SharedPreferences getSharedPreferences() {
         try {
-            if (TbadkCoreApplication.getInst().getApp() != null) {
-                return TbadkCoreApplication.getInst().getApp().getSharedPreferences("common_settings", 0);
-            }
+            return getContext().getSharedPreferences("common_settings", 0);
         } catch (Exception unused) {
+            return null;
         }
-        return null;
     }
 
     private boolean needBroadcast(String str) {
         if (str != null && str.length() != 0) {
             int length = a.k.length;
             for (int i = 0; i < length; i++) {
-                if (a.k[i].equals(str)) {
+                if (str.equals(a.k[i])) {
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    private void removeValueToCached(String str) {
+        Map<String, String> map;
+        SoftReference<Map<String, String>> softReference = this.sCacheMap;
+        if (softReference == null || (map = softReference.get()) == null) {
+            return;
+        }
+        map.remove(str);
     }
 
     private void sendBroadcast(String str, String str2) {
@@ -39,6 +79,22 @@ public class MainSharedPrefProvider extends ContentProvider {
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
         TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
+    }
+
+    private void setValueToCached(String str, String str2) {
+        Map<String, String> map;
+        SoftReference<Map<String, String>> softReference = this.sCacheMap;
+        if (softReference == null) {
+            map = new HashMap<>();
+            this.sCacheMap = new SoftReference<>(map);
+        } else {
+            map = softReference.get();
+            if (map == null) {
+                map = new HashMap<>();
+                this.sCacheMap = new SoftReference<>(map);
+            }
+        }
+        map.put(str, str2);
     }
 
     @Override // android.content.ContentProvider
@@ -51,6 +107,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.remove(lastPathSegment);
         edit.commit();
+        removeValueToCached(lastPathSegment);
         if (needBroadcast(lastPathSegment)) {
             sendBroadcast(lastPathSegment, null);
             return 0;
@@ -60,31 +117,34 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        SharedPreferences sharedPreferences;
         String lastPathSegment = uri.getLastPathSegment();
-        if (lastPathSegment == null || lastPathSegment.length() <= 0 || (sharedPreferences = getSharedPreferences()) == null) {
-            return null;
+        if (lastPathSegment != null && lastPathSegment.length() > 0) {
+            if (containsKey(lastPathSegment)) {
+                return getCachedValue(lastPathSegment);
+            }
+            SharedPreferences sharedPreferences = getSharedPreferences();
+            if (sharedPreferences != null) {
+                return sharedPreferences.getString(lastPathSegment, null);
+            }
         }
-        return sharedPreferences.getString(lastPathSegment, null);
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
-        if (contentValues == null || contentValues.size() <= 0) {
-            return null;
-        }
+        SharedPreferences sharedPreferences;
         String lastPathSegment = uri.getLastPathSegment();
-        String asString = contentValues.getAsString(lastPathSegment);
-        SharedPreferences sharedPreferences = getSharedPreferences();
-        if (sharedPreferences != null) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString(lastPathSegment, asString);
-            edit.commit();
-            if (needBroadcast(lastPathSegment)) {
-                sendBroadcast(lastPathSegment, asString);
-                return null;
+        if (lastPathSegment != null && contentValues != null && contentValues.size() > 0) {
+            String asString = contentValues.getAsString(lastPathSegment);
+            if ((!containsKey(lastPathSegment) || !TextUtils.equals(asString, getCachedValue(lastPathSegment))) && (sharedPreferences = getSharedPreferences()) != null) {
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putString(lastPathSegment, asString);
+                edit.commit();
+                setValueToCached(lastPathSegment, asString);
+                if (needBroadcast(lastPathSegment)) {
+                    sendBroadcast(lastPathSegment, asString);
+                }
             }
-            return null;
         }
         return null;
     }

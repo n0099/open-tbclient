@@ -8,38 +8,38 @@ import java.util.regex.Pattern;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f51688a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+    public static final Pattern f52112a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f51689b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
+    public static final Pattern f52113b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
 
     public static boolean a() {
-        if (d.b.h0.b.d.E()) {
-            Date date = new Date(d.b.h0.r.d0.b.i().k("show_login_dialog_strategy_key", 0L));
+        if (d.b.h0.b.d.G()) {
+            Date date = new Date(d.b.h0.r.d0.b.j().l("show_login_dialog_strategy_key", 0L));
             long currentTimeMillis = System.currentTimeMillis();
             Date date2 = new Date(currentTimeMillis);
-            d.b.h0.r.d0.b.i().v("show_login_dialog_strategy_key", currentTimeMillis);
+            d.b.h0.r.d0.b.j().w("show_login_dialog_strategy_key", currentTimeMillis);
             return !TimeHelper.isSameDay(date, date2);
         }
         return false;
     }
 
     public static boolean b(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return false;
         }
-        return f51688a.matcher(str.toLowerCase()).find();
+        return f52112a.matcher(str.toLowerCase()).find();
     }
 
     public static boolean c(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return false;
         }
-        return f51689b.matcher(str.toLowerCase()).find();
+        return f52113b.matcher(str.toLowerCase()).find();
     }
 
     public static boolean d(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return false;
         }
         return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());

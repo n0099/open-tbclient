@@ -1,44 +1,25 @@
 package d.b.h0.f0;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.adp.BdUniqueId;
+import d.b.h0.f0.a;
 /* loaded from: classes3.dex */
-public class i {
+public abstract class i<T extends a> extends d.b.c.c.d implements b<T> {
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f50600a = false;
 
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f50195a;
+    /* renamed from: b  reason: collision with root package name */
+    public BdUniqueId f50601b = null;
 
-        static {
-            int[] iArr = new int[DataType.values().length];
-            f50195a = iArr;
-            try {
-                iArr[DataType.PARCELABLE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                f50195a[DataType.SERIALIZABLE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
+    public BdUniqueId getTag() {
+        return this.f50601b;
     }
 
-    public d.b.h0.f0.a a(Intent intent) {
-        int intExtra = intent.getIntExtra("value_type", -1);
-        if (intExtra < 0) {
-            return null;
-        }
-        int i = a.f50195a[DataType.values()[intExtra].ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                return null;
-            }
-            return (SerializableEvent) intent.getSerializableExtra("value");
-        }
-        return (ParcelableEvent) intent.getParcelableExtra("value");
+    public boolean isSelfListener() {
+        return this.f50600a;
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.f50601b = bdUniqueId;
     }
 }

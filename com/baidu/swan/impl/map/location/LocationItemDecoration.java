@@ -13,31 +13,31 @@ import d.b.g0.a.i2.h0;
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f12970c = h0.f(15.0f);
+    public static final int f12631c = h0.f(15.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    public ColorDrawable f12971a;
+    public ColorDrawable f12632a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12972b;
+    public boolean f12633b;
 
     public LocationItemDecoration(Context context) {
         this(context, false);
     }
 
     public final void drawVertical(Canvas canvas, RecyclerView recyclerView) {
-        int paddingLeft = recyclerView.getPaddingLeft() + f12970c;
-        int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f12970c;
+        int paddingLeft = recyclerView.getPaddingLeft() + f12631c;
+        int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f12631c;
         int childCount = recyclerView.getChildCount();
-        if (!this.f12972b) {
+        if (!this.f12633b) {
             childCount--;
         }
         for (int i = 0; i < childCount; i++) {
             View childAt = recyclerView.getChildAt(i);
             if (childAt != null) {
                 int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                this.f12971a.setBounds(paddingLeft, bottom, width, bottom + 1);
-                this.f12971a.draw(canvas);
+                this.f12632a.setBounds(paddingLeft, bottom, width, bottom + 1);
+                this.f12632a.draw(canvas);
             }
         }
     }
@@ -53,8 +53,8 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public LocationItemDecoration(Context context, boolean z) {
-        this.f12972b = true;
-        this.f12971a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
-        this.f12972b = z;
+        this.f12633b = true;
+        this.f12632a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
+        this.f12633b = z;
     }
 }

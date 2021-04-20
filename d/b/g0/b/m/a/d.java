@@ -17,22 +17,22 @@ public class d extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47353e;
+        public final /* synthetic */ CallbackHandler f47745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47354f;
+        public final /* synthetic */ String f47746f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f47355g;
+        public final /* synthetic */ Context f47747g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f47356h;
+        public final /* synthetic */ boolean f47748h;
 
         public a(CallbackHandler callbackHandler, String str, Context context, boolean z) {
-            this.f47353e = callbackHandler;
-            this.f47354f = str;
-            this.f47355g = context;
-            this.f47356h = z;
+            this.f47745e = callbackHandler;
+            this.f47746f = str;
+            this.f47747g = context;
+            this.f47748h = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,9 +40,9 @@ public class d extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                d.this.k((Activity) this.f47355g, this.f47356h, this.f47353e, this.f47354f);
+                d.this.k((Activity) this.f47747g, this.f47748h, this.f47745e, this.f47746f);
             } else {
-                d.b.g0.a.v1.c.c.o(hVar, this.f47353e, this.f47354f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f47745e, this.f47746f);
             }
         }
     }
@@ -51,14 +51,14 @@ public class d extends a0 {
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47357e;
+        public final /* synthetic */ CallbackHandler f47749e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47358f;
+        public final /* synthetic */ String f47750f;
 
         public b(d dVar, CallbackHandler callbackHandler, String str) {
-            this.f47357e = callbackHandler;
-            this.f47358f = str;
+            this.f47749e = callbackHandler;
+            this.f47750f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,9 +67,9 @@ public class d extends a0 {
         public void onCallback(d.b.g0.a.v1.d.a aVar) {
             d.b.g0.a.c0.c.g("OpenData", "onOpenDataCallback:: " + aVar.toString());
             if (!aVar.y()) {
-                d.b.g0.a.v1.c.c.l(aVar, this.f47357e, this.f47358f);
+                d.b.g0.a.v1.c.c.l(aVar, this.f47749e, this.f47750f);
             } else {
-                this.f47357e.handleSchemeDispatchCallback(this.f47358f, UnitedSchemeUtility.wrapCallbackParams(aVar.f46839g, 0).toString());
+                this.f47749e.handleSchemeDispatchCallback(this.f47750f, UnitedSchemeUtility.wrapCallbackParams(aVar.f47231g, 0).toString());
             }
         }
     }

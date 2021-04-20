@@ -11,10 +11,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
-import d.b.b.c.g.c;
-import d.b.i0.d1.f.j.d;
+import d.b.c.c.g.c;
+import d.b.i0.e1.f.j.d;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
     public List<ResponseHistoryMessage.a> mDataList;
     public a mListener;
@@ -23,13 +23,13 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public int mforumId = 0;
     public boolean isRefreshing = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends c {
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0195a implements Runnable {
-            public RunnableC0195a() {
+        /* loaded from: classes4.dex */
+        public class RunnableC0197a implements Runnable {
+            public RunnableC0197a() {
             }
 
             @Override // java.lang.Runnable
@@ -79,13 +79,13 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 if (responseHistoryMessage.getMsg().size() == 0) {
                     OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
                 } else {
-                    new Handler().post(new RunnableC0195a());
+                    new Handler().post(new RunnableC0197a());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b() {
             super(2001152);
@@ -116,10 +116,10 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
             i = 0;
         } else {
             List<ResponseHistoryMessage.a> list2 = this.mDataList;
-            i = list2.get(list2.size() - 1).f17885d;
+            i = list2.get(list2.size() - 1).f17562d;
         }
         this.isRefreshing = true;
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), i));
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), i));
     }
 
     private void initData(Bundle bundle) {

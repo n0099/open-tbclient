@@ -3,14 +3,14 @@ package a.a.a.a.v.f.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1379a;
+    public String f1365a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1380b;
+    public long f1366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1381c;
+    public String f1367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1382d;
+    public String f1368d;
 }

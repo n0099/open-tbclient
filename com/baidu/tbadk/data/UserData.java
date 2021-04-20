@@ -9,8 +9,9 @@ import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import d.b.h0.r.q.g2;
+import d.b.h0.t.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -381,20 +382,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        d.b.h0.t.n nVar = new d.b.h0.t.n();
-        nVar.g(getPortraitH());
-        nVar.k(getPortrait());
-        nVar.j(true);
-        this.mPhotoAlbum.add(nVar);
+        o oVar = new o();
+        oVar.g(getPortraitH());
+        oVar.k(getPortrait());
+        oVar.j(true);
+        this.mPhotoAlbum.add(oVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    d.b.h0.t.n nVar2 = new d.b.h0.t.n();
-                    nVar2.g(userPics.big);
-                    nVar2.k(userPics.small);
-                    nVar2.j(false);
-                    this.mPhotoAlbum.add(nVar2);
+                    o oVar2 = new o();
+                    oVar2.g(userPics.big);
+                    oVar2.k(userPics.small);
+                    oVar2.j(false);
+                    this.mPhotoAlbum.add(oVar2);
                 }
             }
         }
@@ -731,22 +732,22 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            d.b.h0.t.n nVar = new d.b.h0.t.n();
-            nVar.g(getPortraitH());
-            nVar.k(getPortrait());
-            nVar.j(true);
-            this.mPhotoAlbum.add(nVar);
+            o oVar = new o();
+            oVar.g(getPortraitH());
+            oVar.k(getPortrait());
+            oVar.j(true);
+            this.mPhotoAlbum.add(oVar);
             JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     if (jSONObject2 != null) {
-                        d.b.h0.t.n nVar2 = new d.b.h0.t.n();
-                        nVar2.g(jSONObject2.optString("big"));
-                        nVar2.k(jSONObject2.optString("small"));
-                        nVar2.j(false);
-                        this.mPhotoAlbum.add(nVar2);
+                        o oVar2 = new o();
+                        oVar2.g(jSONObject2.optString("big"));
+                        oVar2.k(jSONObject2.optString("small"));
+                        oVar2.j(false);
+                        this.mPhotoAlbum.add(oVar2);
                     }
                 }
             }

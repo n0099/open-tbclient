@@ -1,7 +1,6 @@
 package d.c.c.a.b;
 
 import com.alipay.sdk.encrypt.a;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import d.c.c.a.b.a.e;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,40 +20,40 @@ public final class p {
     public static final Pattern m = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65532a;
+    public final String f66377a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65533b;
+    public final String f66378b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f65534c;
+    public final long f66379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f65535d;
+    public final String f66380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f65536e;
+    public final String f66381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f65537f;
+    public final boolean f66382f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f65538g;
+    public final boolean f66383g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f65539h;
+    public final boolean f66384h;
     public final boolean i;
 
     public p(String str, String str2, long j2, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
-        this.f65532a = str;
-        this.f65533b = str2;
-        this.f65534c = j2;
-        this.f65535d = str3;
-        this.f65536e = str4;
-        this.f65537f = z;
-        this.f65538g = z2;
+        this.f66377a = str;
+        this.f66378b = str2;
+        this.f66379c = j2;
+        this.f66380d = str3;
+        this.f66381e = str4;
+        this.f66382f = z;
+        this.f66383g = z2;
         this.i = z3;
-        this.f65539h = z4;
+        this.f66384h = z4;
     }
 
     public static int a(String str, int i, int i2, boolean z) {
@@ -159,8 +158,8 @@ public final class p {
         int length = str.length();
         char c2 = ';';
         int c3 = d.c.c.a.b.a.e.c(str, 0, length, ';');
-        char c4 = a.f1897h;
-        int c5 = d.c.c.a.b.a.e.c(str, 0, c3, a.f1897h);
+        char c4 = a.f1922h;
+        int c5 = d.c.c.a.b.a.e.c(str, 0, c3, a.f1922h);
         if (c5 == c3) {
             return null;
         }
@@ -206,12 +205,12 @@ public final class p {
                 }
                 i = c6 + 1;
                 c2 = ';';
-                c4 = a.f1897h;
+                c4 = a.f1922h;
             }
             z4 = true;
             i = c6 + 1;
             c2 = ';';
-            c4 = a.f1897h;
+            c4 = a.f1922h;
         }
         long j6 = Long.MIN_VALUE;
         if (j4 != Long.MIN_VALUE) {
@@ -306,26 +305,26 @@ public final class p {
     public boolean equals(Object obj) {
         if (obj instanceof p) {
             p pVar = (p) obj;
-            return pVar.f65532a.equals(this.f65532a) && pVar.f65533b.equals(this.f65533b) && pVar.f65535d.equals(this.f65535d) && pVar.f65536e.equals(this.f65536e) && pVar.f65534c == this.f65534c && pVar.f65537f == this.f65537f && pVar.f65538g == this.f65538g && pVar.f65539h == this.f65539h && pVar.i == this.i;
+            return pVar.f66377a.equals(this.f66377a) && pVar.f66378b.equals(this.f66378b) && pVar.f66380d.equals(this.f66380d) && pVar.f66381e.equals(this.f66381e) && pVar.f66379c == this.f66379c && pVar.f66382f == this.f66382f && pVar.f66383g == this.f66383g && pVar.f66384h == this.f66384h && pVar.i == this.i;
         }
         return false;
     }
 
     public String f() {
-        return this.f65532a;
+        return this.f66377a;
     }
 
     public String g(boolean z) {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f65532a);
-        sb.append(a.f1897h);
-        sb.append(this.f65533b);
-        if (this.f65539h) {
-            if (this.f65534c == Long.MIN_VALUE) {
+        sb.append(this.f66377a);
+        sb.append(a.f1922h);
+        sb.append(this.f66378b);
+        if (this.f66384h) {
+            if (this.f66379c == Long.MIN_VALUE) {
                 sb.append("; max-age=0");
             } else {
                 sb.append("; expires=");
-                sb.append(e.f.a(new Date(this.f65534c)));
+                sb.append(e.f.a(new Date(this.f66379c)));
             }
         }
         if (!this.i) {
@@ -333,26 +332,26 @@ public final class p {
             if (z) {
                 sb.append(".");
             }
-            sb.append(this.f65535d);
+            sb.append(this.f66380d);
         }
         sb.append("; path=");
-        sb.append(this.f65536e);
-        if (this.f65537f) {
+        sb.append(this.f66381e);
+        if (this.f66382f) {
             sb.append("; secure");
         }
-        if (this.f65538g) {
+        if (this.f66383g) {
             sb.append("; httponly");
         }
         return sb.toString();
     }
 
     public int hashCode() {
-        long j2 = this.f65534c;
-        return ((((((((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.f65532a.hashCode()) * 31) + this.f65533b.hashCode()) * 31) + this.f65535d.hashCode()) * 31) + this.f65536e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f65537f ? 1 : 0)) * 31) + (!this.f65538g ? 1 : 0)) * 31) + (!this.f65539h ? 1 : 0)) * 31) + (!this.i ? 1 : 0);
+        long j2 = this.f66379c;
+        return ((((((((((((((((527 + this.f66377a.hashCode()) * 31) + this.f66378b.hashCode()) * 31) + this.f66380d.hashCode()) * 31) + this.f66381e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f66382f ? 1 : 0)) * 31) + (!this.f66383g ? 1 : 0)) * 31) + (!this.f66384h ? 1 : 0)) * 31) + (!this.i ? 1 : 0);
     }
 
     public String j() {
-        return this.f65533b;
+        return this.f66378b;
     }
 
     public String toString() {

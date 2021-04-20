@@ -1,16 +1,16 @@
 package com.sina.weibo.sdk.network.base;
 
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestResult<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f38606e;
+    public Exception f38895e;
     public ArrayList<Object> interceptResult;
     public T response;
 
     public Exception getE() {
-        return this.f38606e;
+        return this.f38895e;
     }
 
     public ArrayList<Object> getInterceptResult() {
@@ -22,7 +22,7 @@ public class RequestResult<T> {
     }
 
     public void setE(Exception exc) {
-        this.f38606e = exc;
+        this.f38895e = exc;
     }
 
     public void setInterceptResult(ArrayList<Object> arrayList) {

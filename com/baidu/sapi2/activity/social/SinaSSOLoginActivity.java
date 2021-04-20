@@ -16,7 +16,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
-import d.b.a0.a.j.a;
+import d.b.x.a.j.a;
 /* loaded from: classes2.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     public static final int SUCCESS_RESULTCODE = -1;

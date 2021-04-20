@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.youngster.YoungsterPasswordView;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
-/* loaded from: classes5.dex */
+import d.b.c.e.m.e;
+/* loaded from: classes4.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public Runnable finishWithResult = new a();
     public View mBack;
@@ -20,7 +20,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public String mPassword;
     public YoungsterPasswordView mYoungsterPasswordView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public a() {
         }

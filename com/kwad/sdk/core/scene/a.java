@@ -9,48 +9,48 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f34081a;
+    public static a f34370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f34082b = new Object();
+    public static Object f34371b = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public URLPackage f34085e;
+    public URLPackage f34374e;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, URLPackage> f34083c = new HashMap<>();
+    public HashMap<String, URLPackage> f34372c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, URLPackage> f34084d = new HashMap<>();
+    public HashMap<String, URLPackage> f34373d = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final URLPackage f34086f = new URLPackage("", 0);
+    public final URLPackage f34375f = new URLPackage("", 0);
 
     /* renamed from: g  reason: collision with root package name */
-    public final EntryPackage f34087g = new EntryPackage("", 0);
+    public final EntryPackage f34376g = new EntryPackage("", 0);
 
     public static a a() {
-        if (f34081a == null) {
-            synchronized (f34082b) {
-                if (f34081a == null) {
-                    f34081a = new a();
+        if (f34370a == null) {
+            synchronized (f34371b) {
+                if (f34370a == null) {
+                    f34370a = new a();
                 }
             }
         }
-        return f34081a;
+        return f34370a;
     }
 
     private void a(String str, @NonNull URLPackage uRLPackage) {
-        if (this.f34083c.containsKey(str)) {
+        if (this.f34372c.containsKey(str)) {
             return;
         }
-        this.f34083c.put(str, uRLPackage);
+        this.f34372c.put(str, uRLPackage);
     }
 
     @Nullable
     public URLPackage a(@NonNull String str) {
         URLPackage uRLPackage;
-        return (TextUtils.isEmpty(str) || (uRLPackage = this.f34083c.get(str)) == null || (uRLPackage instanceof EntryPackage)) ? this.f34086f : uRLPackage;
+        return (TextUtils.isEmpty(str) || (uRLPackage = this.f34372c.get(str)) == null || (uRLPackage instanceof EntryPackage)) ? this.f34375f : uRLPackage;
     }
 
     public void a(@NonNull SceneImpl sceneImpl) {
@@ -60,19 +60,19 @@ public class a {
         if (urlPackage == null) {
             return;
         }
-        this.f34084d.put(urlPackage.identity, urlPackage);
-        URLPackage uRLPackage2 = this.f34085e;
+        this.f34373d.put(urlPackage.identity, urlPackage);
+        URLPackage uRLPackage2 = this.f34374e;
         if (uRLPackage2 != null) {
             if (!urlPackage.identity.equals(uRLPackage2.identity)) {
                 str = urlPackage.identity;
-                uRLPackage = this.f34085e;
+                uRLPackage = this.f34374e;
             }
-            this.f34085e = urlPackage;
+            this.f34374e = urlPackage;
         }
         str = urlPackage.identity;
-        uRLPackage = this.f34086f;
+        uRLPackage = this.f34375f;
         a(str, uRLPackage);
-        this.f34085e = urlPackage;
+        this.f34374e = urlPackage;
     }
 
     public void a(String str, SceneImpl sceneImpl) {
@@ -91,27 +91,27 @@ public class a {
 
     public EntryPackage b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            URLPackage uRLPackage = this.f34083c.get(str);
-            int size = this.f34083c.size();
+            URLPackage uRLPackage = this.f34372c.get(str);
+            int size = this.f34372c.size();
             for (int i = 0; uRLPackage != null && !(uRLPackage instanceof EntryPackage) && i < size; i++) {
                 String str2 = uRLPackage.identity;
                 if (TextUtils.isEmpty(str2)) {
                     break;
                 }
-                uRLPackage = this.f34083c.get(str2);
+                uRLPackage = this.f34372c.get(str2);
             }
             if (uRLPackage instanceof EntryPackage) {
                 return (EntryPackage) uRLPackage;
             }
         }
-        return this.f34087g;
+        return this.f34376g;
     }
 
     public void c(@NonNull String str) {
         URLPackage uRLPackage;
-        this.f34084d.remove(str);
-        if (this.f34084d.size() == 0 && (uRLPackage = this.f34085e) != null && uRLPackage.identity.equals(str)) {
-            this.f34085e = null;
+        this.f34373d.remove(str);
+        if (this.f34373d.size() == 0 && (uRLPackage = this.f34374e) != null && uRLPackage.identity.equals(str)) {
+            this.f34374e = null;
         }
     }
 }

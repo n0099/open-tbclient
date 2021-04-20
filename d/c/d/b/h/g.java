@@ -10,29 +10,29 @@ import d.c.d.b.l;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements Handler.Callback {
     public static Printer m;
     public static g n;
     public static final Printer o = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public long f65864g;
+    public long f66709g;
     public boolean l;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65863f = 0;
+    public int f66708f = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<List<Runnable>> f65865h = new SparseArray<>();
+    public final SparseArray<List<Runnable>> f66710h = new SparseArray<>();
     public final List<Printer> i = new LinkedList();
     public final List<Printer> j = new LinkedList();
     public boolean k = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f65862e = new Handler(i.a().getLooper(), this);
+    public Handler f66707e = new Handler(i.a().getLooper(), this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Printer {
         @Override // android.util.Printer
         public void println(String str) {
@@ -89,13 +89,13 @@ public class g implements Handler.Callback {
         }
         for (int i2 = 0; i2 < i; i2++) {
             int i3 = (int) j;
-            List<Runnable> list = this.f65865h.get(i3);
+            List<Runnable> list = this.f66710h.get(i3);
             if (list == null) {
-                synchronized (this.f65865h) {
-                    list = this.f65865h.get(i3);
+                synchronized (this.f66710h) {
+                    list = this.f66710h.get(i3);
                     if (list == null) {
                         list = new LinkedList<>();
-                        this.f65865h.put(i3, list);
+                        this.f66710h.put(i3, list);
                     }
                 }
             }
@@ -113,10 +113,10 @@ public class g implements Handler.Callback {
             h.a(32L);
             this.l = true;
         }
-        this.f65864g = SystemClock.uptimeMillis();
+        this.f66709g = SystemClock.uptimeMillis();
         try {
             g(this.i, str);
-            this.f65862e.sendEmptyMessage(0);
+            this.f66707e.sendEmptyMessage(0);
         } catch (Exception e2) {
             l.k.b(e2);
         }
@@ -151,35 +151,35 @@ public class g implements Handler.Callback {
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        if (this.f65862e.hasMessages(0)) {
+        if (this.f66707e.hasMessages(0)) {
             return true;
         }
         int i = message.what;
         if (i == 0) {
-            this.f65863f = 0;
-            if (this.f65865h.size() != 0 && this.f65865h.keyAt(0) == 0) {
-                f(this.f65865h.valueAt(0));
-                this.f65863f++;
+            this.f66708f = 0;
+            if (this.f66710h.size() != 0 && this.f66710h.keyAt(0) == 0) {
+                f(this.f66710h.valueAt(0));
+                this.f66708f++;
             }
         } else if (i == 1) {
-            this.f65862e.removeMessages(2);
-            if (this.f65865h.size() != 0) {
-                SparseArray<List<Runnable>> sparseArray = this.f65865h;
+            this.f66707e.removeMessages(2);
+            if (this.f66710h.size() != 0) {
+                SparseArray<List<Runnable>> sparseArray = this.f66710h;
                 if (sparseArray.keyAt(sparseArray.size() - 1) == 0) {
-                    f(this.f65865h.get(Integer.MAX_VALUE));
+                    f(this.f66710h.get(Integer.MAX_VALUE));
                 }
             }
             return true;
         } else if (i == 2) {
-            f(this.f65865h.valueAt(this.f65863f));
-            this.f65863f++;
+            f(this.f66710h.valueAt(this.f66708f));
+            this.f66708f++;
         }
-        if (this.f65863f >= this.f65865h.size()) {
+        if (this.f66708f >= this.f66710h.size()) {
             return true;
         }
-        long keyAt = this.f65865h.keyAt(this.f65863f);
+        long keyAt = this.f66710h.keyAt(this.f66708f);
         if (keyAt != 2147483647L) {
-            this.f65862e.sendEmptyMessageAtTime(2, this.f65864g + keyAt);
+            this.f66707e.sendEmptyMessageAtTime(2, this.f66709g + keyAt);
         }
         return true;
     }
@@ -191,9 +191,9 @@ public class g implements Handler.Callback {
     public void j(String str) {
         SystemClock.uptimeMillis();
         try {
-            this.f65862e.removeMessages(2);
+            this.f66707e.removeMessages(2);
             g(this.j, str);
-            this.f65862e.sendEmptyMessage(1);
+            this.f66707e.sendEmptyMessage(1);
         } catch (Exception e2) {
             l.k.c(e2);
         }

@@ -21,33 +21,33 @@ import rx.schedulers.Schedulers;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f51660a;
+    public static JSONObject f52084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<Long> f51661b = new ArrayList<>();
+    public static ArrayList<Long> f52085b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f51662c = new Hashtable<>();
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f52086c = new Hashtable<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f51663d = true;
+    public static boolean f52087d = true;
 
     /* loaded from: classes3.dex */
     public static class a implements h.n.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f51664e;
+        public final /* synthetic */ String f52088e;
 
         public a(String str) {
-            this.f51664e = str;
+            this.f52088e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(String str) {
-            String o = d.b.h0.r.d0.b.i().o("old_sniff_url", "");
-            if (TextUtils.isEmpty(this.f51664e) || this.f51664e.equals(o)) {
+            String p = d.b.h0.r.d0.b.j().p("old_sniff_url", "");
+            if (TextUtils.isEmpty(this.f52088e) || this.f52088e.equals(p)) {
                 d.q(false);
                 return;
             }
@@ -55,8 +55,8 @@ public class d {
             if (!file.exists()) {
                 file.mkdir();
             }
-            if (d.b.h0.z0.b.c().a(new File(file, "sniff.json"), this.f51664e) > 0) {
-                d.b.h0.r.d0.b.i().w("old_sniff_url", "");
+            if (d.b.h0.z0.b.c().a(new File(file, "sniff.json"), this.f52088e) > 0) {
+                d.b.h0.r.d0.b.j().x("old_sniff_url", "");
             }
             d.q(true);
         }
@@ -66,17 +66,17 @@ public class d {
     public static class b implements h.n.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f51665e;
+        public final /* synthetic */ boolean f52089e;
 
         public b(boolean z) {
-            this.f51665e = z;
+            this.f52089e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(String str) {
-            if (d.f51660a == null || this.f51665e) {
+            if (d.f52084a == null || this.f52089e) {
                 d.h();
             }
             d.p();
@@ -87,19 +87,19 @@ public class d {
     public static class c<X, Y> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final X f51666a;
+        public final X f52090a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Y f51667b;
+        public final Y f52091b;
 
         public c(X x, Y y) {
-            this.f51666a = x;
-            this.f51667b = y;
+            this.f52090a = x;
+            this.f52091b = y;
         }
     }
 
     public static String e() {
-        if (f51661b.size() > 0) {
+        if (f52085b.size() > 0) {
             return j();
         }
         return g();
@@ -115,17 +115,17 @@ public class d {
     }
 
     public static String g() {
-        String o = d.b.h0.r.d0.b.i().o("AD_SNIFF_RESULT_KEY", "");
-        if (!TextUtils.isEmpty(o)) {
+        String p = d.b.h0.r.d0.b.j().p("AD_SNIFF_RESULT_KEY", "");
+        if (!TextUtils.isEmpty(p)) {
             ArrayList<Long> arrayList = new ArrayList<>();
-            for (String str : o.split(",")) {
+            for (String str : p.split(",")) {
                 arrayList.add(Long.valueOf(str));
             }
-            f51661b = arrayList;
+            f52085b = arrayList;
         } else {
             q(false);
         }
-        return o;
+        return p;
     }
 
     public static void h() {
@@ -139,7 +139,7 @@ public class d {
                 }
                 synchronized (d.class) {
                     try {
-                        f51660a = new JSONObject(readFileData);
+                        f52084a = new JSONObject(readFileData);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -153,7 +153,7 @@ public class d {
     }
 
     public static String j() {
-        ArrayList<Long> arrayList = f51661b;
+        ArrayList<Long> arrayList = f52085b;
         if (arrayList == null || arrayList.size() == 0) {
             return "";
         }
@@ -166,14 +166,14 @@ public class d {
     }
 
     public static void k(int i, int i2) {
-        ArrayList<Long> arrayList = f51661b;
+        ArrayList<Long> arrayList = f52085b;
         if (i < arrayList.size()) {
             arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
         }
     }
 
     public static void l(int i, int i2) {
-        ArrayList<Long> arrayList = f51661b;
+        ArrayList<Long> arrayList = f52085b;
         if (i < arrayList.size()) {
             arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & (~(1 << i2))));
         }
@@ -188,7 +188,7 @@ public class d {
     }
 
     public static void o(int i, JSONArray jSONArray) {
-        if (i >= f51661b.size()) {
+        if (i >= f52085b.size()) {
             Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
             return;
         }
@@ -199,44 +199,44 @@ public class d {
             String optString = jSONArray.optString(i2);
             i2++;
             c<Integer, Integer> cVar = new c<>(Integer.valueOf(i), Integer.valueOf(i2));
-            ArrayList<c<Integer, Integer>> arrayList = f51662c.get(optString);
+            ArrayList<c<Integer, Integer>> arrayList = f52086c.get(optString);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(cVar);
-            f51662c.put(optString, arrayList);
+            f52086c.put(optString, arrayList);
             f(packageManager, optString, i, i2);
         }
         n(i);
-        d.b.h0.r.d0.b.i().w("AD_SNIFF_RESULT_KEY", j());
+        d.b.h0.r.d0.b.j().x("AD_SNIFF_RESULT_KEY", j());
     }
 
     public static void p() {
         JSONArray optJSONArray;
-        JSONObject jSONObject = f51660a;
+        JSONObject jSONObject = f52084a;
         if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
         int length = optJSONArray.length();
-        int size = f51661b.size();
+        int size = f52085b.size();
         ArrayList<Long> arrayList = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             if (i < size) {
-                arrayList.add(f51661b.get(i));
+                arrayList.add(f52085b.get(i));
             } else {
                 arrayList.add(0L);
             }
         }
-        f51661b = arrayList;
+        f52085b = arrayList;
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject == null) {
                 return;
             }
-            r(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f51663d);
+            r(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f52087d);
         }
-        if (f51663d) {
-            f51663d = false;
+        if (f52087d) {
+            f52087d = false;
         }
     }
 
@@ -250,14 +250,14 @@ public class d {
         }
         long time = new Date().getTime();
         String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
-        long k = d.b.h0.r.d0.b.i().k(str2, 0L);
+        long l = d.b.h0.r.d0.b.j().l(str2, 0L);
         long millis = TimeUnit.MINUTES.toMillis(i2);
         boolean z2 = true;
-        int i3 = (k > 0L ? 1 : (k == 0L ? 0 : -1));
+        int i3 = (l > 0L ? 1 : (l == 0L ? 0 : -1));
         boolean z3 = i3 == 0;
-        z2 = (i3 <= 0 || time - k <= millis) ? false : false;
+        z2 = (i3 <= 0 || time - l <= millis) ? false : false;
         if (z || z3 || z2) {
-            d.b.h0.r.d0.b.i().v(str2, time);
+            d.b.h0.r.d0.b.j().w(str2, time);
             o(i, jSONArray);
         }
     }
@@ -268,7 +268,7 @@ public class d {
         }
         String substring = intent.getDataString().length() > 8 ? intent.getDataString().substring(8) : "";
         String action = intent.getAction();
-        ArrayList<c<Integer, Integer>> arrayList = f51662c.get(substring);
+        ArrayList<c<Integer, Integer>> arrayList = f52086c.get(substring);
         if (arrayList == null || arrayList.size() == 0) {
             return;
         }
@@ -276,8 +276,8 @@ public class d {
         while (it.hasNext()) {
             c<Integer, Integer> next = it.next();
             if (next != null) {
-                int intValue = next.f51666a.intValue();
-                int intValue2 = next.f51667b.intValue();
+                int intValue = next.f52090a.intValue();
+                int intValue2 = next.f52091b.intValue();
                 if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
                     k(intValue, intValue2);
                 } else {

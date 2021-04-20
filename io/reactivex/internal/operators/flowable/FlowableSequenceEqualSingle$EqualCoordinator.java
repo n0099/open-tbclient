@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.r;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.w.d;
-import f.a.x.c.f;
-import f.a.x.e.a.l;
+import f.b.r;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.w.d;
+import f.b.x.c.f;
+import f.b.x.e.a.l;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,7 +34,7 @@ public final class FlowableSequenceEqualSingle$EqualCoordinator<T> extends Atomi
         this.second.clear();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.first.cancel();
         this.second.cancel();
@@ -44,7 +44,7 @@ public final class FlowableSequenceEqualSingle$EqualCoordinator<T> extends Atomi
         }
     }
 
-    @Override // f.a.x.e.a.l
+    @Override // f.b.x.e.a.l
     public void drain() {
         if (getAndIncrement() != 0) {
             return;
@@ -133,16 +133,16 @@ public final class FlowableSequenceEqualSingle$EqualCoordinator<T> extends Atomi
         } while (i != 0);
     }
 
-    @Override // f.a.x.e.a.l
+    @Override // f.b.x.e.a.l
     public void innerError(Throwable th) {
         if (this.error.addThrowable(th)) {
             drain();
         } else {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return SubscriptionHelper.isCancelled(this.first.get());
     }

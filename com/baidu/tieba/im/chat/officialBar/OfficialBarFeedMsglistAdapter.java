@@ -12,50 +12,50 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f17823a;
+    public TbPageContext<?> f17500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f17824b;
+    public c f17501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<d.b.h0.g0.b.a> f17825c = new ArrayList<>();
+    public ArrayList<d.b.h0.g0.b.a> f17502c = new ArrayList<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements d.b.h0.g0.b.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f17826e;
+        public String f17503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f17827f;
+        public String f17504f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f17828g;
+        public long f17505g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f17829h;
+        public int f17506h;
         public long i;
 
         public String b() {
-            return this.f17826e;
+            return this.f17503e;
         }
 
         public String c() {
-            return this.f17827f;
+            return this.f17504f;
         }
 
         public long d() {
-            return this.f17828g;
+            return this.f17505g;
         }
 
         public int f() {
-            return this.f17829h;
+            return this.f17506h;
         }
 
         public long g() {
@@ -63,19 +63,19 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         }
 
         public void h(String str) {
-            this.f17826e = str;
+            this.f17503e = str;
         }
 
         public void i(String str) {
-            this.f17827f = str;
+            this.f17504f = str;
         }
 
         public void j(long j) {
-            this.f17828g = j;
+            this.f17505g = j;
         }
 
         public void m(int i) {
-            this.f17829h = i;
+            this.f17506h = i;
         }
 
         public void n(int i) {
@@ -86,83 +86,83 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public BarImageView f17830e;
+        public BarImageView f17507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f17831f;
+        public TextView f17508f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f17832g;
+        public View f17509g;
 
         /* renamed from: h  reason: collision with root package name */
-        public a f17833h;
+        public a f17510h;
 
         public b(View view) {
             super(view);
-            this.f17830e = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.f17831f = (TextView) view.findViewById(R.id.official_bar_name);
-            this.f17832g = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.f17830e.setShowOval(true);
-            this.f17830e.setPlaceHolder(2);
-            this.f17830e.setShowOuterBorder(false);
-            this.f17830e.setShowInnerBorder(true);
-            this.f17830e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.f17507e = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.f17508f = (TextView) view.findViewById(R.id.official_bar_name);
+            this.f17509g = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.f17507e.setShowOval(true);
+            this.f17507e.setPlaceHolder(2);
+            this.f17507e.setShowOuterBorder(false);
+            this.f17507e.setShowInnerBorder(true);
+            this.f17507e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         public void a(d.b.h0.g0.b.a aVar) {
-            this.f17833h = (a) aVar;
-            SkinManager.setViewTextColor(this.f17831f, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f17832g, R.drawable.icon_official_bar_red_dot);
-            this.f17830e.setStrokeColorResId(R.color.CAM_X0401);
-            this.f17830e.W(this.f17833h.b(), 10, false);
-            if (StringHelper.getChineseAndEnglishLength(this.f17833h.c()) <= 10) {
-                this.f17831f.setText(this.f17833h.c());
+            this.f17510h = (a) aVar;
+            SkinManager.setViewTextColor(this.f17508f, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f17509g, R.drawable.icon_official_bar_red_dot);
+            this.f17507e.setStrokeColorResId(R.color.CAM_X0401);
+            this.f17507e.W(this.f17510h.b(), 10, false);
+            if (StringHelper.getChineseAndEnglishLength(this.f17510h.c()) <= 10) {
+                this.f17508f.setText(this.f17510h.c());
             } else {
-                this.f17831f.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f17833h.c(), 8, StringHelper.STRING_MORE));
+                this.f17508f.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f17510h.c(), 8, StringHelper.STRING_MORE));
             }
-            this.f17830e.setOnClickListener(this);
-            if (this.f17833h.f() > 0 && (this.f17833h.g() <= 0 || System.currentTimeMillis() - this.f17833h.g() < ImageLoader.f3673d)) {
-                this.f17832g.setVisibility(0);
+            this.f17507e.setOnClickListener(this);
+            if (this.f17510h.f() > 0 && (this.f17510h.g() <= 0 || System.currentTimeMillis() - this.f17510h.g() < ImageLoader.f3708d)) {
+                this.f17509g.setVisibility(0);
             } else {
-                this.f17832g.setVisibility(8);
+                this.f17509g.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f17832g.setVisibility(8);
-            if (OfficialBarFeedMsglistAdapter.this.f17824b != null) {
-                OfficialBarFeedMsglistAdapter.this.f17824b.a(view, this.f17833h, getAdapterPosition(), getItemId());
+            this.f17509g.setVisibility(8);
+            if (OfficialBarFeedMsglistAdapter.this.f17501b != null) {
+                OfficialBarFeedMsglistAdapter.this.f17501b.a(view, this.f17510h, getAdapterPosition(), getItemId());
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(View view, Object obj, int i, long j);
     }
 
     public OfficialBarFeedMsglistAdapter(TbPageContext<?> tbPageContext, c cVar) {
-        this.f17823a = tbPageContext;
-        this.f17824b = cVar;
+        this.f17500a = tbPageContext;
+        this.f17501b = cVar;
     }
 
     public void d(ArrayList<? extends d.b.h0.g0.b.a> arrayList) {
         if (arrayList == null) {
             return;
         }
-        this.f17825c.clear();
-        this.f17825c.addAll(arrayList);
+        this.f17502c.clear();
+        this.f17502c.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        ArrayList<d.b.h0.g0.b.a> arrayList = this.f17825c;
+        ArrayList<d.b.h0.g0.b.a> arrayList = this.f17502c;
         if (arrayList == null) {
             return 0;
         }
@@ -176,11 +176,11 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ArrayList<d.b.h0.g0.b.a> arrayList = this.f17825c;
+        ArrayList<d.b.h0.g0.b.a> arrayList = this.f17502c;
         if (arrayList == null || arrayList.size() <= 0) {
             return;
         }
-        d.b.h0.g0.b.a aVar = this.f17825c.get(i);
+        d.b.h0.g0.b.a aVar = this.f17502c.get(i);
         if ((viewHolder instanceof b) && (aVar instanceof a)) {
             ((b) viewHolder).a(aVar);
         }
@@ -189,6 +189,6 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new b(this.f17823a.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null));
+        return new b(this.f17500a.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null));
     }
 }

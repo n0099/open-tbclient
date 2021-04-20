@@ -7,27 +7,27 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 public class d extends BeanRequestBase {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25582a;
+    public String f25267a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25583b;
+    public String f25268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25584c;
+    public String f25269c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25585d;
+    public String f25270d;
 
     public d(String str, String str2, String str3, String str4) {
-        this.f25582a = str;
-        this.f25583b = str2;
-        this.f25584c = str3;
-        this.f25585d = str4;
+        this.f25267a = str;
+        this.f25268b = str2;
+        this.f25269c = str3;
+        this.f25270d = str4;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
-        return (TextUtils.isEmpty(this.f25582a) || TextUtils.isEmpty(this.f25583b) || TextUtils.isEmpty(this.f25584c) || TextUtils.isEmpty(this.f25585d)) ? false : true;
+        return (TextUtils.isEmpty(this.f25267a) || TextUtils.isEmpty(this.f25268b) || TextUtils.isEmpty(this.f25269c) || TextUtils.isEmpty(this.f25270d)) ? false : true;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanRequestBase

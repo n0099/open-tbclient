@@ -28,15 +28,15 @@ public class SwanAppInitHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12739e;
+        public final /* synthetic */ boolean f12400e;
 
         public a(boolean z) {
-            this.f12739e = z;
+            this.f12400e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f12739e) {
+            if (this.f12400e) {
                 c.i(new h(0), new i(null), new d.b.g0.g.n.b.a(null));
             }
         }
@@ -86,11 +86,11 @@ public class SwanAppInitHelper {
 
     public static void initRuntimeContext(Application application) {
         AppRuntimeInit.onApplicationattachBaseContext(application);
-        d.b.d0.b.a.e.b(application);
+        d.b.b0.b.a.e.b(application);
     }
 
     public static void initStatisticsModule(Application application) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             OpenStatisticIPCManager.a();
             initConfig();
         }
@@ -106,7 +106,7 @@ public class SwanAppInitHelper {
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
             asyncUpdateSwanAppCore();
-            if (k.f45051a) {
+            if (k.f45443a) {
                 d.b.g0.a.h2.a.b(0, 1);
             }
         }

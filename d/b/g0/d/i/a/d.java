@@ -17,17 +17,17 @@ import org.json.JSONObject;
 public class d extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47505a = k.f45051a;
+    public static final boolean f47897a = k.f45443a;
 
     @Override // d.b.g0.d.i.a.a
     @Nullable
     public Cursor c(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         String f2 = f();
-        if (f47505a) {
+        if (f47897a) {
             Log.i("ParamsProcessor", "params: " + f2);
         }
         String g2 = g(f2);
-        if (f47505a) {
+        if (f47897a) {
             Log.i("ParamsProcessor", "encryption params: " + g2);
         }
         return e(g2);

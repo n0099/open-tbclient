@@ -22,13 +22,13 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static final jg f352a = new jg("StatsEvents");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40484a = new iy("", (byte) 11, 1);
+    public static final iy f40773a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f40485b = new iy("", (byte) 11, 2);
+    public static final iy f40774b = new iy("", (byte) 11, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f40486c = new iy("", (byte) 15, 3);
+    public static final iy f40775c = new iy("", (byte) 15, 3);
 
     public ey() {
     }
@@ -47,11 +47,11 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (ey.class.equals(eyVar.getClass())) {
-            int compareTo = Boolean.valueOf(m281a()).compareTo(Boolean.valueOf(eyVar.m281a()));
+            int compareTo = Boolean.valueOf(m285a()).compareTo(Boolean.valueOf(eyVar.m285a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m281a() || (a4 = ir.a(this.f353a, eyVar.f353a)) == 0) {
+            if (!m285a() || (a4 = ir.a(this.f353a, eyVar.f353a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(eyVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -89,28 +89,28 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m505a();
+        jbVar.m509a();
         while (true) {
-            iy m501a = jbVar.m501a();
-            byte b2 = m501a.f40867a;
+            iy m505a = jbVar.m505a();
+            byte b2 = m505a.f41156a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
                 return;
             }
-            short s = m501a.f807a;
+            short s = m505a.f807a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f353a = jbVar.m506a();
+                    this.f353a = jbVar.m510a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
                 jbVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    iz m502a = jbVar.m502a();
-                    this.f354a = new ArrayList(m502a.f808a);
-                    for (int i = 0; i < m502a.f808a; i++) {
+                    iz m506a = jbVar.m506a();
+                    this.f354a = new ArrayList(m506a.f808a);
+                    for (int i = 0; i < m506a.f808a; i++) {
                         ex exVar = new ex();
                         exVar.a(jbVar);
                         this.f354a.add(exVar);
@@ -122,7 +122,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f355b = jbVar.m506a();
+                    this.f355b = jbVar.m510a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
@@ -132,18 +132,18 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m281a() {
+    public boolean m285a() {
         return this.f353a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m282a(ey eyVar) {
+    public boolean m286a(ey eyVar) {
         if (eyVar == null) {
             return false;
         }
-        boolean m281a = m281a();
-        boolean m281a2 = eyVar.m281a();
-        if ((m281a || m281a2) && !(m281a && m281a2 && this.f353a.equals(eyVar.f353a))) {
+        boolean m285a = m285a();
+        boolean m285a2 = eyVar.m285a();
+        if ((m285a || m285a2) && !(m285a && m285a2 && this.f353a.equals(eyVar.f353a))) {
             return false;
         }
         boolean b2 = b();
@@ -164,17 +164,17 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         a();
         jbVar.a(f352a);
         if (this.f353a != null) {
-            jbVar.a(f40484a);
+            jbVar.a(f40773a);
             jbVar.a(this.f353a);
             jbVar.b();
         }
         if (this.f355b != null && b()) {
-            jbVar.a(f40485b);
+            jbVar.a(f40774b);
             jbVar.a(this.f355b);
             jbVar.b();
         }
         if (this.f354a != null) {
-            jbVar.a(f40486c);
+            jbVar.a(f40775c);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f354a.size()));
             for (ex exVar : this.f354a) {
                 exVar.b(jbVar);
@@ -183,7 +183,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m509a();
+        jbVar.m513a();
     }
 
     public boolean b() {
@@ -196,7 +196,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ey)) {
-            return m282a((ey) obj);
+            return m286a((ey) obj);
         }
         return false;
     }

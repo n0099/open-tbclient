@@ -44,7 +44,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements DragView.b, View.OnClickListener, d.b.g0.a.b1.d.d.a, d.b.g0.a.b1.d.d.f {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public SwanAppAlbumPreviewAdapter mAdapter;
     public View mBackTv;
     public View mBottomView;
@@ -74,8 +74,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
         /* renamed from: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0169a extends LinearSmoothScroller {
-            public C0169a(Context context) {
+        public class C0170a extends LinearSmoothScroller {
+            public C0170a(Context context) {
                 super(context);
             }
 
@@ -96,9 +96,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
         @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
         public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int i) {
-            C0169a c0169a = new C0169a(recyclerView.getContext());
-            c0169a.setTargetPosition(i);
-            startSmoothScroll(c0169a);
+            C0170a c0170a = new C0170a(recyclerView.getContext());
+            c0170a.setTargetPosition(i);
+            startSmoothScroll(c0170a);
         }
     }
 
@@ -106,16 +106,16 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public class b extends SwanAppThumbnailClickListener {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.b1.d.c.a f12297c;
+        public final /* synthetic */ d.b.g0.a.b1.d.c.a f11958c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ ItemTouchHelper f12298d;
+        public final /* synthetic */ ItemTouchHelper f11959d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RecyclerView recyclerView, d.b.g0.a.b1.d.c.a aVar, ItemTouchHelper itemTouchHelper) {
             super(recyclerView);
-            this.f12297c = aVar;
-            this.f12298d = itemTouchHelper;
+            this.f11958c = aVar;
+            this.f11959d = itemTouchHelper;
         }
 
         @Override // com.baidu.swan.apps.media.chooser.listener.SwanAppThumbnailClickListener
@@ -127,9 +127,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             int size = SwanAppAlbumPreviewActivity.this.mList.size();
             for (int i = 0; i < size; i++) {
                 if (SwanAppAlbumPreviewActivity.this.mList.get(i) != null && ((MediaModel) SwanAppAlbumPreviewActivity.this.mList.get(i)).equals(g2)) {
-                    this.f12297c.a(true);
+                    this.f11958c.a(true);
                     SwanAppAlbumPreviewActivity.this.mViewPager.setCurrentItem(i);
-                    this.f12297c.a(false);
+                    this.f11958c.a(false);
                     return;
                 }
             }
@@ -141,7 +141,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             if (viewHolder.getLayoutPosition() < 0 || m == null || viewHolder.getLayoutPosition() == m.size()) {
                 return;
             }
-            this.f12298d.startDrag(viewHolder);
+            this.f11959d.startDrag(viewHolder);
         }
     }
 
@@ -171,18 +171,18 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f12301e;
+        public final /* synthetic */ int f11962e;
 
         public d(int i) {
-            this.f12301e = i;
+            this.f11962e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f12301e > 0) {
-                SwanAppAlbumPreviewActivity.this.mThumbnailView.smoothScrollToPosition(this.f12301e - 1);
+            if (this.f11962e > 0) {
+                SwanAppAlbumPreviewActivity.this.mThumbnailView.smoothScrollToPosition(this.f11962e - 1);
             } else {
-                SwanAppAlbumPreviewActivity.this.mThumbnailView.smoothScrollToPosition(this.f12301e);
+                SwanAppAlbumPreviewActivity.this.mThumbnailView.smoothScrollToPosition(this.f11962e);
             }
         }
     }
@@ -362,7 +362,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             return;
         }
         this.mSelectNumTv.setVisibility(8);
-        if (d.b.g0.a.b1.d.c.d.f(d.b.g0.a.b1.d.c.d.f43433d, mediaModel)) {
+        if (d.b.g0.a.b1.d.c.d.f(d.b.g0.a.b1.d.c.d.f43825d, mediaModel)) {
             this.mSelectImg.setImageResource(d.b.g0.a.e.swanapp_album_preview_unselect_unable);
         } else {
             this.mSelectImg.setImageResource(d.b.g0.a.e.swanapp_album_preview_unselect);
@@ -480,9 +480,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 return;
             }
             int d2 = d.b.g0.a.b1.d.c.e.d();
-            if (d2 == d.b.g0.a.b1.d.c.d.f43432c) {
-                d.b.g0.a.b1.d.c.d.j(d.b.g0.a.b1.d.c.d.f43433d);
-            } else if (d2 > 0 && TextUtils.equals(d.b.g0.a.b1.d.c.d.f43433d, "single") && !TextUtils.equals(d.b.g0.a.b1.d.c.e.b(), mediaModel.e())) {
+            if (d2 == d.b.g0.a.b1.d.c.d.f43824c) {
+                d.b.g0.a.b1.d.c.d.j(d.b.g0.a.b1.d.c.d.f43825d);
+            } else if (d2 > 0 && TextUtils.equals(d.b.g0.a.b1.d.c.d.f43825d, "single") && !TextUtils.equals(d.b.g0.a.b1.d.c.e.b(), mediaModel.e())) {
                 d.b.g0.a.q1.b.f.d.e(this, h.swanapp_album_select_single).C();
             } else {
                 int d3 = d.b.g0.a.b1.d.c.e.d();
@@ -504,8 +504,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 d.b.g0.a.b1.d.c.e.i(mediaModel);
             }
             Bundle bundle = new Bundle();
-            bundle.putBoolean("compressed", d.b.g0.a.b1.d.c.d.f43434e);
-            bundle.putString("swanAppId", d.b.g0.a.b1.d.c.d.f43435f);
+            bundle.putBoolean("compressed", d.b.g0.a.b1.d.c.d.f43826e);
+            bundle.putString("swanAppId", d.b.g0.a.b1.d.c.d.f43827f);
             bundle.putParcelableArrayList("mediaModels", d.b.g0.a.b1.d.c.e.e());
             bundle.putString("swanTmpPath", d.b.g0.a.b1.d.c.d.j);
             d.b.g0.a.b1.d.c.d.g(this, bundle);

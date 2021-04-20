@@ -8,16 +8,16 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f1942a;
+    public static b f1967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1943b;
+    public Context f1968b;
 
     public static b a() {
-        if (f1942a == null) {
-            f1942a = new b();
+        if (f1967a == null) {
+            f1967a = new b();
         }
-        return f1942a;
+        return f1967a;
     }
 
     public static boolean d() {
@@ -31,7 +31,7 @@ public class b {
     }
 
     public Context b() {
-        return this.f1943b;
+        return this.f1968b;
     }
 
     public c c() {
@@ -40,15 +40,15 @@ public class b {
 
     public String e() {
         try {
-            return UTDevice.getUtdid(this.f1943b);
+            return UTDevice.getUtdid(this.f1968b);
         } catch (Throwable th) {
             com.alipay.sdk.util.c.a(th);
-            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1839e, com.alipay.sdk.app.statistic.c.k, th);
+            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1864e, com.alipay.sdk.app.statistic.c.k, th);
             return "";
         }
     }
 
     public void a(Context context, c cVar) {
-        this.f1943b = context.getApplicationContext();
+        this.f1968b = context.getApplicationContext();
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     public boolean t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgleftView> {
         public a(MsgLeftViewItemAdapter msgLeftViewItemAdapter, View view, MsgleftView msgleftView) {
             super(view, msgleftView);
@@ -24,7 +24,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.b.j.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.c.j.e.a
     public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         l0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -50,7 +50,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: r0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> R(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.m);

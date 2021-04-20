@@ -3,21 +3,21 @@ package d.b.g0.a.a0.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43179a;
+    public a f43571a;
 
     public b() {
-        this.f43179a = new a(501);
+        this.f43571a = new a(501);
     }
 
     public boolean a(int i) {
-        return this.f43179a.b(i);
+        return this.f43571a.b(i);
     }
 
     public void b(int i) {
-        this.f43179a.d(i);
+        this.f43571a.d(i);
     }
 
     public b(boolean z) {
-        this.f43179a = new a(501, z);
+        this.f43571a = new a(501, z);
     }
 }

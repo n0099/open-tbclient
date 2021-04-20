@@ -1,9 +1,9 @@
 package com.baidu.afd;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.c.a;
-import d.b.c.e;
-import d.b.c.f;
+import d.b.d.a;
+import d.b.d.e;
+import d.b.d.f;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
@@ -25,7 +25,7 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
                 e2.printStackTrace();
                 e a2 = a.a("", "1517888290046");
                 this.adModel = a2;
-                a2.f42495d = e2;
+                a2.f43085d = e2;
                 return;
             }
         }

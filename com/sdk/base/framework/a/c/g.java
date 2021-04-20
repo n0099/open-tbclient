@@ -21,11 +21,11 @@ public final class g extends Handler {
             if (i != 2) {
                 return;
             }
-            fVar.f38437a.a((Object[]) fVar.f38438b);
+            fVar.f38726a.a((Object[]) fVar.f38727b);
             return;
         }
-        c cVar = fVar.f38437a;
-        Object obj = fVar.f38438b[0];
-        cVar.f38432f.get();
+        c cVar = fVar.f38726a;
+        Object obj = fVar.f38727b[0];
+        cVar.f38721f.get();
     }
 }

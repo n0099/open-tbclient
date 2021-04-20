@@ -12,34 +12,34 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import d.b.b.e.p.q;
+import d.b.c.e.p.q;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f49781h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+    public static final String f50174h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.b0.b f49782a;
+    public d.b.h0.b0.b f50175a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageFileInfo f49784c;
+    public ImageFileInfo f50177c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f49786e;
+    public d f50179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f49787f;
+    public d f50180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f49788g;
+    public d f50181g;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49783b = false;
+    public boolean f50176b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f49785d = new a();
+    public d f50178d = new a();
 
     /* loaded from: classes3.dex */
     public class a implements d {
@@ -52,13 +52,13 @@ public class e {
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.f49782a == null) {
-                e.this.f49782a = new d.b.h0.b0.b();
+            if (e.this.f50175a == null) {
+                e.this.f50175a = new d.b.h0.b0.b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            d.b.b.j.d.a c2 = e.this.f49782a.c(imageFileInfo, true);
+            d.b.c.j.d.a c2 = e.this.f50175a.c(imageFileInfo, true);
             if (c2 == null) {
                 Bitmap l = e.this.l(imageFileInfo);
                 if (l == null) {
@@ -107,9 +107,9 @@ public class e {
 
     public e() {
         b bVar = new b();
-        this.f49786e = bVar;
-        this.f49787f = bVar;
-        this.f49788g = new c();
+        this.f50179e = bVar;
+        this.f50180f = bVar;
+        this.f50181g = new c();
     }
 
     public static boolean k() {
@@ -178,23 +178,23 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        this.f49784c = imageFileInfo;
+        this.f50177c = imageFileInfo;
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
         boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
         if (imageFileInfo.isGif() || !(!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
             if (checkIsLongImage) {
-                dVar = this.f49787f;
+                dVar = this.f50180f;
                 str = "原始·长图";
             } else {
-                dVar = this.f49786e;
+                dVar = this.f50179e;
                 str = "原始·图";
             }
         } else if (checkIsLongImage) {
-            dVar = this.f49788g;
+            dVar = this.f50181g;
             str = "正常·长图";
         } else {
-            dVar = this.f49785d;
+            dVar = this.f50178d;
             str = "正常·图";
         }
         if (k()) {
@@ -231,21 +231,21 @@ public class e {
     }
 
     public final Bitmap l(ImageFileInfo imageFileInfo) {
-        d.b.b.e.l.e i;
+        d.b.c.e.l.e i;
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.f49782a == null) {
-            this.f49782a = new d.b.h0.b0.b();
+        if (this.f50175a == null) {
+            this.f50175a = new d.b.h0.b0.b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.f49782a.f(imageFileInfo, true);
+            return this.f50175a.f(imageFileInfo, true);
         }
-        if (imageFileInfo.getImageType() == 1 && (i = d.b.b.e.l.d.h().i(20)) != null) {
+        if (imageFileInfo.getImageType() == 1 && (i = d.b.c.e.l.d.h().i(20)) != null) {
             try {
                 Object fromLocal = i.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
-                if (fromLocal instanceof d.b.b.j.d.a) {
-                    return ((d.b.b.j.d.a) fromLocal).p();
+                if (fromLocal instanceof d.b.c.j.d.a) {
+                    return ((d.b.c.j.d.a) fromLocal).p();
                 }
             } catch (OutOfMemoryError unused) {
                 BdBaseApplication.getInst().onAppMemoryLow();
@@ -262,12 +262,12 @@ public class e {
     }
 
     public final String n(Bitmap bitmap, long j, int i) {
-        if (this.f49783b) {
-            ImageFileInfo imageFileInfo = this.f49784c;
+        if (this.f50176b) {
+            ImageFileInfo imageFileInfo = this.f50177c;
             if (imageFileInfo == null || TextUtils.isEmpty(imageFileInfo.getFilePath())) {
                 return "";
             }
-            return FileHelper.compressBitmapToFile(f49781h, q.c(this.f49784c.toCachedKey(false)) + h(this.f49784c.getFilePath()), bitmap, (float) j, i);
+            return FileHelper.compressBitmapToFile(f50174h, q.c(this.f50177c.toCachedKey(false)) + h(this.f50177c.getFilePath()), bitmap, (float) j, i);
         }
         return FileHelper.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }

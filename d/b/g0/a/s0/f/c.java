@@ -7,15 +7,15 @@ import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 public class c implements ZeusPluginFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45830a;
+    public String f46222a;
 
     public c(@NonNull String str) {
-        this.f45830a = str;
+        this.f46222a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        return new b(d.b.g0.a.w0.a.t().e(invoker, this.f45830a));
+        return new b(d.b.g0.a.w0.a.t().e(invoker, this.f46222a));
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory

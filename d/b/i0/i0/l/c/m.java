@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
-import d.b.b.j.e.w;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
+import d.b.c.j.e.w;
 import d.b.h0.r.q.u1;
 /* loaded from: classes4.dex */
-public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
+public class m extends d.b.c.j.e.a<u1, CardViewHolder<b>> {
     public TbPageContext<?> m;
     public String n;
 
@@ -26,15 +26,15 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
     public class a implements w {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f55700e;
+        public final /* synthetic */ b f56823e;
 
         public a(b bVar) {
-            this.f55700e = bVar;
+            this.f56823e = bVar;
         }
 
-        @Override // d.b.b.j.e.w
+        @Override // d.b.c.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            this.f55700e.u();
+            this.f56823e.u();
             StatisticItem statisticItem = new StatisticItem("c13647");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("obj_id", m.this.E(i) + 1);
@@ -57,7 +57,7 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
             tbImageView.setOnClickListener(this);
             this.n.setConrers(15);
             this.n.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.n.setRadius(d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.n.setRadius(d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
             this.n.setDrawCorner(true);
             this.n.setAutoChangeStyle(true);
             this.n.setPlaceHolder(2);
@@ -91,10 +91,10 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
         /* renamed from: v */
         public void n(u1 u1Var) {
             if (u1Var != null) {
-                this.o = u1Var.f50895f;
+                this.o = u1Var.f51302f;
                 this.n.setScaleType(ImageView.ScaleType.FIT_XY);
                 this.n.setPlaceHolder(2);
-                this.n.W(u1Var.f50894e, 10, false);
+                this.n.W(u1Var.f51301e, 10, false);
             }
             o(this.m, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -107,7 +107,7 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public CardViewHolder<b> R(ViewGroup viewGroup) {
         b bVar = new b(this.m, viewGroup);
@@ -116,7 +116,7 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, u1 u1Var, CardViewHolder<b> cardViewHolder) {
         if (u1Var == null || cardViewHolder == null || cardViewHolder.b() == null) {

@@ -13,77 +13,77 @@ import d.b.g0.a.e0.l.f;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.q1.b.b.g;
 import d.b.g0.a.u0.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46466a = d.b.g0.a.k.f45051a;
+    public static final boolean f46858a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f46467b;
+    public static String f46859b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.c0.f.a f46468e;
+        public final /* synthetic */ d.b.g0.a.c0.f.a f46860e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.o.a f46469f;
+        public final /* synthetic */ d.b.g0.a.e0.o.a f46861f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.p.d.b f46470g;
+        public final /* synthetic */ d.b.g0.a.p.d.b f46862g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46471h;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f46863h;
         public final /* synthetic */ d.g i;
 
         public a(d.b.g0.a.c0.f.a aVar, d.b.g0.a.e0.o.a aVar2, d.b.g0.a.p.d.b bVar, d.b.g0.a.y0.e.b bVar2, d.g gVar) {
-            this.f46468e = aVar;
-            this.f46469f = aVar2;
-            this.f46470g = bVar;
-            this.f46471h = bVar2;
+            this.f46860e = aVar;
+            this.f46861f = aVar2;
+            this.f46862g = bVar;
+            this.f46863h = bVar2;
             this.i = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            this.f46468e.i();
+            this.f46860e.i();
             d.b.g0.a.c0.f.a.g(0);
-            c.b(this.f46469f, this.f46470g, this.f46471h, this.i);
+            c.b(this.f46861f, this.f46862g, this.f46863h, this.i);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.o.a f46472a;
+        public final /* synthetic */ d.b.g0.a.e0.o.a f46864a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.p.d.b f46473b;
+        public final /* synthetic */ d.b.g0.a.p.d.b f46865b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f46474c;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f46866c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.g f46475d;
+        public final /* synthetic */ d.g f46867d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.q1.b.b.g f46476e;
+        public final /* synthetic */ d.b.g0.a.q1.b.b.g f46868e;
 
         public b(d.b.g0.a.e0.o.a aVar, d.b.g0.a.p.d.b bVar, d.b.g0.a.y0.e.b bVar2, d.g gVar, d.b.g0.a.q1.b.b.g gVar2) {
-            this.f46472a = aVar;
-            this.f46473b = bVar;
-            this.f46474c = bVar2;
-            this.f46475d = gVar;
-            this.f46476e = gVar2;
+            this.f46864a = aVar;
+            this.f46865b = bVar;
+            this.f46866c = bVar2;
+            this.f46867d = gVar;
+            this.f46868e = gVar2;
         }
 
         @Override // d.b.g0.a.c0.f.a.b
         public void onConnected() {
-            c.b(this.f46472a, this.f46473b, this.f46474c, this.f46475d);
-            this.f46476e.dismiss();
+            c.b(this.f46864a, this.f46865b, this.f46866c, this.f46867d);
+            this.f46868e.dismiss();
         }
     }
 
@@ -93,19 +93,19 @@ public class c {
         ubcFlowEvent.a(true);
         n.A(ubcFlowEvent);
         d.b.g0.a.z0.f V = d.b.g0.a.z0.f.V();
-        SwanAppConfigData swanAppConfigData = gVar.f46601b;
+        SwanAppConfigData swanAppConfigData = gVar.f46993b;
         if (swanAppConfigData == null) {
-            if (f46466a) {
+            if (f46858a) {
                 Log.e("FirstPageAction", Log.getStackTraceString(new Exception("loadInfo.mConfigData is null.")));
                 return;
             }
             return;
         }
         String d2 = d(V, bVar2, swanAppConfigData);
-        String g2 = gVar.f46601b.g(d2);
+        String g2 = gVar.f46993b.g(d2);
         SwanAppActivity activity = V.getActivity();
         if (activity != null && !activity.isFinishing()) {
-            d.b.g0.a.e0.r.b.c().b(aVar, bVar, bVar2, gVar.f46601b, gVar);
+            d.b.g0.a.e0.r.b.c().b(aVar, bVar, bVar2, gVar.f46993b, gVar);
             aVar.d(activity);
             bVar.d(activity);
             d.b.g0.a.e0.l.f W = V.W();
@@ -113,7 +113,7 @@ public class c {
                 return;
             }
             d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(d2, V.h());
-            d.b.g0.a.e0.v.b.i(k0.c(c2.f44364c, c2.f44362a, c2.f44363b), bVar);
+            d.b.g0.a.e0.v.b.i(k0.c(c2.f44756c, c2.f44754a, c2.f44755b), bVar);
             e(W, d2);
             d.b.g0.a.z1.h.y();
             d.b.g0.a.f1.e.e(bVar.c());
@@ -122,7 +122,7 @@ public class c {
             }
             d.b.g0.a.z1.h.z(true, bVar2.S());
             d.b.g0.a.j2.d loadingView = activity.getLoadingView();
-            if (f46466a) {
+            if (f46858a) {
                 Log.i("FirstPageAction", "startFirstPage:: loadingView=" + loadingView);
             }
             if (loadingView != null) {
@@ -133,13 +133,13 @@ public class c {
                 e2.s().e(true);
             }
             d.b.g0.a.e0.f.l(false);
-        } else if (f46466a) {
+        } else if (f46858a) {
             Log.e("FirstPageAction", Log.getStackTraceString(new Exception("activity is invalid.")));
         }
     }
 
     public static String c() {
-        return f46467b;
+        return f46859b;
     }
 
     public static String d(d.b.g0.a.z0.f fVar, d.b.g0.a.y0.e.b bVar, SwanAppConfigData swanAppConfigData) {
@@ -151,7 +151,7 @@ public class c {
                 d2 = fVar.l();
             }
         }
-        f46467b = d2;
+        f46859b = d2;
         return d2;
     }
 

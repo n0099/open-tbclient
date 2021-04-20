@@ -3,14 +3,14 @@ package d.b.h0.r.q;
 public class p1 extends w {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50862h;
+    public String f51269h;
 
     public p1(String str, boolean z) {
         A(7);
-        this.f50862h = str;
+        this.f51269h = str;
     }
 
     public String B() {
-        return this.f50862h;
+        return this.f51269h;
     }
 }

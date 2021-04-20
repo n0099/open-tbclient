@@ -19,30 +19,30 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45471d = k.f45051a;
+    public static final boolean f45863d = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45472a;
+    public Context f45864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.b1.g.a f45473b;
+    public d.b.g0.a.b1.g.a f45865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f45474c;
+    public JSONObject f45866c;
 
     /* loaded from: classes2.dex */
     public class a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Request f45475a;
+        public final /* synthetic */ Request f45867a;
 
         public a(b bVar, Request request) {
-            this.f45475a = request;
+            this.f45867a = request;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (b.f45471d) {
+            if (b.f45863d) {
                 Log.d("AlsSender", "onFailure: " + exc.getMessage());
             }
         }
@@ -53,16 +53,16 @@ public class b {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            if (b.f45471d) {
-                Log.d("AlsSender", "onResponse: respCode:" + response.code() + ", url:" + this.f45475a.url().toString() + ", msg:" + response.message());
+            if (b.f45863d) {
+                Log.d("AlsSender", "onResponse: respCode:" + response.code() + ", url:" + this.f45867a.url().toString() + ", msg:" + response.message());
             }
             return response;
         }
     }
 
     public b(Context context, JSONObject jSONObject) {
-        this.f45472a = context;
-        this.f45474c = jSONObject;
+        this.f45864a = context;
+        this.f45866c = jSONObject;
     }
 
     public final void a(@NonNull Request request) {
@@ -70,15 +70,15 @@ public class b {
             return;
         }
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(request.url().toString(), new a(this, request));
-        aVar.f48884f = true;
-        aVar.f48885g = false;
-        aVar.f48886h = false;
+        aVar.f49276f = true;
+        aVar.f49277g = false;
+        aVar.f49278h = false;
         d.b.g0.k.e.a.f().d(aVar);
     }
 
     public final String b(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        d.b.g0.a.b1.g.a aVar = this.f45473b;
+        d.b.g0.a.b1.g.a aVar = this.f45865b;
         if (aVar != null) {
             hashMap2.put("cur_time", String.valueOf(aVar.j() / 1000));
         }
@@ -87,11 +87,11 @@ public class b {
         try {
             str = URLDecoder.decode(str, "UTF-8");
         } catch (UnsupportedEncodingException e2) {
-            if (f45471d) {
+            if (f45863d) {
                 e2.printStackTrace();
             }
         } catch (IllegalArgumentException e3) {
-            if (f45471d) {
+            if (f45863d) {
                 e3.printStackTrace();
             }
         }
@@ -113,13 +113,13 @@ public class b {
         } else {
             hashMap.put("da_page", "MINIAPP");
         }
-        hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.i(this.f45472a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONObject jSONObject = this.f45474c;
+        hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.i(this.f45864a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
+        JSONObject jSONObject = this.f45866c;
         JSONArray optJSONArray = jSONObject != null ? jSONObject.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
-                if (SwanAppNetworkUtils.h(this.f45472a) && !TextUtils.isEmpty(optString)) {
+                if (SwanAppNetworkUtils.h(this.f45864a) && !TextUtils.isEmpty(optString)) {
                     HttpUrl parse = HttpUrl.parse(b(optString, hashMap));
                     if (parse == null) {
                         return;
@@ -131,8 +131,8 @@ public class b {
     }
 
     public b(Context context, JSONObject jSONObject, d.b.g0.a.b1.g.a aVar) {
-        this.f45472a = context;
-        this.f45474c = jSONObject;
-        this.f45473b = aVar;
+        this.f45864a = context;
+        this.f45866c = jSONObject;
+        this.f45865b = aVar;
     }
 }

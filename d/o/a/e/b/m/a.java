@@ -6,6 +6,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.u;
@@ -15,178 +16,178 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.n.a> f67122a = new SparseArray<>();
+    public final SparseArray<d.o.a.e.b.n.a> f68115a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.n.a> f67123b = new SparseArray<>();
+    public final SparseArray<d.o.a.e.b.n.a> f68116b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.n.a> f67124c = new SparseArray<>();
+    public final SparseArray<d.o.a.e.b.n.a> f68117c = new SparseArray<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.n.a> f67125d = new SparseArray<>();
+    public final SparseArray<d.o.a.e.b.n.a> f68118d = new SparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.n.a> f67126e = new SparseArray<>();
+    public final SparseArray<d.o.a.e.b.n.a> f68119e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.g<Integer, d.o.a.e.b.n.a> f67127f = new com.ss.android.socialbase.downloader.i.g<>();
+    public final com.ss.android.socialbase.downloader.i.g<Integer, d.o.a.e.b.n.a> f68120f = new com.ss.android.socialbase.downloader.i.g<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<Long> f67128g = new SparseArray<>();
+    public final SparseArray<Long> f68121g = new SparseArray<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinkedBlockingDeque<d.o.a.e.b.n.a> f67129h = new LinkedBlockingDeque<>();
+    public final LinkedBlockingDeque<d.o.a.e.b.n.a> f68122h = new LinkedBlockingDeque<>();
     public final d.o.a.e.b.k.g j = new d.o.a.e.b.k.g(Looper.getMainLooper(), this);
     public final d.o.a.e.b.g.j i = d.o.a.e.b.g.d.I0();
 
     /* renamed from: d.o.a.e.b.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class RunnableC1848a implements Runnable {
+    /* loaded from: classes6.dex */
+    public class RunnableC1883a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f67130e;
+        public final /* synthetic */ SparseArray f68123e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f67131f;
+        public final /* synthetic */ DownloadInfo f68124f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f67132g;
+        public final /* synthetic */ SparseArray f68125g;
 
-        public RunnableC1848a(a aVar, SparseArray sparseArray, DownloadInfo downloadInfo, SparseArray sparseArray2) {
-            this.f67130e = sparseArray;
-            this.f67131f = downloadInfo;
-            this.f67132g = sparseArray2;
+        public RunnableC1883a(a aVar, SparseArray sparseArray, DownloadInfo downloadInfo, SparseArray sparseArray2) {
+            this.f68123e = sparseArray;
+            this.f68124f = downloadInfo;
+            this.f68125g = sparseArray2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SparseArray sparseArray;
-            SparseArray sparseArray2 = this.f67130e;
+            SparseArray sparseArray2 = this.f68123e;
             if (sparseArray2 != null) {
                 synchronized (sparseArray2) {
-                    for (int i = 0; i < this.f67130e.size(); i++) {
-                        d.o.a.e.b.f.b bVar = (d.o.a.e.b.f.b) this.f67130e.get(this.f67130e.keyAt(i));
+                    for (int i = 0; i < this.f68123e.size(); i++) {
+                        d.o.a.e.b.f.b bVar = (d.o.a.e.b.f.b) this.f68123e.get(this.f68123e.keyAt(i));
                         if (bVar != null) {
-                            bVar.k(this.f67131f);
+                            bVar.k(this.f68124f);
                         }
                     }
                 }
             }
-            DownloadInfo downloadInfo = this.f67131f;
-            if (downloadInfo == null || !downloadInfo.e() || (sparseArray = this.f67132g) == null) {
+            DownloadInfo downloadInfo = this.f68124f;
+            if (downloadInfo == null || !downloadInfo.e() || (sparseArray = this.f68125g) == null) {
                 return;
             }
             synchronized (sparseArray) {
-                for (int i2 = 0; i2 < this.f67132g.size(); i2++) {
-                    d.o.a.e.b.f.b bVar2 = (d.o.a.e.b.f.b) this.f67132g.get(this.f67132g.keyAt(i2));
+                for (int i2 = 0; i2 < this.f68125g.size(); i2++) {
+                    d.o.a.e.b.f.b bVar2 = (d.o.a.e.b.f.b) this.f68125g.get(this.f68125g.keyAt(i2));
                     if (bVar2 != null) {
-                        bVar2.k(this.f67131f);
+                        bVar2.k(this.f68124f);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67133e;
+        public final /* synthetic */ int f68126e;
 
         public b(a aVar, int i) {
-            this.f67133e = i;
+            this.f68126e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.o.a.e.b.p.b.a().m(this.f67133e);
+            d.o.a.e.b.p.b.a().m(this.f68126e);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67134e;
+        public final /* synthetic */ int f68127e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f67135f;
+        public final /* synthetic */ boolean f68128f;
 
         public c(int i, boolean z) {
-            this.f67134e = i;
-            this.f67135f = z;
+            this.f68127e = i;
+            this.f68128f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.B(this.f67134e);
-            a.this.E(this.f67134e, this.f67135f);
+            a.this.B(this.f68127e);
+            a.this.E(this.f68127e, this.f68128f);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67137e;
+        public final /* synthetic */ int f68130e;
 
         public d(a aVar, int i) {
-            this.f67137e = i;
+            this.f68130e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.o.a.e.b.p.b.a().m(this.f67137e);
+            d.o.a.e.b.p.b.a().m(this.f68130e);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67138e;
+        public final /* synthetic */ int f68131e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f67139f;
+        public final /* synthetic */ boolean f68132f;
 
         public e(int i, boolean z) {
-            this.f67138e = i;
-            this.f67139f = z;
+            this.f68131e = i;
+            this.f68132f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.B(this.f67138e);
-            a.this.F(this.f67138e, this.f67139f);
+            a.this.B(this.f68131e);
+            a.this.F(this.f68131e, this.f68132f);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.f.b f67141e;
+        public final /* synthetic */ d.o.a.e.b.f.b f68134e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f67142f;
+        public final /* synthetic */ DownloadInfo f68135f;
 
         public f(a aVar, d.o.a.e.b.f.b bVar, DownloadInfo downloadInfo) {
-            this.f67141e = bVar;
-            this.f67142f = downloadInfo;
+            this.f68134e = bVar;
+            this.f68135f = downloadInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f67141e != null) {
-                if (this.f67142f.H0() == -3) {
-                    this.f67141e.b(this.f67142f);
-                } else if (this.f67142f.H0() == -1) {
-                    this.f67141e.e(this.f67142f, new BaseException(1000, "try add listener for failed task"));
+            if (this.f68134e != null) {
+                if (this.f68135f.H0() == -3) {
+                    this.f68134e.b(this.f68135f);
+                } else if (this.f68135f.H0() == -1) {
+                    this.f68134e.e(this.f68135f, new BaseException(1000, "try add listener for failed task"));
                 }
             }
         }
@@ -213,8 +214,8 @@ public abstract class a implements g.a {
     public DownloadInfo D(int i) {
         DownloadInfo b2 = this.i.b(i);
         if (b2 == null) {
-            synchronized (this.f67122a) {
-                d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+            synchronized (this.f68115a) {
+                d.o.a.e.b.n.a aVar = this.f68115a.get(i);
                 if (aVar != null) {
                     b2 = aVar.H();
                 }
@@ -240,14 +241,14 @@ public abstract class a implements g.a {
             e2.printStackTrace();
         }
         c(i, -4);
-        if (this.f67124c.get(i) != null) {
-            this.f67124c.remove(i);
+        if (this.f68117c.get(i) != null) {
+            this.f68117c.remove(i);
         }
-        if (this.f67123b.get(i) != null) {
-            this.f67123b.remove(i);
+        if (this.f68116b.get(i) != null) {
+            this.f68116b.remove(i);
         }
-        synchronized (this.f67127f) {
-            this.f67127f.remove(Integer.valueOf(i));
+        synchronized (this.f68120f) {
+            this.f68120f.remove(Integer.valueOf(i));
         }
         d.o.a.e.b.j.a.p(i);
     }
@@ -265,14 +266,14 @@ public abstract class a implements g.a {
             } catch (SQLiteException e2) {
                 e2.printStackTrace();
             }
-            if (this.f67124c.get(i) != null) {
-                this.f67124c.remove(i);
+            if (this.f68117c.get(i) != null) {
+                this.f68117c.remove(i);
             }
-            if (this.f67123b.get(i) != null) {
-                this.f67123b.remove(i);
+            if (this.f68116b.get(i) != null) {
+                this.f68116b.remove(i);
             }
-            synchronized (this.f67127f) {
-                this.f67127f.remove(Integer.valueOf(i));
+            synchronized (this.f68120f) {
+                this.f68120f.remove(Integer.valueOf(i));
             }
             d.o.a.e.b.j.a.p(i);
         } catch (Throwable th) {
@@ -284,12 +285,12 @@ public abstract class a implements g.a {
         d.o.a.e.b.c.a.g("AbsDownloadEngine", "pause id=" + i);
         DownloadInfo b2 = this.i.b(i);
         if (b2 == null || b2.H0() != 11) {
-            synchronized (this.f67122a) {
+            synchronized (this.f68115a) {
                 t(i);
             }
             if (b2 == null) {
-                synchronized (this.f67122a) {
-                    d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+                synchronized (this.f68115a) {
+                    d.o.a.e.b.n.a aVar = this.f68115a.get(i);
                     if (aVar != null) {
                         new d.o.a.e.b.g.g(aVar, this.j).u();
                         return true;
@@ -298,8 +299,8 @@ public abstract class a implements g.a {
             } else {
                 l(b2);
                 if (b2.H0() == 1) {
-                    synchronized (this.f67122a) {
-                        d.o.a.e.b.n.a aVar2 = this.f67122a.get(i);
+                    synchronized (this.f68115a) {
+                        d.o.a.e.b.n.a aVar2 = this.f68115a.get(i);
                         if (aVar2 != null) {
                             new d.o.a.e.b.g.g(aVar2, this.j).u();
                             return true;
@@ -316,7 +317,7 @@ public abstract class a implements g.a {
     }
 
     public synchronized boolean H(int i) {
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar != null) {
             DownloadInfo H = aVar.H();
             if (H != null) {
@@ -330,9 +331,9 @@ public abstract class a implements g.a {
     }
 
     public synchronized boolean I(int i) {
-        d.o.a.e.b.n.a aVar = this.f67124c.get(i);
+        d.o.a.e.b.n.a aVar = this.f68117c.get(i);
         if (aVar == null) {
-            aVar = this.f67125d.get(i);
+            aVar = this.f68118d.get(i);
         }
         if (aVar != null) {
             DownloadInfo H = aVar.H();
@@ -346,23 +347,23 @@ public abstract class a implements g.a {
     }
 
     public synchronized d.o.a.e.b.f.i J(int i) {
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar != null) {
             return aVar.P();
         }
-        d.o.a.e.b.n.a aVar2 = this.f67123b.get(i);
+        d.o.a.e.b.n.a aVar2 = this.f68116b.get(i);
         if (aVar2 != null) {
             return aVar2.P();
         }
-        d.o.a.e.b.n.a aVar3 = this.f67124c.get(i);
+        d.o.a.e.b.n.a aVar3 = this.f68117c.get(i);
         if (aVar3 != null) {
             return aVar3.P();
         }
-        d.o.a.e.b.n.a aVar4 = this.f67125d.get(i);
+        d.o.a.e.b.n.a aVar4 = this.f68118d.get(i);
         if (aVar4 != null) {
             return aVar4.P();
         }
-        d.o.a.e.b.n.a aVar5 = this.f67126e.get(i);
+        d.o.a.e.b.n.a aVar5 = this.f68119e.get(i);
         if (aVar5 != null) {
             return aVar5.P();
         }
@@ -370,23 +371,23 @@ public abstract class a implements g.a {
     }
 
     public synchronized d.o.a.e.b.f.d K(int i) {
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar != null) {
             return aVar.Q();
         }
-        d.o.a.e.b.n.a aVar2 = this.f67123b.get(i);
+        d.o.a.e.b.n.a aVar2 = this.f68116b.get(i);
         if (aVar2 != null) {
             return aVar2.Q();
         }
-        d.o.a.e.b.n.a aVar3 = this.f67124c.get(i);
+        d.o.a.e.b.n.a aVar3 = this.f68117c.get(i);
         if (aVar3 != null) {
             return aVar3.Q();
         }
-        d.o.a.e.b.n.a aVar4 = this.f67125d.get(i);
+        d.o.a.e.b.n.a aVar4 = this.f68118d.get(i);
         if (aVar4 != null) {
             return aVar4.Q();
         }
-        d.o.a.e.b.n.a aVar5 = this.f67126e.get(i);
+        d.o.a.e.b.n.a aVar5 = this.f68119e.get(i);
         if (aVar5 != null) {
             return aVar5.Q();
         }
@@ -394,23 +395,23 @@ public abstract class a implements g.a {
     }
 
     public synchronized u L(int i) {
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar != null) {
             return aVar.L();
         }
-        d.o.a.e.b.n.a aVar2 = this.f67123b.get(i);
+        d.o.a.e.b.n.a aVar2 = this.f68116b.get(i);
         if (aVar2 != null) {
             return aVar2.L();
         }
-        d.o.a.e.b.n.a aVar3 = this.f67124c.get(i);
+        d.o.a.e.b.n.a aVar3 = this.f68117c.get(i);
         if (aVar3 != null) {
             return aVar3.L();
         }
-        d.o.a.e.b.n.a aVar4 = this.f67125d.get(i);
+        d.o.a.e.b.n.a aVar4 = this.f68118d.get(i);
         if (aVar4 != null) {
             return aVar4.L();
         }
-        d.o.a.e.b.n.a aVar5 = this.f67126e.get(i);
+        d.o.a.e.b.n.a aVar5 = this.f68119e.get(i);
         if (aVar5 != null) {
             return aVar5.L();
         }
@@ -419,7 +420,7 @@ public abstract class a implements g.a {
 
     public synchronized boolean M(int i) {
         DownloadInfo H;
-        d.o.a.e.b.n.a aVar = this.f67125d.get(i);
+        d.o.a.e.b.n.a aVar = this.f68118d.get(i);
         if (aVar != null && (H = aVar.H()) != null) {
             if (H.g()) {
                 n(aVar, false);
@@ -435,7 +436,7 @@ public abstract class a implements g.a {
 
     public synchronized boolean N(int i) {
         DownloadInfo H;
-        d.o.a.e.b.n.a aVar = this.f67126e.get(i);
+        d.o.a.e.b.n.a aVar = this.f68119e.get(i);
         if (aVar == null || (H = aVar.H()) == null) {
             return false;
         }
@@ -447,7 +448,7 @@ public abstract class a implements g.a {
 
     public synchronized void O(int i) {
         DownloadInfo H;
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar != null && (H = aVar.H()) != null) {
             H.y2(true);
             m(aVar);
@@ -455,7 +456,7 @@ public abstract class a implements g.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0011, code lost:
-        if (r1.f67124c.get(r2) != null) goto L13;
+        if (r1.f68117c.get(r2) != null) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -463,7 +464,7 @@ public abstract class a implements g.a {
     public synchronized boolean P(int i) {
         boolean z;
         if (i != 0) {
-            if (this.f67122a.get(i) == null) {
+            if (this.f68115a.get(i) == null) {
             }
             z = true;
         }
@@ -472,14 +473,14 @@ public abstract class a implements g.a {
     }
 
     public final d.o.a.e.b.n.a Q(int i) {
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar == null) {
-            d.o.a.e.b.n.a aVar2 = this.f67124c.get(i);
+            d.o.a.e.b.n.a aVar2 = this.f68117c.get(i);
             if (aVar2 == null) {
-                d.o.a.e.b.n.a aVar3 = this.f67123b.get(i);
+                d.o.a.e.b.n.a aVar3 = this.f68116b.get(i);
                 if (aVar3 == null) {
-                    d.o.a.e.b.n.a aVar4 = this.f67125d.get(i);
-                    return aVar4 == null ? this.f67126e.get(i) : aVar4;
+                    d.o.a.e.b.n.a aVar4 = this.f68118d.get(i);
+                    return aVar4 == null ? this.f68119e.get(i) : aVar4;
                 }
                 return aVar3;
             }
@@ -489,18 +490,18 @@ public abstract class a implements g.a {
     }
 
     public final void R(int i) {
-        if (this.f67129h.isEmpty()) {
+        if (this.f68122h.isEmpty()) {
             return;
         }
-        synchronized (this.f67129h) {
-            d.o.a.e.b.n.a first = this.f67129h.getFirst();
+        synchronized (this.f68122h) {
+            d.o.a.e.b.n.a first = this.f68122h.getFirst();
             if (first != null && first.G() == i) {
-                this.f67129h.poll();
+                this.f68122h.poll();
             }
-            if (this.f67129h.isEmpty()) {
+            if (this.f68122h.isEmpty()) {
                 return;
             }
-            d.o.a.e.b.n.a first2 = this.f67129h.getFirst();
+            d.o.a.e.b.n.a first2 = this.f68122h.getFirst();
             if (first2 != null) {
                 n(first2, true);
             }
@@ -515,7 +516,7 @@ public abstract class a implements g.a {
         Object obj = message.obj;
         BaseException baseException = obj instanceof Exception ? (BaseException) obj : null;
         synchronized (a.class) {
-            d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+            d.o.a.e.b.n.a aVar = this.f68115a.get(i);
             if (aVar == null) {
                 return;
             }
@@ -531,11 +532,11 @@ public abstract class a implements g.a {
         }
         List<DownloadInfo> a2 = this.i.a(str);
         if (a2 == null || a2.isEmpty()) {
-            synchronized (this.f67122a) {
+            synchronized (this.f68115a) {
                 arrayList = new ArrayList();
-                int size = this.f67122a.size();
+                int size = this.f68115a.size();
                 for (int i = 0; i < size; i++) {
-                    d.o.a.e.b.n.a valueAt = this.f67122a.valueAt(i);
+                    d.o.a.e.b.n.a valueAt = this.f68115a.valueAt(i);
                     if (valueAt != null && valueAt.H() != null && str.equals(valueAt.H().T0())) {
                         arrayList.add(valueAt.H());
                     }
@@ -549,40 +550,40 @@ public abstract class a implements g.a {
     public synchronized void c(int i, int i2) {
         if (i2 != -7) {
             if (i2 == -6) {
-                this.f67123b.put(i, this.f67122a.get(i));
-                this.f67122a.remove(i);
+                this.f68116b.put(i, this.f68115a.get(i));
+                this.f68115a.remove(i);
             } else if (i2 == -4) {
-                this.f67122a.remove(i);
+                this.f68115a.remove(i);
                 R(i);
             } else if (i2 == -3) {
-                this.f67123b.put(i, this.f67122a.get(i));
-                this.f67122a.remove(i);
+                this.f68116b.put(i, this.f68115a.get(i));
+                this.f68115a.remove(i);
                 R(i);
             } else if (i2 != -1) {
                 if (i2 == 7) {
-                    d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+                    d.o.a.e.b.n.a aVar = this.f68115a.get(i);
                     if (aVar != null) {
-                        if (this.f67125d.get(i) == null) {
-                            this.f67125d.put(i, aVar);
+                        if (this.f68118d.get(i) == null) {
+                            this.f68118d.put(i, aVar);
                         }
-                        this.f67122a.remove(i);
+                        this.f68115a.remove(i);
                     }
                     R(i);
                 } else if (i2 == 8) {
-                    d.o.a.e.b.n.a aVar2 = this.f67122a.get(i);
-                    if (aVar2 != null && this.f67126e.get(i) == null) {
-                        this.f67126e.put(i, aVar2);
+                    d.o.a.e.b.n.a aVar2 = this.f68115a.get(i);
+                    if (aVar2 != null && this.f68119e.get(i) == null) {
+                        this.f68119e.put(i, aVar2);
                     }
                     R(i);
                 }
             }
         }
-        d.o.a.e.b.n.a aVar3 = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar3 = this.f68115a.get(i);
         if (aVar3 != null) {
-            if (this.f67124c.get(i) == null) {
-                this.f67124c.put(i, aVar3);
+            if (this.f68117c.get(i) == null) {
+                this.f68117c.put(i, aVar3);
             }
-            this.f67122a.remove(i);
+            this.f68115a.remove(i);
         }
         R(i);
     }
@@ -590,7 +591,7 @@ public abstract class a implements g.a {
     public synchronized void d(int i, int i2, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
         d.o.a.e.b.n.a Q = Q(i);
         if (Q == null) {
-            Q = this.f67127f.get(Integer.valueOf(i));
+            Q = this.f68120f.get(Integer.valueOf(i));
         }
         if (Q != null) {
             Q.v0(i2, bVar, gVar, z);
@@ -613,11 +614,11 @@ public abstract class a implements g.a {
                 }
             }
         } else if (d.o.a.e.b.l.a.a(32768) && (b2 = this.i.b(i)) != null && b2.H0() != -3) {
-            d.o.a.e.b.n.a aVar = this.f67127f.get(Integer.valueOf(i));
+            d.o.a.e.b.n.a aVar = this.f68120f.get(Integer.valueOf(i));
             if (aVar == null) {
                 aVar = new d.o.a.e.b.n.a(b2);
-                synchronized (this.f67127f) {
-                    this.f67127f.put(Integer.valueOf(i), aVar);
+                synchronized (this.f68120f) {
+                    this.f68120f.put(Integer.valueOf(i), aVar);
                 }
             }
             aVar.c(i2, bVar, gVar, z);
@@ -627,8 +628,8 @@ public abstract class a implements g.a {
     public abstract void f(int i, long j);
 
     public void g(int i, d.o.a.e.b.f.d dVar) {
-        synchronized (this.f67122a) {
-            d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        synchronized (this.f68115a) {
+            d.o.a.e.b.n.a aVar = this.f68115a.get(i);
             if (aVar != null) {
                 aVar.E0(dVar);
             }
@@ -692,31 +693,31 @@ public abstract class a implements g.a {
         }
         boolean z2 = false;
         if (d.o.a.e.b.j.a.d(H.c0()).b("no_net_opt", 0) == 1 && !d.o.a.e.b.l.e.p0(d.o.a.e.b.g.d.l()) && !H.s1()) {
-            new d.o.a.e.b.g.g(aVar, this.j).g(new BaseException(1049, "network_not_available"));
+            new d.o.a.e.b.g.g(aVar, this.j).g(new BaseException((int) SDKLogTypeConstants.TYPE_LP_LOAD_URL, "network_not_available"));
             return;
         }
         int c0 = H.c0();
         if (z) {
             l(H);
         }
-        synchronized (this.f67124c) {
-            if (this.f67124c.get(c0) != null) {
-                this.f67124c.remove(c0);
+        synchronized (this.f68117c) {
+            if (this.f68117c.get(c0) != null) {
+                this.f68117c.remove(c0);
             }
         }
-        synchronized (this.f67123b) {
-            if (this.f67123b.get(c0) != null) {
-                this.f67123b.remove(c0);
+        synchronized (this.f68116b) {
+            if (this.f68116b.get(c0) != null) {
+                this.f68116b.remove(c0);
             }
         }
-        synchronized (this.f67125d) {
-            if (this.f67125d.get(c0) != null) {
-                this.f67125d.remove(c0);
+        synchronized (this.f68118d) {
+            if (this.f68118d.get(c0) != null) {
+                this.f68118d.remove(c0);
             }
         }
-        synchronized (this.f67126e) {
-            if (this.f67126e.get(c0) != null) {
-                this.f67126e.remove(c0);
+        synchronized (this.f68119e) {
+            if (this.f68119e.get(c0) != null) {
+                this.f68119e.remove(c0);
             }
         }
         if (p(c0) && !H.c()) {
@@ -731,19 +732,19 @@ public abstract class a implements g.a {
             H.f2(com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_RESTART);
         }
         if (d.o.a.e.b.l.a.a(32768)) {
-            synchronized (this.f67127f) {
-                remove = this.f67127f.remove(Integer.valueOf(c0));
+            synchronized (this.f68120f) {
+                remove = this.f68120f.remove(Integer.valueOf(c0));
             }
             if (remove != null) {
                 aVar.l(remove);
             }
         }
-        synchronized (this.f67122a) {
-            Long l = this.f67128g.get(c0);
+        synchronized (this.f68115a) {
+            Long l = this.f68121g.get(c0);
             long longValue = l != null ? l.longValue() : 0L;
             long uptimeMillis = SystemClock.uptimeMillis();
             if (uptimeMillis - longValue < 50) {
-                d.o.a.e.b.n.a aVar2 = this.f67122a.get(c0);
+                d.o.a.e.b.n.a aVar2 = this.f68115a.get(c0);
                 if (aVar2 == null || (H2 = aVar2.H()) == null) {
                     i = 0;
                 } else {
@@ -760,18 +761,18 @@ public abstract class a implements g.a {
                         aVar.d();
                     } else {
                         d.o.a.e.b.e.a.e(aVar.O(), H, new BaseException(1003, "has another same task within 50 milliseconds and addListenerToSameTask is false"), H.H0());
-                        this.f67122a.put(c0, aVar);
-                        this.f67128g.put(c0, Long.valueOf(uptimeMillis));
+                        this.f68115a.put(c0, aVar);
+                        this.f68121g.put(c0, Long.valueOf(uptimeMillis));
                         i(c0, aVar);
                     }
                 } else {
-                    this.f67122a.put(c0, aVar);
-                    this.f67128g.put(c0, Long.valueOf(uptimeMillis));
+                    this.f68115a.put(c0, aVar);
+                    this.f68121g.put(c0, Long.valueOf(uptimeMillis));
                     i(c0, aVar);
                 }
             } else {
-                this.f67122a.put(c0, aVar);
-                this.f67128g.put(c0, Long.valueOf(uptimeMillis));
+                this.f68115a.put(c0, aVar);
+                this.f68121g.put(c0, Long.valueOf(uptimeMillis));
                 i(c0, aVar);
             }
         }
@@ -781,8 +782,8 @@ public abstract class a implements g.a {
         DownloadInfo H;
         try {
             boolean d0 = d.o.a.e.b.l.a.a(1048576) ? d.o.a.e.b.l.e.d0(d.o.a.e.b.g.d.l()) : true;
-            for (int i = 0; i < this.f67124c.size(); i++) {
-                d.o.a.e.b.n.a aVar = this.f67124c.get(this.f67124c.keyAt(i));
+            for (int i = 0; i < this.f68117c.size(); i++) {
+                d.o.a.e.b.n.a aVar = this.f68117c.get(this.f68117c.keyAt(i));
                 if (aVar != null && (H = aVar.H()) != null && H.m0() != null && list.contains(H.m0()) && (!H.K1() || d0)) {
                     H.g2(true);
                     H.Y2(true);
@@ -797,7 +798,7 @@ public abstract class a implements g.a {
     public abstract boolean p(int i);
 
     public boolean q(int i, boolean z) {
-        d.o.a.e.b.n.a aVar = this.f67122a.get(i);
+        d.o.a.e.b.n.a aVar = this.f68115a.get(i);
         if (aVar == null && d.o.a.e.b.l.a.a(65536)) {
             aVar = Q(i);
         }
@@ -806,7 +807,7 @@ public abstract class a implements g.a {
                 new d.o.a.e.b.g.g(aVar, this.j).s();
             }
             DownloadInfo H = aVar.H();
-            this.j.post(new RunnableC1848a(this, aVar.K(com.ss.android.socialbase.downloader.constants.g.MAIN), H, aVar.K(com.ss.android.socialbase.downloader.constants.g.NOTIFICATION)));
+            this.j.post(new RunnableC1883a(this, aVar.K(com.ss.android.socialbase.downloader.constants.g.MAIN), H, aVar.K(com.ss.android.socialbase.downloader.constants.g.NOTIFICATION)));
         }
         DownloadInfo b2 = this.i.b(i);
         if (d.o.a.e.b.l.a.a(65536)) {
@@ -873,15 +874,15 @@ public abstract class a implements g.a {
             return;
         }
         try {
-            synchronized (this.f67129h) {
-                if (this.f67129h.isEmpty()) {
+            synchronized (this.f68122h) {
+                if (this.f68122h.isEmpty()) {
                     n(aVar, true);
-                    this.f67129h.put(aVar);
+                    this.f68122h.put(aVar);
                 } else if (H.N() == com.ss.android.socialbase.downloader.constants.f.ENQUEUE_TAIL) {
-                    if (this.f67129h.getFirst().G() == aVar.G() && p(aVar.G())) {
+                    if (this.f68122h.getFirst().G() == aVar.G() && p(aVar.G())) {
                         return;
                     }
-                    Iterator<d.o.a.e.b.n.a> it = this.f67129h.iterator();
+                    Iterator<d.o.a.e.b.n.a> it = this.f68122h.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -892,17 +893,17 @@ public abstract class a implements g.a {
                             break;
                         }
                     }
-                    this.f67129h.put(aVar);
+                    this.f68122h.put(aVar);
                     new d.o.a.e.b.g.g(aVar, this.j).b();
                 } else {
-                    d.o.a.e.b.n.a first = this.f67129h.getFirst();
+                    d.o.a.e.b.n.a first = this.f68122h.getFirst();
                     if (first.G() == aVar.G() && p(aVar.G())) {
                         return;
                     }
                     G(first.G());
                     n(aVar, true);
                     if (first.G() != aVar.G()) {
-                        this.f67129h.putFirst(aVar);
+                        this.f68122h.putFirst(aVar);
                     }
                 }
             }
@@ -917,8 +918,8 @@ public abstract class a implements g.a {
             e2.printStackTrace();
         }
         if (d.o.a.e.b.l.e.d0(d.o.a.e.b.g.d.l())) {
-            for (int i = 0; i < this.f67122a.size(); i++) {
-                d.o.a.e.b.n.a aVar = this.f67122a.get(this.f67122a.keyAt(i));
+            for (int i = 0; i < this.f68115a.size(); i++) {
+                d.o.a.e.b.n.a aVar = this.f68115a.get(this.f68115a.keyAt(i));
                 if (aVar != null && (H = aVar.H()) != null && H.m0() != null && list.contains(H.m0()) && A(H)) {
                     H.g2(true);
                     H.Y2(true);

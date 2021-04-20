@@ -7,17 +7,17 @@ import com.baidu.turbonet.base.annotations.JNINamespace;
 public class LibraryLoader {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile LibraryLoader f22665b;
+    public static volatile LibraryLoader f22350b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22666a;
+    public final int f22351a;
 
     @CalledByNative
     public static int getLibraryProcessType() {
-        if (f22665b == null) {
+        if (f22350b == null) {
             return 0;
         }
-        return f22665b.f22666a;
+        return f22350b.f22351a;
     }
 
     public static native boolean nativeForkAndPrefetchNativeLibrary();

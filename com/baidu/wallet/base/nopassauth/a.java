@@ -16,24 +16,24 @@ import javax.crypto.spec.SecretKeySpec;
 public class a implements b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f23683g = {1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
+    public static final int[] f23368g = {1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23684c;
+    public String f23369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f23685d;
+    public long f23370d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23686e;
+    public int f23371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f23687f;
+    public long f23372f;
 
     public a(String str, long j, int i) {
-        this.f23684c = str;
-        this.f23685d = j;
-        this.f23686e = i;
+        this.f23369c = str;
+        this.f23370d = j;
+        this.f23371e = i;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
@@ -43,12 +43,12 @@ public class a implements b {
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public void a(long j) {
-        this.f23687f = j;
+        this.f23372f = j;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public long b() {
-        return this.f23687f;
+        return this.f23372f;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
@@ -57,28 +57,28 @@ public class a implements b {
     }
 
     public String d() {
-        return this.f23684c;
+        return this.f23369c;
     }
 
     public long e() {
-        return this.f23685d;
+        return this.f23370d;
     }
 
     public int f() {
-        return this.f23686e;
+        return this.f23371e;
     }
 
     public void a(String str) {
-        this.f23684c = str;
+        this.f23369c = str;
     }
 
     public void b(long j) {
-        this.f23685d = j;
-        Log.d("aaa", "+++++++++HotpToken movingFactor is " + this.f23685d);
+        this.f23370d = j;
+        Log.d("aaa", "+++++++++HotpToken movingFactor is " + this.f23370d);
     }
 
     public void a(int i) {
-        this.f23686e = i;
+        this.f23371e = i;
     }
 
     public static byte[] b(String str) {
@@ -94,15 +94,15 @@ public class a implements b {
     @Override // com.baidu.wallet.base.nopassauth.b
     public String a(Context context) {
         byte[] bArr = new byte[8];
-        long j = this.f23685d;
+        long j = this.f23370d;
         for (int i = 7; i >= 0; i--) {
             bArr[i] = (byte) (255 & j);
             j >>= 8;
         }
         SafePay safePay = SafePay.getInstance();
-        byte[] b2 = b(this.f23684c);
-        int[] iArr = f23683g;
-        int i2 = this.f23686e;
+        byte[] b2 = b(this.f23369c);
+        int[] iArr = f23368g;
+        int i2 = this.f23371e;
         return safePay.getDyKey(b2, bArr, iArr[i2], i2);
     }
 

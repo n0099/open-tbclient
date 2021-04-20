@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import d.b.h0.k0.d;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {

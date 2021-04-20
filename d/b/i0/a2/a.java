@@ -1,13 +1,16 @@
 package d.b.i0.a2;
 
-import android.app.Activity;
-import com.tencent.mm.sdk.modelbase.BaseResp;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
 /* loaded from: classes3.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public Activity f51899a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public BaseResp f51900b;
+    public static void a(String str, Object obj, int i) {
+        if (obj instanceof d.b.i0.a2.d.b) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("topic_id", ((d.b.i0.a2.d.b) obj).f53054e);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
+        }
+    }
 }

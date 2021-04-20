@@ -9,7 +9,7 @@ public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
 
     /* renamed from: a  reason: collision with root package name */
-    public Application f9505a;
+    public Application f9063a;
     public final String appId;
     public final String appSignKey;
     public String passDomain;
@@ -20,34 +20,34 @@ public class PassBiometricConfiguration {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9506a;
+        public String f9064a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9507b;
+        public String f9065b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9508c;
+        public String f9066c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9509d;
+        public String f9067d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f9510e = false;
+        public boolean f9068e = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f9511f = false;
+        public boolean f9069f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public Application f9512g;
+        public Application f9070g;
 
         public Builder(Application application) {
-            this.f9512g = application;
+            this.f9070g = application;
         }
 
         public PassBiometricConfiguration build() {
-            if (!TextUtils.isEmpty(this.f9506a) && !TextUtils.isEmpty(this.f9507b) && !TextUtils.isEmpty(this.f9508c)) {
-                if (this.f9509d == null) {
-                    this.f9509d = PassBioEnv.PASSPORT_DOMAIN;
+            if (!TextUtils.isEmpty(this.f9064a) && !TextUtils.isEmpty(this.f9065b) && !TextUtils.isEmpty(this.f9066c)) {
+                if (this.f9067d == null) {
+                    this.f9067d = PassBioEnv.PASSPORT_DOMAIN;
                 }
                 return new PassBiometricConfiguration(this);
             }
@@ -55,24 +55,24 @@ public class PassBiometricConfiguration {
         }
 
         public Builder debug(boolean z) {
-            this.f9511f = z;
+            this.f9069f = z;
             return this;
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.f9506a = str;
-            this.f9507b = str2;
-            this.f9508c = str3;
+            this.f9064a = str;
+            this.f9065b = str2;
+            this.f9066c = str3;
             return this;
         }
 
         public Builder setRuntimeEnvironment(String str) {
-            this.f9509d = str;
+            this.f9067d = str;
             return this;
         }
 
         public Builder showPmnRationaleDialog(boolean z) {
-            this.f9510e = z;
+            this.f9068e = z;
             return this;
         }
     }
@@ -82,16 +82,16 @@ public class PassBiometricConfiguration {
     }
 
     public Application getApplication() {
-        return this.f9505a;
+        return this.f9063a;
     }
 
     public PassBiometricConfiguration(Builder builder) {
-        this.tpl = builder.f9506a;
-        this.appId = builder.f9507b;
-        this.appSignKey = builder.f9508c;
-        this.passDomain = builder.f9509d;
-        debug(builder.f9511f);
-        this.showPmnRationaleDialog = builder.f9510e;
-        this.f9505a = builder.f9512g;
+        this.tpl = builder.f9064a;
+        this.appId = builder.f9065b;
+        this.appSignKey = builder.f9066c;
+        this.passDomain = builder.f9067d;
+        debug(builder.f9069f);
+        this.showPmnRationaleDialog = builder.f9068e;
+        this.f9063a = builder.f9070g;
     }
 }

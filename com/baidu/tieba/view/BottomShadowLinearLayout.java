@@ -9,21 +9,21 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
 public class BottomShadowLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22032e;
+    public int f21717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22033f;
+    public int f21718f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f22034g;
+    public float f21719g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f22035h;
+    public float f21720h;
     public Paint i;
     public Paint j;
     public RectF k;
@@ -46,8 +46,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
         this.j.setAntiAlias(true);
         this.j.setStyle(Paint.Style.FILL);
         this.j.setDither(true);
-        this.f22034g = l.g(context, R.dimen.ds20);
-        this.f22035h = l.g(context, R.dimen.ds25);
+        this.f21719g = l.g(context, R.dimen.ds20);
+        this.f21720h = l.g(context, R.dimen.ds25);
         setLayerType(1, this.i);
         b();
     }
@@ -60,17 +60,17 @@ public class BottomShadowLinearLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.f22032e <= 0 || this.f22033f <= 0) {
+        if (this.f21717e <= 0 || this.f21718f <= 0) {
             return;
         }
         if (this.k == null) {
-            this.k = new RectF(0.0f, 0.0f, this.f22032e, this.f22033f - this.f22035h);
+            this.k = new RectF(0.0f, 0.0f, this.f21717e, this.f21718f - this.f21720h);
         }
         RectF rectF = this.k;
-        float f2 = this.f22034g;
+        float f2 = this.f21719g;
         canvas.drawRoundRect(rectF, f2, f2, this.i);
         if (this.l == null) {
-            this.l = new RectF(0.0f, 0.0f, this.f22032e, this.f22033f / 2);
+            this.l = new RectF(0.0f, 0.0f, this.f21717e, this.f21718f / 2);
         }
         canvas.drawRect(this.l, this.j);
         super.dispatchDraw(canvas);
@@ -79,8 +79,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f22032e = getMeasuredWidth();
-        this.f22033f = getMeasuredHeight();
+        this.f21717e = getMeasuredWidth();
+        this.f21718f = getMeasuredHeight();
     }
 
     public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet) {

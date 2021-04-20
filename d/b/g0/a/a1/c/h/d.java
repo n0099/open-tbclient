@@ -11,19 +11,19 @@ import org.json.JSONObject;
 public class d implements d.b.g0.a.e1.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.a1.c.h.c f43194f;
+    public d.b.g0.a.a1.c.h.c f43586f;
     public b m;
     public c n;
     public a o;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43193e = "";
+    public String f43585e = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43195g = "";
+    public String f43587g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43196h = "";
+    public String f43588h = "";
     public double i = 0.0d;
     public double j = 1.0d;
     public int k = -1;
@@ -34,33 +34,33 @@ public class d implements d.b.g0.a.e1.a {
     public static class a implements d.b.g0.a.e1.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public double f43197e = 0.5d;
+        public double f43589e = 0.5d;
 
         /* renamed from: f  reason: collision with root package name */
-        public double f43198f = 1.0d;
+        public double f43590f = 1.0d;
 
         @Override // d.b.g0.a.e1.a
         public void a(JSONObject jSONObject) throws JSONException {
             if (jSONObject == null) {
                 return;
             }
-            this.f43197e = Math.abs(jSONObject.optDouble("x", 0.5d));
+            this.f43589e = Math.abs(jSONObject.optDouble("x", 0.5d));
             double d2 = 1.0d;
-            this.f43198f = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d3 = this.f43197e;
+            this.f43590f = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d3 = this.f43589e;
             if (d3 < 0.0d) {
                 d3 = 0.0d;
             } else if (d3 > 1.0d) {
                 d3 = 1.0d;
             }
-            this.f43197e = d3;
-            double d4 = this.f43198f;
+            this.f43589e = d3;
+            double d4 = this.f43590f;
             if (d4 < 0.0d) {
                 d2 = 0.0d;
             } else if (d4 <= 1.0d) {
                 d2 = d4;
             }
-            this.f43198f = d2;
+            this.f43590f = d2;
         }
 
         @Override // d.b.g0.a.e1.a
@@ -71,7 +71,7 @@ public class d implements d.b.g0.a.e1.a {
 
     @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes2.dex */
-    public static class b extends C0597d {
+    public static class b extends C0609d {
         public float j;
         public String k;
         public int l;
@@ -83,7 +83,7 @@ public class d implements d.b.g0.a.e1.a {
             this.l = -1;
         }
 
-        @Override // d.b.g0.a.a1.c.h.d.C0597d, d.b.g0.a.e1.a
+        @Override // d.b.g0.a.a1.c.h.d.C0609d, d.b.g0.a.e1.a
         public void a(JSONObject jSONObject) throws JSONException {
             if (jSONObject == null) {
                 return;
@@ -99,7 +99,7 @@ public class d implements d.b.g0.a.e1.a {
 
     @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes2.dex */
-    public static class c extends C0597d implements d.b.g0.a.e1.a {
+    public static class c extends C0609d implements d.b.g0.a.e1.a {
         public float j;
         public float k;
         public float l;
@@ -115,7 +115,7 @@ public class d implements d.b.g0.a.e1.a {
             this.n = 0.0f;
         }
 
-        @Override // d.b.g0.a.a1.c.h.d.C0597d, d.b.g0.a.e1.a
+        @Override // d.b.g0.a.a1.c.h.d.C0609d, d.b.g0.a.e1.a
         public void a(JSONObject jSONObject) throws JSONException {
             if (jSONObject == null) {
                 return;
@@ -137,37 +137,37 @@ public class d implements d.b.g0.a.e1.a {
     @SuppressLint({"SwanCommentWar"})
     /* renamed from: d.b.g0.a.a1.c.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0597d implements d.b.g0.a.e1.a {
+    public static class C0609d implements d.b.g0.a.e1.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f43199e = "";
+        public String f43591e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public int f43200f = -16777216;
+        public int f43592f = -16777216;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f43201g = d.b.g0.a.a1.c.d.b(10.0d);
+        public float f43593g = d.b.g0.a.a1.c.d.b(10.0d);
 
         /* renamed from: h  reason: collision with root package name */
-        public int f43202h = 0;
+        public int f43594h = 0;
         public float i = 0.0f;
 
-        public C0597d(d dVar) {
+        public C0609d(d dVar) {
         }
 
         @Override // d.b.g0.a.e1.a
         public void a(JSONObject jSONObject) throws JSONException {
             float b2;
             if (jSONObject != null && jSONObject.has("content")) {
-                this.f43199e = jSONObject.optString("content");
-                this.f43200f = d.b.g0.a.a1.c.d.a(jSONObject.optString("color"), -16777216);
+                this.f43591e = jSONObject.optString("content");
+                this.f43592f = d.b.g0.a.a1.c.d.a(jSONObject.optString("color"), -16777216);
                 if (jSONObject.has("fontSize")) {
                     b2 = Math.abs(d.b.g0.a.a1.c.d.b(jSONObject.optDouble("fontSize", 10.0d)));
                 } else {
                     b2 = d.b.g0.a.a1.c.d.b(10.0d);
                 }
-                this.f43201g = b2;
-                this.f43202h = d.b.g0.a.a1.c.d.a(jSONObject.optString("bgColor"), 0);
+                this.f43593g = b2;
+                this.f43594h = d.b.g0.a.a1.c.d.a(jSONObject.optString("bgColor"), 0);
                 this.i = d.b.g0.a.a1.c.d.b(jSONObject.optDouble("padding", 0.0d));
                 if (jSONObject.has("textAlign")) {
                     jSONObject.optString("textAlign");
@@ -177,7 +177,7 @@ public class d implements d.b.g0.a.e1.a {
 
         @Override // d.b.g0.a.e1.a
         public boolean isValid() {
-            return !TextUtils.isEmpty(this.f43199e);
+            return !TextUtils.isEmpty(this.f43591e);
         }
     }
 
@@ -187,16 +187,16 @@ public class d implements d.b.g0.a.e1.a {
             return;
         }
         d.b.g0.a.a1.c.h.c cVar = new d.b.g0.a.a1.c.h.c();
-        this.f43194f = cVar;
+        this.f43586f = cVar;
         cVar.a(jSONObject);
-        if (this.f43194f.isValid()) {
+        if (this.f43586f.isValid()) {
             String optString = jSONObject.optString("markerId");
-            this.f43193e = optString;
+            this.f43585e = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f43193e = jSONObject.optString("id");
+                this.f43585e = jSONObject.optString("id");
             }
-            this.f43195g = jSONObject.optString("title");
-            this.f43196h = jSONObject.optString("iconPath");
+            this.f43587g = jSONObject.optString("title");
+            this.f43588h = jSONObject.optString("iconPath");
             this.i = jSONObject.optDouble("rotate", 0.0d);
             this.j = Math.abs(jSONObject.optDouble("alpha", 1.0d));
             this.k = jSONObject.has("width") ? Math.abs(h0.f(jSONObject.optInt("width"))) : -1;
@@ -216,7 +216,7 @@ public class d implements d.b.g0.a.e1.a {
 
     @Override // d.b.g0.a.e1.a
     public boolean isValid() {
-        d.b.g0.a.a1.c.h.c cVar = this.f43194f;
+        d.b.g0.a.a1.c.h.c cVar = this.f43586f;
         return cVar != null && cVar.isValid();
     }
 }

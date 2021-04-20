@@ -1,60 +1,100 @@
 package d.b.i0.y2;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f62650a;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.http.IHttpContext;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStat;
+import okhttp3.EventListener;
+import okhttp3.Request;
+@Singleton
+@Service
+/* loaded from: classes4.dex */
+public class i implements IHttpContext {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62651b;
+    public static boolean f64206b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62652c;
+    public static final String f64207c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f62653d;
+    /* renamed from: a  reason: collision with root package name */
+    public Context f64208a = AppRuntime.getAppContext();
 
-    /* renamed from: e  reason: collision with root package name */
-    public a f62654e = new a();
-
-    public int a() {
-        return this.f62653d;
+    static {
+        boolean isDebug = AppConfig.isDebug();
+        f64206b = isDebug;
+        f64206b = isDebug;
+        f64207c = i.class.getSimpleName();
     }
 
-    public a b() {
-        return this.f62654e;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
+        return false;
     }
 
-    public int c() {
-        return this.f62650a;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        return null;
     }
 
-    public int d() {
-        return this.f62652c;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public EventListener getEventListener() {
+        return null;
     }
 
-    public int e() {
-        return this.f62651b;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public int getFallbackConnectDelayMs() {
+        return 0;
     }
 
-    public void f(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
+        if (f64206b) {
+            String str = f64207c;
+            Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
+            return null;
         }
-        try {
-            this.f62654e.c(jSONObject.optJSONObject("error"));
-            this.f62650a = jSONObject.optInt("forum_id");
-            jSONObject.optString("forum_name");
-            this.f62651b = jSONObject.optInt("signed");
-            jSONObject.optInt("is_on");
-            jSONObject.optInt("is_filter");
-            this.f62652c = jSONObject.optInt("sign_day_count");
-            this.f62653d = jSONObject.optInt("cur_score");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        return null;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewHttpDns() {
+        if (f64206b) {
+            Log.i(f64207c, "baidunetwork HttpContext getNewHttpDns!");
+            return null;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public NetworkStat<Request> getNewNetworkStat() {
+        return null;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void init() {
+        if (f64206b) {
+            Log.i(f64207c, "baidunetwork HttpContext init!");
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void prefetchDnsResult(String str) {
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
+        if (f64206b) {
+            String str = f64207c;
+            Log.i(str, "baidu_networksetNetworkInfoRecord networkInfoRecord:" + networkInfoRecord);
         }
     }
 }

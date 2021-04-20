@@ -5,15 +5,15 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48304a;
+    public int f48696a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48305b;
+    public String f48697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f48306c;
+    public JSONObject f48698c;
 
     public boolean a() {
-        return this.f48304a == 0;
+        return this.f48696a == 0;
     }
 }

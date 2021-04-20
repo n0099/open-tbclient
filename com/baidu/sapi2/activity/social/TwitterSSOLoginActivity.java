@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.os.Bundle;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.ParamsUtil;
-import d.b.a0.a.j.a;
+import d.b.x.a.j.a;
 /* loaded from: classes2.dex */
 public class TwitterSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity

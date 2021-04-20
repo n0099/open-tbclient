@@ -17,14 +17,14 @@ public class Result {
         String[] split;
         try {
             for (String str2 : str.split(";")) {
-                if (str2.startsWith(l.f1992a)) {
-                    this.resultStatus = gatValue(str2, l.f1992a);
+                if (str2.startsWith(l.f2017a)) {
+                    this.resultStatus = gatValue(str2, l.f2017a);
                 }
                 if (str2.startsWith("result")) {
                     this.result = gatValue(str2, "result");
                 }
-                if (str2.startsWith(l.f1993b)) {
-                    this.memo = gatValue(str2, l.f1993b);
+                if (str2.startsWith(l.f2018b)) {
+                    this.memo = gatValue(str2, l.f2018b);
                 }
             }
         } catch (Exception e2) {

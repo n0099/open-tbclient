@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.HorseRace;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.p0.l0.a;
+import d.b.i0.q0.l0.a;
 import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
 /* loaded from: classes4.dex */

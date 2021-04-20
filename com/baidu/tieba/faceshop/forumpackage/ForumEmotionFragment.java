@@ -20,25 +20,25 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.f;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ForumEmotionFragment extends BaseFragment implements ForumEmotionModel.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.l0.z.c.a f15818e;
+    public d.b.i0.l0.z.c.a f15481e;
     public d.b.i0.l0.z.a.c j;
 
     /* renamed from: f  reason: collision with root package name */
-    public ForumEmotionModel f15819f = null;
+    public ForumEmotionModel f15482f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15820g = true;
+    public boolean f15483g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f15821h = false;
+    public boolean f15484h = false;
     public boolean i = false;
     public final CustomMessageListener k = new a(2000994);
     public CustomMessageListener l = new b(2921059);
@@ -55,10 +55,10 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !j.z() || ForumEmotionFragment.this.f15819f == null || ForumEmotionFragment.this.f15818e == null || ForumEmotionFragment.this.f15818e.c() == null || ForumEmotionFragment.this.f15818e.c().getVisibility() != 0) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !j.z() || ForumEmotionFragment.this.f15482f == null || ForumEmotionFragment.this.f15481e == null || ForumEmotionFragment.this.f15481e.c() == null || ForumEmotionFragment.this.f15481e.c().getVisibility() != 0) {
                 return;
             }
-            ForumEmotionFragment.this.f15819f.x(ForumEmotionFragment.this);
+            ForumEmotionFragment.this.f15482f.x(ForumEmotionFragment.this);
         }
     }
 
@@ -87,7 +87,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
         @Override // d.b.i0.l0.z.a.a
         public void a(int i) {
             ForumEmotionFragment.this.j.d();
-            ForumEmotionFragment.this.f15819f.x(ForumEmotionFragment.this);
+            ForumEmotionFragment.this.f15482f.x(ForumEmotionFragment.this);
         }
 
         @Override // d.b.i0.l0.z.a.a
@@ -103,10 +103,10 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
 
         @Override // d.b.h0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            if (ForumEmotionFragment.this.f15819f == null || ForumEmotionFragment.this.f15821h) {
+            if (ForumEmotionFragment.this.f15482f == null || ForumEmotionFragment.this.f15484h) {
                 return;
             }
-            ForumEmotionFragment.this.f15819f.x(ForumEmotionFragment.this);
+            ForumEmotionFragment.this.f15482f.x(ForumEmotionFragment.this);
         }
     }
 
@@ -117,15 +117,15 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (ForumEmotionFragment.this.f15819f == null || ForumEmotionFragment.this.f15821h) {
+            if (ForumEmotionFragment.this.f15482f == null || ForumEmotionFragment.this.f15484h) {
                 return;
             }
-            if (ForumEmotionFragment.this.f15819f.v()) {
-                ForumEmotionFragment.this.f15818e.p();
-                ForumEmotionFragment.this.f15819f.w(ForumEmotionFragment.this);
+            if (ForumEmotionFragment.this.f15482f.v()) {
+                ForumEmotionFragment.this.f15481e.p();
+                ForumEmotionFragment.this.f15482f.w(ForumEmotionFragment.this);
                 return;
             }
-            ForumEmotionFragment.this.f15818e.s();
+            ForumEmotionFragment.this.f15481e.s();
         }
     }
 
@@ -133,26 +133,26 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumEmotionData f15827e;
+        public final /* synthetic */ ForumEmotionData f15490e;
 
         public f(ForumEmotionData forumEmotionData) {
-            this.f15827e = forumEmotionData;
+            this.f15490e = forumEmotionData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f15827e.activity_url)) {
+            if (TextUtils.isEmpty(this.f15490e.activity_url)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(ForumEmotionFragment.this.getPageContext(), new String[]{this.f15827e.activity_url});
+            UrlManager.getInstance().dealOneLink(ForumEmotionFragment.this.getPageContext(), new String[]{this.f15490e.activity_url});
         }
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.b
     public void e(ForumEmotionData forumEmotionData) {
-        this.f15821h = false;
-        this.f15818e.f();
-        this.f15818e.h();
+        this.f15484h = false;
+        this.f15481e.f();
+        this.f15481e.h();
         if (forumEmotionData == null) {
             return;
         }
@@ -160,7 +160,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             ArrayList arrayList = new ArrayList();
             for (ForumEmotionPackageData forumEmotionPackageData : forumEmotionData.rank_pkg_list) {
                 d.b.i0.l0.z.b.c cVar = new d.b.i0.l0.z.b.c();
-                cVar.f56707e = forumEmotionPackageData;
+                cVar.f58113e = forumEmotionPackageData;
                 arrayList.add(cVar);
             }
             this.j.a(arrayList);
@@ -171,7 +171,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.l0.z.c.a aVar = this.f15818e;
+        d.b.i0.l0.z.c.a aVar = this.f15481e;
         if (aVar != null) {
             aVar.l(i);
         }
@@ -187,15 +187,15 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
         ForumEmotionModel forumEmotionModel;
         ForumEmotionModel forumEmotionModel2;
         d.b.i0.l0.z.c.a aVar = new d.b.i0.l0.z.c.a(getPageContext(), getUniqueId());
-        this.f15818e = aVar;
+        this.f15481e = aVar;
         aVar.n(this.n);
-        this.f15818e.o(this.o);
+        this.f15481e.o(this.o);
         registerListener(this.k);
         registerListener(this.l);
-        if (this.f15819f == null) {
-            this.f15819f = new ForumEmotionModel(getPageContext());
+        if (this.f15482f == null) {
+            this.f15482f = new ForumEmotionModel(getPageContext());
         }
-        d.b.i0.l0.z.a.c cVar = new d.b.i0.l0.z.a.c(getPageContext(), this.f15818e.b(), this.f15819f);
+        d.b.i0.l0.z.a.c cVar = new d.b.i0.l0.z.a.c(getPageContext(), this.f15481e.b(), this.f15482f);
         this.j = cVar;
         cVar.f(this.m);
         Bundle arguments = getArguments();
@@ -203,16 +203,16 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             this.i = arguments.getBoolean("need_check_login");
         }
         if (!this.i) {
-            if (this.f15820g && (forumEmotionModel2 = this.f15819f) != null) {
+            if (this.f15483g && (forumEmotionModel2 = this.f15482f) != null) {
                 forumEmotionModel2.x(this);
-                this.f15821h = true;
-                this.f15820g = false;
+                this.f15484h = true;
+                this.f15483g = false;
             }
         } else if (ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (this.f15820g && (forumEmotionModel = this.f15819f) != null) {
+            if (this.f15483g && (forumEmotionModel = this.f15482f) != null) {
                 forumEmotionModel.x(this);
-                this.f15821h = true;
-                this.f15820g = false;
+                this.f15484h = true;
+                this.f15483g = false;
             }
         } else {
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) getPageContext().getPageActivity(), true);
@@ -220,19 +220,19 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
             getPageContext().getPageActivity().finish();
         }
-        return this.f15818e.d();
+        return this.f15481e.d();
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.b
     public void onFailed(String str) {
-        this.f15821h = false;
-        this.f15818e.a();
-        this.f15818e.g();
+        this.f15484h = false;
+        this.f15481e.a();
+        this.f15481e.g();
         d.b.i0.l0.z.a.c cVar = this.j;
         if (cVar != null && cVar.b() > 0) {
             l.L(getPageContext().getContext(), str);
         } else {
-            this.f15818e.r();
+            this.f15481e.r();
         }
     }
 
@@ -243,21 +243,21 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.b
     public void s0(ForumEmotionData forumEmotionData) {
-        this.f15821h = false;
-        this.f15818e.a();
-        this.f15818e.f();
-        this.f15818e.g();
-        this.f15818e.h();
+        this.f15484h = false;
+        this.f15481e.a();
+        this.f15481e.f();
+        this.f15481e.g();
+        this.f15481e.h();
         if (forumEmotionData == null) {
             return;
         }
-        this.f15818e.m(forumEmotionData);
-        this.f15818e.e().setOnClickListener(new f(forumEmotionData));
+        this.f15481e.m(forumEmotionData);
+        this.f15481e.e().setOnClickListener(new f(forumEmotionData));
         if (forumEmotionData.rank_pkg_list != null) {
             ArrayList arrayList = new ArrayList();
             for (ForumEmotionPackageData forumEmotionPackageData : forumEmotionData.rank_pkg_list) {
                 d.b.i0.l0.z.b.c cVar = new d.b.i0.l0.z.b.c();
-                cVar.f56707e = forumEmotionPackageData;
+                cVar.f58113e = forumEmotionPackageData;
                 arrayList.add(cVar);
             }
             if (arrayList.isEmpty()) {

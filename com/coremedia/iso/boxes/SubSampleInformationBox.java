@@ -10,22 +10,22 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static final String TYPE = "subs";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
     public List<SampleEntry> entries;
     public long entryCount;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SampleEntry {
         public long sampleDelta;
         public int subsampleCount;
         public List<SubsampleEntry> subsampleEntries = new ArrayList();
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class SubsampleEntry {
             public int discardable;
             public long reserved;

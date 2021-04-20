@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.b.a;
+import f.b.r;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.b.a;
 import g.d.c;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -17,7 +17,7 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68088d;
+    public b f69094d;
     public volatile Iterator<? extends R> it;
     public final h<? super T, ? extends Iterable<? extends R>> mapper;
     public boolean outputFused;
@@ -31,11 +31,11 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
     @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
     public void cancel() {
         this.cancelled = true;
-        this.f68088d.dispose();
-        this.f68088d = DisposableHelper.DISPOSED;
+        this.f69094d.dispose();
+        this.f69094d = DisposableHelper.DISPOSED;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public void clear() {
         this.it = null;
     }
@@ -78,18 +78,18 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
                                 return;
                             }
                         } catch (Throwable th) {
-                            f.a.u.a.a(th);
+                            f.b.u.a.a(th);
                             cVar.onError(th);
                             return;
                         }
                     } catch (Throwable th2) {
-                        f.a.u.a.a(th2);
+                        f.b.u.a.a(th2);
                         cVar.onError(th2);
                         return;
                     }
                 }
                 if (j2 != 0) {
-                    f.a.x.i.b.e(this.requested, j2);
+                    f.b.x.i.b.e(this.requested, j2);
                 }
             }
             i = addAndGet(-i);
@@ -102,26 +102,26 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public boolean isEmpty() {
         return this.it == null;
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
-        this.f68088d = DisposableHelper.DISPOSED;
+        this.f69094d = DisposableHelper.DISPOSED;
         this.actual.onError(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68088d, bVar)) {
-            this.f68088d = bVar;
+        if (DisposableHelper.validate(this.f69094d, bVar)) {
+            this.f69094d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         try {
             Iterator<? extends R> it = this.mapper.apply(t).iterator();
@@ -132,12 +132,12 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
             this.it = it;
             drain();
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.actual.onError(th);
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public R poll() throws Exception {
         Iterator<? extends R> it = this.it;
         if (it != null) {
@@ -154,12 +154,12 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
     @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
-            f.a.x.i.b.a(this.requested, j);
+            f.b.x.i.b.a(this.requested, j);
             drain();
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.c
     public int requestFusion(int i) {
         if ((i & 2) != 0) {
             this.outputFused = true;
@@ -182,12 +182,12 @@ public final class SingleFlatMapIterableFlowable$FlatMapIterableObserver<T, R> e
                         return;
                     }
                 } catch (Throwable th) {
-                    f.a.u.a.a(th);
+                    f.b.u.a.a(th);
                     cVar.onError(th);
                     return;
                 }
             } catch (Throwable th2) {
-                f.a.u.a.a(th2);
+                f.b.u.a.a(th2);
                 cVar.onError(th2);
                 return;
             }

@@ -17,13 +17,13 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import d.b.b.c.g.c;
+import d.b.c.c.g.c;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
-import d.b.i0.d1.k.b;
+import d.b.i0.e1.k.b;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
     public final CustomMessageListener mCustomListener;
     public GroupData mGroup;
@@ -157,7 +157,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.b.h0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.b.i0.d1.h.c.h().c(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                return Boolean.valueOf(d.b.i0.e1.h.c.h().c(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
             }
         }, null);
     }
@@ -184,7 +184,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.b.h0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.b.i0.d1.h.c.h().m(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                return Boolean.valueOf(d.b.i0.e1.h.c.h().m(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
             }
         }, null);
     }

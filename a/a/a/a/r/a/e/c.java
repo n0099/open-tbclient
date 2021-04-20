@@ -1,84 +1,53 @@
 package a.a.a.a.r.a.e;
 
 import a.a.a.a.s.e;
-import a.a.a.a.v.d;
+import a.a.a.a.u.l;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.fun.ad.sdk.FunAdSlot;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBVideo;
-import com.win.opensdk.PBVideoListener;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.KsVideoPlayConfig;
+import java.util.List;
 /* loaded from: classes.dex */
-public class c extends a.a.a.a.b<PBVideo> {
+public class c extends a.a.a.a.b<KsFullScreenVideoAd> {
 
     /* loaded from: classes.dex */
-    public class a implements PBVideoListener {
+    public class a implements KsLoadManager.FullScreenVideoAdListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1220a;
+        public final /* synthetic */ FunAdSlot f1223a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f1221b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PBVideo f1222c;
-
-        public a(PBVideo pBVideo) {
-            this.f1222c = pBVideo;
+        public a(FunAdSlot funAdSlot) {
+            this.f1223a = funAdSlot;
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            d.a();
-            c.this.f1010g.a(this.f1221b);
-            this.f1221b = true;
-            c.this.e();
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onError(int i, String str) {
+            a.a.a.a.v.d.b("onError code: " + i + ", message: " + str, new Object[0]);
+            c.this.f1010g.a(Integer.valueOf(i));
+            c.this.b(i, str);
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            d.b("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
-            c.this.f1010g.b(Integer.valueOf(pBError.getCode()));
-            c.this.b(pBError.getCode(), pBError.getMsg());
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            d.a();
-            c.this.f1010g.b();
-            c cVar = c.this;
-            cVar.a((c) this.f1222c);
-            cVar.h();
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onRewardedAdClosed() {
-            d.a();
-            c.this.f1010g.d();
-            c.this.f();
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onRewardedAdOpened() {
-            d.a();
-            c.this.f1010g.b(this.f1220a);
-            this.f1220a = true;
-            c.this.a((c) null, (String) null);
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onRewardedShowFail(String str) {
-            d.b("onRewardedShowFail: errorCode: 0, , errorMessage: " + str, new Object[0]);
-            c.this.f1010g.b(str);
-            c.this.a(0, str);
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onUserEarnedReward(boolean z, long j) {
-            d.a();
-            c.this.f1010g.f();
-            c.this.i();
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list) {
+            a.a.a.a.v.d.a();
+            if (list != null && !list.isEmpty()) {
+                c.this.f1010g.b();
+                KsFullScreenVideoAd ksFullScreenVideoAd = list.get(0);
+                c cVar = c.this;
+                cVar.a((c) ksFullScreenVideoAd);
+                cVar.h();
+                c.this.k.b(ksFullScreenVideoAd, this.f1223a.getSid());
+                return;
+            }
+            a.a.a.a.v.d.b("onNativeAdLoad error: adList is null or empty", new Object[0]);
+            c.this.f1010g.a("NoFill");
+            c.this.b(0, "NoFill");
         }
     }
 
@@ -86,41 +55,42 @@ public class c extends a.a.a.a.b<PBVideo> {
         super(aVar);
     }
 
+    @Override // a.a.a.a.b
+    public a.a.a.a.u.a a(e.a aVar) {
+        return new l(aVar);
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
     @Override // a.a.a.a.b
-    public boolean a(Activity activity, ViewGroup viewGroup, String str, PBVideo pBVideo) {
-        PBVideo pBVideo2 = pBVideo;
-        this.f1010g.g();
-        if (pBVideo2.isReady()) {
-            pBVideo2.show();
-            return true;
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, KsFullScreenVideoAd ksFullScreenVideoAd) {
+        KsFullScreenVideoAd ksFullScreenVideoAd2 = ksFullScreenVideoAd;
+        if (!ksFullScreenVideoAd2.isAdEnable()) {
+            a.a.a.a.v.d.b("Ad isn't ready now.", new Object[0]);
+            return false;
         }
-        d.b("Ad isn't ready now", new Object[0]);
-        return false;
+        this.f1010g.g();
+        ksFullScreenVideoAd2.setFullScreenVideoAdInteractionListener(new d(this, ksFullScreenVideoAd2, str));
+        ksFullScreenVideoAd2.showFullScreenVideoAd(activity, this.f1011h.j ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
+        return true;
     }
 
     @Override // a.a.a.a.b
     public void b(Context context, FunAdSlot funAdSlot) {
-        PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.f1011h.f1334c);
-        pBVideo.setVideoListener(new a(pBVideo));
+        KsScene build = new KsScene.Builder(Long.parseLong(this.f1011h.f1320c)).adNum(1).build();
         this.f1010g.a(funAdSlot, this.f1011h);
-        pBVideo.load();
+        KsAdSDK.getLoadManager().loadFullScreenVideoAd(build, new a(funAdSlot));
         g();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // a.a.a.a.b
-    public void b(PBVideo pBVideo) {
-        PBVideo pBVideo2 = pBVideo;
-        if (pBVideo2 != null) {
-            pBVideo2.destroy();
-        }
+    public void b(KsFullScreenVideoAd ksFullScreenVideoAd) {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // a.a.a.a.b
-    public boolean c(PBVideo pBVideo) {
-        PBVideo pBVideo2 = pBVideo;
-        return pBVideo2 != null && pBVideo2.isReady();
+    public boolean c(KsFullScreenVideoAd ksFullScreenVideoAd) {
+        KsFullScreenVideoAd ksFullScreenVideoAd2 = ksFullScreenVideoAd;
+        return ksFullScreenVideoAd2 != null && ksFullScreenVideoAd2.isAdEnable();
     }
 }

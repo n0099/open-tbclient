@@ -27,38 +27,38 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    public static final boolean j = k.f45051a;
+    public static final boolean j = k.f45443a;
     public static volatile a k;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanCoreVersion f48487c;
+    public SwanCoreVersion f48879c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExtensionCore f48488d;
+    public ExtensionCore f48880d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.m.c f48489e;
+    public d.b.g0.g.m.c f48881e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48491g;
+    public boolean f48883g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48492h;
+    public boolean f48884h;
     public String i;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48485a = -1;
+    public int f48877a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f48486b = new Object();
+    public final Object f48878b = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<e> f48490f = new CopyOnWriteArrayList();
+    public List<e> f48882f = new CopyOnWriteArrayList();
 
     /* renamed from: d.b.g0.g.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0982a implements e {
-        public C0982a(a aVar) {
+    public class C0994a implements e {
+        public C0994a(a aVar) {
         }
 
         @Override // d.b.g0.g.m.a.e
@@ -75,25 +75,25 @@ public class a {
     public class b implements e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f48493a;
+        public final /* synthetic */ a.c f48885a;
 
         /* renamed from: d.b.g0.g.m.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0983a implements Runnable {
-            public RunnableC0983a() {
+        public class RunnableC0995a implements Runnable {
+            public RunnableC0995a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppActivity activity;
-                if (a.this.f48492h || a.this.f48489e == null || (activity = f.V().getActivity()) == null || activity.isFinishing() || activity.getSwanAppFragmentManager() == null) {
+                if (a.this.f48884h || a.this.f48881e == null || (activity = f.V().getActivity()) == null || activity.isFinishing() || activity.getSwanAppFragmentManager() == null) {
                     return;
                 }
                 if (a.j) {
                     Log.d("SwanGameCoreRuntime", "loadAppJs start: " + a.this.i);
                 }
-                a.this.f48489e.k(activity);
-                a.this.f48489e.t(b.this.f48493a);
+                a.this.f48881e.k(activity);
+                a.this.f48881e.t(b.this.f48885a);
                 if (a.this.v()) {
                     a.this.F(activity);
                 }
@@ -101,13 +101,13 @@ public class a {
         }
 
         public b(a.c cVar) {
-            this.f48493a = cVar;
+            this.f48885a = cVar;
         }
 
         @Override // d.b.g0.g.m.a.e
         public void onReady() {
             i.o("startup").A(new UbcFlowEvent("na_prepare_runtime_end"));
-            k0.X(new RunnableC0983a());
+            k0.X(new RunnableC0995a());
         }
     }
 
@@ -121,8 +121,8 @@ public class a {
             if (a.j) {
                 Log.d("SwanGameCoreRuntime", "prepareMaster end.");
             }
-            synchronized (a.this.f48486b) {
-                a.this.f48491g = true;
+            synchronized (a.this.f48878b) {
+                a.this.f48883g = true;
                 a.this.w();
             }
         }
@@ -152,9 +152,9 @@ public class a {
             if (k == null) {
                 return;
             }
-            k.f48492h = true;
-            if (k.f48489e != null) {
-                k.f48489e.m();
+            k.f48884h = true;
+            if (k.f48881e != null) {
+                k.f48881e.m();
             }
             k = null;
             m().y();
@@ -173,19 +173,19 @@ public class a {
     }
 
     public final void A() {
-        synchronized (this.f48486b) {
-            if (!this.f48491g && this.f48489e == null) {
+        synchronized (this.f48878b) {
+            if (!this.f48883g && this.f48881e == null) {
                 K();
                 J();
                 String l = l();
-                if (TextUtils.isEmpty(l) || this.f48492h) {
+                if (TextUtils.isEmpty(l) || this.f48884h) {
                     return;
                 }
                 if (j) {
                     Log.d("SwanGameCoreRuntime", "prepareMaster start: " + l);
                 }
                 d.b.g0.g.m.c cVar = new d.b.g0.g.m.c(l, "swan-game.js");
-                this.f48489e = cVar;
+                this.f48881e = cVar;
                 cVar.v(new c());
             }
         }
@@ -195,8 +195,8 @@ public class a {
         if (j) {
             Log.d("SwanGameCoreRuntime", "prepareRuntime");
         }
-        if (eVar != null && !this.f48490f.contains(eVar)) {
-            this.f48490f.add(eVar);
+        if (eVar != null && !this.f48882f.contains(eVar)) {
+            this.f48882f.add(eVar);
         }
         if (u()) {
             w();
@@ -208,9 +208,9 @@ public class a {
     public void D(ExtensionCore extensionCore) {
         if (extensionCore != null && extensionCore.a()) {
             if (j) {
-                Log.d("SwanGameCoreRuntime", "setExtensionCore: " + this.f48488d);
+                Log.d("SwanGameCoreRuntime", "setExtensionCore: " + this.f48880d);
             }
-            this.f48488d = extensionCore;
+            this.f48880d = extensionCore;
         } else if (j) {
             StringBuilder sb = new StringBuilder();
             sb.append("setExtensionCore invalid: ");
@@ -227,9 +227,9 @@ public class a {
         if (swanCoreVersion == null || !swanCoreVersion.a()) {
             return;
         }
-        this.f48487c = swanCoreVersion;
+        this.f48879c = swanCoreVersion;
         if (j) {
-            Log.d("SwanGameCoreRuntime", "setSwanCoreVersion: " + this.f48487c);
+            Log.d("SwanGameCoreRuntime", "setSwanCoreVersion: " + this.f48879c);
         }
     }
 
@@ -246,34 +246,34 @@ public class a {
     }
 
     public void G(d.b.g0.a.y0.e.b bVar) {
-        ExtensionCore extensionCore = this.f48488d;
+        ExtensionCore extensionCore = this.f48880d;
         if (extensionCore != null) {
             bVar.x0(extensionCore);
         } else {
-            this.f48488d = bVar.N();
+            this.f48880d = bVar.N();
         }
     }
 
     public void H() {
-        d.b.g0.g.m.c cVar = this.f48489e;
+        d.b.g0.g.m.c cVar = this.f48881e;
         if (cVar != null) {
-            cVar.o().y0();
+            cVar.o().z0();
         }
     }
 
     public void I(d.b.g0.a.y0.e.b bVar) {
         K();
-        SwanCoreVersion swanCoreVersion = this.f48487c;
+        SwanCoreVersion swanCoreVersion = this.f48879c;
         if (swanCoreVersion != null) {
             bVar.Q0(swanCoreVersion);
         }
         if (j) {
-            Log.d("SwanGameCoreRuntime", "syncSwanCore mSwanCoreVersion: " + this.f48487c);
+            Log.d("SwanGameCoreRuntime", "syncSwanCore mSwanCoreVersion: " + this.f48879c);
         }
     }
 
     public final void J() {
-        ExtensionCore extensionCore = this.f48488d;
+        ExtensionCore extensionCore = this.f48880d;
         if (extensionCore == null || !extensionCore.a()) {
             if (j) {
                 Log.w("SwanGameCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
@@ -283,28 +283,28 @@ public class a {
     }
 
     public final void K() {
-        SwanCoreVersion swanCoreVersion = this.f48487c;
+        SwanCoreVersion swanCoreVersion = this.f48879c;
         if (swanCoreVersion == null || !swanCoreVersion.a()) {
             E(o());
         }
     }
 
     public void h(Activity activity) {
-        d.b.g0.g.m.c cVar = this.f48489e;
+        d.b.g0.g.m.c cVar = this.f48881e;
         if (cVar != null) {
             cVar.k(activity);
         }
     }
 
     public void i(JSEvent jSEvent) {
-        d.b.g0.g.m.c cVar = this.f48489e;
+        d.b.g0.g.m.c cVar = this.f48881e;
         if (cVar != null) {
-            cVar.o().c0(jSEvent);
+            cVar.o().d0(jSEvent);
         }
     }
 
     public int j() {
-        d.b.g0.g.m.c cVar = this.f48489e;
+        d.b.g0.g.m.c cVar = this.f48881e;
         if (cVar != null) {
             return cVar.n();
         }
@@ -313,16 +313,16 @@ public class a {
 
     @Nullable
     public ExtensionCore k() {
-        return this.f48488d;
+        return this.f48880d;
     }
 
     public final String l() {
-        SwanCoreVersion swanCoreVersion = this.f48487c;
-        return (swanCoreVersion == null || !swanCoreVersion.a()) ? "" : this.f48487c.swanCorePath;
+        SwanCoreVersion swanCoreVersion = this.f48879c;
+        return (swanCoreVersion == null || !swanCoreVersion.a()) ? "" : this.f48879c.swanCorePath;
     }
 
     public d.b.g0.g.i.a n() {
-        d.b.g0.g.m.c cVar = this.f48489e;
+        d.b.g0.g.m.c cVar = this.f48881e;
         if (cVar != null) {
             return cVar.o();
         }
@@ -353,14 +353,14 @@ public class a {
     }
 
     public final int p() {
-        if (this.f48485a < 0) {
+        if (this.f48877a < 0) {
             d.b.g0.a.w0.a.N().getSwitch("swan_game_preload", 0);
-            this.f48485a = 0;
+            this.f48877a = 0;
         }
         if (j) {
-            Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.f48485a);
+            Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.f48877a);
         }
-        return this.f48485a;
+        return this.f48877a;
     }
 
     public boolean q() {
@@ -372,7 +372,7 @@ public class a {
     }
 
     public DuMixGameSurfaceView r() {
-        d.b.g0.g.m.c cVar = this.f48489e;
+        d.b.g0.g.m.c cVar = this.f48881e;
         if (cVar != null) {
             return cVar.p();
         }
@@ -380,7 +380,7 @@ public class a {
     }
 
     public SwanCoreVersion s() {
-        return this.f48487c;
+        return this.f48879c;
     }
 
     public final boolean t(Intent intent) {
@@ -393,42 +393,42 @@ public class a {
 
     public boolean u() {
         boolean z;
-        synchronized (this.f48486b) {
-            z = this.f48491g && this.f48489e != null;
+        synchronized (this.f48878b) {
+            z = this.f48883g && this.f48881e != null;
         }
         return z;
     }
 
     public boolean v() {
         DuMixGameSurfaceView r;
-        return (this.f48492h || (r = r()) == null || r.getParent() != null) ? false : true;
+        return (this.f48884h || (r = r()) == null || r.getParent() != null) ? false : true;
     }
 
     public final void w() {
-        if (this.f48492h || this.f48490f.isEmpty() || !u()) {
+        if (this.f48884h || this.f48882f.isEmpty() || !u()) {
             return;
         }
-        for (e eVar : this.f48490f) {
+        for (e eVar : this.f48882f) {
             if (eVar != null) {
                 eVar.onReady();
             }
         }
-        this.f48490f.clear();
+        this.f48882f.clear();
     }
 
     public void x(a.c cVar) {
         if (j) {
             Log.d("SwanGameCoreRuntime", "onAppReady");
         }
-        if (cVar == null || TextUtils.isEmpty(cVar.f48545a)) {
+        if (cVar == null || TextUtils.isEmpty(cVar.f48937a)) {
             return;
         }
-        this.i = cVar.f48545a;
+        this.i = cVar.f48937a;
         i.o("startup").y("preload", u() ? "1" : "0");
         i.o("startup").A(new UbcFlowEvent("na_prepare_runtime_start"));
         B(new b(cVar));
-        if (this.f48489e != null) {
-            d.b.g0.g.w.f.b.b().f(this.f48489e.o(), cVar);
+        if (this.f48881e != null) {
+            d.b.g0.g.w.f.b.b().f(this.f48881e.o(), cVar);
         }
     }
 
@@ -448,7 +448,7 @@ public class a {
             boolean b2 = d.b.g0.g.i0.f.d.i().b();
             boolean h2 = d.b.g0.g.i0.f.d.h();
             if (b2 && h2) {
-                B(new C0982a(this));
+                B(new C0994a(this));
             }
         }
     }

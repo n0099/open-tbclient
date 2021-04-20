@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public UnitedSchemeEntity f43181a;
+    public UnitedSchemeEntity f43573a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f43182b;
+    public CallbackHandler f43574b;
 
     public b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.f43181a = unitedSchemeEntity;
-        this.f43182b = callbackHandler;
+        this.f43573a = unitedSchemeEntity;
+        this.f43574b = callbackHandler;
     }
 
     public static b a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -23,19 +23,19 @@ public class b {
     }
 
     public void b(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.f43182b, this.f43181a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.f43574b, this.f43573a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
     }
 
     public void c(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.f43182b, this.f43181a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.f43574b, this.f43573a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
     }
 
     public void d(int i) {
-        this.f43181a.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        this.f43573a.result = UnitedSchemeUtility.wrapCallbackParams(i);
     }
 
     public void e(JSONObject jSONObject) {
-        UnitedSchemeEntity unitedSchemeEntity = this.f43181a;
-        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.f43182b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        UnitedSchemeEntity unitedSchemeEntity = this.f43573a;
+        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.f43574b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
     }
 }

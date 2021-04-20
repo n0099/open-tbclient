@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsFullScreenVideoAd;
@@ -150,7 +151,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     private boolean isShowNewStyle() {
         int d2 = com.kwad.sdk.core.response.b.a.d(this.mAdInfo);
         int e2 = com.kwad.sdk.core.response.b.a.e(this.mAdInfo);
-        if (this.mCallerContext.f36221e == 1) {
+        if (this.mCallerContext.f36510e == 1) {
             if (d2 > e2) {
                 return false;
             }
@@ -166,7 +167,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
             KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, KsFullScreenVideoActivityProxy.class);
         }
         Intent intent = new Intent(context, ksVideoPlayConfig.isShowLandscape() ? KsFullScreenLandScapeVideoActivity.class : FeedDownloadActivity.class);
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("key_template", adTemplate);
         intent.putExtra("key_video_play_config", ksVideoPlayConfig);
         mInteractionListener = fullScreenVideoAdInteractionListener;
@@ -214,18 +215,18 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f36223g = this.mContext;
-        aVar.f36218b = this.mAdOpenInteractionListener;
-        aVar.f36221e = this.mScreenOrientation;
+        aVar.f36512g = this.mContext;
+        aVar.f36507b = this.mAdOpenInteractionListener;
+        aVar.f36510e = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f36219c = ksVideoPlayConfig;
-        aVar.f36220d = this.mReportExtData;
-        aVar.f36224h = this.mRootContainer;
+        aVar.f36508c = ksVideoPlayConfig;
+        aVar.f36509d = this.mReportExtData;
+        aVar.f36513h = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f36222f = adTemplate;
+        aVar.f36511f = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
         aVar.i = aVar2;
-        aVar.f36217a.add(aVar2);
+        aVar.f36506a.add(aVar2);
         if (com.kwad.sdk.core.response.b.a.y(this.mAdInfo)) {
             aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
         }

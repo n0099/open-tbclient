@@ -22,10 +22,10 @@ public class i {
     public static class a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f11517a;
+        public final /* synthetic */ WebView f11101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f11518b;
+        public final /* synthetic */ View f11102b;
 
         /* renamed from: com.baidu.sapi2.utils.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
@@ -35,19 +35,19 @@ public class i {
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f11518b.setVisibility(4);
-                a.this.f11517a.reload();
+                a.this.f11102b.setVisibility(4);
+                a.this.f11101a.reload();
             }
         }
 
         public a(WebView webView, View view) {
-            this.f11517a = webView;
-            this.f11518b = view;
+            this.f11101a = webView;
+            this.f11102b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f11517a.post(new RunnableC0148a());
+            this.f11101a.post(new RunnableC0148a());
         }
     }
 
@@ -65,7 +65,7 @@ public class i {
         try {
             ProgressBar progressBar = new ProgressBar(context, null, 16842872);
             progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-            progressBar.setBackgroundColor(context.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_color));
+            progressBar.setBackgroundColor(context.getResources().getColor(d.b.x.a.b.sapi_sdk_dark_mode_color));
             sapiWebView.setProgressBar(progressBar);
         } catch (Throwable th) {
             Log.e(th);
@@ -85,16 +85,16 @@ public class i {
     }
 
     public static View a(Context context, WebView webView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(d.b.a0.a.f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
-        Button button = (Button) inflate.findViewById(d.b.a0.a.e.btn_retry);
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(d.b.x.a.f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
+        Button button = (Button) inflate.findViewById(d.b.x.a.e.btn_retry);
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-            ((LinearLayout) inflate.findViewById(d.b.a0.a.e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_color));
-            ((TextView) inflate.findViewById(d.b.a0.a.e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_no_network_tv_color));
-            ((ImageView) inflate.findViewById(d.b.a0.a.e.sapi_sdk_loading_timeout_iv)).setImageResource(d.b.a0.a.d.sapi_sdk_icon_connection_failed_dark);
-            button.setBackgroundResource(d.b.a0.a.d.sapi_sdk_btn_gray);
+            ((LinearLayout) inflate.findViewById(d.b.x.a.e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(d.b.x.a.b.sapi_sdk_dark_mode_color));
+            ((TextView) inflate.findViewById(d.b.x.a.e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(d.b.x.a.b.sapi_sdk_dark_mode_no_network_tv_color));
+            ((ImageView) inflate.findViewById(d.b.x.a.e.sapi_sdk_loading_timeout_iv)).setImageResource(d.b.x.a.d.sapi_sdk_icon_connection_failed_dark);
+            button.setBackgroundResource(d.b.x.a.d.sapi_sdk_btn_gray);
             Resources resources = context.getResources();
             if (resources != null) {
-                button.setTextColor(resources.getColorStateList(d.b.a0.a.b.sapi_sdk_text_white));
+                button.setTextColor(resources.getColorStateList(d.b.x.a.b.sapi_sdk_text_white));
             }
         }
         button.setOnClickListener(new a(webView, inflate));

@@ -13,19 +13,19 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f1454b = new a();
+    public static final a f1440b = new a();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1455c;
+    public static final int f1441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1456d;
+    public static final int f1442d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1457e;
+    public static final int f1443e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f1458a = new b();
+    public final Executor f1444a = new b();
 
     /* loaded from: classes.dex */
     public static class b implements Executor {
@@ -40,9 +40,9 @@ public final class a {
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f1455c = availableProcessors;
-        f1456d = availableProcessors + 1;
-        f1457e = (availableProcessors * 2) + 1;
+        f1441c = availableProcessors;
+        f1442d = availableProcessors + 1;
+        f1443e = (availableProcessors * 2) + 1;
     }
 
     @SuppressLint({"NewApi"})
@@ -53,12 +53,12 @@ public final class a {
     }
 
     public static ExecutorService b() {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f1456d, f1457e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f1442d, f1443e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         a(threadPoolExecutor, true);
         return threadPoolExecutor;
     }
 
     public static Executor c() {
-        return f1454b.f1458a;
+        return f1440b.f1444a;
     }
 }

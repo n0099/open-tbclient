@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.x.c.b;
+import f.b.o;
+import f.b.x.c.b;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class ObservableScalarXMap$ScalarDisposable<T> extends AtomicInteger implements b<T>, Runnable {
@@ -18,32 +18,32 @@ public final class ObservableScalarXMap$ScalarDisposable<T> extends AtomicIntege
         this.value = t;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public void clear() {
         lazySet(3);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         set(3);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == 3;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean isEmpty() {
         return get() != 1;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean offer(T t) {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public T poll() throws Exception {
         if (get() == 1) {
             lazySet(3);
@@ -52,7 +52,7 @@ public final class ObservableScalarXMap$ScalarDisposable<T> extends AtomicIntege
         return null;
     }
 
-    @Override // f.a.x.c.c
+    @Override // f.b.x.c.c
     public int requestFusion(int i) {
         if ((i & 1) != 0) {
             lazySet(1);

@@ -3,7 +3,7 @@ package com.coremedia.iso.boxes.fragment;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitWriterBuffer;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SampleFlags {
     public int reserved;
     public int sampleDegradationPriority;

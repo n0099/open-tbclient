@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -13,43 +14,43 @@ import java.util.List;
 public final class b implements SensorEventListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f66301f;
+    public static b f67294f;
 
     /* renamed from: a  reason: collision with root package name */
-    public SensorManager f66302a;
+    public SensorManager f67295a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66303b;
+    public int f67296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66304c = 0;
+    public int f67297c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f66305d = new float[3];
+    public float[] f67298d = new float[3];
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f66306e = new ArrayList();
+    public List<String> f67299e = new ArrayList();
 
     public b(Context context) {
-        this.f66302a = null;
+        this.f67295a = null;
         Context applicationContext = context.getApplicationContext();
         if (applicationContext != null) {
             try {
-                this.f66302a = (SensorManager) applicationContext.getSystemService("sensor");
+                this.f67295a = (SensorManager) applicationContext.getSystemService("sensor");
             } catch (Throwable unused) {
             }
         }
     }
 
     public static b a(Context context) {
-        if (f66301f == null) {
+        if (f67294f == null) {
             synchronized (b.class) {
-                if (f66301f == null) {
-                    f66301f = new b(context);
+                if (f67294f == null) {
+                    f67294f = new b(context);
                 }
             }
         }
-        return f66301f;
+        return f67294f;
     }
 
     public String b() {
@@ -58,17 +59,17 @@ public final class b implements SensorEventListener {
             e();
             synchronized (this) {
                 int i = 0;
-                while (this.f66304c == 0 && i < 10) {
+                while (this.f67297c == 0 && i < 10) {
                     i++;
                     wait(100L);
                 }
             }
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
-            str = decimalFormat.format(this.f66305d[0]) + "," + decimalFormat.format(this.f66305d[1]) + "," + decimalFormat.format(this.f66305d[2]);
+            DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
+            str = decimalFormat.format(this.f67298d[0]) + "," + decimalFormat.format(this.f67298d[1]) + "," + decimalFormat.format(this.f67298d[2]);
         } catch (Throwable unused) {
         }
         f();
-        this.f66304c = 0;
+        this.f67297c = 0;
         return str;
     }
 
@@ -77,13 +78,13 @@ public final class b implements SensorEventListener {
         if (b2 == null) {
             return;
         }
-        this.f66306e.add(b2);
+        this.f67299e.add(b2);
         try {
-            int size = this.f66306e.size();
+            int size = this.f67299e.size();
             if (size > 20) {
-                ArrayList arrayList = new ArrayList(this.f66306e.subList(size - 10, size));
-                this.f66306e.clear();
-                this.f66306e = arrayList;
+                ArrayList arrayList = new ArrayList(this.f67299e.subList(size - 10, size));
+                this.f67299e.clear();
+                this.f67299e = arrayList;
             }
         } catch (Throwable unused) {
         }
@@ -91,15 +92,15 @@ public final class b implements SensorEventListener {
 
     public synchronized String d() {
         String str = "";
-        int size = this.f66306e.size();
+        int size = this.f67299e.size();
         if (size <= 0) {
             return "";
         }
         if (size == 1) {
-            return this.f66306e.get(0);
+            return this.f67299e.get(0);
         }
         try {
-            List<String> list = this.f66306e;
+            List<String> list = this.f67299e;
             int i = size - 10;
             if (i <= 0) {
                 i = 0;
@@ -116,13 +117,13 @@ public final class b implements SensorEventListener {
 
     public final synchronized void e() {
         try {
-            if (this.f66302a != null) {
-                if (this.f66303b == 0) {
-                    if (!this.f66302a.registerListener(this, this.f66302a.getDefaultSensor(1), 3)) {
+            if (this.f67295a != null) {
+                if (this.f67296b == 0) {
+                    if (!this.f67295a.registerListener(this, this.f67295a.getDefaultSensor(1), 3)) {
                         return;
                     }
                 }
-                this.f66303b++;
+                this.f67296b++;
             }
         } catch (Exception unused) {
         }
@@ -130,11 +131,11 @@ public final class b implements SensorEventListener {
 
     public final synchronized void f() {
         try {
-            if (this.f66302a != null) {
-                int i = this.f66303b - 1;
-                this.f66303b = i;
+            if (this.f67295a != null) {
+                int i = this.f67296b - 1;
+                this.f67296b = i;
                 if (i == 0) {
-                    this.f66302a.unregisterListener(this);
+                    this.f67295a.unregisterListener(this);
                 }
             }
         } catch (Exception unused) {
@@ -147,7 +148,7 @@ public final class b implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        this.f66305d = sensorEvent.values;
-        this.f66304c = 1;
+        this.f67298d = sensorEvent.values;
+        this.f67297c = 1;
     }
 }

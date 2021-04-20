@@ -1,9 +1,5 @@
 package h.o.a;
 /* loaded from: classes7.dex */
-public final class n<T, K, V> extends h.j<T> {
-
-    /* renamed from: e  reason: collision with root package name */
-    public final h.o.b.a f67779e;
-
-    public abstract void b(K k);
+public final class n<T, R> extends h.j<T> {
+    public abstract void b();
 }

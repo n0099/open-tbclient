@@ -8,10 +8,10 @@ public enum LoginShareStrategy {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11491a;
+    public String f11075a;
 
     LoginShareStrategy(String str) {
-        this.f11491a = str;
+        this.f11075a = str;
     }
 
     public static LoginShareStrategy getDefault() {
@@ -32,6 +32,6 @@ public enum LoginShareStrategy {
     }
 
     public String getStrValue() {
-        return this.f11491a;
+        return this.f11075a;
     }
 }

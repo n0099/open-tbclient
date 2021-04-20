@@ -1,75 +1,134 @@
 package a.a.a.a.r.b.b;
 
-import a.a.a.a.v.d;
+import a.a.a.a.r.a.c.g;
+import a.a.a.a.r.a.c.k;
+import a.a.a.a.v.f.g.d;
 import android.content.Context;
-import android.widget.Button;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.fun.ad.sdk.R;
+import android.view.View;
+import android.view.ViewGroup;
+import com.fun.ad.sdk.ChannelNativeAds_5;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.nativ.MediaView;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class a implements TTAppDownloadListener {
+public class a implements FunNativeAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f1274a;
+    public final NativeUnifiedADData f1270a;
 
-    public a(Button button) {
-        this.f1274a = button;
+    /* renamed from: b  reason: collision with root package name */
+    public final ChannelNativeAds_5 f1271b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final MediaView f1272c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f1273d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final g f1274e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d f1275f;
+
+    public a(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, g gVar) {
+        this.f1270a = nativeUnifiedADData;
+        this.f1272c = mediaView;
+        this.f1271b = ChannelNativeAds_5.create(nativeUnifiedADData);
+        this.f1273d = str;
+        this.f1274e = gVar;
+        this.f1275f = new d.b(str);
     }
 
-    public final String a(Context context, long j, long j2) {
-        return j != 0 ? context.getString(R.string.ad_interaction_type_downloading, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.ad_interaction_type_downloading_without_progress);
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public ChannelNativeAds_5 getChannelNativeAds_5() {
+        return this.f1271b;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
-        d.a("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
-        Button button = this.f1274a;
-        if (button != null) {
-            button.setText(a(button.getContext(), j, j2));
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public String getDescription() {
+        return this.f1270a.getDesc();
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public String getIconUrl() {
+        return this.f1270a.getIconUrl();
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public List<String> getImageUrls() {
+        String imgUrl;
+        List<String> imgList = this.f1270a.getImgList();
+        if (imgList == null) {
+            imgList = new ArrayList<>();
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
-        d.b("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
-        Button button = this.f1274a;
-        if (button != null) {
-            button.setText(R.string.ad_interaction_type_download);
+        if (imgList.isEmpty() && (imgUrl = this.f1270a.getImgUrl()) != null) {
+            imgList.add(imgUrl);
         }
+        return imgList;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
-        d.a("CSJAppDownloadListener 点击图片安装", new Object[0]);
-        Button button = this.f1274a;
-        if (button != null) {
-            button.setText(R.string.ad_interaction_type_install);
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public FunNativeAd.InteractionType getInteractionType() {
+        if (this.f1270a.isAppAd()) {
+            int appStatus = this.f1270a.getAppStatus();
+            if (appStatus != 0) {
+                if (appStatus != 1) {
+                    if (appStatus != 2 && appStatus != 4) {
+                        if (appStatus != 8) {
+                            if (appStatus != 16) {
+                                return FunNativeAd.InteractionType.TYPE_UNKNOW;
+                            }
+                        }
+                    }
+                }
+                return FunNativeAd.InteractionType.TYPE_BROWSE;
+            }
+            return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
         }
+        return FunNativeAd.InteractionType.TYPE_BROWSE;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
-        d.a("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
-        Button button = this.f1274a;
-        if (button != null) {
-            button.setText(a(button.getContext(), j, j2));
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public String getTitle() {
+        return this.f1270a.getTitle();
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public View getVideoView() {
+        return this.f1272c;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd
+    public void show(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        if (context == null || viewGroup == null || list == null) {
+            throw new IllegalArgumentException();
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onIdle() {
-        d.b("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
-        Button button = this.f1274a;
-        if (button != null) {
-            button.setText(R.string.ad_interaction_type_download);
+        if (!(viewGroup instanceof NativeAdContainer)) {
+            a.a.a.a.v.d.b("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
+            if (FunAdSdk.isLogEnabled()) {
+                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
+            }
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onInstalled(String str, String str2) {
-        d.a("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
-        Button button = this.f1274a;
-        if (button != null) {
-            button.setText(R.string.ad_interaction_type_open);
+        this.f1275f.a("ldr_sh_start");
+        g gVar = this.f1274e;
+        NativeUnifiedADData nativeUnifiedADData = this.f1270a;
+        String str = this.f1273d;
+        NativeAdContainer nativeAdContainer = (NativeAdContainer) viewGroup;
+        MediaView mediaView = this.f1272c;
+        ChannelNativeAds_5.GdtADStatusChangeListener gdtADStatusChangeListener = this.f1271b.getGdtADStatusChangeListener();
+        gVar.f1010g.g();
+        nativeUnifiedADData.setNativeAdEventListener(gVar.a(nativeUnifiedADData, str, funAdInteractionListener, new k(gVar, gdtADStatusChangeListener, nativeUnifiedADData)));
+        nativeUnifiedADData.bindAdToView(nativeAdContainer.getContext(), nativeAdContainer, null, list);
+        if (mediaView != null) {
+            nativeUnifiedADData.bindMediaView(mediaView, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new g.b());
         }
     }
 }

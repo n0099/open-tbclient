@@ -19,7 +19,6 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidubce.auth.NTLMEngineImpl;
 import com.kwai.player.KwaiPlayerConfig;
 import com.kwai.player.debuginfo.KwaiPlayerDebugInfoProvider;
 import com.kwai.player.debuginfo.model.AppLiveQosDebugInfo;
@@ -1419,7 +1418,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         } else {
             AssetFileDescriptor assetFileDescriptor = null;
             try {
-                AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7664a);
+                AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7699a);
                 if (openAssetFileDescriptor == null) {
                     if (openAssetFileDescriptor != null) {
                         openAssetFileDescriptor.close();
@@ -1761,7 +1760,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         } else {
             z = false;
         }
-        PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(i | NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, KsMediaPlayer.class.getName());
+        PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(i | 536870912, KsMediaPlayer.class.getName());
         this.mWakeLock = newWakeLock;
         newWakeLock.setReferenceCounted(false);
         if (z) {

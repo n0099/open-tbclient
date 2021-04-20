@@ -10,12 +10,12 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import d.b.b.e.m.b;
-import d.b.b.e.p.k;
-import d.b.i0.d1.s.a;
-import d.b.i0.d1.w.c;
+import d.b.c.e.m.b;
+import d.b.c.e.p.k;
+import d.b.i0.e1.s.a;
+import d.b.i0.e1.w.c;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
     public static final int DELETEED = 1;
     public static final int READED = 0;

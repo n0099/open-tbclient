@@ -3,14 +3,14 @@ package com.baidu.mapsdkplatform.comapi.map;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f7608a;
+    public long f7643a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7609b;
+    public String f7644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7610c;
+    public int f7645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7611d;
+    public int f7646d;
 }

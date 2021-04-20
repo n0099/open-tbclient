@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ABTestConstant {
     public static final String ABTestEndEk = "ABTestEnd";
     public static final String ABTestStartEk = "ABTestStart";

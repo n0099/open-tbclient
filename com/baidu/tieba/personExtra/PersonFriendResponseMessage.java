@@ -3,11 +3,11 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.r.q.f1;
 import d.b.h0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static final int CACHETIME = 604800000;
     public f1 data;

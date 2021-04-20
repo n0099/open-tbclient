@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 public class f extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f49806a;
+    public float f50199a;
 
     @Override // d.b.h0.b0.g.b
     public String a() {
@@ -18,11 +18,11 @@ public class f extends b {
         if (bitmap == null) {
             return null;
         }
-        if (this.f49806a <= 0.0f) {
+        if (this.f50199a <= 0.0f) {
             return bitmap;
         }
-        d.b.h0.a0.c.j().h(BitmapHelper.getBitmapSize(bitmap) * 2);
-        return BitmapHelper.getRoundedCornerBitmap(bitmap, this.f49806a, z);
+        d.b.h0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+        return BitmapHelper.getRoundedCornerBitmap(bitmap, this.f50199a, z);
     }
 
     @Override // d.b.h0.b0.g.b
@@ -30,6 +30,6 @@ public class f extends b {
         if (str == null) {
             return;
         }
-        this.f49806a = d.b.b.e.m.b.c(str, 0.0f);
+        this.f50199a = d.b.c.e.m.b.c(str, 0.0f);
     }
 }

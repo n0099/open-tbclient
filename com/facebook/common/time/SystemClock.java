@@ -1,5 +1,5 @@
 package com.facebook.common.time;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SystemClock implements Clock {
     public static final SystemClock INSTANCE = new SystemClock();
 

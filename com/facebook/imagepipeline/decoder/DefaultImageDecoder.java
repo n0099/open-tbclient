@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultImageDecoder implements ImageDecoder {
     public final ImageDecoder mAnimatedGifDecoder;
     public final ImageDecoder mAnimatedWebPDecoder;

@@ -13,7 +13,7 @@ import java.util.List;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static bi f41003a = new bi();
+    public static bi f41292a = new bi();
 
     /* renamed from: a  reason: collision with other field name */
     public static String f926a;
@@ -37,19 +37,19 @@ public class bi {
     }
 
     public static bi a() {
-        return f41003a;
+        return f41292a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m593a() {
+    public static synchronized String m597a() {
         String str;
         synchronized (bi.class) {
             if (f926a == null) {
-                SharedPreferences sharedPreferences = com.xiaomi.push.t.m617a().getSharedPreferences("XMPushServiceConfig", 0);
+                SharedPreferences sharedPreferences = com.xiaomi.push.t.m621a().getSharedPreferences("XMPushServiceConfig", 0);
                 String string = sharedPreferences.getString("DeviceUUID", null);
                 f926a = string;
                 if (string == null) {
-                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.t.m617a(), false);
+                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.t.m621a(), false);
                     f926a = a2;
                     if (a2 != null) {
                         sharedPreferences.edit().putString("DeviceUUID", f926a).commit();
@@ -87,13 +87,13 @@ public class bi {
         Exception e2;
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m617a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m621a().openFileInput("XMCloudCfg"));
                 try {
                     this.f928a = dt.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                 } catch (Exception e3) {
                     e2 = e3;
-                    com.xiaomi.channel.commonutils.logger.b.m51a("load config failure: " + e2.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m55a("load config failure: " + e2.getMessage());
                     com.xiaomi.push.y.a(bufferedInputStream);
                     if (this.f928a != null) {
                     }
@@ -122,19 +122,19 @@ public class bi {
     public void e() {
         try {
             if (this.f928a != null) {
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m617a().openFileOutput("XMCloudCfg", 0));
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m621a().openFileOutput("XMCloudCfg", 0));
                 com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
                 this.f928a.a(a2);
-                a2.m174a();
+                a2.m178a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("save config failure: " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a("save config failure: " + e2.getMessage());
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m596a() {
+    public int m600a() {
         b();
         dt.a aVar = this.f928a;
         if (aVar != null) {
@@ -144,19 +144,19 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dt.a m597a() {
+    public dt.a m601a() {
         b();
         return this.f928a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m598a() {
+    public synchronized void m602a() {
         this.f929a.clear();
     }
 
     public void a(du.b bVar) {
         a[] aVarArr;
-        if (bVar.m244d() && bVar.d() > m596a()) {
+        if (bVar.m248d() && bVar.d() > m600a()) {
             c();
         }
         synchronized (this) {

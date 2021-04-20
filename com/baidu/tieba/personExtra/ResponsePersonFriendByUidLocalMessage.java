@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.b.h0.r.q.f1;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public f1 mData;
 

@@ -17,35 +17,35 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.b.j.e.n;
-import d.b.b.j.e.w;
-import d.b.i0.e1.b.o.a;
-import d.b.i0.e1.b.o.b;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
+import d.b.c.j.e.n;
+import d.b.c.j.e.w;
+import d.b.i0.f1.b.o.a;
+import d.b.i0.f1.b.o.b;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeActivity extends BaseActivity implements BdListView.p {
-    public d.b.i0.e1.b.o.a mMainView;
-    public d.b.i0.e1.b.o.b mModel;
+    public d.b.i0.f1.b.o.a mMainView;
+    public d.b.i0.f1.b.o.b mModel;
     public int mSkinType = 3;
     public a.e mViewCallback = new a();
     public b.c mModelCallback = new b();
     public w mItemClickListener = new c();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.e {
         public a() {
         }
 
-        @Override // d.b.i0.e1.b.o.a.e
+        @Override // d.b.i0.f1.b.o.a.e
         public void a() {
             if (AgreeMeActivity.this.mModel != null) {
                 AgreeMeActivity.this.mModel.g();
             }
         }
 
-        @Override // d.b.i0.e1.b.o.a.e
+        @Override // d.b.i0.f1.b.o.a.e
         public void b() {
             if (AgreeMeActivity.this.mModel != null) {
                 AgreeMeActivity.this.mModel.j();
@@ -53,26 +53,26 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements b.c {
         public b() {
         }
 
-        @Override // d.b.i0.e1.b.o.b.c
+        @Override // d.b.i0.f1.b.o.b.c
         public void d(ArrayList<n> arrayList) {
             if (AgreeMeActivity.this.mMainView != null) {
-                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f54475f, arrayList);
+                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f55916f, arrayList);
                 AgreeMeActivity agreeMeActivity = AgreeMeActivity.this;
                 agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
                 AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
                 agreeMeActivity2.hideNetRefreshView(agreeMeActivity2.mMainView.f());
-                if (AgreeMeActivity.this.mMainView.f54464f != null) {
-                    AgreeMeActivity.this.mMainView.f54464f.setVisibility(0);
+                if (AgreeMeActivity.this.mMainView.f55905f != null) {
+                    AgreeMeActivity.this.mMainView.f55905f.setVisibility(0);
                 }
             }
         }
 
-        @Override // d.b.i0.e1.b.o.b.c
+        @Override // d.b.i0.f1.b.o.b.c
         public void onFailed(String str) {
             d.b.h0.s.d.b.g0().Y(0);
             if (AgreeMeActivity.this.mMainView == null) {
@@ -85,8 +85,8 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
                 AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
                 agreeMeActivity2.showNetRefreshView(agreeMeActivity2.mMainView.f(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
                 AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                if (AgreeMeActivity.this.mMainView.f54464f != null) {
-                    AgreeMeActivity.this.mMainView.f54464f.setVisibility(8);
+                if (AgreeMeActivity.this.mMainView.f55905f != null) {
+                    AgreeMeActivity.this.mMainView.f55905f.setVisibility(8);
                     return;
                 }
                 return;
@@ -97,23 +97,23 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements w {
         public c() {
         }
 
-        @Override // d.b.b.j.e.w
+        @Override // d.b.c.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            if (nVar instanceof d.b.i0.e1.b.p.a) {
-                d.b.i0.e1.b.p.a aVar = (d.b.i0.e1.b.p.a) nVar;
-                if (aVar.getType() == d.b.i0.e1.b.p.a.x) {
+            if (nVar instanceof d.b.i0.f1.b.p.a) {
+                d.b.i0.f1.b.p.a aVar = (d.b.i0.f1.b.p.a) nVar;
+                if (aVar.getType() == d.b.i0.f1.b.p.a.x) {
                     AgreeMeActivity.this.jumpPb(aVar);
                 } else {
                     AgreeMeActivity.this.jumpToSubPb(aVar);
                 }
                 if (aVar.w() != null) {
                     StatisticItem param = new StatisticItem(aVar.w()).param("obj_locate", 1);
-                    if (aVar.getType() == d.b.i0.e1.b.p.a.y) {
+                    if (aVar.getType() == d.b.i0.f1.b.p.a.y) {
                         param.param("obj_type", 2);
                     } else {
                         param.param("obj_type", 1);
@@ -133,7 +133,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jumpPb(d.b.i0.e1.b.p.a aVar) {
+    public void jumpPb(d.b.i0.f1.b.p.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -153,7 +153,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jumpToSubPb(d.b.i0.e1.b.p.a aVar) {
+    public void jumpToSubPb(d.b.i0.f1.b.p.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -186,7 +186,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            d.b.i0.e1.b.o.a aVar = this.mMainView;
+            d.b.i0.f1.b.o.a aVar = this.mMainView;
             if (aVar != null) {
                 aVar.c(i);
             }
@@ -198,11 +198,11 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         super.onCreate(bundle);
         View inflate = getLayoutInflater().inflate(R.layout.agree_me_activity, (ViewGroup) null);
         setContentView(inflate);
-        d.b.i0.e1.b.o.a aVar = new d.b.i0.e1.b.o.a(getPageContext(), inflate);
+        d.b.i0.f1.b.o.a aVar = new d.b.i0.f1.b.o.a(getPageContext(), inflate);
         this.mMainView = aVar;
         aVar.j(this.mViewCallback);
         this.mMainView.i(this.mItemClickListener);
-        this.mModel = new d.b.i0.e1.b.o.b(getPageContext(), this.mModelCallback);
+        this.mModel = new d.b.i0.f1.b.o.b(getPageContext(), this.mModelCallback);
         showLoadingView(this.mMainView.d());
         this.mMainView.l(false);
         this.mModel.d();
@@ -211,7 +211,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.e1.b.o.a aVar = this.mMainView;
+        d.b.i0.f1.b.o.a aVar = this.mMainView;
         if (aVar != null) {
             aVar.h();
         }
@@ -219,7 +219,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.b.i0.e1.b.o.a aVar;
+        d.b.i0.f1.b.o.a aVar;
         if (!j.z() || this.mModel == null || (aVar = this.mMainView) == null) {
             return;
         }
@@ -230,7 +230,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        d.b.i0.e1.b.o.b bVar = this.mModel;
+        d.b.i0.f1.b.o.b bVar = this.mModel;
         if (bVar != null) {
             bVar.g();
         }

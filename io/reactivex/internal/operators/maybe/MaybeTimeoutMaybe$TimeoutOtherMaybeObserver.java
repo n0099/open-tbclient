@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.t.b;
+import f.b.i;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -13,22 +13,22 @@ public final class MaybeTimeoutMaybe$TimeoutOtherMaybeObserver<T, U> extends Ato
         this.parent = maybeTimeoutMaybe$TimeoutMainMaybeObserver;
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         this.parent.otherComplete();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         this.parent.otherError(th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(Object obj) {
         this.parent.otherComplete();
     }

@@ -8,59 +8,59 @@ import tbclient.FrsPage.TopCode;
 public class c2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50741a;
+    public String f51148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50742b;
+    public String f51149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50743c;
+    public String f51150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50744d;
+    public int f51151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50745e;
+    public String f51152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f50746f;
+    public long f51153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50747g;
+    public String f51154g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50748h;
+    public String f51155h;
 
     public String a() {
-        return this.f50747g;
+        return this.f51154g;
     }
 
     public String b() {
-        return this.f50743c;
+        return this.f51150c;
     }
 
     public int c() {
-        return this.f50744d;
+        return this.f51151d;
     }
 
     public long d() {
-        return this.f50746f;
+        return this.f51153f;
     }
 
     public String e() {
-        return this.f50741a;
+        return this.f51148a;
     }
 
     public String f() {
-        return this.f50748h;
+        return this.f51155h;
     }
 
     public String g() {
-        return this.f50742b;
+        return this.f51149b;
     }
 
     public String h() {
-        return this.f50745e;
+        return this.f51152e;
     }
 
     public void i(JSONObject jSONObject) {
@@ -68,15 +68,15 @@ public class c2 {
             return;
         }
         try {
-            this.f50741a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+            this.f51148a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
             jSONObject.optString("game_link");
-            this.f50742b = jSONObject.optString("summary");
-            this.f50743c = jSONObject.optString("code_link");
-            this.f50744d = jSONObject.optInt("get_type", 1);
-            this.f50745e = jSONObject.optString("surplusgift");
-            this.f50746f = jSONObject.optLong("giftworth", 0L);
-            this.f50747g = jSONObject.optString("type_text");
-            this.f50748h = jSONObject.optString("subtitle");
+            this.f51149b = jSONObject.optString("summary");
+            this.f51150c = jSONObject.optString("code_link");
+            this.f51151d = jSONObject.optInt("get_type", 1);
+            this.f51152e = jSONObject.optString("surplusgift");
+            this.f51153f = jSONObject.optLong("giftworth", 0L);
+            this.f51154g = jSONObject.optString("type_text");
+            this.f51155h = jSONObject.optString("subtitle");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -86,18 +86,18 @@ public class c2 {
         if (topCode == null) {
             return;
         }
-        this.f50741a = topCode.img_url;
+        this.f51148a = topCode.img_url;
         String str = topCode.game_link;
-        this.f50742b = topCode.summary;
-        this.f50743c = topCode.code_link;
-        this.f50744d = topCode.get_type.intValue();
-        this.f50745e = topCode.surplusgift;
+        this.f51149b = topCode.summary;
+        this.f51150c = topCode.code_link;
+        this.f51151d = topCode.get_type.intValue();
+        this.f51152e = topCode.surplusgift;
         if (topCode.giftworth.longValue() < 0) {
-            this.f50746f = 0L;
+            this.f51153f = 0L;
         } else {
-            this.f50746f = topCode.giftworth.longValue();
+            this.f51153f = topCode.giftworth.longValue();
         }
-        this.f50747g = topCode.type_text;
-        this.f50748h = topCode.subtitle;
+        this.f51154g = topCode.type_text;
+        this.f51155h = topCode.subtitle;
     }
 }

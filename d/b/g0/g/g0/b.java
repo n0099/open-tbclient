@@ -5,13 +5,13 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 public class b {
     public static void a(d.b.g0.g.i.a aVar) {
         if (aVar != null && aVar.t().hasEventListener("audiointerruptionbegin") && d.b.g0.g.c.j.b.h().i()) {
-            aVar.c0(new JSEvent("audiointerruptionbegin"));
+            aVar.d0(new JSEvent("audiointerruptionbegin"));
         }
     }
 
     public static void b(d.b.g0.g.i.a aVar) {
         if (aVar != null && aVar.t().hasEventListener("audiointerruptionend")) {
-            aVar.c0(new JSEvent("audiointerruptionend"));
+            aVar.d0(new JSEvent("audiointerruptionend"));
         }
     }
 }

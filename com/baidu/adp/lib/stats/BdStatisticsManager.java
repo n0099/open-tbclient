@@ -22,12 +22,12 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.b.e.n.d;
-import d.b.b.e.n.e;
-import d.b.b.e.n.f;
-import d.b.b.e.n.k.a;
-import d.b.b.e.n.m.g;
-import d.b.b.e.p.q;
+import d.b.c.e.n.d;
+import d.b.c.e.n.e;
+import d.b.c.e.n.f;
+import d.b.c.e.n.k.a;
+import d.b.c.e.n.m.g;
+import d.b.c.e.p.q;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -43,8 +43,8 @@ public class BdStatisticsManager {
     public static final Handler mHandler = new a();
     public static BdStatisticsManager statisticsManager;
     public String mAppVersion;
-    public d.b.b.e.n.b mBdLogSetting;
-    public d.b.b.e.n.c mCommonData;
+    public d.b.c.e.n.b mBdLogSetting;
+    public d.b.c.e.n.c mCommonData;
     public Context mContext;
     public boolean mIsMainProcess;
     public c mMultiProcessReceiver;
@@ -77,7 +77,7 @@ public class BdStatisticsManager {
         public b() {
         }
 
-        @Override // d.b.b.e.n.k.a.b
+        @Override // d.b.c.e.n.k.a.b
         public void a() {
             BdStatisticsManager.this.isSwitchReady = true;
             if (BdStatisticsManager.this.mIsMainProcess) {
@@ -121,7 +121,7 @@ public class BdStatisticsManager {
         }
     }
 
-    private void addLog(String str, String str2, long j, String str3, d.b.b.e.n.a aVar, Object... objArr) {
+    private void addLog(String str, String str2, long j, String str3, d.b.c.e.n.a aVar, Object... objArr) {
         if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || e.c().a(str)) {
             return;
         }
@@ -141,7 +141,7 @@ public class BdStatisticsManager {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return System.currentTimeMillis() - getConfig().getLong(str, 0L) < ((long) (((d.b.b.e.n.k.a.o().m(str, 24) * 60) * 60) * 1000));
+        return System.currentTimeMillis() - getConfig().getLong(str, 0L) < ((long) (((d.b.c.e.n.k.a.o().m(str, 24) * 60) * 60) * 1000));
     }
 
     public static void clearInstance() {
@@ -206,7 +206,7 @@ public class BdStatisticsManager {
             return;
         }
         forceUploadAllLogIgnoreSwitch();
-        d.b.b.e.n.k.a.o().k(str, str2, bdUploadStatMsgData);
+        d.b.c.e.n.k.a.o().k(str, str2, bdUploadStatMsgData);
     }
 
     public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
@@ -242,7 +242,7 @@ public class BdStatisticsManager {
     }
 
     public void crash(String str, String str2, String str3, Object... objArr) {
-        d.b.b.e.n.a aVar = new d.b.b.e.n.a("crash");
+        d.b.c.e.n.a aVar = new d.b.c.e.n.a("crash");
         aVar.b("module", "crash");
         if (!TextUtils.isEmpty(str)) {
             aVar.b("crash_type", str);
@@ -271,12 +271,12 @@ public class BdStatisticsManager {
         addLog("dbg", str, -1L, null, null, objArr);
     }
 
-    public void error(String str, long j, String str2, d.b.b.e.n.a aVar) {
+    public void error(String str, long j, String str2, d.b.c.e.n.a aVar) {
         addLog("error", str, j, str2, aVar, new Object[0]);
     }
 
     public void eventStat(Context context, String str, String str2, int i, Object... objArr) {
-        d.b.b.e.n.a aVar = new d.b.b.e.n.a("stat");
+        d.b.c.e.n.a aVar = new d.b.c.e.n.a("stat");
         aVar.b("module", "stat");
         if (!TextUtils.isEmpty(str)) {
             aVar.b("op_key", str);
@@ -320,12 +320,12 @@ public class BdStatisticsManager {
         return this.mAppVersion;
     }
 
-    public d.b.b.e.n.b getBdLogSetting() {
+    public d.b.c.e.n.b getBdLogSetting() {
         return this.mBdLogSetting;
     }
 
     public long getClientLogId() {
-        return d.b.b.e.n.i.a.b().a();
+        return d.b.c.e.n.i.a.b().a();
     }
 
     public String getCurNetworkType() {
@@ -340,8 +340,8 @@ public class BdStatisticsManager {
         return this.mProcessNameMd5;
     }
 
-    public d.b.b.e.n.a getStatsItem(String str) {
-        return new d.b.b.e.n.a(str);
+    public d.b.c.e.n.a getStatsItem(String str) {
+        return new d.b.c.e.n.a(str);
     }
 
     public String getTrackLogWriteDir() {
@@ -374,7 +374,7 @@ public class BdStatisticsManager {
         net("img", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
     }
 
-    public void init(Context context, boolean z, String str, String str2, String str3, String str4, d.b.b.e.n.c cVar, d.b.b.e.n.b bVar, long j, String str5) {
+    public void init(Context context, boolean z, String str, String str2, String str3, String str4, d.b.c.e.n.c cVar, d.b.c.e.n.b bVar, long j, String str5) {
         this.mContext = context;
         this.mWriteFileDir = str3;
         this.mNotUploadWriteFileDir = this.mWriteFileDir + "/notUpload";
@@ -382,12 +382,12 @@ public class BdStatisticsManager {
         this.mIsMainProcess = z;
         this.mBdLogSetting = bVar;
         this.mCommonData = cVar;
-        d.b.b.e.a.d.g().h(str2);
-        d.b.b.e.n.k.a.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
-        d.b.b.e.n.l.b.m().n(cVar, str4, str5);
+        d.b.c.e.a.d.g().h(str2);
+        d.b.c.e.n.k.a.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
+        d.b.c.e.n.l.b.m().n(cVar, str4, str5);
         g.h().k(cVar);
         if (cVar != null) {
-            this.mAppVersion = cVar.f41888c;
+            this.mAppVersion = cVar.f42385c;
         }
         if (TextUtils.isEmpty(this.mProcessNameMd5)) {
             String processNameMd5 = getProcessNameMd5();
@@ -444,11 +444,11 @@ public class BdStatisticsManager {
     }
 
     public void log(String str, Object... objArr) {
-        d.b.b.e.n.h.a i = g.h().i(str);
-        if (i == null || !d.b.b.e.n.k.a.o().v(str, null)) {
+        d.b.c.e.n.h.a i = g.h().i(str);
+        if (i == null || !d.b.c.e.n.k.a.o().v(str, null)) {
             return;
         }
-        d.b.b.e.n.a aVar = new d.b.b.e.n.a(str);
+        d.b.c.e.n.a aVar = new d.b.c.e.n.a(str);
         if (objArr != null && objArr.length > 0) {
             aVar.c(objArr);
         }
@@ -492,27 +492,27 @@ public class BdStatisticsManager {
         if (BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        d.b.b.e.n.h.a i = g.h().i(str);
+        d.b.c.e.n.h.a i = g.h().i(str);
         g.h().A(i);
         g.h().v(i);
     }
 
     public void setAndroidId(String str) {
-        d.b.b.e.n.c cVar = this.mCommonData;
+        d.b.c.e.n.c cVar = this.mCommonData;
         if (cVar != null) {
             cVar.v = str;
         }
     }
 
     public void setCommonDataMac(String str) {
-        d.b.b.e.n.c cVar = this.mCommonData;
+        d.b.c.e.n.c cVar = this.mCommonData;
         if (cVar != null) {
             cVar.u = str;
         }
     }
 
     public void setOaid(String str) {
-        d.b.b.e.n.c cVar = this.mCommonData;
+        d.b.c.e.n.c cVar = this.mCommonData;
         if (cVar != null) {
             cVar.t = str;
         }
@@ -526,7 +526,7 @@ public class BdStatisticsManager {
     }
 
     public void setUser(String str, String str2, String str3) {
-        d.b.b.e.n.l.b.m().o(str, str2, str3);
+        d.b.c.e.n.l.b.m().o(str, str2, str3);
     }
 
     public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
@@ -540,7 +540,7 @@ public class BdStatisticsManager {
         net("voice", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
     }
 
-    public void debug(String str, d.b.b.e.n.a aVar) {
+    public void debug(String str, d.b.c.e.n.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -551,18 +551,18 @@ public class BdStatisticsManager {
         addLog("error", str, j, str2, null, objArr);
     }
 
-    public void performance(String str, d.b.b.e.n.a aVar) {
+    public void performance(String str, d.b.c.e.n.a aVar) {
         if (aVar == null) {
             return;
         }
-        Address j = d.b.b.e.i.a.l().j(false, false);
+        Address j = d.b.c.e.i.a.l().j(false, false);
         if (j != null) {
             aVar.b("location", j.getLocality());
         }
         addLog("pfmonitor", str, -1L, null, aVar, new Object[0]);
     }
 
-    public void debug(String str, long j, String str2, d.b.b.e.n.a aVar) {
+    public void debug(String str, long j, String str2, d.b.c.e.n.a aVar) {
         addLog("dbg", str, j, str2, aVar, new Object[0]);
     }
 
@@ -571,10 +571,10 @@ public class BdStatisticsManager {
     }
 
     private void alert(String str, String str2, Object[] objArr) {
-        if (d.b.b.e.n.k.a.o().u("alert", str) && !checkUploadRecently(str)) {
+        if (d.b.c.e.n.k.a.o().u("alert", str) && !checkUploadRecently(str)) {
             setUploadTime(str);
-            d.b.b.e.n.h.a i = g.h().i("alert");
-            d.b.b.e.n.a aVar = new d.b.b.e.n.a("alert");
+            d.b.c.e.n.h.a i = g.h().i("alert");
+            d.b.c.e.n.a aVar = new d.b.c.e.n.a("alert");
             aVar.b("module", "alert");
             if (!TextUtils.isEmpty(str)) {
                 aVar.b("st", str);
@@ -589,10 +589,10 @@ public class BdStatisticsManager {
             i.a(aVar);
             if (f.e()) {
                 aVar.d(this.mCommonData);
-                d.b.b.e.n.l.b.m().q(i, aVar.f().c().toString());
+                d.b.c.e.n.l.b.m().q(i, aVar.f().c().toString());
             }
             BdLog.i("alert item = " + aVar.toString());
-            d.b.b.e.n.l.b.m().p(i, aVar.toString());
+            d.b.c.e.n.l.b.m().p(i, aVar.toString());
         }
     }
 }

@@ -8,52 +8,52 @@ import android.view.ViewTreeObserver;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44377a = 0;
+    public int f44769a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44378b = 200;
+    public int f44770b = 200;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f44379c;
+    public View f44771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44380d;
+    public int f44772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.a.e2.a f44381e;
+    public d.b.g0.a.e2.a f44773e;
 
     /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44382e;
+        public final /* synthetic */ String f44774e;
 
         public a(String str) {
-            this.f44382e = str;
+            this.f44774e = str;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            if (b.this.f44381e != null) {
-                b.this.f44381e.a(this.f44382e);
+            if (b.this.f44773e != null) {
+                b.this.f44773e.a(this.f44774e);
             }
             Rect rect = new Rect();
-            b.this.f44379c.getWindowVisibleDisplayFrame(rect);
+            b.this.f44771c.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
-            if (b.this.f44380d == b.this.f44377a) {
-                b.this.f44380d = height;
-            } else if (b.this.f44380d == height) {
+            if (b.this.f44772d == b.this.f44769a) {
+                b.this.f44772d = height;
+            } else if (b.this.f44772d == height) {
             } else {
-                if (b.this.f44380d - height > b.this.f44378b) {
-                    if (b.this.f44381e != null) {
-                        b.this.f44381e.c(this.f44382e, b.this.f44380d - height);
+                if (b.this.f44772d - height > b.this.f44770b) {
+                    if (b.this.f44773e != null) {
+                        b.this.f44773e.c(this.f44774e, b.this.f44772d - height);
                     }
-                    b.this.f44380d = height;
-                } else if (height - b.this.f44380d > b.this.f44378b) {
-                    if (b.this.f44381e != null) {
-                        b.this.f44381e.b(this.f44382e, height - b.this.f44380d);
+                    b.this.f44772d = height;
+                } else if (height - b.this.f44772d > b.this.f44770b) {
+                    if (b.this.f44773e != null) {
+                        b.this.f44773e.b(this.f44774e, height - b.this.f44772d);
                     }
-                    b.this.f44380d = height;
+                    b.this.f44772d = height;
                 }
             }
         }
@@ -61,7 +61,7 @@ public class b {
 
     public b(String str, Activity activity) {
         View decorView = activity.getWindow().getDecorView();
-        this.f44379c = decorView;
+        this.f44771c = decorView;
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(str));
     }
 
@@ -70,6 +70,6 @@ public class b {
     }
 
     public final void h(d.b.g0.a.e2.a aVar) {
-        this.f44381e = aVar;
+        this.f44773e = aVar;
     }
 }

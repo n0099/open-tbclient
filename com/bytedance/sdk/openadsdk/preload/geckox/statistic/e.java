@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.b bVar, b bVar2) {
         StatisticModel b2 = b(bVar, bVar2);
@@ -26,7 +26,7 @@ public class e {
         if (p != null) {
             try {
                 for (StatisticModel.PackageStatisticModel packageStatisticModel : b2.packages) {
-                    p.a("geckosdk_update_stats", a(packageStatisticModel, b2.f30325common));
+                    p.a("geckosdk_update_stats", a(packageStatisticModel, b2.f30010common));
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "UploadStatistic.upload:", th);
@@ -45,17 +45,17 @@ public class e {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("params_for_special", "gecko");
         jSONObject.put(Constants.KEY_DEVICE_ID, bVar.q());
-        jSONObject.put(IXAdRequestInfo.OS, 0);
+        jSONObject.put(IAdRequestParam.OS, 0);
         jSONObject.put("app_version", bVar.n());
         jSONObject.put(com.alipay.sdk.packet.e.j, "v3");
         jSONObject.put("aid", bVar.j());
-        jSONObject.put("x_tt_logid", bVar2.f30338e);
-        jSONObject.put("http_status", bVar2.f30340g);
-        jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, bVar2.f30337d);
-        if (TextUtils.isEmpty(bVar2.f30338e)) {
-            jSONObject.put("deployments_info", bVar2.f30335b);
-            jSONObject.put("local_info", bVar2.f30334a);
-            jSONObject.put("custom_info", bVar2.f30336c);
+        jSONObject.put("x_tt_logid", bVar2.f30023e);
+        jSONObject.put("http_status", bVar2.f30025g);
+        jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, bVar2.f30022d);
+        if (TextUtils.isEmpty(bVar2.f30023e)) {
+            jSONObject.put("deployments_info", bVar2.f30020b);
+            jSONObject.put("local_info", bVar2.f30019a);
+            jSONObject.put("custom_info", bVar2.f30021c);
         } else {
             jSONObject.put("deployments_info", "");
             jSONObject.put("local_info", "");
@@ -64,7 +64,7 @@ public class e {
         jSONObject.put("os_version", Build.VERSION.SDK_INT + "");
         jSONObject.put("device_platform", "android");
         jSONObject.put("device_model", Build.MODEL);
-        jSONObject.put("ac", bVar2.f30339f);
+        jSONObject.put("ac", bVar2.f30024f);
         return jSONObject;
     }
 
@@ -91,12 +91,12 @@ public class e {
                     } catch (Exception e2) {
                         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "upload statistic:", e2);
                     }
-                    if (a2.f30301c == 200) {
-                        if (new JSONObject(a2.f30300b).getInt("status") == 0) {
+                    if (a2.f29986c == 200) {
+                        if (new JSONObject(a2.f29985b).getInt("status") == 0) {
                             return;
                         }
                     } else {
-                        throw new NetworkErrorException("net work get failed, code: " + a2.f30301c + ", url:" + str2);
+                        throw new NetworkErrorException("net work get failed, code: " + a2.f29986c + ", url:" + str2);
                         break;
                     }
                 }
@@ -117,7 +117,7 @@ public class e {
         Long l = packageStatisticModel.patchId;
         jSONObject.put("patch_id", l == null ? 0L : l.longValue());
         jSONObject.put("group_name", packageStatisticModel.groupName);
-        jSONObject.put(IXAdRequestInfo.OS, common2.os);
+        jSONObject.put(IAdRequestParam.OS, common2.os);
         jSONObject.put("app_version", common2.appVersion);
         jSONObject.put("device_model", common2.deviceModel);
         jSONObject.put("channel", packageStatisticModel.channel);
@@ -145,55 +145,55 @@ public class e {
     public static StatisticModel b(com.bytedance.sdk.openadsdk.preload.geckox.b bVar, b bVar2) {
         ArrayList<StatisticModel.PackageStatisticModel> arrayList = new ArrayList();
         for (com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a aVar : bVar2.a()) {
-            if (aVar.f30329d == null && aVar.f30331f == 0) {
+            if (aVar.f30014d == null && aVar.f30016f == 0) {
                 a(aVar, bVar, bVar2, arrayList);
-            } else if (aVar.f30333h && aVar.i) {
+            } else if (aVar.f30018h && aVar.i) {
                 StatisticModel.PackageStatisticModel packageStatisticModel = new StatisticModel.PackageStatisticModel();
                 arrayList.add(packageStatisticModel);
                 packageStatisticModel.statsType = 100;
-                packageStatisticModel.groupName = aVar.f30327b;
-                packageStatisticModel.accessKey = aVar.f30326a;
-                packageStatisticModel.channel = aVar.f30328c;
+                packageStatisticModel.groupName = aVar.f30012b;
+                packageStatisticModel.accessKey = aVar.f30011a;
+                packageStatisticModel.channel = aVar.f30013c;
                 packageStatisticModel.ac = aVar.p;
                 packageStatisticModel.id = aVar.r;
                 packageStatisticModel.patchId = aVar.q;
-                packageStatisticModel.downloadRetryTimes = a(aVar.f30330e);
-                packageStatisticModel.downloadUrl = aVar.f30329d;
-                packageStatisticModel.downloadFailRecords = b(aVar.f30330e);
-                packageStatisticModel.downloadDuration = Long.valueOf(aVar.f30332g - aVar.f30331f);
+                packageStatisticModel.downloadRetryTimes = a(aVar.f30015e);
+                packageStatisticModel.downloadUrl = aVar.f30014d;
+                packageStatisticModel.downloadFailRecords = b(aVar.f30015e);
+                packageStatisticModel.downloadDuration = Long.valueOf(aVar.f30017g - aVar.f30016f);
                 if (!aVar.j) {
                     StatisticModel.PackageStatisticModel packageStatisticModel2 = new StatisticModel.PackageStatisticModel();
                     arrayList.add(packageStatisticModel2);
                     packageStatisticModel2.statsType = 100;
-                    packageStatisticModel2.channel = aVar.f30328c;
+                    packageStatisticModel2.channel = aVar.f30013c;
                     packageStatisticModel2.errCode = "403";
                     packageStatisticModel2.errMsg = aVar.t;
                     packageStatisticModel2.ac = aVar.p;
                     packageStatisticModel2.patchId = aVar.q;
                     packageStatisticModel2.id = aVar.r;
-                    packageStatisticModel2.downloadRetryTimes = a(aVar.f30330e);
-                    packageStatisticModel2.downloadUrl = aVar.f30329d;
-                    packageStatisticModel2.downloadFailRecords = b(aVar.f30330e);
+                    packageStatisticModel2.downloadRetryTimes = a(aVar.f30015e);
+                    packageStatisticModel2.downloadUrl = aVar.f30014d;
+                    packageStatisticModel2.downloadFailRecords = b(aVar.f30015e);
                     a(aVar, bVar, bVar2, arrayList);
                 } else if (aVar.k) {
                     StatisticModel.PackageStatisticModel packageStatisticModel3 = new StatisticModel.PackageStatisticModel();
                     arrayList.add(packageStatisticModel3);
-                    packageStatisticModel3.accessKey = aVar.f30326a;
-                    packageStatisticModel3.groupName = aVar.f30327b;
+                    packageStatisticModel3.accessKey = aVar.f30011a;
+                    packageStatisticModel3.groupName = aVar.f30012b;
                     packageStatisticModel3.statsType = 102;
                     packageStatisticModel3.patchId = aVar.q;
                     packageStatisticModel3.id = aVar.r;
-                    packageStatisticModel3.channel = aVar.f30328c;
-                    packageStatisticModel3.activeCheckDuration = Long.valueOf(aVar.n - aVar.f30332g);
+                    packageStatisticModel3.channel = aVar.f30013c;
+                    packageStatisticModel3.activeCheckDuration = Long.valueOf(aVar.n - aVar.f30017g);
                     packageStatisticModel3.applyDuration = Long.valueOf(aVar.o - aVar.n);
                 } else {
                     StatisticModel.PackageStatisticModel packageStatisticModel4 = new StatisticModel.PackageStatisticModel();
                     arrayList.add(packageStatisticModel4);
-                    packageStatisticModel4.accessKey = aVar.f30326a;
-                    packageStatisticModel4.groupName = aVar.f30327b;
+                    packageStatisticModel4.accessKey = aVar.f30011a;
+                    packageStatisticModel4.groupName = aVar.f30012b;
                     packageStatisticModel4.statsType = 103;
                     packageStatisticModel4.errCode = "501";
-                    packageStatisticModel4.channel = aVar.f30328c;
+                    packageStatisticModel4.channel = aVar.f30013c;
                     packageStatisticModel4.patchId = aVar.q;
                     packageStatisticModel4.id = aVar.r;
                     packageStatisticModel4.errMsg = aVar.u;
@@ -203,20 +203,20 @@ public class e {
                 StatisticModel.PackageStatisticModel packageStatisticModel5 = new StatisticModel.PackageStatisticModel();
                 arrayList.add(packageStatisticModel5);
                 packageStatisticModel5.statsType = 101;
-                packageStatisticModel5.accessKey = aVar.f30326a;
-                packageStatisticModel5.groupName = aVar.f30327b;
-                packageStatisticModel5.channel = aVar.f30328c;
+                packageStatisticModel5.accessKey = aVar.f30011a;
+                packageStatisticModel5.groupName = aVar.f30012b;
+                packageStatisticModel5.channel = aVar.f30013c;
                 packageStatisticModel5.ac = aVar.p;
                 packageStatisticModel5.patchId = aVar.q;
                 packageStatisticModel5.id = aVar.r;
-                packageStatisticModel5.downloadRetryTimes = a(aVar.f30330e);
-                packageStatisticModel5.downloadUrl = aVar.f30329d;
-                packageStatisticModel5.downloadFailRecords = b(aVar.f30330e);
-                if (!aVar.f30333h) {
+                packageStatisticModel5.downloadRetryTimes = a(aVar.f30015e);
+                packageStatisticModel5.downloadUrl = aVar.f30014d;
+                packageStatisticModel5.downloadFailRecords = b(aVar.f30015e);
+                if (!aVar.f30018h) {
                     packageStatisticModel5.errCode = "301";
-                    List<StatisticModel.PackageStatisticModel.DownloadFailRecords> list = aVar.f30330e;
+                    List<StatisticModel.PackageStatisticModel.DownloadFailRecords> list = aVar.f30015e;
                     if (list != null && !list.isEmpty()) {
-                        packageStatisticModel5.errMsg = aVar.f30330e.get(0).reason;
+                        packageStatisticModel5.errMsg = aVar.f30015e.get(0).reason;
                     }
                 } else if (!aVar.i) {
                     packageStatisticModel5.errCode = TbEnum.SystemMessage.EVENT_ID_PASSED_FRIEND;
@@ -232,7 +232,7 @@ public class e {
         }
         Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(a2), i.a(a2), bVar.k(), bVar.l());
         StatisticModel statisticModel = new StatisticModel();
-        statisticModel.f30325common = common2;
+        statisticModel.f30010common = common2;
         statisticModel.packages = arrayList;
         String uuid = UUID.randomUUID().toString();
         for (StatisticModel.PackageStatisticModel packageStatisticModel6 : arrayList) {
@@ -253,9 +253,9 @@ public class e {
             StatisticModel.PackageStatisticModel packageStatisticModel = new StatisticModel.PackageStatisticModel();
             list.add(packageStatisticModel);
             packageStatisticModel.statsType = 0;
-            packageStatisticModel.accessKey = aVar.f30326a;
-            packageStatisticModel.groupName = aVar.f30327b;
-            packageStatisticModel.channel = aVar.f30328c;
+            packageStatisticModel.accessKey = aVar.f30011a;
+            packageStatisticModel.groupName = aVar.f30012b;
+            packageStatisticModel.channel = aVar.f30013c;
             packageStatisticModel.ac = aVar.p;
             packageStatisticModel.id = aVar.r;
             packageStatisticModel.downloadRetryTimes = a(aVar.w);
@@ -265,11 +265,11 @@ public class e {
             if (aVar.D) {
                 StatisticModel.PackageStatisticModel packageStatisticModel2 = new StatisticModel.PackageStatisticModel();
                 list.add(packageStatisticModel2);
-                packageStatisticModel2.accessKey = aVar.f30326a;
-                packageStatisticModel2.groupName = aVar.f30327b;
+                packageStatisticModel2.accessKey = aVar.f30011a;
+                packageStatisticModel2.groupName = aVar.f30012b;
                 packageStatisticModel2.statsType = 2;
                 packageStatisticModel2.id = aVar.r;
-                packageStatisticModel2.channel = aVar.f30328c;
+                packageStatisticModel2.channel = aVar.f30013c;
                 packageStatisticModel2.activeCheckDuration = Long.valueOf(aVar.z - aVar.y);
                 packageStatisticModel2.applyDuration = Long.valueOf(aVar.A - aVar.z);
                 return;
@@ -277,20 +277,20 @@ public class e {
             StatisticModel.PackageStatisticModel packageStatisticModel3 = new StatisticModel.PackageStatisticModel();
             list.add(packageStatisticModel3);
             packageStatisticModel3.statsType = 3;
-            packageStatisticModel3.accessKey = aVar.f30326a;
-            packageStatisticModel3.groupName = aVar.f30327b;
+            packageStatisticModel3.accessKey = aVar.f30011a;
+            packageStatisticModel3.groupName = aVar.f30012b;
             packageStatisticModel3.errCode = "500";
             packageStatisticModel3.id = aVar.r;
-            packageStatisticModel3.channel = aVar.f30328c;
+            packageStatisticModel3.channel = aVar.f30013c;
             packageStatisticModel3.errMsg = aVar.F;
             return;
         }
         StatisticModel.PackageStatisticModel packageStatisticModel4 = new StatisticModel.PackageStatisticModel();
         list.add(packageStatisticModel4);
         packageStatisticModel4.statsType = 1;
-        packageStatisticModel4.accessKey = aVar.f30326a;
-        packageStatisticModel4.groupName = aVar.f30327b;
-        packageStatisticModel4.channel = aVar.f30328c;
+        packageStatisticModel4.accessKey = aVar.f30011a;
+        packageStatisticModel4.groupName = aVar.f30012b;
+        packageStatisticModel4.channel = aVar.f30013c;
         packageStatisticModel4.ac = aVar.p;
         packageStatisticModel4.id = aVar.r;
         packageStatisticModel4.downloadRetryTimes = a(aVar.w);

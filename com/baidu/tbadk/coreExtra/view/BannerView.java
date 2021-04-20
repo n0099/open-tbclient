@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.f0;
-import d.b.i0.r2.t;
+import d.b.i0.s2.w;
 /* loaded from: classes3.dex */
 public class BannerView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13736e;
+    public String f13397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13737f;
+    public String f13398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f13738g;
+    public Button f13399g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f13739h;
+    public TbImageView f13400h;
     public TbPageContext<?> i;
     public TbImageView j;
     public View k;
@@ -53,9 +53,9 @@ public class BannerView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             BannerView bannerView = BannerView.this;
-            if (view == bannerView.f13738g) {
-                if (!TextUtils.isEmpty(bannerView.f13737f)) {
-                    TiebaStatic.log(BannerView.this.f13737f);
+            if (view == bannerView.f13399g) {
+                if (!TextUtils.isEmpty(bannerView.f13398f)) {
+                    TiebaStatic.log(BannerView.this.f13398f);
                 }
                 BannerView.this.l = true;
                 BannerView.this.setVisibility(8);
@@ -65,8 +65,8 @@ public class BannerView extends RelativeLayout {
                 }
                 return;
             }
-            if (!TextUtils.isEmpty(bannerView.f13736e)) {
-                TiebaStatic.log(BannerView.this.f13736e);
+            if (!TextUtils.isEmpty(bannerView.f13397e)) {
+                TiebaStatic.log(BannerView.this.f13397e);
             }
             if (BannerView.this.r == null) {
                 if (TextUtils.isEmpty(BannerView.this.n)) {
@@ -96,8 +96,8 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13736e = "";
-        this.f13737f = "";
+        this.f13397e = "";
+        this.f13398f = "";
         this.l = false;
         this.m = 0.16875f;
         this.o = false;
@@ -106,18 +106,18 @@ public class BannerView extends RelativeLayout {
     }
 
     public TbImageView getBannerView() {
-        return this.f13739h;
+        return this.f13400h;
     }
 
     public final void h(Context context) {
         LayoutInflater.from(context).inflate(R.layout.bannerview, this);
         Button button = (Button) findViewById(R.id.btn_close);
-        this.f13738g = button;
+        this.f13399g = button;
         button.setOnClickListener(this.s);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.banner_image);
-        this.f13739h = tbImageView;
+        this.f13400h = tbImageView;
         tbImageView.setAutoChangeStyle(true);
-        this.f13739h.setOnClickListener(this.s);
+        this.f13400h.setOnClickListener(this.s);
         this.j = (TbImageView) findViewById(R.id.tv_advert);
         View findViewById = findViewById(R.id.banner_mask);
         this.k = findViewById;
@@ -129,7 +129,7 @@ public class BannerView extends RelativeLayout {
     }
 
     public void j() {
-        this.f13739h.postInvalidate();
+        this.f13400h.postInvalidate();
     }
 
     public void k() {
@@ -139,7 +139,7 @@ public class BannerView extends RelativeLayout {
 
     public void setBannerData(f0 f0Var) {
         this.p = f0Var;
-        t.k(f0Var.f50785g, this.j, f0Var.f50786h, l.g(getContext(), R.dimen.ds26));
+        w.k(f0Var.f51192g, this.j, f0Var.f51193h, l.g(getContext(), R.dimen.ds26));
     }
 
     public void setBannerMaskColor(int i) {
@@ -155,7 +155,7 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewEvent(TbImageView.f fVar) {
-        TbImageView tbImageView = this.f13739h;
+        TbImageView tbImageView = this.f13400h;
         if (tbImageView == null || fVar == null) {
             return;
         }
@@ -168,11 +168,11 @@ public class BannerView extends RelativeLayout {
         this.o = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
         if (!this.l && this.o) {
-            ViewGroup.LayoutParams layoutParams = this.f13739h.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f13400h.getLayoutParams();
             layoutParams.width = l.k(getContext());
             layoutParams.height = (int) ((l.k(getContext()) * this.m) + 0.5d);
-            this.f13739h.setLayoutParams(layoutParams);
-            this.f13739h.T(str, 10, 640, 108, false);
+            this.f13400h.setLayoutParams(layoutParams);
+            this.f13400h.T(str, 10, 640, 108, false);
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.height = layoutParams.height;
@@ -186,8 +186,8 @@ public class BannerView extends RelativeLayout {
         if (str == null || str2 == null) {
             return;
         }
-        this.f13736e = str;
-        this.f13737f = str2;
+        this.f13397e = str;
+        this.f13398f = str2;
     }
 
     public void setTagViewVisible(boolean z) {

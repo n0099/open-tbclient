@@ -1,0 +1,15 @@
+package d.b.c.h.j.e;
+
+import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
+/* loaded from: classes.dex */
+public interface a {
+    void a(BdFileDownloadData bdFileDownloadData);
+
+    boolean b(BdFileDownloadData bdFileDownloadData);
+
+    boolean c(BdFileDownloadData bdFileDownloadData);
+
+    void d(BdFileDownloadData bdFileDownloadData);
+
+    void e(BdFileDownloadData bdFileDownloadData, int i, String str, String str2);
+}

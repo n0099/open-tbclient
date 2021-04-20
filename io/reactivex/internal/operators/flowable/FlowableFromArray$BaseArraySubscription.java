@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.x.b.a;
-import f.a.x.i.b;
+import f.b.x.b.a;
+import f.b.x.i.b;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 /* loaded from: classes7.dex */
@@ -20,19 +20,19 @@ public abstract class FlowableFromArray$BaseArraySubscription<T> extends BasicQu
         this.cancelled = true;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final void clear() {
         this.index = this.array.length;
     }
 
     public abstract void fastPath();
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final boolean isEmpty() {
         return this.index == this.array.length;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final T poll() {
         int i = this.index;
         T[] tArr = this.array;
@@ -56,7 +56,7 @@ public abstract class FlowableFromArray$BaseArraySubscription<T> extends BasicQu
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.c
     public final int requestFusion(int i) {
         return i & 1;
     }

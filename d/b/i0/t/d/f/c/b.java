@@ -7,28 +7,28 @@ import org.json.JSONObject;
 public class b extends BaseCardInfo {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f60531g = BdUniqueId.gen();
+    public static final BdUniqueId f62095g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60532e;
+    public String f62096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60533f;
+    public String f62097f;
 
     public void g(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f60532e = jSONObject.optString("url");
-        this.f60533f = jSONObject.optString("pic");
+        this.f62096e = jSONObject.optString("url");
+        this.f62097f = jSONObject.optString("pic");
         jSONObject.optLong("start_time", 0L);
         jSONObject.optLong("end_time", 0L);
         jSONObject.optString("name");
         jSONObject.optInt("id");
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f60531g;
+        return f62095g;
     }
 }

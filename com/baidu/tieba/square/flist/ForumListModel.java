@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.wallet.utils.ContactPermissionUtil;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.r.r.a;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     public static final String KEY = "_list";
     public static boolean isOk = false;
@@ -27,14 +27,14 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class List extends OrmObject implements Serializable {
         public static final long serialVersionUID = -3206282936395220632L;
         public ForumInfoData[] forum_list;
         public int has_more = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         public static final long serialVersionUID = -8487620337266534315L;
         public int rn = 6;

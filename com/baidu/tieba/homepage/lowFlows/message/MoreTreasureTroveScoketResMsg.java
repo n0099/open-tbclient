@@ -2,13 +2,13 @@ package com.baidu.tieba.homepage.lowFlows.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.b.j.e.n;
-import d.b.i0.z0.f.e.a;
-import d.b.i0.z0.f.h.c;
+import d.b.c.j.e.n;
+import d.b.i0.a1.f.e.a;
+import d.b.i0.a1.f.h.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements a {
     public List<n> mMoreTreasureTroveDataList;
 
@@ -16,7 +16,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         super(309691);
     }
 
-    @Override // d.b.i0.z0.f.e.a
+    @Override // d.b.i0.a1.f.e.a
     public List<n> getDataList() {
         return this.mMoreTreasureTroveDataList;
     }

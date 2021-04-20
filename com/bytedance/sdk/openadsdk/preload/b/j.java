@@ -3,11 +3,11 @@ package com.bytedance.sdk.openadsdk.preload.b;
 import com.bytedance.sdk.openadsdk.preload.b.i;
 import com.bytedance.sdk.openadsdk.preload.b.l;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class j<IN, OUT> extends l<IN, OUT> {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30170d;
+    public String f29855d;
 
     public abstract String a(b<OUT> bVar, IN in);
 
@@ -20,21 +20,21 @@ public abstract class j<IN, OUT> extends l<IN, OUT> {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public final Object a_(b<OUT> bVar, IN in) throws Throwable {
-        this.f30170d = a(new m(bVar), in);
-        l.a aVar = a().get(this.f30170d);
+        this.f29855d = a(new m(bVar), in);
+        l.a aVar = a().get(this.f29855d);
         while (aVar != null) {
-            List<h> list = aVar.f30173a;
+            List<h> list = aVar.f29858a;
             try {
-                Object a2 = c.a(list, bVar.f30166a, this).a((b) in);
+                Object a2 = c.a(list, bVar.f29851a, this).a((b) in);
                 return !a(list) ? a2 : bVar.a((b<OUT>) a2);
             } catch (i.a e2) {
-                this.f30170d = a(new m(bVar), in, e2.getCause(), this.f30170d);
-                aVar = a().get(this.f30170d);
+                this.f29855d = a(new m(bVar), in, e2.getCause(), this.f29855d);
+                aVar = a().get(this.f29855d);
             } catch (Throwable th) {
-                this.f30170d = a(new m(bVar), in, th, this.f30170d);
-                aVar = a().get(this.f30170d);
+                this.f29855d = a(new m(bVar), in, th, this.f29855d);
+                aVar = a().get(this.f29855d);
             }
         }
-        throw new IllegalArgumentException("can not found branch，branch name is：" + this.f30170d);
+        throw new IllegalArgumentException("can not found branch，branch name is：" + this.f29855d);
     }
 }

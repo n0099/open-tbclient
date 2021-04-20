@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
@@ -14,7 +15,7 @@ public class PushDialogActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra("task_id", j);
         intent.putExtra("thread_id", str);
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         TiebaStatic.eventStat(context, "push_dialog", "before_start");
     }
 }

@@ -3,39 +3,39 @@ package com.baidu.platform.comapi.wnplatform.model.datastruct;
 public class a implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public double f10324a;
+    public double f9882a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f10325b;
+    public double f9883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f10326c;
+    public double f9884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f10327d;
+    public double f9885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f10328e;
+    public double f9886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f10329f;
+    public double f9887f;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: a */
     public a clone() {
         a aVar = new a();
         synchronized (this) {
-            aVar.f10324a = this.f10324a;
-            aVar.f10325b = this.f10325b;
-            aVar.f10326c = this.f10326c;
-            aVar.f10327d = this.f10327d;
-            aVar.f10328e = this.f10328e;
-            aVar.f10329f = this.f10329f;
+            aVar.f9882a = this.f9882a;
+            aVar.f9883b = this.f9883b;
+            aVar.f9884c = this.f9884c;
+            aVar.f9885d = this.f9885d;
+            aVar.f9886e = this.f9886e;
+            aVar.f9887f = this.f9887f;
         }
         return aVar;
     }
 
     public String toString() {
-        return String.format("SensorData {accx:%1$f accy:%2$f accz:%3$f heading:%4$f pitch:%5$f roll:%6$f}", Double.valueOf(this.f10324a), Double.valueOf(this.f10325b), Double.valueOf(this.f10326c), Double.valueOf(this.f10327d), Double.valueOf(this.f10328e), Double.valueOf(this.f10329f));
+        return String.format("SensorData {accx:%1$f accy:%2$f accz:%3$f heading:%4$f pitch:%5$f roll:%6$f}", Double.valueOf(this.f9882a), Double.valueOf(this.f9883b), Double.valueOf(this.f9884c), Double.valueOf(this.f9885d), Double.valueOf(this.f9886e), Double.valueOf(this.f9887f));
     }
 }

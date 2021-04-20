@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i extends d.b.g0.a.e0.l.c {
-    public static final boolean E0 = k.f45051a;
+    public static final boolean E0 = k.f45443a;
     public String A0;
     public String B0;
     public String C0;
@@ -33,7 +33,7 @@ public class i extends d.b.g0.a.e0.l.c {
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-        public boolean G1() {
+        public boolean H1() {
             return i.this.D0;
         }
     }
@@ -73,18 +73,18 @@ public class i extends d.b.g0.a.e0.l.c {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.g0.a.e1.b f44030a;
+        public d.b.g0.a.e1.b f44422a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f44031b = new JSONObject();
+        public JSONObject f44423b = new JSONObject();
 
         public d(String str) {
-            this.f44030a = d.b.g0.a.e1.b.c(str, str);
+            this.f44422a = d.b.g0.a.e1.b.c(str, str);
         }
 
         public d a(boolean z) {
             try {
-                this.f44031b.put("should_check_domain", z);
+                this.f44423b.put("should_check_domain", z);
             } catch (JSONException e2) {
                 if (i.E0) {
                     e2.printStackTrace();
@@ -95,7 +95,7 @@ public class i extends d.b.g0.a.e0.l.c {
 
         public d b(String str) {
             try {
-                this.f44031b.put("fallback_title", str);
+                this.f44423b.put("fallback_title", str);
             } catch (JSONException e2) {
                 if (i.E0) {
                     e2.printStackTrace();
@@ -105,8 +105,8 @@ public class i extends d.b.g0.a.e0.l.c {
         }
 
         public void c() {
-            this.f44030a.f44363b = this.f44031b.toString();
-            i.K2("default_webview", this.f44030a);
+            this.f44422a.f44755b = this.f44423b.toString();
+            i.K2("default_webview", this.f44422a);
         }
     }
 
@@ -118,7 +118,7 @@ public class i extends d.b.g0.a.e0.l.c {
         }
         d.b.g0.a.c0.c.g("SwanAppWebViewFragment", "page closed! ");
         f.b h2 = W.h();
-        h2.n(f.i, f.f44014h);
+        h2.n(f.i, f.f44406h);
         h2.g();
         h2.a();
         return true;
@@ -209,9 +209,9 @@ public class i extends d.b.g0.a.e0.l.c {
             d.b.g0.a.c0.c.g("SwanAppWebViewFragment", "open page failed");
             return false;
         }
-        d.b.g0.a.c0.c.g("SwanAppWebViewFragment", "open page url=" + bVar.f44364c);
+        d.b.g0.a.c0.c.g("SwanAppWebViewFragment", "open page url=" + bVar.f44756c);
         f.b h2 = W.h();
-        h2.n(f.f44013g, f.i);
+        h2.n(f.f44405g, f.i);
         h2.k(str, bVar).b();
         return true;
     }
@@ -270,8 +270,8 @@ public class i extends d.b.g0.a.e0.l.c {
     public void M2(d.b.g0.a.e1.b bVar) {
         if (bVar != null) {
             Bundle bundle = new Bundle();
-            bundle.putString("url", bVar.f44364c);
-            bundle.putString("params", bVar.f44363b);
+            bundle.putString("url", bVar.f44756c);
+            bundle.putString("params", bVar.f44755b);
             d1(bundle);
         }
     }
@@ -343,7 +343,7 @@ public class i extends d.b.g0.a.e0.l.c {
         d.b.g0.a.p.d.e n = n();
         this.y0 = n;
         n.P(G2());
-        this.z0 = this.y0.getWebView();
+        this.z0 = this.y0.F();
         this.y0.loadUrl(this.A0);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(d.b.g0.a.f.aiapps_webView_container);
         this.y0.m(frameLayout, this.z0.covertToView());

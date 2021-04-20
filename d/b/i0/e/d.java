@@ -5,16 +5,16 @@ import android.view.View;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54191a;
+    public int f55074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54192b;
+    public View f55075b;
 
     public View a() {
-        return this.f54192b;
+        return this.f55075b;
     }
 
     public void b(View view) {
-        this.f54192b = view;
+        this.f55075b = view;
     }
 }

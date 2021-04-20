@@ -6,37 +6,37 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-import d.b.i0.d1.h.g;
-/* loaded from: classes3.dex */
+import d.b.i0.e1.h.g;
+/* loaded from: classes4.dex */
 public class Static {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0198a extends f0<Void> {
+        /* loaded from: classes4.dex */
+        public class C0200a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f17909a;
+            public final /* synthetic */ CustomResponsedMessage f17586a;
 
-            public C0198a(a aVar, CustomResponsedMessage customResponsedMessage) {
-                this.f17909a = customResponsedMessage;
+            public C0200a(a aVar, CustomResponsedMessage customResponsedMessage) {
+                this.f17586a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (this.f17909a.getData() instanceof String) {
-                    g.a((String) this.f17909a.getData());
+                if (this.f17586a.getData() instanceof String) {
+                    g.a((String) this.f17586a.getData());
                     return null;
                 }
                 return null;
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements n<Void> {
             public b(a aVar) {
             }
@@ -59,7 +59,7 @@ public class Static {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            h0.c(new C0198a(this, customResponsedMessage), new b(this));
+            h0.c(new C0200a(this, customResponsedMessage), new b(this));
         }
     }
 

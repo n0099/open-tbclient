@@ -7,27 +7,27 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ShareItem f50645a;
+    public ShareItem f51052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f50646b;
+    public Activity f51053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50647c;
+    public int f51054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f50648d;
+    public DialogInterface.OnCancelListener f51055d;
 
     public a(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
-        this.f50645a = shareItem;
-        this.f50646b = activity;
-        this.f50648d = onCancelListener;
+        this.f51052a = shareItem;
+        this.f51053b = activity;
+        this.f51055d = onCancelListener;
     }
 
     public a(ShareItem shareItem, Activity activity, int i, DialogInterface.OnCancelListener onCancelListener) {
-        this.f50645a = shareItem;
-        this.f50646b = activity;
-        this.f50647c = i;
-        this.f50648d = onCancelListener;
+        this.f51052a = shareItem;
+        this.f51053b = activity;
+        this.f51054c = i;
+        this.f51055d = onCancelListener;
     }
 }

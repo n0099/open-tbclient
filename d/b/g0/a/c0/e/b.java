@@ -7,7 +7,7 @@ import android.os.Message;
 import android.os.Process;
 import android.util.Log;
 import android.view.Choreographer;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import d.b.g0.a.f2.e;
 import d.b.g0.a.i2.p;
 import d.b.g0.a.k;
@@ -20,10 +20,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes2.dex */
 public class b {
-    public static final boolean i = k.f45051a;
-    public static final String j = d.b.g0.a.f2.d.f44463d.f44458a;
-    public static final String k = d.b.g0.a.f2.d.f44461b.f44458a;
-    public static final String l = d.b.g0.a.f2.d.f44462c.f44458a;
+    public static final boolean i = k.f45443a;
+    public static final String j = d.b.g0.a.f2.d.f44855d.f44850a;
+    public static final String k = d.b.g0.a.f2.d.f44853b.f44850a;
+    public static final String l = d.b.g0.a.f2.d.f44854c.f44850a;
     public static final String m;
     public static final String n;
     public static final String o;
@@ -32,37 +32,37 @@ public class b {
     public static final String r;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f43656a;
+    public e f44048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f43657b;
+    public f f44049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f43658c;
+    public c f44050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RunnableC0623b f43659d;
+    public RunnableC0635b f44051d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentMap<String, Object> f43660e;
+    public ConcurrentMap<String, Object> f44052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43661f;
+    public boolean f44053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43662g;
+    public int f44054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43663h;
+    public int f44055h;
 
     /* renamed from: d.b.g0.a.c0.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0623b implements Runnable {
+    public class RunnableC0635b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f43664e;
+        public boolean f44056e;
 
-        public RunnableC0623b() {
+        public RunnableC0635b() {
         }
 
         /* JADX WARN: Can't wrap try/catch for region: R(10:4|(1:7)|8|(6:10|(1:13)|14|15|16|17)|(1:25)(1:30)|(1:29)|14|15|16|17) */
@@ -123,7 +123,7 @@ public class b {
         @Override // java.lang.Runnable
         public void run() {
             BufferedReader bufferedReader;
-            this.f43664e = true;
+            this.f44056e = true;
             if (b.i) {
                 Log.d("PropertyMonitor", "start cpu monitor thread");
             }
@@ -131,16 +131,16 @@ public class b {
             int myPid = Process.myPid();
             try {
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", "top -n 1 | grep " + myPid}).getInputStream()));
-                } catch (IOException e2) {
-                    e = e2;
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{IAdRequestParam.SCREEN_HEIGHT, "-c", "top -n 1 | grep " + myPid}).getInputStream()));
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (IOException e2) {
+                e = e2;
             }
             try {
                 String b2 = b(bufferedReader);
-                b.this.f43660e.put("cpu", b2);
+                b.this.f44052e.put("cpu", b2);
                 if (b.i) {
                     Log.d("PropertyMonitor", "stop cpu monitor thread , cpu rate is : " + b2);
                 }
@@ -152,15 +152,15 @@ public class b {
                     Log.e("PropertyMonitor", "error in cpu monitor", e);
                 }
                 d.b.g0.p.d.a(bufferedReader2);
-                this.f43664e = false;
+                this.f44056e = false;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader2 = bufferedReader;
                 d.b.g0.p.d.a(bufferedReader2);
-                this.f43664e = false;
+                this.f44056e = false;
                 throw th;
             }
-            this.f43664e = false;
+            this.f44056e = false;
         }
     }
 
@@ -168,26 +168,26 @@ public class b {
     public class c implements Choreographer.FrameCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f43666e;
+        public long f44058e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f43667f;
+        public int f44059f;
 
         public c() {
-            this.f43666e = -1L;
-            this.f43667f = -1;
+            this.f44058e = -1L;
+            this.f44059f = -1;
         }
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j) {
             int i;
-            if (b.this.f43661f) {
-                long j2 = this.f43666e;
-                if (j2 > 0 && this.f43667f != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
-                    this.f43667f = i;
-                    b.this.f43660e.put("frame", Integer.valueOf(i));
+            if (b.this.f44053f) {
+                long j2 = this.f44058e;
+                if (j2 > 0 && this.f44059f != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
+                    this.f44059f = i;
+                    b.this.f44052e.put("frame", Integer.valueOf(i));
                 }
-                this.f43666e = j;
+                this.f44058e = j;
                 Choreographer.getInstance().postFrameCallback(this);
             }
         }
@@ -197,7 +197,7 @@ public class b {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f43669a = new b();
+        public static final b f44061a = new b();
     }
 
     /* loaded from: classes2.dex */
@@ -207,11 +207,11 @@ public class b {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (b.this.f43660e != null) {
+            if (b.this.f44052e != null) {
                 b.this.g();
-                b.this.f43660e.put("mem", Long.valueOf(((ActivityManager) d.b.g0.a.w0.a.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
-                if (b.this.f43656a != null) {
-                    b.this.f43656a.sendEmptyMessageDelayed(0, b.this.f43662g);
+                b.this.f44052e.put("mem", Long.valueOf(((ActivityManager) d.b.g0.a.w0.a.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
+                if (b.this.f44048a != null) {
+                    b.this.f44048a.sendEmptyMessageDelayed(0, b.this.f44054g);
                 }
             }
         }
@@ -230,62 +230,62 @@ public class b {
                 return;
             }
             for (d.b.g0.a.f2.c<?> cVar : set) {
-                b.this.f43660e.put(cVar.f44458a, cVar.a());
+                b.this.f44052e.put(cVar.f44850a, cVar.a());
             }
         }
     }
 
     static {
-        String str = d.b.g0.a.f2.d.f44466g.f44458a;
-        m = d.b.g0.a.f2.d.i.f44458a;
-        n = d.b.g0.a.f2.d.f44464e.f44458a;
-        o = d.b.g0.a.f2.d.f44465f.f44458a;
-        p = d.b.g0.a.f2.d.f44467h.f44458a;
-        q = d.b.g0.a.f2.d.j.f44458a;
-        r = d.b.g0.a.f2.d.k.f44458a;
+        String str = d.b.g0.a.f2.d.f44858g.f44850a;
+        m = d.b.g0.a.f2.d.i.f44850a;
+        n = d.b.g0.a.f2.d.f44856e.f44850a;
+        o = d.b.g0.a.f2.d.f44857f.f44850a;
+        p = d.b.g0.a.f2.d.f44859h.f44850a;
+        q = d.b.g0.a.f2.d.j.f44850a;
+        r = d.b.g0.a.f2.d.k.f44850a;
     }
 
     public static b h() {
-        return d.f43669a;
+        return d.f44061a;
     }
 
     public final void g() {
-        if (this.f43659d.f43664e) {
+        if (this.f44051d.f44056e) {
             return;
         }
-        p.k(this.f43659d, "swanAppCpuMonitor");
+        p.k(this.f44051d, "swanAppCpuMonitor");
     }
 
     public Map<String, Object> i() {
-        this.f43663h++;
+        this.f44055h++;
         k();
-        return this.f43660e;
+        return this.f44052e;
     }
 
     public void j() {
-        int i2 = this.f43663h - 1;
-        this.f43663h = i2;
+        int i2 = this.f44055h - 1;
+        this.f44055h = i2;
         if (i2 <= 0) {
             l();
         }
     }
 
     public final void k() {
-        if (this.f43661f) {
+        if (this.f44053f) {
             if (i) {
                 Log.d("PropertyMonitor", "System monitor already started");
                 return;
             }
             return;
         }
-        this.f43661f = true;
-        this.f43658c = new c();
-        Choreographer.getInstance().postFrameCallback(this.f43658c);
-        this.f43659d = new RunnableC0623b();
-        this.f43657b = new f();
-        d.b.g0.a.f2.e.a().g(this.f43657b, d.b.g0.a.f2.d.f44463d, d.b.g0.a.f2.d.f44461b, d.b.g0.a.f2.d.f44462c, d.b.g0.a.f2.d.i, d.b.g0.a.f2.d.f44464e, d.b.g0.a.f2.d.f44465f, d.b.g0.a.f2.d.f44466g, d.b.g0.a.f2.d.f44467h, d.b.g0.a.f2.d.j, d.b.g0.a.f2.d.k);
+        this.f44053f = true;
+        this.f44050c = new c();
+        Choreographer.getInstance().postFrameCallback(this.f44050c);
+        this.f44051d = new RunnableC0635b();
+        this.f44049b = new f();
+        d.b.g0.a.f2.e.a().g(this.f44049b, d.b.g0.a.f2.d.f44855d, d.b.g0.a.f2.d.f44853b, d.b.g0.a.f2.d.f44854c, d.b.g0.a.f2.d.i, d.b.g0.a.f2.d.f44856e, d.b.g0.a.f2.d.f44857f, d.b.g0.a.f2.d.f44858g, d.b.g0.a.f2.d.f44859h, d.b.g0.a.f2.d.j, d.b.g0.a.f2.d.k);
         e eVar = new e();
-        this.f43656a = eVar;
+        this.f44048a = eVar;
         eVar.sendEmptyMessage(0);
         if (i) {
             Log.d("PropertyMonitor", "Start system monitor");
@@ -293,32 +293,32 @@ public class b {
     }
 
     public final void l() {
-        if (!this.f43661f) {
+        if (!this.f44053f) {
             if (i) {
                 Log.d("PropertyMonitor", "System monitor not started yet");
                 return;
             }
             return;
         }
-        this.f43661f = false;
-        e eVar = this.f43656a;
+        this.f44053f = false;
+        e eVar = this.f44048a;
         if (eVar != null) {
             eVar.removeMessages(0);
-            this.f43656a = null;
+            this.f44048a = null;
         }
-        if (this.f43657b != null) {
-            d.b.g0.a.f2.e.a().j(this.f43657b, new d.b.g0.a.f2.c[0]);
-            this.f43657b = null;
+        if (this.f44049b != null) {
+            d.b.g0.a.f2.e.a().j(this.f44049b, new d.b.g0.a.f2.c[0]);
+            this.f44049b = null;
         }
-        this.f43658c = null;
-        this.f43659d = null;
+        this.f44050c = null;
+        this.f44051d = null;
         if (i) {
             Log.d("PropertyMonitor", "Stop system monitor");
         }
     }
 
     public b() {
-        this.f43660e = new ConcurrentHashMap();
-        this.f43662g = 1000;
+        this.f44052e = new ConcurrentHashMap();
+        this.f44054g = 1000;
     }
 }

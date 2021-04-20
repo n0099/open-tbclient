@@ -3,22 +3,22 @@ package h.s;
 public final class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f68006a;
+    public final long f69016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f68007b;
+    public final T f69017b;
 
     public a(long j, T t) {
-        this.f68007b = t;
-        this.f68006a = j;
+        this.f69017b = t;
+        this.f69016a = j;
     }
 
     public long a() {
-        return this.f68006a;
+        return this.f69016a;
     }
 
     public T b() {
-        return this.f68007b;
+        return this.f69017b;
     }
 
     public boolean equals(Object obj) {
@@ -27,9 +27,9 @@ public final class a<T> {
         }
         if (obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
-            if (this.f68006a == aVar.f68006a) {
-                T t = this.f68007b;
-                T t2 = aVar.f68007b;
+            if (this.f69016a == aVar.f69016a) {
+                T t = this.f69017b;
+                T t2 = aVar.f69017b;
                 if (t == t2) {
                     return true;
                 }
@@ -43,13 +43,13 @@ public final class a<T> {
     }
 
     public int hashCode() {
-        long j = this.f68006a;
+        long j = this.f69016a;
         int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
-        T t = this.f68007b;
+        T t = this.f69017b;
         return i + (t == null ? 0 : t.hashCode());
     }
 
     public String toString() {
-        return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.f68006a), this.f68007b.toString());
+        return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.f69016a), this.f69017b.toString());
     }
 }

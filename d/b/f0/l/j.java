@@ -17,22 +17,22 @@ import java.util.jar.JarFile;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43029a;
+    public static String f43421a;
 
     public static String a(Context context) {
         try {
         } catch (Throwable th) {
             c.d(th);
         }
-        if (!TextUtils.isEmpty(f43029a)) {
-            return f43029a;
+        if (!TextUtils.isEmpty(f43421a)) {
+            return f43421a;
         }
         PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
         if (packageInfo == null) {
             return "";
         }
-        f43029a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
-        return f43029a;
+        f43421a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
+        return f43421a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */

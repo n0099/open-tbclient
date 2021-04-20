@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnknownFieldMap {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
     public Map<Integer, List<FieldValue>> fieldMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class FieldValue {
         public final int tag;
         public final WireType wireType;
@@ -61,7 +61,7 @@ public final class UnknownFieldMap {
         public abstract void write(int i, WireOutput wireOutput) throws IOException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Fixed32FieldValue extends FieldValue {
         public final Integer value;
 
@@ -87,7 +87,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Fixed64FieldValue extends FieldValue {
         public final Long value;
 
@@ -113,7 +113,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LengthDelimitedFieldValue extends FieldValue {
         public final ByteString value;
 
@@ -140,7 +140,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public enum UnknownFieldType {
         VARINT,
         FIXED32,
@@ -174,7 +174,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class VarintFieldValue extends FieldValue {
         public final Long value;
 

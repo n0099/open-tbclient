@@ -17,16 +17,16 @@ import java.util.List;
 public class AlaRecentHistoryFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaRecentHistoryModel f14821e;
+    public AlaRecentHistoryModel f14484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.t.d.e.c.a f14822f;
+    public d.b.i0.t.d.e.c.a f14485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14823g;
+    public int f14486g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f14824h;
+    public h f14487h;
     public f.g i = new a();
     public BdListView.p j = new b();
     public AlaRecentHistoryModel.b k = new c();
@@ -38,8 +38,8 @@ public class AlaRecentHistoryFragment extends BaseFragment {
 
         @Override // d.b.h0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            if (AlaRecentHistoryFragment.this.f14821e != null) {
-                AlaRecentHistoryFragment.this.f14821e.B();
+            if (AlaRecentHistoryFragment.this.f14484e != null) {
+                AlaRecentHistoryFragment.this.f14484e.B();
             }
         }
     }
@@ -51,8 +51,8 @@ public class AlaRecentHistoryFragment extends BaseFragment {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (AlaRecentHistoryFragment.this.f14821e != null) {
-                AlaRecentHistoryFragment.this.f14821e.A();
+            if (AlaRecentHistoryFragment.this.f14484e != null) {
+                AlaRecentHistoryFragment.this.f14484e.A();
             }
         }
     }
@@ -64,29 +64,29 @@ public class AlaRecentHistoryFragment extends BaseFragment {
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
         public void a(boolean z, List<d.b.i0.t.d.e.b.b> list) {
-            AlaRecentHistoryFragment.this.f14822f.e();
+            AlaRecentHistoryFragment.this.f14485f.e();
             AlaRecentHistoryFragment alaRecentHistoryFragment = AlaRecentHistoryFragment.this;
-            alaRecentHistoryFragment.hideLoadingView(alaRecentHistoryFragment.f14822f.g());
-            AlaRecentHistoryFragment.this.f14822f.o(list, z);
+            alaRecentHistoryFragment.hideLoadingView(alaRecentHistoryFragment.f14485f.g());
+            AlaRecentHistoryFragment.this.f14485f.o(list, z);
             if (!ListUtils.isEmpty(list)) {
                 AlaRecentHistoryFragment.this.L0(false, null, null);
                 return;
             }
-            String string = AlaRecentHistoryFragment.this.f14823g == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip);
+            String string = AlaRecentHistoryFragment.this.f14486g == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip);
             AlaRecentHistoryFragment alaRecentHistoryFragment2 = AlaRecentHistoryFragment.this;
-            alaRecentHistoryFragment2.L0(true, alaRecentHistoryFragment2.f14822f.g(), string);
+            alaRecentHistoryFragment2.L0(true, alaRecentHistoryFragment2.f14485f.g(), string);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
         public void b(int i, String str, boolean z) {
-            AlaRecentHistoryFragment.this.f14822f.e();
+            AlaRecentHistoryFragment.this.f14485f.e();
             if (z) {
                 AlaRecentHistoryFragment.this.showToast(R.string.square_load_data_failed_tip);
             } else {
                 AlaRecentHistoryFragment alaRecentHistoryFragment = AlaRecentHistoryFragment.this;
-                alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.f14822f.g(), str, false);
+                alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.f14485f.g(), str, false);
             }
-            AlaRecentHistoryFragment.this.f14822f.q();
+            AlaRecentHistoryFragment.this.f14485f.q();
         }
     }
 
@@ -99,35 +99,35 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     }
 
     public final void K0() {
-        hideNetRefreshView(this.f14822f.g());
-        if (ListUtils.getCount(this.f14821e.getData()) == 0) {
-            showLoadingView(this.f14822f.g());
+        hideNetRefreshView(this.f14485f.g());
+        if (ListUtils.getCount(this.f14484e.getData()) == 0) {
+            showLoadingView(this.f14485f.g());
         }
-        AlaRecentHistoryModel alaRecentHistoryModel = this.f14821e;
+        AlaRecentHistoryModel alaRecentHistoryModel = this.f14484e;
         if (alaRecentHistoryModel != null) {
             alaRecentHistoryModel.B();
         }
     }
 
     public final void L0(boolean z, ViewGroup viewGroup, String str) {
-        if (this.f14824h == null) {
-            this.f14824h = new h(getPageContext().getPageActivity(), null);
+        if (this.f14487h == null) {
+            this.f14487h = new h(getPageContext().getPageActivity(), null);
         }
         if (z) {
-            this.f14824h.attachView(viewGroup);
-            this.f14824h.c().setVisibility(8);
-            this.f14824h.l(null);
-            this.f14824h.d().setVisibility(0);
-            this.f14824h.d().setText(str);
+            this.f14487h.attachView(viewGroup);
+            this.f14487h.c().setVisibility(8);
+            this.f14487h.l(null);
+            this.f14487h.d().setVisibility(0);
+            this.f14487h.d().setText(str);
             return;
         }
-        this.f14824h.dettachView(viewGroup);
+        this.f14487h.dettachView(viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.t.d.e.c.a aVar = this.f14822f;
+        d.b.i0.t.d.e.c.a aVar = this.f14485f;
         if (aVar != null) {
             aVar.k(i);
         }
@@ -141,7 +141,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             return;
         }
         int i = arguments.getInt("key_type");
-        this.f14823g = i;
+        this.f14486g = i;
         if (i < 0 || i > 1) {
             getPageContext().getPageActivity().finish();
         }
@@ -149,26 +149,26 @@ public class AlaRecentHistoryFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f14821e = new AlaRecentHistoryModel(getPageContext(), this.f14823g, this.k);
-        d.b.i0.t.d.e.c.a aVar = new d.b.i0.t.d.e.c.a(getPageContext(), this.f14823g);
-        this.f14822f = aVar;
+        this.f14484e = new AlaRecentHistoryModel(getPageContext(), this.f14486g, this.k);
+        d.b.i0.t.d.e.c.a aVar = new d.b.i0.t.d.e.c.a(getPageContext(), this.f14486g);
+        this.f14485f = aVar;
         aVar.p(this.i);
-        this.f14822f.r(this.j);
+        this.f14485f.r(this.j);
         K0();
-        if (this.f14823g == 0) {
+        if (this.f14486g == 0) {
             TiebaStatic.log("c12650");
         }
-        return this.f14822f.h();
+        return this.f14485f.h();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        AlaRecentHistoryModel alaRecentHistoryModel = this.f14821e;
+        AlaRecentHistoryModel alaRecentHistoryModel = this.f14484e;
         if (alaRecentHistoryModel != null) {
             alaRecentHistoryModel.onDestroy();
         }
-        d.b.i0.t.d.e.c.a aVar = this.f14822f;
+        d.b.i0.t.d.e.c.a aVar = this.f14485f;
         if (aVar != null) {
             aVar.l();
         }

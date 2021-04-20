@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.t.b;
+import f.b.t.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -26,7 +26,7 @@ public final class FlowableReplay$InnerSubscription<T> extends AtomicLong implem
         dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
             this.parent.remove(this);
@@ -38,13 +38,13 @@ public final class FlowableReplay$InnerSubscription<T> extends AtomicLong implem
         return (U) this.index;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == Long.MIN_VALUE;
     }
 
     public long produced(long j) {
-        return f.a.x.i.b.f(this, j);
+        return f.b.x.i.b.f(this, j);
     }
 
     @Override // g.d.d
@@ -59,8 +59,8 @@ public final class FlowableReplay$InnerSubscription<T> extends AtomicLong implem
                 if (j2 >= 0 && j == 0) {
                     return;
                 }
-            } while (!compareAndSet(j2, f.a.x.i.b.c(j2, j)));
-            f.a.x.i.b.a(this.totalRequested, j);
+            } while (!compareAndSet(j2, f.b.x.i.b.c(j2, j)));
+            f.b.x.i.b.a(this.totalRequested, j);
             this.parent.manageRequests();
             this.parent.buffer.replay(this);
         }

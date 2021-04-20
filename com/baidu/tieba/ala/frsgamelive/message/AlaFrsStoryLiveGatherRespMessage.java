@@ -37,7 +37,7 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     a2 a2Var = new a2();
-                    a2Var.P2(optJSONObject2);
+                    a2Var.Q2(optJSONObject2);
                     this.liveList.add(a2Var);
                 }
             }
@@ -49,7 +49,7 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
                     a2 a2Var2 = new a2();
-                    a2Var2.P2(optJSONObject3);
+                    a2Var2.Q2(optJSONObject3);
                     this.recommandList.add(a2Var2);
                 }
             }

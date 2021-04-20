@@ -1,25 +1,18 @@
 package d.b.h0.f0.m;
 
-import android.app.Activity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
-import d.b.h0.a.o;
+import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import d.b.h0.f0.b;
+import d.b.h0.z0.e;
 /* loaded from: classes3.dex */
-public class a implements b<CompeteTaskEvent> {
+public class a implements b<BackBaiduBoxViewEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.h0.f0.b
     /* renamed from: a */
-    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
-        CompleteTaskToastData completeTaskToastData;
-        if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof o) {
-                ((o) currentActivity).onMissionCompleted(completeTaskToastData);
-                return true;
-            }
+    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
+        if (backBaiduBoxViewEvent == null) {
+            return false;
         }
-        return false;
+        e.m().v(backBaiduBoxViewEvent.isShow);
+        return true;
     }
 }

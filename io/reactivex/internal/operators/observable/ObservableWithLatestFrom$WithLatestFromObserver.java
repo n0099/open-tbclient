@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.w.c;
-import f.a.x.b.a;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.c;
+import f.b.x.b.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -19,30 +19,30 @@ public final class ObservableWithLatestFrom$WithLatestFromObserver<T, U, R> exte
         this.combiner = cVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this.s);
         DisposableHelper.dispose(this.other);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(this.s.get());
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         DisposableHelper.dispose(this.other);
         this.actual.onComplete();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         DisposableHelper.dispose(this.other);
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         U u = get();
         if (u != null) {
@@ -51,14 +51,14 @@ public final class ObservableWithLatestFrom$WithLatestFromObserver<T, U, R> exte
                 a.b(apply, "The combiner returned a null value");
                 this.actual.onNext(apply);
             } catch (Throwable th) {
-                f.a.u.a.a(th);
+                f.b.u.a.a(th);
                 dispose();
                 this.actual.onError(th);
             }
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this.s, bVar);
     }

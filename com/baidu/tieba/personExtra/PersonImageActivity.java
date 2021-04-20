@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public static final int PAGE_LIMIT = 2;
     public HashMap<String, ImageUrlData> assistUrls;
@@ -37,7 +37,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public b.c mDialogClickListener = null;
     public BaseViewPager.a mOnscOnScrollOutListener = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -48,7 +48,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnLongClickListener {
         public b() {
         }
@@ -63,7 +63,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements b.c {
         public c() {
         }
@@ -91,7 +91,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements BaseViewPager.a {
         public d() {
         }
@@ -101,20 +101,20 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20380a;
+        public String f20072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f20381b;
+        public byte[] f20073b;
 
         public e(String str, byte[] bArr) {
-            this.f20380a = null;
-            this.f20381b = null;
-            this.f20380a = str;
-            this.f20381b = bArr;
+            this.f20072a = null;
+            this.f20073b = null;
+            this.f20072a = str;
+            this.f20073b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -132,7 +132,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20380a, this.f20381b, PersonImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20072a, this.f20073b, PersonImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return PersonImageActivity.this.getPageContext().getString(R.string.save_fail);

@@ -8,40 +8,40 @@ import org.json.JSONObject;
 public class b implements d.b.g0.a.e1.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43187e;
+    public String f43579e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43188f = "";
+    public String f43580f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43189g = false;
+    public boolean f43581g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f43190h;
+    public g f43582h;
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     @Override // d.b.g0.a.e1.a
     public void a(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has("position") && jSONObject.has("iconPath")) {
             String optString = jSONObject.optString("controlId");
-            this.f43187e = optString;
+            this.f43579e = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f43187e = jSONObject.optString("id");
+                this.f43579e = jSONObject.optString("id");
             }
             g gVar = new g();
-            this.f43190h = gVar;
+            this.f43582h = gVar;
             gVar.a(jSONObject.optJSONObject("position"));
-            this.f43188f = jSONObject.optString("iconPath");
-            this.f43189g = jSONObject.optBoolean("clickable");
+            this.f43580f = jSONObject.optString("iconPath");
+            this.f43581g = jSONObject.optBoolean("clickable");
         }
     }
 
     @Override // d.b.g0.a.e1.a
     public boolean isValid() {
-        g gVar = this.f43190h;
-        return (gVar == null || !gVar.isValid() || TextUtils.isEmpty(this.f43188f)) ? false : true;
+        g gVar = this.f43582h;
+        return (gVar == null || !gVar.isValid() || TextUtils.isEmpty(this.f43580f)) ? false : true;
     }
 }

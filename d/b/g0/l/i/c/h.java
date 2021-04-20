@@ -27,7 +27,7 @@ public class h extends b<d.b.g0.l.k.h> {
         a2.put("max_age", Long.valueOf(hVar.o));
         a2.put("token", hVar.p);
         a2.put("domains", hVar.q);
-        a2.put(com.alipay.sdk.cons.b.f1858h, hVar.r);
+        a2.put(com.alipay.sdk.cons.b.f1883h, hVar.r);
         a2.put(DpStatConstants.KEY_APP_NAME, hVar.s);
         return a2;
     }
@@ -47,7 +47,7 @@ public class h extends b<d.b.g0.l.k.h> {
             int columnIndex = cursor.getColumnIndex("max_age");
             int columnIndex2 = cursor.getColumnIndex("token");
             int columnIndex3 = cursor.getColumnIndex("domains");
-            int columnIndex4 = cursor.getColumnIndex(com.alipay.sdk.cons.b.f1858h);
+            int columnIndex4 = cursor.getColumnIndex(com.alipay.sdk.cons.b.f1883h);
             int columnIndex5 = cursor.getColumnIndex(DpStatConstants.KEY_APP_NAME);
             d.b.g0.l.k.h hVar = new d.b.g0.l.k.h();
             if (b(cursor, hVar)) {

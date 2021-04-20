@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.WifiInfo;
 import android.os.Bundle;
 import com.baidu.location.Jni;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
@@ -16,44 +17,44 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f6503d;
+    public static h f6538d;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f6502c = new Object();
+    public static Object f6537c = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f6504e = com.baidu.location.d.j.h() + "/hst.db";
+    public static final String f6539e = com.baidu.location.d.j.h() + "/hst.db";
 
     /* renamed from: f  reason: collision with root package name */
-    public SQLiteDatabase f6507f = null;
+    public SQLiteDatabase f6542f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6508g = false;
+    public boolean f6543g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f6505a = null;
+    public a f6540a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f6506b = null;
+    public a f6541b = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6509h = null;
+    public String f6544h = null;
     public int i = -2;
 
     /* loaded from: classes2.dex */
     public class a extends com.baidu.location.d.e {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6511b = null;
+        public String f6546b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6512c = null;
+        public String f6547c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f6513d = true;
+        public boolean f6548d = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f6514e = false;
+        public boolean f6549e = false;
 
         public a() {
             this.k = new HashMap();
@@ -62,20 +63,20 @@ public class h {
         @Override // com.baidu.location.d.e
         public void a() {
             this.i = 1;
-            this.f6706h = com.baidu.location.d.j.c();
-            String encodeTp4 = Jni.encodeTp4(this.f6512c);
-            this.f6512c = null;
+            this.f6741h = com.baidu.location.d.j.c();
+            String encodeTp4 = Jni.encodeTp4(this.f6547c);
+            this.f6547c = null;
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
         }
 
         public void a(String str, String str2) {
-            if (h.this.f6508g) {
+            if (h.this.f6543g) {
                 return;
             }
-            h.this.f6508g = true;
-            this.f6511b = str;
-            this.f6512c = str2;
-            b(com.baidu.location.d.j.f6720f);
+            h.this.f6543g = true;
+            this.f6546b = str;
+            this.f6547c = str2;
+            b(com.baidu.location.d.j.f6755f);
         }
 
         @Override // com.baidu.location.d.e
@@ -83,26 +84,26 @@ public class h {
             String str;
             if (z && (str = this.j) != null) {
                 try {
-                    if (this.f6513d) {
+                    if (this.f6548d) {
                         JSONObject jSONObject = new JSONObject(str);
                         JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
                         if (jSONObject2 != null && jSONObject2.has("imo")) {
-                            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
+                            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString(IAdRequestParam.MAC));
                             int i = jSONObject2.getJSONObject("imo").getInt("mv");
-                            if (Jni.encode3(this.f6511b).longValue() == valueOf.longValue()) {
+                            if (Jni.encode3(this.f6546b).longValue() == valueOf.longValue()) {
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
                                 try {
-                                    SQLiteDatabase sQLiteDatabase = h.this.f6507f;
+                                    SQLiteDatabase sQLiteDatabase = h.this.f6542f;
                                     if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                                         contentValues.put("id", valueOf);
-                                        h.this.f6507f.insert("hstdata", null, contentValues);
+                                        h.this.f6542f.insert("hstdata", null, contentValues);
                                     }
                                 } catch (Exception unused) {
                                 }
                                 Bundle bundle = new Bundle();
-                                bundle.putByteArray("mac", this.f6511b.getBytes());
+                                bundle.putByteArray(IAdRequestParam.MAC, this.f6546b.getBytes());
                                 bundle.putInt("hotspot", i);
                                 h.this.a(bundle);
                             }
@@ -110,24 +111,24 @@ public class h {
                     }
                 } catch (Exception unused2) {
                 }
-            } else if (this.f6513d) {
+            } else if (this.f6548d) {
                 h.this.f();
             }
             Map<String, Object> map = this.k;
             if (map != null) {
                 map.clear();
             }
-            h.this.f6508g = false;
+            h.this.f6543g = false;
         }
     }
 
     public static h a() {
         h hVar;
-        synchronized (f6502c) {
-            if (f6503d == null) {
-                f6503d = new h();
+        synchronized (f6537c) {
+            if (f6538d == null) {
+                f6538d = new h();
             }
-            hVar = f6503d;
+            hVar = f6538d;
         }
         return hVar;
     }
@@ -177,7 +178,7 @@ public class h {
     }
 
     public void a(String str) {
-        if (this.f6508g) {
+        if (this.f6543g) {
             return;
         }
         try {
@@ -186,15 +187,15 @@ public class h {
             if (jSONObject2 == null || !jSONObject2.has("imo")) {
                 return;
             }
-            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
+            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString(IAdRequestParam.MAC));
             int i = jSONObject2.getJSONObject("imo").getInt("mv");
             ContentValues contentValues = new ContentValues();
             contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
             contentValues.put("hst", Integer.valueOf(i));
-            SQLiteDatabase sQLiteDatabase = this.f6507f;
+            SQLiteDatabase sQLiteDatabase = this.f6542f;
             if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                 contentValues.put("id", valueOf);
-                this.f6507f.insert("hstdata", null, contentValues);
+                this.f6542f.insert("hstdata", null, contentValues);
             }
         } catch (Exception unused) {
         }
@@ -202,32 +203,32 @@ public class h {
 
     public void b() {
         try {
-            File file = new File(f6504e);
+            File file = new File(f6539e);
             if (!file.exists()) {
                 file.createNewFile();
             }
             if (file.exists()) {
                 SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                this.f6507f = openOrCreateDatabase;
+                this.f6542f = openOrCreateDatabase;
                 openOrCreateDatabase.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
-                this.f6507f.setVersion(1);
+                this.f6542f.setVersion(1);
             }
         } catch (Exception unused) {
-            this.f6507f = null;
+            this.f6542f = null;
         }
     }
 
     public void c() {
-        SQLiteDatabase sQLiteDatabase = this.f6507f;
+        SQLiteDatabase sQLiteDatabase = this.f6542f;
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.close();
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.f6507f = null;
+                this.f6542f = null;
                 throw th;
             }
-            this.f6507f = null;
+            this.f6542f = null;
         }
     }
 
@@ -246,23 +247,23 @@ public class h {
     public synchronized int d() {
         WifiInfo k;
         int i = -3;
-        if (this.f6508g) {
+        if (this.f6543g) {
             return -3;
         }
         try {
-            if (com.baidu.location.b.i.i() && this.f6507f != null && (k = com.baidu.location.b.i.a().k()) != null && k.getBSSID() != null) {
+            if (com.baidu.location.b.i.i() && this.f6542f != null && (k = com.baidu.location.b.i.a().k()) != null && k.getBSSID() != null) {
                 String replace = k.getBSSID().replace(":", "");
                 Long encode3 = Jni.encode3(replace);
-                if (this.f6509h == null || !replace.equals(this.f6509h) || this.i <= -2) {
+                if (this.f6544h == null || !replace.equals(this.f6544h) || this.i <= -2) {
                     Cursor cursor = null;
                     try {
-                        SQLiteDatabase sQLiteDatabase = this.f6507f;
+                        SQLiteDatabase sQLiteDatabase = this.f6542f;
                         cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                         if (cursor == null || !cursor.moveToFirst()) {
                             i = -2;
                         } else {
                             i = cursor.getInt(1);
-                            this.f6509h = replace;
+                            this.f6544h = replace;
                             this.i = i;
                         }
                     } catch (Exception unused) {
@@ -293,11 +294,11 @@ public class h {
     */
     public void e() {
         WifiInfo k;
-        if (this.f6508g) {
+        if (this.f6543g) {
             return;
         }
         try {
-            if (!com.baidu.location.b.i.i() || this.f6507f == null || (k = com.baidu.location.b.i.a().k()) == null || k.getBSSID() == null) {
+            if (!com.baidu.location.b.i.i() || this.f6542f == null || (k = com.baidu.location.b.i.a().k()) == null || k.getBSSID() == null) {
                 f();
                 return;
             }
@@ -306,13 +307,13 @@ public class h {
             boolean z = false;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f6507f;
+                SQLiteDatabase sQLiteDatabase = this.f6542f;
                 cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                 if (cursor != null && cursor.moveToFirst()) {
                     int i = cursor.getInt(1);
                     if ((System.currentTimeMillis() / 1000) - cursor.getInt(2) <= 259200) {
                         Bundle bundle = new Bundle();
-                        bundle.putByteArray("mac", replace.getBytes());
+                        bundle.putByteArray(IAdRequestParam.MAC, replace.getBytes());
                         bundle.putInt("hotspot", i);
                         a(bundle);
                     }
@@ -326,11 +327,11 @@ public class h {
                     }
                 }
                 if (z) {
-                    if (this.f6505a == null) {
-                        this.f6505a = new a();
+                    if (this.f6540a == null) {
+                        this.f6540a = new a();
                     }
-                    if (this.f6505a != null) {
-                        this.f6505a.a(replace, a(true));
+                    if (this.f6540a != null) {
+                        this.f6540a.a(replace, a(true));
                     }
                 }
             } catch (Throwable th) {

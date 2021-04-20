@@ -23,22 +23,22 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.quickWebView.QuickWebView;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class MemberCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f18927e;
+    public NoNetworkView f18604e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f18928f;
+    public NavigationBar f18605f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18929g;
+    public View f18606g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18930h;
+    public View f18607h;
     public QuickWebView i;
     public String j;
     public boolean k = false;
@@ -100,7 +100,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
+        public void a(WebView webView, int i, String str, String str2) {
             MemberCenterFragment.this.K0();
         }
     }
@@ -111,7 +111,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.i
-        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             MemberCenterFragment.this.K0();
         }
     }
@@ -129,15 +129,15 @@ public class MemberCenterFragment extends BaseFragment {
     }
 
     public void H0() {
-        NavigationBar navigationBar = (NavigationBar) this.f18929g.findViewById(R.id.view_navigation_bar);
-        this.f18928f = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f18606g.findViewById(R.id.view_navigation_bar);
+        this.f18605f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f18928f.setTitleText(R.string.member_center);
-        SkinManager.setNavbarTitleColor(this.f18928f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        if (this.f18928f.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18928f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f18605f.setTitleText(R.string.member_center);
+        SkinManager.setNavbarTitleColor(this.f18605f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        if (this.f18605f.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18605f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.f18928f.showBottomLine(false);
+        this.f18605f.showBottomLine(false);
     }
 
     public final void I0() {
@@ -156,21 +156,21 @@ public class MemberCenterFragment extends BaseFragment {
 
     public final void K0() {
         QuickWebView quickWebView = this.i;
-        if (quickWebView == null || this.f18928f == null) {
+        if (quickWebView == null || this.f18605f == null) {
             return;
         }
         quickWebView.setVisibility(8);
-        this.f18928f.setVisibility(0);
-        showNetRefreshView(this.f18930h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+        this.f18605f.setVisibility(0);
+        showNetRefreshView(this.f18607h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
     }
 
     public final void L0() {
-        if (this.i == null || this.f18928f == null) {
+        if (this.i == null || this.f18605f == null) {
             return;
         }
-        hideNetRefreshView(this.f18930h);
+        hideNetRefreshView(this.f18607h);
         this.i.setVisibility(0);
-        this.f18928f.setVisibility(8);
+        this.f18605f.setVisibility(8);
     }
 
     public void loadData() {
@@ -194,8 +194,8 @@ public class MemberCenterFragment extends BaseFragment {
                 G0(this.j);
             }
         }
-        this.f18928f.onChangeSkinType(getPageContext(), i);
-        this.f18927e.c(getPageContext(), i);
+        this.f18605f.onChangeSkinType(getPageContext(), i);
+        this.f18604e.c(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -206,16 +206,16 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.index, (ViewGroup) null);
-        this.f18929g = inflate;
-        this.f18927e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.f18928f = (NavigationBar) this.f18929g.findViewById(R.id.view_navigation_bar);
+        this.f18606g = inflate;
+        this.f18604e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.f18605f = (NavigationBar) this.f18606g.findViewById(R.id.view_navigation_bar);
         H0();
-        this.f18930h = this.f18929g.findViewById(R.id.member_content_layout);
-        this.i = (QuickWebView) this.f18929g.findViewById(R.id.webview);
+        this.f18607h = this.f18606g.findViewById(R.id.member_content_layout);
+        this.i = (QuickWebView) this.f18606g.findViewById(R.id.webview);
         I0();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log("c10387");
-        return this.f18929g;
+        return this.f18606g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

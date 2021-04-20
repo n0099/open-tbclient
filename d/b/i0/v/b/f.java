@@ -8,79 +8,79 @@ import tbclient.ManagerElection;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f61921a;
+    public e f62930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f61922b;
+    public d f62931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f61923c;
+    public List<d> f62932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ManagerElection f61924d;
+    public ManagerElection f62933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61925e;
+    public boolean f62934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f61926f;
+    public long f62935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f61927g;
+    public BdUniqueId f62936g;
 
     public e a() {
-        return this.f61921a;
+        return this.f62930a;
     }
 
     public List<d> b() {
-        return this.f61923c;
+        return this.f62932c;
     }
 
     public long c() {
-        return this.f61926f;
+        return this.f62935f;
     }
 
     public boolean d() {
-        return this.f61925e;
+        return this.f62934e;
     }
 
     public ManagerElection e() {
-        return this.f61924d;
+        return this.f62933d;
     }
 
     public d f() {
-        return this.f61922b;
+        return this.f62931b;
     }
 
     public BdUniqueId g() {
-        return this.f61927g;
+        return this.f62936g;
     }
 
     public void h(ArrayList<d> arrayList) {
-        this.f61923c = arrayList;
+        this.f62932c = arrayList;
     }
 
     public void i(long j) {
-        this.f61926f = j;
+        this.f62935f = j;
     }
 
     public void j(boolean z) {
-        this.f61925e = z;
+        this.f62934e = z;
     }
 
     public void k(ManagerElection managerElection) {
-        this.f61924d = managerElection;
+        this.f62933d = managerElection;
     }
 
     public void l(BdUniqueId bdUniqueId) {
-        this.f61927g = bdUniqueId;
+        this.f62936g = bdUniqueId;
     }
 
     public void m(e eVar) {
-        this.f61921a = eVar;
+        this.f62930a = eVar;
     }
 
     public void n(d dVar) {
-        this.f61922b = dVar;
+        this.f62931b = dVar;
     }
 }

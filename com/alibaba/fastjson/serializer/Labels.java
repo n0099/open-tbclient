@@ -28,7 +28,7 @@ public class Labels {
         public boolean apply(String str) {
             String[] strArr = this.excludes;
             if (strArr != null) {
-                return Arrays.binarySearch(strArr, str) == -1;
+                return Arrays.binarySearch(strArr, str) < 0;
             }
             String[] strArr2 = this.includes;
             return strArr2 != null && Arrays.binarySearch(strArr2, str) >= 0;

@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.c> {
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public static b d() {
@@ -22,14 +22,14 @@ public class b extends d.b.g0.h.a.f.a<d.b.g0.a.a1.c.c> {
 
     public final boolean e(Context context, d.b.g0.a.a1.c.c cVar, d.b.g0.a.a1.b bVar, d.b.g0.a.r1.e eVar, JSONObject jSONObject) {
         d.b.g0.a.c0.c.g("map", "GetRegionAction start");
-        d.b.g0.a.p.d.d j = d.b.g0.a.z0.f.V().j(cVar.f43114g);
+        d.b.g0.a.p.d.d j = d.b.g0.a.z0.f.V().j(cVar.f43506g);
         if (!(j instanceof d.b.g0.a.p.d.b)) {
             d.b.g0.a.c0.c.b("map", "WebViewManager is null");
             return false;
         }
-        d.b.g0.h.a.i.c d2 = d.b.g0.h.a.c.b().c((d.b.g0.a.p.d.b) j).d(cVar.f43113f);
+        d.b.g0.h.a.i.c d2 = d.b.g0.h.a.c.b().c((d.b.g0.a.p.d.b) j).d(cVar.f43505f);
         if (d2 == null) {
-            d.b.g0.a.c0.c.b("map", "can not find map by id " + cVar.f43113f);
+            d.b.g0.a.c0.c.b("map", "can not find map by id " + cVar.f43505f);
             return false;
         }
         MapStatus mapStatus = d2.l.getMap().getMapStatus();

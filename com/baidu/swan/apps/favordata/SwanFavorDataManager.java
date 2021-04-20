@@ -28,13 +28,13 @@ import java.util.concurrent.TimeUnit;
 public class SwanFavorDataManager implements d.b.g0.a.m.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f12223e = k.f45051a;
+    public static final boolean f11884e = k.f45443a;
 
     /* loaded from: classes2.dex */
     public class FavorDataDBLoaderCB implements LoaderManager.LoaderCallbacks<Cursor> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f12224a;
+        public d f11885a;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:23:0x0048  */
@@ -47,7 +47,7 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
             d dVar;
             if (loader.getId() != 101) {
-                d dVar2 = this.f12224a;
+                d dVar2 = this.f11885a;
                 if (dVar2 != null) {
                     dVar2.onLoadFail();
                     return;
@@ -62,11 +62,11 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
                         arrayList.add(l);
                     }
                 } while (cursor.moveToNext());
-                dVar = this.f12224a;
+                dVar = this.f11885a;
                 if (dVar == null) {
                 }
             } else {
-                dVar = this.f12224a;
+                dVar = this.f11885a;
                 if (dVar == null) {
                     dVar.onLoadSuccess(arrayList);
                 }
@@ -81,7 +81,7 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
 
         @Override // androidx.loader.app.LoaderManager.LoaderCallbacks
         public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-            d dVar = this.f12224a;
+            d dVar = this.f11885a;
             if (dVar != null) {
                 dVar.onLoadFail();
             }
@@ -149,7 +149,7 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SwanFavorDataManager f12228a = new SwanFavorDataManager(null);
+        public static final SwanFavorDataManager f11889a = new SwanFavorDataManager(null);
     }
 
     public /* synthetic */ SwanFavorDataManager(a aVar) {
@@ -157,11 +157,11 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
     }
 
     public static SwanFavorDataManager i() {
-        return e.f12228a;
+        return e.f11889a;
     }
 
     public static void m(boolean z) {
-        if (f12223e) {
+        if (f11884e) {
             Log.d("SwanFavorDataManager", "sendFavorStatusMsg: isAddfavor = " + z);
         }
         HashMap hashMap = new HashMap();
@@ -190,8 +190,8 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         }
     }
 
-    public void d(String str, d.b.g0.a.m0.b.b bVar, b.C0708b c0708b) {
-        if (d.b.g0.a.g0.c.a.g(str, bVar, c0708b)) {
+    public void d(String str, d.b.g0.a.m0.b.b bVar, b.C0720b c0720b) {
+        if (d.b.g0.a.g0.c.a.g(str, bVar, c0720b)) {
             n(str, false);
         }
         l(str, QueryResponse.Options.CANCEL, "-1");

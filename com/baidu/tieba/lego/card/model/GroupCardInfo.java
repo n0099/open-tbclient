@@ -1,5 +1,5 @@
 package com.baidu.tieba.lego.card.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupCardInfo extends BaseCardInfo {
     public transient BaseCardInfo mCard;
 

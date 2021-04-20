@@ -13,7 +13,7 @@ public class d extends com.kwad.sdk.contentalliance.home.e {
         if (b2 == null) {
             return;
         }
-        SceneImpl sceneImpl = ((com.kwad.sdk.contentalliance.home.e) this).f32769a.f32774e;
+        SceneImpl sceneImpl = ((com.kwad.sdk.contentalliance.home.e) this).f33058a.f33063e;
         ArrayList arrayList = new ArrayList(b2.size());
         for (AdTemplate adTemplate : b2) {
             adTemplate.mAdScene = sceneImpl;
@@ -21,7 +21,7 @@ public class d extends com.kwad.sdk.contentalliance.home.e {
         }
         com.kwad.sdk.contentalliance.home.c.a(arrayList);
         com.kwad.sdk.feed.a.a.a().c();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a;
-        fVar.f32772c.setInitStartPosition(fVar.j);
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33058a;
+        fVar.f33061c.setInitStartPosition(fVar.j);
     }
 }

@@ -1,6 +1,7 @@
 package com.alipay.apmobilesecuritysdk.e;
 
 import android.content.Context;
+import com.baidu.mobads.container.util.DeviceUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
@@ -24,7 +25,7 @@ public final class a {
 
     public static synchronized void a(Context context) {
         synchronized (a.class) {
-            com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid", "");
+            com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, "");
             com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", "");
         }
     }
@@ -33,11 +34,11 @@ public final class a {
         synchronized (a.class) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("apdid", bVar.f1720a);
-                jSONObject.put("deviceInfoHash", bVar.f1721b);
-                jSONObject.put("timestamp", bVar.f1722c);
+                jSONObject.put("apdid", bVar.f1745a);
+                jSONObject.put("deviceInfoHash", bVar.f1746b);
+                jSONObject.put("timestamp", bVar.f1747c);
                 String jSONObject2 = jSONObject.toString();
-                com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid", jSONObject2);
+                com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, jSONObject2);
                 com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", jSONObject2);
             } catch (Exception e2) {
                 com.alipay.apmobilesecuritysdk.c.a.a(e2);
@@ -58,7 +59,7 @@ public final class a {
     public static synchronized b b(Context context) {
         b a2;
         synchronized (a.class) {
-            String a3 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid");
+            String a3 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING);
             if (com.alipay.security.mobile.module.a.a.a(a3)) {
                 a3 = com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx");
             }
@@ -69,7 +70,7 @@ public final class a {
 
     public static synchronized b c(Context context) {
         synchronized (a.class) {
-            String a2 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid");
+            String a2 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING);
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
                 return null;
             }

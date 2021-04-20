@@ -12,16 +12,16 @@ import com.kwad.sdk.utils.ao;
 public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f36818a;
+    public float f37107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f36819b;
+    public RectF f37108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Path f36820c;
+    public Path f37109c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f36821d;
+    public a f37110d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -38,45 +38,45 @@ public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
     }
 
     private void c() {
-        this.f36818a = ao.a(getContext(), 4.0f);
+        this.f37107a = ao.a(getContext(), 4.0f);
         setLayerType(1, null);
     }
 
     @Override // com.kwad.sdk.widget.a
     public void a() {
         super.a();
-        a aVar = this.f36821d;
+        a aVar = this.f37110d;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void a(a aVar) {
-        this.f36821d = aVar;
+        this.f37110d = aVar;
     }
 
     public void b() {
-        this.f36821d = null;
+        this.f37110d = null;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.f36818a == 0.0f) {
+        if (this.f37107a == 0.0f) {
             super.dispatchDraw(canvas);
             return;
         }
         int save = canvas.save();
-        RectF rectF = this.f36819b;
+        RectF rectF = this.f37108b;
         if (rectF == null) {
-            this.f36820c = new Path();
-            this.f36819b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+            this.f37109c = new Path();
+            this.f37108b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         } else {
             rectF.right = canvas.getWidth();
-            this.f36819b.bottom = canvas.getHeight();
-            this.f36820c.reset();
+            this.f37108b.bottom = canvas.getHeight();
+            this.f37109c.reset();
         }
         float[] fArr = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-        float f2 = this.f36818a;
+        float f2 = this.f37107a;
         fArr[0] = f2;
         fArr[1] = f2;
         fArr[2] = f2;
@@ -85,14 +85,14 @@ public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
         fArr[5] = f2;
         fArr[6] = f2;
         fArr[7] = f2;
-        this.f36820c.addRoundRect(this.f36819b, fArr, Path.Direction.CW);
-        canvas.clipPath(this.f36820c);
+        this.f37109c.addRoundRect(this.f37108b, fArr, Path.Direction.CW);
+        canvas.clipPath(this.f37109c);
         super.dispatchDraw(canvas);
         canvas.restoreToCount(save);
     }
 
     public void setRadius(float f2) {
-        this.f36818a = f2;
+        this.f37107a = f2;
         invalidate();
     }
 }

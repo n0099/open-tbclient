@@ -46,10 +46,11 @@ import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import d.b.h0.z0.n0;
 import d.b.h0.z0.o0;
-import d.b.i0.p0.m2.m;
-import d.b.i0.p0.s;
-import d.b.i0.p0.t;
-import d.b.i0.p0.w0;
+import d.b.i0.q0.n2.m;
+import d.b.i0.q0.s;
+import d.b.i0.q0.t;
+import d.b.i0.q0.w0;
+import d.b.i0.s2.v;
 import java.net.URLDecoder;
 import java.util.Map;
 import tbclient.FrsPage.FrsPageResIdl;
@@ -58,28 +59,28 @@ import tbclient.StarTrends.StarTrendsResIdl;
 public class FrsActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f15963a = true;
+    public static boolean f15624a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f15964b = true;
+    public static boolean f15625b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f15965c = "";
+    public static String f15626c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CustomMessageListener f15966d = new g(2012111);
+    public static final CustomMessageListener f15627d = new g(2012111);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f15967e = new h(2012112);
+    public static final CustomMessageListener f15628e = new h(2012112);
 
     /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<TbPageContext> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.p0.k> run(CustomMessage<TbPageContext> customMessage) {
+        public CustomResponsedMessage<d.b.i0.q0.k> run(CustomMessage<TbPageContext> customMessage) {
             if (customMessage == null || !(customMessage.getData() instanceof TbPageContext)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921336, new s(customMessage.getData(), t.f58579f));
+            return new CustomResponsedMessage<>(2921336, new s(customMessage.getData(), t.f60247f));
         }
     }
 
@@ -88,7 +89,7 @@ public class FrsActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            o0.a(d.b.i0.p0.m1.a.i, StarTrendsResIdl.class);
+            o0.a(d.b.i0.q0.m1.a.i, StarTrendsResIdl.class);
             return null;
         }
     }
@@ -149,7 +150,7 @@ public class FrsActivityStatic {
                 if (strArr[0] != null && tbPageContext != null && tbPageContext.getPageActivity() != null) {
                     String lowerCase = strArr[0].toLowerCase();
                     String str2 = strArr.length > 1 ? strArr[1] : null;
-                    int d3 = d.b.b.e.m.b.d(n0.c(lowerCase, "call_from="), 0);
+                    int d3 = d.b.c.e.m.b.d(n0.c(lowerCase, "call_from="), 0);
                     if (!lowerCase.startsWith("http://tieba.baidu.com/f?") && !lowerCase.startsWith("http://tieba.baidu.com/f?")) {
                         if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FRS)) {
                             r4 = lowerCase.substring(4);
@@ -176,7 +177,7 @@ public class FrsActivityStatic {
                                 }
                             } else if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_GAME_FRS_TAB)) {
                                 r4 = n0.c(lowerCase, "kw=");
-                                d2 = d.b.b.e.m.b.d(n0.c(lowerCase, "tab_id="), 0);
+                                d2 = d.b.c.e.m.b.d(n0.c(lowerCase, "tab_id="), 0);
                                 z = false;
                             } else if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_FRS)) {
                                 Uri parse = Uri.parse(lowerCase);
@@ -220,7 +221,7 @@ public class FrsActivityStatic {
                         } else {
                             z = false;
                         }
-                        d2 = d.b.b.e.m.b.d(n0.c(lowerCase, "default_tab_id="), 0);
+                        d2 = d.b.c.e.m.b.d(n0.c(lowerCase, "default_tab_id="), 0);
                     }
                     if (!TextUtils.isEmpty(r4)) {
                         FrsActivityConfig createNormalCfg3 = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(r4, str2);
@@ -235,8 +236,8 @@ public class FrsActivityStatic {
                         tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg3));
                         return 1;
                     } else if (z2 && !TextUtils.isEmpty(r4)) {
-                        d.b.b.e.m.f.c(TbadkCoreApplication.getInst(), m.c(TbadkCoreApplication.getInst(), r4));
-                        d.b.i0.p0.m2.l.e(2, 2);
+                        d.b.c.e.m.f.c(TbadkCoreApplication.getInst(), m.c(TbadkCoreApplication.getInst(), r4));
+                        d.b.i0.q0.n2.l.e(2, 2);
                         return 1;
                     } else if (z) {
                         tbPageContext.showToast(R.string.page_not_found);
@@ -260,12 +261,12 @@ public class FrsActivityStatic {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue != 1 && intValue != 4 && intValue != 3 && intValue != 2) {
-                    FrsActivityStatic.f15964b = false;
-                    FrsActivityStatic.f15963a = false;
+                    FrsActivityStatic.f15625b = false;
+                    FrsActivityStatic.f15624a = false;
                     return;
                 }
-                FrsActivityStatic.f15964b = true;
-                FrsActivityStatic.f15963a = true;
+                FrsActivityStatic.f15625b = true;
+                FrsActivityStatic.f15624a = true;
             }
         }
     }
@@ -282,10 +283,10 @@ public class FrsActivityStatic {
             if (customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            int d2 = d.b.b.e.m.b.d(customResponsedMessage.getData().toString(), 1);
+            int d2 = d.b.c.e.m.b.d(customResponsedMessage.getData().toString(), 1);
             if (d2 == 1 || d2 == 0) {
-                FrsActivityStatic.f15964b = false;
-                FrsActivityStatic.f15963a = false;
+                FrsActivityStatic.f15625b = false;
+                FrsActivityStatic.f15624a = false;
             }
         }
     }
@@ -300,11 +301,11 @@ public class FrsActivityStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-                if (d.b.i0.r2.s.o().b() != null) {
-                    d.b.i0.r2.s.o().b().f();
+                if (v.p().b() != null) {
+                    v.p().b().f();
                 }
-                if (d.b.i0.r2.s.o().l() != null) {
-                    d.b.i0.r2.s.o().l().c();
+                if (v.p().m() != null) {
+                    v.p().m().c();
                 }
             }
         }
@@ -320,7 +321,7 @@ public class FrsActivityStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                d.b.i0.p0.m2.k.a();
+                d.b.i0.q0.n2.k.a();
             }
         }
     }
@@ -333,7 +334,7 @@ public class FrsActivityStatic {
             if (a2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
-                layoutParams.setMargins(d.b.b.e.p.l.g(context, R.dimen.ds8), 0, d.b.b.e.p.l.g(context, R.dimen.ds8), 0);
+                layoutParams.setMargins(d.b.c.e.p.l.g(context, R.dimen.ds8), 0, d.b.c.e.p.l.g(context, R.dimen.ds8), 0);
                 layoutParams.gravity = 16;
                 a2.setLayoutParams(layoutParams);
             }
@@ -346,7 +347,7 @@ public class FrsActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            o0.a(d.b.i0.c3.m.WIRE, FrsPageResIdl.class);
+            o0.a(d.b.i0.d3.m.WIRE, FrsPageResIdl.class);
             return null;
         }
     }
@@ -365,8 +366,8 @@ public class FrsActivityStatic {
         i();
         f();
         o();
-        MessageManager.getInstance().registerListener(f15966d);
-        MessageManager.getInstance().registerListener(f15967e);
+        MessageManager.getInstance().registerListener(f15627d);
+        MessageManager.getInstance().registerListener(f15628e);
         h();
         m();
         n();
@@ -402,8 +403,8 @@ public class FrsActivityStatic {
     }
 
     public static void f() {
-        d.b.i0.c3.d0.a.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, d.b.i0.c3.d0.a.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
+        d.b.i0.d3.d0.a.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, d.b.i0.d3.d0.a.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -423,8 +424,8 @@ public class FrsActivityStatic {
     }
 
     public static void h() {
-        d.b.i0.c3.d0.a.f(301002, LoadMoreResponseSocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, d.b.i0.c3.d0.a.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
+        d.b.i0.d3.d0.a.f(301002, LoadMoreResponseSocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, d.b.i0.d3.d0.a.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -434,8 +435,8 @@ public class FrsActivityStatic {
     }
 
     public static void i() {
-        d.b.i0.c3.d0.a.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, d.b.i0.c3.d0.a.a(TbConfig.FRS_ADDRESS, 301001));
+        d.b.i0.d3.d0.a.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, d.b.i0.d3.d0.a.a(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -457,8 +458,8 @@ public class FrsActivityStatic {
     }
 
     public static void k() {
-        d.b.i0.c3.d0.a.h(309667, GetLiveHorseRaceSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
+        d.b.i0.d3.d0.a.h(309667, GetLiveHorseRaceSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
     }
 
     public static void l() {

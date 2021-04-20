@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
 import com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel;
 import d.b.h0.l.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     public int from;
     public YoungsterVerifyModel youngsterVerifyModel;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements YoungsterVerifyModel.b {
         public a() {
         }
@@ -44,7 +44,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends TbWebViewActivity.t {
         public b() {
             super();

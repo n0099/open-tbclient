@@ -3,29 +3,29 @@ package d.c.d.b.h;
 import android.os.Build;
 import android.system.Os;
 import android.system.OsConstants;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes6.dex */
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+/* loaded from: classes5.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f65869a = -1;
+    public static long f66714a = -1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static long f65870a = -1;
+        public static long f66715a = -1;
 
         public static long a() {
-            if (j.f65869a == -1) {
-                long unused = j.f65869a = 1000 / d();
+            if (j.f66714a == -1) {
+                long unused = j.f66714a = 1000 / d();
             }
-            return j.f65869a;
+            return j.f66714a;
         }
 
         public static long b(long j) {
             long c2;
-            long j2 = f65870a;
+            long j2 = f66715a;
             if (j2 > 0) {
                 return j2;
             }
@@ -38,7 +38,7 @@ public class j {
             if (c2 > 0) {
                 j = c2;
             }
-            f65870a = j;
+            f66715a = j;
             return j;
         }
 
@@ -47,7 +47,7 @@ public class j {
                 int i = Class.forName("libcore.io.OsConstants").getField(str).getInt(null);
                 Class<?> cls = Class.forName("libcore.io.Libcore");
                 Class<?> cls2 = Class.forName("libcore.io.Os");
-                return ((Long) cls2.getMethod("sysconf", Integer.TYPE).invoke(cls.getField(IXAdRequestInfo.OS).get(null), Integer.valueOf(i))).longValue();
+                return ((Long) cls2.getMethod("sysconf", Integer.TYPE).invoke(cls.getField(IAdRequestParam.OS).get(null), Integer.valueOf(i))).longValue();
             } catch (Throwable th) {
                 th.printStackTrace();
                 return j;

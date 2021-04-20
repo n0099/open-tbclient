@@ -3,7 +3,7 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes2.dex */
 public class g extends com.baidu.platform.base.e {
@@ -12,18 +12,18 @@ public class g extends com.baidu.platform.base.e {
     }
 
     private void a(IndoorRoutePlanOption indoorRoutePlanOption) {
-        this.f9821a.a("qt", "indoornavi");
-        this.f9821a.a("rp_format", "json");
-        this.f9821a.a("version", "1");
+        this.f9379a.a("qt", "indoornavi");
+        this.f9379a.a("rp_format", "json");
+        this.f9379a.a("version", "1");
         GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
         if (ll2mc != null) {
             String format = String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6()));
-            this.f9821a.a(IXAdRequestInfo.SN, (format + FieldBuilder.SE + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+            this.f9379a.a(IAdRequestParam.SN, (format + FieldBuilder.SE + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
         }
         GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
         if (ll2mc2 != null) {
             String format2 = String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6()));
-            this.f9821a.a("en", (format2 + FieldBuilder.SE + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+            this.f9379a.a("en", (format2 + FieldBuilder.SE + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
         }
     }
 

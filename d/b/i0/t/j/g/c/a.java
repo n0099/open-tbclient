@@ -29,16 +29,16 @@ public class a extends Dialog {
     public static final int z = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f60888e;
+    public TbPageContext f62452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f60889f;
+    public View f62453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f60890g;
+    public TbImageView f62454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f60891h;
+    public FrameLayout f62455h;
     public TextView i;
     public RelativeLayout j;
     public TextView k;
@@ -58,8 +58,8 @@ public class a extends Dialog {
 
     /* renamed from: d.b.i0.t.j.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1571a implements AlaUpdateMarkStatusModel.b {
-        public C1571a() {
+    public class C1624a implements AlaUpdateMarkStatusModel.b {
+        public C1624a() {
         }
 
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaUpdateMarkStatusModel.b
@@ -75,7 +75,7 @@ public class a extends Dialog {
             if (StringUtils.isNull(str)) {
                 str = a.this.getContext().getResources().getString(R.string.ala_achievement_ops_failed_tip);
             }
-            a.this.f60888e.showToast(str);
+            a.this.f62452e.showToast(str);
         }
     }
 
@@ -104,7 +104,7 @@ public class a extends Dialog {
         public void a(boolean z, String str) {
             if (z) {
                 if (a.this.o != null) {
-                    a.this.f60888e.showToast(R.string.ala_achievement_tdou_buy_success);
+                    a.this.f62452e.showToast(R.string.ala_achievement_tdou_buy_success);
                     if (a.this.q != null) {
                         a.this.q.a(true, a.this.o);
                     }
@@ -114,9 +114,9 @@ public class a extends Dialog {
                     a.this.s();
                 }
             } else if (!StringUtils.isNull(str)) {
-                a.this.f60888e.showToast(str);
+                a.this.f62452e.showToast(str);
             } else {
-                a.this.f60888e.showToast(R.string.ala_achievement_tdou_buy_fail);
+                a.this.f62452e.showToast(R.string.ala_achievement_tdou_buy_fail);
             }
         }
     }
@@ -205,7 +205,7 @@ public class a extends Dialog {
 
     public a(TbPageContext tbPageContext, i iVar) {
         super(tbPageContext.getPageActivity());
-        this.f60888e = tbPageContext;
+        this.f62452e = tbPageContext;
         this.q = iVar;
     }
 
@@ -224,32 +224,32 @@ public class a extends Dialog {
     public final void n() {
         AlaUpdateMarkStatusModel alaUpdateMarkStatusModel = new AlaUpdateMarkStatusModel(getContext());
         this.p = alaUpdateMarkStatusModel;
-        alaUpdateMarkStatusModel.v(new C1571a());
-        d.b.i0.t.j.g.b bVar = new d.b.i0.t.j.g.b(this.f60888e);
+        alaUpdateMarkStatusModel.v(new C1624a());
+        d.b.i0.t.j.g.b bVar = new d.b.i0.t.j.g.b(this.f62452e);
         this.w = bVar;
         bVar.e(new b());
-        this.x = new d.b.i0.t.j.g.a(this.f60888e, new c());
+        this.x = new d.b.i0.t.j.g.a(this.f62452e, new c());
     }
 
     public final void o() {
         View inflate = getLayoutInflater().inflate(R.layout.ala_achievement_mark_mask_layout, (ViewGroup) null);
-        this.f60889f = inflate;
+        this.f62453f = inflate;
         setContentView(inflate);
-        this.f60889f.setOnClickListener(new d());
-        TbImageView tbImageView = (TbImageView) this.f60889f.findViewById(R.id.mark_img);
-        this.f60890g = tbImageView;
+        this.f62453f.setOnClickListener(new d());
+        TbImageView tbImageView = (TbImageView) this.f62453f.findViewById(R.id.mark_img);
+        this.f62454g = tbImageView;
         tbImageView.setDefaultBgResource(R.color.transparent);
-        this.f60890g.setDefaultResource(R.drawable.pic_live_honor);
-        this.f60891h = (FrameLayout) this.f60889f.findViewById(R.id.mark_img_layout);
-        this.i = (TextView) this.f60889f.findViewById(R.id.mark_title);
-        this.j = (RelativeLayout) this.f60889f.findViewById(R.id.mark_desc_layout);
-        this.k = (TextView) this.f60889f.findViewById(R.id.mark_desc);
-        this.l = (TextView) this.f60889f.findViewById(R.id.mark_upgrade_desc);
-        MarkLevelGroup markLevelGroup = (MarkLevelGroup) this.f60889f.findViewById(R.id.mark_level_view);
+        this.f62454g.setDefaultResource(R.drawable.pic_live_honor);
+        this.f62455h = (FrameLayout) this.f62453f.findViewById(R.id.mark_img_layout);
+        this.i = (TextView) this.f62453f.findViewById(R.id.mark_title);
+        this.j = (RelativeLayout) this.f62453f.findViewById(R.id.mark_desc_layout);
+        this.k = (TextView) this.f62453f.findViewById(R.id.mark_desc);
+        this.l = (TextView) this.f62453f.findViewById(R.id.mark_upgrade_desc);
+        MarkLevelGroup markLevelGroup = (MarkLevelGroup) this.f62453f.findViewById(R.id.mark_level_view);
         this.m = markLevelGroup;
         markLevelGroup.setCallback(new e());
-        this.n = (TextView) this.f60889f.findViewById(R.id.mark_ops_btn);
-        this.t = (TextView) this.f60889f.findViewById(R.id.mark_limit_time);
+        this.n = (TextView) this.f62453f.findViewById(R.id.mark_ops_btn);
+        this.t = (TextView) this.f62453f.findViewById(R.id.mark_limit_time);
         this.r = (LinearLayout) findViewById(R.id.mark_tdou_layout);
         this.s = (TextView) findViewById(R.id.mark_tdou_price);
         this.u = (LinearLayout) findViewById(R.id.user_tdou_layout);
@@ -285,14 +285,14 @@ public class a extends Dialog {
     }
 
     public final void r() {
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f60888e.getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f62452e.getPageActivity());
         aVar.setMessageShowCenter(true);
         aVar.setCanceledOnTouchOutside(false);
         aVar.setTitle(R.string.ala_achievement_ops_alert_title);
         aVar.setMessageId(R.string.ala_achievement_ops_alert_content);
         aVar.setPositiveButton(R.string.dialog_ok, new g());
         aVar.setNegativeButton(R.string.dialog_cancel, new h());
-        aVar.create(this.f60888e).show();
+        aVar.create(this.f62452e).show();
     }
 
     public final void s() {
@@ -329,9 +329,9 @@ public class a extends Dialog {
 
     public final void t(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            this.f60890g.W(String.valueOf(R.drawable.pic_live_honor), 24, false);
+            this.f62454g.W(String.valueOf(R.drawable.pic_live_honor), 24, false);
         } else {
-            this.f60890g.W(str, 10, false);
+            this.f62454g.W(str, 10, false);
         }
         this.i.setText(str2);
     }

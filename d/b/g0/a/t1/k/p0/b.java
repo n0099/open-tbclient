@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
     public b(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/exit");

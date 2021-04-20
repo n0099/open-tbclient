@@ -20,15 +20,15 @@ public class d extends a0 {
     public class a implements a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46227a;
+        public final /* synthetic */ CallbackHandler f46619a;
 
         public a(CallbackHandler callbackHandler) {
-            this.f46227a = callbackHandler;
+            this.f46619a = callbackHandler;
         }
 
         @Override // d.b.g0.a.a0.c.f.a.g
         public void a(String str, JSONObject jSONObject) {
-            d.this.k(this.f46227a, 0, str, jSONObject);
+            d.this.k(this.f46619a, 0, str, jSONObject);
         }
     }
 
@@ -38,7 +38,7 @@ public class d extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("OpenInputAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -79,7 +79,7 @@ public class d extends a0 {
     }
 
     public final void k(CallbackHandler callbackHandler, int i, String str, JSONObject jSONObject) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("OpenInputAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
         }
         if (TextUtils.isEmpty(str)) {

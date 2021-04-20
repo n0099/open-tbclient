@@ -7,13 +7,13 @@ import java.io.IOException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f49918a = new int[2];
+    public final int[] f50311a = new int[2];
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f49919b;
+    public Context f50312b;
 
     public a(Context context) {
-        this.f49919b = context;
+        this.f50312b = context;
     }
 
     public BitmapRegionDecoder a(byte[] bArr) throws IOException {
@@ -21,12 +21,12 @@ public class a {
             return null;
         }
         BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-        this.f49918a[0] = newInstance.getWidth();
-        this.f49918a[1] = newInstance.getHeight();
+        this.f50311a[0] = newInstance.getWidth();
+        this.f50311a[1] = newInstance.getHeight();
         return newInstance;
     }
 
     public int[] b() {
-        return this.f49918a;
+        return this.f50311a;
     }
 }

@@ -19,32 +19,32 @@ import java.util.List;
 public class d extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.baidu.platform.comapi.wnplatform.c.a> f10252f;
+    public List<com.baidu.platform.comapi.wnplatform.c.a> f9810f;
     public c i;
     public Handler j;
     public Context k;
     public long l;
 
     /* renamed from: g  reason: collision with root package name */
-    public static GeoPoint f10247g = new GeoPoint(0.0d, 0.0d);
+    public static GeoPoint f9805g = new GeoPoint(0.0d, 0.0d);
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10246a = 0;
+    public static int f9804a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public WLocData f10248b = null;
+    public WLocData f9806b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public WLocData f10249c = new WLocData();
+    public WLocData f9807c = new WLocData();
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationManager f10250d = null;
+    public LocationManager f9808d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<b> f10251e = new ArrayList<>();
+    public ArrayList<b> f9809e = new ArrayList<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f10253h = false;
+    public boolean f9811h = false;
     public long m = 0;
     public int n = 2;
     public int o = 0;
@@ -65,15 +65,15 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 4103) {
-                if (d.this.f10252f != null) {
-                    for (com.baidu.platform.comapi.wnplatform.c.a aVar : d.this.f10252f) {
+                if (d.this.f9810f != null) {
+                    for (com.baidu.platform.comapi.wnplatform.c.a aVar : d.this.f9810f) {
                         if (aVar != null) {
                             aVar.a(message);
                         }
                     }
                 }
                 if (message.arg1 == 0) {
-                    d.this.f10253h = false;
+                    d.this.f9811h = false;
                 }
             }
         }
@@ -106,7 +106,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean c() {
-        LocationManager locationManager = this.f10250d;
+        LocationManager locationManager = this.f9808d;
         if (locationManager == null) {
             return false;
         }
@@ -120,26 +120,26 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
 
     public synchronized void d() {
         try {
-            if (this.f10250d != null) {
-                this.f10250d.removeUpdates(this.v);
+            if (this.f9808d != null) {
+                this.f9808d.removeUpdates(this.v);
             }
         } catch (Exception unused) {
         }
         try {
-            if (this.f10250d != null) {
-                this.f10250d.removeGpsStatusListener(this.r);
+            if (this.f9808d != null) {
+                this.f9808d.removeGpsStatusListener(this.r);
             }
         } catch (Exception e2) {
             com.baidu.platform.comapi.wnplatform.d.a.b(e2.getMessage());
         }
-        this.f10253h = false;
+        this.f9811h = false;
         this.v = null;
         this.r = null;
-        this.f10250d = null;
+        this.f9808d = null;
     }
 
     public void b(com.baidu.platform.comapi.wnplatform.c.a aVar) {
-        List<com.baidu.platform.comapi.wnplatform.c.a> list = this.f10252f;
+        List<com.baidu.platform.comapi.wnplatform.c.a> list = this.f9810f;
         if (list == null || aVar == null) {
             return;
         }
@@ -151,19 +151,19 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
             return;
         }
         try {
-            this.f10253h = false;
-            if (this.f10250d == null) {
-                this.f10250d = (LocationManager) context.getSystemService("location");
+            this.f9811h = false;
+            if (this.f9808d == null) {
+                this.f9808d = (LocationManager) context.getSystemService("location");
             }
-            this.f10250d.requestLocationUpdates("gps", 0L, 0.0f, this.v);
-            this.f10250d.addGpsStatusListener(this.r);
+            this.f9808d.requestLocationUpdates("gps", 0L, 0.0f, this.v);
+            this.f9808d.addGpsStatusListener(this.r);
             e();
         } catch (Exception unused) {
         }
     }
 
     public GeoPoint b() {
-        return new GeoPoint(f10247g.getLatitudeE6(), f10247g.getLongitudeE6());
+        return new GeoPoint(f9805g.getLatitudeE6(), f9805g.getLongitudeE6());
     }
 
     public synchronized void b(Context context) {
@@ -172,8 +172,8 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
 
     public synchronized void a(Context context) {
         this.k = context;
-        if (this.f10250d == null) {
-            this.f10250d = (LocationManager) context.getSystemService("location");
+        if (this.f9808d == null) {
+            this.f9808d = (LocationManager) context.getSystemService("location");
         }
         a aVar = new a(this, null);
         this.j = aVar;
@@ -184,41 +184,41 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     public synchronized void a() {
         MessageCenter.unregistMessage(4103, this.j);
         d();
-        if (this.f10251e != null) {
-            this.f10251e.clear();
+        if (this.f9809e != null) {
+            this.f9809e.clear();
         }
-        if (this.f10252f != null) {
-            this.f10252f.clear();
+        if (this.f9810f != null) {
+            this.f9810f.clear();
         }
-        this.f10248b = null;
-        this.f10249c = null;
+        this.f9806b = null;
+        this.f9807c = null;
     }
 
     public void a(b bVar) {
-        this.f10251e.add(bVar);
+        this.f9809e.add(bVar);
     }
 
     public void a(c cVar) {
         this.i = cVar;
-        f10246a = 0;
+        f9804a = 0;
     }
 
     public void a(com.baidu.platform.comapi.wnplatform.c.a aVar) {
-        if (this.f10252f == null) {
-            this.f10252f = new LinkedList();
+        if (this.f9810f == null) {
+            this.f9810f = new LinkedList();
         }
-        this.f10252f.add(aVar);
+        this.f9810f.add(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Location location) {
-        this.f10249c.latitude = location.getLatitude();
-        this.f10249c.longitude = location.getLongitude();
-        this.f10249c.speed = location.getSpeed();
-        this.f10249c.accuracy = Math.min(2000.0f, location.getAccuracy());
-        this.f10249c.direction = location.getBearing();
-        this.f10249c.altitude = location.getAltitude();
-        this.f10249c.coordType = 0;
+        this.f9807c.latitude = location.getLatitude();
+        this.f9807c.longitude = location.getLongitude();
+        this.f9807c.speed = location.getSpeed();
+        this.f9807c.accuracy = Math.min(2000.0f, location.getAccuracy());
+        this.f9807c.direction = location.getBearing();
+        this.f9807c.altitude = location.getAltitude();
+        this.f9807c.coordType = 0;
     }
 
     public void a(WLocData wLocData) {
@@ -226,36 +226,36 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         com.baidu.platform.comapi.wnplatform.a.a().d();
         if (wLocData.accuracy < 80.0f) {
             WLocData m13clone = wLocData.m13clone();
-            this.f10249c = m13clone;
+            this.f9807c = m13clone;
             a(m13clone, "sdk");
             if (wLocData.isIndoorMode) {
-                int i = f10246a + 1;
-                f10246a = i;
+                int i = f9804a + 1;
+                f9804a = i;
                 if (i <= 3 || (cVar = this.i) == null) {
                     return;
                 }
                 cVar.a();
                 return;
             }
-            f10246a = 0;
+            f9804a = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WLocData wLocData, String str) {
         ArrayList arrayList;
-        this.f10248b = wLocData.m13clone();
+        this.f9806b = wLocData.m13clone();
         GeoPoint a2 = com.baidu.platform.comapi.wnplatform.o.b.a(wLocData.longitude, wLocData.latitude);
-        f10247g.setLongitudeE6(a2.getLongitudeE6());
-        f10247g.setLatitudeE6(a2.getLatitudeE6());
-        synchronized (this.f10251e) {
-            arrayList = new ArrayList(this.f10251e);
+        f9805g.setLongitudeE6(a2.getLongitudeE6());
+        f9805g.setLatitudeE6(a2.getLatitudeE6());
+        synchronized (this.f9809e) {
+            arrayList = new ArrayList(this.f9809e);
         }
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             b bVar = (b) it.next();
             if (bVar != null) {
-                bVar.a(this.f10248b);
+                bVar.a(this.f9806b);
             }
         }
     }

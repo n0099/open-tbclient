@@ -9,7 +9,7 @@ import d.b.g0.a.e0.l.f;
 import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
     public b(j jVar) {
         super(jVar, "/swanAPI/stopPullDownRefresh");
@@ -28,12 +28,12 @@ public class b extends a0 {
             return false;
         } else {
             d.b.g0.a.e0.l.e eVar2 = (d.b.g0.a.e0.l.e) W.m();
-            if (eVar2.Y() == null) {
+            if (eVar2.b0() == null) {
                 c.b("stopPullDownRefresh", "view is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            eVar2.Y().w(false);
+            eVar2.b0().w(false);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             c.g("stopPullDownRefresh", "refresh complete");
             return true;

@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.statistic;
 
 import com.bytedance.sdk.openadsdk.preload.geckox.d.b.b.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.a aVar, com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
         aVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.e.class, d.a(bVar));

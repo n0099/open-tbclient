@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.t.b;
-import f.a.x.i.c;
+import f.b.g;
+import f.b.t.b;
+import f.b.x.i.c;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
@@ -35,7 +35,7 @@ public final class BlockingFlowableIterable$BlockingFlowableIterator<T> extends 
         this.condition = reentrantLock.newCondition();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         SubscriptionHelper.cancel(this);
     }
@@ -74,7 +74,7 @@ public final class BlockingFlowableIterable$BlockingFlowableIterator<T> extends 
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return SubscriptionHelper.isCancelled(get());
     }
@@ -118,7 +118,7 @@ public final class BlockingFlowableIterable$BlockingFlowableIterator<T> extends 
         signalConsumer();
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(this.batchSize);

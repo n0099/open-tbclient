@@ -12,18 +12,18 @@ import d.b.g0.a.g;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f48294a;
+    public View f48686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDraweeView f48295b;
+    public SimpleDraweeView f48687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f48296c;
+    public TextView f48688c;
 
     public b(Context context) {
         View inflate = LayoutInflater.from(context).inflate(g.swangame_recommend_button, (ViewGroup) null);
-        this.f48294a = inflate;
-        this.f48295b = (SimpleDraweeView) inflate.findViewById(f.swangame_recommend_button_icon);
-        this.f48296c = (TextView) this.f48294a.findViewById(f.swangame_recommend_button_name);
+        this.f48686a = inflate;
+        this.f48687b = (SimpleDraweeView) inflate.findViewById(f.swangame_recommend_button_icon);
+        this.f48688c = (TextView) this.f48686a.findViewById(f.swangame_recommend_button_name);
     }
 }

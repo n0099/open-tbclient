@@ -7,23 +7,23 @@ import java.util.List;
 public class c implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Long> f44952a = new ArrayList();
+    public List<Long> f45344a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44953b = -1;
+    public long f45345b = -1;
 
     @Override // d.b.g0.a.j1.p.e
     public long a() {
-        List<Long> list = this.f44952a;
-        if (list == null || list.size() <= 0 || this.f44953b < 0) {
+        List<Long> list = this.f45344a;
+        if (list == null || list.size() <= 0 || this.f45345b < 0) {
             return -1L;
         }
-        return this.f44953b - ((Long) Collections.min(this.f44952a)).longValue();
+        return this.f45345b - ((Long) Collections.min(this.f45344a)).longValue();
     }
 
     @Override // d.b.g0.a.j1.p.e
     public void b(long j) {
-        List<Long> list = this.f44952a;
+        List<Long> list = this.f45344a;
         if (list != null) {
             list.add(Long.valueOf(j));
         }
@@ -31,7 +31,7 @@ public class c implements e {
 
     @Override // d.b.g0.a.j1.p.e
     public void c(long j) {
-        this.f44953b = j;
+        this.f45345b = j;
     }
 
     @Override // d.b.g0.a.j1.p.e

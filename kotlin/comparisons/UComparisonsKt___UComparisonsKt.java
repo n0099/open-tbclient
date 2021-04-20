@@ -13,21 +13,21 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-5PvTz6A  reason: not valid java name */
-    public static final short m1471maxOf5PvTz6A(short s, short s2) {
+    public static final short m1475maxOf5PvTz6A(short s, short s2) {
         return Intrinsics.compare(s & UShort.MAX_VALUE, 65535 & s2) >= 0 ? s : s2;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-J1ME1BU  reason: not valid java name */
-    public static final int m1472maxOfJ1ME1BU(int i, int i2) {
+    public static final int m1476maxOfJ1ME1BU(int i, int i2) {
         return UnsignedKt.uintCompare(i, i2) >= 0 ? i : i2;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-Kr8caGY  reason: not valid java name */
-    public static final byte m1473maxOfKr8caGY(byte b2, byte b3) {
+    public static final byte m1477maxOfKr8caGY(byte b2, byte b3) {
         return Intrinsics.compare(b2 & 255, b3 & 255) >= 0 ? b2 : b3;
     }
 
@@ -35,30 +35,30 @@ public class UComparisonsKt___UComparisonsKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: maxOf-VKSA0NQ  reason: not valid java name */
-    public static final short m1474maxOfVKSA0NQ(short s, short s2, short s3) {
-        return m1471maxOf5PvTz6A(s, m1471maxOf5PvTz6A(s2, s3));
+    public static final short m1478maxOfVKSA0NQ(short s, short s2, short s3) {
+        return m1475maxOf5PvTz6A(s, m1475maxOf5PvTz6A(s2, s3));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: maxOf-WZ9TVnA  reason: not valid java name */
-    public static final int m1475maxOfWZ9TVnA(int i, int i2, int i3) {
-        return m1472maxOfJ1ME1BU(i, m1472maxOfJ1ME1BU(i2, i3));
+    public static final int m1479maxOfWZ9TVnA(int i, int i2, int i3) {
+        return m1476maxOfJ1ME1BU(i, m1476maxOfJ1ME1BU(i2, i3));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: maxOf-b33U2AM  reason: not valid java name */
-    public static final byte m1476maxOfb33U2AM(byte b2, byte b3, byte b4) {
-        return m1473maxOfKr8caGY(b2, m1473maxOfKr8caGY(b3, b4));
+    public static final byte m1480maxOfb33U2AM(byte b2, byte b3, byte b4) {
+        return m1477maxOfKr8caGY(b2, m1477maxOfKr8caGY(b3, b4));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-eb3DHEI  reason: not valid java name */
-    public static final long m1477maxOfeb3DHEI(long j, long j2) {
+    public static final long m1481maxOfeb3DHEI(long j, long j2) {
         return UnsignedKt.ulongCompare(j, j2) >= 0 ? j : j2;
     }
 
@@ -66,28 +66,28 @@ public class UComparisonsKt___UComparisonsKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: maxOf-sambcqE  reason: not valid java name */
-    public static final long m1478maxOfsambcqE(long j, long j2, long j3) {
-        return m1477maxOfeb3DHEI(j, m1477maxOfeb3DHEI(j2, j3));
+    public static final long m1482maxOfsambcqE(long j, long j2, long j3) {
+        return m1481maxOfeb3DHEI(j, m1481maxOfeb3DHEI(j2, j3));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-5PvTz6A  reason: not valid java name */
-    public static final short m1479minOf5PvTz6A(short s, short s2) {
+    public static final short m1483minOf5PvTz6A(short s, short s2) {
         return Intrinsics.compare(s & UShort.MAX_VALUE, 65535 & s2) <= 0 ? s : s2;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-J1ME1BU  reason: not valid java name */
-    public static final int m1480minOfJ1ME1BU(int i, int i2) {
+    public static final int m1484minOfJ1ME1BU(int i, int i2) {
         return UnsignedKt.uintCompare(i, i2) <= 0 ? i : i2;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-Kr8caGY  reason: not valid java name */
-    public static final byte m1481minOfKr8caGY(byte b2, byte b3) {
+    public static final byte m1485minOfKr8caGY(byte b2, byte b3) {
         return Intrinsics.compare(b2 & 255, b3 & 255) <= 0 ? b2 : b3;
     }
 
@@ -95,30 +95,30 @@ public class UComparisonsKt___UComparisonsKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: minOf-VKSA0NQ  reason: not valid java name */
-    public static final short m1482minOfVKSA0NQ(short s, short s2, short s3) {
-        return m1479minOf5PvTz6A(s, m1479minOf5PvTz6A(s2, s3));
+    public static final short m1486minOfVKSA0NQ(short s, short s2, short s3) {
+        return m1483minOf5PvTz6A(s, m1483minOf5PvTz6A(s2, s3));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: minOf-WZ9TVnA  reason: not valid java name */
-    public static final int m1483minOfWZ9TVnA(int i, int i2, int i3) {
-        return m1480minOfJ1ME1BU(i, m1480minOfJ1ME1BU(i2, i3));
+    public static final int m1487minOfWZ9TVnA(int i, int i2, int i3) {
+        return m1484minOfJ1ME1BU(i, m1484minOfJ1ME1BU(i2, i3));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: minOf-b33U2AM  reason: not valid java name */
-    public static final byte m1484minOfb33U2AM(byte b2, byte b3, byte b4) {
-        return m1481minOfKr8caGY(b2, m1481minOfKr8caGY(b3, b4));
+    public static final byte m1488minOfb33U2AM(byte b2, byte b3, byte b4) {
+        return m1485minOfKr8caGY(b2, m1485minOfKr8caGY(b3, b4));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-eb3DHEI  reason: not valid java name */
-    public static final long m1485minOfeb3DHEI(long j, long j2) {
+    public static final long m1489minOfeb3DHEI(long j, long j2) {
         return UnsignedKt.ulongCompare(j, j2) <= 0 ? j : j2;
     }
 
@@ -126,7 +126,7 @@ public class UComparisonsKt___UComparisonsKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: minOf-sambcqE  reason: not valid java name */
-    public static final long m1486minOfsambcqE(long j, long j2, long j3) {
-        return m1485minOfeb3DHEI(j, m1485minOfeb3DHEI(j2, j3));
+    public static final long m1490minOfsambcqE(long j, long j2, long j3) {
+        return m1489minOfeb3DHEI(j, m1489minOfeb3DHEI(j2, j3));
     }
 }

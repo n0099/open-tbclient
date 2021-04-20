@@ -8,10 +8,10 @@ import com.baidu.tieba.R;
 public class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ t f10117a;
+    public final /* synthetic */ t f9675a;
 
     public u(t tVar) {
-        this.f10117a = tVar;
+        this.f9675a = tVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,20 +19,20 @@ public class u implements Runnable {
         Context context;
         Context context2;
         Context context3;
-        context = this.f10117a.f10116b.l;
+        context = this.f9675a.f9674b.l;
         if (!NetworkUtil.isWifiState(context)) {
-            context2 = this.f10117a.f10116b.l;
+            context2 = this.f9675a.f9674b.l;
             if (context2 != null) {
-                t tVar = this.f10117a;
-                c cVar = tVar.f10116b;
-                String str = tVar.f10115a;
+                t tVar = this.f9675a;
+                c cVar = tVar.f9674b;
+                String str = tVar.f9673a;
                 context3 = cVar.l;
                 cVar.a(str, com.baidu.platform.comapi.wnplatform.o.a.a.b(context3, R.drawable.res_0x7f08001d_ic_icon_mask_guide_travel_svg__0), 4);
                 return;
             }
             return;
         }
-        t tVar2 = this.f10117a;
-        tVar2.f10116b.a(tVar2.f10115a, (c.d) null);
+        t tVar2 = this.f9675a;
+        tVar2.f9674b.a(tVar2.f9673a, (c.d) null);
     }
 }

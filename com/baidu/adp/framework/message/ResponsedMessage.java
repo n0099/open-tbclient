@@ -1,8 +1,8 @@
 package com.baidu.adp.framework.message;
 
 import com.baidu.tbadk.core.util.TbErrInfo;
-import d.b.b.c.e.c.h;
-import d.b.b.c.i.a;
+import d.b.c.c.e.c.h;
+import d.b.c.c.i.a;
 /* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> {
     public final int mCmd;
@@ -66,7 +66,7 @@ public abstract class ResponsedMessage<T> {
     public abstract boolean hasError();
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
-        if (i2 == h.f41517c) {
+        if (i2 == h.f42014c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

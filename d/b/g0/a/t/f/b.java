@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46221a = k.f45051a;
+    public static final boolean f46613a = k.f45443a;
 
     @NonNull
     public static Pair<d.b.g0.a.t.e.b, JSONObject> a(String str, String str2) {
@@ -19,7 +19,7 @@ public class b {
             str = "Api-Utils";
         }
         if (TextUtils.isEmpty(str2)) {
-            if (f46221a) {
+            if (f46613a) {
                 Log.e(str, "parseJson: json str is empty");
             }
             return new Pair<>(new d.b.g0.a.t.e.b(202, "parseJson: json str is empty"), new JSONObject());
@@ -27,7 +27,7 @@ public class b {
         try {
             return new Pair<>(new d.b.g0.a.t.e.b(0), new JSONObject(str2));
         } catch (JSONException e2) {
-            if (f46221a) {
+            if (f46613a) {
                 e2.printStackTrace();
                 Log.e(str, "parseJson: with exception ", e2);
             }

@@ -11,13 +11,13 @@ public class b implements i {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f44616a;
+        public static String f45008a;
 
         public static String a() {
-            if (TextUtils.isEmpty(f44616a)) {
-                f44616a = d.b.g0.a.g2.b.c();
+            if (TextUtils.isEmpty(f45008a)) {
+                f45008a = d.b.g0.a.g2.b.c();
             }
-            return f44616a;
+            return f45008a;
         }
     }
 

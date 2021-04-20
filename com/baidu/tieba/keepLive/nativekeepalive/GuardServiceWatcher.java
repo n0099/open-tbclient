@@ -7,7 +7,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.h0.c0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuardServiceWatcher extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

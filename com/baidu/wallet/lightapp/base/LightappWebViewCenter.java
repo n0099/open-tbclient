@@ -22,29 +22,29 @@ public class LightappWebViewCenter implements NoProguard {
     public static final String TAG = "LightappWebViewCenter";
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f24878a;
+    public LightappBrowserWebView f24563a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<LightappBrowserWebView> f24879b;
+    public LinkedBlockingQueue<LightappBrowserWebView> f24564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MutableContextWrapper f24880c;
+    public MutableContextWrapper f24565c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24881d;
+    public boolean f24566d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f24882e;
+    public Context f24567e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LightappWebViewCenter f24883a = new LightappWebViewCenter();
+        public static LightappWebViewCenter f24568a = new LightappWebViewCenter();
     }
 
     public static LightappWebViewCenter getInstance() {
-        return a.f24883a;
+        return a.f24568a;
     }
 
     public static boolean isLightappWebViewCenterOn(Context context) {
@@ -52,8 +52,8 @@ public class LightappWebViewCenter implements NoProguard {
     }
 
     public LightappBrowserWebView getLightappWebView(Context context) {
-        if (isLightappWebViewCenterOn(context) && !this.f24881d) {
-            this.f24881d = true;
+        if (isLightappWebViewCenterOn(context) && !this.f24566d) {
+            this.f24566d = true;
             return initLightappWebView(context);
         }
         return new LightappBrowserWebView(context);
@@ -62,11 +62,11 @@ public class LightappWebViewCenter implements NoProguard {
     public LightappBrowserWebView getLightappWebViewFromPool() {
         InterruptedException e2;
         LightappBrowserWebView lightappBrowserWebView;
-        if (this.f24879b == null || this.f24882e == null || !h.a().a(this.f24882e).MW_ON || this.f24879b.size() <= 0) {
+        if (this.f24564b == null || this.f24567e == null || !h.a().a(this.f24567e).MW_ON || this.f24564b.size() <= 0) {
             return null;
         }
         try {
-            lightappBrowserWebView = this.f24879b.take();
+            lightappBrowserWebView = this.f24564b.take();
         } catch (InterruptedException e3) {
             e2 = e3;
             lightappBrowserWebView = null;
@@ -83,36 +83,36 @@ public class LightappWebViewCenter implements NoProguard {
     }
 
     public LightappBrowserWebView initLightappWebView(Context context) {
-        if (this.f24878a == null) {
-            this.f24880c = new MutableContextWrapper(context);
-            this.f24878a = new LightappBrowserWebView(this.f24880c);
+        if (this.f24563a == null) {
+            this.f24565c = new MutableContextWrapper(context);
+            this.f24563a = new LightappBrowserWebView(this.f24565c);
         } else {
-            MutableContextWrapper mutableContextWrapper = this.f24880c;
+            MutableContextWrapper mutableContextWrapper = this.f24565c;
             if (mutableContextWrapper != null) {
                 mutableContextWrapper.setBaseContext(context);
-                this.f24878a.clearHistory();
+                this.f24563a.clearHistory();
             }
         }
-        return this.f24878a;
+        return this.f24563a;
     }
 
     public void initLightappWebViewPool(@NonNull Activity activity) {
-        if (activity != null && this.f24879b == null && h.a().a(activity).MW_ON) {
+        if (activity != null && this.f24564b == null && h.a().a(activity).MW_ON) {
             PayStatisticsUtil.onEventStart("#eventInitWebviewPool");
             DXMSdkSAUtils.onEventStart("#eventInitWebviewPool");
             int i = h.a().a(activity).MW_WEBVIEW_POOL_SIZE;
             if (i <= 0) {
                 return;
             }
-            this.f24879b = new LinkedBlockingQueue<>(i);
-            this.f24882e = activity.getApplication();
-            while (this.f24879b.remainingCapacity() > 0) {
+            this.f24564b = new LinkedBlockingQueue<>(i);
+            this.f24567e = activity.getApplication();
+            while (this.f24564b.remainingCapacity() > 0) {
                 LightappBrowserWebView lightappBrowserWebView = new LightappBrowserWebView(activity);
                 try {
                     lightappBrowserWebView.loadUrl("about:blank");
-                    lightappBrowserWebView.setBaseContext(this.f24882e);
+                    lightappBrowserWebView.setBaseContext(this.f24567e);
                     lightappBrowserWebView.onPause();
-                    this.f24879b.put(lightappBrowserWebView);
+                    this.f24564b.put(lightappBrowserWebView);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -134,7 +134,7 @@ public class LightappWebViewCenter implements NoProguard {
     }
 
     public boolean releaseLightappWebView(@NonNull Context context, LightappBrowserWebView lightappBrowserWebView) {
-        if (this.f24878a == lightappBrowserWebView) {
+        if (this.f24563a == lightappBrowserWebView) {
             lightappBrowserWebView.removeAllViews();
             ViewGroup viewGroup = (ViewGroup) lightappBrowserWebView.getParent();
             if (viewGroup != null) {
@@ -153,11 +153,11 @@ public class LightappWebViewCenter implements NoProguard {
             lightappBrowserWebView.setOnMyScrollChangeListener(null);
             lightappBrowserWebView.removeJavascriptInterface(LightappJsClient.LIGHTAPP_JS_NAME);
             lightappBrowserWebView.setVisibility(0);
-            MutableContextWrapper mutableContextWrapper = this.f24880c;
+            MutableContextWrapper mutableContextWrapper = this.f24565c;
             if (mutableContextWrapper != null) {
                 mutableContextWrapper.setBaseContext(context.getApplicationContext());
             }
-            this.f24881d = false;
+            this.f24566d = false;
             return true;
         }
         return false;
@@ -165,7 +165,7 @@ public class LightappWebViewCenter implements NoProguard {
 
     public void releaseLightappWebView2Pool(LightappBrowserWebView lightappBrowserWebView) {
         if (lightappBrowserWebView != null) {
-            if (this.f24879b != null && this.f24882e != null && h.a().a(this.f24882e).MW_ON && this.f24879b.remainingCapacity() > 0) {
+            if (this.f24564b != null && this.f24567e != null && h.a().a(this.f24567e).MW_ON && this.f24564b.remainingCapacity() > 0) {
                 lightappBrowserWebView.onPause();
                 lightappBrowserWebView.removeAllViews();
                 ViewGroup viewGroup = (ViewGroup) lightappBrowserWebView.getParent();
@@ -184,11 +184,11 @@ public class LightappWebViewCenter implements NoProguard {
                 lightappBrowserWebView.setOnMyScrollChangeListener(null);
                 lightappBrowserWebView.removeJavascriptInterface(LightappJsClient.LIGHTAPP_JS_NAME);
                 lightappBrowserWebView.setVisibility(0);
-                lightappBrowserWebView.setBaseContext(this.f24882e);
+                lightappBrowserWebView.setBaseContext(this.f24567e);
                 lightappBrowserWebView.clearJsCode();
                 lightappBrowserWebView.clearHistory();
                 try {
-                    this.f24879b.put(lightappBrowserWebView);
+                    this.f24564b.put(lightappBrowserWebView);
                     return;
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -201,20 +201,20 @@ public class LightappWebViewCenter implements NoProguard {
     }
 
     public LightappWebViewCenter() {
-        this.f24879b = null;
-        this.f24881d = false;
+        this.f24564b = null;
+        this.f24566d = false;
     }
 
     public LightappBrowserWebView getLightappWebViewFromPool(@NonNull Activity activity, boolean z) {
         LightappBrowserWebView lightappBrowserWebView;
         LightappBrowserWebView lightappBrowserWebView2 = null;
-        if (this.f24882e == null || this.f24879b == null) {
+        if (this.f24567e == null || this.f24564b == null) {
             if (activity != null) {
                 initLightappWebViewPool(activity);
             }
-        } else if (h.a().a(this.f24882e).MW_ON && this.f24879b.size() > 0) {
+        } else if (h.a().a(this.f24567e).MW_ON && this.f24564b.size() > 0) {
             try {
-                lightappBrowserWebView = this.f24879b.take();
+                lightappBrowserWebView = this.f24564b.take();
                 if (lightappBrowserWebView != null) {
                     try {
                         lightappBrowserWebView.setBaseContext(activity);

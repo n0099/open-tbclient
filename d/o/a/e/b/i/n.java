@@ -2,7 +2,7 @@ package d.o.a.e.b.i;
 
 import androidx.annotation.NonNull;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class n {
     public static long a(@NonNull List<i> list) {
         int size = list.size();

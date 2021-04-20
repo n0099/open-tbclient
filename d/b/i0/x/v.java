@@ -71,12 +71,12 @@ public class v extends d.b.i0.x.b<b2> implements Object {
             if (v.this.i() != null) {
                 v.this.i().a(view, v.this.y);
             }
-            if (v.this.y == null || v.this.y.f50720e == null) {
+            if (v.this.y == null || v.this.y.f51127e == null) {
                 return;
             }
-            m.a(v.this.y.f50720e.o0());
+            m.a(v.this.y.f51127e.o0());
             v vVar = v.this;
-            vVar.I(vVar.y.f50720e.o0());
+            vVar.I(vVar.y.f51127e.o0());
         }
     }
 
@@ -91,12 +91,12 @@ public class v extends d.b.i0.x.b<b2> implements Object {
                 v.this.i().a(view, v.this.y);
             }
             v vVar = v.this;
-            if (view == vVar.s.f13535e || vVar.y == null || v.this.y.f50720e == null) {
+            if (view == vVar.s.f13196e || vVar.y == null || v.this.y.f51127e == null) {
                 return;
             }
-            m.a(v.this.y.f50720e.o0());
+            m.a(v.this.y.f51127e.o0());
             v vVar2 = v.this;
-            vVar2.I(vVar2.y.f50720e.o0());
+            vVar2.I(vVar2.y.f51127e.o0());
         }
     }
 
@@ -126,16 +126,16 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f62315e;
+        public final /* synthetic */ a2 f63890e;
 
         public e(a2 a2Var) {
-            this.f62315e = a2Var;
+            this.f63890e = a2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (v.this.x != null) {
-                v.this.f62181f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(v.this.f62181f.getContext(), "", this.f62315e.u1, true)));
+                v.this.f63756f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(v.this.f63756f.getContext(), "", this.f63890e.u1, true)));
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
         }
@@ -145,15 +145,15 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f62317e;
+        public final /* synthetic */ ThemeCardInUserData f63892e;
 
         public f(ThemeCardInUserData themeCardInUserData) {
-            this.f62317e = themeCardInUserData;
+            this.f63892e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(v.this.x.getPageActivity(), this.f62317e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(v.this.x.getPageActivity(), this.f63892e.getCardId())));
         }
     }
 
@@ -177,7 +177,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
-            if (v.this.y == null || v.this.y.f50720e == null) {
+            if (v.this.y == null || v.this.y.f51127e == null) {
                 return;
             }
             if (v.this.i() != null) {
@@ -185,7 +185,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
                 v vVar = v.this;
                 i.a(vVar.q, vVar.y);
             }
-            String o0 = v.this.y.f50720e.o0();
+            String o0 = v.this.y.f51127e.o0();
             m.a(o0);
             v.this.I(o0);
         }
@@ -208,7 +208,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
             this.m.getHeadView().setIsRound(true);
             this.m.getHeadView().setDrawBorder(false);
             this.m.getHeadView().setDefaultResource(17170445);
-            this.m.getHeadView().setRadius(d.b.b.e.p.l.g(this.x.getPageActivity(), R.dimen.ds70));
+            this.m.getHeadView().setRadius(d.b.c.e.p.l.g(this.x.getPageActivity(), R.dimen.ds70));
             this.m.getHeadView().setPlaceHolder(1);
         }
         this.m.setHasPendantStyle();
@@ -218,7 +218,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
         }
         this.n = (ThreadUserInfoLayout) m.findViewById(R.id.thread_user_info_layout);
         this.t = new NEGFeedBackView(this.x);
-        this.t.g((ViewGroup) m(), d.b.b.e.p.l.g(this.f62182g, R.dimen.tbds92), d.b.b.e.p.l.g(b(), R.dimen.tbds16));
+        this.t.g((ViewGroup) m(), d.b.c.e.p.l.g(this.f63757g, R.dimen.tbds92), d.b.c.e.p.l.g(b(), R.dimen.tbds16));
         this.o = (TextView) m.findViewById(R.id.thread_title);
         this.p = (TextView) m.findViewById(R.id.thread_abstract);
         OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) m.findViewById(R.id.original_thread_view);
@@ -241,8 +241,8 @@ public class v extends d.b.i0.x.b<b2> implements Object {
         this.r.setForumAfterClickListener(new a());
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.card_transmit_source_read_share_layout);
         this.s = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this);
-        this.s.f13536f.setNeedAddReplyIcon(true);
+        threadSourceShareAndPraiseLayout.f13197f.setOnClickListener(this);
+        this.s.f13197f.setNeedAddReplyIcon(true);
         this.s.setForumAfterClickListener(new b());
         this.u = m.findViewById(R.id.divider_line_above_praise);
         this.v = m.findViewById(R.id.card_divider_line);
@@ -257,7 +257,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     public View A() {
         ThreadUserInfoLayout threadUserInfoLayout = this.n;
         if (threadUserInfoLayout != null) {
-            return threadUserInfoLayout.f13542g;
+            return threadUserInfoLayout.f13203g;
         }
         return null;
     }
@@ -288,12 +288,12 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     public final void F() {
         a2 a2Var;
         b2 b2Var = this.y;
-        if (b2Var == null || (a2Var = b2Var.f50720e) == null) {
+        if (b2Var == null || (a2Var = b2Var.f51127e) == null) {
             return;
         }
         m.a(a2Var.o0());
         I(a2Var.o0());
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.x.getPageActivity()).createFromThreadCfg(a2Var, null, this.y.f50721f, 18003, true, false, false);
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.x.getPageActivity()).createFromThreadCfg(a2Var, null, this.y.f51128f, 18003, true, false, false);
         createFromThreadCfg.setStartFrom(this.l);
         createFromThreadCfg.setIsShareThread(true);
         m.a(a2Var.w1());
@@ -304,12 +304,12 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     @Override // d.b.i0.x.b
     /* renamed from: G */
     public void n(b2 b2Var) {
-        if (b2Var != null && b2Var.f50720e != null) {
+        if (b2Var != null && b2Var.f51127e != null) {
             if (m() != null) {
                 m().setVisibility(0);
             }
             this.y = b2Var;
-            a2 a2Var = b2Var.f50720e;
+            a2 a2Var = b2Var.f51127e;
             if (this.t != null) {
                 SparseArray<String> b0 = a2Var.b0();
                 if (b0 != null && b0.size() > 0 && this.z) {
@@ -318,7 +318,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
                     v0Var.k(a2Var.c0());
                     v0Var.m(a2Var.L0());
                     v0Var.j(b0);
-                    v0Var.f50907g = a2Var.e1;
+                    v0Var.f51314g = a2Var.e1;
                     this.t.setData(v0Var);
                     this.t.setFirstRowSingleColumn(true);
                     this.t.setVisibility(E(a2Var) ? 8 : 0);
@@ -326,7 +326,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
                     this.t.setVisibility(8);
                 }
             }
-            if (this.y.f50723h == 1) {
+            if (this.y.f51130h == 1) {
                 this.n.setFrom(3);
                 B(a2Var);
                 Q(a2Var);
@@ -354,9 +354,9 @@ public class v extends d.b.i0.x.b<b2> implements Object {
             M(k());
             o(this.x, TbadkCoreApplication.getInst().getSkinType());
             I(a2Var.o0());
-            if (this.r.isInFrsAllThread() && (d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j())) {
+            if (this.r.isInFrsAllThread() && (d.b.i0.q0.b.e().g() || d.b.i0.q0.a.h().j())) {
                 this.F.setVisibility(0);
-                if (!a2Var.i2() && !a2Var.j2() && !a2Var.w2()) {
+                if (!a2Var.j2() && !a2Var.k2() && !a2Var.x2()) {
                     this.F.setBackgroundResource(R.color.transparent);
                     return;
                 } else {
@@ -411,13 +411,13 @@ public class v extends d.b.i0.x.b<b2> implements Object {
             return;
         }
         if (!StringUtils.isNull(this.C) && !StringUtils.isNull(this.E)) {
-            a2Var.h4(this.C, this.E);
+            a2Var.i4(this.C, this.E);
         }
-        SpannableStringBuilder N2 = a2Var.N2(false, true);
-        if (N2 != null && !StringUtils.isNull(N2.toString())) {
+        SpannableStringBuilder O2 = a2Var.O2(false, true);
+        if (O2 != null && !StringUtils.isNull(O2.toString())) {
             this.o.setVisibility(0);
-            this.o.setOnTouchListener(new d.b.i0.t3.i(N2));
-            this.o.setText(N2);
+            this.o.setOnTouchListener(new d.b.i0.u3.i(O2));
+            this.o.setText(O2);
             m.l(this.o, a2Var.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return;
         }
@@ -426,22 +426,22 @@ public class v extends d.b.i0.x.b<b2> implements Object {
 
     public void P(int i) {
         b2 b2Var = this.y;
-        if (b2Var == null || b2Var.f50720e == null) {
+        if (b2Var == null || b2Var.f51127e == null) {
             return;
         }
         if (i == 1) {
             this.r.setVisibility(8);
-            this.s.setFrom(this.y.f50722g);
-            this.s.setShareReportFrom(this.y.f50723h);
-            this.s.setStType(this.y.f50721f);
-            this.s.g(this.y.f50720e);
+            this.s.setFrom(this.y.f51129g);
+            this.s.setShareReportFrom(this.y.f51130h);
+            this.s.setStType(this.y.f51128f);
+            this.s.g(this.y.f51127e);
             this.n.l(false);
             return;
         }
-        this.r.setFrom(b2Var.f50722g);
-        this.r.setShareReportFrom(this.y.f50723h);
-        this.r.setStType(this.y.f50721f);
-        this.r.setData(this.y.f50720e);
+        this.r.setFrom(b2Var.f51129g);
+        this.r.setShareReportFrom(this.y.f51130h);
+        this.r.setStType(this.y.f51128f);
+        this.r.setData(this.y.f51127e);
         this.r.setDisPraiseFrom(this.y.i);
         this.s.setVisibility(8);
         this.n.l(true);
@@ -456,7 +456,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
                 NEGFeedBackView nEGFeedBackView = this.t;
                 if (nEGFeedBackView != null && nEGFeedBackView.getVisibility() == 0 && (this.B.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.B.getLayoutParams();
-                    layoutParams.rightMargin = d.b.b.e.p.l.g(this.x.getPageActivity(), R.dimen.tbds106);
+                    layoutParams.rightMargin = d.b.c.e.p.l.g(this.x.getPageActivity(), R.dimen.tbds106);
                     this.B.setLayoutParams(layoutParams);
                 }
                 this.B.setVisibility(0);
@@ -479,7 +479,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
         a2 a2Var;
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             SkinManager.setBackgroundResource(m(), R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundColor(this.u, R.color.CAM_X0204);
             this.r.onChangeSkinType();
@@ -493,14 +493,14 @@ public class v extends d.b.i0.x.b<b2> implements Object {
             this.s.f();
         }
         b2 b2Var = this.y;
-        if (b2Var != null && (a2Var = b2Var.f50720e) != null) {
-            SkinManager.setBackgroundColor(this.F, (a2Var.i2() || this.y.f50720e.j2()) ? R.color.CAM_X0201 : R.color.transparent);
+        if (b2Var != null && (a2Var = b2Var.f51127e) != null) {
+            SkinManager.setBackgroundColor(this.F, (a2Var.j2() || this.y.f51127e.k2()) ? R.color.CAM_X0201 : R.color.transparent);
         }
         HeadPendantClickableView headPendantClickableView = this.m;
         if (headPendantClickableView != null && headPendantClickableView.getHeadView() != null && (this.m.getHeadView() instanceof TbImageView)) {
             this.m.getHeadView().setPlaceHolder(1);
         }
-        this.f62180e = i;
+        this.f63755e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -524,7 +524,7 @@ public class v extends d.b.i0.x.b<b2> implements Object {
     public ClickableHeaderImageView z() {
         ThreadUserInfoLayout threadUserInfoLayout = this.n;
         if (threadUserInfoLayout != null) {
-            return threadUserInfoLayout.f13540e;
+            return threadUserInfoLayout.f13201e;
         }
         return null;
     }

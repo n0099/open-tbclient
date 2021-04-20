@@ -14,14 +14,14 @@ import d.b.h0.m0.l;
 public class AlaJumpStatStatic {
 
     /* loaded from: classes4.dex */
-    public static class a extends d.b.b.c.f.b {
+    public static class a extends d.b.c.c.f.b {
         public a(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.b.c.f.f
+        @Override // d.b.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -39,14 +39,14 @@ public class AlaJumpStatStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends d.b.b.c.f.b {
+    public static class b extends d.b.c.c.f.b {
         public b(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.b.c.f.f
+        @Override // d.b.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -72,7 +72,7 @@ public class AlaJumpStatStatic {
     }
 
     public static final void b(Object obj, String str) {
-        d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+        d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.b("workflow", "ala_jump_fail");
         statsItem.b("config", str);
         statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - l.b().c()));

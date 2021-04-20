@@ -13,13 +13,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import d.b.h0.r.s.a;
-import d.b.h0.s.c.t;
+import d.b.h0.s.c.v;
 /* loaded from: classes3.dex */
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
-    public d.b.i0.q1.h.b.a mModel;
-    public d.b.i0.q1.h.b.b mView;
-    public d.b.i0.q1.h.f.a<Integer> addTailCallBack = new a();
-    public d.b.i0.q1.h.f.a<Integer> updateTailCallBack = new b();
+    public d.b.i0.r1.h.b.a mModel;
+    public d.b.i0.r1.h.b.b mView;
+    public d.b.i0.r1.h.f.a<Integer> addTailCallBack = new a();
+    public d.b.i0.r1.h.f.a<Integer> updateTailCallBack = new b();
     public View.OnClickListener mSubmitButtonClickListener = new c();
     public View.OnClickListener mCancelButtonClickListener = new d();
     public View.OnTouchListener mTextOnTouchListener = new e();
@@ -27,12 +27,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public d.b.h0.w.b mEditorListener = new g();
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.i0.q1.h.f.a<Integer> {
+    public class a implements d.b.i0.r1.h.f.a<Integer> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.q1.h.f.a
+        @Override // d.b.i0.r1.h.f.a
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             TailEditActivity.this.submitCallback(true, z, str, num);
@@ -40,12 +40,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements d.b.i0.q1.h.f.a<Integer> {
+    public class b implements d.b.i0.r1.h.f.a<Integer> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.q1.h.f.a
+        @Override // d.b.i0.r1.h.f.a
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             TailEditActivity.this.submitCallback(false, z, str, num);
@@ -130,11 +130,11 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             if (aVar == null) {
                 return;
             }
-            int i = aVar.f51524a;
+            int i = aVar.f51942a;
             if (i == 24) {
-                TailEditActivity.this.addEmotion(aVar.f51526c);
+                TailEditActivity.this.addEmotion(aVar.f51944c);
             } else if (i == 26) {
-                TailEditActivity.this.changeColor(aVar.f51526c);
+                TailEditActivity.this.changeColor(aVar.f51944c);
             } else if (i == 3) {
                 TailEditActivity.this.mView.e();
             }
@@ -145,15 +145,15 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f19003e;
+        public final /* synthetic */ d.b.h0.r.s.a f18680e;
 
         public h(d.b.h0.r.s.a aVar) {
-            this.f19003e = aVar;
+            this.f18680e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f19003e.dismiss();
+            this.f18680e.dismiss();
         }
     }
 
@@ -161,15 +161,15 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f19005e;
+        public final /* synthetic */ d.b.h0.r.s.a f18682e;
 
         public i(d.b.h0.r.s.a aVar) {
-            this.f19005e = aVar;
+            this.f18682e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f19005e.dismiss();
+            this.f18682e.dismiss();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
             TailEditActivity.this.finish();
         }
@@ -178,12 +178,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void addEmotion(Object obj) {
         this.mModel.i().setContent(this.mView.g());
-        d.b.i0.q1.h.b.a aVar = this.mModel;
+        d.b.i0.r1.h.b.a aVar = this.mModel;
         if (aVar.l(aVar.e(aVar.i().getContent()))) {
             showToast(R.string.over_limit_tip);
-        } else if (obj == null || !(obj instanceof t)) {
+        } else if (obj == null || !(obj instanceof v)) {
         } else {
-            new d.b.i0.q1.h.f.b().b(this, this.mView.h(), (t) obj);
+            new d.b.i0.r1.h.f.b().b(this, this.mView.h(), (v) obj);
         }
     }
 
@@ -249,9 +249,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             tailData.setId(num.intValue());
             tailData.setContent(this.mModel.i().getContent());
             tailData.setFontColor(this.mModel.g());
-            d.b.i0.q1.h.a.e eVar = new d.b.i0.q1.h.a.e(1, tailData);
+            d.b.i0.r1.h.a.e eVar = new d.b.i0.r1.h.a.e(1, tailData);
             if (!z) {
-                eVar.f59487a = 2;
+                eVar.f61181a = 2;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
             finish();
@@ -288,8 +288,8 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         setContentView(R.layout.tail_edit_activity);
         setActivityBgTransparent();
         setSwipeBackEnabled(false);
-        this.mView = new d.b.i0.q1.h.b.b(this, this.mSubmitButtonClickListener, this.mCancelButtonClickListener);
-        this.mModel = new d.b.i0.q1.h.b.a(getPageContext());
+        this.mView = new d.b.i0.r1.h.b.b(this, this.mSubmitButtonClickListener, this.mCancelButtonClickListener);
+        this.mModel = new d.b.i0.r1.h.b.a(getPageContext());
         initListener();
         loadTailData();
         initEditor();

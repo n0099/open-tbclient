@@ -24,35 +24,35 @@ import d.b.h0.r.s.a;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-import d.b.i0.d1.h.m;
-import d.b.i0.e1.a.b.b.f;
-/* loaded from: classes3.dex */
+import d.b.i0.e1.h.m;
+import d.b.i0.f1.a.b.b.f;
+/* loaded from: classes4.dex */
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements f.e, BdSwitchView.b {
-    public d.b.i0.e1.a.b.b.f mModel;
-    public d.b.i0.k3.a mUserReportController;
-    public d.b.i0.e1.a.b.b.g mView;
-    public d.b.b.c.g.c switchListener = new i(104102);
+    public d.b.i0.f1.a.b.b.f mModel;
+    public d.b.i0.l3.a mUserReportController;
+    public d.b.i0.f1.a.b.b.g mView;
+    public d.b.c.c.g.c switchListener = new i(104102);
     public long userId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f18213e;
+        public final /* synthetic */ boolean f17890e;
 
         public a(boolean z) {
-            this.f18213e = z;
+            this.f17890e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PersonalTalkSettingActivity.this.mView.e(null);
-            PersonalTalkSettingActivity.this.mView.b(!this.f18213e);
+            PersonalTalkSettingActivity.this.mView.b(!this.f17890e);
             PersonalTalkSettingActivity.this.mView.e(PersonalTalkSettingActivity.this);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public b() {
         }
@@ -63,7 +63,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public c() {
         }
@@ -75,7 +75,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements a.e {
         public d() {
         }
@@ -86,10 +86,10 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements a.e {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends f0<Boolean> {
             public a() {
             }
@@ -102,7 +102,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements n<Boolean> {
             public b() {
             }
@@ -129,7 +129,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements a.e {
         public f() {
         }
@@ -140,7 +140,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements a.e {
         public g() {
         }
@@ -153,24 +153,24 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18223e;
+        public final /* synthetic */ d.b.h0.r.s.a f17900e;
 
         public h(d.b.h0.r.s.a aVar) {
-            this.f18223e = aVar;
+            this.f17900e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18223e.dismiss();
+            this.f17900e.dismiss();
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class i extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class i extends d.b.c.c.g.c {
         public i(int i) {
             super(i);
         }
@@ -189,24 +189,24 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f18226a;
+        public final /* synthetic */ boolean f17903a;
 
         public j(boolean z) {
-            this.f18226a = z;
+            this.f17903a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (!this.f18226a) {
-                d.b.i0.d1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
+            if (!this.f17903a) {
+                d.b.i0.e1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
                 return null;
             }
-            d.b.i0.d1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
+            d.b.i0.e1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
             return null;
         }
     }
@@ -217,11 +217,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         } else {
             this.userId = bundle.getLong("userId");
         }
-        this.mModel = new d.b.i0.e1.a.b.b.f(this, this, this.userId);
+        this.mModel = new d.b.i0.f1.a.b.b.f(this, this, this.userId);
     }
 
     private void initView() {
-        d.b.i0.e1.a.b.b.g gVar = new d.b.i0.e1.a.b.b.g(this);
+        d.b.i0.f1.a.b.b.g gVar = new d.b.i0.f1.a.b.b.g(this);
         this.mView = gVar;
         gVar.e(this);
     }
@@ -239,7 +239,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
             return;
         }
-        d.b.b.e.m.e.a().postDelayed(new a(z2), 500L);
+        d.b.c.e.m.e.a().postDelayed(new a(z2), 500L);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
@@ -277,7 +277,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         CustomResponsedMessage runTask;
         int id = view.getId();
         if (id == R.id.user_info_lin) {
-            d.b.i0.e1.a.b.b.f fVar = this.mModel;
+            d.b.i0.f1.a.b.b.f fVar = this.mModel;
             if (fVar == null || fVar.j() == null) {
                 return;
             }
@@ -291,10 +291,10 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             aVar2.setMessage(getPageContext().getContext().getString(R.string.remove_personal_history)).setPositiveButton(R.string.alert_yes_button, new e()).setNegativeButton(R.string.cancel, new d()).create(getPageContext());
             aVar2.show();
         } else if (id == R.id.st_report) {
-            if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, d.b.i0.k3.a.class, getPageContext().getPageActivity())) != null) {
-                this.mUserReportController = (d.b.i0.k3.a) runTask.getData();
+            if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, d.b.i0.l3.a.class, getPageContext().getPageActivity())) != null) {
+                this.mUserReportController = (d.b.i0.l3.a) runTask.getData();
             }
-            d.b.i0.k3.a aVar3 = this.mUserReportController;
+            d.b.i0.l3.a aVar3 = this.mUserReportController;
             if (aVar3 != null) {
                 aVar3.a(getUniqueId());
                 this.mUserReportController.b(String.valueOf(this.userId));
@@ -331,11 +331,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         bundle.putLong("userId", this.userId);
     }
 
-    @Override // d.b.i0.e1.a.b.b.f.e
+    @Override // d.b.i0.f1.a.b.b.f.e
     public void updateUI() {
-        d.b.i0.e1.a.b.b.f fVar;
+        d.b.i0.f1.a.b.b.f fVar;
         closeLoadingDialog();
-        d.b.i0.e1.a.b.b.g gVar = this.mView;
+        d.b.i0.f1.a.b.b.g gVar = this.mView;
         if (gVar == null || (fVar = this.mModel) == null) {
             return;
         }

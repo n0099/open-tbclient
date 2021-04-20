@@ -21,93 +21,102 @@ import java.util.Map;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class d {
-    @Modify(description = "是否命中PB页Banner位小熊广告sdk小流量abtest")
     public static boolean A() {
-        return Build.VERSION.SDK_INT >= 21 && i("11_9_pb_bear_a");
+        return d(m.f50119c, "12_3_pb_outer_item_a");
+    }
+
+    @Modify(description = "是否命中PB页Banner位小熊广告sdk小流量abtest")
+    public static boolean B() {
+        return Build.VERSION.SDK_INT >= 21 && j("11_9_pb_bear_a");
+    }
+
+    @Modify(description = "是否命中首页推荐小熊广告sdk小流量abtest")
+    public static boolean C() {
+        return Build.VERSION.SDK_INT >= 21 && j("12_5_personalize_bear_a");
     }
 
     @Modify(description = "是否命中大图页小熊广告sdk小流量abtest")
-    public static boolean B() {
-        return Build.VERSION.SDK_INT >= 21 && i("12_2_picpage_bear_a");
+    public static boolean D() {
+        return Build.VERSION.SDK_INT >= 21 && j("12_2_picpage_bear_a");
     }
 
     @Modify(description = "吧推荐卡片是否显示hottext字段")
-    public static boolean C() {
-        return d(p.f49735c, "11_9_discover_hot_card_hot_text");
+    public static boolean E() {
+        return d(p.f50128c, "11_9_discover_hot_card_hot_text");
     }
 
     @Modify(description = "吧推荐卡片是否显示slogan字段")
-    public static boolean D() {
-        return d(p.f49735c, "11_9_discover_hot_card_slogan");
+    public static boolean F() {
+        return d(p.f50128c, "11_9_discover_hot_card_slogan");
     }
 
     @Modify(description = "isSearchLoginTestA")
-    public static boolean E() {
-        return d(q.f49738c, "12_3_search_login_a");
+    public static boolean G() {
+        return d(q.f50131c, "12_3_search_login_a");
     }
 
     @Modify(description = "是否命中发贴显示标题小流量abtest")
-    public static boolean F() {
-        return i("11_9_post_thread_title_out_a");
-    }
-
-    public static boolean G() {
-        return d(r.f49741c, "12_3_staticopt_a");
-    }
-
     public static boolean H() {
-        return d(t.f49747c, "12_3_video_release_a");
+        return j("11_9_post_thread_title_out_a");
     }
 
     public static boolean I() {
-        return H() || L();
+        return d(r.f50134c, "12_3_staticopt_a");
     }
 
     public static boolean J() {
-        return d(t.f49747c, "12_3_video_release_b");
+        return d(t.f50140c, "12_3_video_release_a");
     }
 
     public static boolean K() {
-        return J() || M();
+        return J() || N();
     }
 
     public static boolean L() {
-        return d(t.f49747c, "12_3_video_release_c");
+        return d(t.f50140c, "12_3_video_release_b");
     }
 
     public static boolean M() {
-        return d(t.f49747c, "12_3_video_release_d");
+        return L() || O();
     }
 
     public static boolean N() {
-        return d(t.f49747c, "12_3_video_release_e");
+        return d(t.f50140c, "12_3_video_release_c");
     }
 
     public static boolean O() {
+        return d(t.f50140c, "12_3_video_release_d");
+    }
+
+    public static boolean P() {
+        return d(t.f50140c, "12_3_video_release_e");
+    }
+
+    public static boolean Q() {
         return true;
     }
 
     @Modify(description = "是否需要显示frs引导弹窗")
-    public static boolean P() {
-        return d(d.b.h0.b.f.e.f49705c, "11_9_frs_page_guide_a");
+    public static boolean R() {
+        return d(d.b.h0.b.f.e.f50098c, "11_9_frs_page_guide_a");
     }
 
     @Modify(description = "是否需要显示吧推荐卡片")
-    public static boolean Q() {
-        return D() || C();
+    public static boolean S() {
+        return F() || E();
     }
 
     @Modify(description = "是否展示新UI")
-    public static boolean R() {
-        return r();
+    public static boolean T() {
+        return s();
     }
 
-    public static boolean S() {
+    public static boolean U() {
         return false;
     }
 
     public static boolean a() {
-        return d(o.f49732c, "12_4_profile_a");
+        return d(o.f50125c, "12_4_profile_a");
     }
 
     public static e b(BdUniqueId bdUniqueId) {
@@ -123,9 +132,9 @@ public class d {
     }
 
     public static boolean e(e eVar, String... strArr) {
-        if (eVar != null && !TextUtils.isEmpty(eVar.f49695a)) {
+        if (eVar != null && !TextUtils.isEmpty(eVar.f50088a)) {
             for (String str : strArr) {
-                if (eVar.f49695a.equalsIgnoreCase(str)) {
+                if (eVar.f50088a.equalsIgnoreCase(str)) {
                     return true;
                 }
             }
@@ -134,7 +143,7 @@ public class d {
     }
 
     public static boolean f() {
-        return d(d.b.h0.b.f.b.f49696c, "11_9_backuser_a");
+        return d(d.b.h0.b.f.b.f50089c, "11_9_backuser_a");
     }
 
     @Modify(description = "是否命中12.0b UI通栏小流量")
@@ -144,83 +153,84 @@ public class d {
 
     @Modify(description = "关注是否使用新样式")
     public static boolean h() {
-        return d(d.b.h0.b.f.c.f49699c, "11_10_user_like_tab_a") || d(d.b.h0.b.f.c.f49699c, "11_10_user_like_tab_b");
+        return d(d.b.h0.b.f.c.f50092c, "11_10_user_like_tab_a") || d(d.b.h0.b.f.c.f50092c, "11_10_user_like_tab_b");
     }
 
-    public static boolean i(String str) {
+    @Modify(description = "是否命中PB、FRS和大图页命中小熊广告去重策略ABTest")
+    public static boolean i() {
+        return Build.VERSION.SDK_INT >= 21 && j("12_4_bear_duplicate_removal_a");
+    }
+
+    public static boolean j(String str) {
         e b2 = c.d().b(str);
-        return (b2 == null || TextUtils.isEmpty(b2.f49695a) || !b2.f49695a.equalsIgnoreCase(str)) ? false : true;
-    }
-
-    public static boolean j() {
-        return d(d.b.h0.b.f.d.f49702c, "12_4_launch_login_a");
+        return (b2 == null || TextUtils.isEmpty(b2.f50088a) || !b2.f50088a.equalsIgnoreCase(str)) ? false : true;
     }
 
     public static boolean k() {
-        return d(d.b.h0.b.f.d.f49702c, "12_4_launch_login_b");
+        return d(d.b.h0.b.f.d.f50095c, "12_4_launch_login_a");
+    }
+
+    public static boolean l() {
+        return d(d.b.h0.b.f.d.f50095c, "12_4_launch_login_b");
     }
 
     @Modify(description = "是否命中frs页小熊广告sdk小流量abtest")
-    public static boolean l() {
-        return Build.VERSION.SDK_INT >= 21 && i("12_2_frs_bear_a");
-    }
-
     public static boolean m() {
-        return d(f.f49708c, "12_2_frs_default_sort_a");
+        return Build.VERSION.SDK_INT >= 21 && j("12_2_frs_bear_a");
     }
 
     public static boolean n() {
-        return o() || p() || q();
+        return d(f.f50101c, "12_2_frs_default_sort_a");
     }
 
     public static boolean o() {
-        return d(g.f49711c, "12_2_frs_default_tab_a");
+        return p() || q() || r();
     }
 
     public static boolean p() {
-        return d(g.f49711c, "12_2_frs_default_tab_b");
+        return d(g.f50104c, "12_2_frs_default_tab_a");
     }
 
     public static boolean q() {
-        return d(g.f49711c, "12_2_frs_default_tab_c");
+        return d(g.f50104c, "12_2_frs_default_tab_b");
     }
 
     public static boolean r() {
-        return true;
+        return d(g.f50104c, "12_2_frs_default_tab_c");
     }
 
     public static boolean s() {
-        return d(i.f49717c, "12_4_promote_login_a");
+        return true;
     }
 
     public static boolean t() {
-        return d(j.f49720c, "11_8_hot_b");
+        return d(i.f50110c, "12_4_promote_login_a");
     }
 
     public static boolean u() {
-        return d(l.f49723c, "12_2_pb_picpage_a");
+        return d(j.f50113c, "11_8_hot_b");
     }
 
     public static boolean v() {
-        return d(l.f49723c, "12_2_pb_picpage_b");
+        return d(l.f50116c, "12_2_pb_picpage_a");
+    }
+
+    public static boolean w() {
+        return d(l.f50116c, "12_2_pb_picpage_b");
     }
 
     @Modify(description = "pb操作区, 策略a, 出右上角点点点，弹框网格")
-    public static boolean w() {
-        return d(n.f49729c, "12_4_pb_a");
+    public static boolean x() {
+        return d(n.f50122c, "12_4_pb_a");
     }
 
     @Modify(description = "pb操作区, 策略b, 出右上角点点点，强制出回复,弹框网格,发帖时间下移")
-    public static boolean x() {
-        return d(n.f49729c, "12_4_pb_b");
+    public static boolean y() {
+        return d(n.f50122c, "12_4_pb_b");
     }
 
     @Modify(description = "pb操作区, 策略c, 整个操作区左移，回复修改")
-    public static boolean y() {
-        return d(n.f49729c, "12_4_pb_c");
-    }
-
     public static boolean z() {
-        return d(m.f49726c, "12_3_pb_outer_item_a");
+        return d(n.f50122c, "12_4_pb_c");
     }
 }

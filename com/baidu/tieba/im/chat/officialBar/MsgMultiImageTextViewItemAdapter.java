@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
         public a(MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter, View view, MsgMultiImageTextView msgMultiImageTextView) {
             super(view, msgMultiImageTextView);
@@ -23,7 +23,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.b.j.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.c.j.e.a
     public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         l0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -40,13 +40,13 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         b2.I(this.m, chatMessage, viewGroup);
         this.m.getLayoutMode().k(false);
         this.m.getLayoutMode().j(view);
-        d.b.i0.d1.u.a.c().d(chatMessage, this.m.getPageActivity());
-        d.b.i0.d1.u.a.c().e(chatMessage, this.m.getPageActivity());
+        d.b.i0.e1.u.a.c().d(chatMessage, this.m.getPageActivity());
+        d.b.i0.e1.u.a.c().e(chatMessage, this.m.getPageActivity());
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: r0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> R(ViewGroup viewGroup) {
         MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.m);

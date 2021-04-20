@@ -16,28 +16,28 @@ public final class dt {
         public boolean f243b;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40376d;
+        public boolean f40665d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40377e;
+        public boolean f40666e;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40373a = 0;
+        public int f40662a = 0;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f244c = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40374b = 0;
+        public int f40663b = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f40378f = false;
+        public boolean f40667f = false;
 
         /* renamed from: a  reason: collision with other field name */
         public List<String> f241a = Collections.emptyList();
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40375c = -1;
+        public int f40664c = -1;
 
         public static a a(byte[] bArr) {
             return (a) new a().a(bArr);
@@ -49,15 +49,15 @@ public final class dt {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40375c < 0) {
+            if (this.f40664c < 0) {
                 b();
             }
-            return this.f40375c;
+            return this.f40664c;
         }
 
         public a a(int i) {
             this.f242a = true;
-            this.f40373a = i;
+            this.f40662a = i;
             return this;
         }
 
@@ -65,21 +65,21 @@ public final class dt {
         @Override // com.xiaomi.push.e
         public a a(b bVar) {
             while (true) {
-                int m138a = bVar.m138a();
-                if (m138a == 0) {
+                int m142a = bVar.m142a();
+                if (m142a == 0) {
                     return this;
                 }
-                if (m138a == 8) {
+                if (m142a == 8) {
                     a(bVar.c());
-                } else if (m138a == 16) {
-                    a(bVar.m144a());
-                } else if (m138a == 24) {
-                    b(bVar.m147b());
-                } else if (m138a == 32) {
-                    b(bVar.m144a());
-                } else if (m138a == 42) {
-                    a(bVar.m141a());
-                } else if (!a(bVar, m138a)) {
+                } else if (m142a == 16) {
+                    a(bVar.m148a());
+                } else if (m142a == 24) {
+                    b(bVar.m151b());
+                } else if (m142a == 32) {
+                    b(bVar.m148a());
+                } else if (m142a == 42) {
+                    a(bVar.m145a());
+                } else if (!a(bVar, m142a)) {
                     return this;
                 }
             }
@@ -110,19 +110,19 @@ public final class dt {
         @Override // com.xiaomi.push.e
         public void a(c cVar) {
             if (a()) {
-                cVar.m189b(1, c());
+                cVar.m193b(1, c());
             }
-            if (m232c()) {
-                cVar.m181a(2, b());
+            if (m236c()) {
+                cVar.m185a(2, b());
             }
-            if (m233d()) {
-                cVar.m176a(3, d());
+            if (m237d()) {
+                cVar.m180a(3, d());
             }
             if (f()) {
-                cVar.m181a(4, m234e());
+                cVar.m185a(4, m238e());
             }
             for (String str : a()) {
-                cVar.m180a(5, str);
+                cVar.m184a(5, str);
             }
         }
 
@@ -135,32 +135,32 @@ public final class dt {
         public int b() {
             int i = 0;
             int b2 = a() ? c.b(1, c()) + 0 : 0;
-            if (m232c()) {
+            if (m236c()) {
                 b2 += c.a(2, b());
             }
-            if (m233d()) {
+            if (m237d()) {
                 b2 += c.a(3, d());
             }
             if (f()) {
-                b2 += c.a(4, m234e());
+                b2 += c.a(4, m238e());
             }
             for (String str : a()) {
                 i += c.a(str);
             }
             int size = b2 + i + (a().size() * 1);
-            this.f40375c = size;
+            this.f40664c = size;
             return size;
         }
 
         public a b(int i) {
-            this.f40376d = true;
-            this.f40374b = i;
+            this.f40665d = true;
+            this.f40663b = i;
             return this;
         }
 
         public a b(boolean z) {
-            this.f40377e = true;
-            this.f40378f = z;
+            this.f40666e = true;
+            this.f40667f = z;
             return this;
         }
 
@@ -170,21 +170,21 @@ public final class dt {
         }
 
         public int c() {
-            return this.f40373a;
+            return this.f40662a;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m232c() {
+        public boolean m236c() {
             return this.f243b;
         }
 
         public int d() {
-            return this.f40374b;
+            return this.f40663b;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m233d() {
-            return this.f40376d;
+        public boolean m237d() {
+            return this.f40665d;
         }
 
         public int e() {
@@ -192,12 +192,12 @@ public final class dt {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m234e() {
-            return this.f40378f;
+        public boolean m238e() {
+            return this.f40667f;
         }
 
         public boolean f() {
-            return this.f40377e;
+            return this.f40666e;
         }
     }
 }

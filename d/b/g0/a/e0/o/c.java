@@ -8,7 +8,7 @@ import d.b.g0.a.e0.i.a;
 import d.b.g0.a.k;
 /* loaded from: classes2.dex */
 public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
-    public static final boolean B = k.f45051a;
+    public static final boolean B = k.f45443a;
     public final String A;
 
     public c(Context context) {
@@ -17,11 +17,11 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void E0() {
+    public void F0() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void O0() {
+    public void P0() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
@@ -31,16 +31,16 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
 
     @Override // d.b.g0.a.e0.o.a
     public d.b.g0.a.e0.k.a g() {
-        return getWebView();
+        return F();
     }
 
     @Override // d.b.g0.a.e0.o.a
     public void j(d.b.g0.a.e0.w.a aVar) {
         if (aVar != null && a.b.h(0)) {
             if (B) {
-                Log.d("SwanAppMasterManager", "pathList item: " + aVar.f44310b);
+                Log.d("SwanAppMasterManager", "pathList item: " + aVar.f44702b);
             }
-            this.f12154f.getSettings().setCodeCacheSetting(d.b.g0.a.e0.i.b.a("appjs", aVar.f44310b));
+            this.f11815f.getSettings().setCodeCacheSetting(d.b.g0.a.e0.i.b.a("appjs", aVar.f44702b));
         }
     }
 

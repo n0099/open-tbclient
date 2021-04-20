@@ -11,34 +11,34 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.core.config.item.a> f33436a = new ConcurrentHashMap();
+    public static Map<String, com.kwad.sdk.core.config.item.a> f33725a = new ConcurrentHashMap();
 
     public static void a(SharedPreferences.Editor editor) {
         if (editor != null) {
-            for (String str : f33436a.keySet()) {
-                f33436a.get(str).a(editor);
+            for (String str : f33725a.keySet()) {
+                f33725a.get(str).a(editor);
             }
         }
     }
 
     public static void a(SharedPreferences sharedPreferences) {
         if (sharedPreferences != null) {
-            for (String str : f33436a.keySet()) {
-                f33436a.get(str).a(sharedPreferences);
+            for (String str : f33725a.keySet()) {
+                f33725a.get(str).a(sharedPreferences);
             }
         }
     }
 
     public static <T> void a(@NonNull com.kwad.sdk.core.config.item.a<T> aVar) {
-        f33436a.put(aVar.a(), aVar);
+        f33725a.put(aVar.a(), aVar);
     }
 
     public static void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        for (String str : f33436a.keySet()) {
-            f33436a.get(str).a(jSONObject);
+        for (String str : f33725a.keySet()) {
+            f33725a.get(str).a(jSONObject);
         }
     }
 

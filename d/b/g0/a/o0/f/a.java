@@ -35,18 +35,18 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends d.b.g0.a.o0.c {
-    public static final boolean v = k.f45051a;
+    public static final boolean v = k.f45443a;
 
     /* renamed from: d.b.g0.a.o0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0750a implements Runnable {
-        public RunnableC0750a() {
+    public class RunnableC0762a implements Runnable {
+        public RunnableC0762a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.b.g0.a.u1.b.d();
-            f.V().q(a.this.f45411f);
+            f.V().q(a.this.f45803f);
         }
     }
 
@@ -70,10 +70,10 @@ public class a extends d.b.g0.a.o0.c {
         @Override // d.b.g0.a.e0.n.b
         /* renamed from: b */
         public void a(Boolean bool) {
-            if (a.this.f45411f == null || !bool.booleanValue()) {
+            if (a.this.f45803f == null || !bool.booleanValue()) {
                 return;
             }
-            a.this.f45411f.onBackPressed();
+            a.this.f45803f.onBackPressed();
         }
     }
 
@@ -84,8 +84,8 @@ public class a extends d.b.g0.a.o0.c {
 
         @Override // d.b.g0.a.q0.c.b
         public void a() {
-            if (a.this.f45411f != null) {
-                a.this.f45411f.moveTaskToBack(true);
+            if (a.this.f45803f != null) {
+                a.this.f45803f.moveTaskToBack(true);
                 p0.b().e(1);
             }
         }
@@ -110,7 +110,7 @@ public class a extends d.b.g0.a.o0.c {
             } else if (i == 129) {
                 int p = d.b.g0.a.i2.b.m().p();
                 d.b.g0.a.c0.c.g("SwanAppFrame", "resetCore: client receive msg topTaskId = " + p);
-                if (a.this.f45411f != null && a.this.f45411f.isBackground() && p != -1 && a.this.f45411f.getTaskId() != p) {
+                if (a.this.f45803f != null && a.this.f45803f.isBackground() && p != -1 && a.this.f45803f.getTaskId() != p) {
                     d.b.g0.a.c0.c.g("SwanAppFrame", "resetCore: purgeSwanApp");
                     d.b.g0.a.r1.d.e().v();
                 }
@@ -118,8 +118,8 @@ public class a extends d.b.g0.a.o0.c {
             } else if (i == 102) {
                 boolean a2 = d.b.g0.a.w0.a.z().a();
                 d.b.g0.a.w0.a.z().d(a2);
-                if (a.this.f45411f != null) {
-                    a.this.f45411f.onNightModeCoverChanged(a2, false);
+                if (a.this.f45803f != null) {
+                    a.this.f45803f.onNightModeCoverChanged(a2, false);
                 }
                 return true;
             } else if (i == 103) {
@@ -199,11 +199,11 @@ public class a extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void X() {
-        d.b.g0.a.c0.c.g("SwanApp", "onBackPressed back stack count:" + this.f45412g.k());
+        d.b.g0.a.c0.c.g("SwanApp", "onBackPressed back stack count:" + this.f45804g.k());
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47254d = j.j;
+        fVar.f47646d = j.j;
         D(fVar);
-        d.b.g0.a.e0.l.c m = this.f45412g.m();
+        d.b.g0.a.e0.l.c m = this.f45804g.m();
         if (m == null || !m.v()) {
             if (R()) {
                 d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
@@ -214,13 +214,13 @@ public class a extends d.b.g0.a.o0.c {
                 hashMap.put("lcType", "onClose");
                 hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, d.b.g0.a.r1.e.T());
                 f.V().N(new d.b.g0.a.k0.b.c(hashMap));
-                d.b.g0.a.c0.c.g("SwanAppFrame", j.f2032c);
+                d.b.g0.a.c0.c.g("SwanAppFrame", j.f2057c);
                 d.b.g0.a.z0.g.a().d(false);
                 return;
             }
-            d.b.g0.a.i2.f.a(P(), this.f45411f);
-            f.b i = this.f45412g.i("navigateBack");
-            i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44014h);
+            d.b.g0.a.i2.f.a(P(), this.f45803f);
+            f.b i = this.f45804g.i("navigateBack");
+            i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44406h);
             i.g();
             i.a();
         }
@@ -232,8 +232,8 @@ public class a extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void Y() {
-        this.f45411f.setRequestedOrientation(1);
-        d.b.g0.a.i2.e.a(this.f45411f);
+        this.f45803f.setRequestedOrientation(1);
+        d.b.g0.a.i2.e.a(this.f45803f);
         if (d.b.g0.a.e0.e.d()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
@@ -288,14 +288,14 @@ public class a extends d.b.g0.a.o0.c {
         d.b.g0.a.u1.b.f();
         d.b.g0.a.f1.f.e().l();
         d.b.g0.a.w0.a.J().a();
-        d.b.g0.a.z0.f.V().w(this.f45411f);
+        d.b.g0.a.z0.f.V().w(this.f45803f);
     }
 
     public final void a1(boolean z) {
         d.b.g0.a.z1.l.b.e(M());
         if (z) {
             SearchFlowEvent searchFlowEvent = new SearchFlowEvent("dom_first_paint");
-            searchFlowEvent.f12655e = SearchFlowEvent.EventType.END;
+            searchFlowEvent.f12316e = SearchFlowEvent.EventType.END;
             d.b.g0.a.z1.l.b.a(searchFlowEvent);
         }
     }
@@ -348,15 +348,15 @@ public class a extends d.b.g0.a.o0.c {
     public boolean d0(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (d.b.g0.a.q0.a.b().c()) {
-                d.b.g0.a.q0.a.b().f(this.f45411f, new c());
+                d.b.g0.a.q0.a.b().f(this.f45803f, new c());
                 return true;
             }
-            d.b.g0.a.e0.l.f fVar = this.f45412g;
+            d.b.g0.a.e0.l.f fVar = this.f45804g;
             if (fVar != null && fVar.k() == 1) {
                 d.b.g0.a.q0.b bVar = new d.b.g0.a.q0.b();
                 bVar.i();
                 if (bVar.j()) {
-                    d.b.g0.a.q0.c.c().j(this.f45411f, bVar.g(), bVar.f(), W0());
+                    d.b.g0.a.q0.c.c().j(this.f45803f, bVar.g(), bVar.f(), W0());
                     return true;
                 }
             }
@@ -373,7 +373,7 @@ public class a extends d.b.g0.a.o0.c {
     public void e0() {
         super.e0();
         if (d.b.g0.a.e0.w.d.L().N() != null) {
-            d.b.g0.a.e0.w.d.L().N().d(this.f45411f);
+            d.b.g0.a.e0.w.d.L().N().d(this.f45803f);
         }
     }
 
@@ -404,7 +404,7 @@ public class a extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void i0() {
-        ExecutorUtilsExt.postOnElastic(new RunnableC0750a(), "registerScreenshotEvent", 2);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0762a(), "registerScreenshotEvent", 2);
     }
 
     @Override // d.b.g0.a.o0.c
@@ -479,7 +479,7 @@ public class a extends d.b.g0.a.o0.c {
                 d.b.g0.a.r1.e s = d.b.g0.a.r1.d.e().s();
                 s.R().j();
                 s.z().a();
-                if (d.b.g0.a.e0.s.a.f44264g) {
+                if (d.b.g0.a.e0.s.a.f44656g) {
                     if (v) {
                         Log.d("SwanAppFrame", "hot start: hit prelink");
                         Log.d("SwanPrelink", "hot start: hit prelink");

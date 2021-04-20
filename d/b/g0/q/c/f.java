@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,11 +15,11 @@ import java.util.UUID;
 public class f implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49347a;
+    public Context f49739a;
 
     public f(Context context) {
         if (context != null) {
-            this.f49347a = context.getApplicationContext();
+            this.f49739a = context.getApplicationContext();
             return;
         }
         throw new RuntimeException("context can not be null");
@@ -63,7 +64,7 @@ public class f implements b<String> {
     }
 
     public final String d() {
-        String string = Settings.Secure.getString(this.f49347a.getContentResolver(), "android_id");
+        String string = Settings.Secure.getString(this.f49739a.getContentResolver(), IAdRequestParam.ANDROID_ID);
         if (TextUtils.isEmpty(string)) {
             string = e();
         }

@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
-import d.b.b.e.p.l;
-/* loaded from: classes5.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes3.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public ProgressBar t;
 
@@ -46,7 +46,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public void setBottomBarShow(boolean z) {
         this.t.setVisibility(z ? 0 : 8);
         this.l.setVisibility(z ? 8 : 0);
-        this.f20501h.setVisibility(z ? 8 : 0);
+        this.f20193h.setVisibility(z ? 8 : 0);
         this.i.setVisibility(z ? 8 : 0);
     }
 
@@ -55,7 +55,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         super.setCurrentDuration(i, z);
         if (!z) {
             this.l.setProgress((int) (((i * 1.0f) / this.p) * 10000.0f));
-            TextView textView = this.f20501h;
+            TextView textView = this.f20193h;
             if (textView != null) {
                 textView.setText(StringHelper.stringForVideoTime(i));
             }
@@ -70,7 +70,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             g2 = l.g(getContext(), R.dimen.tbds210);
         }
         layoutParams.height = g2;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20501h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20193h.getLayoutParams();
         RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
         layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
         layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);

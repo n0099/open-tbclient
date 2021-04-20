@@ -54,7 +54,7 @@ public class Flow implements Parcelable {
 
     public final void a(String str, String str2) {
         if (this.mValid) {
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().q(this.mId, str, this.mHandle, str2, this.mOption);
                 }
@@ -75,7 +75,7 @@ public class Flow implements Parcelable {
 
     public final void b(String str, String str2, long j) {
         if (this.mValid) {
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().r(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
@@ -96,7 +96,7 @@ public class Flow implements Parcelable {
 
     public final void c() {
         if (this.mValid) {
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().h(this.mId, this.mHandle);
                 }
@@ -117,7 +117,7 @@ public class Flow implements Parcelable {
 
     public final void d() {
         if (this.mValid) {
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 JSONArray jSONArray = new JSONArray();
                 HashMap<String, Slot> hashMap = this.mSlotMaps;
                 if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
@@ -197,7 +197,7 @@ public class Flow implements Parcelable {
 
     public final void n(String str) {
         if (this.mValid) {
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().t(this.mId, this.mHandle, str);
                 }
@@ -218,7 +218,7 @@ public class Flow implements Parcelable {
 
     public void o(String str) {
         if (this.mValid) {
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;

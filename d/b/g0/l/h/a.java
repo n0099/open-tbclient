@@ -4,7 +4,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import d.b.g0.l.l.j.a;
 /* loaded from: classes3.dex */
 public abstract class a<T> extends b<T> {
-    public abstract void m(a.C1020a c1020a, PMSAppInfo pMSAppInfo, d.b.g0.l.k.a aVar);
+    public abstract void m(a.C1032a c1032a, PMSAppInfo pMSAppInfo, d.b.g0.l.k.a aVar);
 
-    public abstract void n(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
+    public abstract void o(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
 }

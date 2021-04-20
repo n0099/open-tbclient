@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.tbadk.TbConfig;
-import d.b.b.d.c;
-import d.b.b.e.p.j;
+import d.b.c.d.c;
+import d.b.c.e.p.j;
 import d.b.h0.r.k;
 /* loaded from: classes3.dex */
 public class TbImageHelper {

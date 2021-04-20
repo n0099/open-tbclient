@@ -8,13 +8,13 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-import d.b.i0.d1.h.d;
+import d.b.i0.e1.h.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UpdatesModel {
     public List<UpdatesItemData> dataToDelete = new ArrayList();
 

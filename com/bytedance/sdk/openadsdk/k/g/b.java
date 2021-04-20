@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import com.baidu.searchbox.pms.db.PackageTable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MessageDigest f29695a = a();
+    public static final MessageDigest f29380a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f29696b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] f29381b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static MessageDigest a() {
         try {
@@ -23,11 +23,11 @@ public class b {
 
     public static String a(String str) {
         byte[] digest;
-        MessageDigest messageDigest = f29695a;
+        MessageDigest messageDigest = f29380a;
         if (messageDigest == null || TextUtils.isEmpty(str)) {
             return "";
         }
-        byte[] bytes = str.getBytes(d.f29702a);
+        byte[] bytes = str.getBytes(d.f29387a);
         synchronized (b.class) {
             digest = messageDigest.digest(bytes);
         }
@@ -42,7 +42,7 @@ public class b {
         int i = 0;
         for (byte b2 : bArr) {
             int i2 = i + 1;
-            char[] cArr2 = f29696b;
+            char[] cArr2 = f29381b;
             cArr[i] = cArr2[(b2 & 240) >> 4];
             i = i2 + 1;
             cArr[i2] = cArr2[b2 & 15];

@@ -16,7 +16,7 @@ import java.util.Set;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44804a = k.f45051a;
+    public static final boolean f45196a = k.f45443a;
 
     @Nullable
     public static Set<String> a(int i, List<String> list) {
@@ -29,10 +29,10 @@ public class d {
             if (cVar.D() && cVar.x() && list.contains(appId)) {
                 d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
                 d.b.g0.a.n1.c.c cVar2 = new d.b.g0.a.n1.c.c(i);
-                cVar2.b(cVar.f45391f);
+                cVar2.b(cVar.f45783f);
                 e2.h(cVar2);
                 hashSet.add(appId);
-                if (f44804a) {
+                if (f45196a) {
                     Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
                 }
             }
@@ -70,7 +70,7 @@ public class d {
                         if (z) {
                             if (set.contains(substring)) {
                             }
-                            if (f44804a) {
+                            if (f45196a) {
                                 Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
                             }
                             if (aVar == null) {
@@ -81,7 +81,7 @@ public class d {
                         } else {
                             if (!set.contains(substring)) {
                             }
-                            if (f44804a) {
+                            if (f45196a) {
                             }
                             if (aVar == null) {
                             }

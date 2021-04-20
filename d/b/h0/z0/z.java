@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.util.NetWork;
 public class z extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51759e;
+    public int f52183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51760f;
+    public int f52184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51761g = null;
+    public String f52185g = null;
 
     public z(int i, int i2) {
-        this.f51759e = 0;
-        this.f51760f = 0;
-        this.f51759e = i;
-        this.f51760f = i2;
+        this.f52183e = 0;
+        this.f52184f = 0;
+        this.f52183e = i;
+        this.f52184f = i2;
     }
 
     public void a(String str) {
-        this.f51761g = str;
+        this.f52185g = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -33,9 +33,9 @@ public class z extends Thread {
             return;
         }
         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        netWork.addPostData("img_num", String.valueOf(this.f51759e));
-        netWork.addPostData("img_total", String.valueOf(this.f51760f));
-        String str = this.f51761g;
+        netWork.addPostData("img_num", String.valueOf(this.f52183e));
+        netWork.addPostData("img_total", String.valueOf(this.f52184f));
+        String str = this.f52185g;
         if (str != null) {
             netWork.addPostData("img_type", str);
         }

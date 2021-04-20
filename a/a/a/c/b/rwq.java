@@ -6,8 +6,8 @@ import java.io.RandomAccessFile;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class rwq extends uiou {
-    public rwq(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0007bv interfaceC0007bv) {
-        super(bvVar, lbvzxVar, interfaceC0007bv);
+    public rwq(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0006bv interfaceC0006bv) {
+        super(bvVar, lbvzxVar, interfaceC0006bv);
     }
 
     @Override // a.a.a.c.b.uiou

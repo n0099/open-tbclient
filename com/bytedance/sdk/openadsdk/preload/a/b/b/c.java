@@ -3,17 +3,17 @@ package com.bytedance.sdk.openadsdk.preload.a.b.b;
 import com.bytedance.sdk.openadsdk.preload.a.m;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f30004a;
+    public static Class f29689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f30005b = b();
+    public final Object f29690b = b();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Field f30006c = c();
+    public final Field f29691c = c();
 
     public static Field c() {
         try {
@@ -36,9 +36,9 @@ public final class c extends b {
     }
 
     public boolean b(AccessibleObject accessibleObject) {
-        if (this.f30005b != null && this.f30006c != null) {
+        if (this.f29690b != null && this.f29691c != null) {
             try {
-                f30004a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f30005b, accessibleObject, Long.valueOf(((Long) f30004a.getMethod("objectFieldOffset", Field.class).invoke(this.f30005b, this.f30006c)).longValue()), Boolean.TRUE);
+                f29689a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f29690b, accessibleObject, Long.valueOf(((Long) f29689a.getMethod("objectFieldOffset", Field.class).invoke(this.f29690b, this.f29691c)).longValue()), Boolean.TRUE);
                 return true;
             } catch (Exception unused) {
             }
@@ -49,7 +49,7 @@ public final class c extends b {
     public static Object b() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
-            f30004a = cls;
+            f29689a = cls;
             Field declaredField = cls.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);

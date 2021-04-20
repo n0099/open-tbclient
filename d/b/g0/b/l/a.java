@@ -15,14 +15,14 @@ import java.util.List;
 public class a extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47328b = k.f45051a;
+    public static final boolean f47720b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public CookieManager f47329a;
+    public CookieManager f47721a;
 
     public a() {
-        this.f47329a = null;
-        this.f47329a = new b();
+        this.f47721a = null;
+        this.f47721a = new b();
     }
 
     public final Bundle a(String str, String str2, int i) {
@@ -36,12 +36,12 @@ public class a extends g {
     @Override // d.b.g0.a.v1.c.g, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         if (ProcessUtils.isMainProcess()) {
-            return this.f47329a.getCookie(str);
+            return this.f47721a.getCookie(str);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, "", 4));
         if (callOnMainWithContentProvider.isOk()) {
             String string = callOnMainWithContentProvider.mResult.getString("result");
-            if (f47328b) {
+            if (f47720b) {
                 Log.d("DelegationCookieManager", "getCookie cookie : " + string);
             }
             return string;
@@ -52,7 +52,7 @@ public class a extends g {
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldAcceptCookie(String str, String str2) {
         if (ProcessUtils.isMainProcess()) {
-            return this.f47329a.shouldAcceptCookie(str, str2);
+            return this.f47721a.shouldAcceptCookie(str, str2);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, str2, 1));
         if (callOnMainWithContentProvider.isOk()) {
@@ -64,7 +64,7 @@ public class a extends g {
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldSendCookie(String str, String str2) {
         if (ProcessUtils.isMainProcess()) {
-            return this.f47329a.shouldSendCookie(str, str2);
+            return this.f47721a.shouldSendCookie(str, str2);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, str2, 2));
         if (callOnMainWithContentProvider.isOk()) {
@@ -76,7 +76,7 @@ public class a extends g {
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public void storeCookie(String str, List<String> list) {
         if (ProcessUtils.isMainProcess()) {
-            this.f47329a.storeCookie(str, list);
+            this.f47721a.storeCookie(str, list);
             return;
         }
         Bundle bundle = new Bundle();
@@ -84,7 +84,7 @@ public class a extends g {
         bundle.putString("param1", str);
         bundle.putStringArrayList("param2", (ArrayList) list);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
-        if (f47328b) {
+        if (f47720b) {
             Log.d("DelegationCookieManager", "set cookies for " + str);
         }
     }

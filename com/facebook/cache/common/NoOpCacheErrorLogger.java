@@ -2,7 +2,7 @@ package com.facebook.cache.common;
 
 import com.facebook.cache.common.CacheErrorLogger;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NoOpCacheErrorLogger implements CacheErrorLogger {
     @Nullable
     public static NoOpCacheErrorLogger sInstance;

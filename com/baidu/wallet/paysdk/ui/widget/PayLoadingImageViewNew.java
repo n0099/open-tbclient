@@ -20,29 +20,29 @@ public class PayLoadingImageViewNew extends View {
     public static String TAG = "PayLoadingImageViewNew";
 
     /* renamed from: a  reason: collision with root package name */
-    public PathMeasure f26408a;
+    public PathMeasure f26093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f26409b;
+    public Paint f26094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f26410c;
+    public Paint f26095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f26411d;
+    public Path f26096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26412e;
+    public int f26097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26413f;
+    public int f26098f;
     public int flag;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26414g;
+    public int f26099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f26415h;
+    public final RectF f26100h;
     public Path i;
     public Animation j;
     public Handler k;
@@ -52,7 +52,7 @@ public class PayLoadingImageViewNew extends View {
         super(context);
         this.flag = 0;
         this.strokeWidth = 4;
-        this.f26415h = new RectF();
+        this.f26100h = new RectF();
         this.i = new Path();
         a();
     }
@@ -76,26 +76,26 @@ public class PayLoadingImageViewNew extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int i = this.f26414g;
+        int i = this.f26099g;
         if (i == 0) {
             return;
         }
-        if (this.f26411d == null) {
+        if (this.f26096d == null) {
             float dip2px = (i - dip2px(this.strokeWidth)) / 2.0f;
-            RectF rectF = this.f26415h;
-            int i2 = this.f26412e;
+            RectF rectF = this.f26100h;
+            int i2 = this.f26097e;
             rectF.left = i2 - dip2px;
-            int i3 = this.f26413f;
+            int i3 = this.f26098f;
             rectF.top = i3 - dip2px;
             rectF.right = i2 + dip2px;
             rectF.bottom = i3 + dip2px;
             Path path = new Path();
-            this.f26411d = path;
-            path.addArc(this.f26415h, 225.0f, 359.9f);
-            this.f26411d.rLineTo(0.0f, 0.0f);
-            this.f26408a = new PathMeasure(this.f26411d, false);
+            this.f26096d = path;
+            path.addArc(this.f26100h, 225.0f, 359.9f);
+            this.f26096d.rLineTo(0.0f, 0.0f);
+            this.f26093a = new PathMeasure(this.f26096d, false);
         }
-        canvas.drawPath(this.i, this.f26409b);
+        canvas.drawPath(this.i, this.f26094b);
         canvas.save();
     }
 
@@ -103,13 +103,13 @@ public class PayLoadingImageViewNew extends View {
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         if (getMeasuredWidth() > getHeight()) {
-            this.f26414g = getMeasuredHeight();
+            this.f26099g = getMeasuredHeight();
         } else {
-            this.f26414g = getMeasuredWidth();
+            this.f26099g = getMeasuredWidth();
         }
-        int i3 = this.f26414g;
-        this.f26412e = i3 / 2;
-        this.f26413f = i3 / 2;
+        int i3 = this.f26099g;
+        this.f26097e = i3 / 2;
+        this.f26098f = i3 / 2;
     }
 
     public void startAnimation() {
@@ -124,21 +124,21 @@ public class PayLoadingImageViewNew extends View {
 
     private void a() {
         Paint paint = new Paint();
-        this.f26409b = paint;
+        this.f26094b = paint;
         paint.setAntiAlias(true);
-        this.f26409b.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
-        this.f26409b.setStrokeWidth(dip2px(this.strokeWidth));
-        this.f26409b.setStyle(Paint.Style.STROKE);
-        this.f26409b.setStrokeJoin(Paint.Join.ROUND);
-        this.f26409b.setStrokeCap(Paint.Cap.ROUND);
+        this.f26094b.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
+        this.f26094b.setStrokeWidth(dip2px(this.strokeWidth));
+        this.f26094b.setStyle(Paint.Style.STROKE);
+        this.f26094b.setStrokeJoin(Paint.Join.ROUND);
+        this.f26094b.setStrokeCap(Paint.Cap.ROUND);
         Paint paint2 = new Paint();
-        this.f26410c = paint2;
+        this.f26095c = paint2;
         paint2.setAntiAlias(true);
-        this.f26410c.setColor(-16777216);
-        this.f26410c.setStrokeWidth(dip2px(this.strokeWidth));
-        this.f26410c.setStyle(Paint.Style.STROKE);
-        this.f26410c.setStrokeJoin(Paint.Join.ROUND);
-        this.f26410c.setStrokeCap(Paint.Cap.ROUND);
+        this.f26095c.setColor(-16777216);
+        this.f26095c.setStrokeWidth(dip2px(this.strokeWidth));
+        this.f26095c.setStyle(Paint.Style.STROKE);
+        this.f26095c.setStrokeJoin(Paint.Join.ROUND);
+        this.f26095c.setStrokeCap(Paint.Cap.ROUND);
         this.k = new Handler() { // from class: com.baidu.wallet.paysdk.ui.widget.PayLoadingImageViewNew.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -153,7 +153,7 @@ public class PayLoadingImageViewNew extends View {
         super(context, attributeSet);
         this.flag = 0;
         this.strokeWidth = 4;
-        this.f26415h = new RectF();
+        this.f26100h = new RectF();
         this.i = new Path();
         a();
     }
@@ -162,7 +162,7 @@ public class PayLoadingImageViewNew extends View {
         super(context, attributeSet, i);
         this.flag = 0;
         this.strokeWidth = 4;
-        this.f26415h = new RectF();
+        this.f26100h = new RectF();
         this.i = new Path();
         a();
     }
@@ -172,15 +172,15 @@ public class PayLoadingImageViewNew extends View {
             @Override // android.view.animation.Animation
             public void applyTransformation(float f4, Transformation transformation) {
                 PayLoadingImageViewNew payLoadingImageViewNew = PayLoadingImageViewNew.this;
-                if (payLoadingImageViewNew.f26408a != null) {
+                if (payLoadingImageViewNew.f26093a != null) {
                     payLoadingImageViewNew.i.reset();
-                    float length = PayLoadingImageViewNew.this.f26408a.getLength() * f4;
+                    float length = PayLoadingImageViewNew.this.f26093a.getLength() * f4;
                     PayLoadingImageViewNew payLoadingImageViewNew2 = PayLoadingImageViewNew.this;
                     if (payLoadingImageViewNew2.flag % 2 != 0) {
-                        payLoadingImageViewNew2.f26408a.getSegment(0.0f, length, payLoadingImageViewNew2.i, true);
+                        payLoadingImageViewNew2.f26093a.getSegment(0.0f, length, payLoadingImageViewNew2.i, true);
                     } else {
-                        PathMeasure pathMeasure = payLoadingImageViewNew2.f26408a;
-                        pathMeasure.getSegment(pathMeasure.getLength() - length, PayLoadingImageViewNew.this.f26408a.getLength(), PayLoadingImageViewNew.this.i, true);
+                        PathMeasure pathMeasure = payLoadingImageViewNew2.f26093a;
+                        pathMeasure.getSegment(pathMeasure.getLength() - length, PayLoadingImageViewNew.this.f26093a.getLength(), PayLoadingImageViewNew.this.i, true);
                     }
                     String str = PayLoadingImageViewNew.TAG;
                     LogUtil.i(str, "currentLength " + length);

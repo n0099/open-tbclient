@@ -12,7 +12,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class b implements a<PMSAppInfo> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f48894a = PMSConstants$PayProtected.NO_PAY_PROTECTED.type;
+    public static final int f49286a = PMSConstants$PayProtected.NO_PAY_PROTECTED.type;
 
     @Override // d.b.g0.l.i.d.a
     public void a(SQLiteDatabase sQLiteDatabase) {
@@ -20,7 +20,7 @@ public class b implements a<PMSAppInfo> {
     }
 
     public final String b() {
-        return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.APP_ID + " TEXT UNIQUE," + com.alipay.sdk.cons.b.f1858h + " TEXT NOT NULL,app_sign LONG DEFAULT 0,version_code INTEGER DEFAULT 0,version_name TEXT,description TEXT,app_status INTEGER,status_detail TEXT,status_desc TEXT,resume_date TEXT,icon_url TEXT," + DpStatConstants.KEY_APP_NAME + " TEXT NOT NULL,service_category TEXT,subject_info TEXT,type INTEGER,pkg_size LONG,pending_err_code INTEGER,app_category INTEGER,orientation INTEGER,max_age LONG,create_time LONG,webview_domains TEXT,web_action TEXT,domains TEXT," + SwanAppBearInfo.BEAR_INFO + " TEXT,server_ext TEXT,pay_protected INTEGER,customer_service INTEGER,global_notice INTEGER,global_private INTEGER,pa_number TEXT,brand TEXT,last_launch_time LONG DEFAULT 0,launch_count INTEGER DEFAULT 0,install_src INTEGER DEFAULT 0,web_url TEXT,quick_app_key TEXT,cs_protocol_version INTEGER DEFAULT 0);";
+        return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.APP_ID + " TEXT UNIQUE," + com.alipay.sdk.cons.b.f1883h + " TEXT NOT NULL,app_sign LONG DEFAULT 0,version_code INTEGER DEFAULT 0,version_name TEXT,description TEXT,app_status INTEGER,status_detail TEXT,status_desc TEXT,resume_date TEXT,icon_url TEXT," + DpStatConstants.KEY_APP_NAME + " TEXT NOT NULL,service_category TEXT,subject_info TEXT,type INTEGER,pkg_size LONG,pending_err_code INTEGER,app_category INTEGER,orientation INTEGER,max_age LONG,create_time LONG,webview_domains TEXT,web_action TEXT,domains TEXT," + SwanAppBearInfo.BEAR_INFO + " TEXT,server_ext TEXT,pay_protected INTEGER,customer_service INTEGER,global_notice INTEGER,global_private INTEGER,pa_number TEXT,brand TEXT,last_launch_time LONG DEFAULT 0,launch_count INTEGER DEFAULT 0,install_src INTEGER DEFAULT 0,web_url TEXT,quick_app_key TEXT,cs_protocol_version INTEGER DEFAULT 0);";
     }
 
     public String c() {
@@ -77,7 +77,7 @@ public class b implements a<PMSAppInfo> {
 
     public final void i(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD pay_protected INTEGER default " + f48894a + ";");
+            sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD pay_protected INTEGER default " + f49286a + ";");
         } catch (SQLException unused) {
         }
     }

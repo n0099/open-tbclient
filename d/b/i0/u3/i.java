@@ -1,128 +1,92 @@
 package d.b.i0.u3;
 
-import android.content.Context;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import d.b.b.e.p.l;
-import java.lang.reflect.Method;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
-public class i extends PopupWindow {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f61542a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f61543b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f61544c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f61545d;
+public class i implements View.OnTouchListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f61546e;
+    public final Spannable f62879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61547f;
+    public d.b.h0.b1.m.f f62880f = null;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onPrefixItemClick(int i);
+    /* renamed from: g  reason: collision with root package name */
+    public int f62881g = 0;
+
+    public i(Spannable spannable) {
+        this.f62879e = spannable;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
+    public void a(int i) {
+        this.f62881g = i;
+    }
 
-        /* renamed from: e  reason: collision with root package name */
-        public int f61548e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public a f61549f;
-
-        public b(int i, a aVar) {
-            this.f61548e = i;
-            this.f61549f = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            a aVar = this.f61549f;
-            if (aVar != null) {
-                aVar.onPrefixItemClick(this.f61548e);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        d.b.h0.b1.m.f fVar;
+        int action = motionEvent.getAction();
+        if (view instanceof TextView) {
+            TextView textView = (TextView) view;
+            if (action == 3 && (fVar = this.f62880f) != null) {
+                fVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                view.invalidate();
+                this.f62880f = null;
+                return false;
             }
+            if (action == 1 || action == 0) {
+                int x = (int) motionEvent.getX();
+                int y = (int) motionEvent.getY();
+                Layout layout = textView.getLayout();
+                if (layout == null) {
+                    return false;
+                }
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                Spannable spannable = this.f62879e;
+                if (spannable == null) {
+                    return false;
+                }
+                d.b.h0.b1.m.f[] fVarArr = (d.b.h0.b1.m.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, d.b.h0.b1.m.f.class);
+                if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
+                    if (action == 1) {
+                        fVarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        fVarArr[0].onClick(textView);
+                        view.invalidate();
+                    } else {
+                        d.b.h0.b1.m.f fVar2 = fVarArr[0];
+                        this.f62880f = fVar2;
+                        if (fVar2.e()) {
+                            int i = this.f62881g;
+                            if (i != 0) {
+                                fVarArr[0].g(SkinManager.getColor(i));
+                            } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                                fVarArr[0].g(SkinManager.getColor(R.color.CAM_X0204));
+                            } else {
+                                fVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
+                            }
+                        }
+                        Spannable spannable2 = this.f62879e;
+                        Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f62879e.getSpanEnd(fVarArr[0]));
+                        view.invalidate();
+                    }
+                    return true;
+                }
+                d.b.h0.b1.m.f fVar3 = this.f62880f;
+                if (fVar3 != null) {
+                    fVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view.invalidate();
+                }
+                Selection.removeSelection(this.f62879e);
+            }
+            return false;
         }
-    }
-
-    public i(Context context) {
-        super(context);
-        this.f61542a = -1;
-        this.f61546e = context;
-        b(context);
-    }
-
-    public void a(View view) {
-        view.setOnClickListener(new b(this.f61544c, this.f61543b));
-        this.f61545d.addView(view);
-        this.f61544c++;
-    }
-
-    public final void b(Context context) {
-        ScrollView scrollView = new ScrollView(context);
-        scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.f61545d = linearLayout;
-        linearLayout.setOrientation(1);
-        this.f61545d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.f61545d);
-        scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, l.e(context, 1.0f), l.e(context, 1.0f));
-        scrollView.setFadingEdgeLength(0);
-        scrollView.setScrollbarFadingEnabled(false);
-        try {
-            Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(scrollView, 2);
-        } catch (Exception unused) {
-        }
-        setContentView(scrollView);
-    }
-
-    public void c(int i) {
-        int i2 = this.f61542a;
-        if (i2 != -1) {
-            this.f61545d.getChildAt(i2).setSelected(false);
-        }
-        this.f61542a = i;
-        this.f61545d.getChildAt(i).setSelected(true);
-    }
-
-    public void d(int i) {
-        this.f61547f = i;
-    }
-
-    public void e(a aVar) {
-        this.f61543b = aVar;
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2) {
-        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.f61546e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.f61546e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-        int measuredWidth = getContentView().getMeasuredWidth();
-        if (measuredWidth < view.getWidth()) {
-            measuredWidth = view.getWidth();
-        }
-        int measuredHeight = getContentView().getMeasuredHeight();
-        int i3 = this.f61547f;
-        if (measuredHeight > i3) {
-            measuredHeight = i3;
-        }
-        setWidth(measuredWidth);
-        setHeight(measuredHeight);
-        super.showAsDropDown(view, i, i2);
+        return false;
     }
 }

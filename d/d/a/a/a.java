@@ -8,42 +8,42 @@ import d.d.a.a.b.d;
 import d.d.a.a.b.i;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f65911d;
+    public static Context f66756d;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.d.a.a.b.a f65912a;
+    public d.d.a.a.b.a f66757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65913b;
+    public boolean f66758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f65914c;
+    public c f66759c;
 
     /* renamed from: d.d.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1804a {
+    /* loaded from: classes5.dex */
+    public static class C1832a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f65915a = new a();
+        public static a f66760a = new a();
     }
 
     public static boolean b(Context context) {
-        if (f65911d == null && context != null) {
-            f65911d = context.getApplicationContext();
+        if (f66756d == null && context != null) {
+            f66756d = context.getApplicationContext();
         }
-        return f65911d != null;
+        return f66756d != null;
     }
 
     public static Context c() {
-        return f65911d;
+        return f66756d;
     }
 
     public static a e() {
-        return C1804a.f65915a;
+        return C1832a.f66760a;
     }
 
     public static void g(Context context, d.d.a.a.b.a aVar) {
@@ -52,12 +52,12 @@ public final class a {
             return;
         }
         a e2 = e();
-        e2.f65912a = aVar;
+        e2.f66757a = aVar;
         try {
-            if (e2.f65913b) {
+            if (e2.f66758b) {
                 return;
             }
-            e2.f65913b = true;
+            e2.f66758b = true;
             i.a().e();
             d.h().i("normal_log");
         } catch (Exception e3) {
@@ -175,11 +175,11 @@ public final class a {
     }
 
     public static void x(c cVar) {
-        e().f65914c = cVar;
+        e().f66759c = cVar;
     }
 
     public final boolean a() {
-        d.d.a.a.b.a aVar = this.f65912a;
+        d.d.a.a.b.a aVar = this.f66757a;
         if (aVar != null) {
             return aVar.isDisabled();
         }
@@ -187,11 +187,11 @@ public final class a {
     }
 
     public c d() {
-        return this.f65914c;
+        return this.f66759c;
     }
 
     public d.d.a.a.b.a f() {
-        return this.f65912a;
+        return this.f66757a;
     }
 
     public a() {

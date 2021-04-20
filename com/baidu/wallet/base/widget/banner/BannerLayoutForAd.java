@@ -15,19 +15,19 @@ import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
 public class BannerLayoutForAd extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public BannerFocusImageViewGroup f24003a;
+    public BannerFocusImageViewGroup f23688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f24004b;
+    public LinearLayout f23689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BannerBaseItemInfo[] f24005c;
+    public BannerBaseItemInfo[] f23690c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24006d;
+    public int f23691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24007e;
+    public int f23692e;
 
     public BannerLayoutForAd(Context context) {
         super(context);
@@ -35,10 +35,10 @@ public class BannerLayoutForAd extends RelativeLayout {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_banner_vip"), this);
-        this.f24003a = (BannerFocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_banner_gallery"));
-        this.f24004b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_banner_indicators"));
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24003a.getLayoutParams();
-        int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - this.f24006d) - this.f24007e;
+        this.f23688a = (BannerFocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_banner_gallery"));
+        this.f23689b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_banner_indicators"));
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f23688a.getLayoutParams();
+        int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - this.f23691d) - this.f23692e;
         int i = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
         if (layoutParams == null) {
             layoutParams = new FrameLayout.LayoutParams(displayWidth, i);
@@ -46,16 +46,16 @@ public class BannerLayoutForAd extends RelativeLayout {
             layoutParams.width = displayWidth;
             layoutParams.height = i;
         }
-        this.f24003a.setChildLeft(getPaddingLeft());
-        this.f24003a.setLayoutParams(layoutParams);
-        this.f24003a.setChildLeft(this.f24006d);
-        this.f24003a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.base.widget.banner.BannerLayoutForAd.1
+        this.f23688a.setChildLeft(getPaddingLeft());
+        this.f23688a.setLayoutParams(layoutParams);
+        this.f23688a.setChildLeft(this.f23691d);
+        this.f23688a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.base.widget.banner.BannerLayoutForAd.1
             @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
             public void setCurrPos(int i2, int i3) {
                 int i4 = 0;
                 while (i4 < i3) {
-                    if (BannerLayoutForAd.this.f24004b.getChildAt(i4) != null) {
-                        BannerLayoutForAd.this.f24004b.getChildAt(i4).setSelected(i4 == i2);
+                    if (BannerLayoutForAd.this.f23689b.getChildAt(i4) != null) {
+                        BannerLayoutForAd.this.f23689b.getChildAt(i4).setSelected(i4 == i2);
                     }
                     i4++;
                 }
@@ -64,32 +64,32 @@ public class BannerLayoutForAd extends RelativeLayout {
     }
 
     public boolean isDataValide() {
-        BannerBaseItemInfo[] bannerBaseItemInfoArr = this.f24005c;
+        BannerBaseItemInfo[] bannerBaseItemInfoArr = this.f23690c;
         return bannerBaseItemInfoArr != null && bannerBaseItemInfoArr.length > 0;
     }
 
     public void refreshData() {
-        this.f24003a.setFocusConfigInfo(this.f24005c, "");
+        this.f23688a.setFocusConfigInfo(this.f23690c, "");
         int drawable = ResUtils.drawable(getContext(), "wallet_base_indicators");
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 7.0f), DisplayUtils.dip2px(getContext(), 2.0f));
-        if (this.f24005c.length > 1) {
+        if (this.f23690c.length > 1) {
             int i = 0;
-            while (i < this.f24005c.length) {
+            while (i < this.f23690c.length) {
                 View view = new View(getContext());
                 view.setBackgroundResource(drawable);
                 view.setSelected(i == 0);
-                this.f24004b.addView(view, layoutParams);
+                this.f23689b.addView(view, layoutParams);
                 layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                 i++;
             }
-            this.f24004b.setVisibility(0);
+            this.f23689b.setVisibility(0);
             return;
         }
-        this.f24004b.setVisibility(8);
+        this.f23689b.setVisibility(8);
     }
 
     public void setConfigData(BannerBaseItemInfo[] bannerBaseItemInfoArr) {
-        this.f24005c = bannerBaseItemInfoArr;
+        this.f23690c = bannerBaseItemInfoArr;
         if (isDataValide()) {
             removeAllViews();
             initView();
@@ -98,15 +98,15 @@ public class BannerLayoutForAd extends RelativeLayout {
     }
 
     public void setMaiDianDataKey(String str) {
-        BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f24003a;
+        BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f23688a;
         if (bannerFocusImageViewGroup != null) {
             bannerFocusImageViewGroup.setMaiDianDataKey(str);
         }
     }
 
     public void setMarginLeftAndRight(int i, int i2) {
-        this.f24006d = i;
-        this.f24007e = i2;
+        this.f23691d = i;
+        this.f23692e = i2;
     }
 
     public BannerLayoutForAd(Context context, AttributeSet attributeSet) {

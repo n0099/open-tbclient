@@ -12,21 +12,21 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class FunAdButton extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16819e;
+    public int f16484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16820f;
+    public int f16485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16821g;
+    public int f16486g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16822h;
+    public int f16487h;
     public final int i;
     public int j;
     public int k;
@@ -49,10 +49,10 @@ public class FunAdButton extends View {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16823e;
+        public final /* synthetic */ String f16488e;
 
         public a(String str) {
-            this.f16823e = str;
+            this.f16488e = str;
         }
 
         @Override // java.lang.Runnable
@@ -60,7 +60,7 @@ public class FunAdButton extends View {
             if (FunAdButton.this.y) {
                 return;
             }
-            FunAdButton.this.setText(this.f16823e);
+            FunAdButton.this.setText(this.f16488e);
         }
     }
 
@@ -90,7 +90,7 @@ public class FunAdButton extends View {
     public final void c() {
         this.w = getResources().getDimensionPixelSize(R.dimen.tbds1);
         this.q = getResources().getColor(R.color.CAM_X0302);
-        this.l = getResources().getColor(R.color.CAM_X0901);
+        this.l = getResources().getColor(R.color.CAM_X0101);
         this.m = getResources().getColor(R.color.CAM_X0302);
         this.s = 100;
         this.k = 0;
@@ -141,10 +141,10 @@ public class FunAdButton extends View {
     }
 
     public void h() {
-        SkinManager.setBackgroundResource(this, this.f16822h);
-        this.l = SkinManager.getColor(this.f16819e);
-        this.m = SkinManager.getColor(this.f16820f);
-        this.q = SkinManager.getColor(this.f16821g);
+        SkinManager.setBackgroundResource(this, this.f16487h);
+        this.l = SkinManager.getColor(this.f16484e);
+        this.m = SkinManager.getColor(this.f16485f);
+        this.q = SkinManager.getColor(this.f16486g);
     }
 
     public void i() {
@@ -177,7 +177,7 @@ public class FunAdButton extends View {
     }
 
     public void setBackgroundSkin(int i) {
-        this.f16822h = i;
+        this.f16487h = i;
     }
 
     public void setButtonTextColor(int i) {
@@ -218,7 +218,7 @@ public class FunAdButton extends View {
     }
 
     public void setTextColorInitSkin(int i) {
-        this.f16820f = i;
+        this.f16485f = i;
     }
 
     public void setTextDelay(String str, long j) {
@@ -238,17 +238,17 @@ public class FunAdButton extends View {
 
     public FunAdButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f16819e = R.color.CAM_X0901;
-        this.f16820f = R.color.CAM_X0304;
-        this.f16821g = R.color.CAM_X0302;
-        this.f16822h = R.drawable.ad_download_progress_button_bg;
+        this.f16484e = R.color.CAM_X0101;
+        this.f16485f = R.color.CAM_X0304;
+        this.f16486g = R.color.CAM_X0302;
+        this.f16487h = R.drawable.ad_download_progress_button_bg;
         this.i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.j = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.k = 0;
-        this.l = SkinManager.getColor(this.f16819e);
-        this.m = SkinManager.getColor(this.f16820f);
+        this.l = SkinManager.getColor(this.f16484e);
+        this.m = SkinManager.getColor(this.f16485f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f16821g);
+        this.q = SkinManager.getColor(this.f16486g);
         this.s = 100;
         this.t = 0;
         this.w = 0;

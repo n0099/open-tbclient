@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.b.g.b;
 import d.b.h0.r.k;
 import d.b.h0.r.q.a;
@@ -35,16 +35,16 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public static final int m;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4474e;
+    public TextView f4509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f4475f;
+    public TbImageView f4510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f4476g;
+    public ImageView f4511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f4477h;
+    public boolean f4512h;
     public b0<a> i;
 
     static {
@@ -69,21 +69,21 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                     linkedList.add(mediaData);
                 }
             }
-            this.f4475f.setVisibility(8);
-            this.f4476g.setVisibility(8);
+            this.f4510f.setVisibility(8);
+            this.f4511g.setVisibility(8);
             if (ListUtils.getCount(linkedList) > 0) {
-                this.f4475f.setVisibility(0);
-                this.f4476g.setVisibility(0);
-                this.f4475f.setConrers(15);
-                e((MediaData) ListUtils.getItem(K0, 0), this.f4475f, true, false, true, 0);
+                this.f4510f.setVisibility(0);
+                this.f4511g.setVisibility(0);
+                this.f4510f.setConrers(15);
+                e((MediaData) ListUtils.getItem(K0, 0), this.f4510f, true, false, true, 0);
                 return;
             }
-            this.f4475f.setVisibility(8);
-            this.f4476g.setVisibility(8);
+            this.f4510f.setVisibility(8);
+            this.f4511g.setVisibility(8);
             return;
         }
-        this.f4475f.setVisibility(8);
-        this.f4476g.setVisibility(8);
+        this.f4510f.setVisibility(8);
+        this.f4511g.setVisibility(8);
     }
 
     public final String b(MediaData mediaData) {
@@ -105,12 +105,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, m));
         TextView textView = (TextView) findViewById(R.id.thread_card_title);
-        this.f4474e = textView;
+        this.f4509e = textView;
         b.k(textView, R.dimen.tbds7, R.dimen.tbds10);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.thread_card_img_singal);
-        this.f4475f = tbImageView;
+        this.f4510f = tbImageView;
         b.b(tbImageView, R.dimen.tbds26, R.dimen.tbds14);
-        this.f4476g = (ImageView) findViewById(R.id.play_btn);
+        this.f4511g = (ImageView) findViewById(R.id.play_btn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -118,13 +118,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     /* renamed from: d */
     public void a(a aVar) {
         a2 n = aVar.n();
-        ThreadCardUtils.setTitle(this.f4474e, n);
+        ThreadCardUtils.setTitle(this.f4509e, n);
         setImageData(n);
     }
 
     public final void e(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
         String b2 = b(mediaData);
-        int i2 = this.f4477h ? 13 : 14;
+        int i2 = this.f4512h ? 13 : 14;
         if (!StringHelper.equals(b2, tbImageView.getUrl())) {
             tbImageView.S();
         }
@@ -149,7 +149,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     }
 
     public void setFromCDN(boolean z) {
-        this.f4477h = z;
+        this.f4512h = z;
     }
 
     public void setMarginsTop(View view, int i) {
@@ -162,7 +162,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         }
     }
 
-    public void setPreloadSizeReadyCallback(d.b.b.j.c.b bVar) {
+    public void setPreloadSizeReadyCallback(d.b.c.j.c.b bVar) {
     }
 
     public void setSubClickListener(b0<a> b0Var) {
@@ -171,7 +171,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
 
     public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4477h = true;
+        this.f4512h = true;
         c();
     }
 }

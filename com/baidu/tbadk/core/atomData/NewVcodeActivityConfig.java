@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 /* loaded from: classes3.dex */
 public class NewVcodeActivityConfig extends IntentConfig {
     public static final String IS_AD = "is_ad";

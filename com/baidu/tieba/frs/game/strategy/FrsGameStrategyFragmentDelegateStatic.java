@@ -12,7 +12,7 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.b.h0.e0.b;
 import d.b.h0.e0.c;
-import d.b.i0.p0.j0;
+import d.b.i0.q0.j0;
 /* loaded from: classes4.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
 
@@ -40,7 +40,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            fragmentTabStructure.f50155a.setArguments(bundle);
+            fragmentTabStructure.f50548a.setArguments(bundle);
         }
     }
 
@@ -51,9 +51,9 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50155a = new FrsGameStrategyMainFragment();
-        cVar.f50159e = 3;
-        cVar.f50162h = c.j;
+        cVar.f50548a = new FrsGameStrategyMainFragment();
+        cVar.f50552e = 3;
+        cVar.i = c.k;
         return cVar;
     }
 

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.w.n;
 /* loaded from: classes3.dex */
 public class c {
@@ -18,15 +18,15 @@ public class c {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f51548e;
+        public final /* synthetic */ n f51966e;
 
         public a(n nVar) {
-            this.f51548e = nVar;
+            this.f51966e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            n nVar = this.f51548e;
+            n nVar = this.f51966e;
             if (nVar != null) {
                 nVar.d(new d.b.h0.w.a(14, -1, Boolean.TRUE));
             }
@@ -42,7 +42,7 @@ public class c {
             return null;
         }
         multiImgToolView.setAsyncLocalImageLoader(bVar);
-        d.b.i0.c3.k0.a aVar = new d.b.i0.c3.k0.a(context);
+        d.b.i0.d3.k0.a aVar = new d.b.i0.d3.k0.a(context);
         aVar.e(multiImgToolView.getDragLayer());
         aVar.g(multiImgToolView.getDragHorizonScrollView());
         aVar.f(multiImgToolView.getDragHorizonScrollView());

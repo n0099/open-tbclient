@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.List;
 import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
@@ -29,18 +29,18 @@ public class a extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
 
     /* renamed from: d.b.i0.y.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1673a implements View.OnClickListener {
+    public class View$OnClickListenerC1713a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f62548e;
+        public final /* synthetic */ tinfo f63993e;
 
-        public View$OnClickListenerC1673a(tinfo tinfoVar) {
-            this.f62548e = tinfoVar;
+        public View$OnClickListenerC1713a(tinfo tinfoVar) {
+            this.f63993e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String str = this.f62548e.forum_name;
+            String str = this.f63993e.forum_name;
             if (k.isForumName(str)) {
                 TiebaStatic.eventStat(a.this.a(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
@@ -78,7 +78,7 @@ public class a extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
         } else {
             this.m.setVisibility(0);
             this.m.setText(UtilHelper.getFixedText(b().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.m.setOnClickListener(new View$OnClickListenerC1673a(tinfoVar));
+            this.m.setOnClickListener(new View$OnClickListenerC1713a(tinfoVar));
         }
         Integer num = tinfoVar.zan_num;
         if (num != null) {
@@ -89,7 +89,7 @@ public class a extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
             this.o.setText(String.valueOf(num2));
         }
         this.p.setVisibility(0);
-        d.b.i0.c3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        d.b.i0.d3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(String.valueOf(tinfoVar.forum_id))) {
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
         } else {
@@ -97,7 +97,7 @@ public class a extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
         }
     }
 
-    @Override // d.b.i0.c3.t
+    @Override // d.b.i0.d3.t
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         d.b.h0.s0.a.a(tbPageContext, g());
         return true;

@@ -11,43 +11,43 @@ import com.kwad.sdk.reward.d;
 public class b extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f36404b;
+    public FrameLayout f36693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f36405c;
+    public c f36694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.b f36406d = new a.b() { // from class: com.kwad.sdk.reward.b.c.a.b.2
+    public a.b f36695d = new a.b() { // from class: com.kwad.sdk.reward.b.c.a.b.2
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            ((d) b.this).f36458a.f36218b.a();
+            ((d) b.this).f36747a.f36507b.a();
         }
     };
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.reward.a aVar = ((d) this).f36458a;
-        AdTemplate adTemplate = aVar.f36222f;
+        com.kwad.sdk.reward.a aVar = ((d) this).f36747a;
+        AdTemplate adTemplate = aVar.f36511f;
         c cVar = aVar.l;
-        this.f36405c = cVar;
+        this.f36694c = cVar;
         if (cVar == null) {
             return;
         }
-        cVar.a(this.f36406d);
-        c cVar2 = this.f36405c;
-        FrameLayout frameLayout = this.f36404b;
-        com.kwad.sdk.reward.a aVar2 = ((d) this).f36458a;
-        cVar2.a(frameLayout, aVar2.f36224h, adTemplate, aVar2.j, aVar2.f36221e);
-        this.f36405c.a(((d) this).f36458a.f36223g);
-        this.f36405c.g();
-        c cVar3 = this.f36405c;
+        cVar.a(this.f36695d);
+        c cVar2 = this.f36694c;
+        FrameLayout frameLayout = this.f36693b;
+        com.kwad.sdk.reward.a aVar2 = ((d) this).f36747a;
+        cVar2.a(frameLayout, aVar2.f36513h, adTemplate, aVar2.j, aVar2.f36510e);
+        this.f36694c.a(((d) this).f36747a.f36512g);
+        this.f36694c.g();
+        c cVar3 = this.f36694c;
         if (cVar3 instanceof com.kwad.sdk.c.a) {
-            ((com.kwad.sdk.c.a) cVar3).a(new a.InterfaceC0358a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
-                @Override // com.kwad.sdk.c.a.InterfaceC0358a
+            ((com.kwad.sdk.c.a) cVar3).a(new a.InterfaceC0372a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
+                @Override // com.kwad.sdk.c.a.InterfaceC0372a
                 public void a() {
-                    if (((d) b.this).f36458a.f36218b != null) {
-                        ((d) b.this).f36458a.f36218b.e();
+                    if (((d) b.this).f36747a.f36507b != null) {
+                        ((d) b.this).f36747a.f36507b.e();
                     }
                 }
             });
@@ -57,7 +57,7 @@ public class b extends d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        c cVar = this.f36405c;
+        c cVar = this.f36694c;
         if (cVar != null) {
             cVar.i();
         }
@@ -66,6 +66,6 @@ public class b extends d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f36404b = (FrameLayout) b(R.id.ksad_web_card_container);
+        this.f36693b = (FrameLayout) b(R.id.ksad_web_card_container);
     }
 }

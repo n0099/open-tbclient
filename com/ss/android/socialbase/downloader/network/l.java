@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.network;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public enum l {
     POOR,
     MODERATE,

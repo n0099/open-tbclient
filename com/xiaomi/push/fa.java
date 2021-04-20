@@ -24,10 +24,10 @@ public class fa {
     public byte[] f361b;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40492b = gn.a(5) + "-";
+    public static String f40781b = gn.a(5) + "-";
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f40491a = 0;
+    public static long f40780a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static final byte[] f356a = new byte[0];
@@ -57,7 +57,7 @@ public class fa {
         try {
             i = Integer.parseInt(gcVar.k());
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("Blob parse chid err " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a("Blob parse chid err " + e2.getMessage());
             i = 1;
         }
         faVar.a(i);
@@ -66,7 +66,7 @@ public class fa {
         faVar.b(gcVar.n());
         faVar.a("XMLMSG", (String) null);
         try {
-            faVar.a(gcVar.m326a().getBytes("utf8"), str);
+            faVar.a(gcVar.m330a().getBytes("utf8"), str);
             if (TextUtils.isEmpty(str)) {
                 faVar.a((short) 3);
             } else {
@@ -74,7 +74,7 @@ public class fa {
                 faVar.a("SECMSG", (String) null);
             }
         } catch (UnsupportedEncodingException e3) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("Blob setPayload err： " + e3.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a("Blob setPayload err： " + e3.getMessage());
         }
         return faVar;
     }
@@ -92,7 +92,7 @@ public class fa {
             slice.get(bArr, 0, i);
             return new fa(aVar, s, bArr);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("read Blob err :" + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a("read Blob err :" + e2.getMessage());
             throw new IOException("Malformed Input");
         }
     }
@@ -101,9 +101,9 @@ public class fa {
         String sb;
         synchronized (fa.class) {
             StringBuilder sb2 = new StringBuilder();
-            sb2.append(f40492b);
-            long j = f40491a;
-            f40491a = 1 + j;
+            sb2.append(f40781b);
+            long j = f40780a;
+            f40780a = 1 + j;
             sb2.append(Long.toString(j));
             sb = sb2.toString();
         }
@@ -115,12 +115,12 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m283a() {
-        return this.f358a.m235c();
+    public String m287a() {
+        return this.f358a.m239c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo284a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo288a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             byteBuffer = ByteBuffer.allocate(c());
         }
@@ -128,14 +128,14 @@ public class fa {
         byteBuffer.putShort((short) this.f358a.a());
         byteBuffer.putInt(this.f361b.length);
         int position = byteBuffer.position();
-        this.f358a.m261a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f358a.a());
+        this.f358a.m265a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f358a.a());
         byteBuffer.position(position + this.f358a.a());
         byteBuffer.put(this.f361b);
         return byteBuffer;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public short m285a() {
+    public short m289a() {
         return this.f360a;
     }
 
@@ -187,24 +187,24 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m286a() {
+    public boolean m290a() {
         return this.f358a.j();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m287a() {
+    public byte[] m291a() {
         return fb.a(this, this.f361b);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m288a(String str) {
+    public byte[] m292a(String str) {
         if (this.f358a.e() == 1) {
             return fb.a(this, com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(str, e()), this.f361b));
         }
         if (this.f358a.e() == 0) {
             return fb.a(this, this.f361b);
         }
-        com.xiaomi.channel.commonutils.logger.b.m51a("unknow cipher = " + this.f358a.e());
+        com.xiaomi.channel.commonutils.logger.b.m55a("unknow cipher = " + this.f358a.e());
         return fb.a(this, this.f361b);
     }
 
@@ -213,8 +213,8 @@ public class fa {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m289b() {
-        return this.f358a.m237d();
+    public String m293b() {
+        return this.f358a.m241d();
     }
 
     public void b(String str) {
@@ -226,8 +226,8 @@ public class fa {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m290c() {
-        return this.f358a.m241f();
+    public String m294c() {
+        return this.f358a.m245f();
     }
 
     public void c(String str) {
@@ -244,17 +244,17 @@ public class fa {
             this.f358a.a(substring);
             this.f358a.b(substring2);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("Blob parse user err " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a("Blob parse user err " + e2.getMessage());
         }
     }
 
     public String e() {
-        String m239e = this.f358a.m239e();
-        if ("ID_NOT_AVAILABLE".equals(m239e)) {
+        String m243e = this.f358a.m243e();
+        if ("ID_NOT_AVAILABLE".equals(m243e)) {
             return null;
         }
         if (this.f358a.g()) {
-            return m239e;
+            return m243e;
         }
         String d2 = d();
         this.f358a.e(d2);
@@ -273,6 +273,6 @@ public class fa {
     }
 
     public String toString() {
-        return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m283a() + "; type=" + ((int) m285a()) + "; from=" + g() + " ]";
+        return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m287a() + "; type=" + ((int) m289a()) + "; from=" + g() + " ]";
     }
 }

@@ -12,54 +12,54 @@ public class MyLocationData {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f6960a;
+        public double f6995a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f6961b;
+        public double f6996b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f6962c;
+        public float f6997c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f6963d;
+        public float f6998d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f6964e;
+        public float f6999e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f6965f;
+        public int f7000f;
 
         public Builder accuracy(float f2) {
-            this.f6964e = f2;
+            this.f6999e = f2;
             return this;
         }
 
         public MyLocationData build() {
-            return new MyLocationData(this.f6960a, this.f6961b, this.f6962c, this.f6963d, this.f6964e, this.f6965f);
+            return new MyLocationData(this.f6995a, this.f6996b, this.f6997c, this.f6998d, this.f6999e, this.f7000f);
         }
 
         public Builder direction(float f2) {
-            this.f6963d = f2;
+            this.f6998d = f2;
             return this;
         }
 
         public Builder latitude(double d2) {
-            this.f6960a = d2;
+            this.f6995a = d2;
             return this;
         }
 
         public Builder longitude(double d2) {
-            this.f6961b = d2;
+            this.f6996b = d2;
             return this;
         }
 
         public Builder satellitesNum(int i) {
-            this.f6965f = i;
+            this.f7000f = i;
             return this;
         }
 
         public Builder speed(float f2) {
-            this.f6962c = f2;
+            this.f6997c = f2;
             return this;
         }
     }

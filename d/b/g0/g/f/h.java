@@ -7,7 +7,7 @@ import com.baidu.down.retry.HttpRetryStatistic;
 import d.b.g0.a.k;
 /* loaded from: classes3.dex */
 public class h extends d.b.g0.a.e0.j.d {
-    public static final boolean E = k.f45051a;
+    public static final boolean E = k.f45443a;
     public View D;
 
     /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class h extends d.b.g0.a.e0.j.d {
 
     @Override // d.b.g0.a.e0.j.d, d.b.g0.a.p.d.a
     public void D(boolean z) {
-        if (getWebView().getVisibility() == (z ? 0 : 8)) {
+        if (F().getVisibility() == (z ? 0 : 8)) {
             return;
         }
         if (E) {
@@ -47,16 +47,16 @@ public class h extends d.b.g0.a.e0.j.d {
     }
 
     @Override // d.b.g0.a.e0.j.d, d.b.g0.a.p.d.a
-    public void X(String str, String str2) {
+    public void Y(String str, String str2) {
         i.g(str, str2);
     }
 
     @Override // d.b.g0.a.e0.j.d
-    public void Z0() {
-        getWebView().setVisibility(8);
-        getWebView().setBackgroundColor(0);
+    public void a1() {
+        F().setVisibility(8);
+        F().setBackgroundColor(0);
         i.c();
-        b1();
+        c1();
         String i = d.m().i();
         if (E) {
             Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
@@ -64,13 +64,13 @@ public class h extends d.b.g0.a.e0.j.d {
         loadUrl(i);
     }
 
-    public final void b1() {
-        e(new a(this));
-    }
-
     @Override // d.b.g0.a.e0.j.d, com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
     public String c() {
         return "console";
+    }
+
+    public final void c1() {
+        e(new a(this));
     }
 
     @Override // d.b.g0.a.e0.j.d, d.b.g0.a.p.d.a

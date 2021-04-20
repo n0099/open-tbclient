@@ -3,7 +3,7 @@ package d.c.d.b.h.a;
 import android.content.Context;
 import d.c.d.b.l;
 import d.c.d.b.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g extends c {
     public g(Context context, b bVar, d dVar) {
         super(com.bytedance.tea.crash.c.JAVA, context, bVar, dVar);
@@ -15,12 +15,12 @@ public class g extends c {
         a2.k("app_count", 1);
         a2.k("magic_tag", "ss_app_log");
         e(a2);
-        d.c.d.b.e.b a3 = d.c.d.b.e.b.a(this.f65838b);
+        d.c.d.b.e.b a3 = d.c.d.b.e.b.a(this.f66683b);
         a3.d(m.a().a());
         a3.c(m.d().a());
-        a3.g(this.f65839c.c());
+        a3.g(this.f66684c.c());
         a2.d(a3);
-        l.C1803l.b(a2, a3, this.f65837a);
+        l.C1831l.b(a2, a3, this.f66682a);
         return a2;
     }
 }

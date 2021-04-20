@@ -27,15 +27,15 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.f;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumsFromForumClass.DataRes;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumListActivity> {
     public static final int DEFAULT_PAGE_LIMIT = 20;
     public static final int MAX_LIST_SIZE = 50;
@@ -45,7 +45,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public BdListView mForumListView;
     public boolean mHasMore;
     public boolean mIsLoading;
-    public d.b.i0.z2.i.a mListAdapter;
+    public d.b.i0.a3.i.a mListAdapter;
     public View mListFooter;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
@@ -57,9 +57,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public CustomMessageListener mLikeForumListener = new a(2001335);
     public CustomMessageListener mUnlikeForumListener = new b(2001336);
     public HttpMessageListener mForumListHttpListener = new c(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, true);
-    public d.b.b.c.g.c mForumListSocketListener = new d(309097, true);
+    public d.b.c.c.g.c mForumListSocketListener = new d(309097, true);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -75,7 +75,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -91,7 +91,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
         public c(int i, boolean z) {
             super(i, z);
@@ -122,8 +122,8 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class d extends d.b.c.c.g.c {
         public d(int i, boolean z) {
             super(i, z);
         }
@@ -153,7 +153,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -172,7 +172,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements f.g {
         public f() {
         }
@@ -189,7 +189,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -224,7 +224,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         this.mListFooter.setOnClickListener(new g());
         this.mForumListView.addFooterView(this.mListFooter);
         this.mListFooter.setVisibility(8);
-        d.b.i0.z2.i.a aVar = new d.b.i0.z2.i.a(getPageContext(), this.mPageType);
+        d.b.i0.a3.i.a aVar = new d.b.i0.a3.i.a(getPageContext(), this.mPageType);
         this.mListAdapter = aVar;
         this.mForumListView.setAdapter((ListAdapter) aVar);
     }

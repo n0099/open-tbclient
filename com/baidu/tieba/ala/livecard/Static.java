@@ -14,10 +14,10 @@ import com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter;
 import com.baidu.tieba.ala.livecard.adapters.FrsSplitAlaShareItemAdapter;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import d.b.h0.r.q.a2;
-import d.b.i0.c3.g;
-import d.b.i0.c3.h;
-import d.b.i0.p0.f0;
-import d.b.i0.p0.g0;
+import d.b.i0.d3.g;
+import d.b.i0.d3.h;
+import d.b.i0.q0.f0;
+import d.b.i0.q0.g0;
 import d.b.i0.t.i.a.d;
 import d.b.i0.t.i.a.e;
 import d.b.i0.t.i.a.f;
@@ -39,8 +39,8 @@ public class Static {
                 absDelegateAdapterList.add(new d.b.i0.t.i.a.c(null, a2.g3, null));
                 absDelegateAdapterList.add(new f(null, a2.f3, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, a2.h3, null));
-                absDelegateAdapterList.add(new d.b.i0.t.i.a.a(null, g.f53352g, null));
-                absDelegateAdapterList.add(new d(null, h.f53364f, null));
+                absDelegateAdapterList.add(new d.b.i0.t.i.a.a(null, g.f54794g, null));
+                absDelegateAdapterList.add(new d(null, h.f54806f, null));
             }
         }
     }
@@ -59,7 +59,7 @@ public class Static {
                 absDelegateAdapterList.add(new d.b.i0.t.i.a.c(null, a2.g3, null));
                 absDelegateAdapterList.add(new e(null, a2.f3, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, a2.h3, null));
-                absDelegateAdapterList.add(new e(null, h.f53364f, null));
+                absDelegateAdapterList.add(new e(null, h.f54806f, null));
             }
         }
     }
@@ -76,7 +76,7 @@ public class Static {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
                 d.b.i0.t.i.c.a aVar = new d.b.i0.t.i.c.a();
-                aVar.h(f0Var.f57494e);
+                aVar.h(f0Var.f59193e);
                 f0Var.a(49, aVar);
             }
         }

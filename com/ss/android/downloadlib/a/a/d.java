@@ -3,7 +3,7 @@ package com.ss.android.downloadlib.a.a;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Parcel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d extends Intent {
     public d(String str, Uri uri) {
         super(str, uri);

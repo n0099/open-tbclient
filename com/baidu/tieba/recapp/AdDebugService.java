@@ -15,27 +15,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdDebugService extends Service {
     public static TextView mFloatView;
     public boolean mIsFloatingViewAttached = false;
     public WindowManager.LayoutParams mParams;
     public WindowManager mWindowManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f20684e;
+        public int f20376e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f20685f;
+        public int f20377f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f20686g;
+        public float f20378g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f20687h;
+        public float f20379h;
 
         public a() {
         }
@@ -44,14 +44,14 @@ public class AdDebugService extends Service {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f20684e = AdDebugService.this.mParams.x;
-                this.f20685f = AdDebugService.this.mParams.y;
-                this.f20686g = motionEvent.getRawX();
-                this.f20687h = motionEvent.getRawY();
+                this.f20376e = AdDebugService.this.mParams.x;
+                this.f20377f = AdDebugService.this.mParams.y;
+                this.f20378g = motionEvent.getRawX();
+                this.f20379h = motionEvent.getRawY();
                 return true;
             } else if (action == 1) {
-                float abs = Math.abs(motionEvent.getRawX() - this.f20686g);
-                float abs2 = Math.abs(motionEvent.getRawY() - this.f20687h);
+                float abs = Math.abs(motionEvent.getRawX() - this.f20378g);
+                float abs2 = Math.abs(motionEvent.getRawY() - this.f20379h);
                 if (abs < 10.0f && abs2 < 10.0f) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
                 }
@@ -59,27 +59,27 @@ public class AdDebugService extends Service {
             } else if (action != 2) {
                 return false;
             } else {
-                AdDebugService.this.mParams.x = this.f20684e + ((int) (motionEvent.getRawX() - this.f20686g));
-                AdDebugService.this.mParams.y = this.f20685f + ((int) (motionEvent.getRawY() - this.f20687h));
+                AdDebugService.this.mParams.x = this.f20376e + ((int) (motionEvent.getRawX() - this.f20378g));
+                AdDebugService.this.mParams.y = this.f20377f + ((int) (motionEvent.getRawY() - this.f20379h));
                 AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
                 return true;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20688e;
+        public final /* synthetic */ String f20380e;
 
         public b(String str) {
-            this.f20688e = str;
+            this.f20380e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            AdDebugService.mFloatView.setText(this.f20688e);
+            AdDebugService.mFloatView.setText(this.f20380e);
         }
     }
 

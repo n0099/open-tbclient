@@ -11,26 +11,26 @@ import d.b.g0.a.l0.j.a;
 public abstract class b<P extends d.b.g0.a.l0.i.b, R extends d.b.g0.a.l0.j.a> {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f45086c = k.f45051a;
+    public static final boolean f45478c = k.f45443a;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public P f45087a;
+    public P f45479a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public R f45088b;
+    public R f45480b;
 
     public b(@NonNull P p, @NonNull R r) {
-        this.f45087a = p;
-        this.f45088b = r;
+        this.f45479a = p;
+        this.f45480b = r;
     }
 
     public <T extends d.b.g0.a.l0.h.a> Exception a(T t) {
         if (t == null) {
             return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
         }
-        return this.f45088b.d(t);
+        return this.f45480b.d(t);
     }
 
     @Nullable
@@ -39,7 +39,7 @@ public abstract class b<P extends d.b.g0.a.l0.i.b, R extends d.b.g0.a.l0.j.a> {
     @NonNull
     public ExtensionCore c() {
         String path;
-        int c2 = this.f45087a.f45085a.c();
+        int c2 = this.f45479a.f45477a.c();
         if (d.b.g0.a.l0.k.a.g(c2)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
@@ -51,20 +51,20 @@ public abstract class b<P extends d.b.g0.a.l0.i.b, R extends d.b.g0.a.l0.j.a> {
             }
             extensionCore.extensionCorePath = path;
             extensionCore.extensionCoreType = 2;
-            if (f45086c) {
+            if (f45478c) {
                 Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
             }
             return extensionCore;
         }
-        ExtensionCore g2 = this.f45087a.g();
-        ExtensionCore e2 = this.f45088b.e();
+        ExtensionCore g2 = this.f45479a.g();
+        ExtensionCore e2 = this.f45480b.e();
         if (g2.extensionCoreVersionCode >= e2.extensionCoreVersionCode) {
-            if (f45086c) {
+            if (f45478c) {
                 Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + g2.toString());
             }
             return g2;
         }
-        if (f45086c) {
+        if (f45478c) {
             Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + e2.toString());
         }
         return e2;
@@ -72,19 +72,19 @@ public abstract class b<P extends d.b.g0.a.l0.i.b, R extends d.b.g0.a.l0.j.a> {
 
     @NonNull
     public P d() {
-        return this.f45087a;
+        return this.f45479a;
     }
 
     @NonNull
     public R e() {
-        return this.f45088b;
+        return this.f45480b;
     }
 
     public void f(@Nullable d.b.g0.a.i2.u0.b<Exception> bVar) {
-        this.f45087a.m(bVar);
+        this.f45479a.m(bVar);
     }
 
     public void g() {
-        this.f45087a.n();
+        this.f45479a.n();
     }
 }

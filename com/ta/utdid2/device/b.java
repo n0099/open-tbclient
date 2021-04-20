@@ -3,14 +3,14 @@ package com.ta.utdid2.device;
 import android.content.Context;
 import com.ta.utdid2.a.a.f;
 import java.util.zip.Adler32;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f39006a;
+    public static a f39295a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f39007d = new Object();
+    public static final Object f39296d = new Object();
 
     public static long a(a aVar) {
         if (aVar != null) {
@@ -28,11 +28,11 @@ public class b {
 
     public static synchronized a b(Context context) {
         synchronized (b.class) {
-            if (f39006a != null) {
-                return f39006a;
+            if (f39295a != null) {
+                return f39295a;
             } else if (context != null) {
                 a a2 = a(context);
-                f39006a = a2;
+                f39295a = a2;
                 return a2;
             } else {
                 return null;
@@ -42,7 +42,7 @@ public class b {
 
     public static a a(Context context) {
         if (context != null) {
-            synchronized (f39007d) {
+            synchronized (f39296d) {
                 String value = c.a(context).getValue();
                 if (f.isEmpty(value)) {
                     return null;

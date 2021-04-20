@@ -12,8 +12,8 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
-import d.b.b.e.p.l;
-import d.b.i0.t3.c;
+import d.b.c.e.p.l;
+import d.b.i0.u3.c;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
@@ -52,7 +52,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void f(ImageUrlData imageUrlData) {
-        this.f13721e = imageUrlData;
+        this.f13382e = imageUrlData;
         JSONArray jSONArray = null;
         if (imageUrlData != null) {
             try {
@@ -66,9 +66,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
             this.q = true;
             c.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-            TbRichText Q = TbRichTextView.Q(getContext(), jSONArray, false);
-            g(d(Q.toString()));
-            this.n.setText(Q);
+            TbRichText S = TbRichTextView.S(getContext(), jSONArray, false);
+            g(d(S.toString()));
+            this.n.setText(S);
         } else {
             this.q = false;
         }
@@ -81,9 +81,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f13720h + AbsFloorImageTextView.i;
+                this.p = s + AbsFloorImageTextView.f13381h + AbsFloorImageTextView.i;
             } else {
-                this.p = r + AbsFloorImageTextView.f13720h + AbsFloorImageTextView.i;
+                this.p = r + AbsFloorImageTextView.f13381h + AbsFloorImageTextView.i;
             }
         } else {
             this.p = -2;
@@ -98,11 +98,11 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         tbRichTextView.setVerticalScrollBarEnabled(true);
         this.n.setTextSize(AbsFloorImageTextView.m);
         this.n.setTextColor(SkinManager.getColor(R.color.white_alpha83));
-        this.n.R = true;
+        this.n.S = true;
         EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
         this.o = editorScrollView;
         editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.i);
-        this.o.setOnTouchListener(this.f13723g);
+        this.o.setOnTouchListener(this.f13384g);
         ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
         setVisibility(8);
     }

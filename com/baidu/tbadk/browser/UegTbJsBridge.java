@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.d.a.a;
-import d.b.h0.s.c.j;
-import d.b.i0.c3.l0.b;
-import d.b.i0.c3.l0.d.c;
-import d.b.i0.k3.d;
+import d.b.e.a.a;
+import d.b.h0.s.c.l;
+import d.b.i0.d3.l0.b;
+import d.b.i0.d3.l0.d.c;
+import d.b.i0.l3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
@@ -31,7 +31,7 @@ public class UegTbJsBridge implements b {
 
     private void bindingMobileNumber(String str) {
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.b()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, l.b()));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class UegTbJsBridge implements b {
 
     private void copyToClipboard(String str) {
         try {
-            d.b.b.e.p.a.a(new JSONObject(str).optString("content"));
+            d.b.c.e.p.a.a(new JSONObject(str).optString("content"));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class UegTbJsBridge implements b {
         return cVar;
     }
 
-    @Override // d.b.i0.c3.l0.b
+    @Override // d.b.i0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if (METHOD_CALL_NATIVE_SMS.equals(str2)) {

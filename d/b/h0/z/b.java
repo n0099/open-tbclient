@@ -14,66 +14,66 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
 import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
 import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
-import d.b.b.e.m.h;
-import d.b.b.e.p.l;
+import d.b.c.e.m.h;
+import d.b.c.e.p.l;
 import d.b.h0.r.l.c;
 /* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f51650b;
+    public static b f52068b;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f51651a;
+    public UserData f52069a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f51652e;
+        public final /* synthetic */ AccountData f52070e;
 
         public a(b bVar, AccountData accountData) {
-            this.f51652e = accountData;
+            this.f52070e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.g(this.f51652e);
+            c.g(this.f52070e);
         }
     }
 
     public static b a() {
-        if (f51650b == null) {
+        if (f52068b == null) {
             synchronized (b.class) {
-                if (f51650b == null) {
-                    f51650b = new b();
+                if (f52068b == null) {
+                    f52068b = new b();
                 }
             }
         }
-        return f51650b;
+        return f52068b;
     }
 
     public UserData b() {
-        return this.f51651a;
+        return this.f52069a;
     }
 
     public void c() {
-        d.b.i0.c3.d0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
     public void d() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            getUserInfoRequstData.setUid(d.b.b.e.m.b.f(currentAccountObj.getID(), 0L));
+            getUserInfoRequstData.setUid(d.b.c.e.m.b.f(currentAccountObj.getID(), 0L));
         }
         getUserInfoRequstData.setScreenWidth(l.k(TbadkCoreApplication.getInst().getApp()));
         MessageManager.getInstance().sendMessage(getUserInfoRequstData);
     }
 
     public void e(UserData userData) {
-        this.f51651a = userData;
+        this.f52069a = userData;
         if (userData == null) {
             return;
         }

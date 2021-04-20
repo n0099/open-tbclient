@@ -6,28 +6,28 @@ import java.lang.reflect.Method;
 public final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Method f39521a;
+    public final /* synthetic */ Method f39810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f39522b;
+    public final /* synthetic */ Object f39811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object[] f39523c;
+    public final /* synthetic */ Object[] f39812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f39524d;
+    public final /* synthetic */ a f39813d;
 
     public b(a aVar, Method method, Object obj, Object[] objArr) {
-        this.f39524d = aVar;
-        this.f39521a = method;
-        this.f39522b = obj;
-        this.f39523c = objArr;
+        this.f39813d = aVar;
+        this.f39810a = method;
+        this.f39811b = obj;
+        this.f39812c = objArr;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            this.f39521a.invoke(this.f39522b, this.f39523c);
+            this.f39810a.invoke(this.f39811b, this.f39812c);
         } catch (Exception e2) {
             p.b("CommandWorker", "reflect e: ", e2);
         }

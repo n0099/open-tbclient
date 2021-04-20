@@ -13,13 +13,13 @@ import org.json.JSONObject;
 public class aj {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ByteBuffer f8901c = ByteBuffer.allocate(0);
+    public static final ByteBuffer f8475c = ByteBuffer.allocate(0);
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8902a;
+    public a f8476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f8903b;
+    public b f8477b;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -40,10 +40,10 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.f8902a = aVar;
+        this.f8476a = aVar;
         try {
             b bVar = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f8903b = bVar;
+            this.f8477b = bVar;
             bVar.c();
         } catch (InterruptedException e2) {
             throw new c(e2);
@@ -70,11 +70,11 @@ public class aj {
     }
 
     public boolean b() {
-        return (this.f8903b.f() || this.f8903b.g() || this.f8903b.e()) ? false : true;
+        return (this.f8477b.f() || this.f8477b.g() || this.f8477b.e()) ? false : true;
     }
 
     public void a() {
-        b bVar = this.f8903b;
+        b bVar = this.f8477b;
         if (bVar != null) {
             bVar.d();
         }
@@ -92,8 +92,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.f8902a != null) {
-                aj.this.f8902a.a();
+            if (aj.this.f8476a != null) {
+                aj.this.f8476a.a();
             }
         }
 
@@ -124,7 +124,7 @@ public class aj {
             }
             if (str2.equals("deploy")) {
                 try {
-                    aj.this.f8902a.a(((JSONObject) jSONObject.get("data")).toString());
+                    aj.this.f8476a.a(((JSONObject) jSONObject.get("data")).toString());
                     return;
                 } catch (Exception unused3) {
                     return;
@@ -151,8 +151,8 @@ public class aj {
                 case 801024:
                     bc.c().a("autotrace: connect confirm");
                     am.a().a(3);
-                    if (aj.this.f8902a != null) {
-                        aj.this.f8902a.b();
+                    if (aj.this.f8476a != null) {
+                        aj.this.f8476a.b();
                         return;
                     }
                     return;
@@ -169,8 +169,8 @@ public class aj {
             c3.a("autotrace: connect closed, server:" + z + " reason:" + str);
             am a2 = am.a();
             a2.a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.f8902a != null) {
-                aj.this.f8902a.a(z);
+            if (aj.this.f8476a != null) {
+                aj.this.f8476a.a(z);
             }
         }
 
@@ -183,8 +183,8 @@ public class aj {
     }
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
-        if (this.f8903b != null) {
-            this.f8903b.a(jSONObject.toString().getBytes());
+        if (this.f8477b != null) {
+            this.f8477b.a(jSONObject.toString().getBytes());
         }
     }
 }

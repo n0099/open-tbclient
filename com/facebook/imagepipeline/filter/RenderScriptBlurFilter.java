@@ -9,7 +9,7 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import androidx.annotation.RequiresApi;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class RenderScriptBlurFilter {
     public static final int BLUR_MAX_RADIUS = 25;
 

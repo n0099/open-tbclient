@@ -18,35 +18,35 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 /* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f51986a;
+    public TbPageContext f53272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.s.e.a f51987b;
+    public d.b.h0.s.e.a f53273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a2 f51988c;
+    public a2 f53274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PopupWindow f51989d;
+    public PopupWindow f53275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PopupWindow f51990e;
+    public PopupWindow f53276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f51991f;
+    public ViewGroup f53277f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51992g;
+    public TextView f53278g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f51993h;
+    public TBSpecificationBtn f53279h;
     public d.b.h0.r.f0.m.b i;
     public int j;
     public int k;
@@ -67,9 +67,9 @@ public class g {
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (g.this.f51990e != null) {
-                g.this.f51990e.dismiss();
-                g.this.f51990e = null;
+            if (g.this.f53276e != null) {
+                g.this.f53276e.dismiss();
+                g.this.f53276e = null;
             }
         }
     }
@@ -82,34 +82,34 @@ public class g {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.A()) {
-                g.this.f51986a.showToast(R.string.network_ungeilivable);
+                g.this.f53272a.showToast(R.string.network_ungeilivable);
             }
-            if (ViewHelper.checkUpIsLogin(g.this.f51986a.getPageActivity())) {
-                if (g.this.f51988c == null) {
+            if (ViewHelper.checkUpIsLogin(g.this.f53272a.getPageActivity())) {
+                if (g.this.f53274c == null) {
                     return;
                 }
-                g.this.f51987b.m(false, g.this.f51988c.T().getPortrait(), g.this.f51988c.T().getUserId(), g.this.f51988c.T().isGod(), "0", g.this.f51986a.getUniqueId(), null, "0");
+                g.this.f53273b.m(false, g.this.f53274c.T().getPortrait(), g.this.f53274c.T().getUserId(), g.this.f53274c.T().isGod(), "0", g.this.f53272a.getUniqueId(), null, "0");
                 TiebaStatic.log(new StatisticItem("c13571"));
             }
-            if (g.this.f51990e == null || g.this.f51989d == null) {
+            if (g.this.f53276e == null || g.this.f53275d == null) {
                 return;
             }
-            g.this.f51990e.dismiss();
-            g.this.f51989d.dismiss();
-            g.this.f51989d = null;
-            g.this.f51990e = null;
+            g.this.f53276e.dismiss();
+            g.this.f53275d.dismiss();
+            g.this.f53275d = null;
+            g.this.f53276e = null;
         }
     }
 
     public g(TbPageContext tbPageContext, View view) {
-        this.f51986a = tbPageContext;
-        this.f51987b = new d.b.h0.s.e.a(tbPageContext);
+        this.f53272a = tbPageContext;
+        this.f53273b = new d.b.h0.s.e.a(tbPageContext);
         this.q = view;
         m();
     }
 
     public void h(a2 a2Var) {
-        this.f51988c = a2Var;
+        this.f53274c = a2Var;
     }
 
     public final boolean i(Context context, View view, int i, int i2, int i3, int i4, int[] iArr) {
@@ -135,91 +135,91 @@ public class g {
     public final void j() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.r) {
-            SkinManager.setViewTextColor(this.f51992g, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f53278g, R.color.CAM_X0105, 1);
             this.r = skinType;
         }
     }
 
     public final View k() {
-        if (this.f51986a.getContext() == null) {
+        if (this.f53272a.getContext() == null) {
             return null;
         }
-        if (this.f51991f == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f51986a.getContext()).inflate(R.layout.neg_feedback_popupwindow, (ViewGroup) null);
-            this.f51991f = viewGroup;
+        if (this.f53277f == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f53272a.getContext()).inflate(R.layout.neg_feedback_popupwindow, (ViewGroup) null);
+            this.f53277f = viewGroup;
             TextView textView = (TextView) viewGroup.findViewById(R.id.head_text);
-            this.f51992g = textView;
-            textView.setText(this.f51986a.getString(R.string.confirm_unlike));
-            SkinManager.setViewTextColor(this.f51992g, R.color.CAM_X0105, 1);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f51991f.findViewById(R.id.uninterested_btn);
-            this.f51993h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(this.f51986a.getString(R.string.confirm_unlike_confirm));
-            this.f51993h.setTextSize(R.dimen.T_X08);
-            this.f51993h.setOnClickListener(this.t);
+            this.f53278g = textView;
+            textView.setText(this.f53272a.getString(R.string.confirm_unlike));
+            SkinManager.setViewTextColor(this.f53278g, R.color.CAM_X0105, 1);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f53277f.findViewById(R.id.uninterested_btn);
+            this.f53279h = tBSpecificationBtn;
+            tBSpecificationBtn.setText(this.f53272a.getString(R.string.confirm_unlike_confirm));
+            this.f53279h.setTextSize(R.dimen.T_X08);
+            this.f53279h.setOnClickListener(this.t);
             d.b.h0.r.f0.m.b bVar = new d.b.h0.r.f0.m.b();
             this.i = bVar;
             bVar.q(R.color.CAM_X0304);
-            this.f51993h.setConfig(this.i);
-            ViewGroup viewGroup2 = this.f51991f;
+            this.f53279h.setConfig(this.i);
+            ViewGroup viewGroup2 = this.f53277f;
             int i = this.j;
             viewGroup2.setPadding(i, 0, i, 0);
         }
         j();
-        return this.f51991f;
+        return this.f53277f;
     }
 
     public final int l() {
-        ViewGroup viewGroup = this.f51991f;
+        ViewGroup viewGroup = this.f53277f;
         if (viewGroup == null) {
             return 0;
         }
         viewGroup.measure(0, 0);
-        int measuredHeight = this.f51991f.getMeasuredHeight();
+        int measuredHeight = this.f53277f.getMeasuredHeight();
         this.o = measuredHeight;
         return measuredHeight;
     }
 
     public final void m() {
-        this.j = l.g(this.f51986a.getContext(), R.dimen.M_W_X005);
-        this.k = l.g(this.f51986a.getContext(), R.dimen.M_W_X004);
-        this.l = l.g(this.f51986a.getContext(), R.dimen.tbds14);
-        this.p = l.g(this.f51986a.getContext(), R.dimen.tbds160);
+        this.j = l.g(this.f53272a.getContext(), R.dimen.M_W_X005);
+        this.k = l.g(this.f53272a.getContext(), R.dimen.M_W_X004);
+        this.l = l.g(this.f53272a.getContext(), R.dimen.tbds14);
+        this.p = l.g(this.f53272a.getContext(), R.dimen.tbds160);
     }
 
     public void n() {
-        if (this.f51986a.getContext() == null) {
+        if (this.f53272a.getContext() == null) {
             return;
         }
         View k = k();
-        this.n = l.k(this.f51986a.getContext()) - (this.k * 2);
+        this.n = l.k(this.f53272a.getContext()) - (this.k * 2);
         this.m = l();
         int[] iArr = new int[2];
-        boolean i = i(this.f51986a.getContext(), this.q, this.m, this.n, this.p, this.l, iArr);
+        boolean i = i(this.f53272a.getContext(), this.q, this.m, this.n, this.p, this.l, iArr);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        gradientDrawable.setCornerRadius(l.g(this.f51986a.getContext(), R.dimen.tbds31));
+        gradientDrawable.setCornerRadius(l.g(this.f53272a.getContext(), R.dimen.tbds31));
         k.setBackgroundDrawable(gradientDrawable);
         PopupWindow popupWindow = new PopupWindow(k, this.n, l());
-        this.f51989d = popupWindow;
+        this.f53275d = popupWindow;
         popupWindow.setFocusable(true);
-        this.f51989d.setTouchable(true);
-        this.f51989d.setOnDismissListener(this.s);
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f51986a.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
-        this.f51990e = popupWindow2;
+        this.f53275d.setTouchable(true);
+        this.f53275d.setOnDismissListener(this.s);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f53272a.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+        this.f53276e = popupWindow2;
         if (Build.VERSION.SDK_INT >= 22) {
             popupWindow2.setAttachedInDecor(false);
         }
-        this.f51990e.showAtLocation(this.q, 0, 0, 0);
+        this.f53276e.showAtLocation(this.q, 0, 0, 0);
         if (iArr[0] == 0 && iArr[1] == 0) {
             return;
         }
-        this.f51989d.setBackgroundDrawable(new ColorDrawable(0));
+        this.f53275d.setBackgroundDrawable(new ColorDrawable(0));
         if (i) {
-            this.f51989d.setAnimationStyle(R.style.scale_rb2lt_anim);
+            this.f53275d.setAnimationStyle(R.style.scale_rb2lt_anim);
         } else {
-            this.f51989d.setAnimationStyle(R.style.scale_rt2lb_anim);
+            this.f53275d.setAnimationStyle(R.style.scale_rt2lb_anim);
         }
-        this.f51989d.showAtLocation(this.q, 0, iArr[0] - this.k, iArr[1]);
+        this.f53275d.showAtLocation(this.q, 0, iArr[0] - this.k, iArr[1]);
     }
 }

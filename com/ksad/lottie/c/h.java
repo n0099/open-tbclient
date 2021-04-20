@@ -1,13 +1,13 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 /* loaded from: classes6.dex */
 public class h implements aj<com.ksad.lottie.model.b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f31338a = new h();
+    public static final h f31627a = new h();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj
@@ -60,7 +60,7 @@ public class h implements aj<com.ksad.lottie.model.b> {
                             } else if (nextName.equals("ls")) {
                                 c2 = 6;
                             }
-                        } else if (nextName.equals(IXAdRequestInfo.QUERY_HEIGHT)) {
+                        } else if (nextName.equals(IAdRequestParam.QUERY_HEIGHT)) {
                             c2 = 5;
                         }
                     } else if (nextName.equals("fc")) {

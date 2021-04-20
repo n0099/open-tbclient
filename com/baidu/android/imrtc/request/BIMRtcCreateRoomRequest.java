@@ -9,7 +9,6 @@ import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -91,7 +90,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                 jSONObject.put("signal_sdk_version", j);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
+                jSONObject.put("ts", currentTimeMillis);
                 jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("RtcGetTokenRequest msg :");

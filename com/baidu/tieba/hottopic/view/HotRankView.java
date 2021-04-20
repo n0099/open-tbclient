@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.d0.h;
 import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotRankView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17621e;
+    public TbPageContext<?> f17298e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f17622f;
+    public BdTypeListView f17299f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.b1.a.a f17623g;
+    public d.b.i0.c1.a.a f17300g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f17624h;
+    public g f17301h;
     public View i;
     public d.b.h0.d0.g j;
     public h k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements f.g {
         public a() {
         }
@@ -45,15 +45,15 @@ public class HotRankView extends FrameLayout {
         public void onListPullRefresh(boolean z) {
             if (!j.z()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                HotRankView.this.f17622f.A(0L);
+                HotRankView.this.f17299f.A(0L);
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
-            ((HotRanklistActivity) HotRankView.this.f17621e.getOrignalPage()).loadHotTopicRanklistData();
+            ((HotRanklistActivity) HotRankView.this.f17298e.getOrignalPage()).loadHotTopicRanklistData();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements AbsListView.OnScrollListener {
         public b() {
         }
@@ -68,7 +68,7 @@ public class HotRankView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -78,22 +78,22 @@ public class HotRankView extends FrameLayout {
             if (j.A()) {
                 HotRankView.this.e();
                 HotRankView hotRankView = HotRankView.this;
-                hotRankView.l(true, l.g(hotRankView.f17621e.getPageActivity(), R.dimen.ds500));
-                ((HotRanklistActivity) HotRankView.this.f17621e.getOrignalPage()).loadHotTopicRanklistData();
+                hotRankView.l(true, l.g(hotRankView.f17298e.getPageActivity(), R.dimen.ds500));
+                ((HotRanklistActivity) HotRankView.this.f17298e.getOrignalPage()).loadHotTopicRanklistData();
             }
         }
     }
 
     public HotRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17622f = null;
-        this.f17623g = null;
-        this.f17624h = null;
+        this.f17299f = null;
+        this.f17300g = null;
+        this.f17301h = null;
         f(context);
     }
 
     public void c(boolean z) {
-        BdTypeListView bdTypeListView = this.f17622f;
+        BdTypeListView bdTypeListView = this.f17299f;
         if (bdTypeListView != null) {
             if (z) {
                 bdTypeListView.z();
@@ -121,22 +121,22 @@ public class HotRankView extends FrameLayout {
 
     public final void f(Context context) {
         BdTypeListView bdTypeListView = new BdTypeListView(context);
-        this.f17622f = bdTypeListView;
+        this.f17299f = bdTypeListView;
         bdTypeListView.setVerticalScrollBarEnabled(false);
-        this.f17622f.setDividerHeight(0);
-        this.f17622f.setSelector(17170445);
-        d.b.b.a.f<?> a2 = d.b.b.a.j.a(context);
+        this.f17299f.setDividerHeight(0);
+        this.f17299f.setSelector(17170445);
+        d.b.c.a.f<?> a2 = d.b.c.a.j.a(context);
         if (a2 instanceof TbPageContext) {
-            this.f17621e = (TbPageContext) a2;
+            this.f17298e = (TbPageContext) a2;
         }
-        g gVar = new g(this.f17621e);
-        this.f17624h = gVar;
+        g gVar = new g(this.f17298e);
+        this.f17301h = gVar;
         gVar.b(new a());
-        this.f17622f.setPullRefresh(this.f17624h);
-        this.i = BdListViewHelper.d(context, this.f17622f, BdListViewHelper.HeadType.HASTAB);
-        this.f17622f.setOnScrollListener(new b());
-        this.f17623g = new d.b.i0.b1.a.a((HotRanklistActivity) this.f17621e.getOrignalPage(), this.f17622f);
-        addView(this.f17622f);
+        this.f17299f.setPullRefresh(this.f17301h);
+        this.i = BdListViewHelper.d(context, this.f17299f, BdListViewHelper.HeadType.HASTAB);
+        this.f17299f.setOnScrollListener(new b());
+        this.f17300g = new d.b.i0.c1.a.a((HotRanklistActivity) this.f17298e.getOrignalPage(), this.f17299f);
+        addView(this.f17299f);
     }
 
     public boolean g() {
@@ -157,8 +157,8 @@ public class HotRankView extends FrameLayout {
 
     public void i() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f17622f, R.color.CAM_X0201);
-        this.f17622f.getListAdapter().notifyDataSetChanged();
+        SkinManager.setBackgroundColor(this.f17299f, R.color.CAM_X0201);
+        this.f17299f.getListAdapter().notifyDataSetChanged();
         d.b.h0.d0.g gVar = this.j;
         if (gVar != null) {
             gVar.onChangeSkinType();
@@ -175,15 +175,15 @@ public class HotRankView extends FrameLayout {
         this.i.setLayoutParams(layoutParams);
     }
 
-    public void k(d.b.i0.b1.c.j jVar, String str) {
-        if (this.f17623g == null) {
+    public void k(d.b.i0.c1.c.j jVar, String str) {
+        if (this.f17300g == null) {
             return;
         }
         if (jVar == null) {
-            jVar = new d.b.i0.b1.c.j();
+            jVar = new d.b.i0.c1.c.j();
         }
-        this.f17622f.setVisibility(0);
-        this.f17623g.b(jVar, str);
+        this.f17299f.setVisibility(0);
+        this.f17300g.b(jVar, str);
     }
 
     public void l(boolean z, int i) {
@@ -201,7 +201,7 @@ public class HotRankView extends FrameLayout {
             this.j.onChangeSkinType();
         }
         this.j.attachView(this, z);
-        this.f17622f.setVisibility(8);
+        this.f17299f.setVisibility(8);
     }
 
     public void m(String str, boolean z) {
@@ -214,22 +214,22 @@ public class HotRankView extends FrameLayout {
         this.k.j(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
         this.k.attachView(this, z);
         this.k.o();
-        this.f17622f.setVisibility(8);
+        this.f17299f.setVisibility(8);
     }
 
     public HotRankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17622f = null;
-        this.f17623g = null;
-        this.f17624h = null;
+        this.f17299f = null;
+        this.f17300g = null;
+        this.f17301h = null;
         f(context);
     }
 
     public HotRankView(Context context) {
         super(context);
-        this.f17622f = null;
-        this.f17623g = null;
-        this.f17624h = null;
+        this.f17299f = null;
+        this.f17300g = null;
+        this.f17301h = null;
         f(context);
     }
 }

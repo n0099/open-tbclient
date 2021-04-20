@@ -7,23 +7,23 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import d.b.b.e.p.l;
-import d.b.i0.l1.b;
-import d.b.i0.l1.g;
+import d.b.c.e.p.l;
+import d.b.i0.m1.b;
+import d.b.i0.m1.g;
 /* loaded from: classes5.dex */
 public class PluginRoundProgressBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f22164e;
+    public Paint f21849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22165f;
+    public int f21850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22166g;
+    public int f21851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22167h;
+    public int f21852h;
     public float i;
     public float j;
     public int k;
@@ -57,37 +57,37 @@ public class PluginRoundProgressBar extends View {
         int width = getWidth() / 2;
         float f2 = width;
         int i2 = (int) ((f2 - (this.j / 2.0f)) - 5.0f);
-        this.f22164e.setColor(this.f22165f);
-        this.f22164e.setStyle(Paint.Style.STROKE);
-        this.f22164e.setStrokeWidth(this.j);
-        this.f22164e.setAntiAlias(true);
-        canvas.drawCircle(f2, f2, i2, this.f22164e);
-        this.f22164e.setStyle(Paint.Style.FILL);
-        this.f22164e.setStrokeWidth(0.0f);
-        this.f22164e.setColor(this.f22167h);
-        this.f22164e.setTextSize(this.i);
+        this.f21849e.setColor(this.f21850f);
+        this.f21849e.setStyle(Paint.Style.STROKE);
+        this.f21849e.setStrokeWidth(this.j);
+        this.f21849e.setAntiAlias(true);
+        canvas.drawCircle(f2, f2, i2, this.f21849e);
+        this.f21849e.setStyle(Paint.Style.FILL);
+        this.f21849e.setStrokeWidth(0.0f);
+        this.f21849e.setColor(this.f21852h);
+        this.f21849e.setTextSize(this.i);
         int i3 = (int) ((this.l / this.k) * 100.0f);
-        float measureText = this.f22164e.measureText(i3 + "%");
+        float measureText = this.f21849e.measureText(i3 + "%");
         if (this.m && this.n == 0) {
             if (i3 == 0) {
                 i3 = 1;
             }
-            canvas.drawText(i3 + "%", f2 - (measureText / 2.0f), f2 + (this.i / 2.0f), this.f22164e);
+            canvas.drawText(i3 + "%", f2 - (measureText / 2.0f), f2 + (this.i / 2.0f), this.f21849e);
         }
-        this.f22164e.setStrokeWidth(this.j);
-        this.f22164e.setColor(this.f22166g);
+        this.f21849e.setStrokeWidth(this.j);
+        this.f21849e.setColor(this.f21851g);
         float f3 = width - i2;
         float f4 = width + i2;
         this.o.set(f3, f3, f4, f4);
         int i4 = this.n;
         if (i4 == 0) {
-            this.f22164e.setStyle(Paint.Style.STROKE);
-            canvas.drawArc(this.o, -90.0f, (this.l * 360) / this.k, false, this.f22164e);
+            this.f21849e.setStyle(Paint.Style.STROKE);
+            canvas.drawArc(this.o, -90.0f, (this.l * 360) / this.k, false, this.f21849e);
         } else if (i4 != 1) {
         } else {
-            this.f22164e.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.f21849e.setStyle(Paint.Style.FILL_AND_STROKE);
             if (this.l != 0) {
-                canvas.drawArc(this.o, -90.0f, (i * 360) / this.k, true, this.f22164e);
+                canvas.drawArc(this.o, -90.0f, (i * 360) / this.k, true, this.f21849e);
             }
         }
     }
@@ -122,15 +122,15 @@ public class PluginRoundProgressBar extends View {
     }
 
     public void setRoundColor(int i) {
-        this.f22165f = i;
+        this.f21850f = i;
     }
 
     public void setRoundProgressColor(int i) {
-        this.f22166g = i;
+        this.f21851g = i;
     }
 
     public void setTextColor(int i) {
-        this.f22167h = i;
+        this.f21852h = i;
     }
 
     public PluginRoundProgressBar(Context context, AttributeSet attributeSet) {
@@ -139,12 +139,12 @@ public class PluginRoundProgressBar extends View {
 
     public PluginRoundProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f22164e = new Paint();
+        this.f21849e = new Paint();
         this.o = new RectF();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.RoundProgressBar);
-        this.f22165f = obtainStyledAttributes.getColor(g.RoundProgressBar_roundColor, getResources().getColor(b.round_progressbar_round_color));
-        this.f22166g = obtainStyledAttributes.getColor(g.RoundProgressBar_roundProgressColor, getResources().getColor(b.color_logo));
-        this.f22167h = obtainStyledAttributes.getColor(g.RoundProgressBar_roundTextColor, getResources().getColor(b.plugin_loading_white));
+        this.f21850f = obtainStyledAttributes.getColor(g.RoundProgressBar_roundColor, getResources().getColor(b.round_progressbar_round_color));
+        this.f21851g = obtainStyledAttributes.getColor(g.RoundProgressBar_roundProgressColor, getResources().getColor(b.color_logo));
+        this.f21852h = obtainStyledAttributes.getColor(g.RoundProgressBar_roundTextColor, getResources().getColor(b.plugin_loading_white));
         this.i = obtainStyledAttributes.getDimension(g.RoundProgressBar_roundTextSize, l.e(getContext(), 11.0f));
         this.j = obtainStyledAttributes.getDimension(g.RoundProgressBar_roundWidth, 7.0f);
         this.k = obtainStyledAttributes.getInteger(g.RoundProgressBar_roundMax, 100);

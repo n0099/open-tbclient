@@ -11,20 +11,20 @@ import java.util.Set;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<a> f49060a = Collections.synchronizedSet(new HashSet());
+    public Set<a> f49452a = Collections.synchronizedSet(new HashSet());
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.g0.l.k.e f49061a;
+        public d.b.g0.l.k.e f49453a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PMSPkgStatus f49062b;
+        public PMSPkgStatus f49454b;
 
         public a(d.b.g0.l.k.e eVar, PMSPkgStatus pMSPkgStatus) {
-            this.f49061a = eVar;
-            this.f49062b = pMSPkgStatus;
+            this.f49453a = eVar;
+            this.f49454b = pMSPkgStatus;
         }
 
         public boolean equals(Object obj) {
@@ -32,23 +32,23 @@ public class f {
                 return true;
             }
             if (obj != null && (obj instanceof a)) {
-                return this.f49061a.equals(((a) obj).f49061a);
+                return this.f49453a.equals(((a) obj).f49453a);
             }
             return false;
         }
 
         public int hashCode() {
-            return Objects.hash(this.f49061a);
+            return Objects.hash(this.f49453a);
         }
     }
 
     public void a(d.b.g0.l.k.e eVar, PMSPkgStatus pMSPkgStatus) {
-        this.f49060a.add(new a(eVar, pMSPkgStatus));
+        this.f49452a.add(new a(eVar, pMSPkgStatus));
     }
 
     public boolean b() {
-        for (a aVar : this.f49060a) {
-            if (aVar != null && (aVar.f49061a instanceof d.b.g0.l.k.b)) {
+        for (a aVar : this.f49452a) {
+            if (aVar != null && (aVar.f49453a instanceof d.b.g0.l.k.b)) {
                 return true;
             }
         }
@@ -56,8 +56,8 @@ public class f {
     }
 
     public boolean c() {
-        for (a aVar : this.f49060a) {
-            if (aVar != null && (aVar.f49061a instanceof d.b.g0.l.k.d)) {
+        for (a aVar : this.f49452a) {
+            if (aVar != null && (aVar.f49453a instanceof d.b.g0.l.k.d)) {
                 return true;
             }
         }
@@ -65,8 +65,8 @@ public class f {
     }
 
     public boolean d() {
-        for (a aVar : this.f49060a) {
-            if (aVar != null && (aVar.f49061a instanceof d.b.g0.l.k.f)) {
+        for (a aVar : this.f49452a) {
+            if (aVar != null && (aVar.f49453a instanceof d.b.g0.l.k.f)) {
                 return true;
             }
         }
@@ -74,8 +74,8 @@ public class f {
     }
 
     public boolean e() {
-        for (a aVar : this.f49060a) {
-            if (aVar != null && (aVar.f49061a instanceof i)) {
+        for (a aVar : this.f49452a) {
+            if (aVar != null && (aVar.f49453a instanceof i)) {
                 return true;
             }
         }
@@ -83,8 +83,8 @@ public class f {
     }
 
     public boolean f() {
-        for (a aVar : this.f49060a) {
-            if (aVar != null && (aVar.f49061a instanceof d.b.g0.l.k.g)) {
+        for (a aVar : this.f49452a) {
+            if (aVar != null && (aVar.f49453a instanceof d.b.g0.l.k.g)) {
                 return true;
             }
         }
@@ -92,8 +92,8 @@ public class f {
     }
 
     public synchronized boolean g() {
-        for (a aVar : this.f49060a) {
-            if (aVar != null && (aVar.f49061a instanceof d.b.g0.l.k.g) && aVar.f49062b == PMSPkgStatus.WAIT) {
+        for (a aVar : this.f49452a) {
+            if (aVar != null && (aVar.f49453a instanceof d.b.g0.l.k.g) && aVar.f49454b == PMSPkgStatus.WAIT) {
                 return true;
             }
         }
@@ -101,11 +101,11 @@ public class f {
     }
 
     public boolean h() {
-        return this.f49060a.isEmpty();
+        return this.f49452a.isEmpty();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        r1.f49062b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
+        r1.f49454b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -114,20 +114,20 @@ public class f {
         if (eVar == null) {
             return;
         }
-        Iterator<a> it = this.f49060a.iterator();
+        Iterator<a> it = this.f49452a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             a next = it.next();
-            if (next != null && next.f49061a.equals(eVar)) {
+            if (next != null && next.f49453a.equals(eVar)) {
                 break;
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        r1.f49062b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
+        r1.f49454b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -136,19 +136,19 @@ public class f {
         if (eVar == null) {
             return;
         }
-        Iterator<a> it = this.f49060a.iterator();
+        Iterator<a> it = this.f49452a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             a next = it.next();
-            if (next != null && next.f49061a.equals(eVar)) {
+            if (next != null && next.f49453a.equals(eVar)) {
                 break;
             }
         }
     }
 
     public int k() {
-        return this.f49060a.size();
+        return this.f49452a.size();
     }
 }

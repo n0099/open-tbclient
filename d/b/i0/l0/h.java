@@ -16,16 +16,16 @@ import com.baidu.tieba.R;
 public class h extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f56524e;
+    public TbPageContext f57930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f56525f;
+    public View f57931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SpannableString f56526g;
+    public SpannableString f57932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56527h;
+    public TextView f57933h;
     public TextView i;
     public int j;
 
@@ -37,33 +37,33 @@ public class h extends Dialog {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             h hVar = h.this;
-            d.b.b.e.m.g.b(hVar, hVar.f56524e);
+            d.b.c.e.m.g.b(hVar, hVar.f57930e);
         }
     }
 
     public h(TbPageContext tbPageContext, int i) {
         super(tbPageContext.getContext(), i);
-        this.f56524e = tbPageContext;
+        this.f57930e = tbPageContext;
     }
 
     public final void b() {
-        TbPageContext tbPageContext = this.f56524e;
+        TbPageContext tbPageContext = this.f57930e;
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().k(this.j == 1);
-            this.f56524e.getLayoutMode().j(this.f56525f);
+            this.f57930e.getLayoutMode().j(this.f57931f);
         }
     }
 
     public void c() {
-        this.f56525f = LayoutInflater.from(this.f56524e.getPageActivity()).inflate(R.layout.face_buy_fail, (ViewGroup) null);
+        this.f57931f = LayoutInflater.from(this.f57930e.getPageActivity()).inflate(R.layout.face_buy_fail, (ViewGroup) null);
         this.j = TbadkApplication.getInst().getSkinType();
         String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
-        this.f56526g = new SpannableString(string);
-        this.f56526g.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
-        setContentView(this.f56525f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds364)));
+        this.f57932g = new SpannableString(string);
+        this.f57932g.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
+        setContentView(this.f57931f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds364)));
         TextView textView = (TextView) findViewById(R.id.telphone);
-        this.f56527h = textView;
-        textView.setText(this.f56526g);
+        this.f57933h = textView;
+        textView.setText(this.f57932g);
         TextView textView2 = (TextView) findViewById(R.id.confirm);
         this.i = textView2;
         textView2.setOnClickListener(new a());
@@ -72,9 +72,9 @@ public class h extends Dialog {
     }
 
     public void d() {
-        this.f56525f = LayoutInflater.from(this.f56524e.getPageActivity()).inflate(R.layout.face_buy_loading, (ViewGroup) null);
+        this.f57931f = LayoutInflater.from(this.f57930e.getPageActivity()).inflate(R.layout.face_buy_loading, (ViewGroup) null);
         this.j = TbadkApplication.getInst().getSkinType();
-        setContentView(this.f56525f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds282)));
+        setContentView(this.f57931f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds282)));
         setCancelable(false);
         b();
     }

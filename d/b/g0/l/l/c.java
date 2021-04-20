@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f48927e = d.b.g0.l.f.f48889a;
+    public static final boolean f49319e = d.b.g0.l.f.f49281a;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48928a = -1;
+    public int f49320a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48929b;
+    public String f49321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f48930c;
+    public String f49322c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f48931d;
+    public JSONObject f49323d;
 
     public static c a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -29,7 +29,7 @@ public class c {
         try {
             return b(new JSONObject(str));
         } catch (JSONException e2) {
-            if (f48927e) {
+            if (f49319e) {
                 e2.printStackTrace();
             }
             return null;
@@ -47,37 +47,37 @@ public class c {
     }
 
     public JSONObject c() {
-        return this.f48931d;
+        return this.f49323d;
     }
 
     public int d() {
-        return this.f48928a;
+        return this.f49320a;
     }
 
     public String e() {
-        return this.f48929b;
+        return this.f49321b;
     }
 
     public String f() {
-        return this.f48930c;
+        return this.f49322c;
     }
 
     public void g(JSONObject jSONObject) {
-        this.f48931d = jSONObject;
+        this.f49323d = jSONObject;
     }
 
     public void h(int i) {
-        this.f48928a = i;
+        this.f49320a = i;
     }
 
     public void i(String str) {
-        this.f48929b = str;
+        this.f49321b = str;
     }
 
     public void j(long j) {
     }
 
     public void k(String str) {
-        this.f48930c = str;
+        this.f49322c = str;
     }
 }

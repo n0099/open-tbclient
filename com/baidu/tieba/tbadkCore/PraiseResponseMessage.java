@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PraiseResponseMessage extends JsonHttpResponsedMessage {
     public int errCode;
     public String errMsg;

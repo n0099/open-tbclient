@@ -6,13 +6,13 @@ import com.baidu.tbadk.util.AdExtParam;
 import d.b.h0.g0.b.d;
 import d.b.h0.g0.b.g;
 import d.b.h0.z0.w;
-import d.b.i0.r2.a0.a;
-import d.b.i0.r2.b0.b;
+import d.b.i0.s2.d0.a;
+import d.b.i0.s2.f0.b;
 import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsRequestData extends OrmObject implements g, d {
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -33,16 +33,16 @@ public class FrsRequestData extends OrmObject implements g, d {
     public String F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21316e;
+    public int f21001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21317f;
+    public boolean f21002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21318g;
+    public String f21003g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21319h;
+    public int f21004h;
     public int k;
     public int l;
     public int m;
@@ -105,7 +105,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void I(String str) {
-        this.f21318g = str;
+        this.f21003g = str;
     }
 
     public void J(long j) {
@@ -171,8 +171,8 @@ public class FrsRequestData extends OrmObject implements g, d {
     @Override // d.b.h0.g0.b.i
     public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.kw = this.f21318g;
-        builder.pn = Integer.valueOf(this.f21319h);
+        builder.kw = this.f21003g;
+        builder.pn = Integer.valueOf(this.f21004h);
         builder.rn = Integer.valueOf(this.i);
         builder.rn_need = Integer.valueOf(this.j);
         builder.with_group = Integer.valueOf(this.k);
@@ -227,15 +227,15 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public int getPn() {
-        return this.f21319h;
+        return this.f21004h;
     }
 
     public int getUpdateType() {
-        return this.f21316e;
+        return this.f21001e;
     }
 
     public boolean isNeedCache() {
-        return this.f21317f;
+        return this.f21002f;
     }
 
     @Override // d.b.h0.g0.b.d
@@ -278,11 +278,11 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setNeedCache(boolean z) {
-        this.f21317f = z;
+        this.f21002f = z;
     }
 
     public void setPn(int i) {
-        this.f21319h = i;
+        this.f21004h = i;
     }
 
     public void setSortType(int i) {
@@ -294,7 +294,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setUpdateType(int i) {
-        this.f21316e = i;
+        this.f21001e = i;
     }
 
     public int t() {
@@ -306,7 +306,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public String v() {
-        return this.f21318g;
+        return this.f21003g;
     }
 
     public int w() {

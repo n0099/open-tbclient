@@ -3,13 +3,13 @@ package com.baidu.tieba.im.message;
 import androidx.collection.LongSparseArray;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.i0.d1.o.c;
+import d.b.i0.e1.o.c;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MessageSyncMessage extends TbSocketMessage {
     public int height;
     public boolean isForTimer;

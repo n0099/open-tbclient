@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import okhttp3.internal.Util;
 import okio.ByteString;
 /* loaded from: classes7.dex */
@@ -28,7 +27,7 @@ public final class Header {
     }
 
     public int hashCode() {
-        return ((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.name.hashCode()) * 31) + this.value.hashCode();
+        return ((527 + this.name.hashCode()) * 31) + this.value.hashCode();
     }
 
     public String toString() {

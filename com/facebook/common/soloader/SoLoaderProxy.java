@@ -1,9 +1,9 @@
 package com.facebook.common.soloader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SoLoaderProxy {
     public static volatile Loader sLoader = new DefaultLoader();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultLoader implements Loader {
         @Override // com.facebook.common.soloader.SoLoaderProxy.Loader
         public void loadLibrary(String str) {
@@ -11,7 +11,7 @@ public class SoLoaderProxy {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Loader {
         void loadLibrary(String str);
     }

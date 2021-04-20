@@ -14,10 +14,10 @@ public class d {
     public static class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f48734e;
+        public final /* synthetic */ c f49126e;
 
         public a(c cVar) {
-            this.f48734e = cVar;
+            this.f49126e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,9 +25,9 @@ public class d {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                d.c(this.f48734e);
+                d.c(this.f49126e);
             } else {
-                this.f48734e.onFail();
+                this.f49126e.onFail();
             }
         }
     }
@@ -36,25 +36,25 @@ public class d {
     public static class b implements c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f48735a;
+        public final /* synthetic */ c f49127a;
 
         public b(c cVar) {
-            this.f48735a = cVar;
+            this.f49127a = cVar;
         }
 
         @Override // d.b.g0.a.k1.c.a
         public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
             if (i != 0) {
-                this.f48735a.onFail();
+                this.f49127a.onFail();
                 return;
             }
             for (int i2 : iArr) {
                 if (i2 == -1) {
-                    this.f48735a.onFail();
+                    this.f49127a.onFail();
                     return;
                 }
             }
-            this.f48735a.onSuccess();
+            this.f49127a.onSuccess();
         }
     }
 

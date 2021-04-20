@@ -22,12 +22,12 @@ import d.b.g0.a.g;
 import d.b.g0.a.h;
 import d.b.g0.a.i2.c;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator n = new LinearInterpolator();
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f12589h;
+    public RelativeLayout f12250h;
     public ImageView i;
     public TextView j;
     public TextView k;
@@ -58,7 +58,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        RelativeLayout relativeLayout = this.f12589h;
+        RelativeLayout relativeLayout = this.f12250h;
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
@@ -95,7 +95,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.f12589h = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+        this.f12250h = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
         this.i = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
         this.j = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
         this.k = (TextView) findViewById(f.pull_to_refresh_header_time);

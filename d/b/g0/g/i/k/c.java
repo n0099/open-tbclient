@@ -16,66 +16,66 @@ import org.json.JSONObject;
 public class c implements V8Engine.JavaScriptExceptionDelegate {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.i.a f48183a;
+    public d.b.g0.g.i.a f48575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48184b = "";
+    public String f48576b = "";
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: d  reason: collision with root package name */
-        public static final boolean f48185d = k.f45051a;
+        public static final boolean f48577d = k.f45443a;
 
         /* renamed from: a  reason: collision with root package name */
-        public JSEvent f48186a = new JSEvent("error");
+        public JSEvent f48578a = new JSEvent("error");
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48187b;
+        public String f48579b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f48188c;
+        public String f48580c;
 
         public JSEvent a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.f48187b);
-                jSONObject.put("stack", this.f48188c);
+                jSONObject.put("message", this.f48579b);
+                jSONObject.put("stack", this.f48580c);
             } catch (JSONException e2) {
-                if (f48185d) {
+                if (f48577d) {
                     Log.e("V8Exception", Log.getStackTraceString(e2));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.f48186a.data = jSONObject;
+                this.f48578a.data = jSONObject;
             }
-            return this.f48186a;
+            return this.f48578a;
         }
 
         public a b(String str) {
-            this.f48187b = str;
+            this.f48579b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f48188c = str;
+            this.f48580c = str;
             return this;
         }
     }
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public c(d.b.g0.g.i.a aVar) {
-        this.f48183a = aVar;
+        this.f48575a = aVar;
     }
 
     public final void a(String str, String str2) {
-        if (this.f48183a.t() == null) {
+        if (this.f48575a.t() == null) {
             return;
         }
-        EventTarget t = this.f48183a.t();
+        EventTarget t = this.f48575a.t();
         a aVar = new a();
         aVar.b(str + "\n" + str2);
         aVar.c("");
@@ -90,12 +90,12 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         }
         String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
         String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-        Log.e("V8Exception", this.f48183a.i0() + "msg: " + str + " ,stack: " + str2);
-        this.f48183a.a0().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.f48184b.equals(str)) {
+        Log.e("V8Exception", this.f48575a.j0() + "msg: " + str + " ,stack: " + str2);
+        this.f48575a.a0().a(str);
+        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.f48576b.equals(str)) {
             return;
         }
-        this.f48184b = str;
+        this.f48576b = str;
         a(str, str2);
         d.b.g0.g.c0.c.f(str + ";" + str2);
         i.b(v8ExceptionInfo);

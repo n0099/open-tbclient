@@ -12,38 +12,38 @@ public class TbadkSettings {
     }
 
     public boolean isContains(String str) {
-        return b.i().r(str);
+        return b.j().s(str);
     }
 
     public boolean loadBoolean(String str, boolean z) {
-        return b.i().g(str, z);
+        return b.j().g(str, z);
     }
 
     public int loadInt(String str, int i) {
-        return b.i().j(str, i);
+        return b.j().k(str, i);
     }
 
     public long loadLong(String str, long j) {
-        return b.i().k(str, j);
+        return b.j().l(str, j);
     }
 
     public String loadString(String str, String str2) {
-        return b.i().o(str, str2);
+        return b.j().p(str, str2);
     }
 
     public void saveBoolean(String str, boolean z) {
-        b.i().s(str, z);
+        b.j().t(str, z);
     }
 
     public void saveInt(String str, int i) {
-        b.i().u(str, i);
+        b.j().v(str, i);
     }
 
     public void saveLong(String str, long j) {
-        b.i().v(str, j);
+        b.j().w(str, j);
     }
 
     public void saveString(String str, String str2) {
-        b.i().w(str, str2);
+        b.j().x(str, str2);
     }
 }

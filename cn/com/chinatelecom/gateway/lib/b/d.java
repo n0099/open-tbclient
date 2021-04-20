@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1523a = "d";
+    public static final String f1509a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f1524b = {15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+    public static final byte[] f1510b = {15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
 
     public static void a(Context context, int i) {
         try {
@@ -97,7 +97,7 @@ public class d {
         String jSONArray3 = jSONArray.toString();
         if (!TextUtils.isEmpty(jSONArray3)) {
             try {
-                a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f1524b)));
+                a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f1510b)));
             } catch (Exception e3) {
                 e = e3;
             }
@@ -180,7 +180,7 @@ public class d {
         }
         if (jSONArray.length() > 0) {
             try {
-                str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f1524b));
+                str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f1510b));
             } catch (Exception e3) {
                 e3.printStackTrace();
                 str = null;
@@ -201,7 +201,7 @@ public class d {
             String a2 = c.a(context);
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f1524b)));
+                    JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f1510b)));
                     int length = jSONArray.length();
                     for (int i2 = 0; i2 < length && i2 <= 10; i2++) {
                         JSONObject jSONObject = jSONArray.getJSONObject(i2);

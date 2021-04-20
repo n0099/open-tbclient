@@ -3,35 +3,35 @@ package com.baidu.android.pushservice.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2678a = "";
+    public String f2713a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2679b;
+    public String f2714b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2680c;
+    public int f2715c;
 
     public String a() {
-        return this.f2678a;
+        return this.f2713a;
     }
 
     public void a(int i) {
-        this.f2680c = i;
+        this.f2715c = i;
     }
 
     public void a(String str) {
-        this.f2678a = str;
+        this.f2713a = str;
     }
 
     public String b() {
-        return this.f2679b;
+        return this.f2714b;
     }
 
     public void b(String str) {
-        this.f2679b = str;
+        this.f2714b = str;
     }
 
     public int c() {
-        return this.f2680c;
+        return this.f2715c;
     }
 }

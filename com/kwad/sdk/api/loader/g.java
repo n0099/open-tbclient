@@ -2,24 +2,23 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.nps.utils.Constant;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f31793a;
+    public static File f32082a;
 
     public static File a(Context context) {
-        if (f31793a == null) {
-            f31793a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+        if (f32082a == null) {
+            f32082a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return f31793a;
+        return f32082a;
     }
 
     public static File a(Context context, String str) {
         File a2 = a(context);
-        return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+        return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + ".apk");
     }
 
     public static void a(File file) {

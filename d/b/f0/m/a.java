@@ -6,61 +6,61 @@ import android.os.Build;
 public class a implements b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f43033c;
+    public static a f43425c;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f43034a = null;
+    public b f43426a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43035b = false;
+    public boolean f43427b = false;
 
     /* renamed from: d.b.f0.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class C0586a {
+    public static /* synthetic */ class C0598a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43036a;
+        public static final /* synthetic */ int[] f43428a;
 
         static {
             int[] iArr = new int[com.baidu.sso.q.b.values().length];
-            f43036a = iArr;
+            f43428a = iArr;
             try {
                 iArr[com.baidu.sso.q.b.VIVO.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43036a[com.baidu.sso.q.b.OPPO.ordinal()] = 2;
+                f43428a[com.baidu.sso.q.b.OPPO.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43036a[com.baidu.sso.q.b.XIAOMI.ordinal()] = 3;
+                f43428a[com.baidu.sso.q.b.XIAOMI.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f43036a[com.baidu.sso.q.b.HUA_WEI.ordinal()] = 4;
+                f43428a[com.baidu.sso.q.b.HUA_WEI.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f43036a[com.baidu.sso.q.b.UNSUPPORT.ordinal()] = 5;
+                f43428a[com.baidu.sso.q.b.UNSUPPORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
     }
 
     public static a b() {
-        if (f43033c == null) {
+        if (f43425c == null) {
             synchronized (a.class) {
-                if (f43033c == null) {
-                    f43033c = new a();
+                if (f43425c == null) {
+                    f43425c = new a();
                 }
             }
         }
-        return f43033c;
+        return f43425c;
     }
 
     @Override // d.b.f0.m.b
     public String a() {
-        b bVar = this.f43034a;
+        b bVar = this.f43426a;
         if (bVar == null) {
             return null;
         }
@@ -81,11 +81,11 @@ public class a implements b {
     public void a(Context context, c cVar) {
         b cVar2;
         try {
-            if (this.f43035b) {
+            if (this.f43427b) {
                 return;
             }
-            this.f43035b = true;
-            int i = C0586a.f43036a[com.baidu.sso.q.b.a(Build.MANUFACTURER).ordinal()];
+            this.f43427b = true;
+            int i = C0598a.f43428a[com.baidu.sso.q.b.a(Build.MANUFACTURER).ordinal()];
             if (i == 1) {
                 cVar2 = new d.b.f0.p.c();
             } else if (i == 2) {
@@ -95,16 +95,16 @@ public class a implements b {
             } else if (i == 4) {
                 cVar2 = new d.b.f0.n.b();
             } else if (i != 5) {
-                if (this.f43034a == null) {
-                    this.f43034a.a(context, cVar);
+                if (this.f43426a == null) {
+                    this.f43426a.a(context, cVar);
                     return;
                 }
                 return;
             } else {
                 cVar2 = null;
             }
-            this.f43034a = cVar2;
-            if (this.f43034a == null) {
+            this.f43426a = cVar2;
+            if (this.f43426a == null) {
             }
         } catch (Throwable th) {
             th.printStackTrace();

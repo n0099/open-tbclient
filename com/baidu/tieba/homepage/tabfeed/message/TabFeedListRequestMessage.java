@@ -3,12 +3,12 @@ package com.baidu.tieba.homepage.tabfeed.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.k;
 import d.b.h0.z0.w;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static final int LOAD_RN = 20;
     public static final int LOAD_TYPE_LOADMORE = 2;

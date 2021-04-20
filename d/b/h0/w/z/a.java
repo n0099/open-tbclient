@@ -8,9 +8,9 @@ import d.b.h0.w.m;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.pb_vote_text), 32, i);
-        this.f51533d = R.drawable.ic_icon_pure_more_vote60_svg;
-        this.f51535f = R.drawable.icon_pure_post_more_vote64;
-        this.f51536g = false;
+        this.f51951d = R.drawable.ic_icon_pure_more_vote60_svg;
+        this.f51953f = R.drawable.icon_pure_post_more_vote64;
+        this.f51954g = false;
         this.i = true;
         this.n = new int[]{22};
     }

@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.x.e.c.c;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.e.c.c;
 import io.reactivex.internal.util.NotificationLite;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -20,7 +20,7 @@ public final class ObservableCache$ReplayDisposable<T> extends AtomicInteger imp
         this.state = cVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -29,7 +29,7 @@ public final class ObservableCache$ReplayDisposable<T> extends AtomicInteger imp
         this.state.c(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }

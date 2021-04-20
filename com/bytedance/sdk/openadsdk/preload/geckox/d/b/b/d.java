@@ -4,16 +4,16 @@ import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import com.bytedance.sdk.openadsdk.preload.geckox.utils.BsPatch;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f30258d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f29943d;
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.f30258d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+        this.f29943d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
             try {
                 BsPatch.a(file, f2, file2.getParentFile(), file2.getName());
                 com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(f2);
-                com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f30258d.a(), file2, file2.length());
+                com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f29943d.a(), file2, file2.length());
                 try {
                     return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
                 } finally {

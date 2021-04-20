@@ -30,7 +30,7 @@ public class ServiceLoader {
                     loadedUrls.add(nextElement.toString());
                 }
             }
-        } catch (IOException unused) {
+        } catch (Throwable unused) {
         }
         for (String str2 : hashSet2) {
             try {

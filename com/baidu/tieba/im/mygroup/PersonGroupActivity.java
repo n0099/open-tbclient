@@ -43,13 +43,13 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.im.widget.Game2GroupShareDialogView;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonGroupActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static final String CURRTABINDEX = "CurrTabIndex";
     public static final String KEY_PAGE_SIZE = "page_size";
@@ -84,29 +84,29 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public View mBack = null;
     public PersonGroupModel mModel = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f18067e;
+        public final /* synthetic */ long f17744e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareFromGameCenterMsgData f18068f;
+        public final /* synthetic */ ShareFromGameCenterMsgData f17745f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f18069g;
+        public final /* synthetic */ Game2GroupShareDialogView f17746g;
 
         public a(long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f18067e = j;
-            this.f18068f = shareFromGameCenterMsgData;
-            this.f18069g = game2GroupShareDialogView;
+            this.f17744e = j;
+            this.f17745f = shareFromGameCenterMsgData;
+            this.f17746g = game2GroupShareDialogView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            long t = d.b.i0.d1.k.b.o().t(String.valueOf(this.f18067e), 1);
-            MessageUtils.createGroupChatMessage(t, 9, this.f18068f.toChatMessageContent(), this.f18067e);
-            MessageUtils.createGroupChatMessage(t + 1, 1, this.f18069g.getLeaveMsg(), this.f18067e);
+            long t = d.b.i0.e1.k.b.o().t(String.valueOf(this.f17744e), 1);
+            MessageUtils.createGroupChatMessage(t, 9, this.f17745f.toChatMessageContent(), this.f17744e);
+            MessageUtils.createGroupChatMessage(t + 1, 1, this.f17746g.getLeaveMsg(), this.f17744e);
             aVar.dismiss();
             PersonGroupActivity.this.setResult(-1);
             if (!j.z()) {
@@ -117,24 +117,24 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f18071e;
+        public final /* synthetic */ Game2GroupShareDialogView f17748e;
 
         public b(Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f18071e = game2GroupShareDialogView;
+            this.f17748e = game2GroupShareDialogView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f18071e.getWindowToken(), 2);
+            ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f17748e.getWindowToken(), 2);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
         public c(int i) {
             super(i);
@@ -160,8 +160,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class d extends d.b.c.c.g.c {
         public d(int i) {
             super(i);
         }
@@ -196,7 +196,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -207,7 +207,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -218,7 +218,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -229,7 +229,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements View.OnClickListener {
         public h() {
         }
@@ -250,12 +250,12 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f13313c = fragment;
-        bVar.f13311a = i;
+        bVar.f12974c = fragment;
+        bVar.f12972a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f13312b = fragmentTabIndicator;
+        bVar.f12973b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -449,7 +449,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
         if (this.mModel == null) {
             if (!this.isHost) {
-                this.mModel = new PersonGroupModel(this, d.b.b.e.m.b.f(this.mUid, 0L));
+                this.mModel = new PersonGroupModel(this, d.b.c.e.m.b.f(this.mUid, 0L));
             } else {
                 this.mModel = new PersonGroupModel(this);
             }
@@ -539,13 +539,13 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (this.isHost || this.mPersonGroupAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f13312b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12973b;
         if (i <= 0) {
             fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.person_group_no_personal_title));
         } else {
             fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.person_group_personal), Integer.valueOf(i)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f13312b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12973b;
         if (i2 <= 0) {
             fragmentTabIndicator2.setText(getPageContext().getContext().getString(R.string.commongroup));
         } else {

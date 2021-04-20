@@ -7,25 +7,25 @@ import com.sdk.base.framework.a.f;
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f38595a = new Handler(Looper.getMainLooper());
+    public Handler f38884a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38596b;
+    public long f38885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f38597c;
+    public /* synthetic */ a f38886c;
 
     public d(a aVar, long j) {
-        this.f38597c = aVar;
-        this.f38596b = j;
+        this.f38886c = aVar;
+        this.f38885b = j;
     }
 
     public final void a() {
-        this.f38595a.postDelayed(this, this.f38596b);
+        this.f38884a.postDelayed(this, this.f38885b);
     }
 
     public final void b() {
-        this.f38595a.removeCallbacks(this);
+        this.f38884a.removeCallbacks(this);
     }
 
     @Override // java.lang.Runnable
@@ -34,14 +34,14 @@ public final class d implements Runnable {
         String str;
         Boolean bool;
         f fVar2;
-        fVar = this.f38597c.f38588e;
+        fVar = this.f38886c.f38877e;
         if (fVar != null) {
-            str = a.f38584a;
-            bool = a.f38585b;
+            str = a.f38873a;
+            bool = a.f38874b;
             com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-            fVar2 = this.f38597c.f38588e;
+            fVar2 = this.f38886c.f38877e;
             fVar2.a();
         }
-        this.f38597c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+        this.f38886c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
     }
 }

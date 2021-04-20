@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.c;
-import f.a.e;
-import f.a.g;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.x.c.f;
+import f.b.c;
+import f.b.e;
+import f.b.g;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.x.c.f;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class CompletableConcat$CompletableConcatSubscriber extends AtomicInteger implements g<c>, b {
     public static final long serialVersionUID = 9032184911934499404L;
     public volatile boolean active;
-    public final f.a.b actual;
+    public final f.b.b actual;
     public int consumed;
     public volatile boolean done;
     public final int limit;
@@ -30,7 +30,7 @@ public final class CompletableConcat$CompletableConcatSubscriber extends AtomicI
     public final AtomicBoolean once = new AtomicBoolean();
 
     /* loaded from: classes7.dex */
-    public static final class ConcatInnerObserver extends AtomicReference<b> implements f.a.b {
+    public static final class ConcatInnerObserver extends AtomicReference<b> implements f.b.b {
         public static final long serialVersionUID = -5454794857847146511L;
         public final CompletableConcat$CompletableConcatSubscriber parent;
 
@@ -38,29 +38,29 @@ public final class CompletableConcat$CompletableConcatSubscriber extends AtomicI
             this.parent = completableConcat$CompletableConcatSubscriber;
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onComplete() {
             this.parent.innerComplete();
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onError(Throwable th) {
             this.parent.innerError(th);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onSubscribe(b bVar) {
             DisposableHelper.replace(this, bVar);
         }
     }
 
-    public CompletableConcat$CompletableConcatSubscriber(f.a.b bVar, int i) {
+    public CompletableConcat$CompletableConcatSubscriber(f.b.b bVar, int i) {
         this.actual = bVar;
         this.prefetch = i;
         this.limit = i - (i >> 2);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.s.cancel();
         DisposableHelper.dispose(this.inner);
@@ -110,10 +110,10 @@ public final class CompletableConcat$CompletableConcatSubscriber extends AtomicI
             this.actual.onError(th);
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(this.inner.get());
     }
@@ -131,17 +131,17 @@ public final class CompletableConcat$CompletableConcatSubscriber extends AtomicI
             this.actual.onError(th);
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
             int i = this.prefetch;
             long j = i == Integer.MAX_VALUE ? Long.MAX_VALUE : i;
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.sourceFused = requestFusion;
@@ -159,7 +159,7 @@ public final class CompletableConcat$CompletableConcatSubscriber extends AtomicI
                 }
             }
             if (this.prefetch == Integer.MAX_VALUE) {
-                this.queue = new f.a.x.f.a(e.a());
+                this.queue = new f.b.x.f.a(e.a());
             } else {
                 this.queue = new SpscArrayQueue(this.prefetch);
             }

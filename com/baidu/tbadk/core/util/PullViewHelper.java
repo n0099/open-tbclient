@@ -13,9 +13,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.m.h;
-import d.b.b.e.p.m;
-import d.b.b.e.p.q;
+import d.b.c.e.m.h;
+import d.b.c.e.p.m;
+import d.b.c.e.p.q;
 import d.b.h0.r.d0.b;
 import java.io.File;
 import java.io.FileInputStream;
@@ -59,7 +59,7 @@ public class PullViewHelper {
     }
 
     public PullViewHelper() {
-        setShouldShowLoadingView(b.i().g("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(b.j().g("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private Drawable buildDrawable(File[] fileArr, String str) {
@@ -94,18 +94,18 @@ public class PullViewHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void buildDrawables() {
-        String o = b.i().o("pull_image_url", "");
+        String p = b.j().p("pull_image_url", "");
         boolean z = false;
-        int j = b.i().j("pull_image_num", 0);
-        this.pullview_backgroundColor_day = b.i().j("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-        this.pullview_backgroundColor_night = b.i().j("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
-        if (!TextUtils.isEmpty(o)) {
-            if (j > 0 && isImagesExist(j)) {
-                this.drawables = new Drawable[j];
+        int k = b.j().k("pull_image_num", 0);
+        this.pullview_backgroundColor_day = b.j().k("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+        this.pullview_backgroundColor_night = b.j().k("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+        if (!TextUtils.isEmpty(p)) {
+            if (k > 0 && isImagesExist(k)) {
+                this.drawables = new Drawable[k];
                 File imageFileDir = getImageFileDir();
                 if (imageFileDir != null) {
                     File[] listFiles = imageFileDir.listFiles();
-                    for (int i = 1; i <= j; i++) {
+                    for (int i = 1; i <= k; i++) {
                         this.drawables[i - 1] = buildDrawable(listFiles, i + ".");
                     }
                 }
@@ -380,15 +380,15 @@ public class PullViewHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void startDownload(String str, String str2, int i) {
         deletePullDir();
-        b.i().B("pull_image_url");
-        b.i().B("pull_image_num");
-        b.i().B("pullview_background_color_day");
-        b.i().B("pullview_background_color_night");
+        b.j().C("pull_image_url");
+        b.j().C("pull_image_num");
+        b.j().C("pullview_background_color_day");
+        b.j().C("pullview_background_color_night");
         downloadZipFile(str);
         File zipFile = getZipFile();
         if (checkFileMd5(zipFile, str2)) {
-            b.i().w("pull_image_url", str);
-            b.i().u("pull_image_num", i);
+            b.j().x("pull_image_url", str);
+            b.j().v("pull_image_num", i);
             decompressZipFile(zipFile);
             buildDrawables();
             return;
@@ -490,8 +490,8 @@ public class PullViewHelper {
         int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
         if (!isEmpty && !TextUtils.isEmpty(str5)) {
-            int j = b.i().j("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            int j2 = b.i().j("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            int k = b.j().k("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            int k2 = b.j().k("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             try {
                 i2 = Color.parseColor(str4);
             } catch (Exception unused) {
@@ -500,38 +500,38 @@ public class PullViewHelper {
                 i = Color.parseColor(str5);
             } catch (Exception unused2) {
             }
-            if (j != i2 || i != j2) {
-                b.i().u("pullview_background_color_day", i2);
-                b.i().u("pullview_background_color_night", i);
+            if (k != i2 || i != k2) {
+                b.j().v("pullview_background_color_day", i2);
+                b.j().v("pullview_background_color_night", i);
                 this.pullview_backgroundColor_day = i2;
                 this.pullview_backgroundColor_night = i;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
             }
         } else {
-            b.i().u("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            b.i().u("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            b.j().v("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            b.j().v("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
         }
         if (TextUtils.isEmpty(str)) {
-            b.i().s("pullview_should_show_3d_loading", true);
+            b.j().t("pullview_should_show_3d_loading", true);
             setShouldShowLoadingView(true);
             h.a().c(new Runnable() { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.i().B("pull_image_url");
-                    b.i().B("pull_image_num");
-                    b.i().B("pullview_background_color_day");
-                    b.i().B("pullview_background_color_night");
+                    b.j().C("pull_image_url");
+                    b.j().C("pull_image_num");
+                    b.j().C("pullview_background_color_day");
+                    b.j().C("pullview_background_color_night");
                     PullViewHelper.this.deletePullDir();
                     PullViewHelper.this.buildDrawables();
                 }
             });
             return;
         }
-        b.i().s("pullview_should_show_3d_loading", false);
+        b.j().t("pullview_should_show_3d_loading", false);
         setShouldShowLoadingView(false);
-        String o = b.i().o("pull_image_url", "");
-        final int d2 = d.b.b.e.m.b.d(str3, 0);
-        if (str.equals(o)) {
+        String p = b.j().p("pull_image_url", "");
+        final int d2 = d.b.c.e.m.b.d(str3, 0);
+        if (str.equals(p)) {
             if (isImagesExist(d2)) {
                 buildDrawablesAsync();
                 return;
@@ -557,7 +557,7 @@ public class PullViewHelper {
                 return;
             }
         }
-        startDownloadAsync(str, str2, d.b.b.e.m.b.d(str3, 0));
+        startDownloadAsync(str, str2, d.b.c.e.m.b.d(str3, 0));
     }
 
     public void setShouldShowLoadingView(boolean z) {

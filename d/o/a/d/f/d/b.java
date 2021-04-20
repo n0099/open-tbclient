@@ -7,30 +7,30 @@ import d.o.a.d.j;
 import d.o.a.d.n.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public DownloadInfo f66564e;
+    public DownloadInfo f67557e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements e {
         public a(b bVar, d.o.a.b.a.c.b bVar2) {
         }
     }
 
     public b(DownloadInfo downloadInfo) {
-        this.f66564e = downloadInfo;
+        this.f67557e = downloadInfo;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         d.o.a.b.a.c.b c2;
-        if (this.f66564e == null || (c2 = c.g.e().c(this.f66564e)) == null) {
+        if (this.f67557e == null || (c2 = c.g.e().c(this.f67557e)) == null) {
             return;
         }
         j.c.a().o("cleanspace_task", c2);
-        long longValue = Double.valueOf((d.o.a.d.n.e.a(this.f66564e.c0()) + 1.0d) * this.f66564e.Q0()).longValue() - this.f66564e.E();
+        long longValue = Double.valueOf((d.o.a.d.n.e.a(this.f67557e.c0()) + 1.0d) * this.f67557e.Q0()).longValue() - this.f67557e.E();
         long d2 = k.d(0L);
         if (n.v() != null) {
             n.v().e();
@@ -51,11 +51,11 @@ public class b implements Runnable {
                 e2.printStackTrace();
             }
             j.c.a().u("cleanspace_download_after_quite_clean", jSONObject, c2);
-            d.o.a.e.b.g.a.l(n.a()).z(this.f66564e.c0());
+            d.o.a.e.b.g.a.l(n.a()).z(this.f67557e.c0());
         } else if (n.v() != null) {
             c2.u0(false);
             d.a().e(c2.a(), new a(this, c2));
-            if (n.v().a(this.f66564e.c0(), this.f66564e.T0(), true, longValue)) {
+            if (n.v().a(this.f67557e.c0(), this.f67557e.T0(), true, longValue)) {
                 c2.y0(true);
             }
         } else {

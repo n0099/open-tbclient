@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.t.b;
-import f.a.x.e.c.d;
+import f.b.t.b;
+import f.b.x.e.c.d;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
@@ -19,12 +19,12 @@ public final class ObservableDebounceTimed$DebounceEmitter<T> extends AtomicRefe
         this.parent = dVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }

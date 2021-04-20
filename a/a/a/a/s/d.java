@@ -16,52 +16,52 @@ import org.json.JSONObject;
 public final class d extends a.a.a.a.s.f.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1320b;
+    public final String f1306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f1321c;
+    public final long f1307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f1322d;
+    public final long f1308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<b> f1323e;
+    public final Set<b> f1309e;
 
     /* loaded from: classes.dex */
     public static final class a extends a.a.a.a.s.f.a implements n {
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f1324b;
+        public final long f1310b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f1325c;
+        public final int f1311c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final e.a f1326d;
+        public final e.a f1312d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final b f1327e;
+        public final b f1313e;
 
         public a(int i, ObjectInput objectInput, Map<Long, e.a> map, b bVar) {
             super(i);
-            this.f1327e = bVar;
-            this.f1324b = objectInput.readLong();
-            this.f1325c = objectInput.readInt();
-            this.f1326d = map.get(Long.valueOf(this.f1324b));
+            this.f1313e = bVar;
+            this.f1310b = objectInput.readLong();
+            this.f1311c = objectInput.readInt();
+            this.f1312d = map.get(Long.valueOf(this.f1310b));
         }
 
         public a(JSONObject jSONObject, Map<Long, e.a> map, b bVar) {
             super(0);
-            this.f1327e = bVar;
-            this.f1324b = a.a.a.a.s.b.a(jSONObject.getLong("id"), 0L);
-            this.f1325c = a.a.a.a.s.b.a(jSONObject.getInt("weight"), 0);
-            this.f1326d = map.get(Long.valueOf(this.f1324b));
+            this.f1313e = bVar;
+            this.f1310b = a.a.a.a.s.b.a(jSONObject.getLong("id"), 0L);
+            this.f1311c = a.a.a.a.s.b.a(jSONObject.getInt("weight"), 0);
+            this.f1312d = map.get(Long.valueOf(this.f1310b));
         }
 
         @Override // a.a.a.a.s.f.a
         public void a(ObjectOutput objectOutput) {
-            objectOutput.writeLong(this.f1324b);
-            objectOutput.writeInt(this.f1325c);
+            objectOutput.writeLong(this.f1310b);
+            objectOutput.writeInt(this.f1311c);
         }
 
         @Override // a.a.a.a.n
@@ -71,7 +71,7 @@ public final class d extends a.a.a.a.s.f.a {
 
         @Override // a.a.a.a.n
         public int b() {
-            return this.f1325c;
+            return this.f1311c;
         }
 
         public boolean equals(Object obj) {
@@ -82,11 +82,11 @@ public final class d extends a.a.a.a.s.f.a {
                 return false;
             }
             a aVar = (a) obj;
-            return this.f1324b == aVar.f1324b && this.f1325c == aVar.f1325c && Objects.equals(this.f1326d, aVar.f1326d);
+            return this.f1310b == aVar.f1310b && this.f1311c == aVar.f1311c && Objects.equals(this.f1312d, aVar.f1312d);
         }
 
         public int hashCode() {
-            return Objects.hash(Long.valueOf(this.f1324b), Integer.valueOf(this.f1325c), this.f1326d);
+            return Objects.hash(Long.valueOf(this.f1310b), Integer.valueOf(this.f1311c), this.f1312d);
         }
     }
 
@@ -94,40 +94,40 @@ public final class d extends a.a.a.a.s.f.a {
     public static final class b extends a.a.a.a.s.f.a implements n {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f1328b;
+        public final int f1314b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Set<a> f1329c;
+        public final Set<a> f1315c;
 
         public b(int i, ObjectInput objectInput, Map<Long, e.a> map) {
             super(i);
-            this.f1328b = objectInput.readInt();
+            this.f1314b = objectInput.readInt();
             int readInt = objectInput.readInt();
             HashSet hashSet = new HashSet();
             for (int i2 = 0; i2 < readInt; i2++) {
                 hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
             }
-            this.f1329c = Collections.unmodifiableSet(hashSet);
+            this.f1315c = Collections.unmodifiableSet(hashSet);
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(JSONObject jSONObject, Map<Long, e.a> map) {
             super(0);
-            this.f1328b = a.a.a.a.s.b.a(jSONObject.getInt("weight"), 0);
+            this.f1314b = a.a.a.a.s.b.a(jSONObject.getInt("weight"), 0);
             HashSet hashSet = new HashSet();
             JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
             for (int i = 0; i < jSONArray.length(); i++) {
                 hashSet.add(new a(jSONArray.getJSONObject(i), map, this));
             }
-            this.f1329c = Collections.unmodifiableSet(hashSet);
+            this.f1315c = Collections.unmodifiableSet(hashSet);
         }
 
         @Override // a.a.a.a.s.f.a
         public void a(ObjectOutput objectOutput) {
-            objectOutput.writeInt(this.f1328b);
-            objectOutput.writeInt(this.f1329c.size());
-            for (a aVar : this.f1329c) {
-                objectOutput.writeInt(aVar.f1340a);
+            objectOutput.writeInt(this.f1314b);
+            objectOutput.writeInt(this.f1315c.size());
+            for (a aVar : this.f1315c) {
+                objectOutput.writeInt(aVar.f1326a);
                 aVar.a(objectOutput);
             }
         }
@@ -139,7 +139,7 @@ public final class d extends a.a.a.a.s.f.a {
 
         @Override // a.a.a.a.n
         public int b() {
-            return this.f1328b;
+            return this.f1314b;
         }
 
         public boolean equals(Object obj) {
@@ -150,49 +150,49 @@ public final class d extends a.a.a.a.s.f.a {
                 return false;
             }
             b bVar = (b) obj;
-            return this.f1328b == bVar.f1328b && Objects.equals(this.f1329c, bVar.f1329c);
+            return this.f1314b == bVar.f1314b && Objects.equals(this.f1315c, bVar.f1315c);
         }
 
         public int hashCode() {
-            return Objects.hash(Integer.valueOf(this.f1328b), this.f1329c);
+            return Objects.hash(Integer.valueOf(this.f1314b), this.f1315c);
         }
     }
 
     public d(int i, ObjectInput objectInput, Map<Long, e.a> map) {
         super(i);
-        this.f1320b = objectInput.readUTF();
-        this.f1321c = objectInput.readLong();
-        this.f1322d = objectInput.readLong();
+        this.f1306b = objectInput.readUTF();
+        this.f1307c = objectInput.readLong();
+        this.f1308d = objectInput.readLong();
         int readInt = objectInput.readInt();
         HashSet hashSet = new HashSet(readInt);
         for (int i2 = 0; i2 < readInt; i2++) {
             hashSet.add(new b(objectInput.readInt(), objectInput, map));
         }
-        this.f1323e = Collections.unmodifiableSet(hashSet);
+        this.f1309e = Collections.unmodifiableSet(hashSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(JSONObject jSONObject, Map<Long, e.a> map) {
         super(0);
-        this.f1320b = jSONObject.getString("sid");
-        this.f1321c = a.a.a.a.s.b.a(jSONObject.getLong("wt"), 0L);
-        this.f1322d = a.a.a.a.s.b.a(jSONObject.getLong("tmout"), 0L);
+        this.f1306b = jSONObject.getString("sid");
+        this.f1307c = a.a.a.a.s.b.a(jSONObject.getLong("wt"), 0L);
+        this.f1308d = a.a.a.a.s.b.a(jSONObject.getLong("tmout"), 0L);
         JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
         HashSet hashSet = new HashSet();
         for (int i = 0; i < jSONArray.length(); i++) {
             hashSet.add(new b(jSONArray.getJSONObject(i), map));
         }
-        this.f1323e = Collections.unmodifiableSet(hashSet);
+        this.f1309e = Collections.unmodifiableSet(hashSet);
     }
 
     @Override // a.a.a.a.s.f.a
     public void a(ObjectOutput objectOutput) {
-        objectOutput.writeUTF(this.f1320b);
-        objectOutput.writeLong(this.f1321c);
-        objectOutput.writeLong(this.f1322d);
-        objectOutput.writeInt(this.f1323e.size());
-        for (b bVar : this.f1323e) {
-            objectOutput.writeInt(bVar.f1340a);
+        objectOutput.writeUTF(this.f1306b);
+        objectOutput.writeLong(this.f1307c);
+        objectOutput.writeLong(this.f1308d);
+        objectOutput.writeInt(this.f1309e.size());
+        for (b bVar : this.f1309e) {
+            objectOutput.writeInt(bVar.f1326a);
             bVar.a(objectOutput);
         }
     }
@@ -205,10 +205,10 @@ public final class d extends a.a.a.a.s.f.a {
             return false;
         }
         d dVar = (d) obj;
-        return this.f1321c == dVar.f1321c && this.f1322d == dVar.f1322d && Objects.equals(this.f1320b, dVar.f1320b) && Objects.equals(this.f1323e, dVar.f1323e);
+        return this.f1307c == dVar.f1307c && this.f1308d == dVar.f1308d && Objects.equals(this.f1306b, dVar.f1306b) && Objects.equals(this.f1309e, dVar.f1309e);
     }
 
     public int hashCode() {
-        return Objects.hash(this.f1320b, Long.valueOf(this.f1321c), Long.valueOf(this.f1322d), this.f1323e);
+        return Objects.hash(this.f1306b, Long.valueOf(this.f1307c), Long.valueOf(this.f1308d), this.f1309e);
     }
 }

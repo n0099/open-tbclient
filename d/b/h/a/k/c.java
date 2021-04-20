@@ -10,7 +10,7 @@ import java.util.List;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49459a;
+    public static String f49851a;
 
     public static ActivityManager.RunningAppProcessInfo a(Context context) {
         int myPid = Process.myPid();
@@ -28,10 +28,10 @@ public final class c {
 
     public static String b(Context context) {
         ActivityManager.RunningAppProcessInfo a2;
-        if (TextUtils.isEmpty(f49459a) && (a2 = a(context)) != null) {
-            f49459a = a2.processName;
+        if (TextUtils.isEmpty(f49851a) && (a2 = a(context)) != null) {
+            f49851a = a2.processName;
         }
-        return f49459a;
+        return f49851a;
     }
 
     public static boolean c(Context context) {

@@ -14,17 +14,17 @@ public class c implements KsRewardVideoAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f36443a;
+    public AdTemplate f36732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f36444b;
+    public AdInfo f36733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsRewardVideoAd.RewardAdInteractionListener f36445c;
+    public KsRewardVideoAd.RewardAdInteractionListener f36734c;
 
     public c(@NonNull AdTemplate adTemplate) {
-        this.f36443a = adTemplate;
-        this.f36444b = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.f36732a = adTemplate;
+        this.f36733b = com.kwad.sdk.core.response.b.c.j(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
@@ -43,12 +43,12 @@ public class c implements KsRewardVideoAd {
         if (a3 != null) {
             ksVideoPlayConfig.setSkipThirtySecond(((Boolean) a3.getValue()).booleanValue());
         }
-        KSRewardVideoActivityProxy.launch(context, this.f36443a, ksVideoPlayConfig, this.f36445c);
+        KSRewardVideoActivityProxy.launch(context, this.f36732a, ksVideoPlayConfig, this.f36734c);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.A(this.f36444b);
+        return com.kwad.sdk.core.response.b.a.A(this.f36733b);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
@@ -56,19 +56,19 @@ public class c implements KsRewardVideoAd {
         if (com.kwad.sdk.core.config.c.ae() >= 0) {
             return true;
         }
-        return f.b(this.f36443a);
+        return f.b(this.f36732a);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public void setBidEcpm(int i) {
-        AdTemplate adTemplate = this.f36443a;
+        AdTemplate adTemplate = this.f36732a;
         adTemplate.mBidEcpm = i;
         com.kwad.sdk.core.report.b.m(adTemplate);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public void setRewardAdInteractionListener(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
-        this.f36445c = rewardAdInteractionListener;
+        this.f36734c = rewardAdInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd

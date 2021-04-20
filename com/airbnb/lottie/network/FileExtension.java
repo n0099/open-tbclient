@@ -1,10 +1,11 @@
 package com.airbnb.lottie.network;
 
-import d.a.a.c;
+import com.baidu.mobads.container.util.XAdSimpleImageLoader;
+import d.a.a.x.d;
 /* loaded from: classes.dex */
 public enum FileExtension {
-    Json(".json"),
-    Zip(".zip");
+    JSON(".json"),
+    ZIP(".zip");
     
     public final String extension;
 
@@ -19,12 +20,12 @@ public enum FileExtension {
                 return fileExtension;
             }
         }
-        c.d("Unable to find correct extension for " + str);
-        return Json;
+        d.c("Unable to find correct extension for " + str);
+        return JSON;
     }
 
     public String tempExtension() {
-        return ".temp" + this.extension;
+        return XAdSimpleImageLoader.TEMP_SUFFIX + this.extension;
     }
 
     @Override // java.lang.Enum

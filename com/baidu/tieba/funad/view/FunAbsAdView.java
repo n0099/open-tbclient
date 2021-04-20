@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import d.b.i0.c3.h0.n;
-import d.b.i0.q0.a;
+import d.b.i0.d3.h0.n;
+import d.b.i0.r0.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16811e;
+    public String f16476e;
 
     public FunAbsAdView(Context context) {
         this(context, null, 0);
@@ -42,7 +42,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract int getLayoutId();
 
-    public abstract a.c getLogItem();
+    public abstract a.d getLogItem();
 
     public abstract String getPageType();
 
@@ -50,6 +50,9 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract void setDownloadDelayText(String str, long j);
 
+    public abstract void setFeedBackListener(View.OnClickListener onClickListener);
+
+    @Deprecated
     public abstract void setFunAdViewVisible(boolean z);
 
     public FunAbsAdView(Context context, AttributeSet attributeSet) {

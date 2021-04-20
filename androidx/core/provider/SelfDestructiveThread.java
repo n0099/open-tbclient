@@ -6,7 +6,6 @@ import android.os.Message;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
-import com.alipay.sdk.data.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -163,7 +162,7 @@ public class SelfDestructiveThread {
                     return (T) atomicReference.get();
                 }
             } while (nanos > 0);
-            throw new InterruptedException(a.i);
+            throw new InterruptedException("timeout");
         } finally {
             reentrantLock.unlock();
         }

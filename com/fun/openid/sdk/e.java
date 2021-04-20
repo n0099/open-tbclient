@@ -10,10 +10,10 @@ import java.util.concurrent.TimeUnit;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f30841a;
+    public final Context f30514a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OnGetOaidListener f30842b;
+    public final OnGetOaidListener f30515b;
 
     /* loaded from: classes6.dex */
     public class a implements f.a {
@@ -25,9 +25,9 @@ public class e implements Runnable {
             if (FunOpenIDSdk.isLogEnabled()) {
                 Log.e(FunOpenIDSdk.TAG, "==========getOAID 结果 oaid = " + str + ", this = " + this);
             }
-            e.this.f30841a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putString("key_oaid", str).apply();
+            e.this.f30514a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putString("key_oaid", str).apply();
             if (TextUtils.isEmpty(str) && z) {
-                int i = e.this.f30841a.getSharedPreferences("openid_sdk_oaid_spf", 0).getInt("key_retry_count", 0);
+                int i = e.this.f30514a.getSharedPreferences("openid_sdk_oaid_spf", 0).getInt("key_retry_count", 0);
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "==========获取oaid失败 已重试 " + i + " 次，最多重试 3 次");
                 }
@@ -38,18 +38,18 @@ public class e implements Runnable {
                             Log.e(FunOpenIDSdk.TAG, "==========获取oaid失败 " + i2 + " 秒后重试");
                         }
                         TimeUnit.SECONDS.sleep(i2);
-                        e.this.f30841a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putInt("key_retry_count", i + 1).apply();
+                        e.this.f30514a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putInt("key_retry_count", i + 1).apply();
                         e.this.a();
                         return;
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        onGetOaidListener = e.this.f30842b;
+                        onGetOaidListener = e.this.f30515b;
                         if (onGetOaidListener == null) {
                             return;
                         }
                     }
                 } else {
-                    onGetOaidListener = e.this.f30842b;
+                    onGetOaidListener = e.this.f30515b;
                     if (onGetOaidListener == null) {
                         return;
                     }
@@ -57,7 +57,7 @@ public class e implements Runnable {
                 onGetOaidListener.onGetOaid(null);
                 return;
             }
-            OnGetOaidListener onGetOaidListener2 = e.this.f30842b;
+            OnGetOaidListener onGetOaidListener2 = e.this.f30515b;
             if (onGetOaidListener2 != null) {
                 onGetOaidListener2.onGetOaid(str);
             }
@@ -65,12 +65,12 @@ public class e implements Runnable {
     }
 
     public e(Context context, OnGetOaidListener onGetOaidListener) {
-        this.f30841a = context.getApplicationContext();
-        this.f30842b = onGetOaidListener;
+        this.f30514a = context.getApplicationContext();
+        this.f30515b = onGetOaidListener;
     }
 
     public final void a() {
-        Context context = this.f30841a;
+        Context context = this.f30514a;
         a aVar = new a();
         synchronized (i.class) {
             if (context == null) {
@@ -79,15 +79,15 @@ public class e implements Runnable {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 throw new IllegalStateException("Cannot be called from the main thread");
             }
-            if (i.f30847a == null && !i.f30848b) {
+            if (i.f30520a == null && !i.f30521b) {
                 synchronized (i.class) {
-                    if (i.f30847a == null && !i.f30848b) {
-                        i.f30847a = b.a();
-                        i.f30848b = true;
+                    if (i.f30520a == null && !i.f30521b) {
+                        i.f30520a = b.a();
+                        i.f30521b = true;
                     }
                 }
             }
-            f fVar = i.f30847a;
+            f fVar = i.f30520a;
             if (fVar != null) {
                 fVar.a(context, aVar);
             } else {
@@ -98,7 +98,7 @@ public class e implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        String string = this.f30841a.getSharedPreferences("openid_sdk_oaid_spf", 0).getString("key_oaid", null);
+        String string = this.f30514a.getSharedPreferences("openid_sdk_oaid_spf", 0).getString("key_oaid", null);
         if (TextUtils.isEmpty(string)) {
             a();
             return;
@@ -106,7 +106,7 @@ public class e implements Runnable {
         if (FunOpenIDSdk.isLogEnabled()) {
             Log.e(FunOpenIDSdk.TAG, "==========在缓存中查找到oaid，直接返回 oaid = " + string);
         }
-        OnGetOaidListener onGetOaidListener = this.f30842b;
+        OnGetOaidListener onGetOaidListener = this.f30515b;
         if (onGetOaidListener != null) {
             onGetOaidListener.onGetOaid(string);
         }

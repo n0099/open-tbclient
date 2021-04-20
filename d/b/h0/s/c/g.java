@@ -1,43 +1,52 @@
 package d.b.h0.s.c;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
-    public static List<String> a() {
-        String o = d.b.h0.r.d0.b.i().o("scheme_white_list", null);
-        if (StringUtils.isNull(o)) {
-            return null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f51583a = 20;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f51584b = 1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f51585c;
+
+    public int a() {
+        return this.f51583a;
+    }
+
+    public int b() {
+        return this.f51584b;
+    }
+
+    public String c() {
+        return this.f51585c;
+    }
+
+    public void d(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
         }
         try {
-            return b(new JSONArray(o));
-        } catch (Exception unused) {
-            return null;
+            g(jSONObject.optString("advertisement_str"));
+            e(jSONObject.optInt("advertisement_limit_a"));
+            f(jSONObject.optInt("advertisement_limit_bc"));
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    public static List<String> b(JSONArray jSONArray) {
-        if (jSONArray == null) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            String optString = jSONArray.optString(i);
-            if (!StringUtils.isNull(optString)) {
-                arrayList.add(optString);
-            }
-        }
-        return arrayList;
+    public void e(int i) {
+        this.f51583a = i;
     }
 
-    public static void c(JSONArray jSONArray) {
-        if (jSONArray == null) {
-            d.b.h0.r.d0.b.i().w("scheme_white_list", "");
-        } else {
-            d.b.h0.r.d0.b.i().w("scheme_white_list", jSONArray.toString());
-        }
+    public void f(int i) {
+        this.f51584b = i;
+    }
+
+    public void g(String str) {
+        this.f51585c = str;
     }
 }

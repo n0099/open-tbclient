@@ -21,24 +21,24 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends c {
-    public static final boolean i = k.f45051a;
+    public static final boolean i = k.f45443a;
     public static final int j = Color.argb(178, 0, 78, 255);
 
     /* renamed from: h  reason: collision with root package name */
-    public DrivingRouteLine f48839h;
+    public DrivingRouteLine f49231h;
 
     public a(BaiduMap baiduMap) {
         super(baiduMap);
-        this.f48839h = null;
+        this.f49231h = null;
     }
 
     @Override // d.b.g0.h.a.l.c
     public final List<OverlayOptions> b() {
-        if (this.f48839h == null) {
+        if (this.f49231h == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        List<DrivingRouteLine.DrivingStep> allStep = this.f48839h.getAllStep();
+        List<DrivingRouteLine.DrivingStep> allStep = this.f49231h.getAllStep();
         if (allStep != null && allStep.size() > 0) {
             for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
                 Bundle bundle = new Bundle();
@@ -93,7 +93,7 @@ public class a extends c {
     public abstract int f();
 
     public boolean g(int i2) {
-        if (this.f48839h.getAllStep() == null || this.f48839h.getAllStep().get(i2) == null || !i) {
+        if (this.f49231h.getAllStep() == null || this.f49231h.getAllStep().get(i2) == null || !i) {
             return false;
         }
         Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
@@ -101,11 +101,11 @@ public class a extends c {
     }
 
     public void h(DrivingRouteLine drivingRouteLine) {
-        this.f48839h = drivingRouteLine;
+        this.f49231h = drivingRouteLine;
     }
 
     public void i(boolean z) {
-        for (Overlay overlay : this.f48842g) {
+        for (Overlay overlay : this.f49234g) {
             if (overlay instanceof Polyline) {
                 ((Polyline) overlay).setFocus(z);
                 return;
@@ -115,7 +115,7 @@ public class a extends c {
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
     public final boolean onMarkerClick(Marker marker) {
-        for (Overlay overlay : this.f48842g) {
+        for (Overlay overlay : this.f49234g) {
             if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
                 g(marker.getExtraInfo().getInt("index"));
             }
@@ -126,7 +126,7 @@ public class a extends c {
     @Override // com.baidu.mapapi.map.BaiduMap.OnPolylineClickListener
     public boolean onPolylineClick(Polyline polyline) {
         boolean z;
-        Iterator<Overlay> it = this.f48842g.iterator();
+        Iterator<Overlay> it = this.f49234g.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43825c;
+    public String f44217c;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/setPhoneContact");
@@ -28,7 +29,7 @@ public class a extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (context != null && callbackHandler != null && eVar != null) {
             if (eVar.Z()) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -39,7 +40,7 @@ public class a extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
             }
             String optString = optParamsAsJo.optString("action");
@@ -52,7 +53,7 @@ public class a extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            this.f43825c = optParamsAsJo.optString("cb");
+            this.f44217c = optParamsAsJo.optString("cb");
             char c2 = 65535;
             int hashCode = optString.hashCode();
             if (hashCode != -1183792455) {
@@ -85,7 +86,7 @@ public class a extends a0 {
         intent.putExtra("name", aVar.d());
         intent.putExtra("email", aVar.r);
         intent.putParcelableArrayListExtra("data", k(aVar));
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         m(context, intent, callbackHandler);
     }
 
@@ -113,25 +114,25 @@ public class a extends a0 {
         intent.putExtra("name", aVar.d());
         intent.putExtra("email", aVar.r);
         intent.putParcelableArrayListExtra("data", k(aVar));
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         m(context, intent, callbackHandler);
     }
 
     public final void m(Context context, Intent intent, CallbackHandler callbackHandler) {
         try {
             context.startActivity(intent);
-            if (TextUtils.isEmpty(this.f43825c)) {
+            if (TextUtils.isEmpty(this.f44217c)) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(this.f43825c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f44217c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
         } catch (Exception e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SetPhoneContactAction", "startContactActivity:" + e2.toString());
             }
-            if (TextUtils.isEmpty(this.f43825c)) {
+            if (TextUtils.isEmpty(this.f44217c)) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(this.f43825c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f44217c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
         }
     }
 }

@@ -5,97 +5,97 @@ import java.util.Locale;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6609a;
+    public int f6644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6610b;
+    public int f6645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6611c;
+    public int f6646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6612d;
+    public int f6647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6613e;
+    public int f6648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6614f;
+    public int f6649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f6615g;
+    public long f6650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6616h;
+    public int f6651h;
     public char i;
     public String j;
     public boolean k;
 
     public a() {
-        this.f6609a = -1;
-        this.f6610b = -1;
-        this.f6611c = -1;
-        this.f6612d = -1;
-        this.f6613e = Integer.MAX_VALUE;
-        this.f6614f = Integer.MAX_VALUE;
-        this.f6615g = 0L;
-        this.f6616h = -1;
+        this.f6644a = -1;
+        this.f6645b = -1;
+        this.f6646c = -1;
+        this.f6647d = -1;
+        this.f6648e = Integer.MAX_VALUE;
+        this.f6649f = Integer.MAX_VALUE;
+        this.f6650g = 0L;
+        this.f6651h = -1;
         this.i = '0';
         this.j = null;
         this.k = false;
-        this.f6615g = System.currentTimeMillis();
+        this.f6650g = System.currentTimeMillis();
     }
 
     public a(int i, int i2, int i3, int i4, int i5, char c2) {
-        this.f6609a = -1;
-        this.f6610b = -1;
-        this.f6611c = -1;
-        this.f6612d = -1;
-        this.f6613e = Integer.MAX_VALUE;
-        this.f6614f = Integer.MAX_VALUE;
-        this.f6615g = 0L;
-        this.f6616h = -1;
+        this.f6644a = -1;
+        this.f6645b = -1;
+        this.f6646c = -1;
+        this.f6647d = -1;
+        this.f6648e = Integer.MAX_VALUE;
+        this.f6649f = Integer.MAX_VALUE;
+        this.f6650g = 0L;
+        this.f6651h = -1;
         this.i = '0';
         this.j = null;
         this.k = false;
-        this.f6609a = i;
-        this.f6610b = i2;
-        this.f6611c = i3;
-        this.f6612d = i4;
-        this.f6616h = i5;
+        this.f6644a = i;
+        this.f6645b = i2;
+        this.f6646c = i3;
+        this.f6647d = i4;
+        this.f6651h = i5;
         this.i = c2;
-        this.f6615g = System.currentTimeMillis();
+        this.f6650g = System.currentTimeMillis();
     }
 
     public a(a aVar) {
-        this(aVar.f6609a, aVar.f6610b, aVar.f6611c, aVar.f6612d, aVar.f6616h, aVar.i);
-        this.f6615g = aVar.f6615g;
+        this(aVar.f6644a, aVar.f6645b, aVar.f6646c, aVar.f6647d, aVar.f6651h, aVar.i);
+        this.f6650g = aVar.f6650g;
     }
 
     public boolean a() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = this.f6615g;
+        long j = this.f6650g;
         return currentTimeMillis - j > 0 && currentTimeMillis - j < 3000;
     }
 
     public boolean a(a aVar) {
-        return this.f6609a == aVar.f6609a && this.f6610b == aVar.f6610b && this.f6612d == aVar.f6612d && this.f6611c == aVar.f6611c;
+        return this.f6644a == aVar.f6644a && this.f6645b == aVar.f6645b && this.f6647d == aVar.f6647d && this.f6646c == aVar.f6646c;
     }
 
     public boolean b() {
-        return this.f6609a > -1 && this.f6610b > 0;
+        return this.f6644a > -1 && this.f6645b > 0;
     }
 
     public boolean c() {
-        return this.f6609a == -1 && this.f6610b == -1 && this.f6612d == -1 && this.f6611c == -1;
+        return this.f6644a == -1 && this.f6645b == -1 && this.f6647d == -1 && this.f6646c == -1;
     }
 
     public boolean d() {
-        return this.f6609a > -1 && this.f6610b > -1 && this.f6612d == -1 && this.f6611c == -1;
+        return this.f6644a > -1 && this.f6645b > -1 && this.f6647d == -1 && this.f6646c == -1;
     }
 
     public boolean e() {
-        return this.f6609a > -1 && this.f6610b > -1 && this.f6612d > -1 && this.f6611c > -1;
+        return this.f6644a > -1 && this.f6645b > -1 && this.f6647d > -1 && this.f6646c > -1;
     }
 
     public void f() {
@@ -106,7 +106,7 @@ public class a {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
         stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f6611c), Integer.valueOf(this.f6612d), Integer.valueOf(this.f6609a), Integer.valueOf(this.f6610b), Integer.valueOf(this.f6616h)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f6646c), Integer.valueOf(this.f6647d), Integer.valueOf(this.f6644a), Integer.valueOf(this.f6645b), Integer.valueOf(this.f6651h)));
         if (this.k) {
             stringBuffer.append("&newcl=1");
         }
@@ -117,7 +117,7 @@ public class a {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw2=");
         stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.f6611c), Integer.valueOf(this.f6612d), Integer.valueOf(this.f6609a), Integer.valueOf(this.f6610b), Integer.valueOf(this.f6616h)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.f6646c), Integer.valueOf(this.f6647d), Integer.valueOf(this.f6644a), Integer.valueOf(this.f6645b), Integer.valueOf(this.f6651h)));
         return stringBuffer.toString();
     }
 }

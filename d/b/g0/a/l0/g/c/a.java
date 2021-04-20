@@ -17,21 +17,21 @@ public class a extends a0 {
 
     /* renamed from: d.b.g0.a.l0.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0724a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
+    public class C0736a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45098e;
+        public final /* synthetic */ CallbackHandler f45490e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45099f;
+        public final /* synthetic */ String f45491f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45100g;
+        public final /* synthetic */ String f45492g;
 
-        public C0724a(CallbackHandler callbackHandler, String str, String str2) {
-            this.f45098e = callbackHandler;
-            this.f45099f = str;
-            this.f45100g = str2;
+        public C0736a(CallbackHandler callbackHandler, String str, String str2) {
+            this.f45490e = callbackHandler;
+            this.f45491f = str;
+            this.f45492g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,9 +39,9 @@ public class a extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                a.this.k(this.f45100g, this.f45099f, this.f45098e);
+                a.this.k(this.f45492g, this.f45491f, this.f45490e);
             } else {
-                d.b.g0.a.v1.c.c.o(hVar, this.f45098e, this.f45099f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f45490e, this.f45491f);
             }
         }
     }
@@ -50,18 +50,18 @@ public class a extends a0 {
     public class b implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45102a;
+        public final /* synthetic */ CallbackHandler f45494a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45103b;
+        public final /* synthetic */ JSONObject f45495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f45104c;
+        public final /* synthetic */ String f45496c;
 
         public b(a aVar, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
-            this.f45102a = callbackHandler;
-            this.f45103b = jSONObject;
-            this.f45104c = str;
+            this.f45494a = callbackHandler;
+            this.f45495b = jSONObject;
+            this.f45496c = str;
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -70,23 +70,23 @@ public class a extends a0 {
 
         @Override // d.b.g0.a.u0.d.c
         public void onFailed() {
-            if (this.f45102a == null) {
+            if (this.f45494a == null) {
                 d.b.g0.a.c0.c.l("ExtCore-DebugDownload", "handler is null");
                 return;
             }
             try {
                 d.b.g0.a.c0.c.b("ExtCore-DebugDownload", "download failed");
                 d.b.g0.a.q1.b.f.d.e(d.b.g0.a.w0.a.c(), d.b.g0.a.h.aiapps_debug_extension_core_download_failed).C();
-                this.f45103b.put("status", -1);
+                this.f45495b.put("status", -1);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f45102a.handleSchemeDispatchCallback(this.f45104c, UnitedSchemeUtility.wrapCallbackParams(this.f45103b, 1001).toString());
+            this.f45494a.handleSchemeDispatchCallback(this.f45496c, UnitedSchemeUtility.wrapCallbackParams(this.f45495b, 1001).toString());
         }
 
         @Override // d.b.g0.a.u0.d.c
         public void onSuccess() {
-            if (this.f45102a == null) {
+            if (this.f45494a == null) {
                 d.b.g0.a.c0.c.l("ExtCore-DebugDownload", "handler is null");
                 return;
             }
@@ -96,18 +96,18 @@ public class a extends a0 {
                 if (c2.exists() && d.b.g0.p.d.F(c2.getPath(), b2.getPath())) {
                     d.b.g0.a.c0.c.b("ExtCore-DebugDownload", "download success");
                     d.b.g0.a.q1.b.f.d.e(d.b.g0.a.w0.a.c(), d.b.g0.a.h.aiapps_debug_extension_core_download_success).C();
-                    this.f45103b.put("status", 0);
-                    this.f45102a.handleSchemeDispatchCallback(this.f45104c, UnitedSchemeUtility.wrapCallbackParams(this.f45103b, 0).toString());
+                    this.f45495b.put("status", 0);
+                    this.f45494a.handleSchemeDispatchCallback(this.f45496c, UnitedSchemeUtility.wrapCallbackParams(this.f45495b, 0).toString());
                 } else {
                     d.b.g0.a.c0.c.b("ExtCore-DebugDownload", "download failed");
                     d.b.g0.a.q1.b.f.d.e(d.b.g0.a.w0.a.c(), d.b.g0.a.h.aiapps_debug_extension_core_download_failed).C();
-                    this.f45103b.put("status", -1);
-                    this.f45102a.handleSchemeDispatchCallback(this.f45104c, UnitedSchemeUtility.wrapCallbackParams(this.f45103b, 1001).toString());
+                    this.f45495b.put("status", -1);
+                    this.f45494a.handleSchemeDispatchCallback(this.f45496c, UnitedSchemeUtility.wrapCallbackParams(this.f45495b, 1001).toString());
                 }
             } catch (JSONException e2) {
                 d.b.g0.a.c0.c.c("ExtCore-DebugDownload", "build result with exception", e2);
                 e2.printStackTrace();
-                this.f45102a.handleSchemeDispatchCallback(this.f45104c, UnitedSchemeUtility.wrapCallbackParams(this.f45103b, 1001).toString());
+                this.f45494a.handleSchemeDispatchCallback(this.f45496c, UnitedSchemeUtility.wrapCallbackParams(this.f45495b, 1001).toString());
             }
         }
     }
@@ -139,7 +139,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
             return false;
         }
-        eVar.R().g(context, "mapp_cts_debug", new C0724a(callbackHandler, optString2, optString));
+        eVar.R().g(context, "mapp_cts_debug", new C0736a(callbackHandler, optString2, optString));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }

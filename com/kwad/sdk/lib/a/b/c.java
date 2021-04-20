@@ -5,19 +5,19 @@ import com.kwad.sdk.lib.a.a.b;
 public class c<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> extends com.kwad.sdk.lib.a.a.a<MODEL, CallerContext> {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<?, MODEL> f35921a;
+    public com.kwad.sdk.lib.b.c<?, MODEL> f36210a;
 
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.lib.b.c<?, MODEL> cVar = (com.kwad.sdk.lib.b.c<?, MODEL>) ((com.kwad.sdk.lib.a.a.a) this).f35902b.f35906g;
-        this.f35921a = cVar;
+        com.kwad.sdk.lib.b.c<?, MODEL> cVar = (com.kwad.sdk.lib.b.c<?, MODEL>) ((com.kwad.sdk.lib.a.a.a) this).f36191b.f36195g;
+        this.f36210a = cVar;
         cVar.k();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f35921a.h();
+        this.f36210a.h();
     }
 }

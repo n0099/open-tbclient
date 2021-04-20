@@ -13,11 +13,11 @@ import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
 import d.b.h0.k0.d;
 /* loaded from: classes5.dex */
 public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailActivity> {
-    public d.b.i0.i3.a cardData;
+    public d.b.i0.j3.a cardData;
     public long mCardId;
     public PersonalCardDetailModel mModel;
     public SetPersonalCardModel mSetCardModel;
-    public d.b.i0.i3.g.b.a mView;
+    public d.b.i0.j3.g.b.a mView;
     public PersonalCardDetailModel.b mCallback = new a();
     public SetPersonalCardModel.b mSetCardCallback = new b();
     public View.OnClickListener mClickListener = new c();
@@ -28,7 +28,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
 
         @Override // com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.b
-        public void a(int i, String str, d.b.i0.i3.a aVar) {
+        public void a(int i, String str, d.b.i0.j3.a aVar) {
             PersonalCardDetailActivity personalCardDetailActivity = PersonalCardDetailActivity.this;
             personalCardDetailActivity.hideLoadingView(personalCardDetailActivity.mView.c());
             if (i != 0) {
@@ -102,7 +102,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
             pageStayDurationItem.i = String.valueOf(this.mCardId);
         }
         return pageStayDurationItem;
@@ -111,7 +111,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.i3.g.b.a aVar = this.mView;
+        d.b.i0.j3.g.b.a aVar = this.mView;
         if (aVar != null) {
             aVar.a();
         }
@@ -121,7 +121,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mCardId = getIntent().getLongExtra(PersonalCardDetailActivityConfig.CARD_ID, 0L);
-        this.mView = new d.b.i0.i3.g.b.a(this, this.mClickListener);
+        this.mView = new d.b.i0.j3.g.b.a(this, this.mClickListener);
         PersonalCardDetailModel personalCardDetailModel = new PersonalCardDetailModel();
         this.mModel = personalCardDetailModel;
         personalCardDetailModel.w(this.mCallback);
@@ -147,7 +147,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.b.i0.i3.g.b.a aVar;
+        d.b.i0.j3.g.b.a aVar;
         if (this.mModel == null || (aVar = this.mView) == null) {
             return;
         }
@@ -165,7 +165,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
     }
 
-    public void showErrorDialog(int i, String str, d.b.i0.i3.a aVar) {
+    public void showErrorDialog(int i, String str, d.b.i0.j3.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -173,10 +173,10 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i == d.b.i0.i3.c.f56219a) {
-            d.b.i0.i3.b.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-        } else if (i == d.b.i0.i3.c.f56220b) {
-            d.b.i0.i3.b.c(getPageContext(), 6, str, i2);
+        if (i == d.b.i0.j3.c.f57666a) {
+            d.b.i0.j3.b.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+        } else if (i == d.b.i0.j3.c.f57667b) {
+            d.b.i0.j3.b.c(getPageContext(), 6, str, i2);
         }
     }
 }

@@ -8,33 +8,33 @@ import com.bytedance.sdk.openadsdk.c.i;
 import com.bytedance.sdk.openadsdk.core.q;
 import com.bytedance.sdk.openadsdk.h.c.c;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b<T extends i> {
 
     /* renamed from: a  reason: collision with root package name */
-    public g<T> f27537a;
+    public g<T> f27222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f27538b;
+    public Handler f27223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f27539c;
+    public AtomicBoolean f27224c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends b<com.bytedance.sdk.openadsdk.c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile a f27540a;
+        public static volatile a f27225a;
 
         public static a e() {
-            if (f27540a == null) {
+            if (f27225a == null) {
                 synchronized (a.class) {
-                    if (f27540a == null) {
-                        f27540a = new a();
+                    if (f27225a == null) {
+                        f27225a = new a();
                     }
                 }
             }
-            return f27540a;
+            return f27225a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,21 +52,21 @@ public class b<T extends i> {
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0298b extends b<c.a> {
+    /* loaded from: classes5.dex */
+    public static class C0300b extends b<c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile C0298b f27541a;
+        public static volatile C0300b f27226a;
 
-        public static C0298b e() {
-            if (f27541a == null) {
-                synchronized (C0298b.class) {
-                    if (f27541a == null) {
-                        f27541a = new C0298b();
+        public static C0300b e() {
+            if (f27226a == null) {
+                synchronized (C0300b.class) {
+                    if (f27226a == null) {
+                        f27226a = new C0300b();
                     }
                 }
             }
-            return f27541a;
+            return f27226a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,53 +84,53 @@ public class b<T extends i> {
     }
 
     public b(e<T> eVar, q<T> qVar, g.b bVar, g.a aVar) {
-        this.f27537a = new g<>(eVar, qVar, bVar, aVar);
-        this.f27539c = new AtomicBoolean(false);
+        this.f27222a = new g<>(eVar, qVar, bVar, aVar);
+        this.f27224c = new AtomicBoolean(false);
     }
 
     public static a c() {
         return a.e();
     }
 
-    public static C0298b d() {
-        return C0298b.e();
+    public static C0300b d() {
+        return C0300b.e();
     }
 
     public synchronized void a() {
-        if ((this.f27539c == null || !this.f27539c.get()) && this.f27537a.getLooper() == null) {
-            if (this.f27539c != null && !this.f27539c.get()) {
-                this.f27537a.start();
-                Handler handler = new Handler(this.f27537a.getLooper(), this.f27537a);
-                this.f27538b = handler;
+        if ((this.f27224c == null || !this.f27224c.get()) && this.f27222a.getLooper() == null) {
+            if (this.f27224c != null && !this.f27224c.get()) {
+                this.f27222a.start();
+                Handler handler = new Handler(this.f27222a.getLooper(), this.f27222a);
+                this.f27223b = handler;
                 Message obtainMessage = handler.obtainMessage();
                 obtainMessage.what = 5;
-                this.f27538b.sendMessageDelayed(obtainMessage, 10000L);
-                this.f27539c.set(true);
+                this.f27223b.sendMessageDelayed(obtainMessage, 10000L);
+                this.f27224c.set(true);
             }
         }
     }
 
     public void b() {
-        this.f27539c.set(false);
-        this.f27537a.quit();
-        this.f27538b.removeCallbacksAndMessages(null);
+        this.f27224c.set(false);
+        this.f27222a.quit();
+        this.f27223b.removeCallbacksAndMessages(null);
     }
 
     public b(e<T> eVar, q<T> qVar, g.b bVar, g.a aVar, g<T> gVar) {
-        this.f27537a = gVar;
-        this.f27539c = new AtomicBoolean(false);
+        this.f27222a = gVar;
+        this.f27224c = new AtomicBoolean(false);
     }
 
     public b() {
     }
 
     public void a(@NonNull T t) {
-        if (!this.f27539c.get()) {
+        if (!this.f27224c.get()) {
             a();
         }
-        Message obtainMessage = this.f27538b.obtainMessage();
+        Message obtainMessage = this.f27223b.obtainMessage();
         obtainMessage.what = 1;
         obtainMessage.obj = t;
-        this.f27538b.sendMessage(obtainMessage);
+        this.f27223b.sendMessage(obtainMessage);
     }
 }

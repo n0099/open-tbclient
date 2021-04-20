@@ -24,25 +24,25 @@ public class i extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47390e;
+        public final /* synthetic */ CallbackHandler f47782e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47391f;
+        public final /* synthetic */ String f47783f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f47392g;
+        public final /* synthetic */ Context f47784g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f47393h;
+        public final /* synthetic */ String f47785h;
         public final /* synthetic */ d.b.g0.a.r1.e i;
         public final /* synthetic */ b.c j;
         public final /* synthetic */ Bundle k;
 
         public a(CallbackHandler callbackHandler, String str, Context context, String str2, d.b.g0.a.r1.e eVar, b.c cVar, Bundle bundle) {
-            this.f47390e = callbackHandler;
-            this.f47391f = str;
-            this.f47392g = context;
-            this.f47393h = str2;
+            this.f47782e = callbackHandler;
+            this.f47783f = str;
+            this.f47784g = context;
+            this.f47785h = str2;
             this.i = eVar;
             this.j = cVar;
             this.k = bundle;
@@ -53,15 +53,15 @@ public class i extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                if (i.this.o(this.f47392g, this.f47393h)) {
-                    i.this.m(this.i, (Activity) this.f47392g, this.j, this.f47390e, this.f47391f, this.k);
+                if (i.this.o(this.f47784g, this.f47785h)) {
+                    i.this.m(this.i, (Activity) this.f47784g, this.j, this.f47782e, this.f47783f, this.k);
                     return;
                 } else {
-                    this.f47390e.handleSchemeDispatchCallback(this.f47391f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
+                    this.f47782e.handleSchemeDispatchCallback(this.f47783f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
                     return;
                 }
             }
-            d.b.g0.a.v1.c.c.o(hVar, this.f47390e, this.f47391f);
+            d.b.g0.a.v1.c.c.o(hVar, this.f47782e, this.f47783f);
         }
     }
 
@@ -69,18 +69,18 @@ public class i extends a0 {
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<f.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f47394e;
+        public final /* synthetic */ b.c f47786e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47395f;
+        public final /* synthetic */ CallbackHandler f47787f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47396g;
+        public final /* synthetic */ String f47788g;
 
         public b(i iVar, b.c cVar, CallbackHandler callbackHandler, String str) {
-            this.f47394e = cVar;
-            this.f47395f = callbackHandler;
-            this.f47396g = str;
+            this.f47786e = cVar;
+            this.f47787f = callbackHandler;
+            this.f47788g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,25 +88,25 @@ public class i extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<f.d> hVar) {
             if (!hVar.c()) {
-                d.b.g0.a.c0.c.l("ThirdPartyLoginAction", hVar.b() + " " + this.f47394e.toString());
+                d.b.g0.a.c0.c.l("ThirdPartyLoginAction", hVar.b() + " " + this.f47786e.toString());
                 String f2 = d.b.g0.a.v1.c.c.f(hVar.b());
                 if (!TextUtils.isEmpty(f2)) {
-                    this.f47395f.handleSchemeDispatchCallback(this.f47396g, UnitedSchemeUtility.wrapCallbackParams(hVar.b(), f2).toString());
+                    this.f47787f.handleSchemeDispatchCallback(this.f47788g, UnitedSchemeUtility.wrapCallbackParams(hVar.b(), f2).toString());
                 } else {
-                    this.f47395f.handleSchemeDispatchCallback(this.f47396g, UnitedSchemeUtility.wrapCallbackParams(hVar.b()).toString());
+                    this.f47787f.handleSchemeDispatchCallback(this.f47788g, UnitedSchemeUtility.wrapCallbackParams(hVar.b()).toString());
                 }
-            } else if (TextUtils.isEmpty(hVar.f46808a.f46826a)) {
-                this.f47395f.handleSchemeDispatchCallback(this.f47396g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+            } else if (TextUtils.isEmpty(hVar.f47200a.f47218a)) {
+                this.f47787f.handleSchemeDispatchCallback(this.f47788g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
             } else {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("code", hVar.f46808a.f46826a);
-                    this.f47395f.handleSchemeDispatchCallback(this.f47396g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.b()).toString());
+                    jSONObject.put("code", hVar.f47200a.f47218a);
+                    this.f47787f.handleSchemeDispatchCallback(this.f47788g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.b()).toString());
                 } catch (JSONException e2) {
-                    if (a0.f46288b) {
+                    if (a0.f46680b) {
                         e2.printStackTrace();
                     }
-                    this.f47395f.handleSchemeDispatchCallback(this.f47396g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
+                    this.f47787f.handleSchemeDispatchCallback(this.f47788g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
                 }
             }
         }
@@ -151,7 +151,7 @@ public class i extends a0 {
         char c2;
         switch (str.hashCode()) {
             case -791575966:
-                if (str.equals(l.f11528a)) {
+                if (str.equals(l.f11112a)) {
                     c2 = 2;
                     break;
                 }
@@ -211,7 +211,7 @@ public class i extends a0 {
         char c2;
         switch (str.hashCode()) {
             case -791575966:
-                if (str.equals(l.f11528a)) {
+                if (str.equals(l.f11112a)) {
                     c2 = 0;
                     break;
                 }

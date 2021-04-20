@@ -16,8 +16,8 @@ public class p {
     }
 
     public static void a() {
-        if (!d.b.b.e.p.l.B()) {
-            d.b.b.e.m.e.a().post(new a());
+        if (!d.b.c.e.p.l.B()) {
+            d.b.c.e.m.e.a().post(new a());
         } else {
             b();
         }

@@ -4,13 +4,13 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.i0.i1.o.j.c;
-import d.b.i0.i1.o.k.b;
+import d.b.i0.j1.o.j.c;
+import d.b.i0.j1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SingleLineCard extends BaseCardInfo {
     public final int bgColor;
     public final int bgColorNight;

@@ -38,8 +38,8 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
-import d.b.b.e.p.l;
-import d.b.b.j.e.q;
+import d.b.c.e.p.l;
+import d.b.c.j.e.q;
 import d.b.h0.d0.g;
 import d.b.h0.d0.h;
 import d.b.h0.r.a;
@@ -266,7 +266,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (progressDialog != null) {
             try {
                 if (progressDialog.isShowing()) {
-                    d.b.b.e.m.g.a(this.mWaitingDialog, getActivity());
+                    d.b.c.e.m.g.a(this.mWaitingDialog, getActivity());
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -288,7 +288,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         List<Dialog> list = this.dialogList;
         if (list != null) {
             for (Dialog dialog : list) {
-                d.b.b.e.m.g.a(dialog, getActivity());
+                d.b.c.e.m.g.a(dialog, getActivity());
             }
             this.dialogList.clear();
         }
@@ -298,7 +298,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             for (PopupWindow popupWindow : list) {
-                d.b.b.e.m.g.d(popupWindow, getActivity());
+                d.b.c.e.m.g.d(popupWindow, getActivity());
             }
             this.popupWindowList.clear();
         }
@@ -309,7 +309,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (list != null) {
             list.remove(dialog);
         }
-        d.b.b.e.m.g.a(dialog, getActivity());
+        d.b.c.e.m.g.a(dialog, getActivity());
     }
 
     public void dismissDialogInteface(DialogInterface dialogInterface) {
@@ -319,7 +319,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public void dismissPopupWindow(PopupWindow popupWindow) {
-        d.b.b.e.m.g.d(popupWindow, getActivity());
+        d.b.c.e.m.g.d(popupWindow, getActivity());
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             list.remove(popupWindow);
@@ -384,7 +384,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (alertDialog == null || !alertDialog.isShowing()) {
             return;
         }
-        d.b.b.e.m.g.a(this.mListMenu, getActivity());
+        d.b.c.e.m.g.a(this.mListMenu, getActivity());
     }
 
     public void hideLoadingView(View view) {
@@ -553,7 +553,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         TbadkCoreApplication.getInst().DelResumeNum();
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public void onPreLoad(q qVar) {
         super.onPreLoad(qVar);
         PreLoadImageHelper.load(qVar, getUniqueId());
@@ -641,7 +641,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public boolean showDialog(Dialog dialog) {
-        if (d.b.b.e.m.g.i(dialog, getActivity())) {
+        if (d.b.c.e.m.g.i(dialog, getActivity())) {
             if (this.dialogList == null) {
                 this.dialogList = new LinkedList();
             }
@@ -656,7 +656,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (alertDialog == null || alertDialog.isShowing()) {
             return;
         }
-        d.b.b.e.m.g.i(this.mListMenu, getActivity());
+        d.b.c.e.m.g.i(this.mListMenu, getActivity());
     }
 
     public void showLoadingDialog(String str) {
@@ -676,7 +676,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (d.b.b.e.m.g.k(popupWindow, view)) {
+        if (d.b.c.e.m.g.k(popupWindow, view)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -687,7 +687,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (d.b.b.e.m.g.m(popupWindow, view, i, i2, i3)) {
+        if (d.b.c.e.m.g.m(popupWindow, view, i, i2, i3)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -803,7 +803,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.g
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.g
     public TbPageContext<T> getPageContext() {
         if (this.pageContext == null) {
             this.pageContext = new ProxyAdkBaseActivityPageContext(this);
@@ -812,7 +812,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (!isFinishing() && d.b.b.e.m.g.e(getActivity())) {
+        if (!isFinishing() && d.b.c.e.m.g.e(getActivity())) {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
@@ -867,7 +867,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (d.b.b.e.m.g.l(popupWindow, view, i, i2)) {
+        if (d.b.c.e.m.g.l(popupWindow, view, i, i2)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }

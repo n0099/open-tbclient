@@ -7,26 +7,26 @@ import java.util.Map;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f7753a;
+    public Map<String, String> f7788a;
 
     public d a(String str, String str2) {
-        if (this.f7753a == null) {
-            this.f7753a = new LinkedHashMap();
+        if (this.f7788a == null) {
+            this.f7788a = new LinkedHashMap();
         }
-        this.f7753a.put(str, str2);
+        this.f7788a.put(str, str2);
         return this;
     }
 
     public String a() {
         StringBuilder sb;
-        Map<String, String> map = this.f7753a;
+        Map<String, String> map = this.f7788a;
         if (map == null || map.isEmpty()) {
             return null;
         }
         String str = new String();
         int i = 0;
-        for (String str2 : this.f7753a.keySet()) {
-            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f7753a.get(str2));
+        for (String str2 : this.f7788a.keySet()) {
+            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f7788a.get(str2));
             if (i == 0) {
                 sb = new StringBuilder();
             } else {

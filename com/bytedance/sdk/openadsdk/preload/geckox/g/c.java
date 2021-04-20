@@ -9,18 +9,18 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Pair<FileLock, AtomicLong>> f30293a = new HashMap();
+    public static final Map<String, Pair<FileLock, AtomicLong>> f29978a = new HashMap();
 
     public static void a(String str) throws Exception {
-        synchronized (f30293a) {
-            Pair<FileLock, AtomicLong> pair = f30293a.get(str);
+        synchronized (f29978a) {
+            Pair<FileLock, AtomicLong> pair = f29978a.get(str);
             if (pair == null) {
                 Pair<FileLock, AtomicLong> pair2 = new Pair<>(FileLock.a(str, Process.myPid()), new AtomicLong(0L));
-                f30293a.put(str, pair2);
+                f29978a.put(str, pair2);
                 pair = pair2;
             }
             ((AtomicLong) pair.second).incrementAndGet();
@@ -28,8 +28,8 @@ public class c {
     }
 
     public static void b(String str) throws Exception {
-        synchronized (f30293a) {
-            Pair<FileLock, AtomicLong> pair = f30293a.get(str);
+        synchronized (f29978a) {
+            Pair<FileLock, AtomicLong> pair = f29978a.get(str);
             if (pair != null) {
                 int i = (((AtomicLong) pair.second).decrementAndGet() > 0L ? 1 : (((AtomicLong) pair.second).decrementAndGet() == 0L ? 0 : -1));
                 if (i < 0) {
@@ -37,7 +37,7 @@ public class c {
                 }
                 if (i == 0) {
                     ((FileLock) pair.first).a();
-                    f30293a.remove(str);
+                    f29978a.remove(str);
                 }
             } else {
                 throw new RuntimeException("using.lock illegal state");
@@ -46,12 +46,12 @@ public class c {
     }
 
     public static void c(String str) throws Exception {
-        synchronized (f30293a) {
+        synchronized (f29978a) {
             FileLock b2 = FileLock.b(str);
             if (b2 == null) {
                 return;
             }
-            Pair<FileLock, AtomicLong> pair = f30293a.get(str);
+            Pair<FileLock, AtomicLong> pair = f29978a.get(str);
             if (pair != null && ((AtomicLong) pair.second).get() != 0) {
                 b2.a();
                 FileLock.a(str, Process.myPid());

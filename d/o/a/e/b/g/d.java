@@ -25,7 +25,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static volatile d.o.a.e.b.f.e A;
     public static volatile d.o.a.e.b.o.h E;
@@ -45,28 +45,28 @@ public class d {
     public static volatile boolean W;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Context f66977a;
+    public static volatile Context f67970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f66978b;
+    public static volatile j f67971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f66979c;
+    public static volatile k f67972c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f66980d;
+    public static volatile i f67973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d.o.a.e.b.f.i f66981e;
+    public static volatile d.o.a.e.b.f.i f67974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile d.o.a.e.b.m.a f66982f;
+    public static volatile d.o.a.e.b.m.a f67975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile o f66983g;
+    public static volatile o f67976g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile o f66984h;
+    public static volatile o f67977h;
     public static volatile d.o.a.e.b.o.a i;
     public static volatile d.o.a.e.b.o.j j;
     public static volatile d.o.a.e.b.o.a k;
@@ -93,7 +93,7 @@ public class d {
     public static final int J = Runtime.getRuntime().availableProcessors() + 1;
     public static final int K = (Runtime.getRuntime().availableProcessors() * 2) + 1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
@@ -104,7 +104,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements d.o.a.e.b.o.h {
         @Override // d.o.a.e.b.o.h
         public List<InetAddress> a(String str) throws UnknownHostException {
@@ -112,7 +112,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c implements d.o.a.e.b.e.c {
         @Override // d.o.a.e.b.e.c
         public void a(int i, String str, JSONObject jSONObject) {
@@ -192,7 +192,7 @@ public class d {
 
     public static void D(d.o.a.e.b.f.i iVar) {
         if (iVar != null) {
-            f66981e = iVar;
+            f67974e = iVar;
         }
     }
 
@@ -247,23 +247,23 @@ public class d {
             }
             boolean z2 = C;
             g0(bVar);
-            if (f66978b == null) {
-                f66978b = new d.o.a.e.b.m.d();
+            if (f67971b == null) {
+                f67971b = new d.o.a.e.b.m.d();
             }
-            if (f66983g == null) {
-                f66983g = new d.o.a.e.b.m.h();
+            if (f67976g == null) {
+                f67976g = new d.o.a.e.b.m.h();
             }
-            if (f66984h == null) {
-                f66984h = new d.o.a.e.b.m.m();
+            if (f67977h == null) {
+                f67977h = new d.o.a.e.b.m.m();
             }
-            if (f66979c == null) {
-                f66979c = new d.o.a.e.b.m.i();
+            if (f67972c == null) {
+                f67972c = new d.o.a.e.b.m.i();
             }
-            if (f66982f == null) {
-                f66982f = new d.o.a.e.b.m.e();
+            if (f67975f == null) {
+                f67975f = new d.o.a.e.b.m.e();
             }
-            if (f66980d == null) {
-                f66980d = new d.o.a.e.b.m.c();
+            if (f67973d == null) {
+                f67973d = new d.o.a.e.b.m.c();
             }
             if (v == null) {
                 v = new d.o.a.e.b.m.b();
@@ -319,61 +319,61 @@ public class d {
 
     public static void I(i iVar) {
         if (iVar != null) {
-            f66980d = iVar;
+            f67973d = iVar;
         }
     }
 
     public static j I0() {
-        if (f66978b == null) {
+        if (f67971b == null) {
             synchronized (d.class) {
-                if (f66978b == null) {
-                    f66978b = new d.o.a.e.b.m.d();
+                if (f67971b == null) {
+                    f67971b = new d.o.a.e.b.m.d();
                 }
             }
         }
-        return f66978b;
+        return f67971b;
     }
 
     public static void J(j jVar) {
         if (jVar != null) {
-            f66978b = jVar;
+            f67971b = jVar;
         }
     }
 
     public static o J0() {
-        if (f66983g == null) {
+        if (f67976g == null) {
             synchronized (d.class) {
-                if (f66983g == null) {
-                    f66983g = new d.o.a.e.b.m.h();
+                if (f67976g == null) {
+                    f67976g = new d.o.a.e.b.m.h();
                 }
             }
         }
-        return f66983g;
+        return f67976g;
     }
 
     public static void K(k kVar) {
         if (kVar != null) {
-            f66979c = kVar;
+            f67972c = kVar;
         }
     }
 
     public static o K0() {
-        if (f66984h == null) {
+        if (f67977h == null) {
             synchronized (d.class) {
-                if (f66984h == null) {
-                    f66984h = new d.o.a.e.b.m.m();
+                if (f67977h == null) {
+                    f67977h = new d.o.a.e.b.m.m();
                 }
             }
         }
-        return f66984h;
+        return f67977h;
     }
 
     public static synchronized void L(l lVar) {
         synchronized (d.class) {
             if (lVar != null) {
                 m = lVar;
-                if (f66978b instanceof d.o.a.e.b.m.d) {
-                    ((d.o.a.e.b.m.d) f66978b).k();
+                if (f67971b instanceof d.o.a.e.b.m.d) {
+                    ((d.o.a.e.b.m.d) f67971b).k();
                 }
             }
         }
@@ -435,14 +435,14 @@ public class d {
     }
 
     public static void U(JSONObject jSONObject) {
-        if (jSONObject == null || !TextUtils.isEmpty(d.o.a.e.b.d.c.f66955c)) {
+        if (jSONObject == null || !TextUtils.isEmpty(d.o.a.e.b.d.c.f67948c)) {
             return;
         }
-        d.o.a.e.b.d.c.f66955c = jSONObject.optString("kllk");
-        if (TextUtils.isEmpty(d.o.a.e.b.d.c.f66955c)) {
+        d.o.a.e.b.d.c.f67948c = jSONObject.optString("kllk");
+        if (TextUtils.isEmpty(d.o.a.e.b.d.c.f67948c)) {
             return;
         }
-        d.o.a.e.b.d.c.f66954b = d.o.a.e.b.d.c.f66955c.toUpperCase();
+        d.o.a.e.b.d.c.f67947b = d.o.a.e.b.d.c.f67948c.toUpperCase();
     }
 
     public static void V(boolean z2) {
@@ -525,14 +525,14 @@ public class d {
     }
 
     public static k b() {
-        if (f66979c == null) {
+        if (f67972c == null) {
             synchronized (d.class) {
-                if (f66979c == null) {
-                    f66979c = new d.o.a.e.b.m.i();
+                if (f67972c == null) {
+                    f67972c = new d.o.a.e.b.m.i();
                 }
             }
         }
-        return f66979c;
+        return f67972c;
     }
 
     public static void b0(d.o.a.e.b.n.a aVar, int i2) {
@@ -546,14 +546,14 @@ public class d {
     }
 
     public static d.o.a.e.b.m.a c() {
-        if (f66982f == null) {
+        if (f67975f == null) {
             synchronized (d.class) {
-                if (f66982f == null) {
-                    f66982f = new d.o.a.e.b.m.e();
+                if (f67975f == null) {
+                    f67975f = new d.o.a.e.b.m.e();
                 }
             }
         }
-        return f66982f;
+        return f67975f;
     }
 
     public static void c0(Runnable runnable) {
@@ -589,7 +589,7 @@ public class d {
             U(a2);
             return a2;
         }
-        return d.o.a.e.b.d.c.f66959g;
+        return d.o.a.e.b.d.c.f67952g;
     }
 
     public static void e0(ExecutorService executorService) {
@@ -699,14 +699,14 @@ public class d {
     }
 
     public static i h() {
-        if (f66980d == null) {
+        if (f67973d == null) {
             synchronized (d.class) {
-                if (f66980d == null) {
-                    f66980d = new d.o.a.e.b.m.c();
+                if (f67973d == null) {
+                    f67973d = new d.o.a.e.b.m.c();
                 }
             }
         }
-        return f66980d;
+        return f67973d;
     }
 
     public static void h0(ExecutorService executorService) {
@@ -716,7 +716,7 @@ public class d {
     }
 
     public static d.o.a.e.b.f.i i() {
-        return f66981e;
+        return f67974e;
     }
 
     public static synchronized boolean i0() {
@@ -762,7 +762,7 @@ public class d {
     public static synchronized Context l() {
         Context context;
         synchronized (d.class) {
-            context = f66977a;
+            context = f67970a;
         }
         return context;
     }
@@ -829,7 +829,7 @@ public class d {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            f66977a.registerReceiver(w, intentFilter);
+            f67970a.registerReceiver(w, intentFilter);
             H = true;
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1031,9 +1031,9 @@ public class d {
     public static synchronized void y(Context context) {
         synchronized (d.class) {
             if (context != null) {
-                if (f66977a == null) {
-                    f66977a = context.getApplicationContext();
-                    d.o.a.e.b.a.a.c().e(f66977a);
+                if (f67970a == null) {
+                    f67970a = context.getApplicationContext();
+                    d.o.a.e.b.a.a.c().e(f67970a);
                 }
             }
         }

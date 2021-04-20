@@ -13,7 +13,7 @@ public class c extends d.b.g0.l.m.b {
             jSONObject2.put("version", b.b().a());
             jSONObject.put("base_info", jSONObject2);
         } catch (JSONException e2) {
-            if (f.f48889a) {
+            if (f.f49281a) {
                 e2.printStackTrace();
             }
         }

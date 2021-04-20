@@ -10,7 +10,7 @@ import com.kwad.sdk.utils.t;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37156a = "plugin.signature";
+    public static String f37445a = "plugin.signature";
 
     @Nullable
     @SuppressLint({"PackageManagerGetSignatures"})
@@ -18,9 +18,9 @@ public class b {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
         } catch (PackageManager.NameNotFoundException e2) {
-            String str = f37156a;
+            String str = f37445a;
             com.kwai.sodler.lib.a.e(str, "Can not get signature, error = " + e2.getLocalizedMessage());
-            com.kwai.sodler.lib.a.a(f37156a, e2);
+            com.kwai.sodler.lib.a.a(f37445a, e2);
             return null;
         }
     }
@@ -33,7 +33,7 @@ public class b {
             }
             return "";
         } catch (Exception e2) {
-            com.kwai.sodler.lib.a.a(f37156a, e2);
+            com.kwai.sodler.lib.a.a(f37445a, e2);
             return "";
         }
     }

@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class e extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49805a = 0;
+    public int f50198a = 0;
 
     public static ImageOperation e(int i) {
         ImageOperation imageOperation = new ImageOperation();
@@ -28,12 +28,12 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        d.b.h0.a0.c.j().h(BitmapHelper.getBitmapSize(bitmap) * 2);
-        int i = this.f49805a;
+        d.b.h0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+        int i = this.f50198a;
         if (i == 0 || i == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.f49805a);
+            return BitmapHelper.rotateBitmap(bitmap, this.f50198a);
         }
-        return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f49805a) : bitmap;
+        return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f50198a) : bitmap;
     }
 
     @Override // d.b.h0.b0.g.b
@@ -47,6 +47,6 @@ public class e extends b {
         if (str == null) {
             return;
         }
-        this.f49805a = Integer.parseInt(str);
+        this.f50198a = Integer.parseInt(str);
     }
 }

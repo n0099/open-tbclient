@@ -20,16 +20,16 @@ import d.b.i0.x.m;
 public class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f60784e;
+    public View f62348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f60785f;
+    public RelativeLayout f62349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThreadUserInfoLayout f60786g;
+    public ThreadUserInfoLayout f62350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f60787h;
+    public TextView f62351h;
     public ThreadCommentAndPraiseInfoLayout i;
     public View j;
     public AlaVideoContainer k;
@@ -37,12 +37,12 @@ public class a implements View.OnClickListener {
     public a2 m;
     public String n;
     public c o;
-    public final View.OnClickListener p = new View$OnClickListenerC1563a();
+    public final View.OnClickListener p = new View$OnClickListenerC1616a();
 
     /* renamed from: d.b.i0.t.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1563a implements View.OnClickListener {
-        public View$OnClickListenerC1563a() {
+    public class View$OnClickListenerC1616a implements View.OnClickListener {
+        public View$OnClickListenerC1616a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -55,36 +55,36 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.f60784e = inflate;
-        this.f60785f = (RelativeLayout) inflate.findViewById(R.id.layout_root);
-        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.f60784e.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.f60786g = threadUserInfoLayout;
+        this.f62348e = inflate;
+        this.f62349f = (RelativeLayout) inflate.findViewById(R.id.layout_root);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.f62348e.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.f62350g = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
-        this.f60787h = (TextView) this.f60784e.findViewById(R.id.text_title);
-        this.k = (AlaVideoContainer) this.f60784e.findViewById(R.id.ala_video_container);
-        this.j = this.f60784e.findViewById(R.id.divider_below_reply_number_layout);
-        this.i = (ThreadCommentAndPraiseInfoLayout) this.f60784e.findViewById(R.id.text_bottom);
-        this.l = this.f60784e.findViewById(R.id.divider_line);
-        this.f60785f.setOnClickListener(this);
+        this.f62351h = (TextView) this.f62348e.findViewById(R.id.text_title);
+        this.k = (AlaVideoContainer) this.f62348e.findViewById(R.id.ala_video_container);
+        this.j = this.f62348e.findViewById(R.id.divider_below_reply_number_layout);
+        this.i = (ThreadCommentAndPraiseInfoLayout) this.f62348e.findViewById(R.id.text_bottom);
+        this.l = this.f62348e.findViewById(R.id.divider_line);
+        this.f62349f.setOnClickListener(this);
         this.i.setOnClickListener(this);
         this.i.getCommentContainer().setOnClickListener(this);
         this.k.setOnVideoClickListener(this);
     }
 
     public View c() {
-        return this.f60784e;
+        return this.f62348e;
     }
 
     public final void d(a2 a2Var) {
         this.i.onChangeSkinType();
-        this.f60786g.h();
+        this.f62350g.h();
         this.k.o(TbadkCoreApplication.getInst().getSkinType());
-        this.f60785f.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+        this.f62349f.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
         if (a2Var != null && m.k(a2Var.o0())) {
-            SkinManager.setViewTextColor(this.f60787h, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f62351h, R.color.CAM_X0109);
         } else {
-            SkinManager.setViewTextColor(this.f60787h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f62351h, R.color.CAM_X0105);
         }
     }
 
@@ -102,14 +102,14 @@ public class a implements View.OnClickListener {
         }
         this.m = a2Var;
         this.n = str;
-        this.f60785f.setVisibility(0);
-        this.f60786g.j(a2Var);
-        if (this.f60786g.getHeaderImg() != null) {
-            this.f60786g.getHeaderImg().setData(a2Var);
+        this.f62349f.setVisibility(0);
+        this.f62350g.j(a2Var);
+        if (this.f62350g.getHeaderImg() != null) {
+            this.f62350g.getHeaderImg().setData(a2Var);
         }
-        this.f60786g.setUserAfterClickListener(this.p);
-        a2Var.R2(false, true);
-        this.f60787h.setText(a2Var.l1());
+        this.f62350g.setUserAfterClickListener(this.p);
+        a2Var.S2(false, true);
+        this.f62351h.setText(a2Var.l1());
         this.k.getController().d(a2Var, str, "", false);
         this.k.getController().c();
         this.i.setReplyTimeVisible(false);
@@ -132,7 +132,7 @@ public class a implements View.OnClickListener {
 
     public void g(BdUniqueId bdUniqueId) {
         ThreadUserInfoLayout threadUserInfoLayout;
-        if (bdUniqueId == null || this.i == null || (threadUserInfoLayout = this.f60786g) == null) {
+        if (bdUniqueId == null || this.i == null || (threadUserInfoLayout = this.f62350g) == null) {
             return;
         }
         threadUserInfoLayout.setPageUniqueId(bdUniqueId);
@@ -145,7 +145,7 @@ public class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         c cVar;
-        if (view != this.f60785f && view != this.i.getCommentContainer()) {
+        if (view != this.f62349f && view != this.i.getCommentContainer()) {
             if (view.getId() != R.id.video_container || (cVar = this.o) == null) {
                 return;
             }
